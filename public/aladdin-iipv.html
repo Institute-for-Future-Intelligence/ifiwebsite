@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Integrating Photovoltaics into Infrastructure</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+
+    <script>
+    function openFullscreen() {
+      var elem = document.getElementById("aladdin-frame");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
+
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Integrating Photovoltaics into Infrastructure</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+<p align='center'>
+  <span>Listen to a podcast about this article</span><br>
+  <audio controls>
+    <source src="podcast/iipv.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+
+<p>Photovoltaics can be embedded in infrastructure to generate electricity and achieve other benefits without using additional land or space. 
+Our Aladdin CAD software, which incorporates Google Maps to provide an "engineering canvas" for drawing real-world projects, 
+can be used by anyone to explore this type of integrated solar power applications.
+In this article, we will show you this capability through modeling a few projects that are about to break ground in the United States later this year (2022).
+
+
+<h5>Solar canals in California</h5>
+
+<p>
+In the fall of 2022, California will start 
+<a target="_blank" rel="noopener noreferrer" href="https://www.asce.org/publications-and-news/civil-engineering-source/civil-engineering-magazine/article/2022/03/solar-panels-over-california-canals-test-possible-joint-siting-benefits">
+a $20M pilot project</a> to install solar panel canopies over canals to generate green energy and conserve precious water at the same time. As a solar canopy can reduce the amount of solar radiation to the canal, 
+the water temperature can be lowered, resulting in less loss of water to evaporation. Solar panels on top of a canal are also supposed to be more efficient due to the cooler microclimate above or near a water body.
+In addition to the cost of solar panels, the cost of the supporting steel structures that spans a canal is a main concern. 
+But researchers claim that <a target="_blank" rel="noopener noreferrer" href="https://www.nature.com/articles/s41893-021-00693-8">the extra cost can be offset by the water-saving benefits</a>.
+The pilot project will test if the idea would pan out as expected in the real world. If so, California has 3,945 miles (6,350 kilometers) of canals that can be solarized, 
+potentially providing clean electricity and water to millions of homes. This project is especially attractive considering the severe drought in California that may get worse in the future due to climate change. 
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-solar-canal.png" style="border: 1px solid #555; box-shadow: 2px 2px #888; margin-bottom: 4px">
+<br>A solar canal modeled in Aladdin
+</p>
+
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-solar-canal-heatmap.png" style="border: 1px solid #555; box-shadow: 2px 2px #888; margin-bottom: 4px">
+<br>Solar radiation heatmap analysis shows less radiation is received by the water body under the solar canopy
+</p>
+
+<p>For more information, check out this <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=Nr55Yt2mrkQ">Reuters report</a> on YouTube.
+
+
+<h5>Solar noise barriers in Massachusetts</h5>
+
+<p>
+Also in 2022, the Massachusetts Department of Transportion (MassDOT) has 
+<a target="_blank" rel="noopener noreferrer" href="https://pv-magazine-usa.com/2022/01/26/massachusetts-to-install-solar-noise-barrier-along-highway/">reportedly</a>
+agreed to pilot a photovoltaics noise barrier (PVNB) project along Interstate 95 in Lexington, Massachusetts to install solar panels on a section of an existing noise barrier.
+With a unique design that reduces the diffraction of the sound waves, the addition of solar panels may also improve the acoustic performance of the noise barrier while providing residents with clean electricity.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-solar-noise-barrier.png" style="border: 1px solid #555; box-shadow: 2px 2px #888; margin-bottom: 4px">
+<br>A solar noise barrier modeled in Aladdin
+</p>
+
+<p>Solar panels at different heights on the barrier wall can also be tilted differently to optimize the use of space and the output of energy at the same time, as shown below.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-solar-noise-barrier-tilt.png" style="border: 1px solid #555; box-shadow: 2px 2px #888; margin-bottom: 4px">
+<br>Multiple rows of solar panels with different tilt angles
+</p>
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-solar-noise-barrier-tilt-heatmap.png" style="border: 1px solid #555; box-shadow: 2px 2px #888; margin-bottom: 4px">
+<br>Heatmap analysis of the above design (June 22)
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" 
+href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Solar%20Noise%20Barrier">HERE</a> 
+to view and edit the above model
+</p>
+</div>
+
+
+
+
+
+
+<h5>Conclusion</h5>
+
+<p>Solar energy is everywhere! But we will not be able to harness it without being able to envision a project. 
+Aladdin allows anyone to design renewable energy solutions for their own communities and examine how they may work using 
+<a target="_blank" rel="noopener noreferrer" href="aladdin-solar-radiation-benchmarks.html">accurate simulations</a>. 
+As Aladdin works in the browser, users can easily share their projects with stakeholders via social networks. 
+With enough people becoming interested in a project, it may eventually turn into actions that change the world.
+<br><br>
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

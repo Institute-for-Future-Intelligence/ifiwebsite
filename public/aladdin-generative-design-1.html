@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Aladdin: Visual Analysis of Designs in the Solution Space</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Visual Analysis of Many Designs in the Solution Space</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">✉</a>
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+<p align='center'>
+  <span>Listen to a podcast about this article</span><br>
+  <audio controls>
+    <source src="podcast/generative-design-1.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+
+<p>From a mathematical point of view, a well-defined design problem is about choosing parameters. All the independent parameters available for adjustment constitute the basis for the 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Feasible_region">solution space</a>, 
+with each parameter mapping to a dimension of that hyperspace. The ranges in which the parameters are allowed to change determine the volume of the feasible region of the solution space 
+within which the designer conducts the search. This conceptualization of design leads to 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parametric_design">parametricism</a> that advocates replacing manual tweaking procedures with 
+computational procedures for automatically generating a variety of designs to speed up the search. 
+Once such computational procedures are created, designers can execute them on computers to produce new solutions by tuning the parameters &mdash; 
+without having to repeat the entire manual procedures. 
+
+<p>With the ability to generate many designs such that the solution space can be surveyed more thoroughly, 
+the designer faces a different kind of challenge (sort of like moving from a situation of "idea drought" to a situation of "idea flood"): 
+How can one analyze, compare, and sift those design options and alternatives so that one can pick and choose without being overwhelmed by the sheer number of possibilities? 
+In the field of engineering, the methodology to deal with this kind of complex problems is often referred to as 
+<a target="_blank" rel="noopener noreferrer" href="https://www.worldconstructiontoday.com/news/what-is-optioneering-in-construction/">optioneering</a>. 
+In this article, I will show you how Aladdin handles this challenge with the design of a simple solar farm as an example.
+Note that <b>you must sign in with Aladdin in order to use all the functionalities introduced in this article as many of them depend on cloud storage to function</b>.
+
+
+<h5>Creating, opening, and copying a project</h5>
+
+<p>In Aladdin, you can use "Main Menu > Project > Create New Project..." to create a project as a placeholder for collecting a set of designs.
+This action splits the Aladdin window in the browser into two parts: The left part shows a gallery of curated designs and a visualization of their distribution in the solution space 
+using a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parallel_coordinates">parallel coordinates plot</a>
+(which is typically used to display high-dimensional datasets), whereas the right part shows the conventional 3D view of a design solution 
+(it can be the selected design in the gallery or a design that is not yet part of the collection but is under consideration to be included).
+You can double-click any image in the gallery to load the corresponding 3D model into the right part. 
+
+<p>To open an existing project, use "Main Menu > Project > Open Project..." and then select it from the list displayed in the panel that appears. 
+To make a copy of a project, use "Main Menu > Project > Save Project As..." and then provide a different name for the copy.
+
+
+
+
+
+<h5>Adding a design to a project</h5>
+
+<p>Once you have created a project, you can add the design currently displayed in the 3D view to the project by using the Import Button on the tool bar above the gallery. Although you can
+add any design to a project, only a design that has the same type with the project type (which is "Solar Panel Array" in the case discussed in this article) can be meaningfully aggregated and analyzed.
+To remove a design from the project, select it first and then click the Delete Button on the tool bar above the gallery. 
+
+<p>Note that you will not be able to add a design to the project or remove a design from it if you are not the owner of the project. 
+The buttons will be invisible to non-owners, as illustrated below (but you should be able to use other tools such as sorting the designs that do not require ownership).
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-generative-design-solar-array-non-owner.png" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br>The non-owner view of a project
+</p>
+
+
+
+
+<h5>Updating an existing design in a project</h5>
+
+<p>If you have used a parametric design tool or a generative design tool supported by the project 
+to change an existing design, you can update it using the Upload Button on the tool bar above the gallery to overwrite the document on the cloud.
+
+
+
+
+<h5>Linking and brushing</h5>
+
+<p>The next step after you have collected a number of designs in a project is to analyze them to glean an insight. 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Brushing_and_linking">Linking and brushing</a> refer to techniques for enhancing 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Interactive_visual_analysis">interactive visual data analysis</a>. 
+A complex data set often needs to be visualized with multiple graphic representations or views. Linking allows these views to be connected in such a way that they are all changed at the same time
+when the user interacts with only one of the views. For example, the user can move the mouse over any image in the gallery to show the corresponding lines in the parallel coordinates plot and
+move the mouse over the lines in the parallel coordaintes plot to see the corresponding image in the gallery (i.e., the gallery and the plot are <i>linked</i>). 
+Brushing allows the user to select a subset of the data. For example, the user can select or deselect an image to add or remove the corresponding design from the parallel coordinates plot.
+In this way, some designs can be temporarily <i>brushed</i> aside so that the user can see the remaining ones more clearly.  
+The following video demonstrates these features.
+
+<video controls style="width: 100%; height: auto; margin-top: 30px; border: 2px solid #555; box-shadow: 5px 5px #888;">
+  <source src="image/aladdin-generative-design-solar-array-1.mp4" type="video/mp4">
+</video>
+<p style="margin-top: -30px; margin-bottom: 30px; font-size: 14px; text-align: center;">Interacting with a project in Aladdin</div>
+
+
+
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" 
+href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&project=Simple%20Solar%20Farm&title=Simple%20Solar%20Farm%201">HERE</a> 
+to view an example project
+</p>
+</div>
+<br>
+
+<p>The link above provides an online example for you to see on your own how this user interface works. 
+
+
+<h5>Sorting the designs of a project by a selected property</h5>
+
+<p>You can click the axis or the axis label of the parallel coordinates plot to sort the designs of a project. A selected property will be highlighted in the plot. The Sort Button on
+the tool bar above the gallery allows you to reverse the sorting order.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-generative-design-solar-array-sort-designs.png" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br>Sort designs by profit: From high to low
+</p>
+
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-generative-design-solar-array-sort-designs-reverse.png" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br>Sort designs by profit: From low to high
+</p>
+
+
+<h5>Configuring a project</h5>
+
+<p>When you create a new project, it will show the full solution space by default. If you do not need all the dimensions, 
+you can select only the dimensions that you want to display in the parallel coordinates plot using the pop-up menu, as shown below. 
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-generative-design-solar-array-configure-project.png" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br>Choose the solution space
+</p>
+
+<p>You can also set the range (i.e., the minimum and maximum values) of an axis in the parallel coordinates plot using the pop-up menu that opens when you move the mouse over the axis label.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-generative-design-solar-array-axis-bounds.png" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br>Set the minimum and maximum of an axis
+</p>
+
+
+<h5>Editing the description of a project</h5>
+
+<p>When you create a new project, you can add a description about it as a memo for yourself and others. By default, the description is folded under the tool bar above the gallery to save space.
+If you need to revise the description as you make progress on the project, you can first expand the description area
+and then double-click on it to enter the editing mode or press the Editor Button on the tool bar, as shown below. Then you can edit the text freely. 
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-generative-design-solar-array-edit-description.png" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br>Modify the description of a project
+</p>
+
+
+
+<h5>Excluding a design from the solution space visualization</h5>
+
+<p>Sometimes you may want to hide some designs from the solution space visualization. To show or hide a design, just select or deselect the check box at the lower-right corner of the corresponding thumbnail image.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-generative-design-solar-array-exclude-designs.png" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br>Exclude designs from the solution space visualization
+</p>
+
+
+
+
+<h5>Using a scattered plot to examine correlation between two properties</h5>
+
+<p>A two-dimensional scattered plot can be generated to show the correlation between two selected properties among the included designs. This representation may be easier to understand, though it
+is applicable to only two dimensions of the solution space.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-generative-design-solar-array-scattered-plot.png" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br>A scattered plot between two selected properties
+</p>
+
+
+
+
+<h5>Sharing a project</h5>
+
+<p>Once you have collected a set of designs for your project, you can share it with others by generating a link to it using the Link Button on the tool bar above the gallery. Anyone clicking the link
+will be able to view the project in a Web browser.
+
+
+
+
+<h5>Applications</h5>
+
+<p>Suppose you are interested in studying the relationship between the output of a solar panel array and its tilt angle, you can create a series of designs that differ only in the tilt angle.
+Then you can create a scattered plot that shows the total yield against the tilt angle, which clearly visualizes how the output varies with the angle as depicted in the following image.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-generative-design-solar-array-tilt-angle-series.png" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br>A project to study the relationship between the output and the tilt angle of a solar panel array
+</p>
+
+<p>Using the same method, you can also invesigate the relationship between the output and the latitude. As you can see from the following image, the same design of a solar panel array can
+have very different profitabilities in different locations.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-generative-design-solar-array-latitude-series.png" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br>A project to study the relationship between the output and the latitude of a solar panel array
+</p>
+
+
+
+
+<h5>Conclusion</h5>
+
+<p>This article introduces the management of a project, defined in Aladdin as an effort to generate a variety of designs from which one or more optimal solutions are identified through visually analyzing
+and comparing them in the solution space (i.e., <b>optioneering</b>). 
+This work lays a software foundation for generative design that harnesses artificial intelligence to create many competitive solutions, which can then be handled using 
+an optioneering approach enabled by this project management tool.
+
+<p>Currently, a project can only be controlled by a single owner. We plan to allow a team of designers to contribute to a project in the future. This capability will support collaborative design. 
+
+
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Institute for Future Intelligence Home Page"/>
+    <title>Institute for Future Intelligence Home Page</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+            <div class="content">
+                <img class="promo-image" src="image/banner2.png" alt="Banner"/>
+		<div class="promo-sp-body-wrap"><div class="promo-sp-body-inner-wrap container"><div class="promo-sp-body">
+		<p style="color:Ivory">Artificial Intelligence for Molecular Sciences</p>
+		<p><a class="btn-large special-btn-arr" href="aims.html">LEARN MORE</a></p></div></div></div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+
+        <div class="row">
+
+
+            <div class="col-sm-12">
+                <div class="page-header-wrap">
+                    <h1 class="page-header">Institute for Future Intelligence</h1>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region region-content">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+
+                            <article id="node-177" class="node node-page clearfix" about="/energy2d" typeof="foaf:Document">
+                                <header>
+                                <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span>
+				<span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span></header>
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+					<p>Based on computational physics and artificial intelligence, Energy2D is an interactive multiphysics simulation program that models 
+					the very essence of the natural world &mdash; that nothing is dictated by a single law in physics and we must take a multidisciplinary approach 
+					when investigating natural phenomena and designing effective solutions.
+					Energy2D runs quickly in the browser and eliminates 
+					the need to switch among preprocessors, solvers, and postprocessors in order to perform sophisticated numerical simulations. 
+					It allows you to design a wide range of &ldquo;computational experiments&rdquo; to test a scientific hypothesis or solve an engineering problem without resorting to 
+					complex mathematics. You can easily publish your simulations and share it with anyone.</p>
+					<p><a class="btn-large" href="energy2d.html">Learn more</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article id="node-179" class="node node-page clearfix" about="/aladdin" typeof="foaf:Document">
+                                <header>
+                                <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span>
+				<span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span></header>
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+					<p>Artificial intelligence (AI) is transforming the way people work. IFI is spearheading research on this
+					human-technology frontier based on Aladdin, an experimental platform being developed to 
+					reimagine engineering design empowered by various types of AI &mdash; in the context of renewable energy and energy efficiency. 
+					Aladdin supports people to design their own energy future with the assistance of AI. As design is generative in essence, 
+					we envision that generative AI (GenAI) will play a central role in next generation design technologies. 					
+					</p>
+					<p><a class="btn-large" href="aladdin.html">Learn more</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article id="node-180" class="node node-page clearfix" about="/infrared explorer" typeof="foaf:Document">
+                                <header>
+                                <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span>
+				<span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span></header>
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+					<p>Scientists have long relied on imaging to visualize invisible phenomena and thus advance science. 
+					IFI is developing the Infrared Explorer to realize the educational promise of scientific imaging using low-cost thermal imaging as an example.
+					Our work shows how scientific imaging can open a whole new world previously unseen and enable people to make their own scientific discoveries. 
+					The technology is particularly useful in physical sciences. For instance,
+					chemists often use visually striking color changes shown by pH, redox, and other indicators to detect or track reactions. 
+					Thermal imaging represents a novel class of universal indicators that use false color heat maps to visualize chemical processes.
+					Combining with artificial intelligence, advanced technologies are paving the way for future science labs.
+					</p>
+					<p><a class="btn-large" href="ie.html">Learn more</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article id="node-178" class="node node-page clearfix" about="/iflow" typeof="foaf:Document">
+                                <header>
+                                <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span>
+				<span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span></header>
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+					<p>IFI is joining the no-code movement by developing a conceptual programming environment that allows students to
+					solve complex computational problems in math, science, and engineering without having to write a single line of code. Through
+					this work, IFI is committed to broadening student participation in computer science with an innovative technology that can lower the programming barrier
+					by focusing students on concepts, rather than syntaxes, of computational problems.</p>
+					<p><a class="btn-large" href="iflow.html">Learn more</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+<!--
+                            <article id="node-177" class="node node-page clearfix" about="/telelab" typeof="foaf:Document">
+                                <header>
+                                <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span>
+				<span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span></header>
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+					<p>The COVID-19 pandemic has revealed an Achilles heel of today's powerful online learning technology. 
+					While a variety of educational activities can migrate online, many science experiments cannot be easily moved. 
+					Millions of students, especially those in underserved communities, are missing out on an indispensable part of science education
+					&mdash; laboratory experiences.	IFI is responding to this crisis with an innovative solution.</p>
+					<p><a class="btn-large" href="telelab.html">Learn more</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+-->
+
+
+                        </div>
+                    </div>
+                    <div id="block-views-8188d2a788778d259461876a0256069b" class="block block-views homepage-featured-news">
+
+                        <h2 class="block-title">News</h2>
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_news view-dom-id-3b14ab0457513a60fb0396099203343f">
+
+
+
+                                <div class="view-content">
+
+                                    <div class="views-row views-row-1 views-row-odd views-row-first">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">March 31, 2026</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="https://energy2d.intofuture.org/view/hyLaF2EA9QwWW7ztUNiS">Simulating tuned mass damper with Energy2D</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">March 12, 2026</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="https://energy2d.intofuture.org/view/7Pklv3daBeWVXosXqGbc">Simulating laminar and turbulent flow with Energy2D</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">February 23, 2026</span> | Chemistry</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="ie-rubber-band.html">Thermal imaging of rubber band experiment</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">February 16, 2026</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-generative-urban-design.html">Generative urban design with Aladdin</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">January 3, 2026</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-solar-power-tower-gd.html">Using GenAI to design solar power towers</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                       <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">August 18, 2025</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-llm-sim.html">AI-assisted engineering design loop in Aladdin</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">July 28, 2025</span> | Chemistry</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aims-ai-vs-pubchem.html">Comparing GenAI results with actual data of molecules</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">July 22, 2025</span> | Chemistry</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aims-ai-design-assistant.html">Using GenAI as an assistant for molecular design</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">June 16, 2025</span> | Chemistry</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aims-acenes.html">Quantitative structure-property relationship</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">April 10, 2025</span> | Biology</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="ie-tulips.html">Science in the garden with thermal imaging</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">March 17, 2025</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-battery-storage.html">Using battery storage for an off-grid house</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">March 14, 2025</span> | Computation</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="iflow-monte-carlo-method.html">Calculting the value of π using a Monte Carlo method</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">January 21, 2025</span> | Chemistry</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aims-navigation-mode.html">Fantastic voyage in the molecular world</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">November 27, 2024</span> | Engineering </div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-custom-solar-panels.html">Defining and using your own solar panels</a></span></div></div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">November 23, 2024</span> | Physics</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="ie-conduction.html">Why do metals feel colder than wood?</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">September 16, 2024</span> | Engineering </div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="ie-filters.html">Processing thermal images with Infrared Explorer</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">January 1, 2024</span> | Physics</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="telelab-herschel.html">Discovering near infrared light with thermal imaging</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">November 25, 2023</span> | Mathematics</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="iflow-seashell.html">How to draw a beautiful seashell with iFlow</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">August 30, 2023</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-bifacial-solar-panels.html">Design and analysis of bifacial solar panels</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">August 16, 2023</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-generative-design-1.html">Visual analysis of many designs in the solution space</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">July 1, 2023</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="energy2d-particle-dynamics.html">Coupled fluid-particle multiphysics simulation</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">June 20, 2023</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-building-energy-3.html">Energy analysis of buildings in complex shapes</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">June 7, 2023</span> | Physics</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="qubit.html">First-principles simulation of qubit operations</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">April 5, 2023</span> | Computation</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="iflow-pde-solvers.html">Solving partial differential equations with iFlow</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">March 25, 2023</span> | Computation</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="iflow-ode-solvers.html">Solving ordinary differential equations with iFlow</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">February 10, 2023</span> | Chemistry</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="telelab-boiling-point.html">Visualizing boiling point with thermal imaging</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">January 20, 2023</span> | Biology</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="ie-breath.html">Visualizing respiratory responses to exercise</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">January 1, 2023</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-design-energy-plus-house.html">Designing an energy-plus house with Aladdin</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">April 28, 2022</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-design-solar-farm-with-ai.html">Designing a solar farm with artificial intelligence</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">April 19, 2022</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-ai-solar-panel-tilt.html">Introducing visual evolutionary computation</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">March 22, 2022</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-solar-updraft-tower.html">Putting hot air to work: solar updraft towers</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">March 2, 2022</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-solar-power-tower.html">Modeling and designing solar power towers</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">February 22, 2022</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-design-fresnel-reflectors.html">Designing linear Fresnel reflector arrays</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">February 15, 2022</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-parabolic-dish.html">Concentrating sunlight with parabolic dishes</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">February 7, 2022</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-parabolic-trough.html">Designing parabolic troughs for solar thermal power</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">February 1, 2022</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-visibility-analysis.html">Visibility analysis of solar fields with Aladdin</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+ 
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">November 23, 2021</span> | Engineering</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="aladdin-solar-array-surprise.html">Deciphering a solar array surprise with Aladdin</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">July 27, 2021</span> | Computation</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="iflow-machine-learning.html">Visual and interactive machine learning with iFlow</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+ 				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">July 23, 2021</span> | Computation</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="iflow-data-visualizations.html">Using iFlow to visualize and animate data</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">July 21, 2021</span> | Computation</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="iflow-chaos.html">Exploring chaos without writing a single line of code</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">March 20, 2021</span> | Chemistry</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="telelab-latent-heat.html">Sharing a latent heat experiment through Telelab</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">February 25, 2021</span> | Physics</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="iflow-classical-mechanics.html">Using iFlow to solve classical mechanics problems</a></span>  </div>  </div>
+                                     	<div class="views-row views-row-2 views-row-even">
+
+                                        <div class="views-field views-field-field-news-publication-date">
+				        <div class="field-content"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="">August 15, 2020</span> | Computation</div>  </div>
+                                        <div class="views-field views-field-title">
+				        <span class="field-content"><a href="epidemic-model.html">Using iFlow to model infectious epidemics</a></span>  </div>  </div>
+
+ 
+				   </div>
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

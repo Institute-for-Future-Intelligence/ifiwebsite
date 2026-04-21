@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Infrared Explorer, developed by the Institute for Future Intelligence"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Infrared Explorer Home Page</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Infrared Explorer: Scientific Imaging for Science Experiments</h4>
+
+<div class="row">
+<div class="col-md-8">
+
+
+<p>Scientists have long relied on imaging to visualize invisible phenomena and thus advance science. The Infrared Explorer (IE) is an app that IFI is developing to realize the educational promise of 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Chemical_imaging">scientific imaging</a> &mdash; using thermal imaging enabled by the low-cost
+<a target="_blank" rel="noopener noreferrer" href="https://www.flir.com/flir-one/">FLIR ONE</a> infrared cameras as an example.
+</p>
+
+
+<p align="center" style="font-size: 14px">
+<img src="image/ie2-samples.png" width="100%">
+<br>Seeing the unseen with the IE app
+</p>
+
+
+<p>As a mobile app, the Infrared Explorer allows users to use FLIR ONE anywhere to capture thermal images, record videos, and share them through email or social networks. 
+The IE app has its own galleries for storing images and videos, which also provide many functionalities for managing and 
+<a target="_blank" rel="noopener noreferrer" href="ie-filters.html">post-processing</a> images and videos. 
+As a science app, the Infrared Explorer includes data analysis and visualization tools that support science and engineering practices. 
+For instance, it has built-in temporal and spatial graphs for studying the time evolution and space distribution of temperature. 
+It also features an online video store that has scores of recorded videos for users to download and analyze, 
+allowing the IE app to be <b>useful even for those who do not have a thermal camera</b>.
+
+
+<p align="center" style="font-size: 14px">
+<img src="image/ie2-collections.png" width="100%">
+<br>Galleries, tools, and a video store in the IE app
+</p>
+
+<p>Combined with Google Maps, the Infrared Explorer also provides a way for users to examine street views captured in thermal infrared light. 
+The IE app comes with a tool for making this type of "street views" as well.
+
+
+<p align="center" style="font-size: 14px">
+<img src="image/ie2-streetviews.png" width="100%">
+<br>Street views in thermal infrared light rendered within the IE app
+</p>
+
+
+</div>
+<div class="col-md-4">
+<div class="product-sidebar">
+
+
+<p align="center"><img src="image/ie-logo.png" title="Infrared Explorer Logo"></p>
+
+<b>About the Logo</b>
+<p style="line-height:1.6; font-size: 14px">
+This is what a thermal camera sees when a piece of dry paper cut in a yin-yang shape is placed on top of an open cup of water that is slightly cooler than
+the ambient due to evaporation. For a scientific explanation, see <a target="_blank" rel="noopener noreferrer" href="ie-paper-on-cup.html">this page</a>.</font>
+</p>
+
+
+<p style="padding-top: 10px">
+<a href="https://play.google.com/store/apps/details?id=org.intofuture.infraredexplorer"><img src="image/google_play_logo.png"></a>
+</p>
+
+<p><font size='2px'><b>Download previous versions for older devices</b></font>
+<a href="apk/ie2.1.apk"><font size='2px'>Version 2.1 (Android Version 13)</font></a>
+
+
+<p>
+⛨ <a target="_blank" rel="noopener noreferrer" href="https://www.flir.com/developer/approved-app-gallery/"><font size='2px'><b>Featured by FLIR</b></font></a>
+</p>
+
+<p>
+  <span><b>Podcast</b></span><br>
+  <audio controls>
+    <source src="podcast/ie.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+
+<b>Supported Devices</b>
+
+<p>
+<a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com/gp/product/B0728C7KNC/ref=ox_sc_saved_title_1?smid=ATVPDKIKX0DER&th=1">FLIR ONE Gen 3 for Android</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com/gp/product/B0716ZGL7C/ref=ox_sc_saved_title_1?smid=ATVPDKIKX0DER&th=1">FLIR ONE Pro for Android</a>
+<br>
+<img width="20" height="20" src="image/under-construction.png" style="vertical-align: middle"> <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com/gp/product/B0BLJ3XJ3Z/ref=ox_sc_saved_title_1?smid=ATVPDKIKX0DER&th=1">FLIR ONE Edge</a>
+<br>
+<img width="20" height="20" src="image/under-construction.png" style="vertical-align: middle"> <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com/gp/product/B0BLJD6Q5G/ref=ox_sc_saved_title_1?smid=ATVPDKIKX0DER&th=1">FLIR ONE Edge Pro</a>
+</p>
+
+
+<!--
+<b>Downloads</b>
+<p>
+<a href="telelab/download/ie.apk">Infrared Explorer 1 for Android <font size="2px">(before version 13, size: 80MB)</font></a>
+<br>
+<a href="apk/ie2.apk">Infrared Explorer 2 for Android <font size="2px">(after version 13, size: 265MB)</font></a>
+</p>
+
+<b>Notices</b>
+<p style="line-height:1.6; font-size: 14px">
+💬 At present, the Infrared Explorer is available to the public through sideloading from our website using the above links. It is also available to invited internal testers through Google Play.
+<br>
+💬 The Infrared Explorer 1 is designed for multiple users to share on the same device. To log in, select "Admin" and use "0" as the password.
+</p>
+-->
+
+
+<b>Portal</b>
+<p><img width="20" height="20" src="image/under-construction.png" style="vertical-align: middle"> <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/infrared-explorer-web/">Laboratory Dashboard</a>
+</p>
+
+
+
+<b>Articles</b>
+<p><a target="_blank" rel="noopener noreferrer" href="ie-from-sensing-to-imaging.html">From sensing to imaging</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-filters.html">Post-processing images</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-development-report.pdf">Development report</a></p>
+
+
+<b>Activities</b>
+<p>
+<a target="_blank" rel="noopener noreferrer" href="ie-thermal-equilibrium.html">Thermal equilibration</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-rubber-band.html">Rubber band experiment</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-conduction.html">Thermal conductivity</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="telelab-herschel.html">Herschel's discovery</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-tulips.html">Opening and closing of tulips</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-moth.html">Thermogenesis of moths</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-paper-on-cup.html">Paper on cup</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-hydration.html">Hydration of paper</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-breath.html">Respiratory rate</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-titration.html">Acid-base titration</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="telelab-latent-heat.html">Latent heat</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="telelab-boiling-point.html">Boiling point</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-temperature-gradient.html">Thermal gradient in saltwater</a>
+</p>
+
+<b>Legal</b>
+<p>
+<a target="_blank" rel="noopener noreferrer" href="ie-terms.html">Terms of Service</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="ie-privacy.html">Privacy Policy</a>
+</p>
+
+
+<p>
+<b>Developers</b>
+<br>
+<a href="people.html#charles">Charles Xie</a>
+<br>
+<a href="people.html#xiaotong">Xiaotong Ding</a>
+</p>
+
+<b>Acknowledgement</b>
+<p style="line-height:1.6; font-size: 14px">
+This project is supported by the National Science Foundation (NSF) under grant numbers 
+<a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2054079">#2054079</a> and 
+<a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2329563">#2329563</a>. 
+Any opinions, findings, and conclusions or recommendations expressed in this material, however, are those of the authors and do not necessarily reflect the views of NSF.
+</p>
+<p align="center">
+<img src="image/nsf.png">
+</p>
+
+</div>
+</div>
+</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

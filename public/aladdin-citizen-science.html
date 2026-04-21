@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>A Citizen Science Platform for Renewable Energy Research and Education</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+
+    <script>
+    function openFullscreen() {
+      var elem = document.getElementById("aladdin-frame");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
+
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>A Citizen Science Platform for Renewable Energy Research and Education</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+<p align='center'>
+  <span>Listen to a podcast about this article</span><br>
+  <audio controls>
+    <source src="podcast/citizen-science-aladdin.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+
+<p>The United States plans to add <a target="_blank" rel="noopener noreferrer" href="https://www.whitehouse.gov/briefing-room/statements-releases/2022/08/15/by-the-numbers-the-inflation-reduction-act/">
+950 million solar panels, 120,000 wind turbines, and 2,300 grid-scale battery plants</a> by 2030 to power homes, businesses, and communities. 
+A barrier to this goal is the so-called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/NIMBY">Nimby</a>, 
+the acronym of “not in my back yard,” that represents a phenomenon of opposition by residents to proposed developments in
+their neighborhoods. As renewable energy is exploited more widely in our society after more than two decades of solar and wind booms, social conflicts driven by Nimbyism around what was once deemed a
+panacea for energy crises start to surge. Renewable energy generation often confronts other basic needs such as food, water, and culture, as its distributed nature demands a lot of space. 
+As such, the transition of our society to renewable energy will need the participation of all of its citizens through transparent and democratic processes. 
+Simply dismissing opposition to renewable energy as Nimbyism is not constructive. Energy researchers and social scientists have advocated for greater public participation in the planning 
+and decision making of renewable energy development, sometimes referred to as 
+<a target="_blank" rel="noopener noreferrer" href="https://www.sciencedirect.com/science/article/pii/S2214629621005697">energy democracy and energy citizenship</a>, 
+to increase public trust and community support.
+
+<p>To address this challenge, we are developing Aladdin as a free citizen science and crowdsourcing platform to support public participation in renewable energy engineering and planning. 
+The software allows any registered user to independently design their own renewable energy solutions for their own communities in a Web browser, 
+share the proposed solutions via social networks for any stakeholders to view and play with, and even draw public interest in crowdfunding their eventual construction. 
+In this article, I will show some social media features in Aladdin that have been built to support citizen science for renewable energy.
+
+
+
+
+<h5>Building a map of models as a citizen science forum</h5>
+
+<p>Maps are an ideal platform for implementing citizen science that depends on geolocations. 
+They provide a public forum for local residents and stakeholders to propose and share their ideas about renewable energy projects that may impact their neighborhoods and communities. 
+Unlike other types of social networks in which participants present ideas in text, images, or videos, Aladdin allows users to turn ideas into visual and interactive 3D CAD models 
+that can be found on the map by anyone concerned about their communities, displayed on top of satellite images to visualize how the ideas may affect the local environments and landscapes,
+and analyzed with powerful numerical simulations to evaluate their costs and benefits.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-models-map-world.png" width="100%" style="border: 2px solid #555; box-shadow: 1px 1px #888;">
+<br>The Models Map is a repository of user-created, geolocated models for anywhere in the world
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" 
+href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&map=true&viewonly=true">HERE</a> 
+to view the Models Map
+</p>
+</div>
+<br>
+
+
+<p>Whether it is a small rooftop solar project, a large utility-scale solar farm, or a commericial building,
+Aladdin users can create a design solution with the CAD tools built in Aladdin, save it on the cloud, and then publish it to the Models Map embedded in Aladdin. 
+Users can also use an alias or nickname as a publisher name (if they choose not to publish using their real names due to privacy concerns), add a short label (no more than 50 characters), 
+and provide a brief description (no more than 200 characters) to be published with the model (as shown in the following image). 
+A screenshot of the model will be automatically generated and uploaded for displaying as a thumbnail image on the Models Map to give viewers a glimpse of the model.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-models-map-publish.png" width="100%" style="border: 2px solid #555; box-shadow: 1px 1px #888;">
+<br>Publish a 3D model on the Models Map
+</p>
+
+<p>A model must be saved on the cloud (users need to create an account with Aladdin and sign in to be able to do so) before it can be published on the map. 
+A published model points to the file stored on the cloud. Once the cloud file is updated, viewers will get the new version when they open it from the map.
+To update the information about a published model displayed on the map, the user only needs to make the changes and republish it.
+
+
+
+
+<h5>Switching between the map mode and the design mode</h5>
+
+<p>Once a model is published, it can be found on the Models Map or the Models Gallery, both of which can be opened from the Main Menu. 
+On the map, the model is represented by a marker anchored at the corresponding location. 
+Its information is displayed when a viewer moves the mouse over the marker. A viewer can click on the Open button to return to the design mode and load the model for viewing and editing. 
+For students, this switch between the map mode and the design mode provides a mechanism to situate learning in a social context as they can easily exchange their design solutions and learn from one another.
+(At this point, however, users cannot work on the same model at the same time, through they can create their own variations from shared models.)
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-map-mode.png" width="49.5%" style="border: 2px solid #555; box-shadow: 1px 1px #888;">
+<img src="image/aladdin-design-mode.png" width="49.5%" style="border: 2px solid #555; box-shadow: 1px 1px #888;">
+<br>Switching between the map mode and the design mode of Aladdin
+</p>
+
+
+
+
+<h5>Adding social media features</h5>
+
+<p>Similar to other social media, Aladdin users can view, share, and like a model on the map, as shown in the following screenshot. There is also a leaderboard that shows
+the top 20 users who have published the most. The search box on the leaderboard also allows users to search for other users by their publishing names.
+Users can find a list of their own published models in the Models Gallery and a list of the models that they like from their account pages. The latter can be regarded as a way to "bookmark" models.
+We will implement user comments and other features in the future as well.
+
+
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-models-map-social-media.png" width="100%" style="border: 2px solid #555; box-shadow: 1px 1px #888;">
+<br>Basic social media features on the Models Map
+</p>
+
+
+
+
+
+
+
+
+
+<h5>Supporting multiple models on the same site</h5>
+
+<p>At the stage of planning a renewable energy project, we must address concerns and interests from different groups in the community.
+This means that we need to see different ideas and alternative designs about the same site so that we can choose an optimal solution. 
+For example, when designing solar energy solutions for a school, students can be challenged to not only meet the energy needs of the school but also win the majority
+approval of their schoolmates (e.g., a solution that is too visually intrusive to the existing landscape may be voted down, regardless of its outputs). 
+Being able to accommodate multiple designs for the same site on the map for others to review and critique is essential. 
+As shown in the following image, Aladdin allows multiple models to be displayed on the same site with basic information for viewers to browse.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-models-map-multiple-models.png" width="100%" style="border: 2px solid #555; box-shadow: 1px 1px #888;">
+<br>Multiple models on the same site allow users to see different ideas from others
+</p>
+
+<p>Models on a site can be sorted by the order they were published or updated. Administrators can also pin certain models so that they stay at the top of the list.
+In the scenario shown in the above image, a teaching assistant pinned the Aladdin model of Mescalero Apache School in New Mexico, which currently has not installed any solar panels
+on the roofs or above the parking lots, as the starting point for their students to add solar panels. Students then posted different design solutions, which are listed under the pinned one.
+
+
+
+
+
+
+
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

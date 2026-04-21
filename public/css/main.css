@@ -1,0 +1,8 @@
+header#navbar.navbar-fixed-top .logoifi {
+    width: 35px;
+    height: 35px;
+    margin: 5px 0 0;
+    padding: 0;
+    background: url("../image/logox.png") no-repeat 0 0;
+    background-size: 35px 35px;
+}

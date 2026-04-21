@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Institute for Future Intelligence</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Aladdin is Coming to the Cloud</h4>
+
+<p>By Charles Xie
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+
+<p>We have released a 
+<a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/">preview</a> 
+of the cloud version of Aladdin. Although we still have a long way to go to roll out a complete beta version, this preview already has a lot to offer.
+Take a look!
+
+<h5>A virtual heliodon for visualizing the sun paths at different latitudes and seasons</h5>
+
+<p>Any AI relies on accurate evaluation of the objective function for a real-world problem. In other words, it should be able to tell a good solution from a bad one. 
+Since Aladdin promises to show the power of AI in the context of renewable energy engineering, it is important to build simulation kernels that can model complex problems in the real world. 
+One of the focus areas is solar energy.
+To support the design of solar energy solutions, Aladdin is equipped with a virtual heliodon for showing the sun paths at different latitudes and seasons.
+For those who do not already know, a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heliodon">heliodon</a> 
+is a mechnical device used in architectural engineering for setting the angle between a surface and a beam of light to simulate solar radiation on that surface.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-heliodon.gif" width="48%" style="border: 2px solid #555; box-shadow: 5px 10px #888;">
+&nbsp;&nbsp;
+<img src="image/aladdin-heliodon-south-pole.gif" width="48%" style="border: 2px solid #555; box-shadow: 5px 10px #888;">
+<br><br>The sun paths at different locations in the world in different seasons (the sun never sets in December in Antarctica)
+</p>
+
+<p>Note: The sun beam shown in the above animation does not point exactly to the yellow circle that represents the sun in the heliodon (unless the origin of the beam is exactly at the origin of the coordinate system in Aladdin). 
+As the sun is very far from the earth and the earth is relatively tiny compared with that distance, sunlight is considered as parallel light when it reaches the earth. Be aware of this when using the heliodon and the sun beam
+at the same time in Aladdin.
+
+<h5>Comparing solar radiation to different surfaces</h5>
+
+<p>The following Aladdin model shows the solar radiation intensity received by the five sides (top, west, east, south, and north sides) of a box. 
+We place a sensor on each side to generate data through solar radiation simulations. 
+An interactive graph displays the daily sensor data for comparison of the solar radiation that shines on the five sides.
+We can change the day and the location to investigate the dependency of the results on these factors. 
+We can also run annual simulations to collect sensor data over 12 months of the year.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-solar-box-1.png" width="48%" style="border: 2px solid #ccc; box-shadow: 5px 10px #888;">
+&nbsp;&nbsp;
+<img src="image/aladdin-solar-box-2.png" width="48%" style="border: 2px solid #ccc; box-shadow: 5px 10px #888;">
+<br><br>Solar radiation on different surfaces of a box: Daily and yearly results
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=charles@intofuture.org&title=Solar%20box">HERE</a> 
+for an Aladdin model
+</p>
+</div>
+<br>
+
+<h5>Modeling different types and sizes of trees</h5>
+
+<p>The following Aladdin model shows how trees are simulated in Aladdin. In reality, trees have extremely complex shapes that differ from one another. 
+In Aladdin, each tree is shown as an image that always faces the user. But the real calculation uses a simplified model represented by the translucent shapes shown in the image below
+(they are not shown by default). The spread and height of each individual tree can be adjusted to create a canopy of a different size. The solar simulation in Aladdin also takes into
+account the fact that deciduous trees shed leaves in the winter (while evergreen trees do not).
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-tree-models.png" width="48%" style="border: 2px solid #ccc; box-shadow: 5px 10px #888;">
+&nbsp;&nbsp;
+<img src="image/aladdin-tree-models-winter.png" width="48%" style="border: 2px solid #ccc; box-shadow: 5px 10px #888;">
+<br><br>Tree simulations in Aladdin
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=charles@intofuture.org&title=tree%20models">HERE</a> 
+for an Aladdin model
+</p>
+</div>
+<br>
+
+
+
+
+<h5>Supporting solar array design</h5>
+
+<p>As an engineering design tool for renewable energy, Aladdin will eventually support many different types of devices that can be used to capture solar and wind energy. The first type is photovoltaic solar panel.
+The following Aladdin model shows the menu for designing solar panel arrays. There are currently 77 different types of commercial solar panels available in Aladdin for the user to pick and choose.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-solar-panel-menu.png" width="48%" style="border: 2px solid #ccc; box-shadow: 5px 10px #888;">
+&nbsp;&nbsp;
+<img src="image/aladdin-solar-panel-types.png" width="48%" style="border: 2px solid #ccc; box-shadow: 5px 10px #888;">
+<br><br>Solar panel menu and specs in Aladdin
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" href="http://localhost:3000/aladdin?client=web&userid=charles@intofuture.org&title=Design%201">HERE</a> 
+for an Aladdin model
+</p>
+</div>
+<br>
+
+
+
+
+<h5>Using Google Maps as an engineering design canvas</h5>
+
+<p>Aladdin is an engineering design tool for solving problems in the real world. It is important that it supports users to address problems in areas that concern them.
+The following Aladdin model shows how Google Maps can be imported into Aladdin for use as a design canvas. Aladdin allows users to import satellite images from Google Maps and draw structures
+on top of them. It also provides basic weather data of 751 locations in the world. This ensures that most users have weather data that approximates their local climate. 
+These locations are shown as red dots in the world map. Aladdin will automatically set the weather data for your design based on which of these locations are closest to the place where you
+are designing your solution for.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-use-map.png" width="48%" style="border: 2px solid #ccc; box-shadow: 5px 10px #888;">
+&nbsp;&nbsp;
+<img src="image/aladdin-weather-data-worldwide.png" width="48%" style="border: 2px solid #ccc; box-shadow: 5px 10px #888;">
+<br><br>Google Maps and worldwide weather data in Aladdin
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=charles@intofuture.org&title=Ground-mounted%20solar%20array">HERE</a> 
+for an Aladdin model
+</p>
+</div>
+<br>
+
+
+
+
+
+
+<h5>The road ahead</h5>
+
+<p>There are also many other features that we do not talk about in this article. 
+For example, Aladdin allows the designer to store their files on the cloud and open them later on any device. Hence, there is no need to rely on a particular computer,
+which is a typical advantage of cloud-based software.
+
+Based on the current progress, we expect a beta version of Aladdin to be released to the public early next year. Stay tuned!
+
+
+
+
+
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

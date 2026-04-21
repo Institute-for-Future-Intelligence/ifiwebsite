@@ -1,0 +1,2877 @@
+[
+  {
+    "latitude": 38.85390, 
+    "longitude": -77.04395,
+    "type": "Public",
+    "address": "DCA Metro Station",
+    "town": "Arlington",
+    "state": "Virginia",
+    "country": "United States",
+    "url": "us/va/arlington/isv-dca-metro-station.mp4"
+  },
+  {
+    "latitude": 38.80137, 
+    "longitude": -77.07095,
+    "type": "Public",
+    "address": "Swamp Fox Rd",
+    "town": "Alexandria",
+    "state": "Virginia",
+    "country": "United States",
+    "url": "us/va/alexandria/isv-swamp-fox-road.mp4"
+  },
+  {
+    "latitude": 38.80146, 
+    "longitude": -77.07353,
+    "type": "Public",
+    "address": "2460 Eisenhower Avenue",
+    "town": "Alexandria",
+    "state": "Virginia",
+    "country": "United States",
+    "url": "us/va/alexandria/isv-2460-eisenhower-ave.mp4"
+  },
+  {
+    "latitude": 38.80165, 
+    "longitude": -77.07290,
+    "type": "Public",
+    "address": "2461 Eisenhower Avenue",
+    "town": "Alexandria",
+    "state": "Virginia",
+    "country": "United States",
+    "url": "us/va/alexandria/isv-2461-eisenhower-ave.mp4"
+  },
+  {
+    "latitude": 38.80148, 
+    "longitude": -77.07187,
+    "type": "Public",
+    "address": "2451 Eisenhower Avenue",
+    "town": "Alexandria",
+    "state": "Virginia",
+    "country": "United States",
+    "url": "us/va/alexandria/isv-2451-eisenhower-ave.mp4"
+  },
+  {
+    "latitude": 38.80130, 
+    "longitude": -77.07040,
+    "type": "Public",
+    "address": "2415 Eisenhower Avenue",
+    "town": "Alexandria",
+    "state": "Virginia",
+    "country": "United States",
+    "url": "us/va/alexandria/isv-2415-eisenhower-ave.mp4"
+  },
+  {
+    "latitude": 22.33367, 
+    "longitude": 120.61625,
+    "type": "Public",
+    "address": "Pinge Road Rest Area",
+    "town": "Fangshan",
+    "state": "Pingtung",
+    "country": "Republic of China",
+    "url": "tw/pingtung/fangshan/isv-pinge-road-rest-area.mp4"
+  },
+  {
+    "latitude": 22.04601, 
+    "longitude": 120.69927,
+    "type": "Public",
+    "address": "National Museum of Marine Biology",
+    "town": "Checheng",
+    "state": "Pingtung",
+    "country": "Republic of China",
+    "url": "tw/pingtung/checheng/isv-national-museum-marine-biology.mp4"
+  },
+  {
+    "latitude": 21.95946, 
+    "longitude": 120.76590,
+    "type": "Public",
+    "address": "Mini Summer Hostel",
+    "town": "Hengchun",
+    "state": "Pingtung",
+    "country": "Republic of China",
+    "url": "tw/pingtung/hengchun/isv-mini-summer-hostel.mp4"
+  },
+  {
+    "latitude": 42.41586, 
+    "longitude": -71.15373,
+    "type": "Public",
+    "address": "645 Massachusetts Avenue",
+    "town": "Arlington",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/arlington/isv-645-massachusetts-avenue.mp4"
+  },
+  {
+    "latitude": 42.41598, 
+    "longitude": -71.15414,
+    "type": "Public",
+    "address": "659 Massachusetts Avenue",
+    "town": "Arlington",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/arlington/isv-659-massachusetts-avenue.mp4"
+  },
+  {
+    "latitude": 35.99522, 
+    "longitude": -114.79941,
+    "type": "Public",
+    "address": "Highway 93",
+    "town": "Boulder City",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/bouldercity/isv-highway-93-01.mp4"
+  },
+  {
+    "latitude": 36.01485, 
+    "longitude": -114.73682,
+    "type": "Public",
+    "address": "Hoover Dam",
+    "town": "Boulder City",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/bouldercity/isv-hoover-dam-04.mp4"
+  },
+  {
+    "latitude": 36.01655, 
+    "longitude": -114.73828,
+    "type": "Public",
+    "address": "Hoover Dam",
+    "town": "Boulder City",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/bouldercity/isv-hoover-dam-03.mp4"
+  },
+  {
+    "latitude": 36.01671, 
+    "longitude": -114.73788,
+    "type": "Public",
+    "address": "Hoover Dam",
+    "town": "Boulder City",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/bouldercity/isv-hoover-dam-02.mp4"
+  },
+  {
+    "latitude": 36.01794, 
+    "longitude": -114.73795,
+    "type": "Public",
+    "address": "Hoover Dam",
+    "town": "Boulder City",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/bouldercity/isv-hoover-dam-01.mp4"
+  },
+  {
+    "latitude": 36.01360, 
+    "longitude": -114.74326,
+    "type": "Public",
+    "address": "O'Callaghan-Tillman Memorial Bridge",
+    "town": "Boulder City",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/bouldercity/isv-o-callaghan-tillman-memorial-bridge-02.mp4"
+  },
+  {
+    "latitude": 36.01170, 
+    "longitude": -114.73931,
+    "type": "Public",
+    "address": "O'Callaghan-Tillman Memorial Bridge",
+    "town": "Boulder City",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/bouldercity/isv-o-callaghan-tillman-memorial-bridge-01.mp4"
+  },
+  {
+    "latitude": 36.04735, 
+    "longitude": -114.79632,
+    "type": "Public",
+    "address": "Boulder Beach",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-boulder-beach.mp4"
+  },
+  {
+    "latitude": 36.09714, 
+    "longitude": -114.82312,
+    "type": "Public",
+    "address": "Sunset View Scenic Overlook",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-sunset-view-scenic-overlook-03.mp4"
+  },
+  {
+    "latitude": 36.09678, 
+    "longitude": -114.82293,
+    "type": "Public",
+    "address": "Sunset View Scenic Overlook",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-sunset-view-scenic-overlook-02.mp4"
+  },
+  {
+    "latitude": 36.09671, 
+    "longitude": -114.82220,
+    "type": "Public",
+    "address": "Sunset View Scenic Overlook",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-sunset-view-scenic-overlook-01.mp4"
+  },
+  {
+    "latitude": 36.11219, 
+    "longitude": -114.84229,
+    "type": "Public",
+    "address": "Las Vegas Bay",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-las-vegas-bay.mp4"
+  },
+  {
+    "latitude": 35.54948, 
+    "longitude": -115.47025,
+    "type": "Public",
+    "address": "Ivanpah Solar Power Facility",
+    "town": "Nipton",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/nipton/isv-ivanpah-solar-power-facility-04.mp4"
+  },
+  {
+    "latitude": 35.54946, 
+    "longitude": -115.46581,
+    "type": "Public",
+    "address": "Ivanpah Solar Power Facility",
+    "town": "Nipton",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/nipton/isv-ivanpah-solar-power-facility-03.mp4"
+  },
+  {
+    "latitude": 35.55003, 
+    "longitude": -115.46074,
+    "type": "Public",
+    "address": "Ivanpah Solar Power Facility",
+    "town": "Nipton",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/nipton/isv-ivanpah-solar-power-facility-02.mp4"
+  },
+  {
+    "latitude": 35.55260, 
+    "longitude": -115.43844,
+    "type": "Public",
+    "address": "Ivanpah Solar Power Facility",
+    "town": "Nipton",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/nipton/isv-ivanpah-solar-power-facility-01.mp4"
+  },
+  {
+    "latitude": 36.12284, 
+    "longitude": -115.16885,
+    "type": "Public",
+    "address": "The Venetian",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-venetian-02.mp4"
+  },
+  {
+    "latitude": 36.12319, 
+    "longitude": -115.16886,
+    "type": "Public",
+    "address": "The Venetian",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-venetian-01.mp4"
+  },
+  {
+    "latitude": 36.12465, 
+    "longitude": -115.16943,
+    "type": "Public",
+    "address": "Treasure Island",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-treasure-island-01.mp4"
+  },
+  {
+    "latitude": 36.11558, 
+    "longitude": -115.17370,
+    "type": "Public",
+    "address": "Caesars Palace",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-caesars-palace-01.mp4"
+  },
+  {
+    "latitude": 36.11214, 
+    "longitude": -115.17461,
+    "type": "Public",
+    "address": "Fountains of Bellagio",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-fountains-of-bellagio-02.mp4"
+  },
+  {
+    "latitude": 36.11144, 
+    "longitude": -115.17360,
+    "type": "Public",
+    "address": "Fountains of Bellagio",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-fountains-of-bellagio-01.mp4"
+  },
+  {
+    "latitude": 36.11490, 
+    "longitude": -115.17368,
+    "type": "Public",
+    "address": "Flamingo Road",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-flamingo-rd-01.mp4"
+  },
+  {
+    "latitude": 36.11180, 
+    "longitude": -115.17323,
+    "type": "Public",
+    "address": "Las Vegas Blvd",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-las-vegas-blvd-01.mp4"
+  },
+  {
+    "latitude": 36.13507, 
+    "longitude": -115.15333,
+    "type": "Public",
+    "address": "Westgate Las Vegas Resort & Casino",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-westgate-resort-04.mp4"
+  },
+  {
+    "latitude": 36.13551, 
+    "longitude": -115.15409,
+    "type": "Public",
+    "address": "Westgate Las Vegas Resort & Casino",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-westgate-resort-03.mp4"
+  },
+  {
+    "latitude": 36.13596, 
+    "longitude": -115.15466,
+    "type": "Public",
+    "address": "Westgate Las Vegas Resort & Casino",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-westgate-resort-02.mp4"
+  },
+  {
+    "latitude": 36.13718, 
+    "longitude": -115.15462,
+    "type": "Public",
+    "address": "Westgate Las Vegas Resort & Casino",
+    "town": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "url": "us/nv/lasvegas/isv-westgate-resort-01.mp4"
+  },
+  {
+    "latitude": 42.12880, 
+    "longitude": -71.10948,
+    "type": "Public",
+    "address": "Stoughton High School",
+    "town": "Stoughton",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/stoughton/isv-stoughton-high-school-02.mp4"
+  },
+  {
+    "latitude": 42.12843, 
+    "longitude": -71.10901,
+    "type": "Public",
+    "address": "Stoughton High School",
+    "town": "Stoughton",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/stoughton/isv-stoughton-high-school-01.mp4"
+  },
+  {
+    "latitude": -13.32904, 
+    "longitude": -72.19613,
+    "type": "Public",
+    "address": "Moray Agricultural Terraces",
+    "town": "Maras",
+    "state": "Cusco",
+    "country": "Peru",
+    "url": "pe/cusco/maras/isv-moray-agricultural-terraces.mp4"
+  },
+  {
+    "latitude": -13.51723, 
+    "longitude": -71.98016,
+    "type": "Public",
+    "address": "Plaza Kusipata",
+    "town": "Cusco",
+    "state": "Cusco",
+    "country": "Peru",
+    "url": "pe/cusco/cusco/isv-plaza-kusipata.mp4"
+  },
+  {
+    "latitude": -13.57951, 
+    "longitude": -71.82123,
+    "type": "Public",
+    "address": "Quinta Restaurant Valy",
+    "town": "Huasao",
+    "state": "Cusco",
+    "country": "Peru",
+    "url": "pe/cusco/huasao/isv-quinta-restaurant-valy.mp4"
+  },
+  {
+    "latitude": 42.36937, 
+    "longitude": -71.06651,
+    "type": "Public",
+    "address": "North Point Park",
+    "town": "Cambridge",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/cambridge/isv-north-point-park-05.mp4"
+  },
+  {
+    "latitude": 42.36933, 
+    "longitude": -71.06705,
+    "type": "Public",
+    "address": "North Point Park",
+    "town": "Cambridge",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/cambridge/isv-north-point-park-04.mp4"
+  },
+  {
+    "latitude": 42.36856, 
+    "longitude": -71.06837,
+    "type": "Public",
+    "address": "North Point Park",
+    "town": "Cambridge",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/cambridge/isv-north-point-park-03.mp4"
+  },
+  {
+    "latitude": 42.36852, 
+    "longitude": -71.06982,
+    "type": "Public",
+    "address": "North Point Park",
+    "town": "Cambridge",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/cambridge/isv-north-point-park-02.mp4"
+  },
+  {
+    "latitude": 42.36917, 
+    "longitude": -71.07111,
+    "type": "Public",
+    "address": "North Point Park",
+    "town": "Cambridge",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/cambridge/isv-north-point-park-01.mp4"
+  },
+  {
+    "latitude": 42.36786, 
+    "longitude": -71.07081,
+    "type": "Public",
+    "address": "Museum of Science",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-museum-of-science-01.mp4"
+  },
+  {
+    "latitude": 34.79435, 
+    "longitude": -118.85242,
+    "type": "Public",
+    "address": "Gorman School Road",
+    "town": "Gorman",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/gorman/isv-gorman-school-road-01.mp4"
+  },
+  {
+    "latitude": 34.79548, 
+    "longitude": -118.86191,
+    "type": "Public",
+    "address": "Ralphs Ranch Road",
+    "town": "Lebec",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/lebec/isv-ralphs-ranch-road-01.mp4"
+  },
+  {
+    "latitude": 34.82454, 
+    "longitude": -118.87038,
+    "type": "Public",
+    "address": "Rest Area",
+    "town": "Lebec",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/lebec/isv-i5-rest-area-02.mp4"
+  },
+  {
+    "latitude": 34.82600, 
+    "longitude": -118.87098,
+    "type": "Public",
+    "address": "Rest Area",
+    "town": "Lebec",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/lebec/isv-i5-rest-area-01.mp4"
+  },
+  {
+    "latitude": 36.91927, 
+    "longitude": -120.82844,
+    "type": "Public",
+    "address": "Dos Amigos Pumping Plant",
+    "town": "Los Banos",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/losbanos/isv-dos-amigos-pupmping-plant.mp4"
+  },
+  {
+    "latitude": 37.90047, 
+    "longitude": -122.26849,
+    "type": "Residential",
+    "address": "Acacia Avenue",
+    "town": "Berkeley",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/berkeley/isv-acacia-avenue-01.mp4"
+  },
+  {
+    "latitude": 37.87184, 
+    "longitude": -122.25855,
+    "type": "Public",
+    "address": "University of California Berkeley",
+    "town": "Berkeley",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/berkeley/isv-university-of-california-berkeley-01.mp4"
+  },
+  {
+    "latitude": 37.87935, 
+    "longitude": -122.24709,
+    "type": "Public",
+    "address": "Lawrence Hall of Science",
+    "town": "Berkeley",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/berkeley/isv-lawrence-hall-of-science.mp4"
+  },
+  {
+    "latitude": 33.54219, 
+    "longitude": -117.78332,
+    "type": "Public",
+    "address": "Forest Avenue",
+    "town": "Laguna Beach",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/lagunabeach/isv-forest-avenue.mp4"
+  },
+  {
+    "latitude": 33.54252, 
+    "longitude": -117.78606,
+    "type": "Public",
+    "address": "Main Beach Park",
+    "town": "Laguna Beach",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/lagunabeach/isv-main-beach-park.mp4"
+  },
+  {
+    "latitude": 34.10146, 
+    "longitude": -118.34097,
+    "type": "Public",
+    "address": "Hollywood Blvd",
+    "town": "Los Angeles",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/losangeles/isv-hollywood-blvd-01.mp4"
+  },
+  {
+    "latitude": 34.10149, 
+    "longitude": -118.34151,
+    "type": "Public",
+    "address": "Hollywood Blvd",
+    "town": "Los Angeles",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/losangeles/isv-hollywood-blvd-02.mp4"
+  },
+  {
+    "latitude": 34.12541, 
+    "longitude": -118.32610,
+    "type": "Public",
+    "address": "Lake Hollywood Park",
+    "town": "Los Angeles",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/losangeles/isv-lake-hollywood-park-01.mp4"
+  },
+  {
+    "latitude": 34.12563, 
+    "longitude": -118.32571,
+    "type": "Public",
+    "address": "Lake Hollywood Park",
+    "town": "Los Angeles",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/losangeles/isv-lake-hollywood-park-02.mp4"
+  },
+  {
+    "latitude": 34.01597, 
+    "longitude": -118.50071,
+    "type": "Public",
+    "address": "Ocean Avenue",
+    "town": "Santa Monica",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/santamonica/isv-ocean-avenue-01.mp4"
+  },
+  {
+    "latitude": 34.01622, 
+    "longitude": -118.50109,
+    "type": "Public",
+    "address": "Ocean Avenue",
+    "town": "Santa Monica",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/santamonica/isv-ocean-avenue-02.mp4"
+  },
+  {
+    "latitude": 34.13364, 
+    "longitude": -118.05282,
+    "type": "Public",
+    "address": "Haidilao Hotpot",
+    "town": "Arcadia",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/arcadia/isv-haidilao-hotpot.mp4"
+  },
+  {
+    "latitude": 33.79919, 
+    "longitude": -117.91541,
+    "type": "Public",
+    "address": "Harbor Blvd",
+    "town": "Anaheim",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/anaheim/isv-harbor-blvd-01.mp4"
+  },
+  {
+    "latitude": 33.80919, 
+    "longitude": -117.91552,
+    "type": "Public",
+    "address": "Harbor Blvd",
+    "town": "Anaheim",
+    "state": "California",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 180, 
+    	    "link":"us/ca/anaheim/isv-harbor-blvd-03.mp4"
+        }
+    ],
+    "url": "us/ca/anaheim/isv-harbor-blvd-02.mp4"
+  },
+  {
+    "latitude": 33.80800, 
+    "longitude": -117.91554,
+    "type": "Public",
+    "address": "Harbor Blvd",
+    "town": "Anaheim",
+    "state": "California",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -20, 
+    	    "link":"us/ca/anaheim/isv-harbor-blvd-02.mp4"
+        },
+	{
+	    "azimuth": 168, 
+    	    "link":"us/ca/anaheim/isv-harbor-blvd-04.mp4"
+        }
+    ],
+    "url": "us/ca/anaheim/isv-harbor-blvd-03.mp4"
+  },
+  {
+    "latitude": 33.80664, 
+    "longitude": -117.91546,
+    "type": "Public",
+    "address": "Harbor Blvd",
+    "town": "Anaheim",
+    "state": "California",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -10, 
+    	    "link":"us/ca/anaheim/isv-harbor-blvd-03.mp4"
+        }
+    ],
+    "url": "us/ca/anaheim/isv-harbor-blvd-04.mp4"
+  },
+  {
+    "latitude": 33.79975, 
+    "longitude": -117.91838,
+    "type": "Public",
+    "address": "Anaheim Convention Center",
+    "town": "Anaheim",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/anaheim/isv-convention-center-01.mp4"
+  },
+  {
+    "latitude": 33.79959, 
+    "longitude": -117.91677,
+    "type": "Public",
+    "address": "Anaheim Convention Center",
+    "town": "Anaheim",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/anaheim/isv-convention-center-02.mp4"
+  },
+  {
+    "latitude": 33.79940, 
+    "longitude": -117.91791,
+    "type": "Public",
+    "address": "Anaheim Convention Center",
+    "town": "Anaheim",
+    "state": "California",
+    "country": "United States",
+    "url": "us/ca/anaheim/isv-convention-center-03.mp4"
+  },
+  {
+    "latitude": 41.82597, 
+    "longitude": -71.40345,
+    "type": "Public",
+    "address": "Brown University",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-brown-university-01.mp4"
+  },
+  {
+    "latitude": 41.82587, 
+    "longitude": -71.40404,
+    "type": "Public",
+    "address": "Brown University",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-brown-university-02.mp4"
+  },
+  {
+    "latitude": 41.82636, 
+    "longitude": -71.40129,
+    "type": "Public",
+    "address": "Brown University",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-brown-university-03.mp4"
+  },
+  {
+    "latitude": 41.82625, 
+    "longitude": -71.40182,
+    "type": "Public",
+    "address": "Brown University",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-brown-university-04.mp4"
+  },
+  {
+    "latitude": 41.82630, 
+    "longitude": -71.40301,
+    "type": "Public",
+    "address": "Brown University",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-brown-university-05.mp4"
+  },
+  {
+    "latitude": 41.82633, 
+    "longitude": -71.40415,
+    "type": "Public",
+    "address": "Brown University",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-brown-university-06.mp4"
+  },
+  {
+    "latitude": 41.82671, 
+    "longitude": -71.40443,
+    "type": "Public",
+    "address": "Brown University",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-brown-university-07.mp4"
+  },
+  {
+    "latitude": 41.82685, 
+    "longitude": -71.40462,
+    "type": "Public",
+    "address": "Brown University",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-brown-university-08.mp4"
+  },
+  {
+    "latitude": 41.82614, 
+    "longitude": -71.40471,
+    "type": "Public",
+    "address": "Van Wickle Gates",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-van-wickle-gates.mp4"
+  },
+  {
+    "latitude": 41.82658, 
+    "longitude": -71.40712,
+    "type": "Public",
+    "address": "Rhode Island School of Design",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-risd-01.mp4"
+  },
+  {
+    "latitude": 41.82620, 
+    "longitude": -71.40826,
+    "type": "Public",
+    "address": "Rhode Island School of Design",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-risd-02.mp4"
+  },
+  {
+    "latitude": 41.82656, 
+    "longitude": -71.40861,
+    "type": "Public",
+    "address": "Rhode Island School of Design",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-risd-03.mp4"
+  },
+  {
+    "latitude": 41.82839, 
+    "longitude": -71.40540,
+    "type": "Public",
+    "address": "Rhode Island School of Design",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-risd-admission.mp4"
+  },
+  {
+    "latitude": 41.82829, 
+    "longitude": -71.40493,
+    "type": "Public",
+    "address": "Prospect Street",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-prospect-street.mp4"
+  },
+  {
+    "latitude": 41.82669, 
+    "longitude": -71.40934,
+    "type": "Public",
+    "address": "Canal Walk",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-canal-walk-01.mp4"
+  },
+  {
+    "latitude": 41.82613, 
+    "longitude": -71.40914,
+    "type": "Public",
+    "address": "Canal Walk",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-canal-walk-02.mp4"
+  },
+  {
+    "latitude": 41.82549, 
+    "longitude": -71.40866,
+    "type": "Public",
+    "address": "Canal Walk",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-canal-walk-03.mp4"
+  },
+  {
+    "latitude": 41.82497, 
+    "longitude": -71.40802,
+    "type": "Public",
+    "address": "Canal Walk",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-canal-walk-04.mp4"
+  },
+  {
+    "latitude": 41.82434, 
+    "longitude": -71.40755,
+    "type": "Public",
+    "address": "Canal Walk",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-canal-walk-05.mp4"
+  },
+  {
+    "latitude": 41.82502, 
+    "longitude": -71.40752,
+    "type": "Public",
+    "address": "South Main Street",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-south-main-street-01.mp4"
+  },
+  {
+    "latitude": 41.82441, 
+    "longitude": -71.40701,
+    "type": "Public",
+    "address": "South Main Street",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-south-main-street-02.mp4"
+  },
+  {
+    "latitude": 41.82610, 
+    "longitude": -71.40626,
+    "type": "Public",
+    "address": "College Street",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-college-street.mp4"
+  },
+  {
+    "latitude": 41.82804, 
+    "longitude": -71.40061,
+    "type": "Public",
+    "address": "229 Thayer Street",
+    "town": "Providence",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/providence/isv-thayer-street-229.mp4"
+  },
+  {
+    "latitude": 41.36325, 
+    "longitude": -71.48112,
+    "type": "Public",
+    "address": "Point Judith",
+    "town": "Narragansett",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/narragansett/isv-point-judith-1.mp4"
+  },
+  {
+    "latitude": 41.36229, 
+    "longitude": -71.48066,
+    "type": "Public",
+    "address": "Point Judith",
+    "town": "Narragansett",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/narragansett/isv-point-judith-2.mp4"
+  },
+  {
+    "latitude": 41.37533, 
+    "longitude": -71.51187,
+    "type": "Public",
+    "address": "Roger W. Wheeler State Beach",
+    "town": "Narragansett",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/narragansett/isv-wheeler-state-beach-1.mp4"
+  },
+  {
+    "latitude": 41.37527, 
+    "longitude": -71.51260,
+    "type": "Public",
+    "address": "Roger W. Wheeler State Beach",
+    "town": "Narragansett",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/narragansett/isv-wheeler-state-beach-2.mp4"
+  },
+  {
+    "latitude": 41.37605, 
+    "longitude": -71.51310,
+    "type": "Public",
+    "address": "Roger W. Wheeler State Beach",
+    "town": "Narragansett",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/narragansett/isv-wheeler-state-beach-3.mp4"
+  },
+  {
+    "latitude": 41.37622, 
+    "longitude": -71.51244,
+    "type": "Public",
+    "address": "George's of Galilee",
+    "town": "Narragansett",
+    "state": "Rhode Island",
+    "country": "United States",
+    "url": "us/ri/narragansett/isv-george-galilee.mp4"
+  },
+
+
+  {
+    "latitude": 42.35592, 
+    "longitude": -71.06947,
+    "type": "Public",
+    "address": "Beacon Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-beacon-street-52.mp4"
+  },
+  {
+    "latitude": 42.35589, 
+    "longitude": -71.07043,
+    "type": "Public",
+    "address": "Beacon Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-beacon-street-51.mp4"
+  },
+  {
+    "latitude": 42.35527, 
+    "longitude": -71.07227,
+    "type": "Public",
+    "address": "Arlington Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-arlington-street-54.mp4"
+  },
+  {
+    "latitude": 42.35476, 
+    "longitude": -71.07203,
+    "type": "Public",
+    "address": "Arlington Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-arlington-street-53.mp4"
+  },
+  {
+    "latitude": 42.35429, 
+    "longitude": -71.07176,
+    "type": "Public",
+    "address": "Arlington Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-arlington-street-52.mp4"
+  },
+  {
+    "latitude": 42.35377, 
+    "longitude": -71.07156,
+    "type": "Public",
+    "address": "Arlington Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-arlington-street-51.mp4"
+  },
+  {
+    "latitude": 42.35268, 
+    "longitude": -71.07100,
+    "type": "Public",
+    "address": "Arlington Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-arlington-street-50.mp4"
+  },
+  {
+    "latitude": 42.35211, 
+    "longitude": -71.07072,
+    "type": "Public",
+    "address": "Arlington Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-arlington-street-49.mp4"
+  },
+  {
+    "latitude": 42.35265, 
+    "longitude": -71.06773,
+    "type": "Public",
+    "address": "Charles Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-charles-street-05.mp4"
+  },
+  {
+    "latitude": 42.35346, 
+    "longitude": -71.06815,
+    "type": "Public",
+    "address": "Charles Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-charles-street-04.mp4"
+  },
+  {
+    "latitude": 42.35400, 
+    "longitude": -71.06841,
+    "type": "Public",
+    "address": "Charles Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-charles-street-03.mp4"
+  },
+  {
+    "latitude": 42.35538, 
+    "longitude": -71.06917,
+    "type": "Public",
+    "address": "Charles Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-charles-street-02.mp4"
+  },
+  {
+    "latitude": 42.35458, 
+    "longitude": -71.06876,
+    "type": "Public",
+    "address": "Charles Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-charles-street-01.mp4"
+  },
+  {
+    "latitude": 42.35427, 
+    "longitude": -71.07069,
+    "type": "Public",
+    "address": "Boston Public Garden",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-public-garden-01.mp4"
+  },
+  {
+    "latitude": 42.35427, 
+    "longitude": -71.06985,
+    "type": "Public",
+    "address": "Boston Public Garden",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-public-garden-02.mp4"
+  },
+  {
+    "latitude": 42.35392, 
+    "longitude": -71.07054,
+    "type": "Public",
+    "address": "Boston Public Garden",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-public-garden-03.mp4"
+  },
+  {
+    "latitude": 42.35372, 
+    "longitude": -71.07134,
+    "type": "Public",
+    "address": "Boston Public Garden",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-public-garden-04.mp4"
+  },
+  {
+    "latitude": 42.34540, 
+    "longitude": -71.08378,
+    "type": "Public",
+    "address": "Church of Christ Scientist",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 46, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-02.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-church-christ-scientist-06.mp4"
+  },
+  {
+    "latitude": 42.34436, 
+    "longitude": -71.08557,
+    "type": "Public",
+    "address": "Church of Christ Scientist",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 167, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-04.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-church-christ-scientist-05.mp4"
+  },
+  {
+    "latitude": 42.34382, 
+    "longitude": -71.08475,
+    "type": "Public",
+    "address": "Church of Christ Scientist",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -34, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-05.mp4"
+        },
+	{
+	    "azimuth": 90, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-03.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-church-christ-scientist-04.mp4"
+  },
+  {
+    "latitude": 42.34452, 
+    "longitude": -71.08371,
+    "type": "Public",
+    "address": "Church of Christ Scientist",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -115, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-04.mp4"
+        },
+	{
+	    "azimuth": 43, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-02.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-church-christ-scientist-03.mp4"
+  },
+  {
+    "latitude": 42.34524, 
+    "longitude": -71.08316,
+    "type": "Public",
+    "address": "Church of Christ Scientist",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -177, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-03.mp4"
+        },
+	{
+	    "azimuth": -77, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-06.mp4"
+        },
+	{
+	    "azimuth": 38, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-01.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-church-christ-scientist-02.mp4"
+  },
+  {
+    "latitude": 42.34541, 
+    "longitude": -71.08278,
+    "type": "Public",
+    "address": "Church of Christ Scientist",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -133.83, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-02.mp4"
+        },
+	{
+	    "azimuth": 7, 
+    	    "link":"us/ma/boston/isv-huntington-avenue-01.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-church-christ-scientist-01.mp4"
+  },
+  {
+    "latitude": 42.34776, 
+    "longitude": -71.07855,
+    "type": "Public",
+    "address": "Huntington Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-huntington-avenue-02.mp4"
+  },
+  {
+    "latitude": 42.34545, 
+    "longitude": -71.08154,
+    "type": "Public",
+    "address": "Huntington Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -119, 
+    	    "link":"us/ma/boston/isv-church-christ-scientist-01.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-huntington-avenue-01.mp4"
+  },
+  {
+    "latitude": 42.35216, 
+    "longitude": -71.06999,
+    "type": "Public",
+    "address": "Boylston Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-boylston-street-52.mp4"
+  },
+  {
+    "latitude": 42.35246, 
+    "longitude": -71.06860,
+    "type": "Public",
+    "address": "Boylston Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-boylston-street-51.mp4"
+  },
+  {
+    "latitude": 42.34832, 
+    "longitude": -71.08343,
+    "type": "Public",
+    "address": "Boylston Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-boylston-street-02.mp4"
+  },
+  {
+    "latitude": 42.34904, 
+    "longitude": -71.08092,
+    "type": "Public",
+    "address": "Boylston Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-boylston-street-01.mp4"
+  },
+  {
+    "latitude": 42.34993, 
+    "longitude": -71.07796,
+    "type": "Public",
+    "address": "Old South Church",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-old-south-church.mp4"
+  },
+  {
+    "latitude": 42.34969, 
+    "longitude": -71.07700,
+    "type": "Public",
+    "address": "Copley Square",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 120, 
+    	    "link":"us/ma/boston/isv-copley-square-02.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-copley-square-03.mp4"
+  },
+  {
+    "latitude": 42.34966, 
+    "longitude": -71.07666,
+    "type": "Public",
+    "address": "Copley Square",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 59, 
+    	    "link":"us/ma/boston/isv-copley-square-01.mp4"
+        },
+	{
+	    "azimuth": -56, 
+    	    "link":"us/ma/boston/isv-copley-square-03.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-copley-square-02.mp4"
+  },
+  {
+    "latitude": 42.34984, 
+    "longitude": -71.07655,
+    "type": "Public",
+    "address": "Copley Square",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -96, 
+    	    "link":"us/ma/boston/isv-copley-square-03.mp4"
+        },
+	{
+	    "azimuth": 129, 
+    	    "link":"us/ma/boston/isv-copley-square-02.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-copley-square-01.mp4"
+  },
+  {
+    "latitude": 42.35083, 
+    "longitude": -71.07537,
+    "type": "Public",
+    "address": "Clarendon Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-clarendon-street-01.mp4"
+  },
+  {
+    "latitude": 42.35043, 
+    "longitude": -71.07320,
+    "type": "Public",
+    "address": "St. James Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-st-james-ave-01.mp4"
+  },
+  {
+    "latitude": 42.35043, 
+    "longitude": -71.07320,
+    "type": "Public",
+    "address": "St. James Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-st-james-ave-01.mp4"
+  },
+  {
+    "latitude": 42.34941, 
+    "longitude": -71.07195,
+    "type": "Public",
+    "address": "Stuart Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-stuart-street-06.mp4"
+  },
+  {
+    "latitude": 42.34889, 
+    "longitude": -71.07429,
+    "type": "Public",
+    "address": "Stuart Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-stuart-street-05.mp4"
+  },
+  {
+    "latitude": 42.34835, 
+    "longitude": -71.07652,
+    "type": "Public",
+    "address": "Stuart Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-stuart-street-04.mp4"
+  },
+  {
+    "latitude": 42.34966, 
+    "longitude": -71.07217,
+    "type": "Public",
+    "address": "Stuart Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-stuart-street-03.mp4"
+  },
+  {
+    "latitude": 42.34999, 
+    "longitude": -71.07038,
+    "type": "Public",
+    "address": "Stuart Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-stuart-street-02.mp4"
+  },
+  {
+    "latitude": 42.35058, 
+    "longitude": -71.06879,
+    "type": "Public",
+    "address": "Stuart Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-stuart-street-01.mp4"
+  },
+  {
+    "latitude": 42.35060, 
+    "longitude": -71.07028,
+    "type": "Public",
+    "address": "Arlington Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-arlington-street-01.mp4"
+  },
+  {
+    "latitude": 42.35450, 
+    "longitude": -71.05908,
+    "type": "Public",
+    "address": "Arch Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-arch-street-1.mp4"
+  },
+  {
+    "latitude": 42.35521, 
+    "longitude": -71.05811,
+    "type": "Public",
+    "address": "Arch Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-arch-street-2.mp4"
+  },
+  {
+    "latitude": 42.35635, 
+    "longitude": -71.05765,
+    "type": "Public",
+    "address": "Arch Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-arch-street-3.mp4"
+  },
+  {
+    "latitude": 42.35705, 
+    "longitude": -71.05671,
+    "type": "Public",
+    "address": "Milk Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-milk-street.mp4"
+  },
+  {
+    "latitude": 42.35946, 
+    "longitude": -71.05196,
+    "type": "Public",
+    "address": "Atlantic Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 147.18, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-02.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-atlantic-avenue-01.mp4"
+  },
+  {
+    "latitude": 42.35897, 
+    "longitude": -71.05169,
+    "type": "Public",
+    "address": "Atlantic Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 167.90, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-03.mp4"
+        },
+	{
+	    "azimuth": 3.55, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-01.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-atlantic-avenue-02.mp4"
+  },
+  {
+    "latitude": 42.35769, 
+    "longitude": -71.05151,
+    "type": "Public",
+    "address": "Atlantic Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -0.33, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-02.mp4"
+        },
+	{
+	    "azimuth": 144.90, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-04.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-atlantic-avenue-03.mp4"
+  },
+  {
+    "latitude": 42.35727, 
+    "longitude": -71.05130,
+    "type": "Public",
+    "address": "Atlantic Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 18.11, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-03.mp4"
+        },
+	{
+	    "azimuth": 136.86, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-05.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-atlantic-avenue-04.mp4"
+  },
+  {
+    "latitude": 42.35625, 
+    "longitude": -71.05089,
+    "type": "Public",
+    "address": "Atlantic Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 28.99, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-04.mp4"
+        },
+	{
+	    "azimuth": -167.87, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-06.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-atlantic-avenue-05.mp4"
+  },
+  {
+    "latitude": 42.35574, 
+    "longitude": -71.05115,
+    "type": "Public",
+    "address": "Atlantic Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 22.29, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-05.mp4"
+        },
+	{
+	    "azimuth": -172.29, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-07.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-atlantic-avenue-06.mp4"
+  },
+  {
+    "latitude": 42.35451, 
+    "longitude": -71.05201,
+    "type": "Public",
+    "address": "Atlantic Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -113.72, 
+    	    "link":"us/ma/boston/isv-atlantic-avenue-06.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-atlantic-avenue-07.mp4"
+  },
+  {
+    "latitude": 42.35185, 
+    "longitude": -71.05030,
+    "type": "Public",
+    "address": "Children's Museum",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 60.52, 
+    	    "link":"us/ma/boston/isv-children-museum-2.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-children-museum-1.mp4"
+  },
+  {
+    "latitude": 42.35222, 
+    "longitude": -71.04999,
+    "type": "Public",
+    "address": "Children's Museum",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -174.55, 
+    	    "link":"us/ma/boston/isv-children-museum-1.mp4"
+        },
+	{
+	    "azimuth": 59.46, 
+    	    "link":"us/ma/boston/isv-children-museum-3.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-children-museum-2.mp4"
+  },
+  {
+    "latitude": 42.35296, 
+    "longitude": -71.04947,
+    "type": "Public",
+    "address": "Children's Museum",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -161.94, 
+    	    "link":"us/ma/boston/isv-children-museum-2.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-children-museum-3.mp4"
+  },
+  {
+    "latitude": 42.35362, 
+    "longitude": -71.05147,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-01.mp4"
+  },
+  {
+    "latitude": 42.35435, 
+    "longitude": -71.05147,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-02.mp4"
+  },
+  {
+    "latitude": 42.35610, 
+    "longitude": -71.04977,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-03.mp4"
+  },
+  {
+    "latitude": 42.35640, 
+    "longitude": -71.04986,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-04.mp4"
+  },
+  {
+    "latitude": 42.35727, 
+    "longitude": -71.04910,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-05.mp4"
+  },
+  {
+    "latitude": 42.35740, 
+    "longitude": -71.04971,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-06.mp4"
+  },
+  {
+    "latitude": 42.35841, 
+    "longitude": -71.04961,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-07.mp4"
+  },
+  {
+    "latitude": 42.35897, 
+    "longitude": -71.05050,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-08.mp4"
+  },
+  {
+    "latitude": 42.35982, 
+    "longitude": -71.04983,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-09.mp4"
+  },
+  {
+    "latitude": 42.36010, 
+    "longitude": -71.04772,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-10.mp4"
+  },
+  {
+    "latitude": 42.36060, 
+    "longitude": -71.04781,
+    "type": "Public",
+    "address": "Harborwalk",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harborwalk-11.mp4"
+  },
+  {
+    "latitude": 42.36030, 
+    "longitude": -71.05304,
+    "type": "Public",
+    "address": "Quincy Market Entrance",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-quincy-market-entrance.mp4"
+  },
+  {
+    "latitude": 42.36005, 
+    "longitude": -71.05431,
+    "type": "Public",
+    "address": "Quincy Market",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-quincy-market-1.mp4"
+  },
+  {
+    "latitude": 42.36000, 
+    "longitude": -71.05486,
+    "type": "Public",
+    "address": "Quincy Market",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-quincy-market-2.mp4"
+  },
+  {
+    "latitude": 42.35841, 
+    "longitude": -71.06081,
+    "type": "Public",
+    "address": "School Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-school-street.mp4"
+  },
+  {
+    "latitude": 42.35770, 
+    "longitude": -71.06367,
+    "type": "Public",
+    "address": "State House",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -109.97, 
+    	    "link":"us/ma/boston/isv-beacon-hill-1.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-state-house.mp4"
+  },
+  {
+    "latitude": 42.35748, 
+    "longitude": -71.06400,
+    "type": "Public",
+    "address": "Beacon Hill",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 76.03, 
+    	    "link":"us/ma/boston/isv-state-house.mp4"
+        },
+	{
+	    "azimuth": -88.31, 
+    	    "link":"us/ma/boston/isv-beacon-hill-2.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-beacon-hill-1.mp4"
+  },
+  {
+    "latitude": 42.35722, 
+    "longitude": -71.06514,
+    "type": "Public",
+    "address": "Beacon Hill",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 91.58, 
+    	    "link":"us/ma/boston/isv-beacon-hill-1.mp4"
+        },
+	{
+	    "azimuth": -82.06, 
+    	    "link":"us/ma/boston/isv-beacon-hill-3.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-beacon-hill-2.mp4"
+  },
+  {
+    "latitude": 42.35695, 
+    "longitude": -71.06601,
+    "type": "Public",
+    "address": "Beacon Hill",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 71.43, 
+    	    "link":"us/ma/boston/isv-beacon-hill-2.mp4"
+        },
+	{
+	    "azimuth": -75.75, 
+    	    "link":"us/ma/boston/isv-beacon-hill-4.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-beacon-hill-3.mp4"
+  },
+  {
+    "latitude": 42.35682, 
+    "longitude": -71.06686,
+    "type": "Public",
+    "address": "Beacon Hill",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 86.46, 
+    	    "link":"us/ma/boston/isv-beacon-hill-3.mp4"
+        },
+	{
+	    "azimuth": -71.53, 
+    	    "link":"us/ma/boston/isv-beacon-hill-5.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-beacon-hill-4.mp4"
+  },
+  {
+    "latitude": 42.35677, 
+    "longitude": -71.06713,
+    "type": "Public",
+    "address": "Beacon Hill",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 61.53, 
+    	    "link":"us/ma/boston/isv-beacon-hill-4.mp4"
+        },
+	{
+	    "azimuth": -97, 
+    	    "link":"us/ma/boston/isv-beacon-hill-6.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-beacon-hill-5.mp4"
+  },
+  {
+    "latitude": 42.35663, 
+    "longitude": -71.06764,
+    "type": "Public",
+    "address": "Beacon Hill",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 89.04, 
+    	    "link":"us/ma/boston/isv-beacon-hill-5.mp4"
+        },
+	{
+	    "azimuth": -86.53, 
+    	    "link":"us/ma/boston/isv-beacon-hill-7.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-beacon-hill-6.mp4"
+  },
+  {
+    "latitude": 42.35646, 
+    "longitude": -71.06833,
+    "type": "Public",
+    "address": "Beacon Hill",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 49.66, 
+    	    "link":"us/ma/boston/isv-beacon-hill-6.mp4"
+        },
+	{
+	    "azimuth": -73.43, 
+    	    "link":"us/ma/boston/isv-beacon-hill-8.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-beacon-hill-7.mp4"
+  },
+  {
+    "latitude": 42.35629, 
+    "longitude": -71.06877,
+    "type": "Public",
+    "address": "Beacon Hill",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 66.87, 
+    	    "link":"us/ma/boston/isv-beacon-hill-7.mp4"
+        },
+	{
+	    "azimuth": -86.57, 
+    	    "link":"us/ma/boston/isv-beacon-hill-9.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-beacon-hill-8.mp4"
+  },
+  {
+    "latitude": 42.35633, 
+    "longitude": -71.06942,
+    "type": "Public",
+    "address": "Beacon Hill",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 99.41, 
+    	    "link":"us/ma/boston/isv-beacon-hill-8.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-beacon-hill-9.mp4"
+  },
+  {
+    "latitude": 42.35044, 
+    "longitude": -71.06089,
+    "type": "Public",
+    "address": "65 Kneeland Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -43.75, 
+    	    "link":"us/ma/boston/isv-kneeland-street-54.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-kneeland-street-65.mp4"
+  },
+  {
+    "latitude": 42.35048, 
+    "longitude": -71.06135,
+    "type": "Public",
+    "address": "54 Kneeland Street",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 116.68, 
+    	    "link":"us/ma/boston/isv-kneeland-street-65.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-kneeland-street-54.mp4"
+  },
+  {
+    "latitude": 42.35107, 
+    "longitude": -71.06142,
+    "type": "Public",
+    "address": "Harrison Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harrison-avenue-02.mp4"
+  },
+  {
+    "latitude": 42.34925, 
+    "longitude": -71.06214,
+    "type": "Public",
+    "address": "Harrison Avenue",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-harrison-avenue-01.mp4"
+  },
+  {
+    "latitude": 42.34723, 
+    "longitude": -71.06433,
+    "type": "Public",
+    "address": "Marginal Road",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 75, 
+    	    "link":"us/ma/boston/isv-marginal-road-02.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-marginal-road-01.mp4"
+  },
+  {
+    "latitude": 42.34703, 
+    "longitude": -71.06305,
+    "type": "Public",
+    "address": "Marginal Road",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -69.15, 
+    	    "link":"us/ma/boston/isv-marginal-road-01.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-marginal-road-02.mp4"
+  },
+  {
+    "latitude": 42.35352, 
+    "longitude": -71.04970,
+    "type": "Public",
+    "address": "Seaport Blvd Bridge 1",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/boston/isv-seaport-blvd-bridge-1.mp4"
+  },
+  {
+    "latitude": 42.35176, 
+    "longitude": -71.05102,
+    "type": "Public",
+    "address": "Congress Street Bridge",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 120.51, 
+    	    "link":"us/ma/boston/isv-congress-street-bridge-2.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-congress-street-bridge-1.mp4"
+  },
+  {
+    "latitude": 42.35156, 
+    "longitude": -71.05058,
+    "type": "Public",
+    "address": "Congress Street Bridge",
+    "town": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": -51.51, 
+    	    "link":"us/ma/boston/isv-congress-street-bridge-1.mp4"
+        },
+	{
+	    "azimuth": 91.98, 
+    	    "link":"us/ma/boston/isv-children-museum-1.mp4"
+        }
+    ],
+    "url": "us/ma/boston/isv-congress-street-bridge-2.mp4"
+  },
+  {
+    "latitude": 42.27158, 
+    "longitude": -71.35481,
+    "type": "Residential",
+    "address": "2 Rockland Street",
+    "town": "Natick",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 172.93, 
+    	    "link":"us/ma/natick/isv-rockland-street-10.mp4"
+        }
+    ],
+    "url": "us/ma/natick/isv-rockland-street-02.mp4"
+  },
+  {
+    "latitude": 42.27026, 
+    "longitude": -71.35323,
+    "type": "Residential",
+    "address": "10 Rockland Street",
+    "town": "Natick",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	    "azimuth": 161.29,
+    	    "link":"us/ma/natick/isv-rockland-street-18.mp4"
+	},
+	{
+	    "azimuth": -37.18,
+    	    "link":"us/ma/natick/isv-rockland-street-02.mp4"
+	}
+    ],
+    "url": "us/ma/natick/isv-rockland-street-10.mp4"
+  },
+  {
+    "latitude": 42.26991, 
+    "longitude": -71.35287,
+    "type": "Residential",
+    "address": "18 Rockland Street",
+    "town": "Natick",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 159.24,
+    	    "link":"us/ma/natick/isv-rockland-street-24.mp4"
+	},
+	{
+	   "azimuth": -38.77,
+    	    "link":"us/ma/natick/isv-rockland-street-10.mp4"
+	}
+    ],
+    "url": "us/ma/natick/isv-rockland-street-18.mp4"
+  },
+  {
+    "latitude": 42.26947, 
+    "longitude": -71.35234,
+    "type": "Residential",
+    "address": "24 Rockland Street",
+    "town": "Natick",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 161.79,
+    	    "link":"us/ma/natick/isv-rockland-street-26.mp4"
+	},
+	{
+	   "azimuth": -33.49,
+    	    "link":"us/ma/natick/isv-rockland-street-18.mp4"
+	}
+    ],
+    "url": "us/ma/natick/isv-rockland-street-24.mp4"
+  },
+  {
+    "latitude": 42.26928, 
+    "longitude": -71.35212,
+    "type": "Residential",
+    "address": "26 Rockland Street",
+    "town": "Natick",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 167.03,
+    	    "link":"us/ma/natick/isv-rockland-street-28.mp4"
+	},
+	{  "azimuth": -25.57,
+    	    "link":"us/ma/natick/isv-rockland-street-24.mp4"
+	}
+    ],
+    "url": "us/ma/natick/isv-rockland-street-26.mp4"
+  },
+  {
+    "latitude": 42.26935, 
+    "longitude": -71.35184,
+    "type": "Residential",
+    "address": "26A Rockland Street",
+    "town": "Natick",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/natick/isv-rockland-street-26a.mp4"
+  },
+  {
+    "latitude": 42.26901, 
+    "longitude": -71.35192,
+    "type": "Residential",
+    "address": "28 Rockland Street",
+    "town": "Natick",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": -21.73,
+   	   "link":"us/ma/natick/isv-rockland-street-26.mp4"
+	}
+    ],
+    "url": "us/ma/natick/isv-rockland-street-28.mp4"
+  },
+  {
+    "latitude": 42.44899, 
+    "longitude": -71.23023,
+    "type": "Public",
+    "address": "Minuteman Statue",
+    "town": "Lexington",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/lexington/isv-minuteman-statue.mp4"
+  },
+  {
+    "latitude": 42.44903, 
+    "longitude": -71.26788,
+    "type": "Public",
+    "address": "Jacob Whittemore House",
+    "town": "Lexington",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/lexington/isv-whittemore-house.mp4"
+  },
+  {
+    "latitude": 42.46060, 
+    "longitude": -71.35605,
+    "type": "Public",
+    "address": "Concord Academy",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-concord-academy-04.mp4"
+  },
+  {
+    "latitude": 42.46037, 
+    "longitude": -71.35567,
+    "type": "Public",
+    "address": "Concord Academy",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-concord-academy-03.mp4"
+  },
+  {
+    "latitude": 42.45982, 
+    "longitude": -71.35475,
+    "type": "Public",
+    "address": "Concord Academy",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 122,
+   	   "link":"us/ma/concord/isv-concord-academy-01.mp4"
+	}
+    ],
+    "url": "us/ma/concord/isv-concord-academy-02.mp4"
+  },
+  {
+    "latitude": 42.45961, 
+    "longitude": -71.35388,
+    "type": "Public",
+    "address": "Concord Academy",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": -49,
+   	   "link":"us/ma/concord/isv-concord-academy-02.mp4"
+	}
+    ],
+    "url": "us/ma/concord/isv-concord-academy-01.mp4"
+  },
+  {
+    "latitude": 42.45908, 
+    "longitude": -71.35294,
+    "type": "Public",
+    "address": "Public Library",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-public-library.mp4"
+  },
+  {
+    "latitude": 42.45544, 
+    "longitude": -71.35706,
+    "type": "Public",
+    "address": "Sudbury Road",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-sudbury-road-02.mp4"
+  },
+  {
+    "latitude": 42.45680, 
+    "longitude": -71.35538,
+    "type": "Public",
+    "address": "Sudbury Road",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-sudbury-road-01.mp4"
+  },
+  {
+    "latitude": 42.43925, 
+    "longitude": -71.33449,
+    "type": "Public",
+    "address": "Walden Pond",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-walden-pond-01.mp4"
+  },
+  {
+    "latitude": 42.43824, 
+    "longitude": -71.34495,
+    "type": "Public",
+    "address": "Walden Pond",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-walden-pond-02.mp4"
+  },
+  {
+    "latitude": 42.46906, 
+    "longitude": -71.35126,
+    "type": "Public",
+    "address": "North Bridge",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-north-bridge-01.mp4"
+  },
+  {
+    "latitude": 42.46888, 
+    "longitude": -71.35094,
+    "type": "Public",
+    "address": "North Bridge",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-north-bridge-02.mp4"
+  },
+  {
+    "latitude": 42.46908, 
+    "longitude": -71.35013,
+    "type": "Public",
+    "address": "North Bridge",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-north-bridge-03.mp4"
+  },
+  {
+    "latitude": 42.45997, 
+    "longitude": -71.35917,
+    "type": "Public",
+    "address": "Sudbury River",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-sudbury-river.mp4"
+  },
+  {
+    "latitude": 42.45631, 
+    "longitude": -71.35733,
+    "type": "Public",
+    "address": "Train Station",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": -28,
+   	   "link":"us/ma/concord/isv-train-station-01.mp4"
+	}
+    ],
+    "url": "us/ma/concord/isv-train-station-02.mp4"
+  },
+  {
+    "latitude": 42.45709, 
+    "longitude": -71.35863,
+    "type": "Public",
+    "address": "Train Station",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 122,
+   	   "link":"us/ma/concord/isv-train-station-02.mp4"
+	}
+    ],
+    "url": "us/ma/concord/isv-train-station-01.mp4"
+  },
+  {
+    "latitude": 42.45649, 
+    "longitude": -71.35730,
+    "type": "Public",
+    "address": "Thoreau Street",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": -32,
+   	   "link":"us/ma/concord/isv-thoreau-street-02.mp4"
+	}
+    ],
+    "url": "us/ma/concord/isv-thoreau-street-03.mp4"
+  },
+  {
+    "latitude": 42.45766, 
+    "longitude": -71.35849,
+    "type": "Public",
+    "address": "Thoreau Street",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 169,
+   	   "link":"us/ma/concord/isv-thoreau-street-03.mp4"
+	},
+	{
+	   "azimuth": -5.89,
+   	   "link":"us/ma/concord/isv-thoreau-street-01.mp4"
+	}
+    ],
+    "url": "us/ma/concord/isv-thoreau-street-02.mp4"
+  },
+  {
+    "latitude": 42.45850, 
+    "longitude": -71.35903,
+    "type": "Public",
+    "address": "Thoreau Street",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 156.69,
+   	   "link":"us/ma/concord/isv-thoreau-street-02.mp4"
+	}
+    ],
+    "url": "us/ma/concord/isv-thoreau-street-01.mp4"
+  },
+  {
+    "latitude": 42.46100, 
+    "longitude": -71.36104,
+    "type": "Public",
+    "address": "Nashawtuc Road",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-nashawtuc-road-02.mp4"
+  },
+  {
+    "latitude": 42.45990, 
+    "longitude": -71.35938,
+    "type": "Public",
+    "address": "Nashawtuc Road",
+    "town": "Concord",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/concord/isv-nashawtuc-road-01.mp4"
+  },
+  {
+    "latitude": 42.20844, 
+    "longitude": -70.83034,
+    "type": "Public",
+    "address": "Aaron River Reservoir",
+    "town": "Hingham",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/hingham/isv-aaron-river-reservoir.mp4"
+  },
+  {
+    "latitude": 42.27321, 
+    "longitude": -71.02538,
+    "type": "Public",
+    "address": "Hancock Street",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/quincy/isv-hancock-street-01.mp4"
+  },
+  {
+    "latitude": 42.24921, 
+    "longitude": -71.02794,
+    "type": "Residential",
+    "address": "79 Dayton Street",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/quincy/isv-dayton-street-79.mp4"
+  },
+  {
+    "latitude": 42.27398, 
+    "longitude": -71.02464,
+    "type": "Public",
+    "address": "Taipei Cuisine",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/quincy/isv-taipei-cuisine.mp4"
+  },
+  {
+    "latitude": 42.30043, 
+    "longitude": -71.01454,
+    "type": "Public",
+    "address": "Dorchester Street",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/quincy/isv-dorchester-street.mp4"
+  },
+  {
+    "latitude": 42.27721, 
+    "longitude": -71.00899,
+    "type": "Public",
+    "address": "Ocean Front",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "url": "us/ma/quincy/isv-ocean-front.mp4"
+  },
+  {
+    "latitude": 42.28730, 
+    "longitude": -71.02296,
+    "type": "Public",
+    "address": "Quincy Shore Drive",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 114.68,
+   	   "link":"us/ma/quincy/isv-sachem-creek.mp4"
+	}
+    ],
+    "url": "us/ma/quincy/isv-shore-drive.mp4"
+  },
+  {
+    "latitude": 42.27801, 
+    "longitude": -71.01172,
+    "type": "Public",
+    "address": "Sachem Creek",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 160.92,
+   	   "link":"us/ma/quincy/isv-shores-reservation.mp4"
+	}
+    ],
+    "url": "us/ma/quincy/isv-sachem-creek.mp4"
+  },
+  {
+    "latitude": 42.27713, 
+    "longitude": -71.01049,
+    "type": "Public",
+    "address": "Quincy Shores Reservation",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": -39.89,
+   	   "link":"us/ma/quincy/isv-sachem-creek.mp4"
+	},
+	{
+	   "azimuth": 118.62,
+   	   "link":"us/ma/quincy/isv-clam-box.mp4"
+	}
+    ],
+    "url": "us/ma/quincy/isv-shores-reservation.mp4"
+  },
+   {
+    "latitude": 42.27663, 
+    "longitude": -71.00893,
+    "type": "Public",
+    "address": "The Clam Box",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": -96.65,
+   	   "link":"us/ma/quincy/isv-shore-drive.mp4"
+	},
+	{
+	   "azimuth": 124.71,
+   	   "link":"us/ma/quincy/isv-tony-clam-shop.mp4"
+	}
+    ],
+    "url": "us/ma/quincy/isv-clam-box.mp4"
+  },
+   {
+    "latitude": 42.27563, 
+    "longitude": -71.00573,
+    "type": "Public",
+    "address": "Tony's Clam Shop",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": -88.95,
+   	   "link":"us/ma/quincy/isv-clam-box.mp4"
+	},
+	{
+	   "azimuth": 96.55,
+   	   "link":"us/ma/quincy/isv-cafe-maddie.mp4"
+	}
+    ],
+    "url": "us/ma/quincy/isv-tony-clam-shop.mp4"
+  },
+ {
+    "latitude": 42.27523, 
+    "longitude": -71.00459,
+    "type": "Public",
+    "address": "Cafe Maddie",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": -59.71,
+   	   "link":"us/ma/quincy/isv-tony-clam-shop.mp4"
+	},
+	{
+	   "azimuth": 108.11,
+   	   "link":"us/ma/quincy/isv-shore-drive-parking-lot.mp4"
+	}
+    ],
+    "url": "us/ma/quincy/isv-cafe-maddie.mp4"
+  },
+ {
+    "latitude": 42.27468, 
+    "longitude": -71.00205,
+    "type": "Public",
+    "address": "Shore Drive Parking",
+    "town": "Quincy",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 168.53,
+   	   "link":"us/ma/quincy/isv-cafe-maddie.mp4"
+	}
+    ],
+    "url": "us/ma/quincy/isv-shore-drive-parking-lot.mp4"
+  },
+  {
+    "latitude": 42.19443, 
+    "longitude": -70.72527,
+    "type": "Public",
+    "address": "85 Front Street",
+    "town": "Scituate",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": -172.46,
+   	   "link":"us/ma/scituate/isv-front-street-91.mp4"
+	}
+    ],
+    "url": "us/ma/scituate/isv-front-street-85.mp4"
+  },
+  {
+    "latitude": 42.19427, 
+    "longitude": -70.72530,
+    "type": "Public",
+    "address": "91 Front Street",
+    "town": "Scituate",
+    "state": "Massachusetts",
+    "country": "United States",
+    "neighbors": [
+	{
+	   "azimuth": 40.76,
+   	   "link":"us/ma/scituate/isv-front-street-85.mp4"
+	}
+    ],
+    "url": "us/ma/scituate/isv-front-street-91.mp4"
+  }
+]

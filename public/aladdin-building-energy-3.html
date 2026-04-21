@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Aladdin: Energy Analysis for Complex Buildings</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Designing Buildings: Energy Analysis for Complex Buildings</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a> and Xiaotong Ding <a href="mailto:xiaotong@intofuture.org">&#9993;</a>
+
+<p align='center'>
+  <span>Listen to a podcast about this article</span><br>
+  <audio controls>
+    <source src="podcast/complex-building-energy.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+<p>In <a href="aladdin-building-energy-2.html">a previous article</a>, we show you a variety of design factors that affect the heating and cooling energy use of a building. 
+But we use simple buildings in that article as examples. In reality, a building may have a very complex shape, making its energy analysis more complicated. This article will walk you through
+how to analyze the energy consumption of a complex building.
+
+<h5>What is a complex building?</h5>
+
+<p>In Aladdin, a complex building consists of multiple substructures that are assembled to achieve certain architectural effects. 
+Each substructure is "housed" on top of a foundation that can be moved, rotated, or resized for assembly in the three-dimensional space.
+The following image shows an anatomy of a complex house comprising a main structure with a mansard roof, five dormers each with a window on a gable end, and a chimney in the middle of the house.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-complex-building-anatomy.png" width="100%">
+<br>The anatomy of a complex building
+</p>
+
+
+
+<h5>Defining the thermal envelope</h5>
+
+<p>The first step to perform the thermal analysis of a complex building is to define its thermal envelope, which is part of its
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Building_envelope">building envelope</a>. 
+The thermal envelope is the interface via which the building exchanges energy with the outside
+through the three mechanisms of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_transfer">heat transfer</a>: conduction, convection, and radiation.
+In Aladdin, this procedure involves removing surfaces that are not part of the thermal envelope. This is because constructing a complex building in Aladdin may result in extra surfaces 
+that do not belong to the thermal envelope (unfortunately, Aladdin does not provide an automatic surface removal tool at this point). 
+So this procedure has to be done manually with caution (and with an understanding of building science, of course). 
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-complex-building-1-envelope-roof-hole.png" width="100%">
+<br>Creating a hole on the roof for a dormer
+</p>
+
+<p>For example, the intersection area on a roof with a dormer must be subtracted from the roof. This can be done by adding a window to the roof and then setting it to be "Empty," as shown above. 
+If the hole is not rectangular, you may need to use a polygonal window as in this example. 
+In addition, the window should also be set to be "Interior," meaning that it should not be treated as part of the thermal envelope 
+(because Aladdin does allow an empty window to be on the building envelope, so this property is used to instruct Aladdin whether or not a window is open to the outside).
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-complex-building-1-envelope-partial-wall.png" width="100%">
+<br>Creating a partial wall for a dormer
+</p>
+
+<p>The "cheek" walls of a dormer can be formed by using a partial wall shown above. A partial wall in Aladdin is a portion of a full wall that would otherwise go all the way down to the ground.
+
+<p>The chimney can be regarded as part of the thermal envelope if it is in the middle of the house. 
+This is because the walls of the chimney in this case provide heat exchange interfaces with the outside through convection when it is open and 
+through conduction as colder air sinks in during the winter when it is closed. 
+
+
+<h5>Setting up the HVAC system</h5>
+
+<p>The next step is to set up the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning">HVAC system</a> 
+that controls the heating and cooling of the building. In Aladdin, this is to specifiy which parts are controlled by which HVAC systems. 
+In general, you only need one HVAC system for a house. If the house consists of building elements on top of several foundations, 
+you must set the same HVAC ID for all the foundations using their context menus.
+If necessary, you can set up more than one HVAC systems if you would like to have multiple heating/cooling zones for a single building. To have one more HVAC system, just set a different ID.
+When there are multiple HVAC systems, their energy consumptions are calculated and plotted separately in Aladdin.
+
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-complex-building-1-hvac.png" width="100%">
+<br>Setting an HVAC system for the parts above a foundation (the HVAC systems of all the foundations have the same ID 'A' in this case)
+</p>
+
+
+<h5>Performing the energy simulation</h5>
+
+<p>After these steps, we can now perform an energy simulation (either daily or yearly). As you can see from the following graphs, 
+there is only one HVAC system (which is given 'A' as the ID) for this house &mdash; all the computed heating and cooling consumptions of the substructures are added to that HVAC system.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-complex-building-1-energy.png" width="100%">
+<br>Performing a daily energy simulation for a complex house
+</p>
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-complex-building-1-annual-energy.png" width="100%">
+<br>Performing an annual energy analysis for a complex house
+</p>
+
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" 
+href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Mansard%20Roof%20House%20Dormers">HERE</a> 
+to view and edit the above model
+</p>
+</div>
+
+
+<h5>Summary</h5>
+
+<p>This article shows how to analyze the heating and cooling energy consumption of a complex building in Aladdin. For more examples, check out the Examples menu within Aladdin.
+Our next step is to develop algorithms for automatically generating the thermal envelope of a complex building.
+
+
+
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

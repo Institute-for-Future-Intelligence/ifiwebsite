@@ -1,0 +1,219 @@
+.field-name-field-tags select {
+  height: 400px;
+}
+.node-type-project.page-node-edit #field-project-director-overrides-add-more-wrapper > .form-item > .description,
+.node-type-project.page-node-edit #field-experts-overrides-add-more-wrapper > .form-item > .description {
+  color: red;
+}
+
+/* Logo behavior on scroll.
+   Default: show the full logo (with the Institute name) at 120px — the navbar grows to fit it.
+   On scroll (initStickyTopNav() adds .navbar-fixed-top on #navbar, width >= 766px):
+   swap to the compact icon at 36px; navbar shrinks accordingly. */
+header#navbar .logoifi img {
+  width: auto;
+  transition: height 0.25s ease;
+}
+header#navbar .logoifi .logo-default {
+  height: 120px;
+  display: inline-block !important;
+}
+header#navbar .logoifi .logo-sticky {
+  height: 36px;
+  display: none !important;
+}
+header#navbar.navbar-fixed-top .logoifi .logo-default {
+  display: none !important;
+}
+header#navbar.navbar-fixed-top .logoifi .logo-sticky {
+  display: inline-block !important;
+}
+/* The logo-default image already contains "Institute for Future Intelligence" as text,
+   so the separate .name.navbar-brand text element is redundant in the default state —
+   hide it to avoid the "two logos" appearance on mobile. Show it only when the sticky
+   icon (textless) is displayed, where the name would otherwise disappear. */
+header#navbar .name.navbar-brand {
+  display: none !important;
+  margin-left: 12px;
+}
+header#navbar.navbar-fixed-top .name.navbar-brand {
+  display: inline-block !important;
+}
+@media (max-width: 767px) {
+  header#navbar .logoifi .logo-default { height: 60px; }
+}
+
+/* ===== Mobile friendliness pass =====
+   Scoped to .main-container so navbar/footer chrome is unaffected. */
+
+/* Images shrink to fit their container — kills horizontal overflow from width="..." attrs.
+   height: auto is scoped to imgs WITHOUT an HTML height="N" attribute, so inline icons
+   like <img height="20" src="..."> still render at their attribute-set size. */
+.main-container img {
+  max-width: 100%;
+}
+.main-container img:not([height]) {
+  height: auto;
+}
+
+/* Long URLs/words wrap instead of pushing the viewport wider than the screen. */
+.main-container,
+.main-container p,
+.main-container li,
+.main-container td {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Code and preformatted blocks scroll horizontally on long lines. */
+.main-container pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* On phones, tables get their own horizontal scroll and tall iframes cap out to the viewport. */
+@media (max-width: 767px) {
+  .main-container table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .main-container iframe {
+    max-height: 60vh;
+  }
+}
+
+/* Testimonial cards — flag/avatar image beside quote on desktop, stacked on mobile.
+   Replaces the legacy <table>-for-layout pattern on product pages. */
+.testimonials {
+  margin: 20px 0;
+}
+.testimonial {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 10px 0;
+}
+.testimonial-flag {
+  flex: 0 0 150px;
+  width: 150px;
+  max-width: 150px;
+  border: 1px solid gray;
+  height: auto;
+}
+.testimonial-quote {
+  flex: 1;
+  margin: 0;
+  font-size: 13px;
+}
+@media (max-width: 767px) {
+  .testimonial {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .testimonial-flag {
+    flex-basis: auto;
+  }
+}
+
+/* Product-page sidebar. The right-hand nav/links panel on pages like energy2d.html.
+   Boxed look preserved from the legacy inline style; stacks below main on mobile. */
+.product-sidebar {
+  background: white;
+  color: gray;
+  padding: 0 10px 10px 20px;
+}
+
+/* Tighten the gap between the navbar/banner and the page <h1>. Default was 60px top margin. */
+.main-container .page-header {
+  margin-top: 30px;
+}
+
+/* Zero the top margin of the first content element in each page's body (usually the
+   title <h4>), but only on narrow viewports where the navbar is close above the content.
+   Desktop keeps the default heading margin so there's breathing room from the banner. */
+@media (max-width: 991px) {
+  .main-container .field-item > :first-child {
+    margin-top: 0;
+  }
+}
+
+/* Mobile: the body.front rule in first.css gives .field-name-body (inside .region-content)
+   a 40px top margin and 40px side margin. Override for the homepage where it applies. */
+@media (max-width: 767px) {
+  body.front .main-container .region-content .field-name-body.field-type-text-with-summary {
+    margin: 0 0 40px 0 !important;
+  }
+}
+
+/* Hide the empty top-bar-full wrapper that only the homepage actually fills with a promo image.
+   On every other page (aims, aladdin, energy2d, etc.) this div is empty but still contributes
+   vertical spacing via its own styling + my earlier margin-top rule. */
+.top-bar-full:not(:has(.promo-image)) {
+  display: none;
+}
+
+/* Hide the empty <header role="banner" id="page-header"> — it's a Drupal template artifact
+   that never has content on this site. Contributes nothing visually but may contribute spacing. */
+header#page-header:empty {
+  display: none;
+}
+
+/* Bootstrap .navbar has margin-bottom: 30px by default — that's the wide white band below
+   the banner on mobile. Zero it on mobile so the content sits right under the navbar. */
+@media (max-width: 767px) {
+  header#navbar.navbar {
+    margin-bottom: 0;
+  }
+}
+
+/* When col-md-* columns stack on narrow viewports, restore side padding that the
+   parent .row.no-gutters strips away. On desktop the sidebar provides visual spacing;
+   on mobile the stacked col-md-8 needs its own padding so content doesn't sit flush
+   against the screen edge. */
+@media (max-width: 991px) {
+  .main-container .row.no-gutters > [class*="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Mobile heading scale. The default sizes in first.css (72/56/48/32/24px) are
+   designed for large desktop screens and overwhelm a ~360px phone. Scale down roughly 2x. */
+@media (max-width: 767px) {
+  .main-container h1 { font-size: 32px; line-height: 38px; margin: 0 0 20px; }
+  .main-container h2 { font-size: 26px; line-height: 32px; margin: 30px 0 20px; }
+  .main-container h3 { font-size: 22px; line-height: 28px; margin: 28px 0 16px; }
+  .main-container h4 { font-size: 20px; line-height: 26px; margin: 28px 0 16px; }
+  .main-container h5 { font-size: 18px; line-height: 24px; margin: 24px 0 12px; }
+  .main-container h6 { font-size: 16px; line-height: 22px; margin: 20px 0 10px; }
+  /* Homepage hero title is a separate override in first.css (60px on mobile) — further shrink. */
+  body.front .page-header-wrap h1.page-header {
+    font-size: 40px;
+    line-height: 46px;
+  }
+  /* News block heading ("News") uses .block-title; the scaling above covers it if it's an h2,
+     but cover the sidebar block titles too in case they use different levels. */
+  .block-title { font-size: 24px; line-height: 30px; }
+  /* Homepage article section paragraphs default to 24px/40px (first.css line 14073).
+     That's a headline-sized body text on a ~360px phone — scale down to readable.
+     !important because first.css loads after ifi_theme.css and has matching specificity. */
+  body.front .main-container .region-content .field-name-body.field-type-text-with-summary p {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+  /* Keep the promo title overlaid on the banner image (the original design), but add a gap
+     between the navbar and the banner image, and shrink the 80px desktop font so it fits. */
+  body.front .top-bar-full {
+    margin-top: 20px;
+  }
+  body.front .block-homepage-header-images .promo-sp-body-wrap .promo-sp-body-inner-wrap .promo-sp-body,
+  body.front .block-homepage-header-images-sp .promo-sp-body-wrap .promo-sp-body-inner-wrap .promo-sp-body {
+    font-size: 32px !important;
+    line-height: 38px !important;
+    left: 20px !important;
+    right: 20px !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%);
+  }

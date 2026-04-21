@@ -1,0 +1,45 @@
+# The URL from which the client is downloaded
+appbase = https://intofuture.org/jaladdin/update/
+allow_offline = true
+
+# UI Configuration
+ui.name = Aladdin
+ui.progress = 2, 2, 500, 22
+
+# Application jar files
+code = aladdin.jar
+code = lib/getdown.jar
+code = lib/samskivert.jar
+code = lib/ardor3d/ardor3d-animation.jar
+code = lib/ardor3d/ardor3d-awt.jar
+code = lib/ardor3d/ardor3d-collada.jar
+code = lib/ardor3d/ardor3d-core.jar
+code = lib/ardor3d/ardor3d-effects.jar
+code = lib/ardor3d/ardor3d-jogl-awt.jar
+code = lib/ardor3d/ardor3d-jogl.jar
+code = lib/ardor3d/ardor3d-math.jar
+code = lib/ardor3d/ardor3d-savable.jar
+code = lib/ardor3d/ardor3d-extras.jar
+code = lib/freetts/cmu_time_awb.jar
+code = lib/freetts/cmu_us_kal.jar
+code = lib/freetts/cmudict04.jar
+code = lib/freetts/cmulex.jar
+code = lib/freetts/cmutimelex.jar
+code = lib/freetts/en_us.jar
+code = lib/freetts/freetts.jar
+code = lib/freetts/freetts-jsapi10.jar
+code = lib/freetts/mbrola.jar
+code = lib/freetts/jsapi.jar
+code = lib/jogl/gluegen-rt.jar
+code = lib/jogl/jogl-all.jar
+resource = [windows] lib/jogl/native/windows-32/gluegen-rt.dll
+resource = [windows] lib/jogl/native/windows-32/jogl_desktop.dll
+resource = [windows] lib/jogl/native/windows-32/nativewindow_awt.dll
+resource = [windows] lib/jogl/native/windows-32/nativewindow_win32.dll
+resource = [mac os x] lib/jogl/native/mac-universal/libgluegen-rt.jnilib
+resource = [mac os x] lib/jogl/native/mac-universal/libjogl_desktop.jnilib
+resource = [mac os x] lib/jogl/native/mac-universal/libnativewindow_awt.jnilib
+resource = [mac os x] lib/jogl/native/mac-universal/libnativewindow_macosx.jnilib
+
+# The main entry point for the application
+class = org.aladdin.util.UpdateStub

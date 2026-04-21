@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>On the Reliability of AI-Generated Molecules and Their Properties</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+
+    <script>
+    function openFullscreen1() {
+      var elem = document.getElementById("aims-frame1");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
+    <script>
+    function openFullscreen2() {
+      var elem = document.getElementById("aims-frame2");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
+    <script>
+    function openFullscreen3() {
+      var elem = document.getElementById("aims-frame3");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
+
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>On the Reliability of AI-Generated Molecules and Their Properties</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a> and Xiaotong Ding <a href="mailto:xiaotong@intofuture.org">&#9993;</a>
+
+
+<p><a href="aims.html">Back to AIMS home page</a>
+
+<!--
+<p align='center'>Watch an AI-generated video about this article
+<br>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/SZwkLvUj8rA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+-->
+
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Generative_artificial_intelligence">Generative AI</a> (GenAI) provides a new way to gather molecular information other than
+searching in databases of molecules such as <a target="_blank" rel="noopener noreferrer" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>.
+In this article, we compare the GenAI results of some molecules with the curated information in AIMS of those molecules based on data downloaded from PubChem.
+Our conclusion is that the generated structures and properties agree reasonably well with the PubChem data in these test cases overall, though some generated properties exhibit a larger deviation from the actual data.  
+The GenAI model used to generate molecules in this article is based on OpenAI's <a target="_blank" rel="noopener noreferrer" href="https://openai.com/index/introducing-o3-and-o4-mini/">o4-mini</a>. 
+
+<p>Our custom prompts are all very simple, such as "Give me a benzene molecule." Behind the scenes, AIMS adds additional prompts to ensure GenAI return the data it needs and understands. 
+The AI memory is disabled in the Gallery Settings of AIMS so that each molecule is independently generated. The molecules for comparison in the Gallery are imported directly from the built-in database of AIMS,
+which contains hundreds of molecules and their properties collected from PubChem and other sources. One way to quickly tell which molecule is generated by AI and which is not is to see if there is a spark icon
+at the lower-left corner of the window in which the molecule is displayed. If a spark icon is there, that molecule is generated by AI.
+
+
+<h5>Test case: Acenes</h5>
+
+<p>We select <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Acene">acenes</a> 
+as the first test case in this article. The live windows (i.e., windows in which you can interact directly with the molecules and their data) are provided below for you to explore on your own.
+One main difference is that the PubChem data adopts the 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/August_Kekul%C3%A9">Kekulé structure</a> with alternating 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Double_bond">double</a> and 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Single_bond">single</a> bonds for the 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Simple_aromatic_ring">aromatic rings</a> whereas the results from GenAI tend to represent the rings with a circle depicting the 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Delocalized_electron">delocalized electrons in the molecular orbitals</a>. 
+The latter is a more accurate quantum mechnical view of chemical bonds in aromatic rings.
+
+<p>You can use the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Visual_analytics">visual analytics</a> 
+supported in the Gallery to examine the differences between the generated chemical and physical properties and the actual data displayed in the 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parallel_coordinates">parallel coordinate plot</a>
+below the molecules. For example, the following screenshot shows that, after we select only the two benzene molecules in the Gallery, 
+the parallel coordinate plot clearly reveals that the generated properties of benzene agrees with the actual data for all but one property ("complexity").
+
+<p align="center" style="font-size: 14px">
+<img src="image/aims-compare-benzene.png" width="100%" style="border: 1px solid #888; box-shadow: 3px 3px #444;">
+<br>Screenshot: Select only the two benzene molecules in the Gallery
+</p>
+
+<p>We have a similar degree of success with AI for naphthalene and anthracene, but are not as lucky when it comes to tetracene and higher acenes.  
+It turns out that the generated properties of tetracene agree with the actual data for hydrogen bond donor and acceptor count, rotable bond count, and polar surface area (these are more predictable) 
+and disagree to some extent for other properties such as logP, density, melting point, and boiling point (these are less predictable), as shown in the following screenshot. Similar problems exist for higher acenes. 
+This is probably because there are fewer data for training AI in the case of higher acenes. To give AI some credit, the generated properties are not completely off the scale in most cases.
+For example, the melting point and boiling point of octacene generated by AI are 350°C and 650°C, respectively, compared with the actual data 298°C and 745°C.
+
+
+<p align="center" style="font-size: 14px">
+<img src="image/aims-compare-tetracene.png" width="100%" style="border: 1px solid #888; box-shadow: 3px 3px #444;">
+<br>Screenshot: Select only the two tetracene molecules in the Gallery
+</p>
+
+
+<p>You can also drag the molecules from the Gallery to the Reaction Chamber on the right to have a side-by-side comparison of their structures in a larger workspace that is equipped with more analytical tools.
+
+
+
+<p>The following live window is the comparison between the GenAI results and the PubChem data for benzene (C₆H₆), naphthalene (C₁₀H₈), anthracene (C₁₄H₁₀), and tetracene (C₁₈H₁₂).
+While the bond lengths and angles of the generated molecules seem close to the actual data, one common glitch is that GenAI sometimes get the positions of a few hydrogen atoms wrong.
+
+<p align="center">
+<iframe 
+src="https://institute-for-future-intelligence.github.io/aims/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=AI%20vs%20PubChem" 
+allowfullscreen="true" 
+id="aims-frame1"
+width="100%" 
+height="640px" 
+style="border: 1px solid #555; box-shadow: 4px 4px #888;"
+title="Demo1">
+</iframe>
+Live window above (<a href="javascript:openFullscreen1();">view in full screen</a>) <font size="2">&mdash; Chrome or Edge recommended</font>
+</p>
+
+<p>The following live window is the comparison between the GenAI results and the PubChem data for four higher acenes: pentacene (C₂₂H₁₄), hexacene (C₂₆H₁₆), heptacene (C₃₀H₁₈), and octacene (C₃₄H₂₀).
+Unlike the four acenes above, three of these four generated molecules do not have the correct type of aromatic ring bonding (represented by either the Kekulé structure or a circle) &mdash; all of their
+carbon atoms are connected by single bonds.
+
+<p align="center">
+<iframe 
+src="https://institute-for-future-intelligence.github.io/aims/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=AI%20vs%20PubChem%20Higher%20Acenes" 
+allowfullscreen="true" 
+id="aims-frame2"
+width="100%" 
+height="640px" 
+style="border: 1px solid #555; box-shadow: 4px 4px #888;"
+title="Demo2">
+</iframe>
+Live window above (<a href="javascript:openFullscreen2();">view in full screen</a>) <font size="2">&mdash; Chrome or Edge recommended</font>
+</p>
+
+
+<h5>Test case: Hexachlorobenzene</h5>
+
+
+<p>To further investigate the reliability of AI for predicting the properties of the generated molecules, we choose 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hexachlorobenzene">hexachlorobenzene</a> (C₆Cl₆) as another test case.
+The following live window is the comparison between the GenAI results and the PubChem data for hexachlorobenzene. We asked AI to create the molecule seven times (again, AI memory is disabled in this case 
+so that the result can be independently created each time to avoid potential <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Propagation_of_uncertainty">propagation of error</a>). 
+
+
+<p align="center">
+<iframe 
+src="https://institute-for-future-intelligence.github.io/aims/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Hexachlorobenzene%20AI%20vs%20Actual" 
+allowfullscreen="true" 
+id="aims-frame3"
+width="100%" 
+height="640px" 
+style="border: 1px solid #555; box-shadow: 4px 4px #888;"
+title="Demo3">
+</iframe>
+Live window above (<a href="javascript:openFullscreen3();">view in full screen</a>) <font size="2">&mdash; Chrome or Edge recommended</font>
+</p>
+
+<p>Judging from the 3D views displayed in the Gallery, the generated structures seem to agree with the actual structure each time (with the exception of bond type). 
+As the parallel coordinate plot may distort the view of difference due to the range settings, we export the numeric results of the properties and copy them below.
+
+<pre>
+<b>Name	                   logP	  Complexity  	Density	 Melting Point	Boiling Point</b>
+<i>Hexachlorobenzene	   5.47	  104		2.04	 228.83		325</i>	 
+AI: 12xachlorobenzene	   5.18	  32.8		1.681	 238		330	 
+AI: 12xachlorobenzene 1	   5.6	  23.7		1.68	 230		350	 
+AI: 12xachlorobenzene 2	   5.13	  47.5		1.689	 231		323	 
+AI: 12xachlorobenzene 3	   5.3	  27.2		1.56	 228		346	 
+AI: 12xachlorobenzene 4	   5.73	  31.7		1.622	 231		344	 
+AI: 12xachlorobenzene 5	   5.73	  34.1		1.65	 234		374	 
+AI: 12xachlorobenzene 6	   5.18	  67		1.88	 231.6		344.3	 
+</pre>
+
+<p>As you can see from the above list, the properties generated by AI are different each time. Despite this, all but one of them are pretty close to the actual data (the row in italics). 
+As is with the case of acenes, we see the largest difference in the property "Complexity," presumably because the word is too overloaded.
+
+
+
+<h5>Conclusion</h5>
+
+<p>The test cases chosen in this article involve relatively simple molecules that have been well-studied and well-documented in organic chemistry. 
+Most of the molecular structures and properties generated by AI agree reasonably well with the PubChem data in these test cases.
+Further tests beyond these simple molecules are needed to establish the overall reliability of the GenAI approach.
+
+ 
+
+<p><a href="aims.html">Back to AIMS home page</a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

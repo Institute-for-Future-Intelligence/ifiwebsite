@@ -1,0 +1,49 @@
+/tmp
+/out-tsc
+
+/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.pnp
+.pnp.js
+
+.vscode/*
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+
+# Binary media — too large for GitHub (repo is ~5 GB of mp4/mp3 otherwise).
+# These still deploy to Firebase from your local public/ directory;
+# Firebase Hosting uploads from disk, not from git.
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.wmv
+*.flv
+*.mp3
+*.m4a
+*.wav
+*.aac
+*.ogg
+*.vir
+
+# App installers / binaries
+*.apk
+*.exe
+*.jar
+*.dmg
+*.deb
+*.rpm
+
+# Design / source files
+*.psd
+*.ai
+*.sketch
+*.pptx
+
+# Source maps (can be large, not needed in repo)
+*.js.map

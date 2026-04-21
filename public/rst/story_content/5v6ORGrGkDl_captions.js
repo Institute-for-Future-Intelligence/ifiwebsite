@@ -1,0 +1,1 @@
+window.globalLoadJsAsset('story_content/5v6ORGrGkDl_captions.js', {"captions":[{"langCode":"en","data":"WEBVTT%0D%0A%0D%0ANOTE%0D%0AKind:%20captions%0D%0ASource:%20Articulate%20Closed%20Captions%20Editor%0D%0ASource%20Version:%203.100.34725.0%0D%0A%0D%0A00:00:00.096%20--%3E%2000:00:02.496%0D%0ACan%20you%20explain%20what%20a%20conflict%20of%20commitment%20is?%20%0D%0A%0D%0A"}]})

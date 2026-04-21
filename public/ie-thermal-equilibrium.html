@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Visualizing Thermal Equilibration: Experiment vs. Simulation</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Visualizing Thermal Equilibration: Experiment vs. Simulation</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
+
+<p><a href="ie.html">Back to Infrared Explorer home page</a>
+
+<p align='center'>
+  <span>Listen to a podcast about this article</span><br>
+  <audio controls>
+    <source src="podcast/thermal-equilibration.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+
+<p>A simple experiment to show <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_equilibrium">thermal equilibration</a> 
+is to put a small Petri dish filled with some hot or cold water into a larger one filled with tap water around room temperature, 
+as illustrated in Figure 1. Then put a thermometer into the inner dish and another into the outer dish, take their readings over time, and observe how they eventually converge.
+</p>
+
+
+<p align="center" style="font-size: 14px">
+<img src="image/ie-thermal-equilibrium-illustration.png">
+<br>Figure 1: A Petri dish experiment of thermal equilibrium
+</p>
+
+<p>With a low-cost thermal camera and our Infrared Explorer app, this experiment becomes more visually appealing (Figure 2). 
+As a thermal camera provides a full-field view of the experiment in real time, you get much richer information about the process than a graph of two converging curves 
+from the temperature data measured by the two thermometers.
+
+<p align="center" style="font-size: 14px">
+<img src="image/ie-thermal-equilibrium-ir-images.png">
+<br>Figure 2: Thermal imaging snapshots over time
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" href="https://telelab2.intofuture.org/clip/608620fad530c10022650bac">HERE</a> for an interactive exploration on Telelab
+</p>
+</div>
+<br>
+
+
+<p>The complete equilibration process typically takes 10–30 minutes, depending on the initial temperature difference between the water in the two dishes and the 
+amount of water in the inner dish. A larger temperature difference or a larger amount of water in the inner dish requires more time to reach the thermal equilibrium.
+
+<p>Another way to quickly show this process is to use <a href="energy2d.html">our Energy2D software</a> to create a computer simulation (Figure 3). Such a simulation provides a visualization 
+that resembles the thermal imaging result. The advantage is that a simulation runs very fast — only 10 seconds or so are needed to reach the thermal equilibrium. 
+This allows you to test various conditions rapidly, e.g., changing the initial temperature of the water in the inner dish or the outer dish or changing the diameters of the dishes.
+
+<p align="center" style="font-size: 14px">
+<img src="image/ie-thermal-equilibrium-energy2d-images.png">
+<br>Figure 3: Energy2D simulation snapshots over time
+</p>
+
+<p>Both real-world experiments and computer simulations have their own pros and cons. Exactly which one to use depends on your situation. 
+As a scientist, I believe nothing beats real-world experiments in supporting authentic science learning and we should always favor them whenever possible. 
+However, conducting real-world experiments requires a lot of time and resources, which makes it impractical to implement throughout a course. 
+Computer simulations provide an alternative solution that allows students to get a sense of real-world experiments without entailing the time and cost. 
+But the downside is that a computer simulation, most of the time, is an overly simplified scientific model that does not have the many layers of complexity 
+and the many types of interactions that we experience in reality. In a real-world experiment, there are always unexpected factors and details that need to be attended to. 
+It is these unexpected factors and details that create genuinely profound and exciting teachable moments. This important nature of science is severely missing in computer simulations, 
+even with a sophisticated computational fluid dynamics tool such as Energy2D. 
+
+<p>So, here is my balancing of this trade-off equation: It is essential for students to learn simplified scientific models before they can explore complex real-world situations. 
+The models will give students the frameworks needed to make sense of real-world observation. A fair strategy is to use simulations to teach simplified models 
+and then make some time for students to conduct experiments in the real world and learn how to integrate and apply their knowledge about the models to solve real problems. 
+
+<p>You may be wondering how well the simulation result agrees with the experiment result on a quantitative basis. This is kind of an important question — 
+If the simulation is not a good approximation of the real-world process, it is not a good simulation and one may challenge its usefulness, even for learning purposes.
+
+<p align="center" style="font-size: 14px">
+<img src="image/ie-thermal-equilibrium-time-graph.png">
+<br>Figure 4: Comparing experimental and simulation results
+</p>
+
+<p>Figure 4 shows a comparison of a test run. As you can see, the while the result predicted by Energy2D agrees in trend with the results observed through thermal imaging, 
+there are some details in the real data that may be caused by either human errors in taking the data or thermal fluctuations in the room. 
+What is more, after the thermal equilibrium was reached, the water in both dishes continued to cool down to room temperature and then below due to evaporative cooling. 
+The cooling to room temperature was modeled in the Energy2D simulation through a thermal coupling to the environment but evaporative cooling was not. 
+This is exactly the problem of simulations &mdash; they do not (and cannot) take every factor in the real world into account.
+
+
+
+
+
+<p><a href="ie.html">Back to Infrared Explorer home page</a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

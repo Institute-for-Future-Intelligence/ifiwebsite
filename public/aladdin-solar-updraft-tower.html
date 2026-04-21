@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Aladdin: Modeling and Designing Solar Updraft Towers</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+
+    <script>
+    function openFullscreen() {
+      var elem = document.getElementById("aladdin-frame");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
+
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Modeling and Designing Solar Updraft Towers in Aladdin</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+<p align='center'>
+  <span>Listen to a podcast about this article</span><br>
+  <audio controls>
+    <source src="podcast/solar-updraft-tower.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+
+<p>In addition to <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Photovoltaics">photovoltaic</a> 
+and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Concentrated_solar_power">concentrated</a> solar power,
+Aladdin can also be used to model and design other types of solar power. 
+In this article, I will show you how you can model <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Solar_updraft_tower">solar updraft towers</a>
+(not to be confused with smaller <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Solar_chimney">solar chimneys</a> used in green buildings). 
+A solar updraft tower uses rising hot air heated by solar energy to drive a turbine to generate electricity. If air is heated through 
+an airtight collector (like a giant greenhouse) and vented via a tall chimney, this kind of solar power plant can generate considerable electricity 
+while preventing dust storms if it is built in a desert or controlling 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Microclimate">microclimate</a> if it is 
+<a target="_blank" rel="noopener noreferrer" href="http://sigus.scripts.mit.edu/x/files/IAP2016/SOLARTOWERCITYREPORT(Design).pdf">built in a city</a>.
+For example, solar updraft towers may reduce urban heat islands or improve air quality by accelerating the air flow in a city &mdash; while quietly generating clean electricity to power the city.
+An Aladdin model of several solar updraft towers is embedded as follows for you to see how they look like. These models do not contain details such as the turbine engines at the inlet of the
+chimney and the supporting structures under the collector roof.
+
+<p align="center">
+<iframe 
+src="https://institute-for-future-intelligence.github.io/aladdin/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Four%20Solar%20Updraft%20Towers" 
+allowfullscreen="true" 
+id="aladdin-frame"
+width="100%" 
+height="600px" 
+style="border: 1px solid #555; box-shadow: 4px 4px #888;"
+title="Four solar updraft towers">
+</iframe>
+Live model above (<a href="javascript:openFullscreen();">view in full screen</a>)
+</p>
+
+<p>The design of a solar updraft tower involves deciding the size and height of the collector (greenhouse), as well as the size and height of the chimney. Both the collector
+and the chimney are assumed to be roundish by default, but they can take any shape to fit the landscape. In the future, we are interested in integrating this kind of green energy solutions
+into architectual and urban design and simulation. For now, let's examine these simple design factors first without considering the integration with architecture.
+
+<h5>Animating the operation of a solar updraft tower</h5>
+
+<p>First of all, let's see how a solar updraft tower works during a day through an animation.
+A solar updraft tower requires no additional power source except the sun. When the sun is out, cool air is drawn into the collector from its edge inlets, 
+warmed up within it, and vented through a chimney (which is usually positioned at the center of the collector). 
+This flow of air continues until the sun sets (even after that if there is enough thermal mass inside the collector to hold the heat longer into the evening).
+This air flow is visualized below as streamlines. 
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-solar-updraft-tower.gif" width="100%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br><br>Animating the daily operation of a solar updraft tower
+</p>
+
+<p>During the day, the chimney inevitably casts a long shadow that sweeps across the top surface of the collector as the sun moves across the sky, 
+reducing the energy input as shown in the following heatmap.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-solar-updraft-tower-heatmap.png" width="100%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br><br>A heatmap on the collector showing the shadowing effect of the chimney
+</p>
+
+<h5>The effect of the chimney height</h5>
+
+<p>The following Aladdin model has two towers that have identical collector size but different chimney heights. The movement of air through a chimney is known as
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stack_effect">the stack effect</a>. The generated wind speed is roughly described by
+the following formula:
+
+<p align="center"><i>v</i> = √[2<i>gH</i>(<i>T</i><sub>i</sub>/<i>T</i><sub>0</sub>-1)]</p>
+
+<p>where <i>v</i> is the wind speed (the rate of the air flow), <i>g</i> is the gravitational acceleration, <i>H</i> is the height of the chimney,
+<i>T</i><sub>i</sub> is the air temperature at the inlet of the chimney, and <i>T</i><sub>0</sub> is the ambient air temperature outside the collector.
+This relationship suggests that the taller the chimney is, the more electricity the power plant generates. This is the reason why chimneys taller than or close to 1,000 meters
+have been proposed according to <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Solar_updraft_tower">Wikipedia</a>.
+In comparison, Burj Khalifa in Dubai, currently the tallest building in the world, has a height of 828 meters (2,717 feet).
+
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-solar-updraft-tower-chimney-height.png" width="100%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br><br>The effect of the chimney height
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" 
+href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Chimney%20Height">HERE</a> 
+to view and edit the above model
+</p>
+</div>
+
+
+
+<h5>The effect of the collector size</h5>
+
+<p>A larger collector provides more energy to build up air pressure that drives the stack effect.
+The simulation in Aladdin also takes into account of the heat losses due to thermal convection and radiation from the roof surface of the collector so that 
+a larger collector also loses more energy through heat transfer processes. 
+The following model has two towers that have identical chimney height but different collector sizes. 
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-solar-updraft-tower-collector-radius.png" width="100%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br><br>The effect of the collector radius
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" 
+href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Collector%20Radius">HERE</a> 
+to view and edit the above model
+</p>
+</div>
+
+<h5>Discussion</h5>
+
+<p>It is interesting to note that, despite the fact the ambient air temperature usually reaches the peak in the afteroon, the maximum power output may actually occur before or around noon.
+This is because the air outside the collector is still cool in the late morning, resulting in a greater temperature difference between the inside and outside air and hence a stronger stack effect. 
+In addition, while the ambient air temperature approaches the peak in the afternoon, the solar irradiance starts to decrease from the peak at noon. 
+This is shown in the images below where the hourly energy outputs, the inside and outside air temperatures, and the wind speed at the chimney inlet are plotted. 
+The dashed line represents the ambient temperature outside the collector.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-solar-updraft-tower-output-winter.png" width="48%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 5px">
+<img src="image/aladdin-solar-updraft-tower-output-summer.png" width="48%" style="border: 2px solid #555; box-shadow: 2px 2px #888;">
+<br><br>The simulation results for the Manzanares Solar Updraft Tower on January, 8 and July, 8
+</p>
+
+<p>How accurate is an Aladdin simulation of a solar updraft tower? The following two images compare the yearly outputs predicted by Aladdin and the outputs measured 
+at the Manzanares Solar Updraft Tower in Spain (which has been decommissioned). 
+Note that the yearly output graph in Aladdin shows the monthly totals, whereas the measured results show the average daily totals of the months
+(we just need to multiply them by 30 or so to get the monthly totals). The measured data are from 
+<a target="_blank" rel="noopener noreferrer" href="https://architecture.mit.edu/sites/architecture.mit.edu/files/attachments/lecture/SolarUpdraftTower_Project.pdf">a report</a> 
+by Schlaich Bergermann Solar GmbH in Stuttgart, Germany.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-solar-updraft-tower-output-yearly-predicted.png" width="48%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 5px">
+<img src="image/aladdin-solar-updraft-tower-output-yearly-measured.png" width="48%" style="border: 2px solid #555; box-shadow: 2px 2px #888;">
+<br><br>The yearly outputs of the Manzanares Solar Updraft Tower as predicted by Aladdin and measured on site
+</p>
+
+<p>Let's conclude this article by imagining how a solar power tower can be integrated into a city square.
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-solar-updraft-tower-city.png" width="100%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
+<br><br>The future: solar updraft towers in cities?
+</p>
+
+
+
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

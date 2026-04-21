@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Aladdin: Generative Design of Concentrated Solar Power</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Generative Design of Concentrated Solar Power</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+<p>From a computational point of view, design is about choosing parameters. All the independent parameters available for tweak form the basis of the 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Feasible_region">solution space</a>, 
+with each parameter mapping to a dimension. The ranges in which the parameters are allowed to change sets the volume of the feasible region of the solution space 
+where the designer is supposed to search. This idea leads to 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parametric_design">parametric design</a> that converts manual procedures into computational procedures 
+for varying the parameters in order to automatically generate a variety of designs and speed up the search. 
+Once such computational procedures are created, designers can execute them on computers to easily produce new solutions by tuning the parameters &mdash; 
+without having to repeat the entire manual procedures step by step. This methodology of using computational procedures to shape designs has been promoted as 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parametricism">parametricism</a> in modern architecture.
+
+<p>Parametricism lets designers produce many solutions with ease, but the producing computer does not evaluate and select those artifacts. 
+If the selection is driven by artificial intelligence (AI) such as a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Genetic_algorithm">genetic algorithm</a>, 
+the computer will also be able to spontaneously evolve the designs towards one or more objectives, 
+taking some burden of analysis off the designers. In this case, parametric design becomes <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Generative_design">generative design</a>. 
+When the objectives are performance-based such as the output of a solar power plant 
+or the energy efficiency of a building, generative design requires the integration of structure formation (<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computer-aided_design">CAD</a>) 
+and function evaluation (<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computer-aided_engineering">CAE</a>). When manufacturability becomes an objective, 
+generative design must also incorporate constraints from <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computer-aided_manufacturing">computer-aided manufacturing (CAM)</a> software. 
+As <a target="_blank" rel="noopener noreferrer" href="http://www.bbc.com/future/story/20181129-the-ai-transforming-the-way-aircraft-are-built">BBC reported</a>, 
+generative design has been considered by many as one of the most important breakthroughs in engineering technology in recent times.
+
+
+<center>	
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/ung8kG8FCqs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<p align="center" style="font-size: 14px">The animation of a generative design process of a heliostat field within an area of 75m×75m for a hypothetical solar tower in Arizona.
+
+<p>In this article, we use the design of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heliostat">heliostat</a> field of 
+a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Solar_power_tower">concentrated solar power plant</a> (CSP) as an example to illustrate how generative design may be used to 
+search for optimal designs in engineering practice based on the Aladdin software. We recorded a screencast video that used the daily total output of such a power plant on June 22 
+as the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Loss_function">objective function</a> 
+to simplify the calculation and demonstrate the idea. The evaluation and ranking of different solutions in real-world applications 
+must use the annual output or profit as the objective function. For the purpose of demonstration, the simulations that we have run for writing this article were all based on a coarse grid 
+(only four points per heliostat) and a large time step (only once per hour for solar radiation calculation). In real-world applications, a much more fine-grained grid 
+and a much smaller time step should be used to increase the accuracy of the calculation of the objective function.
+
+<p>Heliostat fields can take many forms (the <a target="_blank" rel="noopener noreferrer" href="http://www.powerfromthesun.net/Book/chapter10/chapter10.html">radial stagger layout</a> 
+with different heliostat packing density in multiple zones seems to be the dominant one). 
+A naïve idea is to treat the coordinates of every heliostat as independent parameters and use a genetic algorithm to find the optimal coordinates for all the heliostats. 
+In principle, there is nothing wrong with this approach. In reality, however, the algorithm tends to generate a lot of heliostat layouts that appear to be random distributions 
+(later on, we realized that the problem is as challenging as <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Protein_folding">protein folding</a> 
+if you know what it is &mdash; when there are a lot of heliostats, there are just too many local optima 
+that can easily trap a genetic algorithm to the extent that it would probably never find the global optimum within the computational time frame that we can imagine). 
+While a “messy” layout might in fact generate more electricity than a “neat” one, it is highly unlikely that a serious engineer would recommend such a solution 
+and a serious manager would approve it, especially for large projects that cost hundreds of million of dollars to construct. For one thing, a seemingly stochastic distribution 
+would not present the beauty of the Ivanpah Solar Power Facility through the lens of the famed photographers like 
+<a target="_blank" rel="noopener noreferrer" href="http://www.forwardthinkingmuseum.com/exhibitions/solo_stillings2_01.php">Jamey Stillings</a>.
+
+<p align="center" style="font-size: 14px">
+<img width="50%" src="image/gd-csp-1.png">
+<br>Figure 1. A parametric model of the sunflower.
+</p>
+
+<p>To reduce the extremely high-dimensional problem into something tractable, we chose a biomimetic approach proposed by 
+<a target="_blank" rel="noopener noreferrer" href="https://www.sciencedirect.com/science/article/pii/S0038092X11004373?via%3Dihub">Noone, Torrilhon, and Mitsos</a> 
+in 2012 based on using <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fermat%27s_spiral">Fermat’s spiral</a> 
+as the template to dramatically narrow down the solution space. The Fermat spiral can be expressed as a simple parametric equation, which in its discrete form has only two parameters: 
+a divergence parameter <i>β</i> that specifies the angle the next point should rotate and a radial parameter <i>b</i> that specifies how far the first point should be away from the origin, as shown in Figure 1.
+
+<p>When <i>β</i> = 137.508° (<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Golden_angle">the golden angle</a>), 
+we arrive at Vogel’s model that shows the pattern of florets like the ones we see in sunflowers and daisies (Figure 1). 
+Before using a genetic algorithm, we first explored the design possibilities manually by using the spiral layout manager in Aladdin. 
+Figure 2 shows some of the generated patterns that appear to be sufficiently distinct. These patterns may give us some ideas about the solution space.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/generated-solar-fields.png">
+<br>Figure 2: Possible heliostat field patterns based on Fermat’s spiral (not necessarily optimal).
+</p>
+
+<p>We then used the standard genetic algorithm to find a viable solution. In this study, we allowed only four parameters to change: the divergence parameter <i>β</i>, 
+the width and height of the heliostats (which affect the radial parameter <i>b</i> because there should be enough room to prevent the overlap of heliostats in the radial direction), 
+and the radial expansion ratio (the degree to which the radial distance of the next heliostat should be relative to that of the current one in order to evaluate how much the 
+packing density of the heliostats should decrease with respect to the distance from the tower).
+
+<p>Figure 3 shows the result after evaluating 200 different patterns, which seems to have converged to the sunflower pattern. The corresponding divergence parameter <i>β</i> 
+was found to be 139.215°, the size of the heliostats to be 4.63m×3.16m, and the radial expansion ratio to be 0.0003. Note that the difference between <i>β</i> and the golden angle 
+cannot be used alone as the criterion to judge the resemblance of the pattern to the sunflower pattern as the distribution also depends on the size of the heliostat, which affects the parameter <i>b</i>.
+
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/gd-csp-2.png">
+<br>Figure 3: The result of a standard genetic algorithm.
+</p>
+
+<p>We also tried the micro genetic algorithm implemented in Aladdin. Figure 4 shows the best result after evaluating 200 patterns, which looks quite similar to Figure 3 but performs slightly less. 
+The corresponding divergence parameter <i>β</i> was found to be 132.600°, the size of the heliostats to be 4.56m×3.17m, and the radial expansion ratio to be 0.00033.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/gd-csp-3.png">
+<br>Figure 4: The result of a micro genetic algorithm.
+</p>
+
+<p>In conclusion, genetic algorithms can generate results similar to the sunflower pattern for the heliostat field layout of a concentration solar power plant, 
+if we narrow the solution space to the class of Fermat’s spiral. We also realize that an exhaustive search in a full solution space with the coordinates 
+of every heliostat subject to change is probably too computationally expensive to be practical. Therefore, generative design should use 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Dimensionality_reduction">dimensionality reduction</a> 
+to simplify a high-dimensional problem into a form solvable within a reasonable amount of time.
+
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

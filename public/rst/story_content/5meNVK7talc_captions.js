@@ -1,0 +1,1 @@
+window.globalLoadJsAsset('story_content/5meNVK7talc_captions.js', {"captions":[{"langCode":"en","data":"WEBVTT%0D%0A%0D%0ANOTE%0D%0AKind:%20captions%0D%0ASource:%20Articulate%20Closed%20Captions%20Editor%0D%0ASource%20Version:%203.100.34725.0%0D%0A%0D%0A00:00:00.000%20--%3E%2000:00:03.216%0D%0AI%E2%80%99m%20Dr.%20Fatima%20Kiani,%20an%20associate%20professor.%0D%0A%0D%0A"}]})

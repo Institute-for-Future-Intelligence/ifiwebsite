@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Telelab Home Page</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Telelab: Broadcast Your Scientific Discoveries</h4>
+
+<div class="row">
+<div class="col-md-8">
+						
+<p>
+To enhance and enrich distance learning of science and engineering in formal and informal settings, IFI is developing an innovative cyberinfrastructure, 
+Telelab, using a combination of technologies such as cyber-physical systems, digital twins, virtual reality, augmented reality, 
+robotics, cloud computing, mobile computing, and teleconferencing. Telelab <i>approximates</i> real-world observation and laboratory experiences in an online environment 
+with mechanisms including, but not limited to, telepresence, scientific visualization, data synchronization, remote control, mixed reality, and social interactions. 
+</p>
+
+<p align="center" style="font-size: 14px">
+<img src="image/telelab-chemistry.png" width="100%">
+</p>
+
+
+<p align="center" style="font-size: 14px">
+<img src="image/telelab-chatroom.png" width="100%" style="border:2px solid gray">
+<br>A screenshot of a live experiment delivered by Telelab
+</p>
+
+
+<p>Like video conferencing software, Telelab allows many students to freely access and participate in ongoing and past experiments from a Web browser 
+and allows any educators to create, operate, and manage their own remote labs. 
+We envision it as an implementation of <b>remote labs 2.0</b>, a <a target="_blank" rel="noopener noreferrer" href="papers/telelab-ieee.pdf">distributed model</a> 
+in contrast to the first generation of remote labs that are somewhat centralized. With Telelab, even students can start their own remote labs and share
+with others&mdash;imagine a student in the United States performs an experiment in the lab and shares it with students in Africa!
+				
+<p align="center" style="font-size: 14px">
+<img src="image/telelab-distributed-model.png" width="100%">
+<br>A distributed framework for remote labs
+</p>
+
+<p>Based on the Telelab platform, IFI is developing and testing optimal <a target="_blank" rel="noopener noreferrer" href="telelab-three-ways.html">strategies and pedagogies</a> for
+engaging students with socioeconomic diversity and broadening their participation in science exploration.
+We envision that, over time, Telelab will become a science hub for millions of students to share, access, and learn
+from a large number of science experiments anytime, anywhere. Such open online labs promise to democratize 
+science learning and mitigate educational inequity, especially for underserved schools that lack resources to conduct 
+a wide variety of authentic science experiments.
+</p>
+
+
+
+<p align="center" style="font-size: 14px">
+<img src="image/telelab-remote-control-thermography.png" width="100%" style="border:2px solid gray">
+<br>Remote control thermography implemented in Telelab
+</p>
+
+
+<p>Telelab is being used by science educators around the world.
+
+<p align="center" style="font-size: 14px">
+<img src="image/telelab-taiwan-01.png" width="100%" style="border:2px solid gray; margin-bottom: 6px">
+<img src="image/telelab-taiwan-02.png" width="100%" style="border:2px solid gray">
+<br>An online webinar on Telelab in Taiwan (June 17, 2022)
+</p>
+
+
+
+</div>
+<div class="col-md-4">
+<div class="product-sidebar">
+
+<b>Entrance</b>
+<p>
+<a target="_blank" rel="noopener noreferrer" href="https://telelab2.intofuture.org">Telelab</a>
+</p>
+
+<b>Driver Apps</b>
+<p>
+<a href="ie.html">Infrared Explorer for Android</a>
+</p>
+
+<b>Articles</b>
+<p>
+<a target="_blank" rel="noopener noreferrer" href="telelab-three-ways.html">Three Approaches</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="telelab-latent-heat.html">Latent Heat</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="telelab-boiling-point.html">Boiling Point</a>
+</p>
+
+<b>Lab Units</b>
+<p>
+Chemical Reaction
+<br>
+&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1N40fUt5qEBFxHbXGqEUBQOZWqx5CafcOByV4XTaO6Ig">Student Worksheets</a></li>
+<br>
+&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1pagQoulZI8j8U3GsEiBBgqldxiIHtDttWBFFioTnWrc">Teacher Guide</a></li>
+<br>
+Solar Radiation
+<br>
+&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1XoASn8rNkM8P_pwTKrscUY79Q0B7Fx-bjFYw1FlsJC4">Student Worksheets</a></li>
+<br>
+&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1Y3PhY86mB64Ws5lztAYiIjvy1O_40IIRz0-ykA5OjH4">Teacher Guide</a></li>
+<br>
+Thermal Conduction
+<br>
+&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/17jNfbE8Sl4m7oU57sSbqvvqe-xiLWZ5ytKmT1rV7e0g">Student Worksheets</a></li>
+<br>
+&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1eCE4RtxvKCM0S7Pki1PCrrUtWFwxUYuM8CxJcEX2Rpc">Teacher Guide</a></li>
+<br>
+Thermal Convection
+<br>
+&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/13STb_Z40-Rvx0gj7QD46lI_Mtm2TBtDGzam-kI51cWU">Student Worksheets</a></li>
+<br>
+&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1NUqM9U2Tdj547ALQKAtiX4uuUcpXf9lOHWB0eZyA5cw">Teacher Guide</a></li>
+<br>
+Assessment Tools
+<br>
+&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1_vG8_HXxIdg3FV7xpxOrVWv9imc6owA8Wa-ow_L6LVM">Scoring Rubrics</a></li>
+</p>
+
+<b>Publications</b>
+<p>
+<a target="_blank" rel="noopener noreferrer" href="https://ieeexplore.ieee.org/document/9720139">Engaging Students in Distance Learning of Science with Remote Labs 2.0</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="https://pubs.acs.org/doi/abs/10.1021/acs.jchemed.1c00585">Chemistry on the Cloud: From Web Labs to Web Labs</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="https://aapt.scitation.org/doi/10.1119/5.0059350">A New Type of Interactive Video for Physics Education</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="https://www.nsta.org/connected-science-learning/connected-science-learning-march-april-2022/data-driven-science-vlogging">Data-Driven Science Vlogging for Connected Learning Anywhere</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="https://www.nsta.org/science-teacher/science-teacher-julyaugust-2021/remote-labs-20-rescue">Remote Labs 2.0 to the Rescue: Doing Science in a Pandemic</a>
+</p>
+
+<b>Legal</b>
+<p>
+<a target="_blank" rel="noopener noreferrer" href="telelab-privacy.html">Privacy Policy</a>
+<br>
+<a target="_blank" rel="noopener noreferrer" href="telelab-terms.html">Terms of Service</a>
+</p>
+
+<b>Teacher Feedback</b>
+<p style="line-height:1.6; font-size: 14px">
+“Students cannot touch the real objects, but they can add thermometers onto the
+real objects. This is really cool! They can do hands-on investigations even without
+touching the objects. It would be even better if they can have more interactions with
+the objects.”
+<br><br>
+“In real labs, I ask students to do free exploration before giving specific instructions
+on where to observe and what to analyze. Then we share, as a whole class, what we
+find. With Telelab, I can do the same thing. They can add thermometers anywhere
+and share what they find. Some focus on purple colors (representing cold) and some
+focus on red colors (representing hot). From their choices of places, they start to
+ask questions of why it happens as it shows.”
+<br><br>
+“With this technology, science learning will involve diverse voices from students, 
+about their houses, gardens, and rivers in their community, to name a few. 
+It’s more than extended access through online platforms.”
+<br><br>
+“This was awesome and really wowed me in the details of the site. The tools were 
+amazing and worked great. Having the live feature is a bonus and is awesome for 
+interaction and being able to remotely teach students.”
+</p>
+
+<b>Student Feedback</b>
+<p style="line-height:1.6; font-size: 14px">
+“I thought it was really cool that although we are all so far apart in distance, we were 
+all able to participate in the live experiment together in real time. I liked the thermal 
+cameras since we were not able to be there in person it gave us a nice visual representation 
+of what was happening during the experiments.”
+
+<br><br>
+“[I like] being able to watch in real time as a reaction is taking place [and] getting to chat 
+and talk with the teacher and discuss real-time results like you would in an actual classroom.”
+</p>
+
+<p>
+<b>Developers</b>
+<br>
+<a href="people.html#charles">Charles Xie</a>
+<br>
+<a href="people.html#xiaotong">Xiaotong Ding</a>
+</p>
+
+<b>Acknowledgements</b>
+<p style="line-height:1.6; font-size: 14px">
+This project is supported by the National Science Foundation (NSF) under grant numbers 
+<a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2054079">#2054079</a> and
+<a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2329563">#2329563</a>.
+Any opinions, findings, and conclusions or recommendations expressed in this material, however, are those of the authors and do not necessarily reflect the views of NSF.
+</p>
+<p align="center">
+<img src="image/nsf.png">
+</p>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Aladdin: Bifacial Solar Panels</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+
+    <script>
+    function openFullscreen() {
+      var elem = document.getElementById("aladdin-frame");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
+
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Bifacial Solar Panels</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a> and Xiaotong Ding <a href="mailto:xiaotong@intofuture.org">&#9993;</a>
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+<p align='center'>
+  <span>Listen to a podcast about this article</span><br>
+  <audio controls>
+    <source src="podcast/bifacial-solar-panels.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+
+<p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Bifacial_solar_cells">bifacial solar panel</a> can generate electricity when illuminated on both its front and rear surfaces.
+Bifacial solar panels can be used in ground-mounted projects to increase the electricity generation. 
+The solar energy industry is adopting bifacial solar panels at a rapid pace as the cost of making solar cells continues to drop dramatically. 
+The International Technology Roadmap for Photovoltaic projected that approximately 45% of the solar panels manufactured in 2024 would be bifacial and that number would increase to 70% by 2030 
+(with the remaining 30% for rooftop systems where bifacial solar panels make no sense).
+
+<p>Bifacial solar panels are now supported in Aladdin. We have added six 
+<a target="_blank" rel="noopener noreferrer" href="https://www.canadiansolar.com/wp-content/uploads/2019/12/Canadian_Solar-Datasheet-BiHiKu_CS3W-MB-AG_EN.pdf">CS3W BiHiKu series</a> 
+of bifacial solar panel models made by Canadian Solar, five
+<a target="_blank" rel="noopener noreferrer" href="https://jinkosolarcdn.shwebspace.com/uploads/JKM435-455M-72HLM-BDVP-F1-EN.pdf">Tiger LM 72HC-BDVP series</a> 
+by Jinko Solar, eight
+<a target="_blank" rel="noopener noreferrer" href="https://us.qcells.com/complete-energy-solutions/solar-panel/">Q.Peak Duo XL-G10/G11 series</a> 
+by Qcells, five
+<a target="_blank" rel="noopener noreferrer" href="https://sunpower.maxeon.com/int/sites/default/files/2020-08/sunpower_p5_upp_bifacial_ds_en_warranty_v3.pdf">SPR Performance 5 series</a> 
+by SunPower, five
+<a target="_blank" rel="noopener noreferrer" href="https://static.trinasolar.com/sites/default/files/Datasheet_Vertex_DEG21C.20_EN_2022_A_0.pdf">Vertex series</a> 
+by Trina Solar, 
+and six
+<a target="_blank" rel="noopener noreferrer" href="https://file.yinglisolar.com/yingli/2022/11/24/1669268029404.pdf">Panda 3.0 Pro series</a>
+by Yingli Solar,
+and will continue to add more from other manufacturers. 
+But how do bifacial solar panels perform compared with their monofacial cousins? Let's find out with some Aladdin simulation and analysis.
+
+<p>Note: To add a bifacial solar panel in Aladdin, you can first add a solar panel of the currently selected type (which may be a monofacial one) and then change the type to a bifacial one using the Change PV Model item
+of the context menu for the selected solar panel. 
+Aladdin does not support "self-defined" solar panels that you can customize their properties freely. The properties of all solar panels in Aladdin come from the specifications provided by their manufacturers. 
+
+<h5>Monofacial solar panels vs. bifacial solar panels</h5>
+
+<p>Assuming a value of 0.3 for the ground <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Albedo">albedo</a> throughout the year, 
+a bifacial solar panel would generate about 25% more electricity than a comparable monofacial one in the Boston area, as predicted by the following Aladdin model. This seems to agree with
+what most manufacturers claim (e.g., Canadian Solar asserts up to 30% of additional gain from the backside). 
+So if a bifacial solar panel costs less than 25% than a monofacial one, you may be financially better off with it as the installation cost, operational cost, and the life span should be the same.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-monofacial-vs-bifacial-solar-panels.png" style="border: 1px solid #555; box-shadow: 2px 2px #888; margin-bottom: 4px">
+<br>Comparing annual outputs of monofacial solar panels and bifacial solar panels in Boston, MA
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" 
+href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Monofacial%20vs%20Bifacial">HERE</a> 
+to view and edit the above model
+</p>
+</div>
+
+
+<h5>Hourly outputs of vertically-installed bifacial solar panels</h5>
+
+<p>How accurate are Aladdin's simulation results for bifacial solar panels? We found an article by Reker, Schneider, and Gerhards, from Leipzig, Germany, published in 
+<a target="_blank" rel="noopener noreferrer" href="https://www.sciencedirect.com/science/article/pii/S2666955222000211"><i>Smart Energy</i></a> in 2022. 
+They studied vertically-installed bifacial solar panels as they represent an interesting configuration that can save a lot of land space for other uses such as agriculture. We conducted
+a qualitative comparison between Aladdin's results and their measurements with the following model.
+
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-vertical-bifacial-solar-panels.png" style="border: 1px solid #555; box-shadow: 2px 2px #888; margin-bottom: 4px">
+<br>Vertically-installed bifacial solar panels: North-south alignment vs. east-west alignment vs. south-facing 20° (Leipzig, Germany)
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" 
+href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Vertical%20Bifacial%20Solar%20Panels">HERE</a> 
+to view and edit the above model
+</p>
+</div>
+<br>
+
+<p>The hourly outputs of three bifacial solar panel arrays &mdash; vertically-installed north-south-aligned, vertically-installed east-west aligned, and south-facing with a tilt angle of 20° &mdash;
+predicted by Aladdin for a summer day (June 22) and a winter day (December 22) in Leipzig are shown below, assuming a bifaciality factor of 1 (a prefectly symmetric case).
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-vertical-bifacial-solar-panels-calculated.png" style="margin-bottom: 4px">
+<br>Vertically-installed bifacial solar panels: Calculated results by Aladdin with an idealized bifaciality factor (1.0)
+</p>
+
+<p>The above patterns agree qualitatively with the results measured by the German team (shown as follows).
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-vertical-bifacial-solar-panels-measured.png" style="margin-bottom: 4px">
+<br>Vertically-installed bifacial solar panels: Measured data by Reker, S., Schneider, J. & Gerhards, C., 2022 
+(<a target="_blank" rel="noopener noreferrer" href="https://www.sciencedirect.com/science/article/pii/S2666955222000211"><i>Smart Energy</i></a>)
+</p>
+
+<p>In reality, the front and rear sides of a bifacial solar cell do not have the same efficiency due to their design differences. 
+The rear sides of many bifacial solar panels only have about 70% of the efficiency of the front sides.
+This is known as the <b>bifaciality factor</b>. As shown in the graphs below, in the case of a vertically-installed bifacial solar panel array aligned in the north-south direction, 
+this factor causes an asymmetric pattern before and after noon, depending on which direction the front side faces. 
+In the case of a vertically-installed bifacial solar panel array aligned in the east-west direction, this factor can cause a significant loss if the rear side is mistakenly installed to face the sun. 
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-vertical-bifacial-solar-panels-calculated2.png" style="margin-bottom: 4px">
+<br>Vertically-installed bifacial solar panels: Calculated results by Aladdin with the actual bifaciality factor (0.7)
+</p>
+
+<p>[We suspect that the German team either used a type of bifacial solar panel that has nearly perfect bifaciality 
+or oriented half of the panels to face east and half to face west to achieve the morning-afternoon symmetry in their results.]
+
+
+
+<h5>Bifacial solar panels driven by trackers</h5>
+
+
+<p>Since bifacial solar panels can receive sunlight from all directions, does it still make sense to use solar trackers for them? Let's find out with the following model that
+uses a horizontal single-axis tracker (HSAT) for a monofacial solar panel array and a bifacial solar panel array, respectively, with a vertically-fixed bifacial solar panel array as a reference. 
+The results show that the bifacial array driven by HSAT generates significantly more electricity (about 40%) than the vertically-fixed one, and about 20% more than the monofacial one driven by HSAT
+(assuming a ground albedo of 0.3 throughout the year). 
+This is probably an engineering reason why the University of Illinois Urbana-Champaign adopted both bifacial solar panels and HSAT technologies in their 
+<a target="_blank" rel="noopener noreferrer" href="https://icap.sustainability.illinois.edu/project/solar-farm-20">Solar Farm 2.0 Project</a>. If interested, you can also find an Aladdin model
+of this innovative solar farm on the Models Map within Aladdin.
+
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-monofacial-vs-bifacial-solar-panels-hsat.png" style="border: 1px solid #555; box-shadow: 2px 2px #888; margin-bottom: 4px">
+<br>Comparing hourly outputs of monofacial and bifacial solar panels driven by HSAT (with a fixed vertical bifacial solar panel array as a reference)
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" 
+href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Monofacial%20vs%20Bifacial%20Solar%20Panels%20Driven%20by%20HSAT">HERE</a> 
+to view and edit the above model
+</p>
+</div>
+<br>
+
+<p>Note that the morning and afternoon outputs are symmetric when a bifacial solar panel array with a bifaciality factor less than 1 is driven by an HSAT tracker. Also, the output does not peak at noon
+for bifacial solar panels driven by HSAT, which is the same as monofacial solar panels driven by HSAT. 
+This phenomenon is explained <a target="_blank" rel="noopener noreferrer" href="aladdin-solar-array-surprise.html">here</a>. 
+
+<h5>Conclusion</h5>
+
+<p>The increasing use of bifacial solar panels in the renewable energy industry is engendering new design possibilities. Start exploring these possibilities with Aladdin now!
+<br><br>
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

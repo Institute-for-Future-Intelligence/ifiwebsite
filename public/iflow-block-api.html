@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Working with API Blocks in iFlow</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Working with API Blocks in iFlow</h4>
+
+<p>By Charles Xie
+
+<p><a href="iflow.html">Back to iFlow home page</a>
+
+
+
+<p>In computer science, <a target="_blank" href="https://en.wikipedia.org/wiki/API">application programming interfaces</a> (APIs) refer to ways to use software modules without being concerned about
+their internal details. The user only needs to know how to specify the inputs to get desirable outputs. In the simplest case, an API can be thought of just as a function, which looks like this in JavaScript:
+
+<pre>
+function sum(a, b) {
+  return a + b;
+}
+</pre>
+
+<p>Although this example is extremely simple, we can still consider it as an API that takes two variables as the inputs and returns their sum as the output. 
+By calling this API, we get the service of the function &mdash; adding two numbers. No matter how complex an API may be, the basic idea is similar to what this simple example illustrates.
+
+
+
+<h5>Using Existing API Blocks</h5>
+
+<p>A typical iFlow block can be considered as an API to some kind of functionality. 
+Let's use the API provided by the Clustering block as an example. In the two-dimensional case, it takes two columns of numbers as the sole input and separates them into multiple clusters 
+based on the Euclidean distance. 
+The outputs are arrays of clusterized numbers and their centers. If we use JavaScript, we may need to do some pretty high-level programming shown in the following code box 
+(which may be off-putting to some beginners). 
+But with iFlow, this seemingly complicated task is reduced to simply connecting an Array Input block to the input port <code>IN</code> on the left side of the Clustering block and then connect the output ports
+<code>CT</code>, <code>OA</code>, and <code>OB</code> on the right side of the Clustering block to the input ports <code>A</code>, <code>B</code>, and <code>C</code> of a Space2D block for
+visualizing the results immediately. 
+All you need to know is that port <code>CT</code> outputs the centers of the clusters, port <code>OA</code> outputs an array of data in the first cluster, 
+and port <code>OB</code> outputs an array of data in the second cluster. The three ports <code>A</code>, <code>B</code>, and <code>C</code> of the Space2D block each take an array of 2D points for plotting.
+Once you connect the output ports from the Clustering block to them, the data arrays are automatically accepted and instantaneously shown as a scatter plot inside the Space2D block. 
+Easy peasy! 
+
+
+<table>
+<tr>
+<td valign="top" width="35%">
+<pre>
+import clustering from 'clusters';
+...
+...
+const data = await read(filePath);
+clustering.setData(data);
+const results = clustering.getClusters();
+for(const cluster of results) {
+  // do something about each cluster
+}
+...
+...
+...
+</pre>
+</td>
+<td valign="top" width="65%">
+<p style="padding-left: 10px;">
+<img src="image/iflow-k-means-clustering-block-api.png" width="100%">
+</td>
+</tr>
+</table>
+<br>
+
+<p>The construction of the above iFlow diagram is a one-time thing. Once you set it up, clusterizing another dataset requires nothing but three simple steps: 
+1) Clear the current input data in the Array Input block by selecting all and pressing the Delete key, 
+2) Copy the new data and paste it into the block by pressing Ctrl+V, and
+3) Press the Update button at the bottom of the block to confirm the input data. Hence, this example also highlights the efficiency and reusability of iFlow &mdash; even for data scientists!
+
+
+<h6>Primary Parameters vs. Secondary Parameters</h6>
+<br>
+
+<p>A typical API block may have many parameters for the user to set. The input ports represent the <b>primary parameters</b> that are essential to the functionality of the block.
+They are the most important factors that need to be considered in the computational thinking of the problem. 
+The rest of the parameters, the <b>secondary parameters</b>, can be set through the Properties Window of the block. 
+The secondary parameters can affect the result of the computation, but they are not as essential as the primary ones.  
+For example, we may want to specify the number of clusters that the dataset should be classified into, which is a secondary parameter. 
+Setting this parameter to different values may lead to different results, but it usually does not cause the iFlow diagram to stop working altogether. 
+But if we make mistakes in connecting the input and output ports among the blocks, chances are that our diagram will not work properly.  
+
+<p>To set the secondary parameters for the Clustering block, we can open its Properties Window as follows. There we can have more options. 
+The same thing can be done with the Space2D block to increase its input ports and customize the scatter plot as necesssary.
+
+<p align="center"><img src="image/iflow-k-means-clustering-2d.png" width="100%" style="border: 1px solid #888; box-shadow: 3px 6px #444;"></p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" href="https://intofuture.org/iflow/index.html?example=Machine%20Learning%3A%20K-Means%20Clustering%20in%202D">HERE</a> to play with the above example
+</p>
+</div>
+<br>
+
+
+
+
+
+<h5>Defining Your Own API Blocks</h5>
+
+<p>Sometimes, you may want to define your own API blocks as there is no existing block that meets your needs. iFlow allows you to create your own API blocks. (To be continued...) 
+
+
+<p><a href="iflow.html">Back to iFlow home page</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

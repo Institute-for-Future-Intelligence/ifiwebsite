@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Drawing a Seashell in iFlow</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>How to Draw a Beautiful Seashell with iFlow?</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
+
+<p><a href="iflow.html">Back to iFlow home page</a>
+
+<p align='center'>
+  <span>Listen to a podcast about this article</span><br>
+  <audio controls>
+    <source src="podcast/seashell.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+
+<p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parametric_surface">parametric surface</a> is a 3D surface defined by a set of 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parametric_equation">parametric equations</a> with two parameters, usually denoted as <i>u</i> and <i>v</i>.
+iFlow can be used to draw any parametric surface. In this article, we show you how to draw a seashell like the following images using this visual computational tool.
+
+<p align="center">
+<img width="33%" src="image/seashell1.png" style="border: 1px solid #888; box-shadow: 2px 4px #666;">
+<img width="33%" src="image/seashell2.png" style="border: 1px solid #888; box-shadow: 2px 4px #666;">
+<img width="33%" src="image/seashell3.png" style="border: 1px solid #888; box-shadow: 2px 4px #666;">
+</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Seashell_surface">A seashell surface</a> is a surface made by a circle which spirals 
+up the <i>z</i>-axis while decreasing its own radius and distance from the <i>z</i>-axis. It can be defined parametrically as:
+
+<p>
+<i>x</i> = [<i>u</i>/(2&pi;<i>R</i>)]cos(<i>Nu</i>)[1+cos(<i>v</i>)]
+<br>
+<i>y</i> = [<i>u</i>/(2&pi;<i>R</i>)]sin(<i>Nu</i>)[1+cos(<i>v</i>)]
+<br>
+<i>z</i> = [<i>u</i>/(2&pi;<i>R</i>)]sin(<i>v</i>)+<i>H</i>[<i>u</i>/(2&pi;)]<sup><i>P</i></sup>
+</p>
+
+<p>where <i>R</i> is the radius, <i>N</i> is the number of turns, <i>H</i> is the height, and <i>P</i> is the power. 
+You can adjust these parameters to make different types of seashells such as a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nautilus">nautilus</a>. 
+
+
+<p>With iFlow, you can use a Parametric Equation block in conjunction with a Surface3D block (do not confuse this with a Space3D block that is more suitable for drawing lines) 
+to create visual code that can generate the seashell surface. 
+You can also use global variables to allow users to adjust the control parameters such that the shape can be varied. An implementation is shown in the image below. 
+
+<p align="center">
+<img width="100%" src="image/iflow-seashell.gif" style="border: 1px solid #888; box-shadow: 3px 6px #444;">
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" href="https://intofuture.org/iflow/index.html?example=Math%3A%20Seashell">HERE</a> to play with the above example
+</p>
+</div>
+<br>
+
+<p>A Surface3D block only takes data inputs. It does not know anything about math. So we have to produce the data with some visual code.
+We use two Series block to generate the <i>u</i> and <i>v</i> arrays over a range. 
+As always, we use three sliders to control the starting point (<i>u0</i> or <i>v0</i>), the step (<i>du</i> or <i>dv</i>), 
+and the total number of points (<i>nu</i> or <i>nv</i>) for each array.
+We then pass the two arrays to a Parametric Equation block as the inputs.
+The outputs of the block are then fed to the X, Y, and Z ports of the Surface3D block.
+Internally, the Parametric Equation block automatically uses the two input arrays to generate a mesh with <i>nu</i> &times <i>nv</i> points. 
+In this way, we do not have to write our own nested loops to do the job (but we do have to understand how a surface is represented in terms of data). 
+In order for the Surface3D block to know about <i>nv</i> and <i>nv</i> (otherwise it will not be able to draw the surface correctly), 
+we must also connect these two parameters to the corresponding ports of the Surface3D block.
+Note that the more points we export to the Surface3D block, the smoother the seashell would look, 
+but the downside is that it takes longer time to render the surface with more points.
+
+
+<p>After all these are done, we are rewarded with a beautiful seashell in the Surface3D window. And we can adjust the parameters to change its shape.
+Enjoy the computational beauty of nature!
+
+
+<p><a href="iflow.html">Back to iFlow home page</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

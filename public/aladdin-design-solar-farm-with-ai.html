@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Designing a Solar Farm with Artificial Intelligence</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Designing a Solar Farm with Artificial Intelligence</h4>
+
+<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+<p align='center'>
+  <span>Listen to a podcast about this article</span><br>
+  <audio controls>
+    <source src="podcast/ai-design-solar-farm.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+
+<p>Everyone loves to maximize the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Return_on_investment">return on investment</a> (ROI). 
+If we can effortlessly find a solution that pays a higher profit &mdash; 
+even for only a few more dollars, why not? The problem is that, in many complicated engineering cases in reality, such as designing a solar farm, 
+we often don’t know exactly what the optimal solutions are. We may know how to get some good solutions based on what textbooks or experts assert, 
+but no one in the world can be 100% sure that there aren’t any better ones waiting to be discovered beyond the solution space that we have explored thus far. 
+As humans, we can easily get complacent and settled with the solutions that we feel good about, leaving the job (and the reward) of 
+finding better solutions for another time or to someone else.
+
+<p>Artificial intelligence (AI) is about to change all that. 
+
+<p>As design is essentially an evolution of or search for solutions, 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Bio-inspired_computing">bio-inspired</a> AI techniques such as 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Genetic_algorithm">genetic algorithms</a> (GA) and
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Particle_swarm_optimization">particle swarm optimization</a> (PSO) 
+are an excellent fit to the nature of many design problems and can generate a rich variety of competitive solutions in the same way genetics does 
+for biology (no two leaves are exactly the same but they both work well for the plant). These powerful tools have the potential to help people learn, design, 
+and discover novel things. In this article, I demonstrate how GA and PSO can be used to design a 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Photovoltaic_power_station">photovoltaic (PV) solar farm</a>. 
+As usual, I first provide a short screencast video so that you can get a sense of how AI solves the design challenge step by step (to accelerate the animation, I used the objective function of daily profit
+to produce the video &mdash; the images in this article were actually produced using the more appropriate objective function of yearly profit, though). The solar farm in question is from Fitchburg, Massachusetts, USA
+(<a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Fitchburg+State+University/@42.5823305,-71.7609195,718m/data=!3m1!1e3!4m5!3m4!1s0x0:0xe63d0813510dde18!8m2!3d42.5887548!4d-71.7897278">
+satellite image</a>). 
+
+<center>	
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/0lcvJl81LYU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<br>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p style="text-align: center;">
+Click <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Fitchburg%20Solar%20Farm%20Generative%20Design">HERE</a> 
+to view and edit the above model 
+<br>
+<label style="font-size: 12px; text-align: center; font-weight: normal">
+This computation may be too slow to watch in real time, but you can let it run in a visible browser tab and come back to see the results later.
+</label>
+</font>
+</p>
+</div>
+
+<h5>Choosing the objective function</h5>
+
+<p>In AI, the solution depends largely on the choice of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Loss_function">objective function</a> 
+or the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fitness_function">fitness function</a>, which specifies how the goal is formulated and calculated. 
+For example, if the goal is to generate as much electricity as possible on a given piece of land without any concern to the cost of the solar panels, a design 
+in which the solar panels are closely packed may be a good choice (Figure 1). On the other hand, if the goal is to generate as much electricity as possible from each individual solar panel, 
+a design in which rows of solar panels minimize their shadow on one another would be a good choice (Figure 2).
+In the real world, designers aim at maximizing the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Profit_(economics)">economic profit</a> 
+(revenue minus cost), resulting in solutions between these two extremes. The total revenue is dictated by the generated electricity 
+and the selling price. The total cost consists of mortgage, maintenance, rental, and so on, which can be assumed to be proportional to the total number of solar panels.
+The problem is usually solved using the principles of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Engineering_design_process">engineering design</a>,
+which involve balancing competing factors and making trade-offs among them through iterations. 
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-solar-panel-array-close-packed.png">
+<br>Figure 1. A close-packed design emerges if the objective is to maximize the total electricity output from all the solar panels (GA was used)
+</p>
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-solar-panel-array-sparse.png">
+<br>Figure 2. A sparse design emerges if the objective is to maximize the average electricity output per solar panel (PSO was used)
+</p>
+
+
+<h5>Setting up the constraints</h5>
+
+<p>Before we apply AI to solve a design problem, we have to understand and establish the constraints. 
+One of the contraints is the boundary condition, which in this case specifies the area in which the solar panels will be installed.
+Aladdin has a tool that allows the user to draw a polygon of an arbitrary shape on a foundation for this purpose (Figure 3).
+Using this polygon tool, we can ensure that the solar panel arrays generated by AI will always be confined to the designated area. 
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-polygon-on-foundation.png">
+<br>Figure 3: Drawing a polygon on a foundation to specify the property lines
+</p>
+
+<p>Other constraints include parameters that may affect the design outcomes, such as economic and financial variables. For simplicity,
+let's assume that the generated electricity can sell for 25¢ per kWh and the daily operational cost of each solar panel is 30¢. 
+Qualitatively, a higher electricity price and a lower operational cost favor more solar panels, whereas a lower electricity price and a higher operational cost favor less. 
+Finding the sweet spots in the middle requires quantitative analyses and comparisons of many different scenarios, a repetitive and laborious task that can be “outsourced” to AI.
+
+<h5>Evolving the design</h5>
+
+<p>Although there are many parameters that can affect the profit of a solar farm, we focus primarily on three key ones: the tilt angle, the inter-row spacing, and the row width 
+(the number of solar panels in the direction perpendicular to the tilt axis). We assume that all the solar panel rows have the same tilt angle and row width and are equally spaced.
+Therefore, these three parameters are largely responsible for the form factor of a solar farm. 
+We can then ask AI to automatically vary the parameters and generate various solutions for us to consider.
+Figure 4 shows the dialog windows for setting the parameters, variables, and constants for 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Genetic_algorithm">GA</a> and 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Particle_swarm_optimization">PSO</a> algorithms, respectively. 
+The explanations of these parameters are skipped here. Interested readers can learn about them from the Wikipedia pages linked above.
+Note that the range sliders in the Variables Tabs of the dialog windows enable us to narrow AI down to a smaller volume of the solution space.
+For instance, since we are designing a solar farm for a location in the northern hemisphere, it makes no sense to allow the tilt angle to go negative (i.e., facing north).
+
+<p align="center" style="font-size: 14px">
+<img src="image/aladdin-solar-panel-array-ga-settings.png" width="48%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 5px; margin-bottom: 5px">
+<img src="image/aladdin-solar-panel-array-pso-settings.png" width="48%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-bottom: 5px">
+<img src="image/aladdin-solar-panel-array-ga-variables.png" width="48%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 5px">
+<img src="image/aladdin-solar-panel-array-pso-variables.png" width="48%" style="border: 2px solid #555; box-shadow: 2px 2px #888;">
+<br><br>Figure 4: GA and PSO settings for solar farm design
+
+<p>The following figures show a couple of solutions recommended by Aladdin after generating and evaluating hundreds of solutions using GA and PSO, respectively.
+It took AI quite a while to come up with them, because it had to run a lot of simulations of annual cycle for thousands of solar panels with only the computational power of a browser.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-solar-panel-array-ga-200.png">
+<br>Figure 5: The most profitable design from 200 solutions generated by GA
+</p>
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/aladdin-solar-panel-array-pso-200.png">
+<br>Figure 6: The most profitable design from 200 solutions generated by PSO
+</p>
+
+<p>As a side note, Aladdin allows users to switch between different AI algorithms freely in a middle of a design process to take advantage of their relative strengths (if any). 
+For example, users can start with PSO initially and then switch to GA, or vice versa. They can also adjust the parameters of the algorithms at any time to change the search strategies.
+
+<h5>Discussion</h5>
+
+<p>You may think the problem of solar farm design is trivial. This impression may be true if we are designing only for a rectangular field. 
+But the problem becomes much trickier when the field has an arbitrary shape like the one shown in this article due to the many more possibilities that arise from the irregularity of the shape.
+In a sense, the problem may be even more complex than the famous 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">travelling salesperson problem</a> 
+&mdash; for instance the objective function of the former is way more complex than that of the latter.
+In such a case, it makes sense to use AI to search a large volume of the solution space and find a number of different solutions for the designer to pick and choose. 
+Because every solar farm in reality may have a different shape (especially in densely populated areas when land is scarce), the design problem can only be addressed case by case.
+The ability of AI to transcend human limitations in this kind of complex design is a significant application of AI that is going to reshape our world. 
+Future work will rely more and more on this power. Today’s students must get ready for its big time.
+
+
+<p><a href="aladdin.html">Back to Aladdin home page</a>
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

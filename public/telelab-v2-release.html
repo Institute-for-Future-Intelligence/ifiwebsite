@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Institute for Future Intelligence</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>Telelab Version 2.0 Release</h4>
+		
+<p><a href="telelab.html">Back to Telelab home page</a>
+
+<p>(March 25, 2021) We are pleased to announce the release of a new milestone of Telelab &mdash; <a target="_blank" rel="noopener noreferrer" href="https://telelab2.intofuture.org">Version 2.0</a>. 
+This version has many new features that make participating in and sharing of an experiment much easier. 
+For example, all the experiments streamed through it are now automatically stored in a cloud database for users to retrieve and analyze later. 
+This solves a critical problem that an experiment may happen too fast or contain too many fleeting details for anyone to follow and analyze in real time. 
+With this new capability, students can concentrate on observing the experiment and paying attention to instruction in the livestreaming mode, leaving the part of careful analysis to a later stage. 
+As an experiment is now saved in the cloud, it can also be easily shared with anyone for further analysis, allowing different interpretations of the experimental results to be discussed.
+This version is being rolled out to a few pilot schools across the country, serving more than a hundred students in North Carolina and Oregon as of March.
+
+<p>Telelab may be a useful tool for learning and teaching science. But let's dream big for a moment. With these new capabilities enabled by the Internet of Things, 
+we now have a platform that can <i>preserve</i> every single experiment ever conducted on it 
+(compare this with a typical lab in which we just do an experiment, collect some data, and then forget about it). 
+If each experiment represents an exploration around a certain point in the vast problem space of science and is valuable in its own way, 
+we now have a "big data" technology for crowdsourcing science if we can sum them up to address bigger questions!
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="left">
+<b>How much data do you get via Telelab?</b>
+<br>If you are using a thermal camera such as the FLIR ONE Pro with Telelab, you get a 160&times120 array of temperature values five times a second (in addition to images). 
+That is 96,000 raw data points in the blink of an eye. And in just ten seconds or so, you have a million data points arriving at your computer. 
+There are certainly a lot to explore in data with such richness!
+</p>
+</div>
+
+
+<h5>Editing and Analyzing Your Experiments</h5>
+
+<p>In Telelab, an experiment is streamed as a "clip" of image and sensor data with duration ranging from minutes to hours. It would, therefore, be desirable if users can edit such a clip
+like editing an online video. Using the Clip Editor of the new version, users can extract segments of interest from a long clip to create a shorter one.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/telelab-clip-editor.png">
+<br>Create a new clip using the Clip Editor
+</p>
+
+<p>A clip contains a large quantity of experimental data that require careful analysis. In Telelab, we have developed various analysis and graphing tools to support users to
+make sense of their data in both the temporal and spatial dimensions.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/telelab-concentration-effect.png">
+<br>Plot the temperature changes in four petri dishes to show the effect of concentration on reaction rate
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" href="https://telelab2.intofuture.org/clip/604f80626af85bfdd1c77d8c">HERE</a> to access this experiment
+</p>
+</div>
+<br>
+
+<p>You may be interested in knowing that the above link points to an actual remote experiment conducted recently as a pilot test for a high school in Oregon.
+
+<p>Like in the previous version, users can interact with others through online chat in the livestreaming mode. Once they go to the analysis mode, this communication channel remains
+open for them to exchange ideas with others.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/telelab-chatroom.png">
+<br>Online chat with other users continues to be available in the analysis mode
+</p>
+
+<div style="background-color:#dddddd;color:black;padding:20px;">
+<p align="center">
+Click <a target="_blank" rel="noopener noreferrer" href="https://telelab2.intofuture.org/clip/605c9c50cdefdd0022d6281c">HERE</a> to access this experiment
+</p>
+</div>
+
+
+
+
+<h5>Saving and Sharing Your Experiments</h5>
+
+<p>All the clip pages that users create are stored in their accounts and can be revisited and revised at any time on any computer.
+Telelab also keeps a history of the clip pages that you have viewed.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/telelab-my-experiments.png">
+<br>The "My Experiments" page of a Telelab account lists all the experiments that a user has been involved
+</p>
+
+<p>A clip page can be shared with anyone by just sending its URL. The viewer need not register with Telelab to access the experiment, 
+as shown by the links to the concentration experiment and the latent heat experiment above. 
+It is noteworthy that, while a user with whom you share an experiment can view and interact with it, any changes he
+or she makes to your page cannot be saved to your original experiment. For the user to save changes, he or she can make a copy of your experiment by creating
+a new clip out of your original one using the Clip Editor. This permits your experimental data to be shared with an unlimited number of people.
+
+
+
+<h5>Browsing Experiments by Others</h5>
+
+<p>One of the interesting things in science is that people may interpret an experimental result differently based on 
+alternative analysis methods and theories. In Telelab, a user can access analysis pages based on the same experiment.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/telelab-related-analyses.png">
+<br>The "Related Analyses" page of Telelab lists all the related analyses based on an experiment (this is from an actual class)
+</p>
+
+<p>In addition, superusers such as an administrator or a researcher can view all the experiments submitted by users.
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/telelab-recent-experiments.png">
+<br>The "Recent Experiments" page of Telelab lists recent experiments from all users
+</p>
+
+
+<h5>About the Team</h5>
+
+<p>Last but not least, we would like to thank everyone in our great team in putting all these together and reaching out to schools around the country!
+
+<p align="center" style="font-size: 14px">
+<img width="100%" src="image/telelab-about-us.png">
+</p>
+
+
+
+<p><a href="telelab.html">Back to Telelab home page</a>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AIMS Home Page</title>
+    <style>
+        @import url("css/system.base.css");
+    </style>
+    <style>
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/jquery.ui.autocomplete.min.css");
+        @import url("css/jquery.ui.button.min.css");
+        @import url("css/jquery.ui.resizable.min.css");
+        @import url("css/jquery.ui.dialog.min.css");
+    </style>
+    <style>
+        @import url("css/date.css");
+        @import url("css/datepicker.1.7.css");
+        @import url("css/ifi_theme.css");
+        @import url("css/field.css");
+        @import url("css/node.css");
+        @import url("css/video_filter.css");
+        @import url("css/views.css");
+        @import url("css/caption-filter.css");
+    </style>
+    <style>
+        @import url("css/apachesolr_autocomplete.css");
+        @import url("css/ctools.css");
+        @import url("css/video.css");
+        @import url("css/flexslider_img.css");
+        @import url("css/flexslider.css");
+        @import url("css/google_translator.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
+    <!-- HTML5 element support for IE6-8 -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style>
+        .logoifi {
+            width: 35px;
+            height: 35px;
+            margin: 5px 0 0;
+            padding: 0;
+            background: url("image/logofloat.png") no-repeat 0 0;
+            background-size: 35px 35px;
+        }
+        body {
+            position: relative;
+            font-family: "Soleil", sans-serif;
+            color: #333333;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+    <![endif]-->
+
+    <script src="https://use.typekit.net/epu0hfp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-extend-3.4.0.js"></script>
+    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
+    <script src="js/jquery.once.js"></script>
+    <script src="js/drupal.js"></script>
+    <script src="js/jquery.ui.core.min.js"></script>
+    <script src="js/jquery.ui.widget.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/jquery.ui.button.min.js"></script>
+    <script src="js/jquery.ui.mouse.min.js"></script>
+    <script src="js/jquery.ui.draggable.min.js"></script>
+    <script src="js/jquery.ui.resizable.min.js"></script>
+    <script src="js/jquery.ui.dialog.min.js"></script>
+    <script src="js/caption-filter.js"></script>
+    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/googleanalytics.js"></script>
+    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/google_translator.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/jquery-extend-drupal.js"></script>
+    <script>
+    function openFullscreen1() {
+      var elem = document.getElementById("aims-frame1");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
+    <script>
+    function openFullscreen2() {
+      var elem = document.getElementById("aims-frame2");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
+
+</head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <div class="top-bar-full">  <div class="region region-top-bar-full">
+        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="main-container container">
+
+        <header role="banner" id="page-header">
+
+        </header> <!-- /#page-header -->
+        <div id="main-content-area" class="row no-gutters">
+
+
+            <section class="col-sm-12">
+                <a id="main-content"></a>
+                <div class="region">
+                    <div id="block-system-main" class="block block-system">
+
+
+                        <div class="content">
+                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
+                                <header>
+                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even" property="content:encoded">
+
+<h4>AIMS:  Artificial Intelligence for Molecular Sciences</h4>
+
+
+
+<div class="row">
+<div class="col-md-8">
+
+<p>The material world is made of atoms and molecules. Hence, the study of molecules, or molecular sciences, is fundamentally important. 
+The application of molecular sciences has been driving the progress of almost every field in natural science. 
+In the past few decades, data and computation have become a powerful engine (known as <i>in silico</i>) for advancing molecular sciences. 
+AIMS is IFI's innovative Web-based software solution that aims at the strategic intersection between artificial intelligence and molecular sciences or, in layman's terms, 
+to <i>connect bits and atoms</i>.
+
+<p>AIMS currently supports two types of projects, introduced as follows. In both types of projects, AI can be used to 
+<a href="aims-ai-design-assistant.html">generate novel molecules and materials</a> that can be investigated further using molecular modeling and simulation.
+
+
+<h5>Molecular Modeling</h5>
+
+<p>Interactive <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> allows users 
+to design and perform computational experiments to test their own hypotheses. Play with a molecular dynamics simulation below to experience the power
+of computation in the browser!
+
+<p align="center">
+<iframe 
+src="https://institute-for-future-intelligence.github.io/aims/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Water%20Molecules%20in%20a%20Carbon%20Nanotube" 
+allowfullscreen="true" 
+id="aims-frame1"
+width="100%" 
+height="640px" 
+style="border: 1px solid #555; box-shadow: 4px 4px #888;"
+title="Demo1">
+</iframe>
+Live model above (<a href="javascript:openFullscreen1();">view in full screen</a>) &mdash; <font size="2">Chrome or Edge recommended</font>
+</p>
+
+
+<p>With the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Visual_analytics">visual analytics</a> 
+supported by techniques such as <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Brushing_and_linking">brushing and linking</a> built in AIMS,
+users can explore 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quantitative_structure%E2%80%93activity_relationship">quantitative structure–activity/property relationships</a> 
+(QSAR/QSPR) of molecules that they have collected. A well-known QSPR is the relationship between the boiling points and the carbon atom counts of 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Alkane">alkanes</a> (see this <a href="aims-alkanes.html">case study</a> based on AIMS).
+
+
+
+
+<h5>Drug Discovery</h5>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Small_molecule">Small molecules</a> represent an important type of drugs &mdash;
+<a target="_blank" rel="noopener noreferrer" href="https://cen.acs.org/pharmaceuticals/drug-discovery/small-molecule-drug-discovery-having/101/i36">90% of all drugs sold on the global market are small molecules.</a>
+The following example shows the process of screening an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Enzyme_inhibitor">inhibitor</a> 
+to an HIV <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Protease">protease</a> from a collection of small molecules using AIMS. 
+Interactive <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Docking_(molecular)">molecular docking</a>, 
+currently under development, will allow users to validate a candidate molecule selected based on data science principles. For example, 
+<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Lipinski%27s_rule_of_five">Lipinski's Rule of Five</a> 
+is implemented in AIMS as filters in the hyperspace of molecular properties as shown below.
+
+
+<p align="center">
+<iframe 
+src="https://institute-for-future-intelligence.github.io/aims/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=HIV-1%20Protease%20Inhibitor" 
+allowfullscreen="true" 
+id="aims-frame2"
+width="100%" 
+height="640px" 
+style="border: 1px solid #555; box-shadow: 4px 4px #888;"
+title="Demo2">
+</iframe>
+Live model above (<a href="javascript:openFullscreen2();">view in full screen</a>) &mdash; <font size="2">Chrome or Edge recommended</font>
+</p>
+
+
+<!--
+<h5>User Testimonials</h5>
+
+<p>AIMS is a revolutionary platform for improving student understanding of molecular models, especially in a time of need for advances in drug design and the ever-changing potential of artificial intelligence. 
+The project is a way to learn about that platform, the means of focusing on data science in the classroom. And the team with IFI and UF are so incredibly supportive on making strong, 
+data science focused lessons and improving their platform to help continually engage and grow our learners in the field of data science, molecular dynamics, and drug design.
+<br>
+<p style="display: flex; justify-content: flex-end">&mdash; William Furiosi, Biology Teacher, Oviedo High School, Florida</p>
+-->
+
+
+</div>
+<div class="col-md-4">
+<div class="product-sidebar">
+
+<p align="left"><img src="image/aims-logo-150.png" title="AIMS Logo"></p>
+
+<b>Entrance</b>
+<p>
+<a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aims/">AIMS</a>
+</p>
+
+
+<p>
+  <span><b>Podcast</b></span><br>
+  <audio controls>
+    <source src="podcast/aims.mp3" type="audio/mpeg">
+  </audio>
+</p>
+
+<b>Tutorials</b>
+<p>
+<a href="aims-user-guide.pdf">User Guide</a>
+</p>
+
+
+<b>Features</b>
+<br>
+<a href="aims-ai-vs-pubchem.html">AI results vs. actual data</a>
+<br>
+<a href="aims-ai-crystal-builder.html">AI crystal builder</a>
+<br>
+<a href="aims-ai-design-assistant.html">AI assistant for molecular design</a>
+<br>
+<a href="aims-genai-examples.html">AI-generated molecules</a>
+<br>
+<a href="aims-molecular-dynamics.html">Molecular dynamics</a>
+<br>
+<a href="aims-speed-distribution.html">Maxwell-Boltzmann distribution</a>
+<br>
+<a href="aims-navigation-mode.html">Navigation mode</a>
+<br>
+<a href="aims-ionic-bond.html">Ionic bonding</a>
+<br>
+<a href="aims-covalent-bond.html">Covalent bonding</a>
+<br>
+<a href="aims-diatomic-molecules.html">Diatomic molecules</a>
+<br>
+<a href="aims-triatomic-molecules.html">Triatomic molecules</a>
+<br>
+<a href="aims-alkanes.html">Linear alkanes</a>
+<br>
+<a href="aims-cycloalkanes.html">Cycloalkanes</a>
+<br>
+<a href="aims-acenes.html">Acenes</a>
+<br>
+<a href="aims-cis-trans-isomerism.html"><i>Cis-trans</i> isomerism</a>
+<br>
+<a href="aims-buckyballs.html">Buckyballs</a>
+<br>
+<a href="aims-water-cnt.html">Water in a nanotube</a>
+<br>
+<a href="aims-fcc-crystal.html">Face-centered cubic lattice</a>
+<br>
+<a href="aims-bcc-crystal.html">Body-centered cubic lattice</a>
+<br>
+<a href="aims-diamond-graphite.html">Diamond vs. graphite</a>
+<br>
+<a href="aims-graphenes.html">Graphenes</a>
+<br>
+<a href="aims-zeolite.html">Zeolites</a>
+<br>
+<a href="aims-alpha-helix.html">Protein alpha helix</a>
+<br>
+<a href="aims-dna-double-helix.html">DNA double helix</a>
+<br>
+<a href="coarse-grained-molecular-dynamics.html">Coarse-grained models</a>
+<br>
+</p>
+
+<b>Educational Activities</b>
+<p>
+<img width="20" height="20" src="image/under-construction.png" style="vertical-align: middle"> Taming chemical data 
+<br>
+<img width="20" height="20" src="image/under-construction.png" style="vertical-align: middle"> Exploring activity cliffs 
+<br>
+<img width="20" height="20" src="image/under-construction.png" style="vertical-align: middle"> Molecular docking game
+<br>
+<img width="20" height="20" src="image/under-construction.png" style="vertical-align: middle"> Drug hunting game
+<br>
+</p>
+
+<b>Projects</b>
+<p>
+<a href="add.html">Adventure in Drug Discovery</a>
+<br>
+</p>
+
+<b>Legal</b>
+<p>
+<a href="aims-privacy.html">Privacy Policy</a>
+<br>
+<a href="aims-terms.html">Terms of Service</a>
+</p>
+
+<p>
+<b>Developers</b>
+<br>
+<a href="people.html#charles">Charles Xie</a>
+<br>
+<a href="people.html#xiaotong">Xiaotong Ding</a>
+</p>
+
+<b>Acknowledgements</b>
+<p style="line-height:1.6; font-size: 14px">
+This project is supported by the National Institutes of Health (NIH) under grant number 
+<a target="_blank" rel="noopener noreferrer" href="https://reporter.nih.gov/search/EcHtaDoQ30eDP23rxbpEtg/project-details/11193442">R25GM150143</a>.
+Any opinions, findings, and conclusions or recommendations expressed in this material, however, are those of the authors and do not necessarily reflect the views of NIH.
+We thank EPAM Systems for providing the open-source <a target="_blank" rel="noopener noreferrer" href="https://github.com/epam/miew">Miew molecular viewer</a>.
+</p>
+<p align="center">
+<img src="image/nih.png">
+</p>
+
+
+</div>
+</div>
+</div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+
+
+                        <div class="content">
+                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+
+
+
+
+
+
+
+
+
+                            </div>  </div>
+                    </div>
+                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/flexslider.load.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>
