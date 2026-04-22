@@ -3,71 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aladdin, a CAD tool developed by the Institute for Future Intelligence"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Aladdin: AI-Enhanced Engineering Design</title>
+    <title>Aladdin — Institute for Future Intelligence</title>
+    <meta name="description" content="Aladdin — an AI-enhanced CAD/CAE platform for reimagining engineering design in architecture and energy.">
+
     <style>
         @import url("css/system.base.css");
-    </style>
-    <style>
         @import url("css/jquery.ui.core.min.css");
         @import url("css/jquery.ui.theme.min.css");
         @import url("css/jquery.ui.menu.min.css");
-        @import url("css/jquery.ui.autocomplete.min.css");
-        @import url("css/jquery.ui.button.min.css");
-        @import url("css/jquery.ui.resizable.min.css");
-        @import url("css/jquery.ui.dialog.min.css");
-    </style>
-    <style>
-        @import url("css/date.css");
-        @import url("css/datepicker.1.7.css");
         @import url("css/ifi_theme.css");
-        @import url("css/field.css");
-        @import url("css/node.css");
-        @import url("css/video_filter.css");
-        @import url("css/views.css");
-        @import url("css/caption-filter.css");
-    </style>
-    <style>
-        @import url("css/apachesolr_autocomplete.css");
-        @import url("css/ctools.css");
-        @import url("css/video.css");
-        @import url("css/flexslider_img.css");
-        @import url("css/flexslider.css");
-        @import url("css/google_translator.css");
     </style>
     <link rel="stylesheet" type="text/css" href="css/first.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
-    <!-- HTML5 element support for IE6-8 -->
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <style>
-        .logoifi {
-            width: 35px;
-            height: 35px;
-            margin: 5px 0 0;
-            padding: 0;
-            background: url("image/logofloat.png") no-repeat 0 0;
-            background-size: 35px 35px;
-        }
-        body {
-            position: relative;
-            font-family: "Soleil", sans-serif;
-            color: #333333;
-            font-size: 18px;
-            line-height: 30px;
-        }
-    </style>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
 
-    <script src="https://use.typekit.net/epu0hfp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -75,464 +30,326 @@
       gtag('js', new Date());
       gtag('config', 'G-B0RXQKFDN0');
     </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-extend-3.4.0.js"></script>
-    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
-    <script src="js/jquery.once.js"></script>
-    <script src="js/drupal.js"></script>
-    <script src="js/jquery.ui.core.min.js"></script>
-    <script src="js/jquery.ui.widget.min.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/jquery.ui.menu.min.js"></script>
-    <script src="js/jquery.ui.autocomplete.min.js"></script>
-    <script src="js/jquery.ui.button.min.js"></script>
-    <script src="js/jquery.ui.mouse.min.js"></script>
-    <script src="js/jquery.ui.draggable.min.js"></script>
-    <script src="js/jquery.ui.resizable.min.js"></script>
-    <script src="js/jquery.ui.dialog.min.js"></script>
-    <script src="js/caption-filter.js"></script>
-    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/googleanalytics.js"></script>
-    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/google_translator.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.smartmenus.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/jquery.smartmenus.bootstrap.js"></script>
-    <script src="js/affix.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/transition.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/popover.js"></script>
-    <script src="js/scrollspy.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/transition.js"></script>
-    <script src="js/jquery-extend-drupal.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
     <script>
-    function openFullscreen() {
-      var elem = document.getElementById("aladdin-frame");
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
+      function openFullscreen() {
+        var e = document.getElementById("aladdin-frame");
+        (e.requestFullscreen || e.webkitRequestFullscreen || e.msRequestFullscreen).call(e);
       }
-    }
     </script>
 
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+    </style>
 </head>
 
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<body class="html not-logged-in node-type-page page-v2">
 <script src="js/include.js"></script>
 <div id="wrapper">
 
     <script>includeHeader();</script>
 
-    <div class="top-bar-full">  <div class="region region-top-bar-full">
-        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+    <main class="v2">
 
+        <header class="v2-hero" data-wordmark="ALADDIN">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AI for Engineering Design</span>
+                <h1>Aladdin</h1>
+                <p class="v2-tagline">
+                    Reimagining engineering design in the era of artificial intelligence.
+                </p>
+                <div class="v2-cta-row">
+                    <a class="v2-button v2-button--primary" target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/">Launch Aladdin</a>
+                </div>
+            </div>
+        </header>
 
-        </div>
-    </div>
-    </div>
+        <section class="v2-section" id="overview" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <h2>What is Aladdin</h2>
+                    <p>
+                        Artificial intelligence is changing the way people work. As a manifestation
+                        of human ingenuity, design is a vital testbed for studying how we may meet
+                        the opportunities and challenges posed by AI. Based on the fusion of
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computer-aided_design">CAD</a>
+                        and
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computer-aided_engineering">CAE</a>,
+                        Aladdin is an experimental platform for engineering design in the AI era,
+                        with a current focus on architectural and energy engineering.
+                    </p>
 
-    <!-- Main Container -->
+                    <figure class="v2-embed">
+                        <iframe src="https://institute-for-future-intelligence.github.io/aladdin/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Tucson%20Electric%20Power%27s%20Linear%20Fresnel%20Reflectors"
+                                id="aladdin-frame" allowfullscreen="true" title="Aladdin live demo"></iframe>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen();">view fullscreen</a>.
+                            Tucson Electric Power's Linear Fresnel Reflectors.
+                        </figcaption>
+                    </figure>
 
-    <div class="main-container container">
+                    <h2>Design and simulation</h2>
+                    <p>
+                        Aladdin is an integrated CAD/CAE platform that lets you design a structure
+                        and simulate its function <em>within a single system</em>. This eliminates
+                        complicated
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Toolchain">toolchains</a>
+                        needed in traditional engineering design software and reduces the difficulty
+                        of implementing automatic design with AI.
+                    </p>
 
-        <header role="banner" id="page-header">
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-pv-design.png" alt="Photovoltaic solar design with Aladdin">
+                        <figcaption>
+                            Photovoltaic solar design with Aladdin (see
+                            <a target="_blank" rel="noopener noreferrer" href="aladdin-pv.html">more examples</a>).
+                        </figcaption>
+                    </figure>
 
-        </header> <!-- /#page-header -->
-        <div id="main-content-area" class="row no-gutters">
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-four-season-heatmap.png" alt="Computational building-energy analysis with Aladdin">
+                        <figcaption>
+                            Computational building-energy analysis with Aladdin (see
+                            <a target="_blank" rel="noopener noreferrer" href="aladdin-heatmap.html">more information</a>).
+                        </figcaption>
+                    </figure>
 
+                    <p>
+                        By supporting the design and simulation of multiple types of renewable
+                        energy &mdash; as well as the energy consumption of buildings &mdash;
+                        Aladdin makes it possible to model and analyze renewables colocation
+                        and microgrid systems on a single software platform.
+                    </p>
 
-            <section class="col-sm-12">
-                <a id="main-content"></a>
-                <div class="region">
-                    <div id="block-system-main" class="block block-system">
+                    <h2>Artificial intelligence capabilities</h2>
+                    <p>
+                        Aladdin's AI capabilities are mainly based on
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.generativedesign.org/">generative
+                        design</a>, a <em>tabula rasa</em> methodology inspired by biological evolution.
+                        Once the design criteria and constraints of a product are specified, generative
+                        design uses evolutionary computation to efficiently explore the entire
+                        parameter space supported by the software to find optimal solutions.
+                    </p>
+                    <p>
+                        During the iterative search, the software automatically constructs a vast
+                        number of forms at each step, tests their functions with numerical simulations,
+                        evaluates their quality against the given criteria, and selects those closer
+                        to the goal for the next step. By repeating these routines many times, a
+                        variety of designs that meet the goal gradually emerge. Engineers then review
+                        these outputs &mdash; often with the aid of
+                        <a target="_blank" rel="noopener noreferrer" href="aladdin-generative-design-1.html">interactive
+                        visual analytics</a> for intuitive evaluation and comparison &mdash; and choose
+                        one or more for prototyping (see
+                        <a target="_blank" rel="noopener noreferrer" href="aladdin-generative-design-csp.html">an
+                        example about concentrated solar power</a>).
+                    </p>
+                    <p>
+                        This paradigm shift entails a fundamental change of mindset for
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Design_thinking">design
+                        thinking</a> that must be addressed in the engineering education of the
+                        future workforce.
+                    </p>
 
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-design.png" alt="Architectural design with Aladdin">
+                        <figcaption>
+                            Architectural design with Aladdin (see
+                            <a target="_blank" rel="noopener noreferrer" href="aladdin-building-energy.html">more examples</a>).
+                        </figcaption>
+                    </figure>
 
-                        <div class="content">
-                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
-                                <header>
-                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+                    <h2>How to cite Aladdin</h2>
+                    <p>
+                        Charles Xie, Xiaotong Ding, &amp; Rundong Jiang,
+                        <a target="_blank" rel="noopener noreferrer" href="https://ieeexplore.ieee.org/document/10251686">Using
+                        Computer Graphics to Make Science Visible in Engineering Education</a>,
+                        <em>IEEE Computer Graphics and Applications</em>, 43(5), 99&ndash;106, 2023.
+                        DOI:10.1109/MCG.2023.3298386
+                    </p>
+                </div>
 
-                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                    <div class="field-items">
-                                        <div class="field-item even" property="content:encoded">
+                <aside class="v2-col-aside" data-reveal>
+                    <div class="v2-sidebar-card">
+                        <div class="v2-sidebar-logo">
+                            <img src="image/magic-lamp.png" alt="Aladdin logo">
+                        </div>
 
-<h4>Aladdin: Engineering Design Enhanced by AI</h4>
-                                            
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Why name it Aladdin?</h3>
+                            <p class="v2-sidebar-note is-small" style="font-size: 1.125rem;">
+                                In Arabic folklore, Aladdin is a tale that features a magic lamp able
+                                to generate whatever its owner wants. In the field of design, AI has
+                                somewhat realized the fairytale &mdash; designers only need to specify
+                                what they want and AI brings their wishes to life.
+                            </p>
+                        </div>
 
-<div class="row">
-<div class="col-md-8">
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Entrance</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/">Aladdin</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin?map=true&viewonly=true">User submissions</a></li>
+                            </ul>
+                        </div>
 
-<p>Artificial intelligence (AI) is changing the way people work. As a manifestation of human ingenuity, 
-design is a vital testbed for studying how we may meet the opportunities and challenges posed by AI. Based on the fusion of
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computer-aided_design">CAD</a> and 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computer-aided_engineering">CAE</a>, 
-Aladdin is an experimental platform for reimagining engineering design in the era of AI &mdash; in the contexts of architectural and energy engineering.
- 
-<p align="center">
-<!--
-src="https://institute-for-future-intelligence.github.io/aladdin/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Linear%20Fresnel%20Reflectors" 
-src="https://institute-for-future-intelligence.github.io/aladdin/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Yenişehir%20Belediyesi%20Bilim%20ve%20Sanat%20Merkezi" 
-src="https://institute-for-future-intelligence.github.io/aladdin/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Solar%20Power%20Tower" 
-src="https://institute-for-future-intelligence.github.io/aladdin/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=College%20of%20Engineering%20Building" 
--->
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Podcast</h3>
+                            <audio controls>
+                                <source src="podcast/aladdin.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
 
-<iframe 
-src="https://institute-for-future-intelligence.github.io/aladdin/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Tucson%20Electric%20Power%27s%20Linear%20Fresnel%20Reflectors" 
-allowfullscreen="true" 
-id="aladdin-frame"
-width="100%" 
-height="600px" 
-style="border: 1px solid #555; box-shadow: 4px 4px #888;"
-title="Demo">
-</iframe>
-Live model above (<a href="javascript:openFullscreen();">view in full screen</a>)
-</p>
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Troubleshooting</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="aladdin-system-troubleshooting.html">System requirements</a></li>
+                                <li><a href="aladdin-faq.html">FAQ</a></li>
+                            </ul>
+                        </div>
 
-<h5>How to cite Aladdin?</h5>
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Engineering domains</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="aladdin-building-energy-2.html">🏠 Building energy</a></li>
+                                <li><a href="aladdin-pv.html">☀️ Photovoltaic solar power</a></li>
+                                <li><a href="aladdin-csp.html">📡 Concentrated solar power</a></li>
+                                <li><a href="aladdin-wind.html">🌬️ Wind power</a></li>
+                                <li><a href="aladdin-battery-storage.html">🔋 Energy storage</a></li>
+                                <li><span style="font-size: 1.5rem; font-weight: 500; color: var(--text-muted);">🚧 Geothermal power</span></li>
+                            </ul>
+                        </div>
 
-<p>
-Charles Xie, Xiaotong Ding, & Rundong Jiang, 
-<a target="_blank" rel="noopener noreferrer" href="https://ieeexplore.ieee.org/document/10251686">Using Computer Graphics to Make Science Visible in Engineering Education</a>, 
-<i>IEEE Computer Graphics and Applications</i>, 43(5), 99-106, 2023. DOI:10.1109/MCG.2023.3298386
-</p>
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Articles</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="aladdin-llm-sim.html">AI-aided design loop</a></li>
+                                <li><a href="aladdin-generative-urban-design.html">Generative urban design</a></li>
+                                <li><a href="aladdin-solar-power-tower-gd.html">Use GenAI to design solar towers</a></li>
+                                <li><a href="aladdin-llm-cad.html">Use GenAI to create 3D models</a></li>
+                                <li><a href="aladdin-generative-design-1.html">Generative design I</a></li>
+                                <li><a href="aladdin-generative-design-2.html">Generative design II</a></li>
+                                <li><a href="aladdin-design-solar-farm-with-ai.html">Design a solar farm with AI</a></li>
+                                <li><a href="aladdin-ai-solar-panel-tilt.html">Visual evolutionary computation</a></li>
+                                <li><a href="aladdin-bifacial-solar-panels.html">Bifacial solar panels</a></li>
+                                <li><a href="aladdin-custom-solar-panels.html">Define your own solar panels</a></li>
+                                <li><a href="aladdin-ruler.html">Use rulers</a></li>
+                                <li><a href="aladdin-navigation-mode.html">Navigate in models</a></li>
+                                <li><a href="aladdin-model-tree.html">Use the Model Tree</a></li>
+                                <li><a href="aladdin-happy-modeling.html">Construct 3D models</a></li>
+                                <li><a href="aladdin-solar-radiation-benchmarks.html">Accuracy of solar simulations</a></li>
+                                <li><a href="aladdin-modeling-real-world.html">Accuracy of 3D modeling</a></li>
+                                <li><a href="aladdin-citizen-science.html">Citizen science</a></li>
+                                <li><a href="aladdin-gis-cad.html">GIS/CAD integration</a></li>
+                                <li><a href="aladdin-solar-design-art.html">Solar design and art</a></li>
+                                <li><a href="aladdin-design-energy-plus-house.html">Design an energy-plus house</a></li>
+                                <li><a href="aladdin-building-energy-3.html">Building energy analysis II</a></li>
+                                <li><a href="aladdin-building-energy-2.html">Building energy analysis I</a></li>
+                                <li><a href="aladdin-heatmap.html">Heatmap visualizations</a></li>
+                                <li><a href="aladdin-solarize-your-school.html">Solarize your school</a></li>
+                                <li><a href="aladdin-lights.html">Let there be light</a></li>
+                                <li><a href="aladdin-four-seasons.html">Simulate seasonal changes</a></li>
+                                <li><a href="aladdin-iipv.html">Integrate PV in infrastructure</a></li>
+                                <li><a href="aladdin-whole-building-manipulation.html">Manipulate a group</a></li>
+                                <li><a href="aladdin-common-roof-types.html">Common types of roofs</a></li>
+                                <li><a href="aladdin-solar-updraft-tower.html">Solar updraft tower</a></li>
+                                <li><a href="aladdin-design-fresnel-reflectors.html">Linear Fresnel reflectors</a></li>
+                                <li><a href="aladdin-solar-power-tower.html">Solar power tower</a></li>
+                                <li><a href="aladdin-parabolic-dish.html">Parabolic dishes</a></li>
+                                <li><a href="aladdin-parabolic-trough.html">Parabolic troughs</a></li>
+                                <li><a href="aladdin-visibility-analysis.html">Visibility analysis</a></li>
+                                <li><a href="aladdin-solar-farm-design-parameters.html">Solar farm design parameters</a></li>
+                                <li><a href="aladdin-create-solar-arrays.html">Create solar panel arrays</a></li>
+                                <li><a href="aladdin-embedded.html">Embed Aladdin in a page</a></li>
+                                <li><a href="aladdin-solar-array-surprise.html">Decipher a solar array surprise</a></li>
+                                <li><a href="aladdin-solar-farm-modeling.html">Model solar farms in real world</a></li>
+                                <li><a href="aladdin-solar-trackers.html">Simulate solar trackers</a></li>
+                                <li><a href="aladdin-heliodon.html">A virtual heliodon</a></li>
+                            </ul>
+                        </div>
 
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Tutorials</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="aladdin-videos-kcc.html">Prof. Aaron Hanai</a></li>
+                                <li><a href="aladdin-videos-lehigh.html">Lehigh University</a></li>
+                            </ul>
+                        </div>
 
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Educational activities</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="aladdin-gencad-house-unit.html">Design a net-zero house with AI</a></li>
+                                <li><a href="aladdin-energy-plus-house-design.html">Design an energy-plus house</a></li>
+                                <li><a href="aladdin-solar-science.html">Solar energy science</a></li>
+                                <li><a href="aladdin-sys-unit.html">Solarize your school</a></li>
+                                <li><a href="aladdin-syh-unit.html">Solarize your home</a></li>
+                                <li><a href="aladdin-solar-panels-v-trees.html">Solar panels v. trees</a></li>
+                                <li><a href="aladdin-people-v-solar-farm.html">People v. solar farm</a></li>
+                                <li><a href="aladdin-solar-farm-design-ai.html">Design a solar farm with AI</a></li>
+                            </ul>
+                        </div>
 
-<h5>Design and simulation capabilities</h5>
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Published applications</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="aladdin-journals.html">Papers</a></li>
+                                <li><a href="aladdin-dissertations.html">Dissertations</a></li>
+                            </ul>
+                        </div>
 
-<p>First, Aladdin is an integrated CAD/CAE platform that can be used to design a structure and simulate its function <i>within a single system</i>.
-This eliminates complicated <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Toolchain">toolchains</a> 
-needed in traditional engineering design software and reduces the difficulty in implementing automatic design using AI.
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Legal</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="aladdin-privacy.html">Privacy Policy</a></li>
+                                <li><a href="aladdin-terms.html">Terms of Service</a></li>
+                            </ul>
+                        </div>
 
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-pv-design.png" width="100%" style='border:2px solid #999999'>
-<br>Photovoltaic solar design with Aladdin (see <a target="_blank" rel="noopener noreferrer" href="aladdin-pv.html">more examples</a>). 
-</p>
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Developers</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="people.html#charles">Charles Xie</a></li>
+                                <li><a href="people.html#xiaotong">Xiaotong Ding</a></li>
+                            </ul>
+                        </div>
 
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-four-season-heatmap.png" width="100%" style='border:2px solid #999999'>
-<br>Computational building energy analysis with Aladdin (see <a target="_blank" rel="noopener noreferrer" href="aladdin-heatmap.html">more information</a>). 
-</p>
-
-<p>Second, by supporting the design and simulation of multiple types of renewable energy, as well as energy consumption of buildings, Aladdin makes it possible
-to model and analyze certain renewables colocation and microgrid systems on a single software platform.
-
-
-<h5>Artificial intelligence capabilities</h5>
-
-<p>Aladdin's AI capabilities are mainly based on <a target="_blank" rel="noopener noreferrer" href="https://www.generativedesign.org/">generative design</a>, 
-a <i>tabula rasa</i> methodology inspired by biological evolution. 
-Once the design criteria and constraints of a product are specified, generative design uses
-evolutionary computation to efficiently explore the entire parameter space supported by the software to find optimal solutions. 
-During the iterative search for feasible solutions, the software automatically
-constructs a vast number of forms at each step, tests their functions using numerical simulations, evaluates
-their quality based on the given criteria and constraints, and then selects those that are closer to the goal for
-the next step. By repeating these computational routines many times, a variety of designs that meet the goal
-gradually emerge. Engineers then review these outputs, often with the aid of 
-<a target="_blank" rel="noopener noreferrer" href="aladdin-generative-design-1.html">interactive visual analytics</a>
-for intuitive evaluation and comparison across the board, and choose one or more designs for prototyping 
-(see <a target="_blank" rel="noopener noreferrer" href="aladdin-generative-design-csp.html">an example about concentrated solar power</a>). 
-This paradigm shift in design methods entails a fundamental change of mindset for 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Design_thinking">design thinking</a>
-that must be addressed in the engineering education of future workforce.</p>
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-design.png" width="100%" style='border:2px solid #999999'>
-<br>Architectural design with Aladdin (see <a target="_blank" rel="noopener noreferrer" href="aladdin-building-energy.html">more examples</a>). 
-</p>
-
-
-<!--
-<p><b>The Human-AI Boundary</b>.
-Most design problems have multiple objectives. A multi-objective AI agent outputs a set of solutions along the Pareto frontier,
-where it is impossible to improve the performance of a solution on one objective without compromising the performance on another. 
-The Pareto frontier is where AI reaches its limit. Beyond this point, human judgement is needed to decide on the final solution to complete the design process.
-<br><br>
-<img width="100%" src="image/pareto-front.png">
-</p>
--->
-
-
-</div>
-<div class="col-md-4">
-<div class="product-sidebar">
-
-<p align="left"><img src="image/magic-lamp.png" title="Aladdin Logo"></p>
-<b>Why Name It Aladdin?</b>
-<p style="line-height:1.6; font-size: 14px">
-In Arabic folklore, Aladdin is a tale that features a magic lamp able to 
-generate whatever its owner wants. In the field of design, AI has somewhat realized the fairytale &mdash; designers
-only need to specify what they want and AI would bring their wishes to life.</font>
-
-<p>
-<b>Entrance</b>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/">Aladdin</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin?map=true&viewonly=true">User Submissions</a>
-</p>
-
-<p align='left'>
-  <span><b>Podcast</b></span><br>
-  <audio controls>
-    <source src="podcast/aladdin.mp3" type="audio/mpeg">
-  </audio>
-</p>
-
-<p>
-<b>Troubleshooting</b>
-<br>
-🖥️<a href="aladdin-system-troubleshooting.html">System Requirements</a>
-<br>
-❔<a href="aladdin-faq.html">FAQ</a>
-</p>
-
-
-<p>
-<b>Engineering Domains</b>
-<br>
-🏠<a href="aladdin-building-energy-2.html">Building energy</a>
-<br>
-☀️<a href="aladdin-pv.html">Photovoltaic solar power</a>
-<br>
-📡<a href="aladdin-csp.html">Concentrated solar power</a>
-<br>
-<img width="20" height="20" src="image/wind-blow.png" style="vertical-align: middle"> <a href="aladdin-wind.html">Wind power</a>
-<br>
-🔋<a href="aladdin-battery-storage.html">Energy storage</a>
-<br>
-<img width="20" height="20" src="image/under-construction.png" style="vertical-align: middle"> Geothermal power
-</p>
-
-
-<p>
-<b>Articles</b>
-<br>
-<a href="aladdin-i18n.html">Available in five languages</a>
-<br>
-<a href="aladdin-llm-sim.html">AI-aided design loop</a>
-<br>
-<a href="aladdin-generative-urban-design.html">Generative urban design</a>
-<br>
-<a href="aladdin-solar-power-tower-gd.html">Use GenAI to design solar towers</a>
-<br>
-<a href="aladdin-llm-cad.html">Use GenAI to create 3D models</a>
-<br>
-<a href="aladdin-generative-design-1.html">Generative design I</a>
-<br>
-<a href="aladdin-generative-design-2.html">Generative design II</a>
-<br>
-<a href="aladdin-design-solar-farm-with-ai.html">Design a solar farm with AI</a>
-<br>
-<a href="aladdin-ai-solar-panel-tilt.html">Visual evolutionary computation</a>
-<br>
-<a href="aladdin-bifacial-solar-panels.html">Bifacial solar panels</a>
-<br>
-<a href="aladdin-custom-solar-panels.html">Define your own solar panels</a>
-<br>
-<a href="aladdin-ruler.html">Use rulers</a>
-<br>
-<a href="aladdin-navigation-mode.html">Navigate in models</a>
-<br>
-<a href="aladdin-model-tree.html">Use the Model Tree</a>
-<br>
-<a href="aladdin-happy-modeling.html">Construct 3D models</a>
-<br>
-<a href="aladdin-solar-radiation-benchmarks.html">Accuracy of solar simulations</a>
-<br>
-<a href="aladdin-modeling-real-world.html">Accuracy of 3D modeling</a>
-<br>
-<a href="aladdin-citizen-science.html">Citizen science</a>
-<br>
-<a href="aladdin-gis-cad.html">GIS/CAD integration</a>
-<br>
-<a href="aladdin-solar-design-art.html">Solar design and art</a>
-<br>
-<a href="aladdin-design-energy-plus-house.html">Design an energy-plus house</a>
-<br>
-<a href="aladdin-building-energy-3.html">Building energy analysis II</a>
-<br>
-<a href="aladdin-building-energy-2.html">Building energy analysis I</a>
-<br>
-<a href="aladdin-heatmap.html">Heatmap visualizations</a>
-<br>
-<a href="aladdin-solarize-your-school.html">Solarize your school</a>
-<br>
-<a href="aladdin-lights.html">Let there be light</a>
-<br>
-<a href="aladdin-four-seasons.html">Simulate seasonal changes</a>
-<br>
-<a href="aladdin-iipv.html">Integrate PV in infrastructure</a>
-<br>
-<a href="aladdin-whole-building-manipulation.html">Manipulate a group</a>
-<br>
-<a href="aladdin-common-roof-types.html">Common types of roofs</a>
-<br>
-<a href="aladdin-solar-updraft-tower.html">Solar updraft tower</a>
-<br>
-<a href="aladdin-design-fresnel-reflectors.html">Linear Fresnel reflectors</a>
-<br>
-<a href="aladdin-solar-power-tower.html">Solar power tower</a>
-<br>
-<a href="aladdin-parabolic-dish.html">Parabolic dishes</a>
-<br>
-<a href="aladdin-parabolic-trough.html">Parabolic troughs</a>
-<br>
-<a href="aladdin-visibility-analysis.html">Visibility analysis</a>
-<br>
-<a href="aladdin-solar-farm-design-parameters.html">Solar farm design parameters</a>
-<br>
-<a href="aladdin-create-solar-arrays.html">Create solar panel arrays</a>
-<br>
-<a href="aladdin-embedded.html">Embed Aladdin in a page</a>
-<br>
-<a href="aladdin-solar-array-surprise.html">Decipher a solar array surprise</a>
-<br>
-<a href="aladdin-solar-farm-modeling.html">Model solar farms in real world</a>
-<br>
-<a href="aladdin-solar-trackers.html">Simulate solar trackers</a>
-<br>
-<a href="aladdin-heliodon.html">A virtual heliodon</a>
-</p>
-
-
-<p>
-<b>Tutorials</b>
-<br>
-<a href="aladdin-videos-kcc.html">Prof. Aaron Hanai</a>
-<br>
-<a href="aladdin-videos-lehigh.html">Lehigh University</a>
-</p>
-
-<p>
-<b>Educational Activities</b>
-<br>
-<a href="aladdin-gencad-house-unit.html">Design net-zero house with AI
-<br>
-<a href="aladdin-energy-plus-house-design.html">Design energy-plus house
-<br>
-<a href="aladdin-solar-science.html">Solar energy science</a>
-<br>
-<a href="aladdin-sys-unit.html">Solarize your school</a>
-<br>
-<a href="aladdin-syh-unit.html">Solarize your home</a>
-<br>
-<a href="aladdin-solar-panels-v-trees.html">Solar panels v. trees</a>
-<br>
-<a href="aladdin-people-v-solar-farm.html">People v. solar farm</a>
-<br>
-<a href="aladdin-solar-farm-design-ai.html">Design solar farm with AI</a>
-</p>
-
-
-<b>Legal</b>
-<p>
-<a href="aladdin-privacy.html">Privacy Policy</a>
-<br>
-<a href="aladdin-terms.html">Terms of Service</a>
-</p>
-
-<p>
-<b>Published Applications</b>
-<br>
-<a href="aladdin-journals.html">Papers</a>
-<br>
-<a href="aladdin-dissertations.html">Dissertations</a>
-</p>
-
-
-<!--
-<p>
-<b>Legacy Versions</b>
-<br>
-<img width="20" height="20" src="image/windows-os.png" style="vertical-align: middle"> <a href="jaladdin/Aladdin.exe">Aladdin Windows</a>
-<br>
-<img width="20" height="20" src="image/mac-os.png" style="vertical-align: middle"> <a href="jaladdin/Aladdin.zip">Aladdin Mac</a>
-</p>
--->
-
-<p>
-<b>Developers</b>
-<br>
-<a href="people.html#charles">Charles Xie</a>
-<br>
-<a href="people.html#xiaotong">Xiaotong Ding</a>
-</p>
-
-
-<b>Acknowledgements</b>
-<p style="line-height:1.6; font-size: 14px">
-This project is supported by the National Science Foundation (NSF) under grant numbers 
-<a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2105695">#2105695</a>,
-<a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2131097">#2131097</a>, and 
-<a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2301164">#2301164</a>. 
-Any opinions, findings, and conclusions or recommendations expressed in this material, however, are those of the authors and do not necessarily reflect the views of NSF.
-</p>
-<p align="center">
-<img src="image/nsf.png">
-</p>
-
-</div>
-</div>
-</div>
-
-
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Acknowledgements</h3>
+                            <p class="v2-sidebar-note is-small">
+                                This project is supported by the National Science Foundation (NSF)
+                                under grant numbers
+                                <a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2105695">#2105695</a>,
+                                <a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2131097">#2131097</a>,
+                                and
+                                <a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2301164">#2301164</a>.
+                                Any opinions, findings, and conclusions or recommendations expressed
+                                in this material are those of the authors and do not necessarily
+                                reflect the views of NSF.
+                            </p>
+                            <div class="v2-nsf-logo">
+                                <img src="image/nsf.png" alt="National Science Foundation">
+                            </div>
                         </div>
                     </div>
-                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+                </aside>
+            </div>
+        </section>
 
-
-                        <div class="content">
-                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
-
-
-
-
-
-
-
-
-
-                            </div>  </div>
-                    </div>
-                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
-
-
-                    </div>
-                </div>
-            </section>
-
-
-        </div>
-    </div>
-
+    </main>
 
     <script>includeFooter();</script>
 
 </div>
 
-<script src="js/flexslider.load.js"></script>
+<script src="js/v2.js"></script>
 <script src="js/bootstrap.js"></script>
 
 </body>

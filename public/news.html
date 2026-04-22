@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News — Institute for Future Intelligence</title>
+    <meta name="description" content="News archive from the Institute for Future Intelligence.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+
+        .v2-news-year {
+            font-family: var(--font-display);
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.01em;
+            margin: 2.5rem 0 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+        .v2-news-year:first-of-type { margin-top: 0.5rem; }
+
+        .v2-news-list { list-style: none; padding: 0; margin: 0; }
+        .v2-news-item {
+            display: flex;
+            gap: 1.25rem;
+            align-items: baseline;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .v2-news-date {
+            flex: 0 0 auto;
+            width: 220px;
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+        .v2-news-topic {
+            display: inline-block;
+            margin-left: 0.5rem;
+            padding: 0.15rem 0.55rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-dark);
+            border-radius: 0.3rem;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .v2-news-title { flex: 1; font-size: 1.375rem; line-height: 1.45; }
+        .v2-news-title a { color: var(--text); text-decoration: none; font-weight: 500; }
+        .v2-news-title a:hover { color: var(--accent-dark); text-decoration: underline; }
+        @media (max-width: 640px) {
+            .v2-news-item { flex-direction: column; gap: 0.25rem; }
+            .v2-news-date { width: auto; }
+        }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <main class="v2">
+
+        <header class="v2-hero" data-wordmark="NEWS">
+            <div class="v2-hero-inner">
+                <h1>News</h1>
+                <p class="v2-tagline">
+                    Highlights from our research, simulations, and student work &mdash;
+                    all the way back to 2020.
+                </p>
+            </div>
+        </header>
+
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+
+                    <h2 class="v2-news-year">2026</h2>
+                    <ul class="v2-news-list">
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Mar 31, 2026<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="https://energy2d.intofuture.org/view/hyLaF2EA9QwWW7ztUNiS">Simulating tuned mass damper with Energy2D</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Mar 12, 2026<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="https://energy2d.intofuture.org/view/7Pklv3daBeWVXosXqGbc">Simulating laminar and turbulent flow with Energy2D</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Feb 23, 2026<span class="v2-news-topic">Chemistry</span></span>
+                            <span class="v2-news-title"><a href="ie-rubber-band.html">Thermal imaging of the rubber band experiment</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Feb 16, 2026<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-generative-urban-design.html">Generative urban design with Aladdin</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jan 3, 2026<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-solar-power-tower-gd.html">Using GenAI to design solar power towers</a></span>
+                        </li>
+                    </ul>
+
+                    <h2 class="v2-news-year">2025</h2>
+                    <ul class="v2-news-list">
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Aug 18, 2025<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-llm-sim.html">AI-assisted engineering design loop in Aladdin</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jul 28, 2025<span class="v2-news-topic">Chemistry</span></span>
+                            <span class="v2-news-title"><a href="aims-ai-vs-pubchem.html">Comparing GenAI results with actual data of molecules</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jul 22, 2025<span class="v2-news-topic">Chemistry</span></span>
+                            <span class="v2-news-title"><a href="aims-ai-design-assistant.html">Using GenAI as an assistant for molecular design</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jun 16, 2025<span class="v2-news-topic">Chemistry</span></span>
+                            <span class="v2-news-title"><a href="aims-acenes.html">Quantitative structure-property relationship</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Apr 10, 2025<span class="v2-news-topic">Biology</span></span>
+                            <span class="v2-news-title"><a href="ie-tulips.html">Science in the garden with thermal imaging</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Mar 17, 2025<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-battery-storage.html">Using battery storage for an off-grid house</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Mar 14, 2025<span class="v2-news-topic">Computation</span></span>
+                            <span class="v2-news-title"><a href="iflow-monte-carlo-method.html">Calculating the value of &pi; using a Monte Carlo method</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jan 21, 2025<span class="v2-news-topic">Chemistry</span></span>
+                            <span class="v2-news-title"><a href="aims-navigation-mode.html">Fantastic voyage in the molecular world</a></span>
+                        </li>
+                    </ul>
+
+                    <h2 class="v2-news-year">2024</h2>
+                    <ul class="v2-news-list">
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Nov 27, 2024<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-custom-solar-panels.html">Defining and using your own solar panels</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Nov 23, 2024<span class="v2-news-topic">Physics</span></span>
+                            <span class="v2-news-title"><a href="ie-conduction.html">Why do metals feel colder than wood?</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Sep 16, 2024<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="ie-filters.html">Processing thermal images with Infrared Explorer</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jan 1, 2024<span class="v2-news-topic">Physics</span></span>
+                            <span class="v2-news-title"><a href="telelab-herschel.html">Discovering near infrared light with thermal imaging</a></span>
+                        </li>
+                    </ul>
+
+                    <h2 class="v2-news-year">2023</h2>
+                    <ul class="v2-news-list">
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Nov 25, 2023<span class="v2-news-topic">Mathematics</span></span>
+                            <span class="v2-news-title"><a href="iflow-seashell.html">How to draw a beautiful seashell with iFlow</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Aug 30, 2023<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-bifacial-solar-panels.html">Design and analysis of bifacial solar panels</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Aug 16, 2023<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-generative-design-1.html">Visual analysis of many designs in the solution space</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jul 1, 2023<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="energy2d-particle-dynamics.html">Coupled fluid-particle multiphysics simulation</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jun 20, 2023<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-building-energy-3.html">Energy analysis of buildings in complex shapes</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jun 7, 2023<span class="v2-news-topic">Physics</span></span>
+                            <span class="v2-news-title"><a href="qubit.html">First-principles simulation of qubit operations</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Apr 5, 2023<span class="v2-news-topic">Computation</span></span>
+                            <span class="v2-news-title"><a href="iflow-pde-solvers.html">Solving partial differential equations with iFlow</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Mar 25, 2023<span class="v2-news-topic">Computation</span></span>
+                            <span class="v2-news-title"><a href="iflow-ode-solvers.html">Solving ordinary differential equations with iFlow</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Feb 10, 2023<span class="v2-news-topic">Chemistry</span></span>
+                            <span class="v2-news-title"><a href="telelab-boiling-point.html">Visualizing boiling point with thermal imaging</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jan 20, 2023<span class="v2-news-topic">Biology</span></span>
+                            <span class="v2-news-title"><a href="ie-breath.html">Visualizing respiratory responses to exercise</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jan 1, 2023<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-design-energy-plus-house.html">Designing an energy-plus house with Aladdin</a></span>
+                        </li>
+                    </ul>
+
+                    <h2 class="v2-news-year">2022</h2>
+                    <ul class="v2-news-list">
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Apr 28, 2022<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-design-solar-farm-with-ai.html">Designing a solar farm with artificial intelligence</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Apr 19, 2022<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-ai-solar-panel-tilt.html">Introducing visual evolutionary computation</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Mar 22, 2022<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-solar-updraft-tower.html">Putting hot air to work: solar updraft towers</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Mar 2, 2022<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-solar-power-tower.html">Modeling and designing solar power towers</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Feb 22, 2022<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-design-fresnel-reflectors.html">Designing linear Fresnel reflector arrays</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Feb 15, 2022<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-parabolic-dish.html">Concentrating sunlight with parabolic dishes</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Feb 7, 2022<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-parabolic-trough.html">Designing parabolic troughs for solar thermal power</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Feb 1, 2022<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-visibility-analysis.html">Visibility analysis of solar fields with Aladdin</a></span>
+                        </li>
+                    </ul>
+
+                    <h2 class="v2-news-year">2021</h2>
+                    <ul class="v2-news-list">
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Nov 23, 2021<span class="v2-news-topic">Engineering</span></span>
+                            <span class="v2-news-title"><a href="aladdin-solar-array-surprise.html">Deciphering a solar array surprise with Aladdin</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jul 27, 2021<span class="v2-news-topic">Computation</span></span>
+                            <span class="v2-news-title"><a href="iflow-machine-learning.html">Visual and interactive machine learning with iFlow</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jul 23, 2021<span class="v2-news-topic">Computation</span></span>
+                            <span class="v2-news-title"><a href="iflow-data-visualizations.html">Using iFlow to visualize and animate data</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Jul 21, 2021<span class="v2-news-topic">Computation</span></span>
+                            <span class="v2-news-title"><a href="iflow-chaos.html">Exploring chaos without writing a single line of code</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Mar 20, 2021<span class="v2-news-topic">Chemistry</span></span>
+                            <span class="v2-news-title"><a href="telelab-latent-heat.html">Sharing a latent heat experiment through Telelab</a></span>
+                        </li>
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Feb 25, 2021<span class="v2-news-topic">Physics</span></span>
+                            <span class="v2-news-title"><a href="iflow-classical-mechanics.html">Using iFlow to solve classical mechanics problems</a></span>
+                        </li>
+                    </ul>
+
+                    <h2 class="v2-news-year">2020</h2>
+                    <ul class="v2-news-list">
+                        <li class="v2-news-item">
+                            <span class="v2-news-date">Aug 15, 2020<span class="v2-news-topic">Computation</span></span>
+                            <span class="v2-news-title"><a href="epidemic-model.html">Using iFlow to model infectious epidemics</a></span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

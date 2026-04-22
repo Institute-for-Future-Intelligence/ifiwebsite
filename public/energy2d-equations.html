@@ -3,70 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Energy2D: Numerical Algorithms for Simulating Three Modes of Heat Transfer</title>
+    <title>Numerical Algorithms for Simulating Three Modes of Heat Transfer — Institute for Future Intelligence</title>
+    <meta name="description" content="Inside Energy2D &mdash; finite-difference schemes for conduction, convection, and radiation coupled in a single multiphysics simulation.">
+
     <style>
         @import url("css/system.base.css");
-    </style>
-    <style>
         @import url("css/jquery.ui.core.min.css");
         @import url("css/jquery.ui.theme.min.css");
         @import url("css/jquery.ui.menu.min.css");
-        @import url("css/jquery.ui.autocomplete.min.css");
-        @import url("css/jquery.ui.button.min.css");
-        @import url("css/jquery.ui.resizable.min.css");
-        @import url("css/jquery.ui.dialog.min.css");
-    </style>
-    <style>
-        @import url("css/date.css");
-        @import url("css/datepicker.1.7.css");
         @import url("css/ifi_theme.css");
-        @import url("css/field.css");
-        @import url("css/node.css");
-        @import url("css/video_filter.css");
-        @import url("css/views.css");
-        @import url("css/caption-filter.css");
-    </style>
-    <style>
-        @import url("css/apachesolr_autocomplete.css");
-        @import url("css/ctools.css");
-        @import url("css/video.css");
-        @import url("css/flexslider_img.css");
-        @import url("css/flexslider.css");
-        @import url("css/google_translator.css");
     </style>
     <link rel="stylesheet" type="text/css" href="css/first.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
-    <!-- HTML5 element support for IE6-8 -->
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <style>
-        .logoifi {
-            width: 35px;
-            height: 35px;
-            margin: 5px 0 0;
-            padding: 0;
-            background: url("image/logofloat.png") no-repeat 0 0;
-            background-size: 35px 35px;
-        }
-        body {
-            position: relative;
-            font-family: "Soleil", sans-serif;
-            color: #333333;
-            font-size: 18px;
-            line-height: 30px;
-        }
-    </style>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
 
-    <script src="https://use.typekit.net/epu0hfp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -74,446 +30,342 @@
       gtag('js', new Date());
       gtag('config', 'G-B0RXQKFDN0');
     </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-extend-3.4.0.js"></script>
-    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
-    <script src="js/jquery.once.js"></script>
-    <script src="js/drupal.js"></script>
-    <script src="js/jquery.ui.core.min.js"></script>
-    <script src="js/jquery.ui.widget.min.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/jquery.ui.menu.min.js"></script>
-    <script src="js/jquery.ui.autocomplete.min.js"></script>
-    <script src="js/jquery.ui.button.min.js"></script>
-    <script src="js/jquery.ui.mouse.min.js"></script>
-    <script src="js/jquery.ui.draggable.min.js"></script>
-    <script src="js/jquery.ui.resizable.min.js"></script>
-    <script src="js/jquery.ui.dialog.min.js"></script>
-    <script src="js/caption-filter.js"></script>
-    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/googleanalytics.js"></script>
-    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/google_translator.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.smartmenus.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/jquery.smartmenus.bootstrap.js"></script>
-    <script src="js/affix.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/transition.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/popover.js"></script>
-    <script src="js/scrollspy.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/transition.js"></script>
-    <script src="js/jquery-extend-drupal.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
 
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+    </style>
 </head>
 
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<body class="html not-logged-in node-type-page page-v2">
 <script src="js/include.js"></script>
 <div id="wrapper">
-
     <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="EQUATIONS">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Energy2D</span>
+                <h1>Numerical Algorithms for Simulating Three Modes of Heat Transfer</h1>
+                <p class="v2-tagline">
+                    Open the hood of Energy2D &mdash; the finite-difference schemes
+                    that couple conduction, convection, and radiation.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="energy2d.html">&larr; Back to Energy2D</a>
+
+                    <p class="v2-byline">By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>Energy2D is an open-source interactive <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Multiphysics">multiphysics</a>
+                    simulation tool that I have been developing for research and education purposes. It can be used to simulate all the three modes of
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_transfer">heat transfer</a>: conduction, convection, and radiation.
+                    The three modes are also coupled to some extent (a completely accurate coupling like what Mother Nature does may be too hard to achieve).
+                    This article opens the black box and describes the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Numerical_analysis">numerical algorithms</a> under the hood of Energy2D.
+                    It introduces only the algorithms for heat transfer and fluid dynamics. For the coupling with particle dynamics, see <a href="energy2d-particle-dynamics.html">this article</a>.</p>
+
+                    <h2>Simulating thermal conduction</h2>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-conduction-animation.gif" alt="Thermal conduction simulation" style="border:2px solid gray">
+                        <figcaption>Figure 1: Comparing conduction from sources at different temperatures.</figcaption>
+                    </figure>
+
+                    <p>The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_conduction">thermal conduction</a>
+                    for heterogeneous media is modeled using the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_equation">Heat Equation</a> as follows:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-heat-equation.png" alt="Heat equation">
+                        <figcaption>Equation 1.</figcaption>
+                    </figure>
+
+                    <p>where <i>T</i>(<i>x</i>, <i>y</i>, <i>z</i>, <i>t</i>) is the temperature distribution, <i>k</i> is the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_conductivity">thermal conductivity</a>, <i>c</i> is the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_capacity">specific heat capacity</a>,
+                    <i>ρ</i> is the density, <b>v</b> is the velocity field, and <i>q</i>(<i>x</i>, <i>y</i>, <i>z</i>, <i>t</i>) is the internal heat generation
+                    (as opposed to external heating implemented as a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boundary_value_problem">boundary condition</a>). The Heat Equation has two parts: the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diffusion">diffusion</a> part characterized by the conductivity field function
+                    <i>k</i>(<i>x</i>, <i>y</i>, <i>z</i>) and the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Advection">advection</a> part characterized by the velocity field function <b>v</b>(<i>x</i>, <i>y</i>, <i>z</i>, <i>t</i>).
+                    The internal heat generation function <i>q</i>(<i>x</i>, <i>y</i>, <i>z</i>, <i>t</i>) can be thought of as a driving force for diffusion and advection.
+                    Equation 1 is discretized in both space and time domains through a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Finite-difference_time-domain_method">finite-difference time-domain (FDTD) method</a>.
+                    An implicit FDTD method is used to achieve better <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Numerical_stability">numerical stability</a>:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-heat-equation-1.png" alt="Implicit FDTD discretization">
+                        <figcaption>Equation 2.</figcaption>
+                    </figure>
+
+                    <p>where <i>M</i>&gt;<i>i</i>&ge;0, <i>N</i>&gt;<i>j</i>&ge;0, and <i>L</i>&gt;<i>k</i>&ge;0, with <i>M</i>, <i>N</i>, and <i>L</i> representing the numbers of
+                    cubic <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Voxel">voxels</a> in <i>x</i>, <i>y</i>, and <i>z</i> directions,
+                    and Δ<i>x</i>, Δ<i>y</i>, and Δ<i>z</i> are the lengths of the cubic voxels in the three directions, respectively. Δ<i>t</i> is the time step.
+                    In theory, an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Explicit_and_implicit_methods">implicit method</a> is <i>unconditionally stable</i>,
+                    allowing any time step to be taken, and the simulation will not "blow" up.
+                    In practice, however, the advection part of the Heat Equation can cause numeric instability, especially when the velocity is high.
+                    What is more, a numerically stable solver does not necessarily produce scientifically accurate results.
+                    Note that in Equation 2 we also avoid directly calculating the spatial derivatives of the conductivity field function,
+                    which could be very large at the interfaces between two distinct types of media and therefore could result in undesirable numeric instability.</p>
+
+                    <p>Let:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-heat-equation-2.png" alt="Equation 3">
+                        <figcaption>Equation 3.</figcaption>
+                    </figure>
+
+                    <p>Equation 2 can be rewritten as:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-heat-equation-3.png" alt="Equation 4">
+                        <figcaption>Equation 4.</figcaption>
+                    </figure>
+
+                    <p>This is a very sparse matrix that can be solved efficiently using a <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Relaxation_method">relaxation method</a>.</p>
+
+                    <p>Several types of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boundary_value_problem">boundary conditions</a> can be used.
+                    The first kind is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Dirichlet_boundary_condition">Dirichilet boundary condition</a>, which maintains the temperature at the boundary.
+                    The second kind is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Neumann_boundary_condition">Neumann boundary condition</a>, which maintains the flux at the boundary.
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Mixed_boundary_condition">Mixed boundary conditions</a> may also be applied.</p>
+
+                    <h2>Simulation thermal convection</h2>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-convection-animation.gif" alt="Thermal convection simulation" style="border:2px solid gray">
+                        <figcaption>Figure 2: Comparing convection from sources at different temperatures.</figcaption>
+                    </figure>
+
+                    <p>Fluids can transfer heat through <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Forced_convection">forced</a> and
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Natural_convection">natural</a> convection.
+                    Convection differs from conduction in that heat moves along with molecules in convection but molecules exchange only momenta
+                    &mdash; not positions &mdash; in conduction. In Energy2D, we only consider incompressible <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Newtonian_fluid">Newtonian fluids</a>,
+                    which can be modeled by the following form of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations">Navier-Stokes equation</a>:</p>
 
-    <div class="top-bar-full">  <div class="region region-top-bar-full">
-        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-navier-stokes-equation.png" alt="Navier-Stokes equation">
+                        <figcaption>Equation 5.</figcaption>
+                    </figure>
 
+                    <p>where <b>v</b> is the velocity vector, <i>a</i> is the kinematic viscosity, <i>p</i> is the pressure, and <b>f</b> is the body force such as gravity or buoyancy.
+                    The first term on the right-hand side of Equation 5 describes the diffusion of momentum. The second term describes advection.
+                    The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Continuity_equation">continuity condition</a>
+                    ensures the conservation of mass (as our fluids are incompressible, the mass in every voxel must not change):</p>
 
-        </div>
-    </div>
-    </div>
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-continuity-condition.png" alt="Continuity condition">
+                        <figcaption>Equation 6.</figcaption>
+                    </figure>
 
-    <!-- Main Container -->
+                    <p>For the temperature distribution to affect the flow of the fluid, we can add a thermal buoyancy term, known as the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boussinesq_approximation_(buoyancy)">Boussinesq approximation</a>, to the body force <b>f</b>(<i>x</i>, <i>y</i>, <i>z</i>, <i>t</i>):</p>
 
-    <div class="main-container container">
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-boussinesq-approximation.png" alt="Boussinesq approximation">
+                        <figcaption>Equation 7.</figcaption>
+                    </figure>
 
-        <header role="banner" id="page-header">
+                    <p>where <i>T</i><sub>0</sub>(<i>x</i>, <i>y</i>, <i>t</i>) is the average temperature of the column of fluid at the location (<i>x</i>, <i>y</i>) and at time <i>t</i> and <i>g</i> is the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_expansion">thermal expansion</a> coefficient.
+                    The Navier-Stokes equation (Equation 5) can be decomposed into two steps (assuming a uniform distribution of pressure or incorporating the pressure gradient term into the body force term):</p>
 
-        </header> <!-- /#page-header -->
-        <div id="main-content-area" class="row no-gutters">
+                    <p><b>1. The diffusion step</b></p>
 
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-navier-stokes-equation-diffusion-step.png" alt="Diffusion step">
+                        <figcaption>Equation 8.</figcaption>
+                    </figure>
 
-            <section class="col-sm-12">
-                <a id="main-content"></a>
-                <div class="region">
-                    <div id="block-system-main" class="block block-system">
+                    <p><b>2. The advection step</b></p>
 
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-navier-stokes-equation-advection-step.png" alt="Advection step">
+                        <figcaption>Equation 9.</figcaption>
+                    </figure>
 
-                        <div class="content">
-                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
-                                <header>
-                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+                    <p>The diffusion step Equation 8 can be solved efficiently using a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Relaxation_(iterative_method)">relaxation method</a>
+                    like in the case of solving the Heat Equation, whereas the advection step Equation 9 can be solved using the
+                    <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/MacCormack_method">MacCormack method</a>, which consists of the following two steps:</p>
 
-                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                    <div class="field-items">
-                                        <div class="field-item even" property="content:encoded">
+                    <p><b>1. The predictor step</b></p>
 
-<h4>Numerical Algorithms for Simulating Three Modes of Heat Transfer</h4>
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-navier-stokes-equation-predictor-step.png" alt="Predictor step">
+                        <figcaption>Equation 10.</figcaption>
+                    </figure>
 
-<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
+                    <p><b>2. The corrector step</b></p>
 
-<p><a href="energy2d.html">Back to Energy2D home page</a>
-
-
-<p>Energy2D is an open-source interactive <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Multiphysics">multiphysics</a> 
-simulation tool that I have been developing for research and education purposes. It can be used to simulate all the three modes of 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_transfer">heat transfer</a>: conduction, convection, and radiation. 
-The three modes are also coupled to some extent (a completely accurate coupling like what Mother Nature does may be too hard to achieve).
-This article opens the black box and describes the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Numerical_analysis">numerical algorithms</a> under the hood of Energy2D. 
-It introduces only the algorithms for heat transfer and fluid dynamics. For the coupling with particle dynamics, see <a href="energy2d-particle-dynamics.html">this article</a>.
-
-
-<h5>Simulating thermal conduction</h5>
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-conduction-animation.gif" style="border:2px solid gray">
-<br>Figure 1: Comparing conduction from sources at different temperatures
-</p>
-
-<p>The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_conduction">thermal conduction</a> 
-for heterogeneous media is modeled using the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_equation">Heat Equation</a> as follows:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-heat-equation.png">
-<br>Equation 1
-</p>
-
-
-<p>where <i>T</i>(<i>x</i>, <i>y</i>, <i>z</i>, <i>t</i>) is the temperature distribution, <i>k</i> is the 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_conductivity">thermal conductivity</a>, <i>c</i> is the 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_capacity">specific heat capacity</a>, 
-<i>ρ</i> is the density, <b>v</b> is the velocity field, and <i>q</i>(<i>x</i>, <i>y</i>, <i>z</i>, <i>t</i>) is the internal heat generation 
-(as opposed to external heating implemented as a 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boundary_value_problem">boundary condition</a>). The Heat Equation has two parts: the 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diffusion">diffusion</a> part characterized by the conductivity field function 
-<i>k</i>(<i>x</i>, <i>y</i>, <i>z</i>) and the 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Advection">advection</a> part characterized by the velocity field function <b>v</b>(<i>x</i>, <i>y</i>, <i>z</i>, <i>t</i>). 
-The internal heat generation function <i>q</i>(<i>x</i>, <i>y</i>, <i>z</i>, <i>t</i>) can be thought of as a driving force for diffusion and advection.
-Equation 1 is discretized in both space and time domains through a 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Finite-difference_time-domain_method">finite-difference time-domain (FDTD) method</a>. 
-An implicit FDTD method is used to achieve better <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Numerical_stability">numerical stability</a>:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-heat-equation-1.png">
-<br>Equation 2
-</p>
-
-<p>where <i>M</i>><i>i</i>≥0, <i>N</i>><i>j</i>≥0, and <i>L</i>><i>k</i>≥0, with <i>M</i>, <i>N</i>, and <i>L</i> representing the numbers of 
-cubic <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Voxel">voxels</a> in <i>x</i>, <i>y</i>, and <i>z</i> directions, 
-and Δ<i>x</i>, Δ<i>y</i>, and Δ<i>z</i> are the lengths of the cubic voxels in the three directions, respectively. Δ<i>t</i> is the time step. 
-In theory, an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Explicit_and_implicit_methods">implicit method</a> is <i>unconditionally stable</i>, 
-allowing any time step to be taken, and the simulation will not “blow” up. 
-In practice, however, the advection part of the Heat Equation can cause numeric instability, especially when the velocity is high. 
-What is more, a numerically stable solver does not necessarily produce scientifically accurate results. 
-Note that in Equation 2 we also avoid directly calculating the spatial derivatives of the conductivity field function, 
-which could be very large at the interfaces between two distinct types of media and therefore could result in undesirable numeric instability.
-
-<p>Let:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-heat-equation-2.png">
-<br>Equation 3
-</p>
-
-<p>Equation 2 can be rewritten as:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-heat-equation-3.png">
-<br>Equation 4
-</p>
-
-<p>This is a very sparse matrix that can be solved efficiently using a <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Relaxation_method">relaxation method</a>.
-
-<p>Several types of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boundary_value_problem">boundary conditions</a> can be used. 
-The first kind is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Dirichlet_boundary_condition">Dirichilet boundary condition</a>, which maintains the temperature at the boundary. 
-The second kind is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Neumann_boundary_condition">Neumann boundary condition</a>, which maintains the flux at the boundary. 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Mixed_boundary_condition">Mixed boundary conditions</a> may also be applied.
-
-
-
-<h5>Simulation thermal convection</h5>
-
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-convection-animation.gif" style="border:2px solid gray">
-<br>Figure 2: Comparing convection from sources at different temperatures
-</p>
-
-<p>Fluids can transfer heat through <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Forced_convection">forced</a> and 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Natural_convection">natural</a> convection. 
-Convection differs from conduction in that heat moves along with molecules in convection but molecules exchange only momenta 
-— not positions — in conduction. In Energy2D, we only consider incompressible <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Newtonian_fluid">Newtonian fluids</a>, 
-which can be modeled by the following form of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations">Navier-Stokes equation</a>:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-navier-stokes-equation.png">
-<br>Equation 5
-</p>
-
-<p>where <b>v</b> is the velocity vector, <i>a</i> is the kinematic viscosity, <i>p</i> is the pressure, and <b>f</b> is the body force such as gravity or buoyancy. 
-The first term on the right-hand side of Equation 5 describes the diffusion of momentum. The second term describes advection. 
-The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Continuity_equation">continuity condition</a> 
-ensures the conservation of mass (as our fluids are incompressible, the mass in every voxel must not change):
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-continuity-condition.png">
-<br>Equation 6
-</p>
-
-<p>For the temperature distribution to affect the flow of the fluid, we can add a thermal buoyancy term, known as the 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boussinesq_approximation_(buoyancy)">Boussinesq approximation</a>, to the body force <b>f</b>(<i>x</i>, <i>y</i>, <i>z</i>, <i>t</i>):
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-boussinesq-approximation.png">
-<br>Equation 7
-</p>
-
-<p>where <i>T</i><sub>0</sub>(<i>x</i>, <i>y</i>, <i>t</i>) is the average temperature of the column of fluid at the location (<i>x</i>, <i>y</i>) and at time <i>t</i> and <i>g</i> is the 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_expansion">thermal expansion</a> coefficient.
-The Navier-Stokes equation (Equation 5) can be decomposed into two steps (assuming a uniform distribution of pressure or incorporating the pressure gradient term into the body force term):
-
-<p><b>1. The diffusion step</b>
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-navier-stokes-equation-diffusion-step.png">
-<br>Equation 8
-</p>
-
-<p><b>2. The advection step</b>
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-navier-stokes-equation-advection-step.png">
-<br>Equation 9
-</p>
-
-<p>The diffusion step Equation 8 can be solved efficiently using a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Relaxation_(iterative_method)">relaxation method</a> 
-like in the case of solving the Heat Equation, whereas the advection step Equation 9 can be solved using the 
-<a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/MacCormack_method">MacCormack method</a>, which consists of the following two steps:
-
-<p><b>1. The predictor step</b>
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-navier-stokes-equation-predictor-step.png">
-<br>Equation 10
-</p>
-
-<p><b>2. The corrector step</b>
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-navier-stokes-equation-corrector-step.png">
-<br>Equation 11
-</p>
-
-<p>The function <i>ξ</i> can be any component of the velocity vector (<i>u</i>, <i>v</i>, <i>w</i>).
-
-<p>The solution of Equation 5 does not automatically satisfy the conservation of mass. The mass continuity condition expressed in Equation 6 must be imposed at each step. 
-This condition is also important in simulating convective loops as it forces the velocity fields to have 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Vortex">vortices</a>. The discretized form of the continuity equation requires that:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-continuity-condition-discretized.png">
-<br>Equation 12
-</p>
-
-<p>Using the <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Helmholtz_decomposition">Helmholtz decomposition</a> 
-(the fundamental theorem of vector calculus), a vector field can be decomposed into the following form:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-vector-field-decomposition.png">
-<br>Equation 13
-</p>
-
-<p>where <b>V</b>’ is a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Divergence">divergence</a>-free vector field
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-divergence-free.png">
-<br>Equation 14
-</p>
-
-<p>and <i>ϕ</i> is a scalar field. Applying the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gradient">gradient</a> operator to both sides of Equation 13, we obtain:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-poisson-equation.png">
-<br>Equation 15
-</p>
-
-<p>This is a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Poisson%27s_equation">Poisson equation</a> for the scalar field <i>ϕ</i>, given that <b>V</b> is known. 
-If <i>ϕ</i> can be solved, then we can obtain the divergence-free solution by subtracting ∇<i>ϕ</i> from <b>V</b> 
-(see <a target="_blank" rel="noopener noreferrer" href="http://graphics.cs.cmu.edu/nsp/course/15-464/Spring07/papers/fosterGas.pdf">Modeling the Motion of a Hot, Turbulent Gas by Foster and Metaxas</a>):
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-divergence-free-2.png">
-<br>Equation 16
-</p>
-
-<p>Equation 16 can be discretized as follows:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-poisson-equation-discretized.png">
-<br>Equation 17
-</p>
-
-<p>Again, the Poisson equation can be solved by using a <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Relaxation_method">relaxation method</a>. 
-The method uses the following iteration until convergence is reached:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-poisson-equation-relaxation.png">
-<br>Equation 18
-</p>
-
-<p>A <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Multigrid_method">multigrid method</a> 
-may be used to accelerate the convergence. If accuracy is less important, such is in the case of producing certain visual effects for animations or games, 
-5–20 iteration steps can be used without worrying about whether or not the solution has truly converged.
-
-
-
-
-<h5>Simulation thermal radiation</h5>
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-radiation-animation.gif" style="border:2px solid gray">
-<br>Figure 3: Comparing radiation from sources at different temperatures
-</p>
-
-<p>Heat can transfer at the speed of light through <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_radiation">thermal radiation</a>. 
-The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stefan%E2%80%93Boltzmann_law">Stefan-Boltzmann Law</a> describes how the power <i>E</i> 
-emitted from an object depends on its temperature:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-stefan-law.png">
-<br>Equation 19
-</p>
-
-<p>where <i>σ</i> is called the Stefan constant, <i>ε</i> is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Emissivity">emissivity</a> 
-(1 if the object is a perfect black body and 0 if it is a perfect reflector), and <i>T</i> is the temperature in Kelvin.
-
-<p>For a system that has many objects, we have to discretize every one of them into many small patches {d<i>A</i><sub>i</sub>} 
-in order to model the radiative heat transfer among them. The power density given away by each patch is called 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radiosity_(radiometry)">radiosity</a> (denoted by <i>B</i>), 
-which is governed by the following <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Integral_equation">integral equation</a> 
-(this is in fact an inhomogeneous <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Fredholm_integral_equation">Fredholm equation of the second kind</a>):
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-radiation-integral-equation.png">
-<br>Equation 20
-</p>
-
-<p>where <i>B</i><sub>i</sub> is the outgoing power per unit area from patch <i>i</i>, <i>E</i><sub>i</sub> is the emission power per unit area of the patch, 
-<i>ρ</i><sub>i</sub> is the reflectivity of the patch, d<i>A</i><sub>i</sub> is the area of the patch, <i>F</i><sub>ji</sub> is the 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/View_factor">view factor</a> (dimensionless), 
-and <i>V</i><sub>ji</sub> is the visibility function (0 if patches <i>i</i> and <i>j</i> cannot “see” each other, otherwise 1). 
-The visibility function can be calculated using <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Collision_detection">collision detection</a> 
-between the rays emitted by the source patch and the target patch, which means that the radiation solver can handle both the 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Convex_polygon">convex</a> and 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Concave_polygon">concave</a> shapes.
-
-<p>The view factor from a surface <i>A</i><sub>1</sub> to a surface <i>A</i><sub>2</sub> defines the proportion of the radiation leaving <i>A</i><sub>1</sub> that ends up striking 
-<i>A</i><sub>2</sub>. In 3D, it can be calculated through the following formula based on the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Etendue">etendue</a> of a ray:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-view-factor.png">
-<br>Equation 21
-</p>
-
-<p>where <i>r</i><sub>12</sub> is the distance between the two surfaces, and <i>θ</i><sub>1</sub> and <i>θ</i><sub>2</sub> are the acute angles between the surface normal and the distance vector. 
-In 2D, it can be calculated by replacing the areas with lengths and <i>r</i><sup>2</sup><sub>12</sub> with <i>r</i><sub>12</sub>:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-view-factor-2d.png">
-<br>Equation 22
-</p>
-
-<p>The net energy that converts into thermal energy at a patch comes from the difference between the portion of energy reflected from all other patches 
-that becomes absorbed by the patch and the energy that it emits:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-radiation-integral-equation-2.png">
-<br>Equation 23
-</p>
-
-<p>where <i>α</i><sub>i</sub> is the absorptivity (the ability to absorb electromagnetic radiation) of the patch’s material. 
-This equation can be coupled with the Heat Equation and the Navier-Stokes Equation to allow radiation to interact with the flow of heat and mass.
-Equations 21 and 23 can be discretized into the following matrix forms:
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-radiation-matrix-equation-1.png">
-<br>Equation 24
-</p>
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-radiation-matrix-equation-2.png">
-<br>Equation 25
-</p>
-
-
-<p>Equation 24 can be solved using a relaxation method, such as the 
-<a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method">Gauss-Seidel method</a>, using the emission power at each patch as the initial guess. 
-In a transient simulation, only a few relaxation steps are needed as the time-dependent solution is already somehow iterative. 
-The thermal power generated at each patch <i>Q</i><sub>i</sub> can then be derived using Equation 25.
-
-
-
-
-
-
-
-
-
-
-
-
-<p><a href="energy2d.html">Back to Energy2D home page</a>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
-
-
-                        <div class="content">
-                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
-
-
-
-
-
-
-
-
-
-                            </div>  </div>
-                    </div>
-                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
-
-
-                    </div>
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-navier-stokes-equation-corrector-step.png" alt="Corrector step">
+                        <figcaption>Equation 11.</figcaption>
+                    </figure>
+
+                    <p>The function <i>ξ</i> can be any component of the velocity vector (<i>u</i>, <i>v</i>, <i>w</i>).</p>
+
+                    <p>The solution of Equation 5 does not automatically satisfy the conservation of mass. The mass continuity condition expressed in Equation 6 must be imposed at each step.
+                    This condition is also important in simulating convective loops as it forces the velocity fields to have
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Vortex">vortices</a>. The discretized form of the continuity equation requires that:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-continuity-condition-discretized.png" alt="Discretized continuity equation">
+                        <figcaption>Equation 12.</figcaption>
+                    </figure>
+
+                    <p>Using the <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Helmholtz_decomposition">Helmholtz decomposition</a>
+                    (the fundamental theorem of vector calculus), a vector field can be decomposed into the following form:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-vector-field-decomposition.png" alt="Vector field decomposition">
+                        <figcaption>Equation 13.</figcaption>
+                    </figure>
+
+                    <p>where <b>V</b>' is a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Divergence">divergence</a>-free vector field</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-divergence-free.png" alt="Divergence-free field">
+                        <figcaption>Equation 14.</figcaption>
+                    </figure>
+
+                    <p>and <i>ϕ</i> is a scalar field. Applying the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gradient">gradient</a> operator to both sides of Equation 13, we obtain:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-poisson-equation.png" alt="Poisson equation for ϕ">
+                        <figcaption>Equation 15.</figcaption>
+                    </figure>
+
+                    <p>This is a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Poisson%27s_equation">Poisson equation</a> for the scalar field <i>ϕ</i>, given that <b>V</b> is known.
+                    If <i>ϕ</i> can be solved, then we can obtain the divergence-free solution by subtracting ∇<i>ϕ</i> from <b>V</b>
+                    (see <a target="_blank" rel="noopener noreferrer" href="http://graphics.cs.cmu.edu/nsp/course/15-464/Spring07/papers/fosterGas.pdf">Modeling the Motion of a Hot, Turbulent Gas by Foster and Metaxas</a>):</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-divergence-free-2.png" alt="Divergence-free solution">
+                        <figcaption>Equation 16.</figcaption>
+                    </figure>
+
+                    <p>Equation 16 can be discretized as follows:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-poisson-equation-discretized.png" alt="Discretized Poisson equation">
+                        <figcaption>Equation 17.</figcaption>
+                    </figure>
+
+                    <p>Again, the Poisson equation can be solved by using a <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Relaxation_method">relaxation method</a>.
+                    The method uses the following iteration until convergence is reached:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-poisson-equation-relaxation.png" alt="Poisson equation relaxation iteration">
+                        <figcaption>Equation 18.</figcaption>
+                    </figure>
+
+                    <p>A <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Multigrid_method">multigrid method</a>
+                    may be used to accelerate the convergence. If accuracy is less important, such is in the case of producing certain visual effects for animations or games,
+                    5&ndash;20 iteration steps can be used without worrying about whether or not the solution has truly converged.</p>
+
+                    <h2>Simulation thermal radiation</h2>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-radiation-animation.gif" alt="Thermal radiation simulation" style="border:2px solid gray">
+                        <figcaption>Figure 3: Comparing radiation from sources at different temperatures.</figcaption>
+                    </figure>
+
+                    <p>Heat can transfer at the speed of light through <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_radiation">thermal radiation</a>.
+                    The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stefan%E2%80%93Boltzmann_law">Stefan-Boltzmann Law</a> describes how the power <i>E</i>
+                    emitted from an object depends on its temperature:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-stefan-law.png" alt="Stefan-Boltzmann law">
+                        <figcaption>Equation 19.</figcaption>
+                    </figure>
+
+                    <p>where <i>σ</i> is called the Stefan constant, <i>ε</i> is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Emissivity">emissivity</a>
+                    (1 if the object is a perfect black body and 0 if it is a perfect reflector), and <i>T</i> is the temperature in Kelvin.</p>
+
+                    <p>For a system that has many objects, we have to discretize every one of them into many small patches {d<i>A</i><sub>i</sub>}
+                    in order to model the radiative heat transfer among them. The power density given away by each patch is called
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radiosity_(radiometry)">radiosity</a> (denoted by <i>B</i>),
+                    which is governed by the following <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Integral_equation">integral equation</a>
+                    (this is in fact an inhomogeneous <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Fredholm_integral_equation">Fredholm equation of the second kind</a>):</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-radiation-integral-equation.png" alt="Radiation integral equation">
+                        <figcaption>Equation 20.</figcaption>
+                    </figure>
+
+                    <p>where <i>B</i><sub>i</sub> is the outgoing power per unit area from patch <i>i</i>, <i>E</i><sub>i</sub> is the emission power per unit area of the patch,
+                    <i>ρ</i><sub>i</sub> is the reflectivity of the patch, d<i>A</i><sub>i</sub> is the area of the patch, <i>F</i><sub>ji</sub> is the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/View_factor">view factor</a> (dimensionless),
+                    and <i>V</i><sub>ji</sub> is the visibility function (0 if patches <i>i</i> and <i>j</i> cannot "see" each other, otherwise 1).
+                    The visibility function can be calculated using <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Collision_detection">collision detection</a>
+                    between the rays emitted by the source patch and the target patch, which means that the radiation solver can handle both the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Convex_polygon">convex</a> and
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Concave_polygon">concave</a> shapes.</p>
+
+                    <p>The view factor from a surface <i>A</i><sub>1</sub> to a surface <i>A</i><sub>2</sub> defines the proportion of the radiation leaving <i>A</i><sub>1</sub> that ends up striking
+                    <i>A</i><sub>2</sub>. In 3D, it can be calculated through the following formula based on the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Etendue">etendue</a> of a ray:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-view-factor.png" alt="View factor equation">
+                        <figcaption>Equation 21.</figcaption>
+                    </figure>
+
+                    <p>where <i>r</i><sub>12</sub> is the distance between the two surfaces, and <i>θ</i><sub>1</sub> and <i>θ</i><sub>2</sub> are the acute angles between the surface normal and the distance vector.
+                    In 2D, it can be calculated by replacing the areas with lengths and <i>r</i><sup>2</sup><sub>12</sub> with <i>r</i><sub>12</sub>:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-view-factor-2d.png" alt="View factor 2D">
+                        <figcaption>Equation 22.</figcaption>
+                    </figure>
+
+                    <p>The net energy that converts into thermal energy at a patch comes from the difference between the portion of energy reflected from all other patches
+                    that becomes absorbed by the patch and the energy that it emits:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-radiation-integral-equation-2.png" alt="Radiation equation 23">
+                        <figcaption>Equation 23.</figcaption>
+                    </figure>
+
+                    <p>where <i>α</i><sub>i</sub> is the absorptivity (the ability to absorb electromagnetic radiation) of the patch's material.
+                    This equation can be coupled with the Heat Equation and the Navier-Stokes Equation to allow radiation to interact with the flow of heat and mass.
+                    Equations 21 and 23 can be discretized into the following matrix forms:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-radiation-matrix-equation-1.png" alt="Radiation matrix equation 1">
+                        <figcaption>Equation 24.</figcaption>
+                    </figure>
+
+                    <figure class="v2-formula">
+                        <img src="image/energy2d-radiation-matrix-equation-2.png" alt="Radiation matrix equation 2">
+                        <figcaption>Equation 25.</figcaption>
+                    </figure>
+
+                    <p>Equation 24 can be solved using a relaxation method, such as the
+                    <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method">Gauss-Seidel method</a>, using the emission power at each patch as the initial guess.
+                    In a transient simulation, only a few relaxation steps are needed as the time-dependent solution is already somehow iterative.
+                    The thermal power generated at each patch <i>Q</i><sub>i</sub> can then be derived using Equation 25.</p>
+
+                    <a class="v2-backlink" href="energy2d.html">&larr; Back to Energy2D</a>
                 </div>
-            </section>
-
-
-        </div>
-    </div>
-
-
+            </div>
+        </section>
+    </main>
     <script>includeFooter();</script>
-
 </div>
-
-<script src="js/flexslider.load.js"></script>
+<script src="js/v2.js"></script>
 <script src="js/bootstrap.js"></script>
-
 </body>
 </html>

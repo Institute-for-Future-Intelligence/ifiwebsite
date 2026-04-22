@@ -3,71 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NexLAB, developed by the Institute for Future Intelligence"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>NexLAB Home Page</title>
+    <title>NexLAB — Institute for Future Intelligence</title>
+    <meta name="description" content="An adaptive learning platform for antibody engineering education — combining course management, a material builder, and an electronic lab notebook.">
+
     <style>
         @import url("css/system.base.css");
-    </style>
-    <style>
         @import url("css/jquery.ui.core.min.css");
         @import url("css/jquery.ui.theme.min.css");
         @import url("css/jquery.ui.menu.min.css");
-        @import url("css/jquery.ui.autocomplete.min.css");
-        @import url("css/jquery.ui.button.min.css");
-        @import url("css/jquery.ui.resizable.min.css");
-        @import url("css/jquery.ui.dialog.min.css");
-    </style>
-    <style>
-        @import url("css/date.css");
-        @import url("css/datepicker.1.7.css");
         @import url("css/ifi_theme.css");
-        @import url("css/field.css");
-        @import url("css/node.css");
-        @import url("css/video_filter.css");
-        @import url("css/views.css");
-        @import url("css/caption-filter.css");
-    </style>
-    <style>
-        @import url("css/apachesolr_autocomplete.css");
-        @import url("css/ctools.css");
-        @import url("css/video.css");
-        @import url("css/flexslider_img.css");
-        @import url("css/flexslider.css");
-        @import url("css/google_translator.css");
     </style>
     <link rel="stylesheet" type="text/css" href="css/first.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
-    <!-- HTML5 element support for IE6-8 -->
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <style>
-        .logoifi {
-            width: 35px;
-            height: 35px;
-            margin: 5px 0 0;
-            padding: 0;
-            background: url("image/logofloat.png") no-repeat 0 0;
-            background-size: 35px 35px;
-        }
-        body {
-            position: relative;
-            font-family: "Soleil", sans-serif;
-            color: #333333;
-            font-size: 18px;
-            line-height: 30px;
-        }
-    </style>
-    <![endif]-->
 
-    <script src="https://use.typekit.net/epu0hfp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -75,248 +29,545 @@
       gtag('js', new Date());
       gtag('config', 'G-B0RXQKFDN0');
     </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-extend-3.4.0.js"></script>
-    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
-    <script src="js/jquery.once.js"></script>
-    <script src="js/drupal.js"></script>
-    <script src="js/jquery.ui.core.min.js"></script>
-    <script src="js/jquery.ui.widget.min.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/jquery.ui.menu.min.js"></script>
-    <script src="js/jquery.ui.autocomplete.min.js"></script>
-    <script src="js/jquery.ui.button.min.js"></script>
-    <script src="js/jquery.ui.mouse.min.js"></script>
-    <script src="js/jquery.ui.draggable.min.js"></script>
-    <script src="js/jquery.ui.resizable.min.js"></script>
-    <script src="js/jquery.ui.dialog.min.js"></script>
-    <script src="js/caption-filter.js"></script>
-    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/googleanalytics.js"></script>
-    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/google_translator.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.smartmenus.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/jquery.smartmenus.bootstrap.js"></script>
-    <script src="js/affix.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/transition.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/popover.js"></script>
-    <script src="js/scrollspy.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/transition.js"></script>
-    <script src="js/jquery-extend-drupal.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
 
+    <style>
+        body.page-v2 {
+            --text: #0f172a;
+            --text-muted: #475569;
+            --text-subtle: #94a3b8;
+            --accent: #6366f1;
+            --accent-dark: #4338ca;
+            --accent-soft: #eef2ff;
+            --surface: #ffffff;
+            --surface-raised: #f8fafc;
+            --border: #e2e8f0;
+            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-display: "Space Grotesk", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        .v2 {
+            font-family: var(--font-body);
+            font-size: 20px;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--surface);
+        }
+        .v2 ::selection { background: var(--accent-soft); color: var(--accent-dark); }
+        .v2 *, .v2 *::before, .v2 *::after { box-sizing: border-box; }
+        .v2 a { color: var(--accent); text-decoration: none; }
+        .v2 a:hover { text-decoration: underline; }
+
+        /* Hero */
+        .v2-hero {
+            position: relative;
+            overflow: hidden;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+        .v2-hero::before {
+            content: '';
+            position: absolute;
+            inset: -30%;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.18), transparent 45%),
+                radial-gradient(circle at 75% 55%, rgba(139, 92, 246, 0.14), transparent 45%),
+                radial-gradient(circle at 50% 95%, rgba(14, 165, 233, 0.12), transparent 45%);
+            animation: v2MeshDrift 22s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .v2-hero::after {
+            content: 'NEXLAB';
+            position: absolute;
+            bottom: -4vw;
+            right: -1vw;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(7rem, 18vw, 18rem);
+            letter-spacing: -0.05em;
+            line-height: 0.9;
+            color: rgba(99, 102, 241, 0.06);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+        }
+        @keyframes v2MeshDrift {
+            0%   { transform: translate(0, 0) rotate(0deg); }
+            50%  { transform: translate(4%, -3%) rotate(2deg); }
+            100% { transform: translate(-3%, 4%) rotate(-2deg); }
+        }
+        @media (prefers-reduced-motion: reduce) { .v2-hero::before { animation: none; } }
+        .v2-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 1.5rem clamp(3rem, 7vw, 5rem);
+        }
+        .v2-eyebrow {
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--accent-dark);
+            background: var(--accent-soft);
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            margin: 0 0 1.25rem;
+        }
+        .v2-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.25rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            font-weight: 700;
+            margin: 0 0 1.25rem;
+            background: linear-gradient(120deg, var(--text) 0%, var(--accent-dark) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: var(--text);
+        }
+        .v2-tagline {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            color: var(--text-muted);
+            margin: 0 0 2rem;
+            line-height: 1.45;
+        }
+        .v2-cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .v2 .v2-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.4rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.0625rem;
+            text-decoration: none;
+            transition: transform 0.18s ease, background-color 0.18s ease,
+                        border-color 0.18s ease, box-shadow 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .v2 .v2-button:hover { transform: translateY(-1px); }
+        .v2 .v2-button:active { transform: translateY(0); }
+        .v2 .v2-button--primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.18);
+        }
+        .v2 .v2-button--primary:hover {
+            background: var(--accent-dark);
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 10px 24px rgba(67, 56, 202, 0.28);
+        }
+        .v2 .v2-button--ghost {
+            color: var(--text);
+            border-color: var(--border);
+            background: transparent;
+        }
+        .v2 .v2-button--ghost:hover {
+            border-color: var(--text);
+            color: var(--text);
+            text-decoration: none;
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+        }
+
+        /* Main content */
+        .v2-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+        }
+        .v2-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+        @media (min-width: 860px) {
+            .v2-grid {
+                grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+                gap: 4rem;
+                align-items: start;
+            }
+        }
+        .v2-col-main h2 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            line-height: 1.25;
+            font-weight: 700;
+            color: var(--text);
+            margin: 3rem 0 1.15rem;
+            letter-spacing: -0.02em;
+        }
+        .v2-col-main > h2:first-child { margin-top: 0; }
+        .v2-col-main h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            line-height: 1.3;
+            font-weight: 600;
+            color: var(--text);
+            margin: 2rem 0 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        .v2-col-main p {
+            font-size: 1.375rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 0 0 1.5rem;
+            max-width: 68ch;
+        }
+        .v2-col-main p strong { color: var(--text); }
+        .v2-col-main ul.v2-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 1.5rem;
+        }
+        .v2-col-main ul.v2-bullets li {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            padding: 0.35rem 0 0.35rem 1.75rem;
+            position: relative;
+        }
+        .v2-col-main ul.v2-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0.4rem;
+            top: 0.95rem;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .v2-col-main .v2-screenshot {
+            margin: 2rem 0 2.5rem;
+            padding: 0.75rem;
+            background: var(--surface-raised);
+            border-radius: 0.75rem;
+            box-shadow:
+                0 1px 2px rgba(15, 23, 42, 0.04),
+                0 8px 24px rgba(99, 102, 241, 0.10);
+        }
+        .v2-col-main .v2-screenshot img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+        }
+        .v2-col-main .v2-screenshot figcaption {
+            margin-top: 0.75rem;
+            font-size: 1rem;
+            color: var(--text-subtle);
+            text-align: center;
+        }
+
+        /* Join-the-community CTA block inside main content — smaller type than the
+           main content so it reads as a footnote/callout rather than another section. */
+        .v2-join {
+            margin-top: 3.5rem;
+            padding: 2rem 2rem 2.25rem;
+            background: linear-gradient(135deg, var(--accent-soft) 0%, #ffffff 100%);
+            border-radius: 1rem;
+            border: 1px solid rgba(99, 102, 241, 0.18);
+        }
+        .v2-join h2 {
+            margin-top: 0 !important;
+        }
+        .v2-join p {
+            margin-bottom: 1rem;
+        }
+
+        /* Sidebar */
+        .v2-col-aside {
+            position: static;
+        }
+        .v2-sidebar-card {
+            background: var(--surface-raised);
+            border-radius: 0.9rem;
+            padding: 1.75rem;
+            box-shadow:
+                0 1px 2px rgba(15, 23, 42, 0.04),
+                0 8px 24px rgba(99, 102, 241, 0.10),
+                0 24px 48px rgba(99, 102, 241, 0.06);
+        }
+        .v2-sidebar-logo { margin: 0 0 1.5rem; text-align: center; }
+        .v2-sidebar-logo img { max-width: 85%; height: auto; display: inline-block; }
+        .v2-sidebar-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .v2-sidebar-section:first-of-type {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+        .v2-sidebar-heading {
+            font-family: var(--font-display);
+            font-size: 1.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent-dark);
+            margin: 0 0 1rem;
+        }
+        .v2-sidebar-link {
+            display: block;
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.375rem;
+            margin-bottom: 0.5rem;
+        }
+        .v2-sidebar-link:hover { color: var(--accent-dark); text-decoration: none; }
+        .v2-sidebar-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .v2-sidebar-links li {
+            padding: 0.4rem 0;
+            line-height: 1.5;
+        }
+        .v2-sidebar-links li a {
+            font-size: 1.5rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .v2-sidebar-links li a:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+        .v2-sidebar-note {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .v2-sidebar-note.is-small {
+            font-size: 1rem;
+            line-height: 1.55;
+        }
+        .v2-sidebar-note a { color: var(--accent); }
+        .v2-nsf-logo {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .v2-nsf-logo img {
+            max-width: 60%;
+            height: auto;
+        }
+
+        /* Reveal-on-scroll */
+        .v2 [data-reveal] {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+                        transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+        .v2 [data-reveal].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .v2 [data-reveal] { opacity: 1; transform: none; transition: none; }
+        }
+
+        /* Footer override */
+        body.page-v2 footer.footer > #footer-inner {
+            background-color: var(--surface-raised);
+            border-top: 1px solid var(--border);
+        }
+        body.page-v2 footer.footer p,
+        body.page-v2 footer.footer p font,
+        body.page-v2 footer.footer p span {
+            color: var(--text-muted) !important;
+        }
+    </style>
 </head>
 
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<body class="html not-logged-in node-type-page page-v2">
 <script src="js/include.js"></script>
 <div id="wrapper">
 
     <script>includeHeader();</script>
 
-    <div class="top-bar-full">  <div class="region region-top-bar-full">
-        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+    <main class="v2">
 
+        <header class="v2-hero">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">For biotech education</span>
+                <h1>NexLAB</h1>
+                <p class="v2-tagline">
+                    An adaptive learning platform for antibody engineering &mdash; combining course
+                    management, a material builder, and an electronic lab notebook for educators,
+                    students, and researchers.
+                </p>
+                <div class="v2-cta-row">
+                    <a class="v2-button v2-button--primary" target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/nexlab/">Launch NexLAB</a>
+                    <a class="v2-button v2-button--ghost" target="_blank" rel="noopener noreferrer" href="https://www.loom.com/share/f3ca701c66d34f84a13eb7ec12b0c6ec">Watch introduction</a>
+                </div>
+            </div>
+        </header>
 
-        </div>
-    </div>
-    </div>
+        <section class="v2-section" id="overview" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <h2>The platform</h2>
+                    <p>
+                        NexLAB enhances the Antibody Engineering curriculum with an adaptive content
+                        management platform &mdash; readily modified for any course. It features an
+                        Electronic Laboratory Notebook built on the simplified <strong>Design &mdash;
+                        Build &mdash; Test</strong> framework, a platform for creating and sharing
+                        learning materials, and tools for tracking student progress and content efficacy.
+                    </p>
 
-    <!-- Main Container -->
+                    <h2>Course management</h2>
+                    <ul class="v2-bullets">
+                        <li>Create courses with multiple instructors</li>
+                        <li>Manage class updates, materials, and enrollment</li>
+                        <li>Track student progress and content efficacy</li>
+                    </ul>
+                    <figure class="v2-screenshot">
+                        <img src="image/nexlab-homepage.png" alt="NexLAB home page screenshot">
+                        <figcaption>NexLAB home page.</figcaption>
+                    </figure>
 
-    <div class="main-container container">
+                    <h2>Material builder</h2>
+                    <ul class="v2-bullets">
+                        <li>Add, edit, and share class materials</li>
+                        <li>Format text content with images and links</li>
+                        <li>View public and class-specific materials</li>
+                    </ul>
+                    <figure class="v2-screenshot">
+                        <img src="image/nexlab-course-materials.png" alt="NexLAB course materials page screenshot">
+                        <figcaption>Course materials page.</figcaption>
+                    </figure>
 
-        <header role="banner" id="page-header">
+                    <h2>E-laboratory notebook</h2>
+                    <ul class="v2-bullets">
+                        <li>Outline experiment design and objectives</li>
+                        <li>Create multiple design prototypes</li>
+                        <li>Create tests and document results</li>
+                    </ul>
+                    <figure class="v2-screenshot">
+                        <img src="image/nexlab-notebook.png" alt="NexLAB E-laboratory notebook page screenshot">
+                        <figcaption>E-laboratory notebook page.</figcaption>
+                    </figure>
 
-        </header> <!-- /#page-header -->
-        <div id="main-content-area" class="row no-gutters">
+                    <h2>What's next</h2>
+                    <p>
+                        Upcoming phases of NexLAB include advanced data-science and machine-learning
+                        tools &mdash; so researchers can analyze student-generated data and derive
+                        insights to improve future curricula &mdash; plus integration of a Smart AI Tutor
+                        to support learning within NexLAB itself.
+                    </p>
+                    <figure class="v2-screenshot">
+                        <img src="image/nexlab-future-dev.png" alt="NexLAB future developments diagram">
+                    </figure>
 
-
-            <section class="col-sm-12">
-                <a id="main-content"></a>
-                <div class="region">
-                    <div id="block-system-main" class="block block-system">
-
-
-                        <div class="content">
-                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
-                                <header>
-                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
-
-                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                    <div class="field-items">
-                                        <div class="field-item even" property="content:encoded">
-
-<h4>NexLAB: Next-Generation Experiments and Learning for Advanced Biotech</h4>
-
-<div class="row">
-<div class="col-md-8">
-
-
-<p> NexLAB enhances the Antibody Engineering curriculum with an adaptive content management platform for educators, students, and researchers, readily modified for any course content. It features an Electronic Laboratory Notebook using the simplified Design-Build-Test framework, a platform for creating and sharing learning materials, and tracking student progress and class content efficacy.
-</p>
-
-<h4>Features and Capabilities</h4>
-
-<h5>Course Management</h5>
-<div style="padding-left: 40px">
-<ul>
-    <li>Create courses with multiple instructors</li>
-    <li>Manage class updates, materials, and enrollment</li>
-    <li>Track student progress and content efficacy</li>
-</ul>
-</div>
-<p align="center" style="font-size: 14px">
-<img src="image/nexlab-homepage.png" width="100%">
-<br>NexLAB Home Page
-</p>
-
-<h4>Material Builder</h4>
-<div style="padding-left: 40px">
-<ul>
-    <li>Add, edit, and share class materials</li>
-    <li>Format text content with images and links</li>
-    <li>View public and class-specific materials</li>
-</ul>
-</div>
-<p align="center" style="font-size: 14px">
-<img src="image/nexlab-course-materials.png" width="100%">
-<br>Course Materials Page
-</p>
-
-<h4>E-Laboratory Notebook</h4>
-<div style="padding-left: 40px">
-<ul>
-    <li>Outline experiment design & objectives</li>
-    <li>Create multiple design prototypes</li>
-    <li>Create tests and document results</li>
-</ul>
-</div>
-<p align="center" style="font-size: 14px">
-<img src="image/nexlab-notebook.png" width="100%">
-<br>E-Laboratory Notebook Page
-</p>
-    
-<h4>Future Developments</h4>
-<p align="center" style="font-size: 14px">
-<img src="image/nexlab-future-dev.png" width="75%">
-</p>
-<p>The upcoming phases of NexLAB's development include advanced data science and machine learning tools, enabling researchers to analyze student-generated data and derive insights critical to improving future curricula, as well as an integration of Smart AI Tutor to support one’s learning with NexLAB.
-</p>
-
-<h4>Join NexLAB Community</h4>
-<p>Are you currently an educator, student, or researcher? Join Our Community of Innovative Thinkers!</p>
-<div style="padding-left: 40px">
-<ul>
-    <li>Leverage E-LN and Material Builder to accomplish your own learning goals</li>
-    <li>Be the first to test new features and provide feedback directly to Developers</li>
-    <li>Receive answers to any questions about NexLAB’s functionality</li>
-</ul>
-</div>
-<p>
-    Learn more about this opportunity and sign up via 
-    <a target="_blank" rel="noopener noreferrer" href="https://bit.ly/join-nexlab">bit.ly/join-nexlab</a>.
-</p>
-
-</div>
-<div class="col-md-4">
-<div class="product-sidebar">
-
-<p align="center"><img src="image/nexlab-logo.png" width="100%" title="NexLAB Logo"></p>
-
-<b>Entrance</b>
-<p style="line-height:1.6; font-size: 14px">
-<a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/nexlab/">NexLAB</a>
-</p>
-
-<b>Tutorial</b>
-<p style="line-height:1.6; font-size: 14px">
-<a target="_blank" rel="noopener noreferrer" href="https://www.loom.com/share/f3ca701c66d34f84a13eb7ec12b0c6ec">Introduction</a>
-</p>
-
-
-<b>Legal</b>
-<ul style="line-height:1.6; font-size: 14px; list-style-type: none; padding: 0;">
-    <li><a target="_blank" rel="noopener noreferrer" href="nexlab-privacy.html">Privacy Policy</a></li>
-    <li><a target="_blank" rel="noopener noreferrer" href="nexlab-terms.html">Terms of Service</a></li>
-</ul>
-
-
-<p>
-<b>Developers</b>
-<br>
-<a href="people.html#andriy">Andriy Kashyrskyy</a>
-<br>
-<a href="people.html#aarman">Aarman Jamiluddin</a>
-<br>
-<a href="people.html#dylan">Dylan Bulseco</a>
-</p>
-
-
-<b>Acknowledgement</b>
-<p style="line-height:1.6; font-size: 14px">
-This project is supported by the National Science Foundation (NSF) under grant number 
-<a target="_blank" rel="noopener noreferrer" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2300976">#2300976</a>. 
-Any opinions, findings, and conclusions or recommendations expressed in this material, however, are those of the authors and do not necessarily reflect the views of NSF.
-</p>
-<p align="center">
-<img src="image/nsf.png">
-</p>
-
-</div>
-</div>
-</div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
-
-
-                        <div class="content">
-                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
-
-
-
-
-
-
-
-
-
-                            </div>  </div>
-                    </div>
-                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
-
-
+                    <div class="v2-join">
+                        <h2>Join the community</h2>
+                        <p>
+                            Are you an educator, student, or researcher? Join our community of
+                            innovative thinkers:
+                        </p>
+                        <ul class="v2-bullets">
+                            <li>Use the E-Lab Notebook and Material Builder to accomplish your own learning goals</li>
+                            <li>Be the first to test new features and give feedback directly to developers</li>
+                            <li>Get answers to any questions about NexLAB's functionality</li>
+                        </ul>
+                        <p>
+                            Sign up at <a target="_blank" rel="noopener noreferrer" href="https://bit.ly/join-nexlab">bit.ly/join-nexlab</a>.
+                        </p>
                     </div>
                 </div>
-            </section>
 
+                <aside class="v2-col-aside" data-reveal>
+                    <div class="v2-sidebar-card">
+                        <div class="v2-sidebar-logo">
+                            <img src="image/nexlab-logo.png" alt="NexLAB">
+                        </div>
 
-        </div>
-    </div>
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Entrance</h3>
+                            <a class="v2-sidebar-link" target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/nexlab/">NexLAB</a>
+                        </div>
 
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Tutorial</h3>
+                            <a class="v2-sidebar-link" target="_blank" rel="noopener noreferrer" href="https://www.loom.com/share/f3ca701c66d34f84a13eb7ec12b0c6ec">Introduction</a>
+                        </div>
+
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Legal</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a target="_blank" rel="noopener noreferrer" href="nexlab-privacy.html">Privacy Policy</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="nexlab-terms.html">Terms of Service</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Developers</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="people.html#andriy">Andriy Kashyrskyy</a></li>
+                                <li><a href="people.html#aarman">Aarman Jamiluddin</a></li>
+                                <li><a href="people.html#dylan">Dylan Bulseco</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Acknowledgement</h3>
+                            <p class="v2-sidebar-note is-small">
+                                This project is supported by the National Science Foundation (NSF) under grant number
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2300976">#2300976</a>.
+                                Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of NSF.
+                            </p>
+                            <div class="v2-nsf-logo">
+                                <img src="image/nsf.png" alt="National Science Foundation">
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+    </main>
 
     <script>includeFooter();</script>
 
 </div>
 
-<script src="js/flexslider.load.js"></script>
+<script>
+(function () {
+    if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.v2 [data-reveal]').forEach(function (el) {
+            el.classList.add('is-visible');
+        });
+        return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0, rootMargin: '0px' });
+    document.querySelectorAll('.v2 [data-reveal]').forEach(function (el) {
+        observer.observe(el);
+    });
+})();
+</script>
 <script src="js/bootstrap.js"></script>
 
 </body>

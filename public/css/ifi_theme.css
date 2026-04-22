@@ -15,7 +15,7 @@ header#navbar .logoifi img {
   transition: height 0.25s ease;
 }
 header#navbar .logoifi .logo-default {
-  height: 120px;
+  height: 105px;
   display: inline-block !important;
 }
 header#navbar .logoifi .logo-sticky {
@@ -160,11 +160,326 @@ header#page-header:empty {
 }
 
 /* Bootstrap .navbar has margin-bottom: 30px by default — that's the wide white band below
-   the banner on mobile. Zero it on mobile so the content sits right under the navbar. */
+   the banner. Zero it on mobile for legacy pages, and on all widths for v2 redesign pages. */
 @media (max-width: 767px) {
   header#navbar.navbar {
     margin-bottom: 0;
   }
+}
+body.page-v2 header#navbar.navbar {
+  margin-bottom: 0;
+  min-height: 0;
+  border: none;
+  padding: 12px 0 6px;
+}
+/* Align the navbar's content with the v2-section content column (max-width: 1100px,
+   1.5rem side padding). Applies to both default and sticky-on-scroll states, so the
+   logo stays in the same horizontal position as "The idea" when swapping. */
+body.page-v2 header#navbar > .container,
+body.page-v2 header#navbar.navbar-fixed-top > .container {
+  max-width: 1100px;
+  padding: 0 1.5rem;
+  width: auto;
+}
+/* All of the v2 nav styling below is DESKTOP ONLY (>= 768px).
+   On mobile, Bootstrap's default collapsed hamburger behavior handles the menu. */
+@media (min-width: 768px) {
+
+/* On v2 pages, put the menu + DONATE button on a single row so navbar-collapse
+   isn't taller than the logo. */
+body.page-v2 header#navbar .navbar-collapse .region-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+body.page-v2 header#navbar .navbar-collapse .region-navigation > .block {
+  margin: 0;
+  padding: 0;
+}
+body.page-v2 header#navbar .navbar-collapse .region-navigation > .block:empty {
+  display: none;
+}
+body.page-v2 header#navbar .navbar-collapse .region-navigation .donate-btn-block p {
+  margin: 0;
+}
+
+/* v2 nav styling — modernize the three top-level dropdowns + DONATE button.
+   Scoped to body.page-v2 so other pages keep the legacy Bootstrap/smartmenus look. */
+body.page-v2 header#navbar ul.menu.nav {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body.page-v2 header#navbar ul.menu.nav > li {
+  position: relative;
+  list-style: none;
+}
+body.page-v2 header#navbar ul.menu.nav > li > a {
+  font-family: var(--font-body, -apple-system, sans-serif);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: #0f172a;
+  padding: 0.6rem 0.95rem;
+  border-radius: 0.45rem;
+  text-decoration: none;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+body.page-v2 header#navbar ul.menu.nav > li > a:hover,
+body.page-v2 header#navbar ul.menu.nav > li > a:focus,
+body.page-v2 header#navbar ul.menu.nav > li.open > a,
+body.page-v2 header#navbar ul.menu.nav > li.sfHover > a {
+  color: #4338ca;
+  background-color: #eef2ff;
+  text-decoration: none;
+}
+/* Replace the Bootstrap triangle caret with a clean chevron */
+body.page-v2 header#navbar ul.menu.nav > li > a .caret {
+  border: none;
+  width: 7px;
+  height: 7px;
+  margin-left: 0.2rem;
+  vertical-align: middle;
+  background: transparent;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform 0.2s ease;
+}
+body.page-v2 header#navbar ul.menu.nav > li.open > a .caret,
+body.page-v2 header#navbar ul.menu.nav > li.sfHover > a .caret {
+  transform: rotate(-135deg) translate(1px, 1px);
+}
+
+/* Dropdown panels — clean floating panel, no border, layered shadow for depth.
+   Subtle indigo-tinted gradient background so the panel has visual identity on a white page. */
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu {
+  margin-top: 0.6rem;
+  padding: 0.5rem;
+  background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%) !important;
+  border: none !important;
+  border-top: none !important;
+  border-radius: 0.85rem;
+  box-shadow:
+    0 0 0 1px rgba(99, 102, 241, 0.08),
+    0 2px 6px rgba(15, 23, 42, 0.04),
+    0 12px 28px rgba(15, 23, 42, 0.08),
+    0 32px 56px rgba(99, 102, 241, 0.12);
+  min-width: 240px;
+  list-style: none;
+}
+/* Kill any legacy top-border/indicator stripe on the dropdown panel or first item. */
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li,
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li:first-child,
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li > a {
+  border-top: none !important;
+  box-shadow: none;
+}
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu::before,
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu::after {
+  content: none !important;
+}
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li {
+  list-style: none;
+}
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li > a {
+  font-family: var(--font-body, -apple-system, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #0f172a;
+  padding: 0.65rem 0.95rem;
+  border-radius: 0.4rem;
+  line-height: 1.35;
+  display: block;
+  text-decoration: none;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li > a:hover,
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li > a:focus {
+  background-color: #eef2ff;
+  color: #4338ca;
+  text-decoration: none;
+}
+/* Kill Bootstrap's default .active item (which ships as medium blue #428bca)
+   and any Drupal active-trail highlight — use the v2 theme instead. */
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > .active > a,
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > .active-trail > a,
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > .active > a:hover,
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > .active > a:focus,
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > .active-trail > a:hover,
+body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > .active-trail > a:focus {
+  background-color: #eef2ff !important;
+  color: #4338ca !important;
+}
+
+/* DONATE button — matches v2-button--primary styling */
+body.page-v2 header#navbar .donate-btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.35rem;
+  background: #6366f1;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 1.40625rem;
+  letter-spacing: 0;
+  text-transform: none;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  text-decoration: none;
+  text-align: center;
+}
+body.page-v2 header#navbar .donate-btn-link:hover,
+body.page-v2 header#navbar .donate-btn-link:focus {
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(67, 56, 202, 0.28);
+  text-decoration: none;
+}
+
+} /* end @media (min-width: 768px) for v2 nav styling */
+
+/* --- Mobile nav styling for v2 pages (restyle Bootstrap's collapsing hamburger) --- */
+@media (max-width: 767px) {
+  /* The collapse panel itself */
+  body.page-v2 header#navbar .navbar-collapse {
+    background: #fff;
+    padding: 0.5rem 0 1.25rem;
+    border-top: 1px solid rgba(99, 102, 241, 0.12);
+    box-shadow: inset 0 8px 16px -8px rgba(15, 23, 42, 0.04);
+    margin: 0;
+  }
+
+  /* Top-level nav list + items */
+  body.page-v2 header#navbar ul.menu.nav {
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    list-style: none;
+    display: block;
+  }
+  body.page-v2 header#navbar ul.menu.nav > li {
+    padding: 0;
+    list-style: none;
+    display: block;
+    float: none;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  }
+  body.page-v2 header#navbar ul.menu.nav > li:last-child {
+    border-bottom: none;
+  }
+  body.page-v2 header#navbar ul.menu.nav > li > a {
+    display: block;
+    font-family: var(--font-body, -apple-system, sans-serif);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #0f172a;
+    padding: 0.95rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    background: transparent;
+  }
+  body.page-v2 header#navbar ul.menu.nav > li > a:hover,
+  body.page-v2 header#navbar ul.menu.nav > li > a:focus,
+  body.page-v2 header#navbar ul.menu.nav > li.open > a {
+    background-color: #eef2ff;
+    color: #4338ca;
+    text-decoration: none;
+  }
+  /* Style the main.js-injected toggle-icon (chevron for submenu expansion) */
+  body.page-v2 header#navbar ul.menu.nav > li > a.toggle-icon {
+    display: inline-block;
+    float: right;
+    padding: 0.95rem 1rem;
+    margin-top: -3rem;
+    color: #475569;
+    font-size: 1rem;
+  }
+
+  /* Dropdown submenus — render inline, no floating panel */
+  body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu {
+    position: static !important;
+    float: none !important;
+    width: auto;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.25rem 0 0.5rem !important;
+    margin: 0 !important;
+    min-width: 0;
+  }
+  body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li {
+    list-style: none;
+  }
+  body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li > a {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #475569;
+    padding: 0.65rem 0.9rem;
+    margin: 0.15rem 0.75rem;
+    border-radius: 0.4rem;
+    line-height: 1.4;
+  }
+  body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li > a:hover,
+  body.page-v2 header#navbar ul.menu.nav ul.dropdown-menu > li > a:focus {
+    background-color: #eef2ff;
+    color: #4338ca;
+    text-decoration: none;
+  }
+
+  /* Hide DONATE on mobile — v2 pages show nav only */
+  body.page-v2 header#navbar .donate-btn-block {
+    display: none !important;
+  }
+
+  /* Hamburger toggle button — match v2 style */
+  body.page-v2 header#navbar .navbar-toggle {
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 0.55rem 0.75rem;
+    color: #0f172a;
+    font-weight: 600;
+    margin: 1rem 1rem 1rem 0;
+  }
+  body.page-v2 header#navbar .navbar-toggle .icon-bar {
+    background-color: #0f172a;
+  }
+  body.page-v2 header#navbar .navbar-toggle .text-wrap {
+    font-size: 0.875rem;
+    color: #0f172a;
+    margin-right: 0.5rem;
+  }
+
+  /* Mobile logo — bring back the compact 60px size on v2 pages too */
+  body.page-v2 header#navbar .logoifi .logo-default {
+    height: 60px !important;
+  }
+}
+/* Logo keeps its 120px size on v2 pages. We just eliminate any surrounding
+   padding/margin so the navbar is exactly the logo height (or menu), not more. */
+body.page-v2 header#navbar .logoifi.navbar-btn {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+body.page-v2 header#navbar .navbar-header,
+body.page-v2 header#navbar .navbar-collapse {
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 /* When col-md-* columns stack on narrow viewports, restore side padding that the
@@ -230,23 +545,28 @@ footer.footer .footer-copyright,
 footer.footer .footer-ack {
   text-align: center !important;
 }
-footer.footer .footer-copyright {
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 0 0 6px;
+footer.footer .footer-copyright,
+footer.footer .footer-ack {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Arial, sans-serif !important;
+  line-height: 1.4 !important;
+  font-weight: 400 !important;
   color: #fff;
+}
+footer.footer .footer-copyright {
+  font-size: 12px !important;
+  margin: 0 0 6px;
 }
 footer.footer .footer-ack {
-  font-size: 12px;
-  line-height: 1.4;
+  font-size: 10px !important;
   margin: 0;
-  color: #fff;
 }
 footer.footer .footer-ack img {
-  height: 12px;
+  height: 10px;       /* smaller than the text cap-height so it doesn't inflate the line-box */
   width: auto;
-  vertical-align: middle;
+  vertical-align: baseline;
   margin-right: 4px;
+  position: relative;
+  top: 1px;
 }
 @media (max-width: 767px) {
   /* Neutralize legacy mobile footer rules in first.css that float #footer-inner > div
@@ -259,6 +579,6 @@ footer.footer .footer-ack img {
     width: auto !important;
     margin: 20px 15px;
   }
-  footer.footer .footer-copyright { font-size: 13px; line-height: 1.45; }
+  footer.footer .footer-copyright { line-height: 1.35; }
   footer.footer .footer-ack { line-height: 1.35; }
 }

@@ -3,70 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Institute for Future Intelligence</title>
+    <title>Parametric Design vs. Generative Design — Institute for Future Intelligence</title>
+    <meta name="description" content="How Aladdin uses genetic algorithms to make generative design a visual, interactive, human-in-the-loop practice for solar-panel array optimization.">
+
     <style>
         @import url("css/system.base.css");
-    </style>
-    <style>
         @import url("css/jquery.ui.core.min.css");
         @import url("css/jquery.ui.theme.min.css");
         @import url("css/jquery.ui.menu.min.css");
-        @import url("css/jquery.ui.autocomplete.min.css");
-        @import url("css/jquery.ui.button.min.css");
-        @import url("css/jquery.ui.resizable.min.css");
-        @import url("css/jquery.ui.dialog.min.css");
-    </style>
-    <style>
-        @import url("css/date.css");
-        @import url("css/datepicker.1.7.css");
         @import url("css/ifi_theme.css");
-        @import url("css/field.css");
-        @import url("css/node.css");
-        @import url("css/video_filter.css");
-        @import url("css/views.css");
-        @import url("css/caption-filter.css");
-    </style>
-    <style>
-        @import url("css/apachesolr_autocomplete.css");
-        @import url("css/ctools.css");
-        @import url("css/video.css");
-        @import url("css/flexslider_img.css");
-        @import url("css/flexslider.css");
-        @import url("css/google_translator.css");
     </style>
     <link rel="stylesheet" type="text/css" href="css/first.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
-    <!-- HTML5 element support for IE6-8 -->
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <style>
-        .logoifi {
-            width: 35px;
-            height: 35px;
-            margin: 5px 0 0;
-            padding: 0;
-            background: url("image/logofloat.png") no-repeat 0 0;
-            background-size: 35px 35px;
-        }
-        body {
-            position: relative;
-            font-family: "Soleil", sans-serif;
-            color: #333333;
-            font-size: 18px;
-            line-height: 30px;
-        }
-    </style>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
 
-    <script src="https://use.typekit.net/epu0hfp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -74,309 +30,142 @@
       gtag('js', new Date());
       gtag('config', 'G-B0RXQKFDN0');
     </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-extend-3.4.0.js"></script>
-    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
-    <script src="js/jquery.once.js"></script>
-    <script src="js/drupal.js"></script>
-    <script src="js/jquery.ui.core.min.js"></script>
-    <script src="js/jquery.ui.widget.min.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/jquery.ui.menu.min.js"></script>
-    <script src="js/jquery.ui.autocomplete.min.js"></script>
-    <script src="js/jquery.ui.button.min.js"></script>
-    <script src="js/jquery.ui.mouse.min.js"></script>
-    <script src="js/jquery.ui.draggable.min.js"></script>
-    <script src="js/jquery.ui.resizable.min.js"></script>
-    <script src="js/jquery.ui.dialog.min.js"></script>
-    <script src="js/caption-filter.js"></script>
-    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/googleanalytics.js"></script>
-    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/google_translator.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.smartmenus.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/jquery.smartmenus.bootstrap.js"></script>
-    <script src="js/affix.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/transition.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/popover.js"></script>
-    <script src="js/scrollspy.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/transition.js"></script>
-    <script src="js/jquery-extend-drupal.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
 
     <script>
-    function openFullscreen() {
-      var elem = document.getElementById("aladdin-frame");
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
+      function openFullscreen() {
+        var e = document.getElementById("aladdin-frame");
+        (e.requestFullscreen || e.webkitRequestFullscreen || e.msRequestFullscreen).call(e);
       }
-    }
     </script>
 
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+    </style>
 </head>
 
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<body class="html not-logged-in node-type-page page-v2">
 <script src="js/include.js"></script>
 <div id="wrapper">
-
     <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="PARAMETRIC">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin</span>
+                <h1>Parametric Design vs. Generative Design</h1>
+                <p class="v2-tagline">
+                    How Aladdin uses genetic algorithms to make generative design a visual, interactive, human-in-the-loop practice for solar-panel array optimization.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
 
-    <div class="top-bar-full">  <div class="region region-top-bar-full">
-        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+                    <p class="v2-byline">By <strong>Charles Xie</strong></p>
 
+                    <p>Parametric design uses parameters and constraints to solve a design problem, while generative design applies algorithms to those same parameters to generate hundreds or thousands of possible design variations to review and choose from.</p>
 
-        </div>
-    </div>
-    </div>
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parametric_design">Parametric design</a> is a design method where features (such as building elements and engineering components) are shaped according to algorithmic processes. In this method, parameters and rules determine the relationship between design intent and design response. The term parametric refers to input parameters fed into the algorithms.</p>
 
-    <!-- Main Container -->
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Generative_design">Generative design</a> is an AI-based genre of design technology inspired by biological evolution. Once the design criteria and constraints of a product are specified, generative design starts an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Evolutionary_computation">evolutionary computation</a> process that efficiently explores the entire <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parameter_space">parameter space</a> supported by the software to find optimal solutions. During the iterative search for <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Feasible_region">feasible solutions</a>, the software automatically constructs a vast number of forms at each step, tests their functions using numerical simulations, evaluates their quality based on the given criteria and constraints, and then selects those that are closer to the goal for the next step. By repeating these computational routines many times, a variety of designs that meet the goal eventually emerge. Engineers then review these outputs, often with the aid of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Interactive_visual_analysis">interactive visual analytics</a> for intuitive appraisal and comparison across the board, and choose one or more designs for prototyping. This paradigm shift in design methods entails a fundamental change of mindset for <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Design_thinking">design thinking</a> that must be addressed in the engineering education of future workforce.</p>
 
-    <div class="main-container container">
+                    <p>Aladdin aims to integrate AI deeply into CAD software to explore this new human-technology frontier. This article introduces the concept of visual evolutionary computation implemented in Aladdin based on <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Genetic_algorithm">genetic algorithms</a> (GA), which is one of the most widely-used techniques in AI because of its simplicity (although Aladdin also provides another option for implementing <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Bio-inspired_computing">bio-inspired</a> evolutionary computation, namely the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Particle_swarm_optimization">particle swarm optimization</a> method, this article focuses mainly on GA for conceptual clarity). The embedded window below provides a simple example about finding the optimal tilt angle for a single row of solar panels aligned in the east-west axis, which may give you some basic ideas about this concept through observing its actions. To start, click the gray foundation under the solar panels first and then click the Run button that will then appear at the bottom of the graph window. After that, Aladdin will show you step by step how it arrives at the optimal solution through a sequence of structure generation and function evaluation procedures driven by evolutionary principles (e.g., genetic <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)">selection</a>, <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)">crossover</a>, and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)">mutation</a>). The graph will provide a visual representation of the entire process on the fly.</p>
 
-        <header role="banner" id="page-header">
+                    <figure class="v2-embed">
+                        <iframe src="https://institute-for-future-intelligence.github.io/aladdin/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Optimizing%20the%20Tilt%20Angle%20of%20a%20Row%20of%20Solar%20Panels" allowfullscreen="true" id="aladdin-frame" width="100%" height="600px" title="Optimizing the Tilt Angle of One Row of Solar Panels"></iframe>
+                        <figcaption>Live model above (<a href="javascript:openFullscreen();">view in full screen</a>).</figcaption>
+                    </figure>
 
-        </header> <!-- /#page-header -->
-        <div id="main-content-area" class="row no-gutters">
+                    <p>Not surprisingly, AI quickly nails the optimal solution in this simple case. The most productive tilt angle is close to the latitude, which, in this case, is a bit north to 42&deg; (the location is set to near Boston, Massachusetts, USA). Note that the latitude degree is not necessarily the optimal degree for the tilt angle in other regions &mdash; it depends on other factors such as weather differences from season to season (e.g., an uneven distribution of rain or cloud across the year, such as the monsoon season in some parts of the world, may alter the weight factors). But this doesn't really matter to Aladdin designers as its comprehensive simulation engines used by AI to evaluate the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Loss_function">objective function</a> will automatically consider all these factors while searching for optimal solutions.</p>
 
+                    <p>In the following sections, we will use a more complex application case to illustrate the power of this type of AI in generative design. This case involves multiple rows of solar panels, each of which is allowed to have a different tilt angle. The challenge is to find their values that result in maximal total output of electricity for a whole year from all the solar panels. You may have seen solar panel arrays in the real world that typically assume the same tilt angle for all the rows. Using an identical tilt angle for all rows makes sense when the inter-row spacing is sufficiently large such that a row does not cast shadow on the one behind it. But when the rows are more close-packed in order to use land more efficiently, the design challenge becomes more complicated, especially considering that <a target="_blank" rel="noopener noreferrer" href="aladdin-solar-farm-design-parameters.html#panel-orientation">the circuit wiring of the solar cells on each panel plays a significant role in the output</a>.</p>
 
-            <section class="col-sm-12">
-                <a id="main-content"></a>
-                <div class="region">
-                    <div id="block-system-main" class="block block-system">
+                    <h2>Visualizing the design solution evolution driven by AI</h2>
 
+                    <p>Let's consider a design problem comprising four rows of solar panels that have all but their tilt angles determined. The four tilt angles form a design space with four independent dimensions. Each tilt angle is represented in GA as a "gene," with its value being a continuous number ranging from -90&deg; (north-facing) to 90&deg; (south-facing). A sequence that combines all the genes is referred to as a "chromosome." Each chromosome can be translated into an individual solution called a "phenotype," which represents an observable physical conformation of the four rows of solar panels. The following animation shows the evolution of design solutions driven by GA. The graph on the right also shows how GA explores the design space and converges to the final solution at the end of a run. The left axis of this biaxial graph represents the four tilt angles and the right axis the energy output of the best among all the solutions selected at each step of evolution, which is known as a <i>generation</i> in GA.</p>
 
-                        <div class="content">
-                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
-                                <header>
-                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-ga-tilt-angle-four-rows.gif" alt="Evolutionary computation animation for four rows of solar panels">
+                        <figcaption>Visual evolutionary computation: An example of finding optimal tilt angles for four rows of solar panels.</figcaption>
+                    </figure>
 
-                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                    <div class="field-items">
-                                        <div class="field-item even" property="content:encoded">
-
-<h4>Parametric Design vs. Generative Design</h4>
-
-<p>By Charles Xie
-
-<p><a href="aladdin.html">Back to Aladdin home page</a>
-
-<p>Parametric design uses parameters and constraints to solve a design problem, while generative design applies algorithms to those same parameters to generate hundreds or 
-thousands of possible design variations to review and choose from.
-
-<p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parametric_design">Parametric design</a>
-is a design method where features (such as building elements and engineering components) are shaped according to algorithmic processes. 
-In this method, parameters and rules determine the relationship between design intent and design response. The term parametric refers to input parameters fed into the algorithms. 
-
-<p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Generative_design">Generative design</a> is an AI-based genre of design technology inspired by biological evolution. 
-Once the design criteria and constraints of a product are specified, generative design starts an 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Evolutionary_computation">evolutionary computation</a> process that efficiently explores the entire 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Parameter_space">parameter space</a> 
-supported by the software to find optimal solutions. During the iterative search for 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Feasible_region">feasible solutions</a>, 
-the software automatically constructs a vast number of forms at each step, tests their functions 
-using numerical simulations, evaluates their quality based on the given criteria and constraints, and then selects those that are closer to the goal for the next step. 
-By repeating these computational routines many times, a variety of designs that meet the goal eventually emerge. Engineers then review these outputs, often with the aid of 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Interactive_visual_analysis">interactive visual analytics</a> 
-for intuitive appraisal and comparison across the board, and choose one or more designs for prototyping. 
-This paradigm shift in design methods entails a fundamental change of mindset for 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Design_thinking">design thinking</a> that must be addressed in the engineering education of future workforce. 
-
-<p>Aladdin aims to integrate AI deeply into CAD software to explore this new human-technology frontier.
-This article introduces the concept of visual evolutionary computation implemented in Aladdin based on <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Genetic_algorithm">genetic algorithms</a> 
-(GA), which is one of the most widely-used techniques in AI because of its simplicity (although Aladdin also provides another option for implementing 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Bio-inspired_computing">bio-inspired</a> evolutionary computation, namely the
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Particle_swarm_optimization">particle swarm optimization</a> method, this article focuses mainly on GA for conceptual clarity). 
-The embedded window below provides a simple example about finding the optimal tilt angle for a single row of solar panels aligned in the east-west axis, 
-which may give you some basic ideas about this concept through observing its actions. 
-To start, click the gray foundation under the solar panels first and then click the Run button that will then appear at the bottom of the graph window. 
-After that, Aladdin will show you step by step how it arrives at the optimal solution through a sequence of structure generation and function evaluation procedures
-driven by evolutionary principles (e.g., genetic 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)">selection</a>, 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)">crossover</a>, and 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)">mutation</a>). The graph will provide a visual representation of the entire process on the fly.
-
-<p align="center">
-<iframe 
-src="https://institute-for-future-intelligence.github.io/aladdin/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Optimizing%20the%20Tilt%20Angle%20of%20a%20Row%20of%20Solar%20Panels" 
-allowfullscreen="true" 
-id="aladdin-frame"
-width="100%" 
-height="600px" 
-style="border: 1px solid #555; box-shadow: 4px 4px #888;"
-title="Optimizing the Tilt Angle of One Row of Solar Panels">
-</iframe>
-Live model above (<a href="javascript:openFullscreen();">view in full screen</a>)
-</p>
-
-<p>Not surprisingly, AI quickly nails the optimal solution in this simple case. The most productive tilt angle is close to the latitude, which, in this case, is a bit north to 42&deg; 
-(the location is set to near Boston, Massachusetts, USA). 
-Note that the latitude degree is not necessarily the optimal degree for the tilt angle in other regions &mdash; it depends on other factors such as weather differences from season to season 
-(e.g., an uneven distribution of rain or cloud across the year, such as the monsoon season in some parts of the world, may alter the weight factors). 
-But this doesn't really matter to Aladdin designers as its comprehensive simulation engines used by AI to evaluate the 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Loss_function">objective function</a> will automatically consider all these factors while searching for optimal solutions.
-
-<p>In the following sections, we will use a more complex application case to illustrate the power of this type of AI in generative design. 
-This case involves multiple rows of solar panels, each of which is allowed to have a different tilt angle. 
-The challenge is to find their values that result in maximal total output of electricity for a whole year from all the solar panels.
-You may have seen solar panel arrays in the real world that typically assume the same tilt angle for all the rows.
-Using an identical tilt angle for all rows makes sense when the inter-row spacing is sufficiently large such that a row does not cast shadow on the one behind it. 
-But when the rows are more close-packed in order to use land more efficiently, the design challenge becomes more complicated, especially considering that 
-<a target="_blank" rel="noopener noreferrer" href="aladdin-solar-farm-design-parameters.html#panel-orientation">the circuit wiring of the solar cells on each panel plays a significant role in the output</a>.
-
-<h5>Visualizing the design solution evolution driven by AI</h5>
-
-<p>Let's consider a design problem comprising four rows of solar panels that have all but their tilt angles determined. 
-The four tilt angles form a design space with four independent dimensions. Each tilt angle is represented in GA as a "gene," with its value being a continuous number ranging from -90&deg; (north-facing) to 90&deg; (south-facing). 
-A sequence that combines all the genes is referred to as a "chromosome." 
-Each chromosome can be translated into an individual solution called a "phenotype," which represents an observable physical conformation of the four rows of solar panels.
-The following animation shows the evolution of design solutions driven by GA. The graph on the right also shows how GA explores the design space and converges to the final solution at the end of a run. 
-The left axis of this biaxial graph represents the four tilt angles and the right axis the energy output of the best among all the solutions selected at each step of evolution, which is known as a <i>generation</i> in GA.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-ga-tilt-angle-four-rows.gif" width="100%" style="border: 2px solid #555; box-shadow: 3px 3px #888;">
-<br><br>Visual evolutionary computation: An example of finding optimal tilt angles for four rows of solar panels
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Optimizing%20the%20Tilt%20Angles%20of%20Four%20Rows%20of%20Solar%20Panels">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-<br>
-
-
-
-<h5>Enabling human-AI collaboration</h5>
-
-<p>We envision Aladdin as a design "buddy" that enables close human-AI collaboration to achieve some degree of 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Collaborative_intelligence">collaborative intelligence</a>. 
-A minimum requirement to attain this goal is to support the seamless transition between human tasks and AI tasks 
-(technically speaking, this demands the CAD software to fuse structural design and functional analysis capabilities in a single package to eliminate complicated scripting for 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Toolchain">tool chaining</a> that most designers are not familiar or comfortable with).
-In Aladdin, users can always create or revise their own designs manually with the drawing tools provided on its 3D graphical user interface just like with a conventional CAD tool. 
-When users are not sure about the performance level of their designs, they can then employ AI to assess, refine, or even change their designs &mdash; <b>as if they asked a more experienced designer or teacher for help</b>. 
-When users invoke AI in this capacity, the current design will be automatically included in the first generation to kick off the evolution. In such a way, users' initial states are taken into consideration.
-Unless the starting design is already the global optimum, otherwise AI is guaranteed to generate better outcomes.
-The following images show the results and processes of two consecutive runs, 
-with the first run starting from all the tilt angles being zero (i.e., face up for all the solar panels) and the second run starting from the final solution of the first one without any modification.
-As you can see, there is a significant improvement (from under 10,000 kWh to above 11,000 kWh) in the first run, but the improvement is much less in the second run (roughly 40 kWh of increase), 
-which can be considered as <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fine-tuning">fine-tuning</a>.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-solar-panel-tilt-angle-final-solution-1.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 2px; margin-bottom: 8px;">
-<img src="image/aladdin-solar-panel-tilt-angle-final-solution-1.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-bottom: 8px;">
-<img src="image/aladdin-solar-panel-tilt-angle-evolution-1.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 2px">
-<img src="image/aladdin-solar-panel-tilt-angle-evolution-2.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888;">
-<br><br>The evolution of design solutions in two consecutive runs
-
-
-<p>With this integrated human-AI capability at our fingertips, we can easily confirm that, given this inter-row spacing between adjacent solar panel rows, 
-the optimal tilt angle obtained for a single row of solar panels without considering inter-row shadowing is no longer optimal. The following shows the difference in electricity outputs
-when we choose that tilt angle (~42&deg;) to be the starting point for all the solar panels and "ask" AI to come up with a better solution. The following images show the comparison of the results.
-Note that, to speed up the evolution, we only sample four days from different seasons (1/22, 4/22, 7/22, and 10/22) to represent the whole year. 
-This simplification should not affect the conclusions qualitatively. More days can be included if a higher accuracy is needed.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-solar-panel-tilt-angle-start.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 2px; margin-bottom: 8px;">
-<img src="image/aladdin-solar-panel-tilt-angle-end.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-bottom: 8px;">
-<img src="image/aladdin-solar-panel-tilt-angle-output-start.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 2px">
-<img src="image/aladdin-solar-panel-tilt-angle-output-end.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888;">
-<br><br>Evolving from an initial design that uses 42&deg; for all the tilt angles
-
-
-
-<h5>Visualizing the design space exploration driven by AI</h5>
-
-<p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Design_space_exploration">Design space exploration</a> 
-is an important concept in design theories and practices. As humans, we tend to fixate on certain areas in the design space that seem familiar to us.
-However, our experience is a double-edged sword &mdash; while it allows us to do our job quickly, it also limits our ability to see beyond what we already know. 
-AI has a similar creativity problem &mdash; an algorithm may be self-reassured to stick to a local optimum due to its interpolative nature stemming from machine learning. 
-To overcome this trap, GA uses a mutation operator that randomizes the "genes" of some randomly-selected solutions during the process of evolution. 
-The following images show the effect of this mutation operator in surveying the design space. The small dots in each biaxial plot represent
-all the individual solutions that have been generated at each step of evolution. Their distribution in the vertical direction at each step represents their "genetic" diversity.
-As you can see from these images, when the mutation rate is low, the "genes" incline to concentrate on a few spots after a few generations. 
-When the mutation rate is high, they become much more scattered, though a higher degree of diversity does not seem to significantly improve the results in these particular runs 
-(possibly because the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fitness_landscape">fitness landscape</a> is relatively flat in this design space).   
-
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-solar-panel-tilt-angle-mutation-0.0.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 2px; margin-bottom: 8px;">
-<img src="image/aladdin-solar-panel-tilt-angle-mutation-0.3.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 2px; margin-bottom: 8px;">
-<img src="image/aladdin-solar-panel-tilt-angle-mutation-0.7.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-right: 2px; margin-bottom: 8px;">
-<img src="image/aladdin-solar-panel-tilt-angle-mutation-1.0.png" width="49%" style="border: 2px solid #555; box-shadow: 2px 2px #888; margin-bottom: 8px;">
-<br><br>The effect of the mutation rate on evolution (Upper-left: 0%, upper-right: 30%, lower-left: 70%, lower-right: 100%)
-
-<h5>Discussion</h5>
-
-<p>We believe that the best strategy of using AI in design is not in complete automation. Rather, a symbiosis between human and AI may be more likely to be practical and persistent. 
-After all, the goal of design is to address the needs of humans and humans should always be part of the loop. Aladdin provides a research platform for us to imagine that future.
-In particular, the work that we are undertaking is potentially important to the development of
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Explainable_artificial_intelligence">explainable artificial intelligence (XAI)</a> 
-as the visualization of how AI solves a problem can open the "black box" to increase its trustworthiness. And humans' understanding of and trust in AI are vital to the envisioned symbiosis.
-
-
-
-<p><a href="aladdin.html">Back to Aladdin home page</a>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Optimizing%20the%20Tilt%20Angles%20of%20Four%20Rows%20of%20Solar%20Panels">View and edit the four-row tilt optimization model</a>
                     </div>
-                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
 
+                    <h2>Enabling human-AI collaboration</h2>
 
-                        <div class="content">
-                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+                    <p>We envision Aladdin as a design "buddy" that enables close human-AI collaboration to achieve some degree of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Collaborative_intelligence">collaborative intelligence</a>. A minimum requirement to attain this goal is to support the seamless transition between human tasks and AI tasks (technically speaking, this demands the CAD software to fuse structural design and functional analysis capabilities in a single package to eliminate complicated scripting for <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Toolchain">tool chaining</a> that most designers are not familiar or comfortable with). In Aladdin, users can always create or revise their own designs manually with the drawing tools provided on its 3D graphical user interface just like with a conventional CAD tool. When users are not sure about the performance level of their designs, they can then employ AI to assess, refine, or even change their designs &mdash; <b>as if they asked a more experienced designer or teacher for help</b>. When users invoke AI in this capacity, the current design will be automatically included in the first generation to kick off the evolution. In such a way, users' initial states are taken into consideration. Unless the starting design is already the global optimum, otherwise AI is guaranteed to generate better outcomes. The following images show the results and processes of two consecutive runs, with the first run starting from all the tilt angles being zero (i.e., face up for all the solar panels) and the second run starting from the final solution of the first one without any modification. As you can see, there is a significant improvement (from under 10,000 kWh to above 11,000 kWh) in the first run, but the improvement is much less in the second run (roughly 40 kWh of increase), which can be considered as <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fine-tuning">fine-tuning</a>.</p>
 
-
-
-
-
-
-
-
-
-                            </div>  </div>
+                    <div class="v2-screenshot-row">
+                        <img src="image/aladdin-solar-panel-tilt-angle-final-solution-1.png" alt="Tilt-angle final solution run 1">
+                        <img src="image/aladdin-solar-panel-tilt-angle-final-solution-1.png" alt="Tilt-angle final solution run 2">
                     </div>
-                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
-
-
+                    <div class="v2-screenshot-row">
+                        <img src="image/aladdin-solar-panel-tilt-angle-evolution-1.png" alt="Evolution graph run 1">
+                        <img src="image/aladdin-solar-panel-tilt-angle-evolution-2.png" alt="Evolution graph run 2">
                     </div>
+                    <p style="text-align:center; font-size:1rem; color: var(--text-muted);">The evolution of design solutions in two consecutive runs.</p>
+
+                    <p>With this integrated human-AI capability at our fingertips, we can easily confirm that, given this inter-row spacing between adjacent solar panel rows, the optimal tilt angle obtained for a single row of solar panels without considering inter-row shadowing is no longer optimal. The following shows the difference in electricity outputs when we choose that tilt angle (~42&deg;) to be the starting point for all the solar panels and "ask" AI to come up with a better solution. The following images show the comparison of the results. Note that, to speed up the evolution, we only sample four days from different seasons (1/22, 4/22, 7/22, and 10/22) to represent the whole year. This simplification should not affect the conclusions qualitatively. More days can be included if a higher accuracy is needed.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aladdin-solar-panel-tilt-angle-start.png" alt="Initial design: 42 deg for all panels">
+                        <img src="image/aladdin-solar-panel-tilt-angle-end.png" alt="Evolved design">
+                    </div>
+                    <div class="v2-screenshot-row">
+                        <img src="image/aladdin-solar-panel-tilt-angle-output-start.png" alt="Initial output">
+                        <img src="image/aladdin-solar-panel-tilt-angle-output-end.png" alt="Evolved output">
+                    </div>
+                    <p style="text-align:center; font-size:1rem; color: var(--text-muted);">Evolving from an initial design that uses 42&deg; for all the tilt angles.</p>
+
+                    <h2>Visualizing the design space exploration driven by AI</h2>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Design_space_exploration">Design space exploration</a> is an important concept in design theories and practices. As humans, we tend to fixate on certain areas in the design space that seem familiar to us. However, our experience is a double-edged sword &mdash; while it allows us to do our job quickly, it also limits our ability to see beyond what we already know. AI has a similar creativity problem &mdash; an algorithm may be self-reassured to stick to a local optimum due to its interpolative nature stemming from machine learning. To overcome this trap, GA uses a mutation operator that randomizes the "genes" of some randomly-selected solutions during the process of evolution. The following images show the effect of this mutation operator in surveying the design space. The small dots in each biaxial plot represent all the individual solutions that have been generated at each step of evolution. Their distribution in the vertical direction at each step represents their "genetic" diversity. As you can see from these images, when the mutation rate is low, the "genes" incline to concentrate on a few spots after a few generations. When the mutation rate is high, they become much more scattered, though a higher degree of diversity does not seem to significantly improve the results in these particular runs (possibly because the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fitness_landscape">fitness landscape</a> is relatively flat in this design space).</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aladdin-solar-panel-tilt-angle-mutation-0.0.png" alt="Mutation rate 0%">
+                        <img src="image/aladdin-solar-panel-tilt-angle-mutation-0.3.png" alt="Mutation rate 30%">
+                    </div>
+                    <div class="v2-screenshot-row">
+                        <img src="image/aladdin-solar-panel-tilt-angle-mutation-0.7.png" alt="Mutation rate 70%">
+                        <img src="image/aladdin-solar-panel-tilt-angle-mutation-1.0.png" alt="Mutation rate 100%">
+                    </div>
+                    <p style="text-align:center; font-size:1rem; color: var(--text-muted);">The effect of the mutation rate on evolution (Upper-left: 0%, upper-right: 30%, lower-left: 70%, lower-right: 100%).</p>
+
+                    <h2>Discussion</h2>
+
+                    <p>We believe that the best strategy of using AI in design is not in complete automation. Rather, a symbiosis between human and AI may be more likely to be practical and persistent. After all, the goal of design is to address the needs of humans and humans should always be part of the loop. Aladdin provides a research platform for us to imagine that future. In particular, the work that we are undertaking is potentially important to the development of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Explainable_artificial_intelligence">explainable artificial intelligence (XAI)</a> as the visualization of how AI solves a problem can open the "black box" to increase its trustworthiness. And humans' understanding of and trust in AI are vital to the envisioned symbiosis.</p>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
                 </div>
-            </section>
-
-
-        </div>
-    </div>
-
-
+            </div>
+        </section>
+    </main>
     <script>includeFooter();</script>
-
 </div>
-
-<script src="js/flexslider.load.js"></script>
+<script src="js/v2.js"></script>
 <script src="js/bootstrap.js"></script>
-
 </body>
 </html>

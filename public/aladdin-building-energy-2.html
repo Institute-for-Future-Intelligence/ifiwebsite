@@ -3,70 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Designing Buildings: The Energy Part</title>
+    <title>Designing Buildings: The Energy Part — Institute for Future Intelligence</title>
+    <meta name="description" content="A walk through the architectural, material, human, and environmental factors that shape a building's energy use, modelled in Aladdin.">
+
     <style>
         @import url("css/system.base.css");
-    </style>
-    <style>
         @import url("css/jquery.ui.core.min.css");
         @import url("css/jquery.ui.theme.min.css");
         @import url("css/jquery.ui.menu.min.css");
-        @import url("css/jquery.ui.autocomplete.min.css");
-        @import url("css/jquery.ui.button.min.css");
-        @import url("css/jquery.ui.resizable.min.css");
-        @import url("css/jquery.ui.dialog.min.css");
-    </style>
-    <style>
-        @import url("css/date.css");
-        @import url("css/datepicker.1.7.css");
         @import url("css/ifi_theme.css");
-        @import url("css/field.css");
-        @import url("css/node.css");
-        @import url("css/video_filter.css");
-        @import url("css/views.css");
-        @import url("css/caption-filter.css");
-    </style>
-    <style>
-        @import url("css/apachesolr_autocomplete.css");
-        @import url("css/ctools.css");
-        @import url("css/video.css");
-        @import url("css/flexslider_img.css");
-        @import url("css/flexslider.css");
-        @import url("css/google_translator.css");
     </style>
     <link rel="stylesheet" type="text/css" href="css/first.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
-    <!-- HTML5 element support for IE6-8 -->
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <style>
-        .logoifi {
-            width: 35px;
-            height: 35px;
-            margin: 5px 0 0;
-            padding: 0;
-            background: url("image/logofloat.png") no-repeat 0 0;
-            background-size: 35px 35px;
-        }
-        body {
-            position: relative;
-            font-family: "Soleil", sans-serif;
-            color: #333333;
-            font-size: 18px;
-            line-height: 30px;
-        }
-    </style>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
 
-    <script src="https://use.typekit.net/epu0hfp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -74,473 +30,423 @@
       gtag('js', new Date());
       gtag('config', 'G-B0RXQKFDN0');
     </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-extend-3.4.0.js"></script>
-    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
-    <script src="js/jquery.once.js"></script>
-    <script src="js/drupal.js"></script>
-    <script src="js/jquery.ui.core.min.js"></script>
-    <script src="js/jquery.ui.widget.min.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/jquery.ui.menu.min.js"></script>
-    <script src="js/jquery.ui.autocomplete.min.js"></script>
-    <script src="js/jquery.ui.button.min.js"></script>
-    <script src="js/jquery.ui.mouse.min.js"></script>
-    <script src="js/jquery.ui.draggable.min.js"></script>
-    <script src="js/jquery.ui.resizable.min.js"></script>
-    <script src="js/jquery.ui.dialog.min.js"></script>
-    <script src="js/caption-filter.js"></script>
-    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/googleanalytics.js"></script>
-    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/google_translator.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.smartmenus.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/jquery.smartmenus.bootstrap.js"></script>
-    <script src="js/affix.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/transition.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/popover.js"></script>
-    <script src="js/scrollspy.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/transition.js"></script>
-    <script src="js/jquery-extend-drupal.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-col-main h3 {
+            font-family: var(--font-display);
+            font-size: 1.65rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 2.5rem 0 0.75rem;
+            letter-spacing: -0.01em;
+        }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+
+        .v2-byline {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin: 0 0 1.5rem;
+        }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-backlink {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 0 1.5rem;
+        }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+
+        .v2-article-audio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1.25rem;
+            background: var(--surface-raised);
+            border: 1px solid rgba(99, 102, 241, 0.18);
+            border-radius: 0.75rem;
+            margin: 0 0 2rem;
+        }
+        .v2-article-audio-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+        }
+        .v2-article-audio audio { width: min(100%, 420px); }
+
+        .v2-model-link {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0 2rem;
+            text-align: center;
+        }
+        .v2-model-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--accent-dark);
+            text-decoration: none;
+        }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before {
+            content: '\25B6';
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+    </style>
 </head>
 
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<body class="html not-logged-in node-type-page page-v2">
 <script src="js/include.js"></script>
 <div id="wrapper">
 
     <script>includeHeader();</script>
 
-    <div class="top-bar-full">  <div class="region region-top-bar-full">
-        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
-
-
-        </div>
-    </div>
-    </div>
-
-    <!-- Main Container -->
-
-    <div class="main-container container">
-
-        <header role="banner" id="page-header">
-
-        </header> <!-- /#page-header -->
-        <div id="main-content-area" class="row no-gutters">
-
-
-            <section class="col-sm-12">
-                <a id="main-content"></a>
-                <div class="region">
-                    <div id="block-system-main" class="block block-system">
-
-
-                        <div class="content">
-                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
-                                <header>
-                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
-
-                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                    <div class="field-items">
-                                        <div class="field-item even" property="content:encoded">
-
-<h4>Designing Buildings: The Energy Part</h4>
-
-<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
-
-<p><a href="aladdin.html">Back to Aladdin home page</a>
-
-<p align='center'>
-  <span>Listen to a podcast about this article</span><br>
-  <audio controls>
-    <source src="podcast/building-energy-1.mp3" type="audio/mpeg">
-  </audio>
-</p>
-
-
-<p>Aladdin can be used to design buildings with a variety of <a href="aladdin-building-energy.html">architecture styles</a>. 
-In this article, we will walk you through various architectural, material, human, and environmental factors that affect the energy use of a building. 
-According to  the U.S. Energy Information Administration, heating and cooling of homes make up
-<a target="_blank" rel="noopener noreferrer" href="https://www.epa.gov/rhc/rhc-single-family-homes">more than 65% of residential energy use</a> in the United States.
-So the energy efficiency of a residential building is largely about its thermal efficiency. 
-<a target="_blank" rel="noopener noreferrer" href="https://codes.iccsafe.org/content/IECC2021P1">The International Energy Conservation Code</a> (IECC 2021) recommends
-building energy efficiency standards for different regions around the world. To understand the IECC code, you will need to learn the science and engineering concepts behind it.
-
-<p>Under each circumstance, we will compare the energy uses of two houses that are identical to each other in every aspect except the control variable. 
-In this way, the difference in energy use can be attributed solely to the control variable.
-
-
-<h5>Building envelope vs. thermal envelope</h5>
-
-<p>The energy used to heat and cool a building is determined by its thermal envelope 
-(which includes <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Solar_gain">solar heat gains</a> through window glazing).
-A thermal envelope is part of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Building_envelope">building envelope</a> &mdash;
-all of the elements of the outer shell of a building that maintain a comfortable indoor environment for its occupants. 
-Not all elements of the building envelope are considered as part of the thermal envelope. 
-For example, a roof may not be considered as part of the building envelope if the insulation is installed above the ceiling, instead of being underneath the roof itself. 
-The following image illustrates the difference in energy use between a house with an insulated ceiling and another without. All the other properties of the two houses are exactly the same.
-As you can see, the heat fluxes from the roof of the house without an insulated ceiling are greater than those from the roof of the other house.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-thermal-vs-building-envelope.png" width="100%">
-<br>An insulated ceiling reduces the thermal envelope and improves energy efficiency
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Insulated%20Ceiling%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-<br>
-
-
-<p>Architectural design can also affect the thermal envelope significantly. The following screenshot shows a comparison between two houses that have seemingly similar building envelopes, 
-but one has a larger thermal envelope than the other (because the latter is surrounded by open porches that are not part of the thermal envelope).
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-envelope-comparison.png" width="100%">
-<br>Building envelope vs. thermal envelope
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Building%20Envelope%20Comparison">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-
-<h5>The effect of the building size</h5>
-
-<p>The energy that a building consumes depends on its size. A larger building has a larger interface for heat exchange between inside and outside. 
-It also has a larger volume of air that needs to be heated or cooled to maintain indoor thermal comfort. 
-The following model shows the comparison of energy consumption between a large building and a small one in Massachusetts on June 10.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-size.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Building%20Size%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-
-<h5>The effect of the building orientation</h5>
-
-<p>A building receives solar energy throughout a day when the sun shines. As the sun's angle changes from sunrise to sunset, the solar energy that projects on the surfaces of the elements on the building envelope
-varies from time to time. A building may get much more solar energy through a unit area of its windows than through a unit area of its walls and roofs. 
-This is because windows transfer heat to the inside through direct thermal radiation, but walls and roofs transfer heat to the inside through thermal conduction after their exterior surfaces are heated by direct thermal radiation
-(hence only a small portion of radiation energy that is converted into thermal energy can be passed to the inside). 
-The orientation of a building may make a difference in terms of its hourly solar heat gains during a day if there are unequal window areas on the walls facing different directions.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-orientation.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Building%20Orientation%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-<h5>The effect of the building insulation</h5>
-
-<p>A well-insulated building consumes less energy than a poorly-insulated one. This applies to both heating and cooling, 
-as <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_insulation">thermal insulation</a> slows down heat flow, regardless of its direction.
-The insulation property of a wall or roof is set by its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/R-value_(insulation)">R-value</a>, 
-whereas that of a window or door is set by its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_transmittance">U-value</a> 
-(the inverse of the R-value), as per the convention in the United States.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-insulation.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Building%20Insulation%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-<h5>The effect of the airtightness</h5>
-
-<p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Building_airtightness">Building airtightness</a> measures the rate of unintentional air exchange with the outside environment 
-through the building envelope. In Aladdin, you can set air permeability for walls, roofs, windows, and doors. A higher air permeability of a building element results in higher use of energy in both heating and cooling.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-airtightness.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Building%20Airtightness%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-<h5>The effect of the roof color</h5>
-
-<p>A roof that reflects more sunlight (hence absorbs less solar energy) can save cooling energy in the summer. 
-This is the idea behind the concept of <a target="_blank" rel="noopener noreferrer" href="https://www.energy.gov/energysaver/cool-roofs">cool roofs</a>. The following model compares 
-the energy use between a house with a dark-colored roof and a house with a light-colored roof. All the other properties of the two houses are identical.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-roof-color.png" width="100%" style="margin-bottom: 4px;">
-<img src="image/aladdin-building-energy-effect-roof-color-heatmap.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Roof%20Color%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-
-<h5>The effect of the eaves overhang</h5>
-
-<p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Eaves">Eaves</a> 
-can provide shading for the windows, walls, and doors under them in the summer to reduce the energy needed to cool the building. 
-The following model compares the energy use between a house with a longer eaves overhang above its south-facing wall and a house with a shorter eaves overhang. All the other properties of the two houses are identical.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-eaves-overhang-heatmap.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Eaves%20Overhang%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-
-<h5>The effect of the solar heat gain coefficients of windows</h5>
-
-<p>The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Solar_gain">solar heat gain coefficient (SHGC)</a> 
-of a window determines the portion of solar energy that is allowed to go through it.
-The following model compares the energy use between a house with windows that have a higher SHGC (0.65) and a house with windows that have a lower SGHC (0.35).
-All the other properties of the two houses are identical.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-window-shgc.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Window%20SHGC%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-
-
-<h5>The effect of the thermostat setpoint</h5>
-
-<p>The energy consumed by a building is also affected by the temperature inside it set by the occupants (different people have different thermal comfort zones). 
-This model compares the energy use of two houses with two different 
-<a target="_blank" rel="noopener noreferrer" href="https://www.designingbuildings.co.uk/wiki/Set_point">thermostat setpoints</a> on a late spring day in Massachusetts 
-&mdash; a season that some people may think is warm while others may think is still cold. All the other properties of the two houses are identical.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-thermostat-setpoint-heatmap.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Thermostat%20Setpoint%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-<h5>The effect of a programmable thermostat</h5>
-
-<p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Programmable_thermostat">programmable thermostat</a> allows users to set temperatures for different periods of a day
-based on their schedules and preferences. This model compares the energy use of two houses with a programmable thermostat and a fixed-temperature thermostat on a winter day in Massachusetts. 
-All the other properties of the two houses are identical.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-programmable-thermostat-heatmap.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Programmable%20Thermostat%20on%20Building%20Energy">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-
-<h5>The effect of solar panels</h5>
-
-<p>Solar panels can generate electricity on-site to offset the energy use of a building. This model compares the energy use of two identical houses, 
-one with an array of rooftop solar panels and the other without.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-solar-panels.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Solar%20Panels%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-<h5>The effect of the ground temperature</h5>
-
-<p>The temperature of the ground varies with the depth. The deeper, the larger it differs from the air temperature. 
-In the summer, this temperature difference may help reduce the cooling energy. In the winter, it may help reduce the heating energy. 
-This model compares the energy use of two identical houses, one with an insulated floor and the other without.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-ground-temperature-heatmap.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Ground%20Temperature%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-
-<h5>The effect of trees</h5>
-
-<p>Trees can provide shading that reduces cooling energy in the summer. This model compares the energy use of two identical houses, one with a tree near it and the other without.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-building-energy-effect-tree-heatmap.png" width="100%">
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Tree%20on%20Energy%20Use">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-
-
-
-
-
-
-<h5>Summary</h5>
-
-<p>This article walks you through many factors of a building that affect its energy use. Desiging an energy-efficient building requires the designer to develop a basic understanding of all these concepts
-in order to make scientific decisions when considering trade-offs.
-
-
-<h5>Note</h5>
-
-<p>We mainly analyze simple buildings in this article. A simple building is defined as one that has no intersecting substructures 
-(substructures are usually created on different foundations in Aladdin) on its envelope. The analysis of complex buildings involves more work and is detailed in a 
-<a target="_blank" rel="noopener noreferrer" href="aladdin-building-energy-3.html">different article</a>.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-simple-vs-complex-building.png" width="100%">
-<br>A simple building vs. a complex building
-</p>
-
-
-
-
-<p><a href="aladdin.html">Back to Aladdin home page</a>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
+    <main class="v2">
+
+        <header class="v2-hero" data-wordmark="ENERGY">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin &middot; Building energy</span>
+                <h1>Designing buildings:<br>the energy part</h1>
+                <p class="v2-tagline">
+                    Architectural, material, human, and environmental factors that shape a
+                    building's energy use &mdash; each modelled as a side-by-side comparison in Aladdin.
+                </p>
+            </div>
+        </header>
+
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+                    <p class="v2-byline">
+                        By <strong>Charles Xie</strong>
+                        &middot; <a href="mailto:charles@intofuture.org">charles@intofuture.org</a>
+                    </p>
+
+                    <div class="v2-article-audio">
+                        <span class="v2-article-audio-label">Listen to a podcast about this article</span>
+                        <audio controls>
+                            <source src="podcast/building-energy-1.mp3" type="audio/mpeg">
+                        </audio>
                     </div>
-                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
 
+                    <p>
+                        Aladdin can be used to design buildings with a variety of
+                        <a href="aladdin-building-energy.html">architectural styles</a>. In this
+                        article, we will walk through various architectural, material, human, and
+                        environmental factors that affect the energy use of a building. According to
+                        the U.S. Energy Information Administration, heating and cooling make up
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.epa.gov/rhc/rhc-single-family-homes">more than 65% of residential energy use</a>
+                        in the United States, so the energy efficiency of a residential building is
+                        largely about its thermal efficiency.
+                        <a target="_blank" rel="noopener noreferrer" href="https://codes.iccsafe.org/content/IECC2021P1">The International Energy Conservation Code</a>
+                        (IECC 2021) recommends standards for different regions around the world &mdash;
+                        to understand the code, you will need to learn the science and engineering
+                        behind it.
+                    </p>
+                    <p>
+                        Under each circumstance, we compare the energy use of two houses that are
+                        identical in every aspect except the control variable. In this way, the
+                        difference in energy use can be attributed solely to the control variable.
+                    </p>
 
-                        <div class="content">
-                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+                    <h2>Building envelope vs. thermal envelope</h2>
+                    <p>
+                        The energy used to heat and cool a building is determined by its thermal
+                        envelope (which includes
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Solar_gain">solar heat gains</a>
+                        through window glazing). A thermal envelope is part of the
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Building_envelope">building envelope</a> &mdash;
+                        all of the elements of the outer shell that maintain a comfortable indoor
+                        environment. Not all elements of the building envelope are part of the
+                        thermal envelope. For example, a roof may not be part of the building
+                        envelope if insulation is installed above the ceiling rather than underneath
+                        the roof itself.
+                    </p>
 
-
-
-
-
-
-
-
-
-                            </div>  </div>
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-thermal-vs-building-envelope.png" alt="Insulated ceiling comparison">
+                        <figcaption>An insulated ceiling reduces the thermal envelope and improves energy efficiency.</figcaption>
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Insulated%20Ceiling%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
                     </div>
-                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
 
+                    <p>
+                        Architectural design can also affect the thermal envelope significantly.
+                        The following screenshot compares two houses with seemingly similar building
+                        envelopes &mdash; but one has a larger thermal envelope than the other
+                        (because the latter is surrounded by open porches that are not part of the
+                        thermal envelope).
+                    </p>
 
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-envelope-comparison.png" alt="Building envelope comparison">
+                        <figcaption>Building envelope vs. thermal envelope.</figcaption>
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Building%20Envelope%20Comparison">Open and edit this model in Aladdin</a>
                     </div>
+
+                    <h2>The effect of building size</h2>
+                    <p>
+                        The energy that a building consumes depends on its size. A larger building
+                        has a larger interface for heat exchange between inside and outside &mdash;
+                        and a larger volume of air that needs heating or cooling to maintain indoor
+                        thermal comfort. The following model compares the energy consumption of a
+                        large building and a small one in Massachusetts on June 10.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-size.png" alt="Effect of building size">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Building%20Size%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of building orientation</h2>
+                    <p>
+                        A building receives solar energy throughout the day when the sun shines. As
+                        the sun's angle changes from sunrise to sunset, the solar energy landing on
+                        surfaces of the building envelope varies. A building may get much more solar
+                        energy through a unit area of windows than through walls and roofs: windows
+                        transfer heat directly through thermal radiation, while walls and roofs
+                        transfer heat to the inside through thermal conduction after their exterior
+                        surfaces are heated (so only a small portion reaches the inside). The
+                        orientation of a building makes a difference in hourly solar heat gains when
+                        there are unequal window areas on different walls.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-orientation.png" alt="Effect of building orientation">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Building%20Orientation%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of building insulation</h2>
+                    <p>
+                        A well-insulated building consumes less energy than a poorly-insulated one.
+                        This applies to both heating and cooling, as
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_insulation">thermal insulation</a>
+                        slows down heat flow regardless of its direction. The insulation property of
+                        a wall or roof is set by its
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/R-value_(insulation)">R-value</a>,
+                        whereas that of a window or door is set by its
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_transmittance">U-value</a>
+                        (the inverse of the R-value), as per U.S. convention.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-insulation.png" alt="Effect of insulation">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Building%20Insulation%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of airtightness</h2>
+                    <p>
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Building_airtightness">Building airtightness</a>
+                        measures the rate of unintentional air exchange with the outside environment
+                        through the building envelope. In Aladdin, you can set air permeability for
+                        walls, roofs, windows, and doors. Higher air permeability of a building
+                        element results in higher energy use for both heating and cooling.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-airtightness.png" alt="Effect of airtightness">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Building%20Airtightness%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of roof color</h2>
+                    <p>
+                        A roof that reflects more sunlight (and therefore absorbs less solar energy)
+                        can save cooling energy in the summer. This is the idea behind
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.energy.gov/energysaver/cool-roofs">cool roofs</a>.
+                        The model below compares the energy use of a house with a dark-colored roof
+                        and one with a light-colored roof. All other properties are identical.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-roof-color.png" alt="Effect of roof color">
+                    </figure>
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-roof-color-heatmap.png" alt="Effect of roof color heatmap">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Roof%20Color%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of eaves overhang</h2>
+                    <p>
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Eaves">Eaves</a>
+                        can provide shading for the windows, walls, and doors under them in the
+                        summer, reducing the energy needed to cool the building. The following model
+                        compares a house with a longer eaves overhang above its south-facing wall
+                        and one with a shorter eaves overhang.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-eaves-overhang-heatmap.png" alt="Effect of eaves overhang">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Eaves%20Overhang%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of solar heat gain coefficients of windows</h2>
+                    <p>
+                        The
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Solar_gain">solar heat gain coefficient (SHGC)</a>
+                        of a window determines the portion of solar energy that is allowed through
+                        it. The model below compares a house with windows that have a higher SHGC
+                        (0.65) against one with windows that have a lower SHGC (0.35). All other
+                        properties are identical.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-window-shgc.png" alt="Effect of window SHGC">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Window%20SHGC%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of thermostat setpoint</h2>
+                    <p>
+                        The energy consumed by a building is also affected by the temperature inside
+                        it set by occupants (different people have different thermal comfort zones).
+                        This model compares the energy use of two houses with two different
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.designingbuildings.co.uk/wiki/Set_point">thermostat setpoints</a>
+                        on a late spring day in Massachusetts &mdash; a season some people think is
+                        warm while others still think is cold.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-thermostat-setpoint-heatmap.png" alt="Effect of thermostat setpoint">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Thermostat%20Setpoint%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of a programmable thermostat</h2>
+                    <p>
+                        A
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Programmable_thermostat">programmable thermostat</a>
+                        lets users set temperatures for different periods of the day based on their
+                        schedules and preferences. This model compares the energy use of two houses,
+                        one with a programmable thermostat and one with a fixed-temperature
+                        thermostat, on a winter day in Massachusetts.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-programmable-thermostat-heatmap.png" alt="Effect of programmable thermostat">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Programmable%20Thermostat%20on%20Building%20Energy">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of solar panels</h2>
+                    <p>
+                        Solar panels can generate electricity on site to offset the energy use of a
+                        building. This model compares two identical houses, one with an array of
+                        rooftop solar panels and the other without.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-solar-panels.png" alt="Effect of solar panels">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Solar%20Panels%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of ground temperature</h2>
+                    <p>
+                        The temperature of the ground varies with depth: the deeper, the more it
+                        differs from the air temperature. In summer this difference may help reduce
+                        cooling energy; in winter it may help reduce heating energy. This model
+                        compares two identical houses, one with an insulated floor and one without.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-ground-temperature-heatmap.png" alt="Effect of ground temperature">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Ground%20Temperature%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The effect of trees</h2>
+                    <p>
+                        Trees can provide shading that reduces cooling energy in the summer. This
+                        model compares two identical houses, one with a tree near it and the other
+                        without.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-energy-effect-tree-heatmap.png" alt="Effect of trees">
+                    </figure>
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20Tree%20on%20Energy%20Use">Open and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>Summary</h2>
+                    <p>
+                        This article walks through many factors that affect a building's energy use.
+                        Designing an energy-efficient building requires the designer to develop a
+                        basic understanding of all these concepts in order to make scientific
+                        decisions when weighing trade-offs.
+                    </p>
+
+                    <h3>Note</h3>
+                    <p>
+                        We mainly analyze simple buildings in this article. A simple building is one
+                        that has no intersecting substructures (substructures are usually created on
+                        different foundations in Aladdin) on its envelope. The analysis of complex
+                        buildings involves more work and is detailed in a
+                        <a target="_blank" rel="noopener noreferrer" href="aladdin-building-energy-3.html">separate article</a>.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-simple-vs-complex-building.png" alt="Simple vs. complex building">
+                        <figcaption>A simple building vs. a complex building.</figcaption>
+                    </figure>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+
                 </div>
-            </section>
+            </div>
+        </section>
 
-
-        </div>
-    </div>
-
+    </main>
 
     <script>includeFooter();</script>
 
 </div>
 
-<script src="js/flexslider.load.js"></script>
+<script src="js/v2.js"></script>
 <script src="js/bootstrap.js"></script>
 
 </body>

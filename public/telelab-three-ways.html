@@ -3,70 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Three Ways of Using Telelab</title>
+    <title>Three Ways of Using Telelab — Institute for Future Intelligence</title>
+    <meta name="description" content="Three models of using Telelab: remote inquiry, collaborative inquiry in hybrid classes, and collective inquiry in in-person classes.">
+
     <style>
         @import url("css/system.base.css");
-    </style>
-    <style>
         @import url("css/jquery.ui.core.min.css");
         @import url("css/jquery.ui.theme.min.css");
         @import url("css/jquery.ui.menu.min.css");
-        @import url("css/jquery.ui.autocomplete.min.css");
-        @import url("css/jquery.ui.button.min.css");
-        @import url("css/jquery.ui.resizable.min.css");
-        @import url("css/jquery.ui.dialog.min.css");
-    </style>
-    <style>
-        @import url("css/date.css");
-        @import url("css/datepicker.1.7.css");
         @import url("css/ifi_theme.css");
-        @import url("css/field.css");
-        @import url("css/node.css");
-        @import url("css/video_filter.css");
-        @import url("css/views.css");
-        @import url("css/caption-filter.css");
-    </style>
-    <style>
-        @import url("css/apachesolr_autocomplete.css");
-        @import url("css/ctools.css");
-        @import url("css/video.css");
-        @import url("css/flexslider_img.css");
-        @import url("css/flexslider.css");
-        @import url("css/google_translator.css");
     </style>
     <link rel="stylesheet" type="text/css" href="css/first.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
-    <!-- HTML5 element support for IE6-8 -->
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <style>
-        .logoifi {
-            width: 35px;
-            height: 35px;
-            margin: 5px 0 0;
-            padding: 0;
-            background: url("image/logofloat.png") no-repeat 0 0;
-            background-size: 35px 35px;
-        }
-        body {
-            position: relative;
-            font-family: "Soleil", sans-serif;
-            color: #333333;
-            font-size: 18px;
-            line-height: 30px;
-        }
-    </style>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
 
-    <script src="https://use.typekit.net/epu0hfp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -74,189 +30,134 @@
       gtag('js', new Date());
       gtag('config', 'G-B0RXQKFDN0');
     </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-extend-3.4.0.js"></script>
-    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
-    <script src="js/jquery.once.js"></script>
-    <script src="js/drupal.js"></script>
-    <script src="js/jquery.ui.core.min.js"></script>
-    <script src="js/jquery.ui.widget.min.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/jquery.ui.menu.min.js"></script>
-    <script src="js/jquery.ui.autocomplete.min.js"></script>
-    <script src="js/jquery.ui.button.min.js"></script>
-    <script src="js/jquery.ui.mouse.min.js"></script>
-    <script src="js/jquery.ui.draggable.min.js"></script>
-    <script src="js/jquery.ui.resizable.min.js"></script>
-    <script src="js/jquery.ui.dialog.min.js"></script>
-    <script src="js/caption-filter.js"></script>
-    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/googleanalytics.js"></script>
-    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/google_translator.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.smartmenus.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/jquery.smartmenus.bootstrap.js"></script>
-    <script src="js/affix.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/transition.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/popover.js"></script>
-    <script src="js/scrollspy.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/transition.js"></script>
-    <script src="js/jquery-extend-drupal.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+    </style>
 </head>
 
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<body class="html not-logged-in node-type-page page-v2">
 <script src="js/include.js"></script>
 <div id="wrapper">
 
     <script>includeHeader();</script>
 
-    <div class="top-bar-full">  <div class="region region-top-bar-full">
-        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+    <main class="v2">
 
+        <header class="v2-hero" data-wordmark="TELELAB">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Telelab</span>
+                <h1>Three ways of using Telelab</h1>
+                <p class="v2-tagline">
+                    Three classroom models for real-time remote experimentation &mdash; remote
+                    inquiry, collaborative inquiry in hybrid classes, and collective inquiry in
+                    in-person classes.
+                </p>
+            </div>
+        </header>
 
-        </div>
-    </div>
-    </div>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="telelab.html">&larr; Back to Telelab</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> &middot; <a href="mailto:charles@intofuture.org">charles@intofuture.org</a></p>
 
-    <!-- Main Container -->
+                    <p>
+                        The ability of Telelab to support users in conducting their own experiments
+                        and distributing real-time data to others engenders three types of
+                        applications described below. In all of them, the experimental data are
+                        presented to all stakeholders in the forms of interactive visualizations so
+                        they can rapidly explore the data and recognize patterns.
+                    </p>
 
-    <div class="main-container container">
+                    <h2>1. Remote inquiry in a completely online class</h2>
+                    <p>
+                        The learning and teaching model of remote inquiry consists of three
+                        interlocked cycles of interactions &mdash; student-lab, student-teacher,
+                        and student-student &mdash; that mimic actual experiences in a science lab
+                        where students are physically present to participate in hands-on
+                        experiments, often in a collaborative fashion. In the student-lab cycle,
+                        students observe a remote experiment and analyze incoming data on their own
+                        computers. If the experiment is being conducted in real time, they can
+                        even remotely control it and obtain new data. In the student-teacher cycle,
+                        students receive instruction from the teacher about remotely analyzing and
+                        controlling an experiment, but they can also propose their own ideas to be
+                        tested in the teacher's next step of experimentation. In the student-student
+                        cycle, students can discuss experimental results with peers through
+                        text/audio/video chats.
+                    </p>
 
-        <header role="banner" id="page-header">
+                    <figure class="v2-formula">
+                        <img src="image/telelab-remote-inquiry.png" alt="Remote inquiry model">
+                        <figcaption>An illustration of the instructional model of remote inquiry.</figcaption>
+                    </figure>
 
-        </header> <!-- /#page-header -->
-        <div id="main-content-area" class="row no-gutters">
+                    <h2>2. Collaborative inquiry in a hybrid class</h2>
+                    <p>
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.edweek.org/leadership/how-hybrid-learning-is-and-is-not-working-during-covid-19-6-case-studies/2020/11">Hybrid learning</a>
+                        is an educational model where teachers instruct both in-person and remote
+                        students at the same time. As many schools allow students to choose between
+                        learning from home and learning at school, hybrid classes are now
+                        commonplace. Under a hybrid circumstance, each student in the lab can
+                        collaborate with a remote partner to conduct an experiment in tandem.
+                        Telelab provides a handy tool to streamline hybrid learning in the lab: data
+                        are automatically transmitted behind the scenes to remote partners and
+                        visualized as intuitive images or graphs on their computers. Students in a
+                        hybrid group can all concentrate on observing the experiment unfold and
+                        making sense of incoming data. Such a joint investigation may inspire the
+                        group to raise even more what-if questions, debate their relevance and
+                        testability, and delegate the student in the lab to pursue some of them,
+                        starting a new iteration of collaborative inquiry.
+                    </p>
 
+                    <figure class="v2-formula">
+                        <img src="image/telelab-collaborative-inquiry.png" alt="Collaborative inquiry model">
+                        <figcaption>An illustration of the instructional model of collaborative inquiry.</figcaption>
+                    </figure>
 
-            <section class="col-sm-12">
-                <a id="main-content"></a>
-                <div class="region">
-                    <div id="block-system-main" class="block block-system">
+                    <h2>3. Collective inquiry in a completely in-person class</h2>
+                    <p>
+                        Telelab can also be used when the teacher and all students are in the same
+                        room. In this case, the technology can provide a way for students to
+                        observe and analyze an ongoing experiment performed by the teacher without
+                        leaving their desks and violating social distancing rules. Compared with
+                        projecting the results to a large screen in front of the entire class, the
+                        technology can be imagined as a system of "distributed smartboards"
+                        &mdash; each student has her/his own screen for observing and interacting
+                        with the experiment while it is being conducted.
+                    </p>
 
+                    <figure class="v2-formula">
+                        <img src="image/telelab-collective-inquiry.png" alt="Collective inquiry model">
+                        <figcaption>An illustration of the instructional model of collective inquiry.</figcaption>
+                    </figure>
 
-                        <div class="content">
-                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
-                                <header>
-                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
-
-                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                    <div class="field-items">
-                                        <div class="field-item even" property="content:encoded">
-
-<h4>Three Ways of Using Telelab</h4>
-		
-<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
-
-<p><a href="telelab.html">Back to Telelab home page</a>
-
-<p>The ability of Telelab to support users to conduct their own experiments and distribute real-time data to others engenders three types of applications described as follows. 
-In all the applications, the experimental data are presented to all the stakeholders in the forms of interactive visualizations such that they can rapidly explore the data and recognize the patterns.
-
-<h5>1. Remote Inquiry in a Completely Online Class</h5>
-
-<p>The learning and teaching model of remote inquiry consists three interlocked cycles of interactions — student-lab, student-teacher, and student-student — that 
-mimic actual experiences in a science lab where students are physically present to participate in hands-on experiments, often in a collaborative fashion. 
-In the student-lab cycle, students observe a remote experiment and analyze incoming data on their own computers. 
-If the experiment is being conducted in real time, they can even remotely control it and obtain new data as a result of their own interventions. 
-In the student-teacher cycle, students receive instruction from the teacher about remotely analyzing and controlling an experiment, 
-but they can also propose their own ideas to be tested in the teacher’s next step of experimentation. 
-In the student-student cycle, students can discuss the experimental results with their peers through text/audio/video chats.
-
-<p align="center" style="font-size: 14px">
-<img src="image/telelab-remote-inquiry.png">
-<br>An illustration of the instructional model of remote inquiry
-</p>
-
-
-<h5>2. Collaborative Inquiry in a Hybrid Class</h5>
-
-<p><a target="_blank" rel="noopener noreferrer" href="https://www.edweek.org/leadership/how-hybrid-learning-is-and-is-not-working-during-covid-19-6-case-studies/2020/11">Hybrid learning</a> 
-is an educational model where teachers instruct both in-person and remote students at the same time.
-As many schools allow students to choose between learning from home and learning at school, hybrid classes are now commonplace. 
-Under a hybrid circumstance, each student in the lab can collaborate with a remote partner to conduct an experiment in tandem.
-Telelab provides a handy tool to streamline hybrid learning in the lab as the data are automatically transmitted behind the scenes to the remote partners 
-and visualized as intuitive images or graphs on their computers. Hence, students in a hybrid group can all concentrate on observing the unfolding of an experiment 
-and making sense of the incoming data. Such a joint investigation may inspire the group to raise even more what-if questions. 
-They can debate about the relevance and testability of these questions and then delegate the student in the lab to conduct further experiments to pursue some of them, 
-thus starting a new iteration of collaborative inquiry.
-
-<p align="center" style="font-size: 14px">
-<img src="image/telelab-collaborative-inquiry.png">
-<br>An illustration of the instructional model of collaborative inquiry
-</p>
-
-
-<h5>3. Collective Inquiry in a Completely In-Person Class</h5>
-
-<p>Telelab can also be used when the teacher and all the students are in the same room. In this case, the technology can provide a way for students to observe and analyze 
-an ongoing experiment performed by the teacher without leaving the desks designated to them and violating social distancing rules. 
-Compared with projecting the results to a large screen in front of the entire class, the technology in this case can be imagined as a system of “distributed smartboards” — 
-each student has her/his own screen for observing and interacting with the experiment while it is being conducted.
-
-<p align="center" style="font-size: 14px">
-<img src="image/telelab-collective-inquiry.png">
-<br>An illustration of the instructional model of collective inquiry
-</p>
-
-
-
-<p><a href="telelab.html">Back to Telelab home page</a>
-
-
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
-
-
-                        <div class="content">
-                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
-
-
-
-
-
-
-
-
-
-                            </div>  </div>
-                    </div>
-                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
-
-
-                    </div>
+                    <a class="v2-backlink" href="telelab.html">&larr; Back to Telelab</a>
                 </div>
-            </section>
+            </div>
+        </section>
 
-
-        </div>
-    </div>
-
+    </main>
 
     <script>includeFooter();</script>
 
 </div>
 
-<script src="js/flexslider.load.js"></script>
+<script src="js/v2.js"></script>
 <script src="js/bootstrap.js"></script>
 
 </body>

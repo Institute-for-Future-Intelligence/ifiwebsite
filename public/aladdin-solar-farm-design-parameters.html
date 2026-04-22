@@ -3,70 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Solar Farm Design Parameters Explained</title>
+    <title>Solar Farm Design Parameters Explained — Institute for Future Intelligence</title>
+    <meta name="description" content="A walk-through of the key parameters that affect the performance and cost-effectiveness of a solar farm in Aladdin &mdash; tilt, azimuth, spacing, orientation.">
+
     <style>
         @import url("css/system.base.css");
-    </style>
-    <style>
         @import url("css/jquery.ui.core.min.css");
         @import url("css/jquery.ui.theme.min.css");
         @import url("css/jquery.ui.menu.min.css");
-        @import url("css/jquery.ui.autocomplete.min.css");
-        @import url("css/jquery.ui.button.min.css");
-        @import url("css/jquery.ui.resizable.min.css");
-        @import url("css/jquery.ui.dialog.min.css");
-    </style>
-    <style>
-        @import url("css/date.css");
-        @import url("css/datepicker.1.7.css");
         @import url("css/ifi_theme.css");
-        @import url("css/field.css");
-        @import url("css/node.css");
-        @import url("css/video_filter.css");
-        @import url("css/views.css");
-        @import url("css/caption-filter.css");
-    </style>
-    <style>
-        @import url("css/apachesolr_autocomplete.css");
-        @import url("css/ctools.css");
-        @import url("css/video.css");
-        @import url("css/flexslider_img.css");
-        @import url("css/flexslider.css");
-        @import url("css/google_translator.css");
     </style>
     <link rel="stylesheet" type="text/css" href="css/first.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
-    <!-- HTML5 element support for IE6-8 -->
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <style>
-        .logoifi {
-            width: 35px;
-            height: 35px;
-            margin: 5px 0 0;
-            padding: 0;
-            background: url("image/logofloat.png") no-repeat 0 0;
-            background-size: 35px 35px;
-        }
-        body {
-            position: relative;
-            font-family: "Soleil", sans-serif;
-            color: #333333;
-            font-size: 18px;
-            line-height: 30px;
-        }
-    </style>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
 
-    <script src="https://use.typekit.net/epu0hfp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -74,317 +30,183 @@
       gtag('js', new Date());
       gtag('config', 'G-B0RXQKFDN0');
     </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-extend-3.4.0.js"></script>
-    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
-    <script src="js/jquery.once.js"></script>
-    <script src="js/drupal.js"></script>
-    <script src="js/jquery.ui.core.min.js"></script>
-    <script src="js/jquery.ui.widget.min.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/jquery.ui.menu.min.js"></script>
-    <script src="js/jquery.ui.autocomplete.min.js"></script>
-    <script src="js/jquery.ui.button.min.js"></script>
-    <script src="js/jquery.ui.mouse.min.js"></script>
-    <script src="js/jquery.ui.draggable.min.js"></script>
-    <script src="js/jquery.ui.resizable.min.js"></script>
-    <script src="js/jquery.ui.dialog.min.js"></script>
-    <script src="js/caption-filter.js"></script>
-    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/googleanalytics.js"></script>
-    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/google_translator.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.smartmenus.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/jquery.smartmenus.bootstrap.js"></script>
-    <script src="js/affix.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/transition.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/popover.js"></script>
-    <script src="js/scrollspy.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/transition.js"></script>
-    <script src="js/jquery-extend-drupal.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
 
-    <script>
-    function openFullscreen() {
-      var elem = document.getElementById("aladdin-frame");
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
-      }
-    }
-    </script>
-
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-article-audio { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.25rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: 0.75rem; margin: 0 0 2rem; }
+        .v2-article-audio-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+        .v2-article-audio audio { width: min(100%, 420px); }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+    </style>
 </head>
 
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<body class="html not-logged-in node-type-page page-v2">
 <script src="js/include.js"></script>
 <div id="wrapper">
-
     <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="PARAMETERS">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin</span>
+                <h1>Solar Farm Design Parameters Explained</h1>
+                <p class="v2-tagline">
+                    A walk-through of the tilt, azimuth, spacing, and orientation parameters that shape a cost-effective solar farm design.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
 
-    <div class="top-bar-full">  <div class="region region-top-bar-full">
-        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
 
-
-        </div>
-    </div>
-    </div>
-
-    <!-- Main Container -->
-
-    <div class="main-container container">
-
-        <header role="banner" id="page-header">
-
-        </header> <!-- /#page-header -->
-        <div id="main-content-area" class="row no-gutters">
-
-
-            <section class="col-sm-12">
-                <a id="main-content"></a>
-                <div class="region">
-                    <div id="block-system-main" class="block block-system">
-
-
-                        <div class="content">
-                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
-                                <header>
-                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
-
-                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                    <div class="field-items">
-                                        <div class="field-item even" property="content:encoded">
-
-<h4>Solar Farm Design Parameters Explained</h4>
-
-<p>By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a>
-
-<p><a href="aladdin.html">Back to Aladdin home page</a>
-
-<p align='center'>
-  <span>Listen to a podcast about this article</span><br>
-  <audio controls>
-    <source src="podcast/solar-farm-design-parameters.mp3" type="audio/mpeg">
-  </audio>
-</p>
-
-
-<p>As an integrated CAD/CAE tool for renewable energy engineering, Aladdin can be used to design, simulate, and analyze most types of
-<a target="_blank" rel="noopener noreferrer" href="https://news.energysage.com/ground-mounted-solar-panels-top-3-things-you-need-to-know/">ground-mounted solar farms</a>. 
-In this article, I will walk you through key parameters that affect the performance and cost-effectiveness of a design solution.
-
-
-<h5>Why don't we just cover the ground with solar panels?</h5>
-
-<p>Unlike rooftop solar panels, solar farms commonly refer to arrays of solar panels installed on the ground. 
-When you first hear about solar farm design, your reaction may be like: "What design? Can't we just cover the ground with solar panels and be done with it?"
-You are right that there exists such a simple solution that can capture every photon striking the land where the solar farm is to be constructed 
-&mdash; completely covering it with horizontally-placed solar panels. So why bother?
-
-<p>It turns out that the real challenge of solar farm design is not just about how the site as a whole can generate maximum electricity &mdash;
-it is also about how each solar panel can generate as much electricity as possible 
-(for your information, an optimization problem that has more than one objective is called a 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Multi-objective_optimization">multi-objective optimization</a> problem).
-This is because solar panels cost significant capitals to manufacture, install, and maintain.
-Therefore, we want to maximize our return of investment in them.
-A simple Aladdin simulation can help you understand why the naive solution is not cost-effective.
-The following images show the plain view and heatmap comparisons of an area covered by horizontally-placed solar panels 
-and an array consisting of multiple rows of solar panels.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-why-not-cover-plain-view.png" width="49%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
-&nbsp;
-<img src="image/aladdin-why-not-cover-heatmap.png" width="49%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
-<br><br>Plain view and heatmap comparisons (date: October 1st, location: Massachusetts, USA)
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Why%20we%20do%20not%20just%20cover%20ground%20with%20solar%20panels">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-<br>
-
-<p>The color differences in the heatmap suggest that each solar panel in the array receives more solar energy than the horizontally-placed ones over a day
-(by the way, this example shows the usefulness of <a target="_blank" rel="noopener noreferrer" href="aladdin-heatmap.html">the heatmap tool</a> for analyzing a design). 
-Using the quantitative analysis tools in Aladdin, we can find out that the average output of a solar panel in the array on the right is 1.27 kWh on October 1 in Massachusetts, 
-as opposed to 0.93 kWh for a horizontally-placed solar panel on the left. In the summer, the results tend to be similar, but their difference grows in
-other seasons and becomes the greatest in the winter. 
-A live model is provided as follows for you to play with. You can change the season and examine the differences, for example.
-
-
-
-<h5>The effect of tilt angle</h5>
-
-<p>The tilt angle of a solar panel represents how it is rotated around a horizontal axis between a vertical direction (e.g., south-facing) and a horizontal direction (e.g., face-up). 
-This parameter affects the daily output of a solar panel significantly, as shown by the following simulation.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-effect-of-tilt-on-outputs.png" width="100%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
-<br><br>The effect of tilt angles on solar panel outputs
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20tilt%20angle%20on%20solar%20panel%20outputs">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-<br>
-
-<p>If you are wondering why the north-facing panel still receives some solar radiation, 
-you can turn on the <a target="_blank" rel="noopener noreferrer" href="aladdin-heliodon.html">Heliodon</a> and check the sun path. 
-On the selected day (9/22), the sun shines from northeast in early morning and from northwest in late afternoon. 
-In addition to the direct radiation, 
-there are also <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diffuse_sky_radiation">diffuse sky radiation</a> and 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Albedo">diffuse ground reflection</a>
-that contribute to the outputs.
-
-
-
-<h5>The effect of azimuth</h5>
-
-<p>Different from the tilt angle, the azimuthal angle of a solar panel represents which direction (e.g., north, south, west, or east) it faces. The outputs of solar panels at different azimuths may peak
-at different times of a day, as shown in the following simulation.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-effect-of-azimuth-on-outputs.png" width="100%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
-<br><br>The effect of azimuths on solar panel outputs
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20azimuth%20on%20solar%20panel%20outputs">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-<br>
-
-<p>The simulation verifies the conventional widsom that a solar panel generates the most electricity when it faces exactly south for a location in the northern hemisphere.
-
-
-
-
-<h5>The effect of inter-row spacing</h5>
-
-<p>The inter-row spacing of a solar panel array is a design parameter that affects the efficiency of land use and the productivity of electricity generation in a somewhat confrontational way. 
-If the rows are too far from each other, the efficiency of land use will obviously be compromised. 
-If the rows are too close to each other, the productivity of solar panels will be compromised due to the shadowing effect.
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-effect-of-inter-row-spacing-on-outputs.png" width="100%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
-<br><br>The effect of inter-row spacing on solar panel outputs
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20inter-row%20spacing%20on%20solar%20panel%20outputs">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-<br>
-
-<p>In this simulation, the heatmap tool can be used to show that the lower parts of the solar panels in the more close-packed array receive less daily total radiation.
-
-
-<h5 id="panel-orientation">The effect of panel orientation</h5>
-
-<p>In each row, solar panels can be placed in either of two orientations: landscape and portrait. This orientation parameter is not to be confused with the azimuth parameter.
-How important is this orientation in solar farm design? 
-This <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=UNPJapaZlCU">YouTube video</a> provides a good illustration.
-The physics behind this problem is that a typical solar panel module consists many solar cells (typically 6&times10 or 6&times12) that are wired in 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Series_and_parallel_circuits">serial circuits</a> in the portrait direction 
-and connected with <a target="_blank" rel="noopener noreferrer" href="https://www.pveducation.org/pvcdrom/modules-and-arrays/bypass-diodes">bypass diodes</a> in the landscape direction, 
-as shown in the image below:
-
-<p align="center" style="font-size: 14px">
-<img src="image/solarcells.png">
-<br><br>A typical electric circuit that connects solar cells of a solar panel
-</p>
-
-<p>The productivity of a solar panel can be severaly undercut if it is shaded in a certain way (e.g., even only 10% of the solar panel in the above image from the left edge is shaded). 
-We can easily see this effect in action with Aladdin. 
-In the following simulation, an array with solar panels arranged in the portrait orientation produces only half of 
-that of an array with the same number of solar panels arranged in the landscape orientation on a winter day (12/1).
-
-<p align="center" style="font-size: 14px">
-<img src="image/aladdin-effect-of-orientation-on-outputs.png" width="100%" style="border: 2px solid #555; box-shadow: 5px 5px #888;">
-<br><br>The effect of orientation (landscape vs. portrait) on solar panel outputs
-</p>
-
-<div style="background-color:#dddddd;color:black;padding:20px;">
-<p align="center">
-Click <a target="_blank" rel="noopener noreferrer" 
-href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20orientation%20on%20solar%20panel%20outputs">HERE</a> 
-to view and edit the above model
-</p>
-</div>
-<br><br>
-
-
-<p><a href="aladdin.html">Back to Aladdin home page</a>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
+                    <div class="v2-article-audio">
+                        <span class="v2-article-audio-label">Listen to a podcast about this article</span>
+                        <audio controls>
+                            <source src="podcast/solar-farm-design-parameters.mp3" type="audio/mpeg">
+                        </audio>
                     </div>
-                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
 
+                    <p>As an integrated CAD/CAE tool for renewable energy engineering, Aladdin can be used to design, simulate, and analyze most types of
+                    <a target="_blank" rel="noopener noreferrer" href="https://news.energysage.com/ground-mounted-solar-panels-top-3-things-you-need-to-know/">ground-mounted solar farms</a>.
+                    In this article, I will walk you through key parameters that affect the performance and cost-effectiveness of a design solution.</p>
 
-                        <div class="content">
-                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
+                    <h2>Why don't we just cover the ground with solar panels?</h2>
 
+                    <p>Unlike rooftop solar panels, solar farms commonly refer to arrays of solar panels installed on the ground.
+                    When you first hear about solar farm design, your reaction may be like: "What design? Can't we just cover the ground with solar panels and be done with it?"
+                    You are right that there exists such a simple solution that can capture every photon striking the land where the solar farm is to be constructed
+                    &mdash; completely covering it with horizontally-placed solar panels. So why bother?</p>
 
+                    <p>It turns out that the real challenge of solar farm design is not just about how the site as a whole can generate maximum electricity &mdash;
+                    it is also about how each solar panel can generate as much electricity as possible
+                    (for your information, an optimization problem that has more than one objective is called a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Multi-objective_optimization">multi-objective optimization</a> problem).
+                    This is because solar panels cost significant capitals to manufacture, install, and maintain.
+                    Therefore, we want to maximize our return of investment in them.
+                    A simple Aladdin simulation can help you understand why the naive solution is not cost-effective.
+                    The following images show the plain view and heatmap comparisons of an area covered by horizontally-placed solar panels
+                    and an array consisting of multiple rows of solar panels.</p>
 
-
-
-
-
-
-
-                            </div>  </div>
+                    <div class="v2-screenshot-row">
+                        <img src="image/aladdin-why-not-cover-plain-view.png" alt="Plain view comparison">
+                        <img src="image/aladdin-why-not-cover-heatmap.png" alt="Heatmap comparison">
                     </div>
-                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
+                    <p style="text-align:center; font-size: 1.05rem; color: var(--text-muted); margin-top: -0.5rem;">Plain view and heatmap comparisons (date: October 1st, location: Massachusetts, USA).</p>
 
+                    <div class="v2-model-link"><a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Why%20we%20do%20not%20just%20cover%20ground%20with%20solar%20panels">Open the &ldquo;why not cover ground with panels&rdquo; model in Aladdin</a></div>
 
-                    </div>
+                    <p>The color differences in the heatmap suggest that each solar panel in the array receives more solar energy than the horizontally-placed ones over a day
+                    (by the way, this example shows the usefulness of <a target="_blank" rel="noopener noreferrer" href="aladdin-heatmap.html">the heatmap tool</a> for analyzing a design).
+                    Using the quantitative analysis tools in Aladdin, we can find out that the average output of a solar panel in the array on the right is 1.27 kWh on October 1 in Massachusetts,
+                    as opposed to 0.93 kWh for a horizontally-placed solar panel on the left. In the summer, the results tend to be similar, but their difference grows in
+                    other seasons and becomes the greatest in the winter.
+                    A live model is provided as follows for you to play with. You can change the season and examine the differences, for example.</p>
+
+                    <h2>The effect of tilt angle</h2>
+
+                    <p>The tilt angle of a solar panel represents how it is rotated around a horizontal axis between a vertical direction (e.g., south-facing) and a horizontal direction (e.g., face-up).
+                    This parameter affects the daily output of a solar panel significantly, as shown by the following simulation.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-effect-of-tilt-on-outputs.png" alt="The effect of tilt angles on solar panel outputs">
+                        <figcaption>The effect of tilt angles on solar panel outputs.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link"><a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20tilt%20angle%20on%20solar%20panel%20outputs">Open the tilt-angle model in Aladdin</a></div>
+
+                    <p>If you are wondering why the north-facing panel still receives some solar radiation,
+                    you can turn on the <a target="_blank" rel="noopener noreferrer" href="aladdin-heliodon.html">Heliodon</a> and check the sun path.
+                    On the selected day (9/22), the sun shines from northeast in early morning and from northwest in late afternoon.
+                    In addition to the direct radiation,
+                    there are also <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diffuse_sky_radiation">diffuse sky radiation</a> and
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Albedo">diffuse ground reflection</a>
+                    that contribute to the outputs.</p>
+
+                    <h2>The effect of azimuth</h2>
+
+                    <p>Different from the tilt angle, the azimuthal angle of a solar panel represents which direction (e.g., north, south, west, or east) it faces. The outputs of solar panels at different azimuths may peak
+                    at different times of a day, as shown in the following simulation.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-effect-of-azimuth-on-outputs.png" alt="The effect of azimuths on solar panel outputs">
+                        <figcaption>The effect of azimuths on solar panel outputs.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link"><a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20azimuth%20on%20solar%20panel%20outputs">Open the azimuth model in Aladdin</a></div>
+
+                    <p>The simulation verifies the conventional widsom that a solar panel generates the most electricity when it faces exactly south for a location in the northern hemisphere.</p>
+
+                    <h2>The effect of inter-row spacing</h2>
+
+                    <p>The inter-row spacing of a solar panel array is a design parameter that affects the efficiency of land use and the productivity of electricity generation in a somewhat confrontational way.
+                    If the rows are too far from each other, the efficiency of land use will obviously be compromised.
+                    If the rows are too close to each other, the productivity of solar panels will be compromised due to the shadowing effect.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-effect-of-inter-row-spacing-on-outputs.png" alt="The effect of inter-row spacing on solar panel outputs">
+                        <figcaption>The effect of inter-row spacing on solar panel outputs.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link"><a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20inter-row%20spacing%20on%20solar%20panel%20outputs">Open the inter-row spacing model in Aladdin</a></div>
+
+                    <p>In this simulation, the heatmap tool can be used to show that the lower parts of the solar panels in the more close-packed array receive less daily total radiation.</p>
+
+                    <h2 id="panel-orientation">The effect of panel orientation</h2>
+
+                    <p>In each row, solar panels can be placed in either of two orientations: landscape and portrait. This orientation parameter is not to be confused with the azimuth parameter.
+                    How important is this orientation in solar farm design?
+                    This <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=UNPJapaZlCU">YouTube video</a> provides a good illustration.
+                    The physics behind this problem is that a typical solar panel module consists many solar cells (typically 6&times;10 or 6&times;12) that are wired in
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Series_and_parallel_circuits">serial circuits</a> in the portrait direction
+                    and connected with <a target="_blank" rel="noopener noreferrer" href="https://www.pveducation.org/pvcdrom/modules-and-arrays/bypass-diodes">bypass diodes</a> in the landscape direction,
+                    as shown in the image below:</p>
+
+                    <figure class="v2-formula">
+                        <img src="image/solarcells.png" alt="A typical electric circuit connecting solar cells of a solar panel">
+                        <figcaption>A typical electric circuit that connects solar cells of a solar panel.</figcaption>
+                    </figure>
+
+                    <p>The productivity of a solar panel can be severaly undercut if it is shaded in a certain way (e.g., even only 10% of the solar panel in the above image from the left edge is shaded).
+                    We can easily see this effect in action with Aladdin.
+                    In the following simulation, an array with solar panels arranged in the portrait orientation produces only half of
+                    that of an array with the same number of solar panels arranged in the landscape orientation on a winter day (12/1).</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-effect-of-orientation-on-outputs.png" alt="The effect of orientation on solar panel outputs">
+                        <figcaption>The effect of orientation (landscape vs. portrait) on solar panel outputs.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link"><a target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/aladdin/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Effect%20of%20orientation%20on%20solar%20panel%20outputs">Open the orientation model in Aladdin</a></div>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
                 </div>
-            </section>
-
-
-        </div>
-    </div>
-
-
+            </div>
+        </section>
+    </main>
     <script>includeFooter();</script>
-
 </div>
-
-<script src="js/flexslider.load.js"></script>
+<script src="js/v2.js"></script>
 <script src="js/bootstrap.js"></script>
-
 </body>
 </html>

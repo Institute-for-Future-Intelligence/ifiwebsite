@@ -3,87 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Institute for Future Intelligence</title>
+    <title>Aladdin Embed Sandbox — Institute for Future Intelligence</title>
+    <meta name="description" content="An embedded Aladdin sandbox used to verify the view-only iframe client — reproduce rendering cases and compare designs side-by-side.">
+
     <style>
         @import url("css/system.base.css");
-    </style>
-    <style>
         @import url("css/jquery.ui.core.min.css");
         @import url("css/jquery.ui.theme.min.css");
         @import url("css/jquery.ui.menu.min.css");
-        @import url("css/jquery.ui.autocomplete.min.css");
-        @import url("css/jquery.ui.button.min.css");
-        @import url("css/jquery.ui.resizable.min.css");
-        @import url("css/jquery.ui.dialog.min.css");
-    </style>
-    <style>
-        @import url("css/date.css");
-        @import url("css/datepicker.1.7.css");
         @import url("css/ifi_theme.css");
-        @import url("css/field.css");
-        @import url("css/node.css");
-        @import url("css/video_filter.css");
-        @import url("css/views.css");
-        @import url("css/caption-filter.css");
-    </style>
-    <style>
-        @import url("css/apachesolr_autocomplete.css");
-        @import url("css/ctools.css");
-        @import url("css/video.css");
-        @import url("css/flexslider_img.css");
-        @import url("css/flexslider.css");
-        @import url("css/google_translator.css");
     </style>
     <link rel="stylesheet" type="text/css" href="css/first.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
-    <!-- HTML5 element support for IE6-8 -->
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <style>
-        .logoifi {
-            width: 35px;
-            height: 35px;
-            margin: 5px 0 0;
-            padding: 0;
-            background: url("image/logofloat.png") no-repeat 0 0;
-            background-size: 35px 35px;
-        }
-        body {
-            position: relative;
-            font-family: "Soleil", sans-serif;
-            color: #333333;
-            font-size: 18px;
-            line-height: 30px;
-        }
-    </style>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
 
-    <style>
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 0;
-  margin: 0;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-    </style>
-
-    <script src="https://use.typekit.net/epu0hfp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -91,200 +30,99 @@
       gtag('js', new Date());
       gtag('config', 'G-B0RXQKFDN0');
     </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-extend-3.4.0.js"></script>
-    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
-    <script src="js/jquery.once.js"></script>
-    <script src="js/drupal.js"></script>
-    <script src="js/jquery.ui.core.min.js"></script>
-    <script src="js/jquery.ui.widget.min.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/jquery.ui.menu.min.js"></script>
-    <script src="js/jquery.ui.autocomplete.min.js"></script>
-    <script src="js/jquery.ui.button.min.js"></script>
-    <script src="js/jquery.ui.mouse.min.js"></script>
-    <script src="js/jquery.ui.draggable.min.js"></script>
-    <script src="js/jquery.ui.resizable.min.js"></script>
-    <script src="js/jquery.ui.dialog.min.js"></script>
-    <script src="js/caption-filter.js"></script>
-    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/googleanalytics.js"></script>
-    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/google_translator.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.smartmenus.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/jquery.smartmenus.bootstrap.js"></script>
-    <script src="js/affix.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/transition.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/popover.js"></script>
-    <script src="js/scrollspy.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/transition.js"></script>
-    <script src="js/jquery-extend-drupal.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
 
     <script>
-    function openFullscreen(id) {
-      var elem = document.getElementById(id);
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
+      function openFullscreen(id) {
+        var elem = document.getElementById(id);
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        }
       }
-    }
     </script>
 
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-embed { margin: 1rem 0 1.5rem; }
+        .v2-embed iframe { width: 100%; border: 1px solid rgba(15, 23, 42, 0.15); border-radius: 0.5rem; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); }
+        .v2-embed-caption { text-align: center; margin: 0.5rem 0 0; font-size: 1rem; }
+        .v2-embed-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 1.5rem; }
+        .v2-embed-row .v2-embed { margin: 0; }
+        @media (max-width: 820px) { .v2-embed-row { grid-template-columns: 1fr; } }
+    </style>
 </head>
 
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<body class="html not-logged-in node-type-page page-v2">
 <script src="js/include.js"></script>
 <div id="wrapper">
-
     <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="ALADDIN">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin &middot; Embed sandbox</span>
+                <h1>Aladdin Embed Sandbox</h1>
+                <p class="v2-tagline">
+                    A bare test page for the view-only Aladdin iframe client &mdash; one full-width
+                    embed plus a side-by-side comparison of two designs.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
 
-    <div class="top-bar-full">  <div class="region region-top-bar-full">
-        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+                    <figure class="v2-embed">
+                        <iframe src="http://localhost:3000/aladdin/?client=web&viewonly=true&userid=charles%40intofuture.org&title=embedded%20model"
+                                allowfullscreen="true"
+                                id="aladdin-frame"
+                                height="600"
+                                title="Aladdin window"></iframe>
+                        <p class="v2-embed-caption"><a href="javascript:openFullscreen('aladdin-frame');">View in full screen</a></p>
+                    </figure>
 
+                    <div class="v2-embed-row">
+                        <figure class="v2-embed">
+                            <iframe src="http://localhost:3000/aladdin/?client=web&viewonly=true&userid=charles%40intofuture.org&title=Design%201"
+                                    allowfullscreen="true"
+                                    id="aladdin-frame1"
+                                    height="400"
+                                    title="Window 1"></iframe>
+                            <p class="v2-embed-caption"><a href="javascript:openFullscreen('aladdin-frame1');">View in full screen</a></p>
+                        </figure>
 
-        </div>
-    </div>
-    </div>
-
-    <!-- Main Container -->
-
-    <div class="main-container container">
-
-        <header role="banner" id="page-header">
-
-        </header> <!-- /#page-header -->
-        <div id="main-content-area" class="row no-gutters">
-
-
-            <section class="col-sm-12">
-                <a id="main-content"></a>
-                <div class="region">
-                    <div id="block-system-main" class="block block-system">
-
-
-                        <div class="content">
-                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
-                                <header>
-                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
-
-                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                    <div class="field-items">
-                                        <div class="field-item even" property="content:encoded">
-
-
-
-<div style="text-align: center;">
-  <iframe 
-    src="http://localhost:3000/aladdin/?client=web&viewonly=true&userid=charles%40intofuture.org&title=embedded%20model" 
-    allowfullscreen="true" 
-    id="aladdin-frame"
-    width="100%" 
-    height="600px" 
-    style="border: 1px solid #555; box-shadow: 4px 4px #888;"
-    title="Aladdin window">
-  </iframe>
-  <br><a href="javascript:openFullscreen('aladdin-frame');">View in full screen</a>
-</div>
-<br>
-
-
-<div class="row">
-
-  <div class="column" style="text-align: center;">
-    <iframe 
-      src="http://localhost:3000/aladdin/?client=web&viewonly=true&userid=charles%40intofuture.org&title=Design%201" 
-      allowfullscreen="true" 
-      id="aladdin-frame1"
-      width="96%" 
-      height="400px" 
-      style="border: 1px solid #555; box-shadow: 4px 4px #888;"
-      title="Window 1">
-    </iframe>
-    <br><a href="javascript:openFullscreen('aladdin-frame1');">View in full screen</a>
-  </div>
-
-  <div class="column" style="text-align: center;">
-    <iframe 
-      src="http://localhost:3000/aladdin/?client=web&viewonly=true&userid=charles%40intofuture.org&title=Design%202" 
-      allowfullscreen="true" 
-      id="aladdin-frame2"
-      width="96%" 
-      height="400px" 
-      style="border: 1px solid #555; box-shadow: 4px 4px #888;"
-      title="Window 2">
-    </iframe>
-    <br><a href="javascript:openFullscreen('aladdin-frame2');">View in full screen</a>
-  </div>
-
-</div>
-
-
-<br><br>
-
-
-
-
-
-
-<p><a href="aladdin.html">Back to Aladdin home page</a>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
+                        <figure class="v2-embed">
+                            <iframe src="http://localhost:3000/aladdin/?client=web&viewonly=true&userid=charles%40intofuture.org&title=Design%202"
+                                    allowfullscreen="true"
+                                    id="aladdin-frame2"
+                                    height="400"
+                                    title="Window 2"></iframe>
+                            <p class="v2-embed-caption"><a href="javascript:openFullscreen('aladdin-frame2');">View in full screen</a></p>
+                        </figure>
                     </div>
-                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
 
-
-                        <div class="content">
-                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
-
-
-
-
-
-
-
-
-
-                            </div>  </div>
-                    </div>
-                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
-
-
-                    </div>
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
                 </div>
-            </section>
-
-
-        </div>
-    </div>
-
-
+            </div>
+        </section>
+    </main>
     <script>includeFooter();</script>
-
 </div>
-
-<script src="js/flexslider.load.js"></script>
+<script src="js/v2.js"></script>
 <script src="js/bootstrap.js"></script>
-
 </body>
 </html>

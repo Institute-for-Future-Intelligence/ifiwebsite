@@ -3,70 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Institute for Future Intelligence</title>
+    <title>How Many Papers Have Used Energy2D? — Institute for Future Intelligence</title>
+    <meta name="description" content="A running bibliography of journal articles, theses, and conference papers that use Energy2D for simulation and teaching.">
+
     <style>
         @import url("css/system.base.css");
-    </style>
-    <style>
         @import url("css/jquery.ui.core.min.css");
         @import url("css/jquery.ui.theme.min.css");
         @import url("css/jquery.ui.menu.min.css");
-        @import url("css/jquery.ui.autocomplete.min.css");
-        @import url("css/jquery.ui.button.min.css");
-        @import url("css/jquery.ui.resizable.min.css");
-        @import url("css/jquery.ui.dialog.min.css");
-    </style>
-    <style>
-        @import url("css/date.css");
-        @import url("css/datepicker.1.7.css");
         @import url("css/ifi_theme.css");
-        @import url("css/field.css");
-        @import url("css/node.css");
-        @import url("css/video_filter.css");
-        @import url("css/views.css");
-        @import url("css/caption-filter.css");
-    </style>
-    <style>
-        @import url("css/apachesolr_autocomplete.css");
-        @import url("css/ctools.css");
-        @import url("css/video.css");
-        @import url("css/flexslider_img.css");
-        @import url("css/flexslider.css");
-        @import url("css/google_translator.css");
     </style>
     <link rel="stylesheet" type="text/css" href="css/first.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
-    <!-- HTML5 element support for IE6-8 -->
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <style>
-        .logoifi {
-            width: 35px;
-            height: 35px;
-            margin: 5px 0 0;
-            padding: 0;
-            background: url("image/logofloat.png") no-repeat 0 0;
-            background-size: 35px 35px;
-        }
-        body {
-            position: relative;
-            font-family: "Soleil", sans-serif;
-            color: #333333;
-            font-size: 18px;
-            line-height: 30px;
-        }
-    </style>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
 
-    <script src="https://use.typekit.net/epu0hfp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -74,453 +30,353 @@
       gtag('js', new Date());
       gtag('config', 'G-B0RXQKFDN0');
     </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-extend-3.4.0.js"></script>
-    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
-    <script src="js/jquery.once.js"></script>
-    <script src="js/drupal.js"></script>
-    <script src="js/jquery.ui.core.min.js"></script>
-    <script src="js/jquery.ui.widget.min.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/jquery.ui.menu.min.js"></script>
-    <script src="js/jquery.ui.autocomplete.min.js"></script>
-    <script src="js/jquery.ui.button.min.js"></script>
-    <script src="js/jquery.ui.mouse.min.js"></script>
-    <script src="js/jquery.ui.draggable.min.js"></script>
-    <script src="js/jquery.ui.resizable.min.js"></script>
-    <script src="js/jquery.ui.dialog.min.js"></script>
-    <script src="js/caption-filter.js"></script>
-    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/googleanalytics.js"></script>
-    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/google_translator.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.smartmenus.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/jquery.smartmenus.bootstrap.js"></script>
-    <script src="js/affix.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/transition.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/popover.js"></script>
-    <script src="js/scrollspy.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/transition.js"></script>
-    <script src="js/jquery-extend-drupal.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-citations { font-size: 1.15rem; line-height: 1.6; padding-left: 2.5rem; }
+        .v2-citations li { margin-bottom: 1rem; }
+        .v2-citations a { color: var(--accent); text-decoration: none; }
+        .v2-citations a:hover { color: var(--accent-dark); text-decoration: underline; }
+    </style>
 </head>
 
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<body class="html not-logged-in node-type-page page-v2">
 <script src="js/include.js"></script>
 <div id="wrapper">
-
     <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="PAPERS">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Energy2D</span>
+                <h1>How Many Papers Have Used Energy2D?</h1>
+                <p class="v2-tagline">
+                    A running bibliography of journal articles, dissertations,
+                    and conference papers that have used Energy2D.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="energy2d.html">&larr; Back to Energy2D</a>
+
+                    <ol reversed class="v2-citations">
+                        <li>Ipsita Negi &amp; Kirti Pal,
+                        <a href="https://www.igi-global.com/article/effect-of-tower-height-and-collector-radius-on-performance-of-solar-updraft-tower-power-plant/290316">Effect of Tower Height and Collector Radius on Performance of Solar Updraft Tower Power Plant</a>,
+                        International Journal of Social Ecology and Sustainable Development, Vol. 13, No. 1, 2022</li>
+
+                        <li>S. Turkat, S. Hammer, E. Masha, S. Akhmadaliev, D. Bemmerer, M. Grieger, T. Hensel, J. Julin, M. Koppitz,
+                        F. Ludwig, C. Möckel, S. Reinicke, R. Schwengner, K. Stöckel, T. Szücs, L. Wagner, &amp; K. Zuber,
+                        <a href="https://journals.aps.org/prc/abstract/10.1103/PhysRevC.103.045805">Measurement of the <sup>2</sup>H(p,γ)<sup>3</sup>He S-factor at 265-1094keV</a>,
+                        Physical Review C, 103, 045805, 2021</li>
+
+                        <li>L. B. López-Sosa, M. Morales-Máximo, R. Anastacio-Paulino, A. Custodio-Hernández, J. C. Corral-Huacuz, &amp; A. Aguilera-Mandujano,
+                        <a href="https://www.cambridge.org/core/journals/microscopy-and-microanalysis/article/electron-microscopy-characterization-of-sargassum-spp-from-the-mexican-caribbean-for-application-as-a-bioconstruction-material/EB605032F76173CB2A0389A0E5B20015">Electron Microscopy Characterization of Sargassum Spp. from the Mexican Caribbean for Application as a Bioconstruction Material</a>,
+                        Microscopy and Microanalysis, Vol. 27 S1, 2021</li>
+
+                        <li>Songsheng Li &amp; Christopher Chiu,
+                        <a href="https://www.mdpi.com/2224-2708/10/1/9">Improved Smart Pillow for Remote Health Care System</a>,
+                        Journal of Sensor and Actuator Networks, 10, 9, 2021</li>
+
+                        <li>D. Thomas, H. Andoni, Steven, R.A.Achsani, I.M.Sutjahja, Mardiyati, &amp; S.Wonorahardjo,
+                        <a href="https://www.sciencedirect.com/science/article/pii/S2214785320390982">Thermophysical studies of common wall panels for controlling building thermal environment</a>,
+                        MaterialsToday Proceedings, 2021</li>
+
+                        <li>B. Budiana, Rifaldi Dwi Priana, Xena Mutiara Sinurat, &amp; Politeknik Negeri Batam,
+                        <a href="https://jurnal.polibatam.ac.id/index.php/JI/article/view/2921">Canderif Amsal Oloan SilabanPenggunaan Perangkat Lunak Energy2D dalam Mempelajari Konduktivitas Panas Pada Plastik</a>,
+                        Jurnal Integrasi, Vol. 13, No. 1, pp. 40-45, 2021</li>
+
+                        <li>J. K. Panchal, J. R. Dabhi, H. D. Khurana, &amp; R. Jigneshkumar Jani,
+                        <a href="https://www.irjet.net/archives/V8/i4/IRJET-V8I4535.pdf">Effect of Different Chimney and Collector Contour on Output in a Solar Updraft Tower</a>,
+                        International Research Journal of Engineering and Technology, Vol. 8, No. 4, pp. 2882-2885, 2021</li>
+
+                        <li>S. I. Wong, H. Lin, J. Sunarso, B. T. Wong, &amp; B. Jia,
+                        <a href="https://pubs.acs.org/doi/pdf/10.1021/acsanm.0c01781">Triggering a Self-Sustaining Reduction of Graphenes Oxide for High-Performance Energy Storage Devices</a>,
+                        ACS Applied Nano Materials, Vol. 3, Issue 9, pp. 9117&ndash;9126, 2020</li>
+
+                        <li>Norbert Schneider, Alexander Kolew, Marc Schneider, Matthias Worgull, Thurid Gspann, &amp; Juerg Leuthold,
+                        <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/pssa.201900688">High&#8208;Resolution On&#8208;Demand Nanostructures</a>, Physica Status Solidi A, 217, 1900688, 2020</li>
+
+                        <li>Roshni Senthilkumar &amp; Mohamed Al Musleh,
+                        <a href="https://ieeexplore.ieee.org/abstract/document/9216387">Smart temperature-controlled infant car seat using thermoelectric devices</a>,
+                        2020 IEEE International IOT, Electronics and Mechatronics Conference (IEMTRONICS), 2020</li>
+
+                        <li>Jacob B. Setera, Brent D. Turrin, Gregory F. Herzog, Jill A. VanTongeren, Jeremy S. Delaney, &amp; Carl C. Swisher III,
+                        <a href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2020GC009182">40Ar/39Ar thermochronology for sub&#8208;milligram samples using a Ta&#8208;platform micro&#8208;furnace, with illustrations from the Bushveld Complex</a>,
+                        Geochemistry, Geophysics, Geosystems, 2020</li>
+
+                        <li>Dario Valter Conca,
+                        <a href="https://discovery.ucl.ac.uk/id/eprint/10108789/1/Conca%20Phd%20thesis%20Final.pdf">Development of novel optical techniques for the study of cell-surface proteins in living cells at the single-molecule level</a>,
+                        University College London, PhD dissertation, 2020</li>
+
+                        <li>Rui Li,
+                        <a href="https://search.proquest.com/openview/2b57ac1884c51bc476bcc995ae199677/1?pq-origsite=gscholar&amp;cbl=18750&amp;diss=y">Exploring the Use of Smartphone, Wireless Sensors, and 3D-Printing for Low-Cost Medical Technology: Diagnosis, Treatment, and Rehabilitation</a>,
+                        University of Georgia, ProQuest Dissertations Publishing, 2020. 27833521</li>
+
+                        <li>G. Dipierro, A. Massaro, &amp; A. Galiano,
+                        <a href="https://www.researchgate.net/publication/349849708_Characterization_of_an_efficient_thermal_insulation_composite_system_for_non-residential_buildings_a_comprehensive_theoretical_numerical_and_experimental_approach">Characterization of an efficient thermal insulation composite system for non-residential buildings: a comprehensive theoretical, numerical and experimental approach</a>,
+                        International Journal of Current Advanced Research, Vol. 9, pp. 22177-22185, 2020</li>
+
+                        <li>LI Da-peng, YANG Dao-yu, &amp; HUANG Dan,
+                        <a href="https://r.cnki.net/kcms/detail/detail.aspx?filename=JYXD202049004&amp;dbcode=QTZT_CJFD&amp;dbname=CJFDLAST2020&amp;v=MDUyNjJDVVI3cWVaK2RwRml2Z1c3M0xMelRUYXJHNEhOSElwbzlGWUlSK0MzODR6aDRYbkQwTFRnMlgyaHN4RnI=">Energy2D在传热学虚拟仿真教学中的应用研究</a>, 教育现代化, Vol. 49, 2020</li>
+
+                        <li>Inge Magdalena Sutjahja, Sufiyah Assegaf, &amp; Surjamanto Wonorahardjo,
+                        <a href="http://journal2.um.ac.id/index.php/jpse/article/view/15164">Digital Simulation as Learning Aid for Heat Flow in Solid Theoretical Understanding</a>,
+                        Journal of Physical Science and Engineering, 5(1), 11-21, 2020</li>
+
+                        <li>Fabio Longo, Alessio Cascardi, Paola Lassandro, &amp; Maria Antonietta Aiello,
+                        <a href="https://www.mdpi.com/2079-6439/8/8/49">A New Fabric Reinforced Geopolymer Mortar (FRGM) with Mechanical and Energy Benefits</a>, Fibers, 8(8), 49, 2020</li>
+
+                        <li>Abhar Bhattarai, Bivek Baral, &amp; Malesh Shah,
+                        <a href="https://www.rub.edu.bt/images/rub/research/publications/journals/I-Spring-2020.pdf#page=87">Redesigning Direct Air Capture Using Renewable Energy</a>,
+                        Bhutan Journal of Research and Development, pp.86-106, Spring, 2020</li>
+
+                        <li>Erik Mukk,
+                        <a href="https://comserv.cs.ut.ee/ati_thesis/datasheet.php?id=69866&amp;year=2020">Reinforcement learning based smart home heating solution in Energy2D simulation software</a>,
+                        University of Tartu, 2020</li>
+
+                        <li>Vaithinathan Karthikeyan, James UtamaSurjadi, Joseph C.K.Wong, Venkataraman Kannan, Kwok-Ho Lam, Xianfeng Chen, Yang Lu, &amp; Vellaisamy A.L.Roy,
+                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S037877532030286X">Wearable and flexible thin film thermoelectric module for multi-scale energy harvesting</a>,
+                        Journal of Power Sources, 455, 2020</li>
+
+                        <li>Stefano Oss,
+                        <a href="https://iopscience.iop.org/article/10.1088/1361-6404/ab4680/pdf">Infrared imaging of a non-stationary thermal conductive process and observation of its Green's kernel</a>,
+                        European Journal of Physics, 41(1), 015102, 2020</li>
+
+                        <li>Massimiliano Malgieri &amp; Pasquale Onorato,
+                        <a href="https://iopscience.iop.org/article/10.1088/1361-6404/ab3746/meta">Teaching the heat transfer law using a stochastic toy model</a>,
+                        European Journal of Physics, 41(1), 015103, 2020</li>
 
-    <div class="top-bar-full">  <div class="region region-top-bar-full">
-        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+                        <li>Surjamanto Wonorahardjo, Inge Magdalena Sutjahja, Y. Mardiyati, Heri Andoni, Dixon Thomas, Rizky Amalia Achsani, &amp; S. Steven,
+                        <a href="https://link.springer.com/article/10.1007/s40095-019-00317-0">Characterising thermal behaviour of buildings and its effect on urban heat island in tropical areas</a>,
+                        International Journal of Energy and Environmental Engineering, 11, pp. 129&ndash;142, 2020</li>
 
+                        <li>Kishan Narotam,
+                        <a href="https://knarotam.github.io/Files/Reports/Design%20of%20a%20Thermally%20Controlled%20System%20for%20Medications.pdf">Design of a Thermally Controlled System for Medications</a>,
+                        University of the Witwatersrand, 2019</li>
 
-        </div>
-    </div>
-    </div>
+                        <li>Margarita Castillo Tellez, Beatriz Castillo Tellez, Jose Andres Alanís Navarro, Juan Carlos Ovando Sierra, &amp; Gerardo A. Mejia Perez,
+                        <a href="https://www.intechopen.com/online-first/kinetics-of-drying-medicinal-plants-by-hybridization-of-solar-technologies">Kinetics of Drying Medicinal Plants by Hybridization of Solar Technologies</a>,
+                        IntechOpen, DOI: 10.5772/intechopen.89686, 2019</li>
 
-    <!-- Main Container -->
+                        <li>S. Sufiandi, T. Darmawan, &amp; W. Dwianto,
+                        <a href="https://iopscience.iop.org/article/10.1088/1755-1315/374/1/012013">Mechanism of heat transfer using water in wood pores during wood densification</a>,
+                        IOP Conference Series: Earth and Environmental Science, 374, 012013, 2019</li>
 
-    <div class="main-container container">
+                        <li>Bo Zhang, Tomas Mikysek, Veronika Cicmancova, Stanislav Slang, Roman Svoboda, Petr Kutalek, &amp; Tomas Wagner,
+                        <a href="https://doi.org/10.1515/pac-2019-0501">2D GeSe<sub>2</sub> amorphous monolayer</a>,
+                        Pure and Applied Chemistry, 91(11), 2019</li>
 
-        <header role="banner" id="page-header">
+                        <li>Adem Yilmaz, Sinan Unvar, Ali Serkan Avci, &amp; Bunyamin Aygun,
+                        <a href="https://www.ijser.org/researchpaper/Difference-of-Solar-Chimney-System-Chimney-Designs-and-Numerical-Modeling-in-Collector-Surface-Areas.pdf">Difference of Solar Chimney System Chimney Designs and Numerical Modeling in Collector Surface Areas</a>,
+                        International Journal of Scientific &amp; Engineering Research, Volume 10, Issue 9, pp 82-89, 2019</li>
 
-        </header> <!-- /#page-header -->
-        <div id="main-content-area" class="row no-gutters">
+                        <li>Attila Zakarias, Tamas Laszlo, Csaba Krizbai, Tamas Szabo, &amp; Norbert Demeter,
+                        <a href="https://content.sciendo.com/view/journals/mtk/11/1/article-p187.xml?lang=en&amp;tab_body=pdf">Design and Development of Computer-Controlled Temperature Gradient System</a>,
+                        Muszaki Tudomanyos Kozlemenyek, Volume 11, Issue 1, pp 187-190, 2019</li>
 
+                        <li>Graziella Gini,
+                        <a href="https://systems.arch.ethz.ch/de/teaching/master/focus-work.html">Thermal component conditioning: Creation of a temperature map using Energy2D</a>,
+                        Department of Architecture, ETH Zurich, 2019</li>
 
-            <section class="col-sm-12">
-                <a id="main-content"></a>
-                <div class="region">
-                    <div id="block-system-main" class="block block-system">
+                        <li>Amardeep Singh,
+                        <a href="https://iopscience.iop.org/article/10.1088/1742-6596/1276/1/012004/pdf">Simulation Of Coffee Stain Effects Using ANSYS Fluent</a>,
+                        Journal of Physics: Conference Series, 1276, 012004, 2019</li>
 
+                        <li>Pasquale Onorato, Luigi M. Gratton, Stefano Oss, &amp; Massimiliano Malgieri,
+                        <a href="https://iopscience.iop.org/article/10.1088/1742-6596/1287/1/012026/pdf">From the dicey world to the physical laws: dice toy models for bridging microscopic and macroscopic understanding of physical phenomena</a>,
+                        Journal of Physics: Conference Series, 1287, 012026, 2019</li>
 
-                        <div class="content">
-                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
-                                <header>
-                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+                        <li>Dorin Copaci, Dolores Blanco, &amp; Luis E. Moreno,
+                        <a href="https://www.mdpi.com/2076-0825/8/3/63/htm">Flexible Shape-Memory Alloy-Based Actuator: Mechanical Design Optimization According to Application</a>,
+                        Actuators, Volume 8, Issue 3, p. 63, 2019</li>
 
-                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                    <div class="field-items">
-                                        <div class="field-item even" property="content:encoded">
+                        <li>Sabri Pllana, Suejb Memeti, &amp; Joanna Kolodziej,
+                        <a href="https://arxiv.org/abs/1906.04825">Customizing Pareto Simulated Annealing for Multi-objective Optimization of Control Cabinet Layout</a>,
+                        The 22nd International Conference on Control Systems and Computer Science, 2019</li>
 
-<h4>How Many Papers Have Used Energy2D?</h4>
+                        <li>Surjamanto Wonorahardjo, Inge Sutjahja, Siti Aisyah Damiati, &amp; Daniel Kurnia,
+                        <a href="https://www.tandfonline.com/doi/abs/10.1080/23744731.2019.1608126?journalCode=uhvc21">Adjustment of Indoor Temperature using Internal Thermal Mass under Different Tropical Weather Conditions</a>,
+                        Science and Technology for the Built Environment, 2019</li>
 
-<p><a href="energy2d.html">Back to Energy2D home page</a>
+                        <li>Jos&eacute; Andr&eacute;s Alan&iacute;s Navarro, Margarita Castillo T&eacute;llez, Mario Arturo Rivera Mart&iacute;nez, Gabriel Pedroza Silvar, &amp; Francisco Christian Mart&iacute;nez Tejeda,
+                        <a href="http://www.deswater.com/DWT_abstracts/vol_151/151_2019_26.pdf">Computational thermal analysis of a double slope solar still using Energy2D</a>,
+                        Desalination and Water Treatment, Volume 151, pp 26-33, 2019</li>
 
+                        <li>D. Copaci, F. Martin, L. Moreno, &amp; D. Blanco,
+                        <a href="https://ieeexplore.ieee.org/document/8658083">SMA-Based Elbow Exoskeleton for Rehabilitation Therapy and Patient Evaluation</a>,
+                        IEEE Access, 2019</li>
 
-	<ol reversed>
+                        <li>R. C. G. M. Loonen, M. L. de Klijn-Chevalerias, &amp; J. L. M. Hensen,
+                        <a href="https://www.tandfonline.com/doi/abs/10.1080/19401493.2018.1561754">Opportunities and Pitfalls of Using Building Performance Simulation in Explorative R&amp;D Contexts</a>,
+                        Journal of Building Performance Simulation, 2019</li>
 
-	<li>Ipsita Negi & Kirti Pal, 
-	<a href="https://www.igi-global.com/article/effect-of-tower-height-and-collector-radius-on-performance-of-solar-updraft-tower-power-plant/290316">
-	Effect of Tower Height and Collector Radius on Performance of Solar Updraft Tower Power Plant</a>, 
-	International Journal of Social Ecology and Sustainable Development, Vol. 13, No. 1, 2022
+                        <li>Weera Punin, Somchai Maneewan, &amp; Chantana Punlek,
+                        <a href="https://link.springer.com/article/10.1007/s00231-018-2481-5">Heat Transfer Characteristics of a Thermoelectric Power Generator System for Low-Grade Waste Heat Recovery from the Sugar Industry</a>,
+                        Heat and Mass Transfer, Volume 55, Issue 4, pp 979-991, 2019</li>
 
-	<li>S. Turkat, S. Hammer, E. Masha, S. Akhmadaliev, D. Bemmerer, M. Grieger, T. Hensel, J. Julin, M. Koppitz, 
-	F. Ludwig, C. Möckel, S. Reinicke, R. Schwengner, K. Stöckel, T. Szücs, L. Wagner, & K. Zuber,  
-	<a href="https://journals.aps.org/prc/abstract/10.1103/PhysRevC.103.045805">
-	Measurement of the <sup>2</sup>H(p,γ)<sup>3</sup>He S-factor at 265-1094keV</a>, 
-	Physical Review C, 103, 045805, 2021
+                        <li>SC Corrêa,
+                        <a href="http://dspace.unipampa.edu.br/jspui/bitstream/riu/4788/1/Disserta%C3%A7%C3%A3o%20Sheila%20Correia%20Corr%C3%AAa.pdf">Desenvolvimento de uma sequência didática para o ensino de conceitos de calor segundo princípios da teoria da flexibilidade cognitiva</a>, 2019</li>
 
-	<li>L. B. López-Sosa, M. Morales-Máximo, R. Anastacio-Paulino, A. Custodio-Hernández, J. C. Corral-Huacuz, & A. Aguilera-Mandujano, 
-	<a href="https://www.cambridge.org/core/journals/microscopy-and-microanalysis/article/electron-microscopy-characterization-of-sargassum-spp-from-the-mexican-caribbean-for-application-as-a-bioconstruction-material/EB605032F76173CB2A0389A0E5B20015">
-	Electron Microscopy Characterization of Sargassum Spp. from the Mexican Caribbean for Application as a Bioconstruction Material</a>, 
-	Microscopy and Microanalysis, Vol. 27 S1, 2021
+                        <li>Alexandre Dubor, Edouard Cabay, &amp; Angelos Chronis,
+                        <a href="https://link.springer.com/chapter/10.1007/978-981-10-6611-5_33">Energy Efficient Design for 3D Printed Earth Architecture</a>,
+                        Humanizing Digital Reality, pp 383-393, 2018</li>
 
-	<li>Songsheng Li & Christopher Chiu, 
-	<a href="https://www.mdpi.com/2224-2708/10/1/9">Improved Smart Pillow for Remote Health Care System</a>, 
-	Journal of Sensor and Actuator Networks, 10, 9, 2021
+                        <li>Savior Billianos,
+                        <a href="https://apothesis.eap.gr/handle/repo/39009">Thermal phenomena and flow streams in urban environment and simulation with Energy2D program</a>,
+                        Hellenic Open University, 2018</li>
 
-	<li>D. Thomas, H. Andoni, Steven, R.A.Achsani, I.M.Sutjahja, Mardiyati, & S.Wonorahardjo, 
-	<a href="https://www.sciencedirect.com/science/article/pii/S2214785320390982">Thermophysical studies of common wall panels for controlling building thermal environment</a>, 
-	MaterialsToday Proceedings, 2021
+                        <li>Ashenafi Tesfaye, Solomon Mariam, &amp; Tewodros Walle,
+                        <a href="https://www.greengrowthknowledge.org/sites/default/files/uploads/Ashenafi%20Tesfaye.pdf">Design and Development of Low-Power Output Solar Chimney Power Plant</a>,
+                        Addis Ababa Institute of Technology, 2018</li>
 
-	<li>B. Budiana, Rifaldi Dwi Priana, Xena Mutiara Sinurat, & Politeknik Negeri Batam, 
-	<a href="https://jurnal.polibatam.ac.id/index.php/JI/article/view/2921">
-	Canderif Amsal Oloan SilabanPenggunaan Perangkat Lunak Energy2D dalam Mempelajari Konduktivitas Panas Pada Plastik</a>, 
-	Jurnal Integrasi, Vol. 13, No. 1, pp. 40-45, 2021
+                        <li>Alessandro Massaro, Angelo Galiano, Giacomo Meuli, &amp; Saverio Francesco Massari,
+                        <a href="http://aircconline.com/ijaia/V9N2/9218ijaia01.pdf">Overview and Application of Enabling Technologies Oriented on Energy Routing Monitoring, on Network Installation and on Predictive Maintenance</a>,
+                        International Journal of Artificial Intelligence and Applications, Volume 9, No.2, pp 1-20, 2018</li>
 
-	<li>J. K. Panchal, J. R. Dabhi, H. D. Khurana, & R. Jigneshkumar Jani, 
-	<a href="https://www.irjet.net/archives/V8/i4/IRJET-V8I4535.pdf">Effect of Different Chimney and Collector Contour on Output in a Solar Updraft Tower</a>, 
-	International Research Journal of Engineering and Technology, Vol. 8, No. 4, pp. 2882-2885, 2021
+                        <li>Muammar Mansor, Khadouja Harouaka, Matthew S. Gonzales, Jennifer L. Macalady, &amp; Matthew S. Fantle,
+                        <a href="http://online.liebertpub.com/doi/abs/10.1089/ast.2017.1650">Transport-Induced Spatial Patterns of Sulfur Isotopes (&delta;<sup><font size="1">34</font></sup>S) as Biosignatures</a>,
+                        Astrobiology, Volume 18, No. 1, pp 59-72, 2018</li>
 
-	<li>S. I. Wong, H. Lin, J. Sunarso, B. T. Wong, & B. Jia, 
-	<a href="https://pubs.acs.org/doi/pdf/10.1021/acsanm.0c01781">Triggering a Self-Sustaining Reduction of Graphenes Oxide for High-Performance Energy Storage Devices</a>, 
-	ACS Applied Nano Materials, Vol. 3, Issue 9, pp. 9117–9126, 2020
+                        <li>Mahfoud Abderrezek &amp; Mohamed Fathi,
+                        <a href="http://eejournal.ktu.lt/index.php/elt/article/view/20158">Effect of Dust Deposition on the Performance of Thin Film Solar Cell</a>,
+                        Elektronika ir Elektrotechnika, Volume 24, pp 41-45, 2018</li>
 
-	<li>Norbert Schneider, Alexander Kolew, Marc Schneider, Matthias Worgull, Thurid Gspann, & Juerg Leuthold, 
-	<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/pssa.201900688">High‐Resolution On‐Demand Nanostructures</a>, Physica Status Solidi A, 217, 1900688, 2020
+                        <li>FT Moro, IG Neide, &amp; MJH Rehfeldt,
+                        <a href="https://www.researchgate.net/profile/Italo_Neide/publication/331555540_TRANSFERENCIA_DE_ENERGIA_TERMICA_UMA_PROPOSTA_INTEGRANDO_ATIVIDADES_EXPERIMENTAIS_E_SIMULACOES_COMPUTACIONAIS_PARA_O_ENSINO_MEDIO/links/5c7fd4ff299bf1268d3eb9c1/TRANSFERENCIA-DE-ENERGIA-TERMICA-UMA-PROPOSTA-INTEGRANDO-ATIVIDADES-EXPERIMENTAIS-E-SIMULACOES-COMPUTACIONAIS-PARA-O-ENSINO-MEDIO.pdf">TRANSFERÊNCIA DE ENERGIA TÉRMICA: UMA PROPOSTA INTEGRANDO ATIVIDADES EXPERIMENTAIS E SIMULAÇÕES COMPUTACIONAIS PARA O ENSINO MÉDIO</a>, 2018</li>
 
-	<li>Roshni Senthilkumar & Mohamed Al Musleh, 
-	<a href="https://ieeexplore.ieee.org/abstract/document/9216387">Smart temperature-controlled infant car seat using thermoelectric devices</a>, 
-	2020 IEEE International IOT, Electronics and Mechatronics Conference (IEMTRONICS), 2020
+                        <li>Milan Marjanović, Snežana Dragićević, Ivan Milićević, Marko Popović, &amp; Vojislav Vujičić,
+                        <a href="http://www.ftn.kg.ac.rs/konferencije/tie2018/Radovi%20TIE%202018/EN/4)%20Session%203%20-%20Engineering%20Education%20and%20Practice/S319_062.pdf">Application of Computer Simulation in Engineering Education</a>,
+                        7th International Scientific Conference Technics and Informatics in Education, 2018</li>
 
-	<li>Jacob B. Setera, Brent D. Turrin, Gregory F. Herzog, Jill A. VanTongeren, Jeremy S. Delaney, & Carl C. Swisher III, 
-	<a href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2020GC009182">40Ar/39Ar thermochronology for sub‐milligram samples using a Ta‐platform micro‐furnace, with illustrations from the Bushveld Complex</a>, 
-	Geochemistry, Geophysics, Geosystems, 2020
+                        <li>Rishi Gupta, Harsh Rathod, Balasubramanian Esakki, &amp; Sean Blaney,
+                        <a href="https://www.csce.ca/elf/apps/CONFERENCEVIEWER/conferences/2017/pdfs/EMM/FinalPaper_518.pdf">NON-CONTACT NON-DESTRUCTIVE INFRARED THERMOGRAPHY BASED EVALUATION OF REINFORCED CONCRETE STRUCTURES</a>,
+                        Leadership in Sustainable Infrastructure, 2017</li>
 
-	<li>Dario Valter Conca, 
-	<a href="https://discovery.ucl.ac.uk/id/eprint/10108789/1/Conca%20Phd%20thesis%20Final.pdf">
-	Development of novel optical techniques for the study of cell-surface proteins in living cells at the single-molecule level</a>, 
-	University College London, PhD dissertation, 2020
+                        <li>Amjad Nasser, Asmin Ashraf, &amp; Dilna K. Salim,
+                        <a href="https://ijisrt.com/wp-content/uploads/2017/04/Comparative-Study-of-Conventional-And-ilovepdf-compressed.pdf">Comparative Study of Conventional and Green Residential Buildings</a>,
+                        International Journal of Innovative Science and Research Technology, Volume 2, No. 4, 2017</li>
 
-	<li>Rui Li, 
-	<a href="https://search.proquest.com/openview/2b57ac1884c51bc476bcc995ae199677/1?pq-origsite=gscholar&cbl=18750&diss=y">
-	Exploring the Use of Smartphone, Wireless Sensors, and 3D-Printing for Low-Cost Medical Technology: Diagnosis, Treatment, and Rehabilitation</a>, 
-	University of Georgia, ProQuest Dissertations Publishing, 2020. 27833521
+                        <li>Stefan Heusler &amp; Daniel Laumann,
+                        <a href="https://www.researchgate.net/publication/331772899_Himmlische_Physik_-_Wolkenbilder_als_Ausgangspunkt_fur_die_digitale_Modellierung_von_Strukturbildungsprozessen">Himmlische Physik - Wolkenbilder als Ausgangspunkt fur die digitale Modellierung von Strukturbildungsprozessen</a>,
+                        Unterricht Physik, 159/160, pp 69-73, 2017</li>
 
-	<li>G. Dipierro, A. Massaro, & A. Galiano, 
-	<a href="https://www.researchgate.net/publication/349849708_Characterization_of_an_efficient_thermal_insulation_composite_system_for_non-residential_buildings_a_comprehensive_theoretical_numerical_and_experimental_approach">
-	Characterization of an efficient thermal insulation composite system for non-residential buildings: a comprehensive theoretical, numerical and experimental approach</a>, 
-	International Journal of Current Advanced Research, Vol. 9, pp. 22177-22185, 2020
-
-	<li> LI Da-peng, YANG Dao-yu, & HUANG Dan, 
-	<a href="https://r.cnki.net/kcms/detail/detail.aspx?filename=JYXD202049004&dbcode=QTZT_CJFD&dbname=CJFDLAST2020&v=MDUyNjJDVVI3cWVaK2RwRml2Z1c3M0xMelRUYXJHNEhOSElwbzlGWUlSK0MzODR6aDRYbkQwTFRnMlgyaHN4RnI=">
-	Energy2D在传热学虚拟仿真教学中的应用研究</a>, 教育现代化, Vol. 49, 2020
-
-	<li>Inge Magdalena Sutjahja, Sufiyah Assegaf, & Surjamanto Wonorahardjo, 
-	<a href="http://journal2.um.ac.id/index.php/jpse/article/view/15164">Digital Simulation as Learning Aid for Heat Flow in Solid Theoretical Understanding</a>, 
-	Journal of Physical Science and Engineering, 5(1), 11-21, 2020
-
-	<li>Fabio Longo, Alessio Cascardi, Paola Lassandro, & Maria Antonietta Aiello, 
-	<a href="https://www.mdpi.com/2079-6439/8/8/49">A New Fabric Reinforced Geopolymer Mortar (FRGM) with Mechanical and Energy Benefits</a>, Fibers, 8(8), 49, 2020
-
-	<li>Abhar Bhattarai, Bivek Baral, & Malesh Shah, 
-	<a href="https://www.rub.edu.bt/images/rub/research/publications/journals/I-Spring-2020.pdf#page=87">Redesigning Direct Air Capture Using Renewable Energy</a>, 
-	Bhutan Journal of Research and Development, pp.86-106, Spring, 2020
-
-	<li>Erik Mukk, 
-	<a href="https://comserv.cs.ut.ee/ati_thesis/datasheet.php?id=69866&year=2020">Reinforcement learning based smart home heating solution in Energy2D simulation software</a>, 
-	University of Tartu, 2020
-
-	<li>Vaithinathan Karthikeyan, James UtamaSurjadi, Joseph C.K.Wong, Venkataraman Kannan, Kwok-Ho Lam, Xianfeng Chen, Yang Lu, & Vellaisamy A.L.Roy, 
-	<a href="https://www.sciencedirect.com/science/article/abs/pii/S037877532030286X">Wearable and flexible thin film thermoelectric module for multi-scale energy harvesting</a>, 
-	Journal of Power Sources, 455, 2020
-
-	<li>Stefano Oss, 
-	<a href="https://iopscience.iop.org/article/10.1088/1361-6404/ab4680/pdf">Infrared imaging of a non-stationary thermal conductive process and observation of its Green’s kernel</a>, 
-	European Journal of Physics, 41(1), 015102, 2020
-
-	<li>Massimiliano Malgieri & Pasquale Onorato, 
-	<a href="https://iopscience.iop.org/article/10.1088/1361-6404/ab3746/meta">Teaching the heat transfer law using a stochastic toy model</a>, 
-	European Journal of Physics, 41(1), 015103, 2020
-
-	<li>Surjamanto Wonorahardjo, Inge Magdalena Sutjahja, Y. Mardiyati, Heri Andoni, Dixon Thomas, Rizky Amalia Achsani, & S. Steven, 
-	<a href="https://link.springer.com/article/10.1007/s40095-019-00317-0">Characterising thermal behaviour of buildings and its effect on urban heat island in tropical areas</a>, 
-	International Journal of Energy and Environmental Engineering, 11, pp. 129–142, 2020
-
-	<li>Kishan Narotam, 
-	<a href="https://knarotam.github.io/Files/Reports/Design%20of%20a%20Thermally%20Controlled%20System%20for%20Medications.pdf">
-	Design of a Thermally Controlled System for Medications</a>, 
-	University of the Witwatersrand, 2019
-
-	<li>Margarita Castillo Tellez, Beatriz Castillo Tellez, Jose Andres Alanís Navarro, Juan Carlos Ovando Sierra, & Gerardo A. Mejia Perez, 
-	<a href="https://www.intechopen.com/online-first/kinetics-of-drying-medicinal-plants-by-hybridization-of-solar-technologies">Kinetics of Drying Medicinal Plants by Hybridization of Solar Technologies</a>, 
-	IntechOpen, DOI: 10.5772/intechopen.89686, 2019
-
-	<li>S. Sufiandi, T. Darmawan, & W. Dwianto, 
-	<a href="https://iopscience.iop.org/article/10.1088/1755-1315/374/1/012013">Mechanism of heat transfer using water in wood pores during wood densification</a>, 
-	IOP Conference Series: Earth and Environmental Science, 374, 012013, 2019
-
-	<li>Bo Zhang, Tomas Mikysek, Veronika Cicmancova, Stanislav Slang, Roman Svoboda, Petr Kutalek, & Tomas Wagner, 
-	<a href="https://doi.org/10.1515/pac-2019-0501">2D GeSe<sub>2</sub> amorphous monolayer</a>, 
-	Pure and Applied Chemistry, 91(11), 2019
-
-	<li>Adem Yilmaz, Sinan Unvar, Ali Serkan Avci, & Bunyamin Aygun, 
-	<a href="https://www.ijser.org/researchpaper/Difference-of-Solar-Chimney-System-Chimney-Designs-and-Numerical-Modeling-in-Collector-Surface-Areas.pdf">
-	Difference of Solar Chimney System Chimney Designs and Numerical Modeling in Collector Surface Areas</a>, 
-	International Journal of Scientific & Engineering Research, Volume 10, Issue 9, pp 82-89, 2019
-
-	<li>Attila Zakarias, Tamas Laszlo, Csaba Krizbai, Tamas Szabo, & Norbert Demeter, 
-	<a href="https://content.sciendo.com/view/journals/mtk/11/1/article-p187.xml?lang=en&tab_body=pdf">Design and Development of Computer-Controlled Temperature Gradient System</a>, 
-	Muszaki Tudomanyos Kozlemenyek, Volume 11, Issue 1, pp 187-190, 2019
-
-	<li>Graziella Gini, 
-	<a href="https://systems.arch.ethz.ch/de/teaching/master/focus-work.html">Thermal component conditioning: Creation of a temperature map using Energy2D</a>, 
-	Department of Architecture, ETH Zurich, 2019
-
-	<li>Amardeep Singh, 
-	<a href="https://iopscience.iop.org/article/10.1088/1742-6596/1276/1/012004/pdf">Simulation Of Coffee Stain Effects Using ANSYS Fluent</a>, 
-	Journal of Physics: Conference Series, 1276, 012004, 2019
-
-	<li>Pasquale Onorato, Luigi M. Gratton, Stefano Oss, & Massimiliano Malgieri, 
-	<a href="https://iopscience.iop.org/article/10.1088/1742-6596/1287/1/012026/pdf">From the dicey world to the physical laws: dice toy models for bridging microscopic and macroscopic understanding of physical phenomena</a>, 
-	Journal of Physics: Conference Series, 1287, 012026, 2019
-
-	<li>Dorin Copaci, Dolores Blanco, & Luis E. Moreno, 
-	<a href="https://www.mdpi.com/2076-0825/8/3/63/htm">Flexible Shape-Memory Alloy-Based Actuator: Mechanical Design Optimization According to Application</a>, 
-	Actuators, Volume 8, Issue 3, p. 63, 2019
-
-	<li>Sabri Pllana, Suejb Memeti, & Joanna Kolodziej, 
-	<a href="https://arxiv.org/abs/1906.04825">Customizing Pareto Simulated Annealing for Multi-objective Optimization of Control Cabinet Layout</a>, 
-	The 22nd International Conference on Control Systems and Computer Science, 2019
-
-	<li>Surjamanto Wonorahardjo, Inge Sutjahja, Siti Aisyah Damiati, & Daniel Kurnia, 
-	<a href="https://www.tandfonline.com/doi/abs/10.1080/23744731.2019.1608126?journalCode=uhvc21">Adjustment of Indoor Temperature using Internal Thermal Mass under Different Tropical Weather Conditions</a>, 
-	Science and Technology for the Built Environment, 2019
-
-	<li>Jos&eacute; Andr&eacute;s Alan&iacute;s Navarro, Margarita Castillo T&eacute;llez, Mario Arturo Rivera Mart&iacute;nez, Gabriel Pedroza Silvar, & Francisco Christian Mart&iacute;nez Tejeda, 
-	<a href="http://www.deswater.com/DWT_abstracts/vol_151/151_2019_26.pdf">Computational thermal analysis of a double slope solar still using Energy2D</a>, 
-	Desalination and Water Treatment, Volume 151, pp 26-33, 2019
-
-	<li>D. Copaci, F. Martin, L. Moreno, & D. Blanco, 
-	<a href="https://ieeexplore.ieee.org/document/8658083">SMA-Based Elbow Exoskeleton for Rehabilitation Therapy and Patient Evaluation</a>, 
-	IEEE Access, 2019
-
-	<li>R. C. G. M. Loonen, M. L. de Klijn-Chevalerias, & J. L. M. Hensen, 
-	<a href="https://www.tandfonline.com/doi/abs/10.1080/19401493.2018.1561754">Opportunities and Pitfalls of Using Building Performance Simulation in Explorative R&D Contexts</a>, 
-	Journal of Building Performance Simulation, 2019
-
-	<li>Weera Punin, Somchai Maneewan, & Chantana Punlek, 
-	<a href="https://link.springer.com/article/10.1007/s00231-018-2481-5">Heat Transfer Characteristics of a Thermoelectric Power Generator System for Low-Grade Waste Heat Recovery from the Sugar Industry</a>, 
-	Heat and Mass Transfer, Volume 55, Issue 4, pp 979-991, 2019
-
-	<li>SC Corrêa, 
-	<a href="http://dspace.unipampa.edu.br/jspui/bitstream/riu/4788/1/Disserta%C3%A7%C3%A3o%20Sheila%20Correia%20Corr%C3%AAa.pdf">
-	Desenvolvimento de uma sequência didática para o ensino de conceitos de calor segundo princípios da teoria da flexibilidade cognitiva</a>, 2019
-
-	<li>Alexandre Dubor, Edouard Cabay, & Angelos Chronis, 
-	<a href="https://link.springer.com/chapter/10.1007/978-981-10-6611-5_33">Energy Efficient Design for 3D Printed Earth Architecture</a>, 
-	Humanizing Digital Reality, pp 383-393, 2018
-
-	<li>Savior Billianos, 
-	<a href="https://apothesis.eap.gr/handle/repo/39009">Thermal phenomena and flow streams in urban environment and simulation with Energy2D program</a>, 
-	Hellenic Open University, 2018
-
-	<li>Ashenafi Tesfaye, Solomon Mariam, & Tewodros Walle, 
-	<a href="https://www.greengrowthknowledge.org/sites/default/files/uploads/Ashenafi%20Tesfaye.pdf">Design and Development of Low-Power Output Solar Chimney Power Plant</a>, 
-	Addis Ababa Institute of Technology, 2018
-
-	<li>Alessandro Massaro, Angelo Galiano, Giacomo Meuli, & Saverio Francesco Massari, 
-	<a href="http://aircconline.com/ijaia/V9N2/9218ijaia01.pdf">Overview and Application of Enabling Technologies Oriented on Energy Routing Monitoring, on Network Installation and on Predictive Maintenance</a>, 
-	International Journal of Artificial Intelligence and Applications, Volume 9, No.2, pp 1-20, 2018
-
-	<li>Muammar Mansor, Khadouja Harouaka, Matthew S. Gonzales, Jennifer L. Macalady, & Matthew S. Fantle, 
-	<a href="http://online.liebertpub.com/doi/abs/10.1089/ast.2017.1650">Transport-Induced Spatial Patterns of Sulfur Isotopes (&delta;<sup><font size="1">34</font></sup>S) as Biosignatures</a>, 
-	Astrobiology, Volume 18, No. 1, pp 59-72, 2018
-
-	<li>Mahfoud Abderrezek & Mohamed Fathi, 
-	<a href="http://eejournal.ktu.lt/index.php/elt/article/view/20158">Effect of Dust Deposition on the Performance of Thin Film Solar Cell</a>, 
-	Elektronika ir Elektrotechnika, Volume 24, pp 41-45, 2018
-
-	<li>FT Moro, IG Neide, & MJH Rehfeldt, 
-	<a href="https://www.researchgate.net/profile/Italo_Neide/publication/331555540_TRANSFERENCIA_DE_ENERGIA_TERMICA_UMA_PROPOSTA_INTEGRANDO_ATIVIDADES_EXPERIMENTAIS_E_SIMULACOES_COMPUTACIONAIS_PARA_O_ENSINO_MEDIO/links/5c7fd4ff299bf1268d3eb9c1/TRANSFERENCIA-DE-ENERGIA-TERMICA-UMA-PROPOSTA-INTEGRANDO-ATIVIDADES-EXPERIMENTAIS-E-SIMULACOES-COMPUTACIONAIS-PARA-O-ENSINO-MEDIO.pdf">
-	TRANSFERÊNCIA DE ENERGIA TÉRMICA: UMA PROPOSTA INTEGRANDO ATIVIDADES EXPERIMENTAIS E SIMULAÇÕES COMPUTACIONAIS PARA O ENSINO MÉDIO</a>, 2018
-
-	<li>Milan Marjanović, Snežana Dragićević, Ivan Milićević, Marko Popović, & Vojislav Vujičić, 
-	<a href="http://www.ftn.kg.ac.rs/konferencije/tie2018/Radovi%20TIE%202018/EN/4)%20Session%203%20-%20Engineering%20Education%20and%20Practice/S319_062.pdf">
-	Application of Computer Simulation in Engineering Education</a>, 
-	7th International Scientific Conference Technics and Informatics in Education, 2018
-
-	<li>Rishi Gupta, Harsh Rathod, Balasubramanian Esakki, & Sean Blaney, 
-	<a href="https://www.csce.ca/elf/apps/CONFERENCEVIEWER/conferences/2017/pdfs/EMM/FinalPaper_518.pdf">NON-CONTACT NON-DESTRUCTIVE INFRARED THERMOGRAPHY BASED EVALUATION OF REINFORCED CONCRETE STRUCTURES</a>, 
-	Leadership in Sustainable Infrastructure, 2017
-
-	<li>Amjad Nasser, Asmin Ashraf, & Dilna K. Salim, 
-	<a href="https://ijisrt.com/wp-content/uploads/2017/04/Comparative-Study-of-Conventional-And-ilovepdf-compressed.pdf">Comparative Study of Conventional and Green Residential Buildings</a>, 
-	International Journal of Innovative Science and Research Technology, Volume 2, No. 4, 2017
-
-	<li>Stefan Heusler & Daniel Laumann, 
-	<a href="https://www.researchgate.net/publication/331772899_Himmlische_Physik_-_Wolkenbilder_als_Ausgangspunkt_fur_die_digitale_Modellierung_von_Strukturbildungsprozessen">
-	Himmlische Physik - Wolkenbilder als Ausgangspunkt fur die digitale Modellierung von Strukturbildungsprozessen</a>, 
-	Unterricht Physik, 159/160, pp 69-73, 2017
-
-	<li>Faqih Rosyadi, Tomo Djudin, & Syaiful B Arsyid, 
-	<a href="http://jurnal.untan.ac.id/index.php/jpdpb/article/view/23211">REMEDIASI MISKONSEPSI PERPINDAHAN KALOR MENGGUNAKAN MODEL DIRECT INSTRUCTION BERBANTUAN ANIMASI ENERGY2D DI SMP</a>, 
-	Jurnal Pendidikan dan Pembelajaran Khatulistiwa, Volume 6, No. 12, 2017
+                        <li>Faqih Rosyadi, Tomo Djudin, &amp; Syaiful B Arsyid,
+                        <a href="http://jurnal.untan.ac.id/index.php/jpdpb/article/view/23211">REMEDIASI MISKONSEPSI PERPINDAHAN KALOR MENGGUNAKAN MODEL DIRECT INSTRUCTION BERBANTUAN ANIMASI ENERGY2D DI SMP</a>,
+                        Jurnal Pendidikan dan Pembelajaran Khatulistiwa, Volume 6, No. 12, 2017</li>
 
-	<li>Dorin Sabin Copaci, 
-	<a href="https://e-archivo.uc3m.es/bitstream/handle/10016/26362/tesis_dorin_sabin_copaci_2017.pdf?sequence=3">Non-Linear Actuators and Simulation Tools for Rehabilitation Devices</a>, 
-	Ph.D. Dissertation, Carlos III University of Madrid, p. 89, 2017
+                        <li>Dorin Sabin Copaci,
+                        <a href="https://e-archivo.uc3m.es/bitstream/handle/10016/26362/tesis_dorin_sabin_copaci_2017.pdf?sequence=3">Non-Linear Actuators and Simulation Tools for Rehabilitation Devices</a>,
+                        Ph.D. Dissertation, Carlos III University of Madrid, p. 89, 2017</li>
 
-	<li>Proma Chakraborty, 
-	<a href="http://ieeexplore.ieee.org/abstract/document/8321289/">Impact of Furniture on the Energy Consumption of Commercial Buildings</a>, 
-	Proceedings of the 2nd International Conference on Communication and Electronics Systems, pp 316-319, 2017
+                        <li>Proma Chakraborty,
+                        <a href="http://ieeexplore.ieee.org/abstract/document/8321289/">Impact of Furniture on the Energy Consumption of Commercial Buildings</a>,
+                        Proceedings of the 2nd International Conference on Communication and Electronics Systems, pp 316-319, 2017</li>
 
-	<li>E. Rozos, I. Tsoukalas, & C. Makropoulos, 
-	<a href="http://www.deswater.com/DWT_abstracts/vol_91/91_2017_198.pdf">Turning Black into Green: Ecosystem Services from Treated Wastewater</a>, 
-	Desalination and Water Treatment, Volume 91, October, pp 198-205, 2017
+                        <li>E. Rozos, I. Tsoukalas, &amp; C. Makropoulos,
+                        <a href="http://www.deswater.com/DWT_abstracts/vol_91/91_2017_198.pdf">Turning Black into Green: Ecosystem Services from Treated Wastewater</a>,
+                        Desalination and Water Treatment, Volume 91, October, pp 198-205, 2017</li>
 
-	<li>Gu Hai-Rong, Dong Qiang-Zhu, Li Jin-Ping, Liang Feng-Dian, Zhang Fei, Wang Zuo-Jia, 
-	<a href="http://d.g.wanfangdata.com.cn/Periodical_zljxysgjxh201711015.aspx">Heating Modes and Heat Transfer Process of Asphalt Pavement Hot In-place Recycling (沥青路面就地热再生加热方式与传热过程)</a>, 
-	Road Machinery & Construction Mechanization, Volume 34, Issue 11, pp 96-99, 2017
+                        <li>Gu Hai-Rong, Dong Qiang-Zhu, Li Jin-Ping, Liang Feng-Dian, Zhang Fei, Wang Zuo-Jia,
+                        <a href="http://d.g.wanfangdata.com.cn/Periodical_zljxysgjxh201711015.aspx">Heating Modes and Heat Transfer Process of Asphalt Pavement Hot In-place Recycling (沥青路面就地热再生加热方式与传热过程)</a>,
+                        Road Machinery &amp; Construction Mechanization, Volume 34, Issue 11, pp 96-99, 2017</li>
 
-	<li>Sadik A. Yildizel, 
-	<a href="http://www.challengejournal.com/index.php/cjsmec/article/view/291">Mechanical and Thermal Behaviors Comparison of Basalt and Glass Fibers Reinforced Concrete with Two Different Fiber Length Distributions</a>, 
-	Challenge Journal of Structural Mechanics, Volume 3, Issue 4, pp 155-159, 2017
+                        <li>Sadik A. Yildizel,
+                        <a href="http://www.challengejournal.com/index.php/cjsmec/article/view/291">Mechanical and Thermal Behaviors Comparison of Basalt and Glass Fibers Reinforced Concrete with Two Different Fiber Length Distributions</a>,
+                        Challenge Journal of Structural Mechanics, Volume 3, Issue 4, pp 155-159, 2017</li>
 
-	<li>Georgia Kaklamani, David Cheneler, Liam M. Grover, Michael J. Adams, Spiros H. Anastasiadis, & James Bowen, 
-	<a href="https://link.springer.com/article/10.1007/s40204-017-0075-9">Anisotropic Dehydration of Hydrogel Surfaces</a>, 
-	Progress in Biomaterials, Volume 6, Issue 4, pp157-164, 2017
+                        <li>Georgia Kaklamani, David Cheneler, Liam M. Grover, Michael J. Adams, Spiros H. Anastasiadis, &amp; James Bowen,
+                        <a href="https://link.springer.com/article/10.1007/s40204-017-0075-9">Anisotropic Dehydration of Hydrogel Surfaces</a>,
+                        Progress in Biomaterials, Volume 6, Issue 4, pp157-164, 2017</li>
 
-	<li>M. St&uuml;tz, F. Pixner, J. Wagner, N. Reheis, E. Raiser, H. Kestler, & N. Enzinger, 
-	<a href="https://www.researchgate.net/publication/319876867_Rotary_Friction_Welding_of_Molybdenum_Components">Rotary Friction Welding of Molybdenum Components</a>, 
-	The 19th Plansee Seminar, 2017
+                        <li>M. St&uuml;tz, F. Pixner, J. Wagner, N. Reheis, E. Raiser, H. Kestler, &amp; N. Enzinger,
+                        <a href="https://www.researchgate.net/publication/319876867_Rotary_Friction_Welding_of_Molybdenum_Components">Rotary Friction Welding of Molybdenum Components</a>,
+                        The 19th Plansee Seminar, 2017</li>
 
-	<li>Marie L. de Klijn-Chevalerias, Roel C.G.M. Loonen, A. Zarzycka, Dennis de Witte, M. V. Sarakinioti, & Jan L.M. Hensen, 
-	<a href="http://scs.org/wp-content/uploads/2017/05/SimAUD-2017-Proceedings.pdf">Assisting the Development of Innovative Responsive Facade Elements Using Building Performance Simulation</a>, 
-	in M. Turrin, B. Peters, W. O'Brien, R. Stouffs, & T. Dogan (Eds.), Proceedings of the Symposium on Simulation for Architecture and Urban Design, pp. 243-250, 2017
+                        <li>Marie L. de Klijn-Chevalerias, Roel C.G.M. Loonen, A. Zarzycka, Dennis de Witte, M. V. Sarakinioti, &amp; Jan L.M. Hensen,
+                        <a href="http://scs.org/wp-content/uploads/2017/05/SimAUD-2017-Proceedings.pdf">Assisting the Development of Innovative Responsive Facade Elements Using Building Performance Simulation</a>,
+                        in M. Turrin, B. Peters, W. O'Brien, R. Stouffs, &amp; T. Dogan (Eds.), Proceedings of the Symposium on Simulation for Architecture and Urban Design, pp. 243-250, 2017</li>
 
-	<li>Mahfoud Abderrezek & Mohamed Fathi, 
-	<a href="http://www.sciencedirect.com/science/article/pii/S0038092X16306508">Experimental Study of the Dust Effect on Photovoltaic Panels' Energy Yield</a>, 
-	Solar Energy, Volume 142, pp 308-320, 2017
+                        <li>Mahfoud Abderrezek &amp; Mohamed Fathi,
+                        <a href="http://www.sciencedirect.com/science/article/pii/S0038092X16306508">Experimental Study of the Dust Effect on Photovoltaic Panels' Energy Yield</a>,
+                        Solar Energy, Volume 142, pp 308-320, 2017</li>
 
-	<li>Dennis de Witte, Marie L. de Klijn-Chevalerias, Roel C.G.M. Loonen, Jan L.M. Hensen, Ulrich Knaack, & Gregor Zimmermann, 
-	<a href="http://journals.library.tudelft.nl/index.php/jfde/article/view/1430">Convective Concrete: Additive Manufacturing to Facilitate Activation of Thermal Mass</a>, 
-	Journal of Facade Design and Engineering, Volume 5, No. 1, 2017
+                        <li>Dennis de Witte, Marie L. de Klijn-Chevalerias, Roel C.G.M. Loonen, Jan L.M. Hensen, Ulrich Knaack, &amp; Gregor Zimmermann,
+                        <a href="http://journals.library.tudelft.nl/index.php/jfde/article/view/1430">Convective Concrete: Additive Manufacturing to Facilitate Activation of Thermal Mass</a>,
+                        Journal of Facade Design and Engineering, Volume 5, No. 1, 2017</li>
 
-	<li>Javier G. Monroy & Javier Gonzalez-Jimenez, 
-	<a href="http://www.sciencedirect.com/science/article/pii/S0925400516314307">Gas Classification in Motion: An Experimental Analysis</a>, 
-	Sensors and Actuators B: Chemical, Volume 240, pp 1205-1215, 2017
+                        <li>Javier G. Monroy &amp; Javier Gonzalez-Jimenez,
+                        <a href="http://www.sciencedirect.com/science/article/pii/S0925400516314307">Gas Classification in Motion: An Experimental Analysis</a>,
+                        Sensors and Actuators B: Chemical, Volume 240, pp 1205-1215, 2017</li>
 
-	<li>P Bas Calopa, 
-	<a href="https://upcommons.upc.edu/bitstream/handle/2117/181151/Mem%C3%B2ria_17.pdf">Projecte d'una incubadora amb regulació atmosfèrica</a>, 
-	Universitat Politècnica de Catalunya, 2017
+                        <li>P Bas Calopa,
+                        <a href="https://upcommons.upc.edu/bitstream/handle/2117/181151/Mem%C3%B2ria_17.pdf">Projecte d'una incubadora amb regulació atmosfèrica</a>,
+                        Universitat Politècnica de Catalunya, 2017</li>
 
-	<li>Jose Manuel Martín Perez-Solorzano, 
-	<a href="https://e-archivo.uc3m.es/bitstream/handle/10016/27212/TFG_Jose-Manuel_Martin_Perez-Solorzano.pdf?sequence=1">High-Efficiency SMA-Based Actuator</a>, 
-	Universidad Carlos III de Madrid, 2016
+                        <li>Jose Manuel Martín Perez-Solorzano,
+                        <a href="https://e-archivo.uc3m.es/bitstream/handle/10016/27212/TFG_Jose-Manuel_Martin_Perez-Solorzano.pdf?sequence=1">High-Efficiency SMA-Based Actuator</a>,
+                        Universidad Carlos III de Madrid, 2016</li>
 
-	<li>Tom Rainforth, Tuan Anh Le, Jan-Willem van de Meent, Michael A. Osborne, & Frank Wood, 
-	<a href="http://papers.nips.cc/paper/6420-bayesian-optimization-for-probabilistic-programs.pdf">Bayesian Optimization for Probabilistic Programs</a>, 
-	30th Conference on Neural Information Processing Systems, Barcelona, Spain, 2016
+                        <li>Tom Rainforth, Tuan Anh Le, Jan-Willem van de Meent, Michael A. Osborne, &amp; Frank Wood,
+                        <a href="http://papers.nips.cc/paper/6420-bayesian-optimization-for-probabilistic-programs.pdf">Bayesian Optimization for Probabilistic Programs</a>,
+                        30th Conference on Neural Information Processing Systems, Barcelona, Spain, 2016</li>
 
-	<li>W. Taylor Shoulders, Richard Locke, & Romain M. Gaume, 
-	<a href="http://scitation.aip.org/content/aip/journal/rsi/87/6/10.1063/1.4954925">Elastic Airtight Container for the Compaction of Air-Sensitive Materials</a>, 
-	Review of Scientific Instruments, Volume 87, 063908, 2016
+                        <li>W. Taylor Shoulders, Richard Locke, &amp; Romain M. Gaume,
+                        <a href="http://scitation.aip.org/content/aip/journal/rsi/87/6/10.1063/1.4954925">Elastic Airtight Container for the Compaction of Air-Sensitive Materials</a>,
+                        Review of Scientific Instruments, Volume 87, 063908, 2016</li>
 
-	<li>Zachary R. Adam, 
-	<a href="http://link.springer.com/article/10.1007%2Fs11084-015-9478-6">Temperature Oscillations near Natural Nuclear Reactor Cores and the Potential for Prebiotic Oligomer Synthesis</a>, 
-	Origins of Life and Evolution of Biospheres, Volume 46, Issue 2, pp 171-187, 2016
+                        <li>Zachary R. Adam,
+                        <a href="http://link.springer.com/article/10.1007%2Fs11084-015-9478-6">Temperature Oscillations near Natural Nuclear Reactor Cores and the Potential for Prebiotic Oligomer Synthesis</a>,
+                        Origins of Life and Evolution of Biospheres, Volume 46, Issue 2, pp 171-187, 2016</li>
 
-	<li>Jiarui Chen, Shuyu Qin, Xinglong Wu, & Paul K Chu, 
-	<a href="http://pubs.acs.org/doi/abs/10.1021/acsnano.5b05936?journalCode=ancac3">Morphology and Pattern Control of Diphenylalanine Self-Assembly via Evaporative Dewetting</a>, 
-	ACS Nano, Volume 10, No. 1, pp 832-838, 2016
+                        <li>Jiarui Chen, Shuyu Qin, Xinglong Wu, &amp; Paul K Chu,
+                        <a href="http://pubs.acs.org/doi/abs/10.1021/acsnano.5b05936?journalCode=ancac3">Morphology and Pattern Control of Diphenylalanine Self-Assembly via Evaporative Dewetting</a>,
+                        ACS Nano, Volume 10, No. 1, pp 832-838, 2016</li>
 
-	<li>Teresa Moro, Italo Gabriel Neide, & Marcia Jussara Hepp Rehfeldt, 
-	<a href="https://periodicos.ufsc.br/index.php/fisica/article/view/2175-7941.2016v33n3p987">
-	Experimental activities and computer simulations: integration for the construction of thermal energy transfer concepts in high school</a>, 
-	Brazilian Notebook of Physics Teaching, Volume 36, No. 3, 2016
+                        <li>Teresa Moro, Italo Gabriel Neide, &amp; Marcia Jussara Hepp Rehfeldt,
+                        <a href="https://periodicos.ufsc.br/index.php/fisica/article/view/2175-7941.2016v33n3p987">Experimental activities and computer simulations: integration for the construction of thermal energy transfer concepts in high school</a>,
+                        Brazilian Notebook of Physics Teaching, Volume 36, No. 3, 2016</li>
 
-	<li>Truong Minh Thang, 
-	<a href="http://repository.utc.edu.vn/handle/19999/539">Research and simulate basic heat transfer processes using Energy2D software</a>, 
-	The University of Transport Vietnam, 2016
+                        <li>Truong Minh Thang,
+                        <a href="http://repository.utc.edu.vn/handle/19999/539">Research and simulate basic heat transfer processes using Energy2D software</a>,
+                        The University of Transport Vietnam, 2016</li>
 
-	<li>Atanas Vasilev, 
-	<a href="http://www.earthdoc.org/publication/publicationdetails/?publication=82879">Geothermal Evolution of Gas Hydrate Deposits: Bulgarian Exclusive Economic Zone in the Black Sea</a>, 
-	Comptes rendus de l&lsquo;Acad&eacute;mie bulgare des Sciences, Volume 68, No. 9, pp 1135-1144, 2015
+                        <li>Atanas Vasilev,
+                        <a href="http://www.earthdoc.org/publication/publicationdetails/?publication=82879">Geothermal Evolution of Gas Hydrate Deposits: Bulgarian Exclusive Economic Zone in the Black Sea</a>,
+                        Comptes rendus de l&lsquo;Acad&eacute;mie bulgare des Sciences, Volume 68, No. 9, pp 1135-1144, 2015</li>
 
-	<li>Yit Man Heng, 
-	<a href="http://utpedia.utp.edu.my/15675/1/Dissertation%20Report%2015984.pdf">Experimental Investigation of Roof Top Solar Chimney for Natural Ventilation</a>, 
-	Universiti Teknologi PETRONAS, 2015
+                        <li>Yit Man Heng,
+                        <a href="http://utpedia.utp.edu.my/15675/1/Dissertation%20Report%2015984.pdf">Experimental Investigation of Roof Top Solar Chimney for Natural Ventilation</a>,
+                        Universiti Teknologi PETRONAS, 2015</li>
 
-	<li>Mikolaj Michal Chojnacki, 
-	<a href="http://repo.bg.pw.edu.pl/index.php/pl/r#/info/bachelor/WUTc385a9b4c6634a1788f852a5560b6067/?r=diploma&tab=&lang=pl">Modelling and Simulation of Transient Heat Transfer for Sustainable Buildings</a>, 
-	Warsaw University of Technology, 2015
+                        <li>Mikolaj Michal Chojnacki,
+                        <a href="http://repo.bg.pw.edu.pl/index.php/pl/r#/info/bachelor/WUTc385a9b4c6634a1788f852a5560b6067/?r=diploma&amp;tab=&amp;lang=pl">Modelling and Simulation of Transient Heat Transfer for Sustainable Buildings</a>,
+                        Warsaw University of Technology, 2015</li>
 
-	<li>Pedro A. Hern&aacute;ndez, et al., 
-	<a href="http://www.sciencedirect.com/science/article/pii/S0034425714003241">Magma Emission Rates from Shallow Submarine Eruptions Using Airborne Thermal Imaging</a>, 
-	Remote Sensing of Environment, Volume 154, pp 219-225, November 2014
+                        <li>Pedro A. Hern&aacute;ndez, et al.,
+                        <a href="http://www.sciencedirect.com/science/article/pii/S0034425714003241">Magma Emission Rates from Shallow Submarine Eruptions Using Airborne Thermal Imaging</a>,
+                        Remote Sensing of Environment, Volume 154, pp 219-225, November 2014</li>
+                    </ol>
 
-	</ol>
-
-
-
-<p><a href="energy2d.html">Back to Energy2D home page</a>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
-
-
-                        <div class="content">
-                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
-
-
-
-
-
-
-
-
-
-                            </div>  </div>
-                    </div>
-                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
-
-
-                    </div>
+                    <a class="v2-backlink" href="energy2d.html">&larr; Back to Energy2D</a>
                 </div>
-            </section>
-
-
-        </div>
-    </div>
-
-
+            </div>
+        </section>
+    </main>
     <script>includeFooter();</script>
-
 </div>
-
-<script src="js/flexslider.load.js"></script>
+<script src="js/v2.js"></script>
 <script src="js/bootstrap.js"></script>
-
 </body>
 </html>

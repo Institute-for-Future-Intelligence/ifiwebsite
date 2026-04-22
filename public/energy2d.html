@@ -3,70 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Energy2D 2.0: Creating Your Own Computational Experiments</title>
+    <title>Energy2D — Institute for Future Intelligence</title>
+    <meta name="description" content="Energy2D — interactive multiphysics simulation of heat transfer, fluid dynamics, electromagnetism, optics, and more, in your browser.">
+
     <style>
         @import url("css/system.base.css");
-    </style>
-    <style>
         @import url("css/jquery.ui.core.min.css");
         @import url("css/jquery.ui.theme.min.css");
         @import url("css/jquery.ui.menu.min.css");
-        @import url("css/jquery.ui.autocomplete.min.css");
-        @import url("css/jquery.ui.button.min.css");
-        @import url("css/jquery.ui.resizable.min.css");
-        @import url("css/jquery.ui.dialog.min.css");
-    </style>
-    <style>
-        @import url("css/date.css");
-        @import url("css/datepicker.1.7.css");
         @import url("css/ifi_theme.css");
-        @import url("css/field.css");
-        @import url("css/node.css");
-        @import url("css/video_filter.css");
-        @import url("css/views.css");
-        @import url("css/caption-filter.css");
-    </style>
-    <style>
-        @import url("css/apachesolr_autocomplete.css");
-        @import url("css/ctools.css");
-        @import url("css/video.css");
-        @import url("css/flexslider_img.css");
-        @import url("css/flexslider.css");
-        @import url("css/google_translator.css");
     </style>
     <link rel="stylesheet" type="text/css" href="css/first.css">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" media="all" />
-    <!-- HTML5 element support for IE6-8 -->
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <style>
-        .logoifi {
-            width: 35px;
-            height: 35px;
-            margin: 5px 0 0;
-            padding: 0;
-            background: url("image/logofloat.png") no-repeat 0 0;
-            background-size: 35px 35px;
-        }
-        body {
-            position: relative;
-            font-family: "Soleil", sans-serif;
-            color: #333333;
-            font-size: 18px;
-            line-height: 30px;
-        }
-    </style>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
 
-    <script src="https://use.typekit.net/epu0hfp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -74,434 +30,311 @@
       gtag('js', new Date());
       gtag('config', 'G-B0RXQKFDN0');
     </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-extend-3.4.0.js"></script>
-    <script src="js/jquery-html-prefilter-3.5.0-backport.js"></script>
-    <script src="js/jquery.once.js"></script>
-    <script src="js/drupal.js"></script>
-    <script src="js/jquery.ui.core.min.js"></script>
-    <script src="js/jquery.ui.widget.min.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/jquery.ui.menu.min.js"></script>
-    <script src="js/jquery.ui.autocomplete.min.js"></script>
-    <script src="js/jquery.ui.button.min.js"></script>
-    <script src="js/jquery.ui.mouse.min.js"></script>
-    <script src="js/jquery.ui.draggable.min.js"></script>
-    <script src="js/jquery.ui.resizable.min.js"></script>
-    <script src="js/jquery.ui.dialog.min.js"></script>
-    <script src="js/caption-filter.js"></script>
-    <script src="js/apachesolr_autocomplete_jqueryui.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/googleanalytics.js"></script>
-    <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-173522411-1", {"cookieDomain":"auto"});ga("send", "pageview");</script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/google_translator.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.smartmenus.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/jquery.smartmenus.bootstrap.js"></script>
-    <script src="js/affix.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/transition.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/popover.js"></script>
-    <script src="js/scrollspy.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/transition.js"></script>
-    <script src="js/jquery-extend-drupal.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
 
+    <style>
+        .v2-col-main > p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-quote-flag {
+            float: left;
+            width: 110px;
+            height: auto;
+            margin: 0.25rem 1.25rem 0.5rem 0;
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            border-radius: 3px;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+        }
+        .v2-quote-list { margin: 1rem 0 2rem; }
+        .v2-quote-list .v2-quote { margin-bottom: 1.25rem; }
+        .v2-quote-list .v2-quote::after { content: ''; display: block; clear: both; }
+    </style>
 </head>
 
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-177 node-type-page" >
+<body class="html not-logged-in node-type-page page-v2">
 <script src="js/include.js"></script>
 <div id="wrapper">
 
     <script>includeHeader();</script>
 
-    <div class="top-bar-full">  <div class="region region-top-bar-full">
-        <div id="block-ifi-homepage-sp-ifi-homepage-header-images-sp" class="block block-ifi-homepage-sp block-homepage-header-images-sp">
+    <main class="v2">
 
+        <header class="v2-hero" data-wordmark="ENERGY2D">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Interactive multiphysics</span>
+                <h1>Energy2D</h1>
+                <p class="v2-tagline">
+                    Create your own computational experiments to test your scientific hypotheses
+                    and design your engineering solutions.
+                </p>
+                <div class="v2-cta-row">
+                    <a class="v2-button v2-button--primary" target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org">Launch app</a>
+                    <a class="v2-button v2-button--primary" target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/gallery">300+ examples</a>
+                </div>
+            </div>
+        </header>
 
-        </div>
-    </div>
-    </div>
+        <section class="v2-section" id="overview" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <h2>What is Energy2D</h2>
+                    <p>
+                        Energy2D is an interactive multiphysics simulation program that models
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_transfer">heat transfer</a>,
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Phase_transition">phase change</a>,
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Chemical_reaction">chemical reaction</a>,
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computational_fluid_dynamics">fluid dynamics</a>,
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Maxwell%27s_equations">electromagnetism</a>,
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Optics">optics</a>,
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Wave_equation">wave mechanics</a>,
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">particle dynamics</a>,
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Multibody_system">multibody dynamics</a>,
+                        and <strong>their coupling</strong>, in two dimensions.
+                    </p>
+                    <p>
+                        It runs quickly in your web browser and eliminates the need to switch among
+                        preprocessors, solvers, and postprocessors in typical simulation workflows.
+                        Use it to design authentic &ldquo;computational experiments&rdquo; to test a
+                        scientific hypothesis or solve an engineering problem without resorting to
+                        complex mathematics. You can also draft playful simulations or learning
+                        activities with its built-in generative AI &mdash; and publish and share
+                        your work with others.
+                    </p>
 
-    <!-- Main Container -->
+                    <figure class="v2-screenshot">
+                        <img src="image/energy2d-banner.png" alt="Energy2D multiphysics simulations">
+                        <figcaption>Sophisticated multiphysics simulations at your fingertips, in your browser.</figcaption>
+                    </figure>
 
-    <div class="main-container container">
+                    <h2>Why multiphysics</h2>
+                    <p>
+                        Because nature is never dictated by a single law in physics. To solve a
+                        problem in the real world, we must take a holistic, multidisciplinary
+                        approach.
+                    </p>
 
-        <header role="banner" id="page-header">
+                    <h2>How people use it</h2>
+                    <p>
+                        As of December 2025, Energy2D has been used as a simulation tool by
+                        scientists and engineers in
+                        <a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/publications">more than 100 peer-reviewed papers</a>.
+                    </p>
 
-        </header> <!-- /#page-header -->
-        <div id="main-content-area" class="row no-gutters">
+                    <h2>What people are saying</h2>
 
+                    <div class="v2-quote-list">
+                        <blockquote class="v2-quote">
+                            <img class="v2-quote-flag" src="image/United_States.png" alt="United States">
+                            I am working as a consulting engineer and we often have to make
+                            quick estimations where a steady-state node model is too simplified
+                            and setting up a complex FEM model is overkill. Energy2D is a very
+                            handy tool for something like that &mdash; I like the click'n'play
+                            sandbox feeling in combination with the physical correctness. I
+                            never thought FEM could be that fun.
+                        </blockquote>
+                        <blockquote class="v2-quote">
+                            <img class="v2-quote-flag" src="image/Germany.png" alt="Germany">
+                            A big THANK YOU for this wonderful and free software. I actually
+                            try different wall simulations (conduction, energy loss) and I am
+                            very happy with your software. I also use Comsol Multiphysics but
+                            this software needs much more time for proper solutions than yours.
+                            I really appreciate your good work.
+                        </blockquote>
+                        <blockquote class="v2-quote">
+                            <img class="v2-quote-flag" src="image/Great_Britain.png" alt="Great Britain">
+                            Energy2D is a wonderful FREE application that carries out complex
+                            two-dimensional calculations based on real physics. I have found
+                            it difficult to get exact numerical matches between simulations
+                            and real-world situations, but the physics the software simulates
+                            is deeply insightful. I strongly recommend wasting several hours
+                            playing with its example demonstrations.
+                        </blockquote>
+                        <blockquote class="v2-quote">
+                            <img class="v2-quote-flag" src="image/Costa_Rica.png" alt="Costa Rica">
+                            Very impressed with your software. We are a company located in
+                            Costa Rica, in the field of condition monitoring training and
+                            reliability. In our main training courses is Infrared Thermography.
+                            Your software seems very useful for demonstrations of basic physics
+                            concepts of heat and temperature.
+                        </blockquote>
+                        <blockquote class="v2-quote">
+                            <img class="v2-quote-flag" src="image/Canada.png" alt="Canada">
+                            It is indeed an excellent tool for simplified 2D problems. Your
+                            tool can find vast marketing opportunity in industrial applications
+                            very quickly. In many cases, engineers are only interested in
+                            visualizing simple 2D cases like what you present in your tool
+                            and they are reluctant to spend thousands of dollars on expensive
+                            CFD simulations.
+                        </blockquote>
+                        <blockquote class="v2-quote">
+                            <img class="v2-quote-flag" src="image/Italy.png" alt="Italy">
+                            All the participants have made very positive comments on the
+                            simulation and explored it with great interest &mdash; even when
+                            their subject matter in school was not science but they teach,
+                            for example, anatomy or business economics! This is proof of the
+                            very good job you've done, especially for the use of colours and
+                            animation.
+                        </blockquote>
+                        <blockquote class="v2-quote">
+                            <img class="v2-quote-flag" src="image/Israel.png" alt="Israel">
+                            This is the best computer-based tool I have found so far! I'm
+                            using Matlab and Mathematica a lot, but for the students (and for
+                            me too!) this is a simple, intuitive, and fast way to check out
+                            ideas and learn from intuition and not only from equations.
+                            Thanks a lot for sharing this &mdash; it will help my students
+                            and myself a lot.
+                        </blockquote>
+                        <blockquote class="v2-quote">
+                            <img class="v2-quote-flag" src="image/Argentina.png" alt="Argentina">
+                            I want to thank you for making this fabulous simulation tool of
+                            physical phenomena available to the community. We will use it to
+                            introduce our students in the course of transport phenomena to
+                            understanding the transfer of momentum and energy as heat.
+                        </blockquote>
+                        <blockquote class="v2-quote">
+                            <img class="v2-quote-flag" src="image/Brazil.png" alt="Brazil">
+                            My teacher showed me this software. It's really powerful and
+                            incredibly simple to use. Sometimes this kind of simulation
+                            software is complicated to use. However, this is not an issue
+                            with Energy2D.
+                        </blockquote>
+                        <blockquote class="v2-quote">
+                            <img class="v2-quote-flag" src="image/Hungary.png" alt="Hungary">
+                            If someone needs a 2D calculation and doesn't want to deal with
+                            the details, and is willing to swallow some computational
+                            inaccuracy, I highly recommend Energy2D. It's incredibly easy to
+                            handle compared to the 3D programs so far.
+                        </blockquote>
+                    </div>
 
-            <section class="col-sm-12">
-                <a id="main-content"></a>
-                <div class="region">
-                    <div id="block-system-main" class="block block-system">
+                    <h2>How to cite Energy2D</h2>
+                    <p>
+                        Charles Xie,
+                        <a target="_blank" rel="noopener noreferrer" href="https://aapt.scitation.org/doi/10.1119/1.3694080">Interactive
+                        Heat Transfer Simulations for Everyone</a>,
+                        <em>The Physics Teacher</em>, 50(4), 237&ndash;240, 2012.
+                    </p>
+                </div>
 
+                <aside class="v2-col-aside" data-reveal>
+                    <div class="v2-sidebar-card">
+                        <div class="v2-sidebar-logo">
+                            <img src="image/energy2d-logo.png" alt="Energy2D logo">
+                        </div>
 
-                        <div class="content">
-                            <article id="node-177" class="node node-page clearfix" about="/learning-transforms-lives" typeof="foaf:Document">
-                                <header>
-                                    <span property="dc:title" content="Institute for Future Intelligence (IFI)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>      </header>
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Software</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org">🌐 Launch app</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/gallery">🖼️ Simulation gallery</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/tutorial">🎓 Tutorial</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/script-doc">📜 Script documentation</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/activity">👣 Sample activity</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/activity-gallery">📚 Published activities</a></li>
+                                <li><a href="energy2d/energy2d.jar">💻 Legacy desktop version</a></li>
+                            </ul>
+                        </div>
 
-                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                    <div class="field-items">
-                                        <div class="field-item even" property="content:encoded">
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Examples</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/MFwIUvGsv2P7iq3ruJBD">Thermal conduction</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/do5VMkJ0YnFBcXIpmU46">Thermal convection</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/dnIKc8hhigPijgBafAx1">Thermal radiation</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/NLd7mRvWuTjBlLyDP0LM">Phase change</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/QFmE5fVEWZSAvN6f93Mp">Ice melting in water</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/S7wAAskfJdGqXZaIupu2">Chemical reaction</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/97W05lvwgqm4R67HJ4Zi">Friction heating</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/ONGxeRib1BAB6RTtAHBL">Collision heating</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/QFmE5fVEWZSAvN6f93Mp">Joule heating</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/SXolf8UrF8HM8ANIP8xp">Combustion</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/9FEMW2RsC6P26EAhLqwx">Peltier effect</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/sYgYJpls6PNNvpeBkrzC">Seebeck effect</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/R5McrvrhiwnbX7FQz50Y">Thomson effect</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/fYymUT4uWjLCLWBRmxcM">Photovoltaic effect</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/ElQisDTpGZZdsZPZwssd">Ion transport</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/7Pklv3daBeWVXosXqGbc">Laminar vs. turbulent flow</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/jSfR4JmgJxhkrdE5u26V">Rayleigh&ndash;B&eacute;nard convection</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/Z8MbvrKbYxAhec8aLAZF">von K&aacute;rm&aacute;n vortex street</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/K3u7wfeNYJj9QOodXLh1">Magnetohydrodynamic pump</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/FmtVTbEco4kXmNWrZTOo">Material thermal bridge</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/aCWJ6dSnqiP3SnzzbYrn">Geometric thermal bridge</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/gNH1BOAanzMr7lppHbIV">Concentrated solar power</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/RFTMn3FSnbuZ8zMg4Amd">Solar updraft tower</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/yAL0AH8FLChmWhxciEvt">Pendulum</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/CgudtsStblxN5mKXRIu9">Inverted pendulum</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/zLwvThCqz1i9pyhBGB5u">Kapitza's pendulum</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/iAQkhc0tRcgKA3VxRalT">Newton's cradle</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/gDWwsev4wvZgltEgTRym">Slider-crank</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/CADFxVNdrsxDhh9J8y56">Four-bar linkages</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/DKVZE11d5xlHRwKyTCX0">Pantograph</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/XZNAzxnz2yxaceJZLbML">Compound pulley</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/DI4eYVZuIMTwYfXs14UB">Geneva drive</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/fpmfs7Glud47168Zqfje">Car suspension</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/WlUiS1yCBW5cbRlU5pIt">Bridge collapse</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/3EryVC7mnC7Og3ZdUZ1c">Truss bridge</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/hyLaF2EA9QwWW7ztUNiS">Tuned mass damper</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/M7QeFzXB69FD9ZDYyoRy">Radial engine</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/DGidS3XYOzNwamAjxhUd">Galton board</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/0ojcObwPAkHOWOL9Lk9t">Flute</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/trbQjkz1MoDLcMzJsYMn">Double-slit experiment</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/1fH4bGvemaPNnBSpncNx">Waveguide</a></li>
+                                <li><a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/8tBUO0FeHPqYiZv6DBnd">Prism refraction</a></li>
+                            </ul>
+                        </div>
 
-<h4>Energy2D 2.0: Creating Your Own Computational Experiments</h4>
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Articles</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="energy2d-equations.html">Under the hood</a></li>
+                                <li><a href="energy2d-particle-dynamics.html">Multiphysics</a></li>
+                                <li><a href="energy2d-unconditionally.html">Simulation accuracy</a></li>
+                                <li><a href="ie-thermal-equilibrium.html">Thermal equilibrium</a></li>
+                                <li><a href="energy2d-thermal-bridges.html">Thermal bridges</a></li>
+                                <li><a href="energy2d-fireplace.html">Fireplace efficiency</a></li>
+                            </ul>
+                        </div>
 
-<div class="row">
-<div class="col-md-8">
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Developers</h3>
+                            <ul class="v2-sidebar-links">
+                                <li><a href="people.html#charles">Charles Xie</a></li>
+                            </ul>
+                        </div>
 
-
-<p>Energy2D is an interactive multiphysics simulation program that models 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_transfer">heat transfer</a>, 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Phase_transition">phase change</a>, 
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Chemical_reaction">chemical reaction</a>,
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computational_fluid_dynamics">fluid dynamics</a>,
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Maxwell%27s_equations">electromagnetism</a>,
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Optics">optics</a>,
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Wave_equation">wave mechanics</a>,
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">particle dynamics</a>,
-<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Multibody_system">multibody dynamics</a>, and <b>their coupling</b>, in two dimensions. 
-Energy2D runs quickly in your Web browser and eliminates the need to switch among preprocessors, solvers, and postprocessors in typical simulation workflows. 
-You can use it to design authentic "computational experiments" to test a scientific hypothesis or solve an engineering problem without resorting to complex mathematics. 
-You may also draft a playful simulation or a learning activity using its generative AI.  
-Finally, you can easily publish and share your work with others.
-</p>
-
-
-<p align="center" style="font-size: 14px">
-<img src="image/energy2d-banner.png" width="100%">
-<br>Sophisticated multiphysics simulations at your fingertips, in your browser
-</p>
-
-
-<h6>Why multiphysics?</h6> 
-
-<p>Because nature is never dictated by a single law in physics. To solve a problem in the real world, we must take a holistic, multidisciplinary approach.
-
-
-<h6>How to cite it?</h6>
-
-<p>Charles Xie, <a target="_blank" rel="noopener noreferrer" href="https://aapt.scitation.org/doi/10.1119/1.3694080">
-Interactive Heat Transfer Simulations for Everyone</a>, The Physics Teacher, Volume 50, Issue 4, pp. 237-240, 2012.</font>
-</p>
-
-
-<h6>How do people use it?</h6>
-
-<p>As of December 2025, Energy2D has been used as a simulation tool by scientists and engineers in 
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/Institute-for-Future-Intelligence/multiphysics#applications">more than 100 papers</a>.
-
-
-<h6>What are people saying about it?</h6>
-<div class="testimonials">
-
-<div class="testimonial">
-<img class="testimonial-flag" src="image/United_States.png" alt="United States">
-<p class="testimonial-quote">“I am working as consulting engineer and we often have to make quick estimations where a steady-state node model is too simplified and setting up a complex FEM model is overkill. 
-Energy2D is a very handy tool for something [like] that and I like the click'n'play sandbox feeling in combination with the physical correctness. I never thought FEM could be that fun.”</p>
-</div>
-
-<div class="testimonial">
-<img class="testimonial-flag" src="image/Germany.png" alt="Germany">
-<p class="testimonial-quote">“A big THANK YOU for this wonderful and free software. I actually try different wall simulations (conduction, energy loss) and i am very happy with your software. 
-I also use Comsol Multiphysics but this software needs much more time for proper solutions than your software. I really appreciate your good work.”</p>
-</div>
-
-<div class="testimonial">
-<img class="testimonial-flag" src="image/Great_Britain.png" alt="Great Britain">
-<p class="testimonial-quote">“Energy2D is a wonderful FREE application that carries out complex two-dimensional calculations based on real physics. 
-I have found it difficult to get exact numerical matches between simulations and real world situations, 
-but the physics which the software simulates is deeply insightful. I strongly recommend that you waste several hours playing with its example demonstrations.”</p>
-</div>
-
-<div class="testimonial">
-<img class="testimonial-flag" src="image/Costa_Rica.png" alt="Costa Rica">
-<p class="testimonial-quote">“Very impressed of your software. We are a company located in Costa Rica, in the field of condition monitoring training and reliability. 
-In our main training courses is Infrared Thermography. You software seems very usefull for demonstrations of basic physics concepts of heat and temperature.”</p>
-</div>
-
-<div class="testimonial">
-<img class="testimonial-flag" src="image/Canada.png" alt="Canada">
-<p class="testimonial-quote">“It is indeed [an] excellent tool for simplified 2D problem. Your tool can find vast marketing opportunity in industrial applications very quickly. 
-In many cases, engineers are only interested in visualizing simple 2D cases like what you present in your tool and they are reluctant to spend thousands of dollars for expensive CFD simulations.”</p>
-</div>
-
-<div class="testimonial">
-<img class="testimonial-flag" src="image/Italy.png" alt="Italy">
-<p class="testimonial-quote">“All the participants have made very positive comments on the simulation and explored it with great interest, 
-even when their subject matter in school was not science but they teach for example anatomy or business economics! 
-This is again a proof of the very good job you've done, especially for what concern the use of colours and animation.”</p>
-</div>
-
-<div class="testimonial">
-<img class="testimonial-flag" src="image/Israel.png" alt="Israel">
-<p class="testimonial-quote">“This is the best computer based tool I have found so far! I'm using Matlab and Mathematica a lot, but for the students (and for me too!) this is a simple, 
-intuitive and fast way to check out ideas and learn from intuition and not only from equations. Again, thanks a lot for sharing this, it is amazing! It will help my students and myself a lot.”</p>
-</div>
-
-<div class="testimonial">
-<img class="testimonial-flag" src="image/Argentina.png" alt="Argentina">
-<p class="testimonial-quote">“I want to thank you to make this fabulous simulation tool of physical phenomena available to the community. 
-We will use this tool to introduce our students in the course of transport phenomena in understanding the transfer of momentum and energy as heat.”</p>
-</div>
-
-<div class="testimonial">
-<img class="testimonial-flag" src="image/Brazil.png" alt="Brazil">
-<p class="testimonial-quote">“My teacher showed me this software. It's really powerful and incredibly simple to use. 
-Sometimes this kind of simulation software is complicated to use. However, this is not an issue with Energy2D.”</p>
-</div>
-
-<div class="testimonial">
-<img class="testimonial-flag" src="image/Hungary.png" alt="Hungary">
-<p class="testimonial-quote">“If someone needs a 2D calculation and doesn't want to deal with the details, and is willing to swallow some computational inaccuracy, I highly recommend Energy2D. 
-If everyone already knows, then I'm sorry for the time-wasting, it was new to me, and it's incredibly easy to handle compared to the 3D programs so far.”</p>
-</div>
-
-<!--
-<div class="testimonial">
-<img class="testimonial-flag" src="image/United_States.png" alt="United States">
-<p class="testimonial-quote">“Thanks for building Energy2D. This is a great tool for explaining and quickly testing thermal flow phenomena. 
-Students can pick it up pretty quickly and get to the real concepts rather than focus on software quirks. I've used it for 3 years now, but am looking to expand my use in the classroom.”</p>
-</div>
--->
-
-<!--
-<div class="testimonial">
-<img class="testimonial-flag" src="image/Germany.png" alt="Germany">
-<p class="testimonial-quote">“I wanted to thank you for providing it on the web for everyone to use. I am also showing results to my older daughter who is interested in physics and is in high school now. 
-The visualization of such effects as heat flow or temperature distribution always makes a lasting impression on young students and makes understanding physics much easier.”</p>
-</div>
--->
-
-</div>
-<br>
-
-
-
-</div>
-<div class="col-md-4">
-<div class="product-sidebar">
-
-
-<p align="center"><img src="image/energy2d-logo.png" title="Energy2D Logo" width="160px"></p>
-
-<b>Software</b>
-<p>
-🌐 <a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org">Launch app</a>
-<br>
-🖼️ <a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/gallery">Simulation gallery</a>
-<br>
-🎓 <a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/tutorial">Tutorial</a>
-<br>
-📜 <a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/script-doc">Script documentation</a>
-<br>
-👣 <a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/activity">Sample activity</a>
-<br>
-📚 <a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/activity-gallery">Published activities</a>
-<br>
-💻 <a href="energy2d/energy2d.jar">Legacy desktop version</a>
-</p>
-
-<!--
-<p>
-  <span><b>Podcast</b></span><br>
-  <audio controls>
-    <source src="podcast/energy2d.mp3" type="audio/mpeg">
-  </audio>
-</p>
--->
-
-<p>
-<b>Examples</b>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/MFwIUvGsv2P7iq3ruJBD">Thermal conduction</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/do5VMkJ0YnFBcXIpmU46">Thermal convection</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/dnIKc8hhigPijgBafAx1">Thermal radiation</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/NLd7mRvWuTjBlLyDP0LM">Phase change</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/QFmE5fVEWZSAvN6f93Mp">Ice melting in water</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/S7wAAskfJdGqXZaIupu2">Chemical reaction</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/97W05lvwgqm4R67HJ4Zi">Friction heating</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/ONGxeRib1BAB6RTtAHBL">Collision heating</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/QFmE5fVEWZSAvN6f93Mp">Joule heating</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/SXolf8UrF8HM8ANIP8xp">Combustion</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/9FEMW2RsC6P26EAhLqwx">Peltier effect</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/sYgYJpls6PNNvpeBkrzC">Seebeck effect</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/R5McrvrhiwnbX7FQz50Y">Thomson effect</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/fYymUT4uWjLCLWBRmxcM">Photovoltaic effect</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/ElQisDTpGZZdsZPZwssd">Ion transport</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/kP1GGhIz9mrkOsbywRYX">Advection</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/WRbtTBQlDpeWg4TOsFAF">Sailboat</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/7Pklv3daBeWVXosXqGbc">Laminar vs. turbulent flow</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/jSfR4JmgJxhkrdE5u26V">Rayleigh–Bénard convection</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/Z8MbvrKbYxAhec8aLAZF">von Kármán vortex street</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/K3u7wfeNYJj9QOodXLh1">Magnetohydrodynamic pump</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/FmtVTbEco4kXmNWrZTOo">Material thermal bridge</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/aCWJ6dSnqiP3SnzzbYrn">Geometric thermal bridge</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/gNH1BOAanzMr7lppHbIV">Concentrated solar power</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/RFTMn3FSnbuZ8zMg4Amd">Solar updraft tower</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/yAL0AH8FLChmWhxciEvt">Pendulum</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/CgudtsStblxN5mKXRIu9">Inverted pendulum</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/zLwvThCqz1i9pyhBGB5u">Kapitza's pendulum</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/iAQkhc0tRcgKA3VxRalT">Newton's Cradle</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/gDWwsev4wvZgltEgTRym">Slider-crank</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/CADFxVNdrsxDhh9J8y56">Four-bar linkages</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/DKVZE11d5xlHRwKyTCX0">Pantograph</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/klhnQcDG84pmEVaTZDXF">Cam follower</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/XZNAzxnz2yxaceJZLbML">Compound Pulley</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/DI4eYVZuIMTwYfXs14UB">Geneva Drive</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/fpmfs7Glud47168Zqfje">Car suspension</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/WlUiS1yCBW5cbRlU5pIt">Bridge collapse</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/3EryVC7mnC7Og3ZdUZ1c">Truss bridge</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/hyLaF2EA9QwWW7ztUNiS">Tuned mass damper</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/M7QeFzXB69FD9ZDYyoRy">Radial engine</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/DGidS3XYOzNwamAjxhUd">Galton board</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/0ojcObwPAkHOWOL9Lk9t">Flute</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/trbQjkz1MoDLcMzJsYMn">Double-slit experiment</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/1fH4bGvemaPNnBSpncNx">Waveguide</a>
-<br>
-<a target="_blank" rel="noopener noreferrer" href="https://energy2d.intofuture.org/view/8tBUO0FeHPqYiZv6DBnd">Prism refraction</a>
-<br>
-</p>
-
-
-
-<b>Articles</b>
-<p>
-<a href="energy2d-equations.html">Under the hood</a>
-<br>
-<a href="energy2d-particle-dynamics.html">Multiphysics</a>
-<br>
-<a href="energy2d-unconditionally.html">Simulation accuracy</a>
-<br>
-<a href="ie-thermal-equilibrium.html">Thermal equilibrium</a>
-<br>
-<a href="energy2d-thermal-bridges.html">Thermal bridges</a>
-<br>
-<a href="energy2d-fireplace.html">Fireplace efficiency</a>
-</p>
-
-
-<b>Applications</b>
-<p>
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/Institute-for-Future-Intelligence/multiphysics#applications">Papers</a>
-</p>
-
-<p>
-<b>Developers</b>
-<br>
-<a href="people.html#charles">Charles Xie</a>
-</p>
-
-
-<b>Acknowledgements</b>
-<p style="line-height:1.6; font-size: 14px">
-This project is supported by the National Science Foundation (NSF) under grant numbers 
-<a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2105695">#2105695</a> and
-<a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2131097">#2131097</a>.
-Any opinions, findings, and conclusions or recommendations expressed in this material, however, are those of the authors and do not necessarily reflect the views of NSF.
-</p>
-<p align="center">
-<img src="image/nsf.png">
-</p>
-
-</div>
-</div>
-</div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                        <div class="v2-sidebar-section">
+                            <h3 class="v2-sidebar-heading">Acknowledgements</h3>
+                            <p class="v2-sidebar-note is-small">
+                                This project is supported by the National Science Foundation (NSF)
+                                under grant numbers
+                                <a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2105695">#2105695</a>
+                                and
+                                <a target="_blank" rel="noopener noreferrer" href="https://nsf.gov/awardsearch/showAward?AWD_ID=2131097">#2131097</a>.
+                                Any opinions, findings, and conclusions or recommendations expressed
+                                in this material are those of the authors and do not necessarily
+                                reflect the views of NSF.
+                            </p>
+                            <div class="v2-nsf-logo">
+                                <img src="image/nsf.png" alt="National Science Foundation">
+                            </div>
                         </div>
                     </div>
-                    <div id="block-views-b44d1927de84a2a51758fa6225632e95" class="block block-views homepage-articles">
+                </aside>
+            </div>
+        </section>
 
-
-                        <div class="content">
-                            <div class="view view-homepage-news view-id-homepage_news view-display-id-block_homepage_featured_articles view-dom-id-a62f612cdc9d6c2ad0d782b8b08dec8c">
-
-
-
-
-
-
-
-
-
-                            </div>  </div>
-                    </div>
-                    <div id="block-ifi-homepage-ifi-homepage-promo" class="block block-ifi-homepage block-homepage-promo">
-
-
-                    </div>
-                </div>
-            </section>
-
-
-        </div>
-    </div>
-
+    </main>
 
     <script>includeFooter();</script>
 
 </div>
 
-<script src="js/flexslider.load.js"></script>
+<script src="js/v2.js"></script>
 <script src="js/bootstrap.js"></script>
 
 </body>
