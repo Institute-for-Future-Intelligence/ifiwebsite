@@ -217,3 +217,48 @@ header#page-header:empty {
     bottom: auto !important;
     transform: translateY(-50%);
   }
+}
+
+/* Footer — centered copyright and NSF acknowledgment, two separate <p> elements
+   so each has its own font-size and line-height (and centering stays reliable). */
+footer.footer .footer-block {
+  margin: 30px 15px;
+  text-align: center !important;
+  color: #fff;
+}
+footer.footer .footer-copyright,
+footer.footer .footer-ack {
+  text-align: center !important;
+}
+footer.footer .footer-copyright {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 6px;
+  color: #fff;
+}
+footer.footer .footer-ack {
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+  color: #fff;
+}
+footer.footer .footer-ack img {
+  height: 12px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+@media (max-width: 767px) {
+  /* Neutralize legacy mobile footer rules in first.css that float #footer-inner > div
+     and add asymmetric padding — those were for the Drupal multi-column footer. */
+  footer.footer #footer-inner {
+    padding: 0 !important;
+  }
+  footer.footer #footer-inner > .footer-block {
+    float: none !important;
+    width: auto !important;
+    margin: 20px 15px;
+  }
+  footer.footer .footer-copyright { font-size: 13px; line-height: 1.45; }
+  footer.footer .footer-ack { line-height: 1.35; }
+}
