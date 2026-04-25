@@ -571,8 +571,15 @@
                                 <p class="v2-product-eyebrow">Creative science</p>
                                 <div class="v2-product-art" aria-hidden="true">
                                     <svg viewBox="0 0 200 100" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <mask id="scifi-orbit-back-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="100">
+                                                <rect width="200" height="100" fill="white"/>
+                                                <circle cx="145" cy="48" r="22" fill="black"/>
+                                            </mask>
+                                        </defs>
+                                        <path d="M 105.06 60.98 A 42 7 -18 0 1 184.94 35.02" fill="none" stroke="#e11d48" stroke-width="1.5" opacity="0.55" mask="url(#scifi-orbit-back-mask)"/>
                                         <circle cx="145" cy="48" r="22" fill="#e11d48" opacity="0.5"/>
-                                        <ellipse cx="145" cy="48" rx="42" ry="7" fill="none" stroke="#e11d48" stroke-width="1.5" opacity="0.55" transform="rotate(-18 145 48)"/>
+                                        <path d="M 105.06 60.98 A 42 7 -18 0 0 184.94 35.02" fill="none" stroke="#e11d48" stroke-width="1.5" opacity="0.55"/>
                                         <g fill="#e11d48">
                                             <circle cx="25" cy="22" r="1.8" opacity="0.9"/>
                                             <circle cx="45" cy="60" r="1.6" opacity="0.8"/>
