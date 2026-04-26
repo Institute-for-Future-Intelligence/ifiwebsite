@@ -170,7 +170,23 @@ body.page-v2 header#navbar.navbar {
   margin-bottom: 0;
   min-height: 0;
   border: none;
-  padding: 12px 0 6px;
+  padding: 12px 0 10px;
+}
+/* first.css sets height:45px on .navbar-fixed-top, which (with border-box)
+   swallows our padding so the navbar stays 45px tall. Let the content + padding
+   determine the height instead. */
+body.page-v2 header#navbar.navbar-fixed-top {
+  height: auto;
+  background-color: #fff;
+}
+/* Bootstrap's .navbar-brand has height:50px (taller than the 36px sticky icon),
+   which forces the navbar-header taller and shows as extra space below the icon.
+   Match it to the icon so the bottom padding looks like the non-sticky 10px. */
+body.page-v2 header#navbar.navbar-fixed-top .name.navbar-brand {
+  height: 36px;
+  line-height: 36px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 /* Align the navbar's content with the v2-section content column (max-width: 1100px,
    1.5rem side padding). Applies to both default and sticky-on-scroll states, so the
@@ -193,6 +209,10 @@ body.page-v2 header#navbar .navbar-collapse .region-navigation {
   align-items: center;
   justify-content: flex-end;
   gap: 1.5rem;
+  /* first.css gives .region-navigation margin: 0 0 80px; that pads out the
+     right column with 80px below it, inflating the non-sticky navbar height.
+     Sticky state zeros this elsewhere — match it here. */
+  margin: 0;
 }
 body.page-v2 header#navbar .navbar-collapse .region-navigation > .block {
   margin: 0;
