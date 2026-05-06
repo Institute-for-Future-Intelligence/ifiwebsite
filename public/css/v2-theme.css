@@ -162,7 +162,7 @@ body.page-v2 {
 }
 @media (min-width: 860px) {
     .v2-grid {
-        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        grid-template-columns: minmax(0, 5fr) minmax(0, 2fr);
         gap: 4rem;
         align-items: start;
     }
