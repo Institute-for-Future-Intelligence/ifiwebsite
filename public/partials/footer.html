@@ -6,3 +6,62 @@
         </div>
     </div>
 </footer>
+
+<style>
+    #ifi-cookie-notice {
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 9999;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0.85rem 1rem;
+        background: #1f2937;
+        color: #f9fafb;
+        border-radius: 0.6rem;
+        box-shadow: 0 8px 28px rgba(15, 23, 42, 0.25);
+        display: none;
+        align-items: center;
+        gap: 0.9rem;
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+    #ifi-cookie-notice.is-visible { display: flex; }
+    #ifi-cookie-notice p { margin: 0; flex: 1; }
+    #ifi-cookie-notice a { color: #93c5fd; text-decoration: underline; }
+    #ifi-cookie-notice button {
+        flex: 0 0 auto;
+        background: #6366f1;
+        color: #fff;
+        border: none;
+        border-radius: 0.45rem;
+        padding: 0.75rem 1.4rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    #ifi-cookie-notice button:hover { filter: brightness(1.1); }
+    @media (max-width: 520px) {
+        #ifi-cookie-notice { flex-direction: column; align-items: stretch; text-align: center; }
+    }
+</style>
+<div id="ifi-cookie-notice" role="region" aria-label="Cookie notice">
+    <p>We use cookies to analyze site traffic and improve your experience. By continuing to use this site, you accept our use of cookies.</p>
+    <button type="button" id="ifi-cookie-dismiss">Got it</button>
+</div>
+<script>
+    (function () {
+        try {
+            if (localStorage.getItem('ifi-cookie-ack') === '1') return;
+        } catch (e) { /* storage unavailable; show banner each visit */ }
+        var notice = document.getElementById('ifi-cookie-notice');
+        var dismiss = document.getElementById('ifi-cookie-dismiss');
+        if (!notice || !dismiss) return;
+        notice.classList.add('is-visible');
+        dismiss.addEventListener('click', function () {
+            notice.classList.remove('is-visible');
+            try { localStorage.setItem('ifi-cookie-ack', '1'); } catch (e) { /* ignore */ }
+        });
+    })();
+</script>
