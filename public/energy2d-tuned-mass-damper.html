@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuned Mass Damper &mdash; Institute for Future Intelligence</title>
+    <meta name="description" content="How do skyscrapers stay still in an earthquake? A tuned mass damper. Energy2D now simulates structural vibration — compare two buildings on a shaking base, with and without a TMD.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen1() { var e = document.getElementById("e2d-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="DAMPER">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Energy2D</span>
+                <h1>Tuned Mass Damper</h1>
+                <p class="v2-tagline">
+                    How does a skyscraper stand still while the ground heaves beneath it? Often, the
+                    answer is a heavy weight near the top that sways the wrong way on purpose.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="energy2d.html">&larr; Back to Energy2D</a>
+
+                    <p class="v2-byline">By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; March 31, 2026</p>
+
+                    <p>Tall buildings move. Wind pushes them, and earthquakes shove the ground out from under
+                    them, and a slender tower can sway far enough at the top to make people seasick &mdash; or, in a
+                    strong quake, far enough to do real damage. One of the most elegant fixes in structural
+                    engineering is also one of the most counterintuitive: hang a massive weight near the top of the
+                    building and let it swing. Tuned correctly, that swinging weight &mdash; a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tuned_mass_damper">tuned mass damper</a>
+                    (TMD) &mdash; moves opposite to the building and cancels much of its sway.</p>
+
+                    <p>The simulation below shows the idea directly. Press <strong>Run</strong> to start the
+                    earthquake and watch the two towers.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://energy2d.intofuture.org/view/hyLaF2EA9QwWW7ztUNiS"
+                                id="e2d-frame1" allowfullscreen="true" title="Tuned Mass Damper simulation"></iframe>
+                        <figcaption>
+                            Live simulation &mdash; press <strong>Run</strong> to start, or <a href="javascript:openFullscreen1();">view fullscreen</a>.
+                        </figcaption>
+                    </figure>
+
+                    <h2>What you're watching</h2>
+
+                    <p>Two identical towers sit on the same shaking ground. The <strong>left tower has no damper</strong>;
+                    the <strong>right tower carries a pendulum TMD</strong> near its roof. As the base oscillates, both
+                    towers begin to sway &mdash; but the undamped one keeps building up amplitude while the protected one
+                    settles into a much smaller motion, because its top-mounted mass is swinging out of step and pulling
+                    it back. Each tower has a sensor at the roof, so you can plot their motion and compare the two roof
+                    traces quantitatively: same earthquake, very different ride.</p>
+
+                    <h2>How a tuned mass damper works</h2>
+
+                    <p>Every structure has a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Natural_frequency">natural frequency</a>
+                    &mdash; a rhythm it &ldquo;wants&rdquo; to sway at. When a quake or gust pushes it at that rhythm, the
+                    sways reinforce each other and the motion grows; this is
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Resonance">resonance</a>,
+                    the same effect that lets a child on a swing go higher with small, well-timed pushes. A tuned mass
+                    damper is a second mass-and-spring system deliberately tuned to that <em>same</em> frequency and hung
+                    from the structure. Because of how the two are coupled, the damper lags behind and swings in the
+                    opposite direction to the building. When the tower leans right, the damper is still heading left,
+                    tugging it back &mdash; and the energy that would have fed the sway is instead bled off into the
+                    damper's motion, where friction dissipates it as heat.</p>
+
+                    <p>This isn't just a classroom idea. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Taipei_101">Taipei&nbsp;101</a>
+                    hangs a 660-tonne steel sphere between its 87th and 92nd floors as a giant pendulum damper, visible to
+                    visitors. New York's Citicorp Center pioneered the approach in a skyscraper, and London's
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Millennium_Bridge,_London">Millennium Bridge</a>
+                    was retrofitted with dampers after it swayed alarmingly on its opening day. The same trick quiets
+                    everything from car engines to power-line cables.</p>
+
+                    <h2>New in Energy2D: structural vibration</h2>
+
+                    <p>Energy2D began as a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_transfer">heat-transfer</a>
+                    simulator and has since grown to handle fluid flow, particles, and chemical reactions. Structural
+                    vibration is the newest piece. The towers here are modeled as braced frames of connected members, the
+                    ground is driven back and forth to mimic
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Seismic_base_isolation">seismic excitation</a>,
+                    and the TMD is a tuned pendulum hung from the structure &mdash; all governed by the same kind of
+                    time-stepping physics engine that powers the rest of Energy2D. With sensors and plotting built in,
+                    you can turn a qualitative &ldquo;look, it sways less&rdquo; into an actual measurement of how much.</p>
+
+                    <h2>Try it yourself</h2>
+
+                    <p>Run the simulation and watch the gap open up between the two towers. Open it
+                    <a href="javascript:openFullscreen1();">fullscreen</a>, plot the roof sensors against time, and see how
+                    dramatically a single well-tuned weight tames the sway. It's a vivid lesson in why engineers
+                    sometimes fight motion with more motion.</p>
+
+                    <a class="v2-backlink" href="energy2d.html">&larr; Back to Energy2D</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

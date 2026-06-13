@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Chemical Oscillators &mdash; Institute for Future Intelligence</title>
+    <meta name="description" content="Most reactions settle into equilibrium; a rare few oscillate. Energy2D can now simulate chemical reactions — here are a Briggs-Rauscher iodine clock and a Brusselator running side by side.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen1() { var e = document.getElementById("e2d-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="OSCILLATORS">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Energy2D</span>
+                <h1>Two Chemical Oscillators</h1>
+                <p class="v2-tagline">
+                    Most reactions settle quietly into equilibrium. A rare few keep a beat &mdash;
+                    cycling through colors over and over. Energy2D can now simulate them.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="energy2d.html">&larr; Back to Energy2D</a>
+
+                    <p class="v2-byline">By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; May 17, 2026</p>
+
+                    <p>Pour two chemicals together and, almost always, the reaction runs downhill to
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Chemical_equilibrium">equilibrium</a>
+                    and stops &mdash; like a ball rolling to the bottom of a bowl. But a small, famous family of
+                    reactions refuses to settle. Their colors and concentrations rise and fall, rise and fall, in a
+                    steady rhythm that can last for minutes. These are
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Chemical_clock">chemical clocks</a>,
+                    or <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Oscillating_reaction">oscillating reactions</a>,
+                    and watching one for the first time is genuinely startling &mdash; it looks like the chemistry
+                    is alive.</p>
+
+                    <p>The simulation below puts two of them side by side. Press <strong>Run</strong> and watch each
+                    beaker cycle.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://energy2d.intofuture.org/view/zuIMveIRxTUjFFwM6Olf"
+                                id="e2d-frame1" allowfullscreen="true" title="Two Chemical Oscillators simulation"></iframe>
+                        <figcaption>
+                            Live simulation &mdash; press <strong>Run</strong> to start, or <a href="javascript:openFullscreen1();">view fullscreen</a>.
+                        </figcaption>
+                    </figure>
+
+                    <h2>What you're watching</h2>
+
+                    <p>The <strong>left beaker</strong> is a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Briggs%E2%80%93Rauscher_reaction">Briggs&ndash;Rauscher reaction</a>
+                    &mdash; the classic "iodine clock." In a real flask, the liquid sweeps from colorless to amber to
+                    deep blue-black and back again, on a loop. Here it is modeled as a four-step reaction whose iodine
+                    species swing between an orange form and a dark-navy form, so the beaker visibly pulses between the
+                    two colors as the reaction runs.</p>
+
+                    <p>The <strong>right beaker</strong> is a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Brusselator">Brusselator</a>,
+                    a theoretical oscillator devised by the Brussels school of
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ilya_Prigogine">Ilya Prigogine</a>
+                    and his colleagues. It isn't a specific bottle of chemicals but an idealized four-step scheme &mdash;
+                    the simplest textbook model that still produces sustained oscillations. Its two intermediate species,
+                    labeled X (green) and Y (magenta), trade dominance back and forth, and the beaker alternates between
+                    their colors. Putting the real reaction and the mathematical model in the same window lets you compare
+                    how a messy laboratory oscillator and a clean theoretical one behave under the same simulator.</p>
+
+                    <h2>How can a reaction oscillate?</h2>
+
+                    <p>An oscillating reaction isn't a perpetual-motion machine, and it doesn't break the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Second_law_of_thermodynamics">second law of thermodynamics</a>.
+                    The system is steadily consuming a reservoir of fuel and marching toward equilibrium overall; it just
+                    takes a winding, looping path to get there. The loops come from
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Feedback">feedback</a>:
+                    one of the products speeds up its own formation
+                    (<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Autocatalysis">autocatalysis</a>),
+                    builds up, triggers a second pathway that consumes it, which then lets the first pathway take over
+                    again. That push-and-pull, held
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Non-equilibrium_thermodynamics">far from equilibrium</a>,
+                    settles into a stable rhythm &mdash; what mathematicians call a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Limit_cycle">limit cycle</a>.
+                    The same mathematics shows up well beyond the beaker: in predator&ndash;prey populations, heartbeat
+                    rhythms, and the day&ndash;night cycles of living cells.</p>
+
+                    <h2>New in Energy2D: chemical reactions</h2>
+
+                    <p>Energy2D began as a tool for simulating <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_transfer">heat transfer</a>,
+                    then grew to couple in <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computational_fluid_dynamics">fluid dynamics</a>
+                    and particle motion. Chemical reactions are the newest addition. With reaction kinetics now built in,
+                    Energy2D can model how the concentrations of reacting species evolve in space and time &mdash; the
+                    domain of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Reaction%E2%80%93diffusion_system">reaction&ndash;diffusion systems</a>,
+                    the same framework Alan Turing used to explain how a featureless embryo can grow spots and stripes.</p>
+
+                    <p>Because it is the same engine that already handles heat and flow, reactions can eventually be
+                    coupled to those too &mdash; temperature affecting reaction rates, flows carrying reactants around.
+                    And because Energy2D runs entirely in the browser, anyone can open this page, press Run, drop in a
+                    sensor to plot a concentration against time, and watch a chemical clock tick &mdash; no lab, no
+                    reagents, no cleanup.</p>
+
+                    <h2>Try it yourself</h2>
+
+                    <p>Run the simulation above and watch the two beakers fall into their own rhythms. Open it
+                    <a href="javascript:openFullscreen1();">fullscreen</a>, then try plotting a species' concentration
+                    over time to see the oscillation as a wave. It's one of the most beautiful things in chemistry, and
+                    now it's a click away.</p>
+
+                    <a class="v2-backlink" href="energy2d.html">&larr; Back to Energy2D</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

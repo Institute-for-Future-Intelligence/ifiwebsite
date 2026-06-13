@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laminar vs. Turbulent Flow &mdash; Institute for Future Intelligence</title>
+    <meta name="description" content="Why does smooth flow break into chaos? Energy2D couples heat and fluid flow to show the laminar-to-turbulent transition — four channels, one heat source, rising wind speed.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen1() { var e = document.getElementById("e2d-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="FLOW">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Energy2D</span>
+                <h1>Laminar vs. Turbulent Flow</h1>
+                <p class="v2-tagline">
+                    A thread of smoke rises straight and smooth, then suddenly dissolves into
+                    swirling chaos. That breakdown is one of the deepest puzzles in physics.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="energy2d.html">&larr; Back to Energy2D</a>
+
+                    <p class="v2-byline">By Charles Xie <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; March 12, 2026</p>
+
+                    <p>Watch smoke curl off a candle, or cream poured into coffee, or steam off a cup. For a moment
+                    the flow is glassy and orderly &mdash; then it trips, folds over on itself, and breaks into a
+                    tangle of swirls. You have just seen the transition from
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Laminar_flow">laminar</a>
+                    to <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Turbulence">turbulent</a>
+                    flow, and it is happening all around you: in the air over an airplane wing, the water in a pipe, the
+                    blood in your arteries, and the weather over your head.</p>
+
+                    <p>The simulation below lets you trigger that transition on demand. Press <strong>Run</strong> and
+                    compare the four channels.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://energy2d.intofuture.org/view/7Pklv3daBeWVXosXqGbc"
+                                id="e2d-frame1" allowfullscreen="true" title="Laminar vs. Turbulent Flow simulation"></iframe>
+                        <figcaption>
+                            Live simulation &mdash; press <strong>Run</strong> to start, or <a href="javascript:openFullscreen1();">view fullscreen</a>.
+                        </figcaption>
+                    </figure>
+
+                    <h2>What you're watching</h2>
+
+                    <p>Four channels are stacked one above the other. Each has the same warm source on the left, and a
+                    blower that pushes air past it &mdash; but the wind speed rises from the top channel to the bottom.
+                    In the slowest channel, heat is carried downstream as a clean, smooth ribbon: this is
+                    <strong>laminar flow</strong>, where the fluid moves in tidy parallel layers that glide past one
+                    another without mixing. As the speed climbs in the lower channels, that ribbon starts to ripple,
+                    then to curl, and finally to shatter into <strong>turbulent</strong> eddies that fling warm fluid up,
+                    down, and across the channel. The thermometers and the built-in plots of temperature, flow speed,
+                    and heat flux let you measure the difference rather than just admire it &mdash; same heat source,
+                    very different mixing.</p>
+
+                    <h2>The Reynolds number</h2>
+
+                    <p>Whether a flow stays smooth or turns chaotic comes down to a tug-of-war between two forces:
+                    <em>inertia</em>, which carries the fluid forward and amplifies any little wobble, and
+                    <em>viscosity</em>, the internal friction that smooths wobbles out. The ratio of the two is captured
+                    in a single famous quantity, the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Reynolds_number">Reynolds number</a>.
+                    When it is low &mdash; slow speeds, thick fluids, narrow gaps &mdash; viscosity wins and the flow is
+                    laminar. When it is high &mdash; fast speeds, thin fluids, wide spaces &mdash; inertia wins and the
+                    flow goes turbulent. That is exactly the knob the simulation turns: raising the wind speed down the
+                    channels raises the Reynolds number until smooth flow can no longer hold together, which is why the
+                    note in the model reads <em>"stronger wind is more likely to cause turbulent flow."</em></p>
+
+                    <p>Turbulence itself remains one of the great unsolved problems of classical physics. The equations
+                    that govern fluids, the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations">Navier&ndash;Stokes equations</a>,
+                    are easy to write down and notoriously hard to solve once the swirls set in &mdash; so much so that a
+                    million-dollar prize still stands for proving some of their basic properties.</p>
+
+                    <h2>Why it matters</h2>
+
+                    <p>The laminar&ndash;turbulent line is one of the most consequential in engineering, and the catch is
+                    that neither side is simply "better." Turbulence dramatically increases drag, so aircraft and car
+                    designers fight to keep flow laminar over wings and bodies to save fuel. But turbulence also mixes
+                    far more effectively, so the same engineers <em>want</em> it inside
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_exchanger">heat exchangers</a>,
+                    combustion chambers, and chemical reactors, where rapid mixing means faster heat transfer and more
+                    complete reactions. Knowing where the transition happens &mdash; and being able to nudge it &mdash;
+                    is the whole game.</p>
+
+                    <h2>Heat and flow together</h2>
+
+                    <p>This is where Energy2D is in its element. It was built to couple
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_transfer">heat transfer</a>
+                    with <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computational_fluid_dynamics">fluid flow</a>,
+                    so you don't just see the streamlines &mdash; you see the temperature field riding along with them,
+                    which is what makes the laminar plume and the turbulent mixing so vivid here. And because it all runs
+                    in the browser, the experiment that once needed a wind tunnel and a smoke generator is now a button
+                    press away.</p>
+
+                    <h2>Try it yourself</h2>
+
+                    <p>Run the simulation and watch the top channel stay smooth while the bottom one boils into eddies.
+                    Open it <a href="javascript:openFullscreen1();">fullscreen</a>, then plot the downstream temperatures
+                    to see how much faster the turbulent channels spread their heat. It's chaos you can measure.</p>
+
+                    <a class="v2-backlink" href="energy2d.html">&larr; Back to Energy2D</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
