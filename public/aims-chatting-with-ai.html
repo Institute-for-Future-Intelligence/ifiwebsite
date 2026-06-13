@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doing Science by Chatting with AI &mdash; Institute for Future Intelligence</title>
+    <meta name="description" content="How conversational, agentic AI is lowering the barrier to in-silico science — and where AIMS fits among tools like ChemCrow, Coscientist, and ChatMol.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-pullquote { font-family: var(--font-display); font-size: 1.9rem; line-height: 1.3; color: var(--text); border-left: 4px solid var(--accent); padding: 0.25rem 0 0.25rem 1.25rem; margin: 2rem 0; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="CHAT">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS &middot; Blog</span>
+                <h1>Doing Science by Chatting with AI</h1>
+                <p class="v2-tagline">
+                    Open a browser, type a sentence, and watch real molecular science happen. How
+                    conversational AI is widening the door to discovery &mdash; and where AIMS fits in.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; June 13, 2026</p>
+
+                    <p>For most of history, doing science meant earning your way in. You needed a lab, or a
+                    supercomputer account, or years of training just to ask a question the right way. The
+                    tools of discovery sat behind a high wall, and the price of admission was expertise.</p>
+
+                    <p>That wall is coming down &mdash; and the wrecking ball is a chat box.</p>
+
+                    <p>At AIMS, you can now open a browser, type a sentence in plain English, and watch real
+                    molecular science happen. Ask for a molecule and an AI agent generates it. Ask what happens
+                    when you heat it, and a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular-dynamics</a>
+                    simulation runs right in front of you. Ask which candidate binds best to a protein pocket, and
+                    you can screen them by
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Docking_(molecular)">docking</a>.
+                    No installation, no command line, no PhD required. You describe what you're curious about, and
+                    the <em>in silico</em> engine does the heavy lifting.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=AI%20Example%201"
+                                id="aims-frame1" allowfullscreen="true" title="AIMS AI chat demo"></iframe>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen1();">view fullscreen</a>. Chrome or Edge recommended.
+                        </figcaption>
+                    </figure>
+
+                    <h2>The bottleneck was never curiosity</h2>
+
+                    <p>We think this is a bigger shift than it first appears. The bottleneck in science has rarely
+                    been curiosity &mdash; it's been <strong>access</strong>. The student who wonders why dry ice
+                    forms the crystal it does, the tinkerer who wants to know if a polymer chain will hold, the
+                    citizen scientist with a hunch about a drug-like molecule: historically, all of them hit the
+                    same wall. The simulation existed, but it spoke a language they didn't.</p>
+
+                    <p>Conversational AI changes the language of the wall. Instead of learning the software, you
+                    talk to it.</p>
+
+                    <h2>We won't pretend we invented this</h2>
+
+                    <p>Turning large language models into scientific collaborators is one of the most active
+                    frontiers in the field right now. Systems like
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11116106/">ChemCrow</a>
+                    and Coscientist showed that an AI agent can plan and even physically execute chemistry;
+                    copilots like
+                    <a target="_blank" rel="noopener noreferrer" href="https://aclanthology.org/2024.langmol-1.7.pdf">ChatMol</a>
+                    and others have brought natural language to molecular modeling, and
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.chemistryworld.com/news/ai-agents-set-to-democratise-computational-chemistry/4022465.article">a wave of new platforms</a>
+                    is racing to make computational chemistry conversational. The direction is real, and it's
+                    gathering momentum across academia and industry.</p>
+
+                    <p>What we care about at AIMS is <strong>who gets to come along.</strong> Most of these systems
+                    are built for experts who already live inside the lab. We're building for everyone standing
+                    outside it. That means the science has to be <em>visual</em> &mdash; you should see the atoms
+                    move, not parse a text file. It has to be <em>immediate</em> &mdash; it runs in the browser tab
+                    you already have open. And it has to be <em>forgiving</em> &mdash; you should be able to ask a
+                    naive question and get a real answer, then a better one, without being punished for not knowing
+                    the jargon.</p>
+
+                    <p class="v2-pullquote">When the cost of trying an experiment drops to the cost of typing a
+                    sentence, the number of people who can do science goes up by orders of magnitude.</p>
+
+                    <p>This is what we mean by lowering the barrier to the <em>in silico</em> approach. And when more
+                    people can poke at the molecular world, more of them will notice something nobody was looking
+                    for. That's not just convenience &mdash; that's how the funnel of discovery gets wider at the top.</p>
+
+                    <h2>Chat is the on-ramp, not the autopilot</h2>
+
+                    <p>There's a healthy skepticism that belongs here, and we share it: an AI that sounds confident
+                    is not the same as an AI that's correct, and a simulation you didn't set up yourself is easy to
+                    trust too much. Good conversational science tools have to keep the human in the loop &mdash;
+                    showing their work, exposing the model and the assumptions, and letting you check the AI against
+                    reality.</p>
+
+                    <p>But the on-ramp matters. A generation of scientists grew up being told that the molecular
+                    world was off-limits unless they had the right credentials and the right cluster. We're telling
+                    them something different now: <strong>you can just ask.</strong></p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
