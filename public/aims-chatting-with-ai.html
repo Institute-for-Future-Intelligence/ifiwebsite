@@ -51,7 +51,10 @@
         .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
         .v2-byline a { color: var(--accent); }
         .v2-byline strong { color: var(--text); font-weight: 600; }
-        .v2-pullquote { font-family: var(--font-display); font-size: 1.9rem; line-height: 1.3; color: var(--text); border-left: 4px solid var(--accent); padding: 0.25rem 0 0.25rem 1.25rem; margin: 2rem 0; }
+        .v2-col-main p.v2-pullquote { float: right; width: 40%; margin: 0.5rem 0 1.5rem 48px; font-family: var(--font-display); font-weight: 600; font-size: 2.3rem; line-height: 1.32; color: var(--accent-dark); }
+        .v2-col-main p.v2-pullquote::before { content: '\201C'; display: block; font-size: 4.5rem; line-height: 0.5; color: var(--accent); opacity: 0.4; margin-bottom: 0.3rem; }
+        .v2-col-main .v2-embed { clear: both; }
+        @media (max-width: 720px) { .v2-col-main p.v2-pullquote { float: none; width: auto; margin: 2.5rem 0; text-align: center; } }
     </style>
 </head>
 
@@ -75,6 +78,9 @@
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; June 13, 2026</p>
+
+                    <p class="v2-pullquote">When the cost of trying an experiment drops to the cost of typing a
+                    sentence, the number of people who can do science goes up by orders of magnitude.</p>
 
                     <p>For most of history, doing science meant earning your way in. You needed a lab, or a
                     supercomputer account, or years of training just to ask a question the right way. The
@@ -111,7 +117,7 @@
                     <p>Conversational AI changes the language of the wall. Instead of learning the software, you
                     talk to it.</p>
 
-                    <h2>We won't pretend we invented this</h2>
+                    <h2>Part of a fast-moving field</h2>
 
                     <p>Turning large language models into scientific collaborators is one of the most active
                     frontiers in the field right now. Systems like
@@ -131,9 +137,6 @@
                     you already have open. And it has to be <em>forgiving</em> &mdash; you should be able to ask a
                     naive question and get a real answer, then a better one, without being punished for not knowing
                     the jargon.</p>
-
-                    <p class="v2-pullquote">When the cost of trying an experiment drops to the cost of typing a
-                    sentence, the number of people who can do science goes up by orders of magnitude.</p>
 
                     <p>This is what we mean by lowering the barrier to the <em>in silico</em> approach. And when more
                     people can poke at the molecular world, more of them will notice something nobody was looking
