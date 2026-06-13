@@ -283,6 +283,68 @@ body.page-v2 {
     color: var(--text-subtle);
     text-align: center;
 }
+.v2-col-main .v2-embed-facade {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 640px;
+    padding: 0;
+    border: 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: #0b1020;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+.v2-col-main .v2-embed-facade::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.28);
+    transition: background 0.2s ease;
+}
+.v2-col-main .v2-embed-facade:hover::before,
+.v2-col-main .v2-embed-facade:focus-visible::before {
+    background: rgba(15, 23, 42, 0.12);
+}
+.v2-embed-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 76px;
+    height: 76px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.92);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.35);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+.v2-embed-play::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 15px 0 15px 25px;
+    border-color: transparent transparent transparent #fff;
+}
+.v2-embed-facade:hover .v2-embed-play,
+.v2-embed-facade:focus-visible .v2-embed-play {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: rgba(99, 102, 241, 1);
+}
+.v2-embed-hint {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 18px;
+    text-align: center;
+    color: #fff;
+    font-size: 0.95rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
 
 /* --- Join / callout block inside main content ------------------------ */
 .v2-join {

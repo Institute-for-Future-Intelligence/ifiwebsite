@@ -40,8 +40,32 @@
     <script src="js/main.js"></script>
 
     <script>
-      function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
-      function openFullscreen2() { var e = document.getElementById("aims-frame2"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      // Click-to-load: replace a poster facade with the live AIMS iframe only when the user asks for it.
+      function activateEmbed(facade) {
+        if (!facade || facade.dataset.activated) return document.getElementById(facade && facade.dataset.frameId);
+        var iframe = document.createElement("iframe");
+        iframe.src = facade.dataset.embedSrc;
+        iframe.id = facade.dataset.frameId;
+        iframe.title = facade.dataset.frameTitle || "";
+        iframe.setAttribute("allowfullscreen", "true");
+        facade.dataset.activated = "1";
+        facade.parentNode.replaceChild(iframe, facade);
+        return iframe;
+      }
+      document.addEventListener("click", function (ev) {
+        var facade = ev.target.closest && ev.target.closest(".v2-embed-facade");
+        if (facade) activateEmbed(facade);
+      });
+      function fullscreenFrame(id) {
+        var e = document.getElementById(id);
+        if (!e) e = activateEmbed(document.querySelector('.v2-embed-facade[data-frame-id="' + id + '"]'));
+        if (e) (e.requestFullscreen || e.webkitRequestFullscreen || e.msRequestFullscreen).call(e);
+      }
+      function openFullscreen1() { fullscreenFrame("aims-frame1"); }
+      function openFullscreen2() { fullscreenFrame("aims-frame2"); }
+      function openFullscreen3() { fullscreenFrame("aims-frame3"); }
+      function openFullscreen4() { fullscreenFrame("aims-frame4"); }
+      function openFullscreen5() { fullscreenFrame("aims-frame5"); }
     </script>
 
     <style>
@@ -62,9 +86,9 @@
                 <span class="v2-eyebrow">AI × Molecular Sciences</span>
                 <h1>AIMS</h1>
                 <p class="v2-tagline">
-                    Artificial Intelligence for Molecular Sciences &mdash; a web platform that
-                    puts interactive molecular dynamics, AI-assisted design, and data-science
-                    analytics in the hands of anyone curious enough to open a browser.
+                    Artificial Intelligence for Molecular Sciences &mdash; a Web-based, AI-native
+                    platform that puts powerful scientific tools in the hands of anyone interested
+                    in exploring the molecular world.
                 </p>
                 <div class="v2-cta-row">
                     <a class="v2-button v2-button--primary" target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">Launch AIMS</a>
@@ -75,19 +99,16 @@
         <section class="v2-section" id="overview" data-reveal>
             <div class="v2-grid">
                 <div class="v2-col-main">
-                    <h2>Connecting bits and atoms</h2>
                     <p>
                         The material world is made of atoms and molecules. In recent decades,
                         data and computation &mdash; the <em>in silico</em> engine &mdash; have
-                        transformed molecular science. AIMS sits at the strategic intersection
+                        transformed molecular sciences. AIMS sits at the strategic intersection
                         of artificial intelligence and molecular sciences, making that intersection
-                        accessible in the browser.
-                    </p>
-                    <p>
-                        AIMS currently supports many types of projects. In all of them, agentic AI can
-                        <a href="aims-ai-design-assistant.html">generate novel molecules and materials</a>
-                        that can then be investigated with interactive molecular simulations, including
-                        molecular dynamics and molecular docking.
+                        accessible in the browser. AIMS currently supports many types of projects.
+                        In all of them, <strong>agentic AI</strong> supports the generation, simulation, and analysis
+                        of novel molecules and materials that address problems in the real world.
+                        Citizen science is made possible by greatly lowering the barrier of the
+                        <em>in silico</em> approach with AI chat.
                     </p>
 
                     <h2>Molecular modeling</h2>
@@ -100,8 +121,14 @@
                     </p>
 
                     <figure class="v2-embed">
-                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Water%20Molecules%20in%20a%20Carbon%20Nanotube"
-                                id="aims-frame1" allowfullscreen="true" title="AIMS molecular dynamics demo"></iframe>
+                        <button type="button" class="v2-embed-facade"
+                                data-embed-src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Water%20Molecules%20in%20a%20Carbon%20Nanotube"
+                                data-frame-id="aims-frame1" data-frame-title="AIMS molecular dynamics demo"
+                                style="background-image:url('image/aims-poster-water-nanotube.png')"
+                                aria-label="Load interactive molecular dynamics model">
+                            <span class="v2-embed-play" aria-hidden="true"></span>
+                            <span class="v2-embed-hint">Click to load interactive model</span>
+                        </button>
                         <figcaption>
                             Live model &mdash; <a href="javascript:openFullscreen1();">view fullscreen</a>.
                             Chrome or Edge recommended.
@@ -133,15 +160,21 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Protease">protease</a>
                         from a collection of small molecules using AIMS. Interactive
                         <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Docking_(molecular)">molecular
-                        docking</a> is under development. Filters implementing
+                        docking</a> allows users to test candidate molecules against a
+                        binding pocket of a target protein. Filters implementing
                         <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Lipinski%27s_rule_of_five">Lipinski's
-                        Rule of Five</a> operate in the hyperspace of molecular properties,
-                        as shown below.
+                        Rule of Five</a> operate in the hyperspace of molecular properties.
                     </p>
 
                     <figure class="v2-embed">
-                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=HIV-1%20Protease%20Inhibitor"
-                                id="aims-frame2" allowfullscreen="true" title="AIMS drug-discovery demo"></iframe>
+                        <button type="button" class="v2-embed-facade"
+                                data-embed-src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=HIV-1%20Protease%20Inhibitor"
+                                data-frame-id="aims-frame2" data-frame-title="AIMS drug-discovery demo"
+                                style="background-image:url('image/aims-poster-hiv-protease.png')"
+                                aria-label="Load interactive drug-discovery model">
+                            <span class="v2-embed-play" aria-hidden="true"></span>
+                            <span class="v2-embed-hint">Click to load interactive model</span>
+                        </button>
                         <figcaption>
                             Live model &mdash; <a href="javascript:openFullscreen2();">view fullscreen</a>.
                             Chrome or Edge recommended.
@@ -150,13 +183,70 @@
 
 
                     <h2>Crystal Builder</h2>
-                    <p>Coming soon.
+                    <p>
+                        Build and explore four types of crystals &mdash; ionic, covalent, metallic, and
+                        molecular. The example below lets you assemble simple molecular crystals such as
+                        dry ice and methane and view their lattices in 3D.
+                    </p>
+
+                    <figure class="v2-embed">
+                        <button type="button" class="v2-embed-facade"
+                                data-embed-src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Simple%20Molecular%20Crystals"
+                                data-frame-id="aims-frame3" data-frame-title="AIMS crystal builder demo"
+                                style="background-image:url('image/aims-poster-crystal-builder.png')"
+                                aria-label="Load interactive crystal builder model">
+                            <span class="v2-embed-play" aria-hidden="true"></span>
+                            <span class="v2-embed-hint">Click to load interactive model</span>
+                        </button>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen3();">view fullscreen</a>.
+                            Chrome or Edge recommended.
+                        </figcaption>
+                    </figure>
 
                     <h2>Polymer Builder</h2>
-                    <p>Coming soon.
+                    <p>
+                        Chain monomers together to design polymers and copolymers. The example below builds
+                        chains from common monomers such as ethylene, styrene, and butadiene and lets you
+                        inspect the resulting macromolecules in 3D.
+                    </p>
+
+                    <figure class="v2-embed">
+                        <button type="button" class="v2-embed-facade"
+                                data-embed-src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Copolymers"
+                                data-frame-id="aims-frame5" data-frame-title="AIMS polymer builder demo"
+                                style="background-image:url('image/aims-poster-polymers.png')"
+                                aria-label="Load interactive polymer builder model">
+                            <span class="v2-embed-play" aria-hidden="true"></span>
+                            <span class="v2-embed-hint">Click to load interactive model</span>
+                        </button>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen5();">view fullscreen</a>.
+                            Chrome or Edge recommended.
+                        </figcaption>
+                    </figure>
 
                     <h2>Semiconductor Design</h2>
-                    <p>Coming soon.
+                    <p>
+                        Explore the crystal structures that power modern electronics. The example below
+                        builds the diamond-cubic lattices of silicon and germanium, the foundational
+                        materials of the semiconductor industry.
+                    </p>
+
+                    <figure class="v2-embed">
+                        <button type="button" class="v2-embed-facade"
+                                data-embed-src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Semiconductors"
+                                data-frame-id="aims-frame4" data-frame-title="AIMS semiconductor design demo"
+                                style="background-image:url('image/aims-poster-semiconductors.png')"
+                                aria-label="Load interactive semiconductor design model">
+                            <span class="v2-embed-play" aria-hidden="true"></span>
+                            <span class="v2-embed-hint">Click to load interactive model</span>
+                        </button>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen4();">view fullscreen</a>.
+                            Chrome or Edge recommended.
+                        </figcaption>
+                    </figure>
 
                 </div>
 
@@ -167,22 +257,10 @@
                         </div>
 
                         <div class="v2-sidebar-section">
-                            <h3 class="v2-sidebar-heading">Entrance</h3>
+                            <h3 class="v2-sidebar-heading">Entrances</h3>
                             <a class="v2-sidebar-link" target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a>
-                        </div>
-
-                        <div class="v2-sidebar-section">
-                            <h3 class="v2-sidebar-heading">Podcast</h3>
-                            <audio controls>
-                                <source src="podcast/aims.mp3" type="audio/mpeg">
-                            </audio>
-                        </div>
-
-                        <div class="v2-sidebar-section">
-                            <h3 class="v2-sidebar-heading">Tutorials</h3>
-                            <ul class="v2-sidebar-links">
-                                <li><a href="aims-user-guide.pdf">User Guide</a></li>
-                            </ul>
+                            <a class="v2-sidebar-link" target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org/commons">Commons</a>
+                            <a class="v2-sidebar-link" target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org/tutorial">Tutorial</a>
                         </div>
 
                         <div class="v2-sidebar-section">
@@ -227,13 +305,6 @@
                             </ul>
                         </div>
                         -->
-
-                        <div class="v2-sidebar-section">
-                            <h3 class="v2-sidebar-heading">Projects</h3>
-                            <ul class="v2-sidebar-links">
-                                <li><a href="add.html">Adventure in Drug Discovery</a></li>
-                            </ul>
-                        </div>
 
                         <div class="v2-sidebar-section">
                             <h3 class="v2-sidebar-heading">Legal</h3>
