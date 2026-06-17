@@ -154,33 +154,28 @@
                         <div class="v2-chat-row v2-chat-ai">
                             <div class="v2-chat-avatar"><i class="fa fa-flask" aria-hidden="true"></i></div>
                             <div class="v2-chat-bubble">
-                            <p>Here are the results! I cleared the lab, loaded benzene, and computed its IR spectrum.
-                            Here's a summary:</p>
-                            <p><strong>&#9989; Actions performed</strong></p>
-                            <ul>
-                                <li><strong>Cleared lab</strong> &mdash; removed the quaterphenyl molecule.</li>
-                                <li><strong>Loaded benzene</strong> into the simulation chamber.</li>
-                                <li>Recorded <strong>2.0 ps</strong> of dipole-current trajectory (1005 samples).</li>
-                                <li><strong>Computed IR spectrum</strong> &mdash; 3 peaks detected.</li>
-                            </ul>
-                            <p><strong>&#128202; IR spectrum peaks</strong> (wave numbers &amp; relative intensities)</p>
+                            <p>Here are the results of the IR spectrum for benzene (C&#8326;H&#8326;):</p>
+                            <p><strong>&#9989; Done</strong> &mdash; Clear lab &rarr; Load benzene &rarr; Record IR trajectory &rarr; Compute IR spectrum</p>
                             <table class="v2-chat-table">
                                 <thead>
-                                    <tr><th>Peak (cm&#8315;&#185;)</th><th>Relative intensity</th><th>Consistent with</th></tr>
+                                    <tr><th>Wavenumber (cm&#8315;&#185;)</th><th>Relative intensity</th><th>Assignment</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>2411</td><td>1.00 (strongest)</td><td>C&ndash;H stretching modes &mdash; somewhat red-shifted from the typical ~3030 cm&#8315;&#185; range, likely due to the classical force field's harmonic parameters</td></tr>
-                                    <tr><td>1694</td><td>0.40 (moderate)</td><td>Aromatic C=C ring stretching (~1600 cm&#8315;&#185;) &mdash; consistent with the ring-breathing modes of benzene</td></tr>
-                                    <tr><td>684</td><td>0.07 (weak)</td><td>Aromatic C&ndash;H out-of-plane bending (~670&ndash;900 cm&#8315;&#185;) &mdash; a hallmark of benzene's hydrogen wagging</td></tr>
+                                    <tr><td>3062</td><td>1.000 (strongest)</td><td><strong>C&ndash;H aromatic stretch</strong> &mdash; the characteristic sp&sup2; C&ndash;H stretching modes of the benzene ring.</td></tr>
+                                    <tr><td>1629</td><td>0.218</td><td><strong>C=C ring stretch</strong> &mdash; aromatic ring breathing / C&ndash;C in-plane deformation.</td></tr>
+                                    <tr><td>1075</td><td>0.060</td><td><strong>C&ndash;H in-plane bending</strong> &mdash; weaker &delta;(C&ndash;H) vibrations.</td></tr>
+                                    <tr><td>684</td><td>0.153</td><td><strong>C&ndash;H out-of-plane bending</strong> &mdash; ring deformation / wagging modes of the aromatic hydrogens.</td></tr>
                                 </tbody>
                             </table>
-                            <p><strong>Interpretation.</strong> The spectrum shows the expected C&ndash;H stretching (strongest),
-                            C=C ring stretching, and C&ndash;H out-of-plane bending signatures characteristic of benzene. The
-                            shifts from literature values are typical for classical MD with heuristic force fields &mdash; the
-                            assignments should be considered consistent with these vibrational modes rather than exact.</p>
-                            <p class="v2-chat-note">&#9888; Note: Benzene is a non-polar, symmetric molecule, so its partial
-                            charges may be zero or near-zero depending on the force field, which can produce a weak or absent
-                            IR signal. The peaks above indicate some partial charges were present in this model.</p>
+                            <p><strong>Interpretation.</strong> The simulated IR spectrum matches the known experimental
+                            fingerprint of benzene:</p>
+                            <ul>
+                                <li>The very strong ~3060 cm&#8315;&#185; band is the hallmark of aromatic C&ndash;H stretches.</li>
+                                <li>The ~1600 cm&#8315;&#185; region shows the ring's skeletal C=C vibrations.</li>
+                                <li>The ~700 cm&#8315;&#185; out-of-plane C&ndash;H bend is also a classic signature of mono-substituted (or unsubstituted) benzene.</li>
+                            </ul>
+                            <p class="v2-chat-note">&#9888; Note: These are classical MD results using a heuristic force field
+                            &mdash; the assignments are consistent with literature values but should be taken as qualitative.</p>
                             </div>
                         </div>
                         </div>
