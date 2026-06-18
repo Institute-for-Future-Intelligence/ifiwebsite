@@ -121,7 +121,7 @@
                     <p>At AIMS, you can now open a browser, type a sentence in plain English, and watch real
                     molecular science happen. Ask for a molecule and an AI agent generates it. Ask what happens
                     when you heat it, and a
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular-dynamics</a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a>
                     simulation runs right in front of you. Ask which candidate binds best to a protein pocket, and
                     you can screen them by
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Docking_(molecular)">docking</a>.
@@ -139,7 +139,7 @@
                     <h2>What this looks like in practice</h2>
 
                     <p>Here's a real exchange. A user types one sentence; the AI agent clears the workspace, fetches
-                    a molecule, runs a short molecular-dynamics trajectory, and turns the result into a spectrum &mdash;
+                    a molecule, runs a short molecular dynamics trajectory, and turns the result into a spectrum &mdash;
                     then explains what the peaks mean and where to be skeptical.</p>
 
                     <div class="v2-chat">
@@ -181,10 +181,12 @@
                         </div>
                     </div>
 
-                    <p>Notice what the agent does <em>besides</em> the calculation. It reports exactly which actions it took,
-                    shows the trajectory length it used, and &mdash; crucially &mdash; flags where the classical force field
-                    bends the answer away from the textbook numbers. That last paragraph is the part that matters most: the
-                    tool is teaching you to read its own output critically, not asking you to take it on faith.</p>
+                    <p>Notice what the agent does <em>besides</em> the calculation. It reports exactly which actions it
+                    took &mdash; clear the lab, load benzene, record the trajectory, compute the spectrum &mdash; assigns
+                    each peak to a physical vibration, and checks the result against the known experimental fingerprint.
+                    Crucially, its closing note flags that these are classical MD results from a heuristic force field,
+                    to be read as qualitative rather than exact. That caveat is the part that matters most: the tool is
+                    teaching you to read its own output critically, not asking you to take it on faith.</p>
 
                     <h2>The bottleneck was never curiosity</h2>
 

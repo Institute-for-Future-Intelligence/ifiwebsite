@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Building Crystals Using AI â€” Institute for Future Intelligence</title>
-    <meta name="description" content="AIMS uses AI to build crystals of Cu, Ag, and Au as well as their alloys including Cu3Au, CuAu, and Au3Cu.">
+    <meta name="description" content="AIMS uses AI to build all four fundamental types of crystals in a single step: metallic, covalent, molecular, and ionic.">
 
     <style>
         @import url("css/system.base.css");
@@ -41,6 +41,9 @@
 
     <script>
       function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      function openFullscreen2() { var e = document.getElementById("aims-frame2"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      function openFullscreen3() { var e = document.getElementById("aims-frame3"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      function openFullscreen4() { var e = document.getElementById("aims-frame4"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
     </script>
 
     <style>
@@ -73,7 +76,7 @@
                 <span class="v2-eyebrow">AIMS</span>
                 <h1>Building Crystals Using AI</h1>
                 <p class="v2-tagline">
-                    AI can help AIMS users construct crystals of Cu, Ag, and Au &mdash; and their alloys such as Cu<sub>3</sub>Au, CuAu, and Au<sub>3</sub>Cu &mdash; in a single step.
+                    Describe a crystal in plain language and AI assembles it atom by atom &mdash; then heat it, melt it, and measure what holds it together.
                 </p>
             </div>
         </header>
@@ -83,15 +86,69 @@
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
 
-                    <p>The following project shows AI can be used to build crystals of Cu, Ag, and Au, as well as their alloys such as Cu<sub>3</sub>Au, CuAu, and Au<sub>3</sub>Cu.</p>
+                    <p>Crystalline solids fall into four great families, set apart by the kind of bond that locks their building blocks in place. Type a request in plain language and AIMS uses AI to assemble the lattice for you &mdash; no model-building by hand, no setup files, no PhD required. The four live models below cover the whole set: metallic, covalent, molecular, and ionic crystals, each conjured in a single step.</p>
+
+                    <p>But building the crystal is only where the fun begins. Every lattice you see here is a live, simulation-ready model &mdash; ready to be heated, cooled, probed, and measured. Scroll past the four examples to see what happens once the atoms start to move.</p>
+
+                    <h2>Metallic crystals</h2>
+
+                    <p>Nine metallic crystals in one shot: the three binary systems Cu&ndash;Ag, Cu&ndash;Au, and Ag&ndash;Au, each frozen at three compositions (75%, 50%, and 25%). The Cu&ndash;Au family alone yields the classic ordered alloys Cu<sub>3</sub>Au, CuAu, and Au<sub>3</sub>Cu &mdash; metal atoms bound into a regular lattice by a shared sea of electrons.</p>
 
                     <figure class="v2-embed">
-                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Cu-Ag-Au%20Crystals"
-                                id="aims-frame1" allowfullscreen="true" title="Cu-Ag-Au crystals demo"></iframe>
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Intermetallics"
+                                id="aims-frame1" allowfullscreen="true" title="Metallic crystals demo"></iframe>
                         <figcaption>
                             Live model &mdash; <a href="javascript:openFullscreen1();">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
+
+                    <h2>Covalent crystals</h2>
+
+                    <p>Atoms stitched into a continuous network by strong, directional covalent bonds &mdash; the same rigid, interlocking architecture that makes materials like diamond and silicon carbide famously hard and high-melting.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Compound%20Covalent%20Crystals"
+                                id="aims-frame2" allowfullscreen="true" title="Covalent crystals demo"></iframe>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen2();">view fullscreen</a>. Chrome or Edge recommended.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Molecular crystals</h2>
+
+                    <p>Whole molecules stacked into an orderly lattice and held in place by gentle intermolecular forces rather than chemical bonds &mdash; which is exactly why molecular crystals tend to be soft and quick to melt.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Simple%20Molecular%20Crystals"
+                                id="aims-frame3" allowfullscreen="true" title="Molecular crystals demo"></iframe>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen3();">view fullscreen</a>. Chrome or Edge recommended.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Ionic crystals</h2>
+
+                    <p>The alkali halides &mdash; table salt and its chemical cousins &mdash; where positive and negative ions snap into an alternating lattice under the relentless pull of electrostatic attraction.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Alkali%20Halides"
+                                id="aims-frame4" allowfullscreen="true" title="Ionic crystals demo"></iframe>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen4();">view fullscreen</a>. Chrome or Edge recommended.
+                        </figcaption>
+                    </figure>
+
+                    <h2>From structure to behavior</h2>
+
+                    <p>Generating a lattice is just the opening move. Every crystal above is a live, simulation-ready model, so the moment it exists you can put it to the test. Launch a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a>
+                    run and watch the atoms jitter with thermal motion; crank up the temperature until the lattice softens, buckles, and finally melts; or cool a hot liquid and watch order crystallize back out of the chaos.</p>
+
+                    <p>Because the four families are bonded so differently, they respond in tellingly different ways when you push on them &mdash; the molecular crystal slumps at a gentle temperature while the covalent network barely flinches, and the brittle ionic lattice gives way along clean planes where the metallic one simply bends. Seeing those contrasts unfold side by side turns an abstract classification into something you can actually watch.</p>
+
+                    <p>AIMS also turns each run into numbers. Track the temperature at which a crystal loses its order, read off how the atoms are spaced with a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radial_distribution_function">radial distribution function</a>,
+                    follow the energy and pressure as conditions change, and compare the results across all four families. And throughout, the AI narrates what it did and what the data mean &mdash; while reminding you where a classical force field should be read as a qualitative guide rather than the final word.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>
