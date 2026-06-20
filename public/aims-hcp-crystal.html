@@ -96,6 +96,14 @@
                         </figcaption>
                     </figure>
 
+                    <h2>How the Atoms Are Arranged</h2>
+
+                    <p>Hexagonal close packing builds a crystal from flat hexagonal layers of atoms stacked in an ABAB&hellip; sequence, where the atoms of every third layer sit directly above the first. Like FCC, it is a close-packed structure: each atom touches twelve neighbors and the atoms fill about 74% of space. The two differ only in their stacking order &mdash; FCC repeats as ABCABC, HCP as ABAB. Because HCP has fewer equivalent planes along which atoms can slip, metals such as magnesium, titanium, zinc, and cobalt are often harder to deform than their FCC cousins, and their properties can depend strongly on direction.</p>
+
+                    <h2>Simulated with the Embedded-Atom Method</h2>
+
+                    <p>Metallic bonding cannot be captured by simple pairwise springs, because the strength of the bond between two atoms depends on how many other atoms surround them. This simulation therefore uses <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Embedded_atom_model">embedded-atom method (EAM) force fields</a>, in which each atom's energy includes a term for embedding it in the local electron density contributed by its neighbors. EAM potentials reproduce the elastic and structural properties of real metals far more faithfully than pair potentials, which is what makes a realistic molecular dynamics simulation of HCP metals possible here.</p>
+
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>
             </div>
