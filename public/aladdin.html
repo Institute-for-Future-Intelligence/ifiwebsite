@@ -42,8 +42,18 @@
     <script>
       function openFullscreen() {
         var e = document.getElementById("aladdin-frame");
-        (e.requestFullscreen || e.webkitRequestFullscreen || e.msRequestFullscreen).call(e);
+        var req = e.requestFullscreen || e.webkitRequestFullscreen || e.msRequestFullscreen;
+        if (req) { req.call(e); }
       }
+      document.addEventListener("DOMContentLoaded", function () {
+        var link = document.getElementById("aladdin-fullscreen-link");
+        if (link) {
+          link.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            openFullscreen();
+          });
+        }
+      });
     </script>
 
     <style>
@@ -68,6 +78,7 @@
                 </p>
                 <div class="v2-cta-row">
                     <a class="v2-button v2-button--primary" target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/">Launch Aladdin</a>
+                    <a class="v2-button v2-button--primary" target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?map=true&viewonly=true">User submissions</a>
                 </div>
             </div>
         </header>
@@ -89,9 +100,9 @@
 
                     <figure class="v2-embed">
                         <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Tucson%20Electric%20Power%27s%20Linear%20Fresnel%20Reflectors"
-                                id="aladdin-frame" allowfullscreen="true" title="Aladdin live demo"></iframe>
+                                id="aladdin-frame" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" title="Aladdin live demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen();">view fullscreen</a>.
+                            Live model &mdash; <a id="aladdin-fullscreen-link" href="#">view fullscreen</a>.
                             Tucson Electric Power's Linear Fresnel Reflectors.
                         </figcaption>
                     </figure>
