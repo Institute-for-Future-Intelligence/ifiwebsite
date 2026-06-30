@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putting Wind Turbines on Hills — Institute for Future Intelligence</title>
+    <meta name="description" content="Modeling a ridge-top wind farm in Aladdin on real terrain elevation and measured wind data to see why hills are some of the best places to harvest the wind.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-article-audio { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.25rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: 0.75rem; margin: 0 0 2rem; }
+        .v2-article-audio-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+        .v2-article-audio audio { width: min(100%, 420px); }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="HILLS">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin</span>
+                <h1>Putting Wind Turbines on Hills</h1>
+                <p class="v2-tagline">
+                    Modeling a ridge-top wind farm in Aladdin on real terrain elevation and measured wind data to see why hills are some of the best places to harvest the wind.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>If you have ever driven through a mountain pass and seen rows of wind turbines marching along the ridgelines, you have witnessed one of the oldest tricks in renewable energy: hills make wind. Terrain squeezes and lifts the air flowing over it, so the wind near the top of a hill is faster &mdash; and steadier &mdash; than the wind down in the valley. Because the power available in the wind grows with the <em>cube</em> of its speed, even a modest gain in wind speed translates into a large gain in electricity. Our Aladdin CAD software, which incorporates Google Maps and real elevation data to provide an "engineering canvas" for drawing real-world projects, lets anyone lay out a wind farm on actual terrain and estimate how much energy it would generate. In this article, we will show you this capability by modeling a cluster of turbines on the hills of the Tehachapi Pass in California.</p>
+
+                    <h2>Why hills make good wind farms</h2>
+
+                    <p>When a moving body of air meets a hill, it cannot stop &mdash; it has to speed up to get over the obstacle. This "terrain speed-up" effect can raise the wind speed near the summit well above the speed of the undisturbed flow upwind. At the same time, climbing higher lifts the rotor out of the rough, slow, turbulent air that drags near the ground and into the smoother, faster air aloft. The two effects work together, which is why ridgelines, mesas, and mountain passes are some of the most productive onshore wind sites in the world. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tehachapi_Pass_Wind_Farm">Tehachapi Pass Wind Farm</a> in Kern County, California &mdash; one of the first large-scale wind developments in the United States &mdash; exists for exactly this reason: the pass funnels strong, reliable winds between the Sierra Nevada and the Mojave Desert.</p>
+
+                    <p>The flip side is that hilly terrain is unforgiving to design by intuition alone. A turbine placed a little too low on a slope, or tucked into the wind shadow of the hill in front of it, can underperform a neighbor only a few hundred meters away. To site turbines well, you need to see the land in three dimensions and place each machine where the wind actually is. That is what a 3D modeling tool is for.</p>
+
+                    <h2>Building the terrain in Aladdin</h2>
+
+                    <p>Aladdin pulls a real digital elevation model (DEM) for the chosen location, so the ground under your design is the actual ground. For this example we centered the site on the hills near Tehachapi (about 35.12&deg;N, 118.31&deg;W) and let Aladdin drape a one-kilometer-square parcel of satellite imagery over the imported elevation grid. The relief across the parcel spans roughly 300 meters from the valley floors to the hilltops, giving us a faithful set of ridges to work with rather than a flat, idealized plane.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-wind-turbines-on-hills.png" alt="A wind farm modeled on real hilly terrain in Aladdin">
+                        <figcaption>Nineteen wind turbines arranged along a ridgeline on real terrain in Aladdin.</figcaption>
+                    </figure>
+
+                    <p>On this terrain we placed nineteen horizontal-axis wind turbines and aligned them along the crest of a ridge using a reference line, so the spacing follows the high ground instead of a straight grid. Each turbine is a 1.5-megawatt machine with a 77-meter rotor (38.5-meter blades) on an 80-meter tower, for a tip height of about 118 meters &mdash; a typical utility-scale configuration. Nineteen of them give the site a nameplate capacity of roughly 28.5 megawatts. Every turbine can be selected and edited individually, so its hub height, rotor size, rated power, and power-curve parameters are all yours to change.</p>
+
+                    <h2>Estimating the wind resource</h2>
+
+                    <p>Knowing the layout is only half the problem; you also need to know the wind. Aladdin draws on wind-climate data from the <a target="_blank" rel="noopener noreferrer" href="https://globalwindatlas.info/">Global Wind Atlas</a> to characterize how often the wind blows, how hard, and from which direction at the chosen site. The wind speed is described by a Weibull distribution &mdash; here with a mean of about 4.5 meters per second and a shape factor near 2.2 at the reference height &mdash; and the direction is summarized as a wind rose split into twelve sectors. At this location the prevailing winds come from the south and south-southwest, exactly the kind of dominant direction you want to align a ridgeline against.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-wind-turbines-on-hills-windrose.png" alt="Wind rose for the modeled site">
+                        <figcaption>The wind rose shows the prevailing wind blowing from the south and south-southwest.</figcaption>
+                    </figure>
+
+                    <p>The resource is not constant through the year. The monthly mean wind speeds at this site peak in the spring &mdash; near 5.8 meters per second in April &mdash; and dip in late summer to around 4.2 meters per second. Capturing this seasonality matters, because a wind farm's value depends not just on its annual total but on whether it produces when the grid needs it.</p>
+
+                    <h2>Simulating the energy output</h2>
+
+                    <p>With the terrain, the layout, and the wind resource in place, Aladdin can estimate how much electricity the farm would produce. Each turbine converts wind to power along a power curve defined by four numbers: it starts generating at a cut-in speed of 3.5 meters per second, ramps up to its full 1.5-megawatt rated output at 12 meters per second, holds that output as the wind strengthens, and shuts down for safety at a cut-out speed of 25 meters per second. Combining the power curve with the Weibull wind distribution sector by sector yields the expected energy for each machine, and summing over all nineteen turbines gives the farm's annual output.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-wind-turbines-on-hills-yield.png" alt="Annual energy yield chart for the wind farm">
+                        <figcaption>Aladdin reports the estimated monthly and annual energy yield for the whole farm.</figcaption>
+                    </figure>
+
+                    <p>Because the model lives on real terrain, you can experiment the way a real developer would: drag a turbine uphill and watch its expected yield rise, thin out machines that crowd one another, or test a taller tower to reach faster wind. The point is not a single magic number but the ability to compare designs honestly, on the same ground and the same wind data.</p>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&title=Wind%20Turbines%20on%20Hills">View and edit the wind-turbines-on-hills model</a>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>Wind energy is shaped by the land it blows over. The same hill that blocks your view can double the power in the air just above it &mdash; but only if a turbine is placed where that air actually flows. Aladdin lets anyone design a wind farm on the real shape of the earth, drive it with measured wind data, and examine how it might perform using <a target="_blank" rel="noopener noreferrer" href="aladdin-solar-radiation-benchmarks.html">accurate simulations</a>. As Aladdin works in the browser, users can easily share their projects with stakeholders via social networks. With enough people becoming interested in a project, it may eventually turn into actions that change the world.</p>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
