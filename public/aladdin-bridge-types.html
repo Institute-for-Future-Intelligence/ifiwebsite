@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Ways to Cross a River — Institute for Future Intelligence</title>
+    <meta name="description" content="A tour of the five great bridge forms — girder, truss, arch, cable-stayed, and suspension — built side by side in Aladdin.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) {
+        var elem = document.getElementById(id);
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        }
+      }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-article-audio { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.25rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: 0.75rem; margin: 0 0 2rem; }
+        .v2-article-audio-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+        .v2-article-audio audio { width: min(100%, 420px); }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="FORMS">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin</span>
+                <h1>Five Ways to Cross a River</h1>
+                <p class="v2-tagline">
+                    A tour of the five great bridge forms &mdash; girder, truss, arch, cable-stayed, and suspension &mdash; built side by side in Aladdin.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>Every bridge answers the same question &mdash; how do you get from one side to the other? &mdash; but there is more than one good answer, and the answers do not look alike. A short farm overpass, a railway across a wide firth, a road over a deep canyon, and a highway across a mile of open water call for fundamentally different <em>shapes</em>. Engineers have converged on a handful of great structural forms, each one a different strategy for turning the weight of a roadway into forces the ground can absorb. Aladdin, our web-based engineering design tool, lets you build all of them and set them side by side. Below is exactly that: the five bridge forms Aladdin supports &mdash; girder, truss, arch, cable-stayed, and suspension &mdash; drawn at the same span, over the same water, so you can compare their silhouettes directly. Explore the model, then read on for what makes each form tick and when you would reach for it.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Bridge%20Types" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame" width="100%" height="600px" title="Aladdin window"></iframe>
+                        <figcaption>The five bridge forms at the same span, live in Aladdin &mdash; drag to orbit, scroll to zoom, and click any bridge to inspect it. <a href="javascript:openFullscreen('aladdin-frame');">View in full screen</a>.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Bridge%20Types">View and edit this model in Aladdin</a>
+                    </div>
+
+                    <p>This article is a field guide to those five shapes. Its companion, <a href="aladdin-bridge-design.html">The Bridge That Bends</a>, looks at how bridges behave when the ground shakes and the wind blows; here we are interested purely in <em>form</em> &mdash; why each one looks the way it does, and what job the shape is doing.</p>
+
+                    <h2>Form follows the span</h2>
+
+                    <p>If there is one number that decides a bridge's shape, it is the span &mdash; the distance the structure has to reach without a support underneath. As the span grows, the weight a structure must carry across empty air grows faster still, and forms that are perfectly sensible over a creek become impossible over a strait. The five forms line up almost exactly in order of the distance they can cover. The girder is the short-range workhorse; the truss and the arch reach further by being cleverer about geometry; the cable-stayed bridge and the suspension bridge use steel cables in pure tension to leap distances nothing else can. Read the lineup above from front to back and you are essentially watching a bridge grow up: each form is the answer to "what do you do when the last form runs out of reach?" In Aladdin, one dropdown switches a bridge among all five, rebuilding the whole superstructure over the same deck &mdash; so the comparison below is something you can make yourself in seconds.</p>
+
+                    <h2>The girder &mdash; the honest beam</h2>
+
+                    <p>The girder bridge is the one you cross most often without noticing: a deck resting on a few long beams &mdash; the girders &mdash; carried by piers. It is the most direct idea in the whole catalog. The beams simply bend a little under the load and carry it to the supports, the same way a plank bends when you step on the middle. Nothing is doing anything clever; the material is just strong enough and deep enough not to sag too far. That honesty is exactly why it dominates short and medium spans: it is cheap, fast to build, and needs no cables, arches, or towers. Its limit is equally simple. The bending a beam must resist grows with the square of the span, so past a couple of hundred meters between piers the girder has to become impractically deep and heavy &mdash; which is why long girder bridges are really many short spans marching on closely spaced piers. Aladdin's girder model is a continuous box-girder deck; the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Europabr%C3%BCcke">Europabrücke</a> in Austria, a 777-meter deck striding across an Alpine valley on slender piers up to 150 meters tall, is the form at its most spectacular.</p>
+
+                    <h2>The truss &mdash; strength from triangles</h2>
+
+                    <p>To reach further than a solid beam without the crippling weight, you hollow the beam out and replace its solid web with a lattice of triangles &mdash; and you have a truss. The trick is the triangle: it is the one shape that cannot be deformed without actually stretching or compressing one of its sides. So instead of bending, a truss carries load as pure tension and compression running along its straight members, which is a far more efficient use of steel. That lets a truss be very deep &mdash; and therefore very stiff &mdash; for very little material, which is why trusses have long been the backbone of railway bridges, where stiffness matters most. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Forth_Bridge">Forth Bridge</a> in Scotland, a UNESCO World Heritage Site opened in 1890, is the immortal example: its double-diamond <em>cantilever</em> trusses, deep over the piers and tapering to the mid-spans, still carry trains today.</p>
+
+                    <p>The pattern of the triangles is itself a design choice, and Aladdin lets you switch among the classic web geometries &mdash; Warren, Warren-with-verticals, Pratt, Howe, K-truss, and the variable-depth cantilever &mdash; on an identical span. Each pattern routes the forces differently: which diagonals end up in tension and which in compression depends entirely on how the web is drawn, and that in turn decides which members can be slender and which must be stout.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Truss%20Bridge%20Types" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame-truss" width="100%" height="600px" title="Aladdin window"></iframe>
+                        <figcaption>The truss is not one thing: Warren, Warren-with-verticals, Pratt, Howe, K-truss, and cantilever webs, each on the same span &mdash; live in Aladdin. <a href="javascript:openFullscreen('aladdin-frame-truss');">View in full screen</a>.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Truss%20Bridge%20Types">View and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The arch &mdash; pushing back</h2>
+
+                    <p>An arch turns the problem upside down. Where a beam sags and works in bending, an arch curves upward so that the load runs down through the structure as pure <em>compression</em> &mdash; the same reason a stone arch, made of blocks that cannot pull on one another at all, has stood for two thousand years. The catch is what happens at the ends: an arch does not just press down on its supports, it pushes <em>outward</em> against them, and that horizontal thrust has to go somewhere. Where the ground can take it &mdash; a rock-walled canyon, firm river banks &mdash; the arch is superbly efficient and, many would say, the most beautiful form of all. Aladdin builds a <em>through-arch</em>, in which the roadway hangs from the arch on vertical cables and threads through its middle. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Sydney_Harbour_Bridge">Sydney Harbour Bridge</a> &mdash; the 503-meter steel "Coathanger" of 1932, its deck slung about 49 meters above the water from an arch whose crown reaches 134 meters &mdash; is the archetype.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Sydney%20Harbour%20Bridge" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame-arch" width="100%" height="600px" title="Aladdin window"></iframe>
+                        <figcaption>A through-arch inspired by the Sydney Harbour Bridge, live in Aladdin: the deck hangs from the arch, which carries the load in compression down to its abutments. <a href="javascript:openFullscreen('aladdin-frame-arch');">View in full screen</a>.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Sydney%20Harbour%20Bridge">View and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The cable-stayed bridge &mdash; a fan of steel</h2>
+
+                    <p>Beyond the reach of arches and trusses, the cable takes over &mdash; because a steel cable in pure tension is the most efficient structural element there is, pound for pound stronger than any beam. In a cable-stayed bridge, the deck hangs directly from straight cables that run, like the spokes of a fan, up to one or more towers. The cables pull up on the deck and lean on the towers, which press their load straight down to the foundations; the whole system balances itself, with no need for the enormous anchorages a suspension bridge requires. That self-contained efficiency has made the cable-stayed form the default choice for the great modern spans from roughly 200 meters to over a kilometer. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Millau_Viaduct">Millau Viaduct</a> in France &mdash; a chain of cable-stayed spans whose deck rides up to 270 meters above the valley floor, making it the tallest bridge in the world &mdash; is the form at full grandeur. Aladdin's cable-stayed model fans its stays from tower tops every couple of stations along a multi-span deck.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Millau%20Viaduct" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame-cablestayed" width="100%" height="600px" title="Aladdin window"></iframe>
+                        <figcaption>A multi-span cable-stayed bridge inspired by the Millau Viaduct, live in Aladdin: the deck hangs from straight stays fanning out to the pylons. <a href="javascript:openFullscreen('aladdin-frame-cablestayed');">View in full screen</a>.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Millau%20Viaduct">View and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>The suspension bridge &mdash; the great drape</h2>
+
+                    <p>For the very longest crossings &mdash; a mile of open water and more &mdash; only one form will do. A suspension bridge hangs its deck from two great main cables that drape between the towers in a gentle curve and dive into massive anchorages buried at each end. The main cables carry the entire weight of the bridge in pure tension and hand it to the anchorages; slender vertical hangers connect them down to the roadway. It is the lightest, longest-reaching structure humans routinely build &mdash; and the most theatrical, from the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Golden_Gate_Bridge">Golden Gate Bridge</a> to the record-breaking spans of Japan and Turkey. That reach comes at a price: a structure this light and this long is also flexible, and taming its sway in an earthquake or its twist in the wind is the central drama of long-span design &mdash; the subject of the companion article, <a href="aladdin-bridge-design.html">The Bridge That Bends</a>.</p>
+
+                    <h2>Choosing a form</h2>
+
+                    <p>Put the five together and a clean logic emerges. Cross a small gap and the girder wins on sheer simplicity. Need more reach or more stiffness, and the truss buys it with triangles. Have solid ground to push against, and the arch turns the load into elegant compression. Go longer, and the cable-stayed fan carries the deck without giant anchorages. Go longest of all, and the suspended drape is the only answer left. Real engineering, of course, is never quite that tidy &mdash; cost, terrain, foundations, aesthetics, and how a bridge behaves under earthquakes and wind all pull on the decision &mdash; but the span is where every choice begins. The best way to feel it is to build all five yourself: open the model at the top of this page, switch a bridge from one form to another and watch the superstructure re-form over the same deck, stretch the span until a girder starts to look absurd and a suspension bridge starts to look inevitable. Understanding <em>why</em> bridges take the shapes they do is the first step toward designing better ones &mdash; and in Aladdin, that understanding is a few clicks away, in a browser, for anyone.</p>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
