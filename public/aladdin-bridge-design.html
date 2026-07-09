@@ -95,14 +95,8 @@
 
                     <p>A bridge looks like the most solid thing in the world, but the good ones are quietly in motion. When an earthquake shakes the ground or a gale pushes against the deck, a well-designed bridge does not resist by being rigid &mdash; it survives by bending, swaying, and letting the energy pass through without tearing itself apart. Getting that behavior right is a problem of <em>structural dynamics</em>, and it is notoriously hard to see with the naked eye: the forces are invisible, the motions are fast, and the difference between a design that stands and one that collapses can come down to a single natural frequency. We have been building a structural-engineering workbench into Aladdin so that anyone can draw a bridge, subject it to earthquakes and wind, and watch how it responds &mdash; all in a web browser, alongside the solar and wind-energy tools Aladdin is already known for. Below is a live, interactive model of a suspension bridge in that workbench. Explore it first, then read on to see what is happening underneath the surface.</p>
 
-                    <!--
-                      NOTE FOR CHARLES: the iframe below points at a published bridge model on your
-                      Aladdin account (same userid used by the wind-turbines article). Confirm the
-                      title matches a model you have actually published (e.g. publish the built-in
-                      "Golden Gate Bridge" example), or swap in the correct userid/title.
-                    -->
                     <figure class="v2-embed">
-                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Golden%20Gate%20Bridge" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame" width="100%" height="600px" title="Aladdin window"></iframe>
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Golden%20Gate%20Bridge" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame" width="100%" height="600px" title="A suspension bridge in Aladdin, interactive 3D model"></iframe>
                         <figcaption>A suspension bridge modeled in Aladdin, live &mdash; drag to orbit, scroll to zoom, and click a member to inspect it. <a href="javascript:openFullscreen('aladdin-frame');">View in full screen</a>.</figcaption>
                     </figure>
 
@@ -120,12 +114,12 @@
 
                     <h2>Building a bridge in Aladdin</h2>
 
-                    <p>You start by dropping a bridge onto the ground and dragging it out to the span you want, the same direct way you place a building or a solar array. From there a single design dialog lets you shape it. The most consequential choice is the structural form, and Aladdin supports the five that account for nearly every bridge you have ever crossed: a plate-<strong>girder</strong> bridge for short and medium spans, a <strong>truss</strong> for stiff economical crossings, a tied <strong>arch</strong>, a <strong>cable-stayed</strong> bridge with its fan of cables running straight to the towers, and a <strong>suspension</strong> bridge with a draped main cable and a curtain of vertical hangers for the longest spans of all. Switching between them rebuilds the entire superstructure in place while keeping your deck, so you can compare forms on the same crossing.</p>
+                    <p>You start by dropping a bridge onto the ground and dragging it out to the span you want, the same direct way you place a building or a solar array. From there a single design dialog lets you shape it. The most consequential choice is the structural form, and Aladdin supports the five that account for nearly every bridge you have ever crossed: a plate-<strong>girder</strong> bridge for short and medium spans, a <strong>truss</strong> for stiff economical crossings, an <strong>arch</strong>, a <strong>cable-stayed</strong> bridge with its fan of cables running straight to the towers, and a <strong>suspension</strong> bridge with a draped main cable and a curtain of hangers for the longest spans of all. Switching between them rebuilds the entire superstructure in place while keeping your deck, so you can compare forms on the same crossing. For a tour of these five shapes and why each looks the way it does, see the companion article, <a href="aladdin-bridge-types.html">Five Ways to Cross a River</a>.</p>
 
                     <p>Everything is parametric. Span count, deck width, girder depth, deck thickness, pier diameter, truss height, arch rise, tower height &mdash; each is a number you can turn, and the 3D model and its underlying engineering mesh update together, because they are generated from the same description. That last point is the important one: the bridge you see on screen and the bridge Aladdin analyzes are not two separate things that might drift apart. The girders, diaphragms, piers, cables, and hangers you look at <em>are</em> the finite elements being solved. What you draw is what you analyze.</p>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-bridge-design-modes.gif" alt="A natural vibration mode of a bridge in Aladdin">
+                        <img src="image/aladdin-bridge-design-modes.gif" loading="lazy" alt="A natural vibration mode of a bridge in Aladdin">
                         <figcaption>Aladdin draws the deformed shape of each natural vibration mode directly on the bridge, animated at a readable speed.</figcaption>
                     </figure>
 
@@ -144,7 +138,7 @@
                     <p>For that we use the ground motion recorded during the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/1940_El_Centro_earthquake">1940 El Centro earthquake</a> &mdash; one of the most-studied accelerograms in the history of the field, with a peak acceleration of about a third of gravity. Press "shake" and Aladdin plays the earthquake through the bridge, reporting the peak deck displacement and the base shear driven into the foundations while replaying the motion as a looping 3D animation of the structure swaying and rebounding. Seeing a span ride out El Centro, or fail to, communicates something a safety factor on a spreadsheet never will.</p>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-bridge-design-seismic.gif" alt="Seismic time-history response of a bridge in Aladdin">
+                        <img src="image/aladdin-bridge-design-seismic.gif" loading="lazy" alt="Seismic time-history response of a bridge in Aladdin">
                         <figcaption>The Seismic panel: a response-spectrum verdict and a full El Centro time-history, with the bridge animating its shaking in 3D.</figcaption>
                     </figure>
 
@@ -157,7 +151,7 @@
                     <p>Predicting flutter means predicting the wind speed at which that coupling turns unstable, and Aladdin computes it from the aerodynamic theory of a thin airfoil rather than a rule of thumb, using the deck's own vertical and torsional frequencies and its mass. We checked the method against a published long-span-bridge benchmark and it lands in the right range. The wind panel flags the critical flutter speed alongside the operating wind, and warns when a vortex-shedding lock-in &mdash; a milder resonance where the wind sheds vortices at one of the bridge's natural frequencies &mdash; falls uncomfortably close to everyday wind speeds. For a long, slender deck, these aerodynamic checks are every bit as important as the earthquake ones.</p>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-bridge-design-wind.png" alt="Wind analysis of a bridge in Aladdin">
+                        <img src="image/aladdin-bridge-design-wind.png" loading="lazy" alt="Wind analysis of a bridge in Aladdin">
                         <figcaption>The Wind panel: steady-wind drift and member demand alongside the critical flutter speed and vortex-shedding lock-in checks.</figcaption>
                     </figure>
 

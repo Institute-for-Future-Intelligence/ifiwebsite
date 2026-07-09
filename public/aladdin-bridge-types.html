@@ -69,6 +69,13 @@
         .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
         .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
         .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-spantable-wrap { margin: 1rem 0 2rem; }
+        .v2-spantable { width: 100%; border-collapse: collapse; font-size: 1.15rem; }
+        .v2-spantable th, .v2-spantable td { text-align: left; padding: 0.55rem 0.75rem; border-bottom: 1px solid rgba(15, 23, 42, 0.12); }
+        .v2-spantable thead th { font-family: var(--font-display); font-weight: 600; color: var(--accent-dark); border-bottom: 2px solid rgba(99, 102, 241, 0.25); }
+        .v2-spantable tbody th { font-weight: 600; color: var(--text); }
+        .v2-spantable tbody tr:last-child th, .v2-spantable tbody tr:last-child td { border-bottom: none; }
+        .v2-spantable-wrap figcaption { font-size: 1rem; color: var(--text-muted); margin-top: 0.5rem; }
     </style>
 </head>
 
@@ -96,7 +103,7 @@
                     <p>Every bridge answers the same question &mdash; how do you get from one side to the other? &mdash; but there is more than one good answer, and the answers do not look alike. A short farm overpass, a railway across a wide firth, a road over a deep canyon, and a highway across a mile of open water call for fundamentally different <em>shapes</em>. Engineers have converged on a handful of great structural forms, each one a different strategy for turning the weight of a roadway into forces the ground can absorb. Aladdin, our web-based engineering design tool, lets you build all of them and set them side by side. Below is exactly that: the five bridge forms Aladdin supports &mdash; girder, truss, arch, cable-stayed, and suspension &mdash; drawn at the same span, over the same water, so you can compare their silhouettes directly. Explore the model, then read on for what makes each form tick and when you would reach for it.</p>
 
                     <figure class="v2-embed">
-                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Bridge%20Types" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame" width="100%" height="600px" title="Aladdin window"></iframe>
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Bridge%20Types" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame" width="100%" height="600px" title="The five bridge forms, interactive 3D model"></iframe>
                         <figcaption>The five bridge forms at the same span, live in Aladdin &mdash; drag to orbit, scroll to zoom, and click any bridge to inspect it. <a href="javascript:openFullscreen('aladdin-frame');">View in full screen</a>.</figcaption>
                     </figure>
 
@@ -110,6 +117,22 @@
 
                     <p>If there is one number that decides a bridge's shape, it is the span &mdash; the distance the structure has to reach without a support underneath. As the span grows, the weight a structure must carry across empty air grows faster still, and forms that are perfectly sensible over a creek become impossible over a strait. The five forms line up almost exactly in order of the distance they can cover. The girder is the short-range workhorse; the truss and the arch reach further by being cleverer about geometry; the cable-stayed bridge and the suspension bridge use steel cables in pure tension to leap distances nothing else can. Read the lineup above from front to back and you are essentially watching a bridge grow up: each form is the answer to "what do you do when the last form runs out of reach?" In Aladdin, one dropdown switches a bridge among all five, rebuilding the whole superstructure over the same deck &mdash; so the comparison below is something you can make yourself in seconds.</p>
 
+                    <figure class="v2-spantable-wrap">
+                        <table class="v2-spantable">
+                            <thead>
+                                <tr><th scope="col">Form</th><th scope="col">Carries the load by</th><th scope="col">Typical main span</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><th scope="row">Girder</th><td>Bending</td><td>up to ~250 m</td></tr>
+                                <tr><th scope="row">Truss</th><td>Tension &amp; compression in straight members</td><td>up to ~550 m</td></tr>
+                                <tr><th scope="row">Arch</th><td>Compression</td><td>up to ~550 m</td></tr>
+                                <tr><th scope="row">Cable-stayed</th><td>Cable tension (straight stays)</td><td>~200&ndash;1,100 m</td></tr>
+                                <tr><th scope="row">Suspension</th><td>Cable tension (draped main cables)</td><td>up to ~2,000 m</td></tr>
+                            </tbody>
+                        </table>
+                        <figcaption>How far each form reaches, and how it turns weight into force. Real ranges overlap and keep growing with new records &mdash; these are ballpark figures for the longest single span each form comfortably covers.</figcaption>
+                    </figure>
+
                     <h2>The girder &mdash; the honest beam</h2>
 
                     <p>The girder bridge is the one you cross most often without noticing: a deck resting on a few long beams &mdash; the girders &mdash; carried by piers. It is the most direct idea in the whole catalog. The beams simply bend a little under the load and carry it to the supports, the same way a plank bends when you step on the middle. Nothing is doing anything clever; the material is just strong enough and deep enough not to sag too far. That honesty is exactly why it dominates short and medium spans: it is cheap, fast to build, and needs no cables, arches, or towers. Its limit is equally simple. The bending a beam must resist grows with the square of the span, so past a couple of hundred meters between piers the girder has to become impractically deep and heavy &mdash; which is why long girder bridges are really many short spans marching on closely spaced piers. Aladdin's girder model is a continuous box-girder deck; the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Europabr%C3%BCcke">Europabrücke</a> in Austria, a 777-meter deck striding across an Alpine valley on slender piers up to 150 meters tall, is the form at its most spectacular.</p>
@@ -121,7 +144,7 @@
                     <p>The pattern of the triangles is itself a design choice, and Aladdin lets you switch among the classic web geometries &mdash; Warren, Warren-with-verticals, Pratt, Howe, K-truss, and the variable-depth cantilever &mdash; on an identical span. Each pattern routes the forces differently: which diagonals end up in tension and which in compression depends entirely on how the web is drawn, and that in turn decides which members can be slender and which must be stout.</p>
 
                     <figure class="v2-embed">
-                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Truss%20Bridge%20Types" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame-truss" width="100%" height="600px" title="Aladdin window"></iframe>
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Truss%20Bridge%20Types" loading="lazy" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame-truss" width="100%" height="600px" title="Truss bridge types, interactive 3D model"></iframe>
                         <figcaption>The truss is not one thing: Warren, Warren-with-verticals, Pratt, Howe, K-truss, and cantilever webs, each on the same span &mdash; live in Aladdin. <a href="javascript:openFullscreen('aladdin-frame-truss');">View in full screen</a>.</figcaption>
                     </figure>
 
@@ -134,7 +157,7 @@
                     <p>An arch turns the problem upside down. Where a beam sags and works in bending, an arch curves upward so that the load runs down through the structure as pure <em>compression</em> &mdash; the same reason a stone arch, made of blocks that cannot pull on one another at all, has stood for two thousand years. The catch is what happens at the ends: an arch does not just press down on its supports, it pushes <em>outward</em> against them, and that horizontal thrust has to go somewhere. Where the ground can take it &mdash; a rock-walled canyon, firm river banks &mdash; the arch is superbly efficient and, many would say, the most beautiful form of all. What changes from one arch bridge to the next is not the arch itself &mdash; always a hump carrying pure compression down to its springings &mdash; but where the roadway sits on it, and there are three answers. In a <em>through-arch</em> the deck hangs from an arch entirely above it on vertical tension cables and threads through its middle; the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Sydney_Harbour_Bridge">Sydney Harbour Bridge</a>, the 503-meter steel "Coathanger" of 1932 whose deck is slung about 49 meters above the water from an arch whose crown reaches 134 meters, is the archetype. In a <em>deck arch</em> the arch is entirely below the road, springing from abutments low in the valley while the deck rides on top on compression columns &mdash; the way the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/New_River_Gorge_Bridge">New River Gorge Bridge</a> vaults its canyon. And in a <em>half-through arch</em> the deck sits partway up, passing through the arch: it is propped from below on columns near the ends, where the arch is beneath it, and hung from above on cables near the crown, where the arch has risen overhead. Aladdin builds all three &mdash; a single switch in the design dialog slides the deck from the springing line up to the crown, or anywhere between &mdash; and the model in the frame above shows all three side by side over the same channel.</p>
 
                     <figure class="v2-embed">
-                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Arch%20Bridge%20Types" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame-arch" width="100%" height="600px" title="Aladdin window"></iframe>
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Arch%20Bridge%20Types" loading="lazy" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame-arch" width="100%" height="600px" title="Arch bridge types, interactive 3D model"></iframe>
                         <figcaption>The three arch forms side by side in Aladdin &mdash; through (arch above the deck), half-through (deck through the arch), and deck (arch below the deck) &mdash; spanning a channel between two banks. <a href="javascript:openFullscreen('aladdin-frame-arch');">View in full screen</a>.</figcaption>
                     </figure>
 
@@ -144,20 +167,29 @@
 
                     <h2>The cable-stayed bridge &mdash; a fan of steel</h2>
 
-                    <p>Beyond the reach of arches and trusses, the cable takes over &mdash; because a steel cable in pure tension is the most efficient structural element there is, pound for pound stronger than any beam. In a cable-stayed bridge, the deck hangs directly from straight cables that run, like the spokes of a fan, up to one or more towers. The cables pull up on the deck and lean on the towers, which press their load straight down to the foundations; the whole system balances itself, with no need for the enormous anchorages a suspension bridge requires. That self-contained efficiency has made the cable-stayed form the default choice for the great modern spans from roughly 200 meters to over a kilometer. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Millau_Viaduct">Millau Viaduct</a> in France &mdash; a chain of cable-stayed spans whose deck rides up to 270 meters above the valley floor, making it the tallest bridge in the world &mdash; is the form at full grandeur. Aladdin's cable-stayed model fans its stays from tower tops every couple of stations along a multi-span deck.</p>
+                    <p>Beyond the reach of arches and trusses, the cable takes over &mdash; because a steel cable in pure tension is the most efficient structural element there is, pound for pound stronger than any beam. In a cable-stayed bridge, the deck hangs directly from straight cables that run, like the spokes of a fan, up to one or more towers. The cables pull up on the deck and lean on the towers, which press their load straight down to the foundations; the whole system balances itself, with no need for the enormous ground anchorages a suspension bridge usually requires. That self-contained efficiency has made the cable-stayed form the default choice for the great modern spans from roughly 200 meters to over a kilometer. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Millau_Viaduct">Millau Viaduct</a> in France &mdash; a chain of cable-stayed spans whose deck rides up to 270 meters above the valley floor, making it the tallest bridge in the world &mdash; is the form at full grandeur. The family is broader than a single silhouette, though: the stays can splay out in a <em>fan</em> from the tower top, hang <em>parallel</em> in a harp, or cluster in the upper tower as a semi-fan; and the tower itself can be a twin portal, an A-frame, or a single central mast. Aladdin builds all of these &mdash; the frame below sets them side by side.</p>
 
                     <figure class="v2-embed">
-                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Millau%20Viaduct" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame-cablestayed" width="100%" height="600px" title="Aladdin window"></iframe>
-                        <figcaption>A multi-span cable-stayed bridge inspired by the Millau Viaduct, live in Aladdin: the deck hangs from straight stays fanning out to the pylons. <a href="javascript:openFullscreen('aladdin-frame-cablestayed');">View in full screen</a>.</figcaption>
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Cable-Stayed%20Bridge%20Types" loading="lazy" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame-cablestayed" width="100%" height="600px" title="Cable-stayed bridge types, interactive 3D model"></iframe>
+                        <figcaption>Cable-stayed configurations side by side in Aladdin &mdash; fan, semi-fan, and harp stay arrangements, and twin, A-frame, and single-mast towers. <a href="javascript:openFullscreen('aladdin-frame-cablestayed');">View in full screen</a>.</figcaption>
                     </figure>
 
                     <div class="v2-model-link">
-                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Millau%20Viaduct">View and edit this model in Aladdin</a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Cable-Stayed%20Bridge%20Types">View and edit this model in Aladdin</a>
                     </div>
 
                     <h2>The suspension bridge &mdash; the great drape</h2>
 
-                    <p>For the very longest crossings &mdash; a mile of open water and more &mdash; only one form will do. A suspension bridge hangs its deck from two great main cables that drape between the towers in a gentle curve and dive into massive anchorages buried at each end. The main cables carry the entire weight of the bridge in pure tension and hand it to the anchorages; slender vertical hangers connect them down to the roadway. It is the lightest, longest-reaching structure humans routinely build &mdash; and the most theatrical, from the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Golden_Gate_Bridge">Golden Gate Bridge</a> to the record-breaking spans of Japan and Turkey. That reach comes at a price: a structure this light and this long is also flexible, and taming its sway in an earthquake or its twist in the wind is the central drama of long-span design &mdash; the subject of the companion article, <a href="aladdin-bridge-design.html">The Bridge That Bends</a>.</p>
+                    <p>For the very longest crossings &mdash; a mile of open water and more &mdash; only one form will do. A suspension bridge hangs its deck from two great main cables that drape between the towers in a gentle curve and dive into massive anchorages buried at each end. The main cables carry the entire weight of the bridge in pure tension and hand it to the anchorages; slender vertical hangers connect them down to the roadway. It is the lightest, longest-reaching structure humans routinely build &mdash; and the most theatrical, from the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Golden_Gate_Bridge">Golden Gate Bridge</a> to the record-breaking spans of Japan and Turkey. That reach comes at a price: a structure this light and this long is also flexible, and taming its sway in an earthquake or its twist in the wind is the central drama of long-span design &mdash; the subject of the companion article, <a href="aladdin-bridge-design.html">The Bridge That Bends</a>. Even within the form there is room to choose: the cables can anchor into the ground (earth-anchored) or into the deck itself, which then rides in compression (self-anchored); the hangers can drop straight or cross in an inclined, triangulated web; the towers can be portal frames or A-frames; and a single main span can grow into a multi-span chain of towers.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Suspension%20Bridge%20Types" loading="lazy" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame-suspension" width="100%" height="600px" title="Suspension bridge types, interactive 3D model"></iframe>
+                        <figcaption>Suspension variations side by side in Aladdin &mdash; earth- vs self-anchored, vertical vs inclined hangers, portal vs A-frame towers, and a multi-span version with extra towers. <a href="javascript:openFullscreen('aladdin-frame-suspension');">View in full screen</a>.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Suspension%20Bridge%20Types">View and edit this model in Aladdin</a>
+                    </div>
 
                     <h2>Choosing a form</h2>
 
