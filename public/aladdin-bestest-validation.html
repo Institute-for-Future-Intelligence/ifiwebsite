@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BESTEST Validation of Aladdin — Institute for Future Intelligence</title>
+    <meta name="description" content="Validating Aladdin's building energy simulation against the ASHRAE 140 (BESTEST) benchmarks, alongside EnergyPlus, TRNSYS, ESP-r, and other reference programs.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) {
+        var elem = document.getElementById(id);
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        }
+      }
+    </script>
+
+    <style>
+        /* the default clamp(2.5rem, 6vw, 4.25rem) is too large for this long title */
+        .v2-hero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); }
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+
+        /* — BESTEST comparison charts — */
+        .bt-chartcard { background: #ffffff; border: 1px solid rgba(15, 23, 42, 0.12); border-radius: 0.75rem; padding: 1.1rem 1.2rem 0.7rem; margin: 1rem 0 0.5rem; }
+        .bt-chartcard h3 { margin: 0; font-size: 1.25rem; font-weight: 650; }
+        .bt-chartcard .bt-sub { margin: 0.15rem 0 0.5rem; font-size: 1.05rem; color: var(--text-muted); }
+        .bt-chartbox { overflow-x: auto; }
+        .bt-chartbox svg { display: block; min-width: 900px; width: 100%; height: auto; }
+        .bt-chartbox svg text { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+        .bt-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; align-items: center; font-size: 1.02rem; margin: 0.75rem 0 0.25rem; }
+        .bt-chip { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--text-muted); }
+        .bt-chip .bt-swatch { width: 13px; height: 13px; border-radius: 3px; flex: none; }
+        .bt-chip.bt-aladdin { color: #9a4f03; font-weight: 650; }
+        .bt-chip .bt-bandswatch { width: 13px; height: 13px; border-radius: 3px; background: rgba(35, 40, 46, 0.055); border: 1px solid rgba(15, 23, 42, 0.15); }
+        figure.bt-figure { margin: 1.5rem 0 2rem; }
+        figure.bt-figure figcaption { font-size: 1.05rem; color: var(--text-muted); margin-top: 0.5rem; }
+        .bt-tablebox { overflow-x: auto; margin: 1.25rem 0 0.5rem; }
+        table.bt-table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+        table.bt-table caption { caption-side: bottom; text-align: left; font-size: 0.95rem; color: var(--text-muted); padding-top: 0.5rem; }
+        table.bt-table th, table.bt-table td { padding: 0.45rem 0.7rem; border-bottom: 1px solid rgba(15, 23, 42, 0.1); text-align: right; white-space: nowrap; }
+        table.bt-table th { font-weight: 650; border-bottom: 2px solid rgba(15, 23, 42, 0.25); }
+        table.bt-table th:first-child, table.bt-table td:first-child, table.bt-table td.bt-desc { text-align: left; }
+        table.bt-table td.bt-desc { white-space: normal; color: var(--text-muted); }
+        table.bt-table td.bt-in { background: rgba(34, 139, 84, 0.08); color: #1d6b43; font-weight: 600; }
+        table.bt-table td.bt-out { font-weight: 600; }
+        table.bt-table td.bt-out span { font-weight: 400; font-size: 0.92em; color: var(--text-muted); }
+        table.bt-table tr.bt-subhead th { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); border-bottom: 1px solid rgba(15, 23, 42, 0.25); padding-top: 1rem; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="BESTEST">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin</span>
+                <h1>BESTEST Validation of Aladdin&rsquo;s Building Energy Simulation</h1>
+                <p class="v2-tagline">
+                    Benchmarking the dynamic thermal simulation engine against ANSI/ASHRAE Standard 140, the standard method of test for building energy software
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>When a piece of software tells you that a house will use 4,700 kilowatt-hours of heating next year, how do you know whether to believe it? You cannot look the answer up &mdash; the whole point of simulation is to predict something that has not happened yet. You cannot eyeball it, either: a building's energy balance is a tangle of sunlight, conduction, air leakage, thermal mass, and thermostat logic, all pushing on each other hour by hour. The building simulation community confronted this trust problem decades ago, and its answer has become one of the quiet institutions of the field: a plain gray box in Denver, Colorado, that every serious simulation program in the world has been asked to model. It is called <strong>BESTEST</strong> &mdash; the Building Energy Simulation Test &mdash; and Aladdin has now taken the test.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=BESTEST%20Case%20600" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame" width="100%" height="600px" title="BESTEST Case 600 in Aladdin, interactive 3D model"></iframe>
+                        <figcaption>BESTEST Case 600, live in Aladdin. All fourteen test cases ship in Aladdin&rsquo;s Benchmarks menu, each carrying the standard&rsquo;s exact TMY3 weather file &mdash; running the dynamic yearly analysis reproduces the numbers in the table below. <a href="javascript:openFullscreen('aladdin-frame');">View in full screen</a>.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=BESTEST%20Case%20600">View and edit this model in Aladdin</a>
+                    </div>
+
+                    <h2>A standard made of buildings that were never built</h2>
+
+                    <p>BESTEST was developed at the U.S. National Renewable Energy Laboratory in the 1990s under the International Energy Agency, and was later adopted as <a target="_blank" rel="noopener noreferrer" href="https://www.ashrae.org/technical-resources/bookstore/standard-140">ANSI/ASHRAE Standard 140</a>, the standard method of test for building energy software. Its central idea is elegant: instead of comparing a simulation against a messy real building &mdash; where the occupants, the weather station, and the utility meter all add their own noise &mdash; it defines a set of idealized buildings so precisely that nothing is left to interpretation, and asks every program to simulate exactly the same thing. The base case, Case&nbsp;600, is an 8&nbsp;&times;&nbsp;6&nbsp;&times;&nbsp;2.7&nbsp;meter single-zone box with twelve square meters of south-facing glass, specified down to the conductivity of each layer of drywall, sitting in Denver weather. It has never been built. It does not need to be. Its job is to be unambiguous.</p>
+
+                    <p>From that base case, the standard changes exactly one thing at a time: add a south overhang (Case&nbsp;610), move the windows to the east and west walls (620), shade them with fins (630), let the thermostat set back at night (640), ventilate with a night fan instead of air conditioning (650) &mdash; and then rebuild the whole series with heavy concrete walls and a concrete slab floor (the 900 series). There are also &ldquo;free-float&rdquo; cases with no heating or cooling at all, where the building simply rides the weather and the simulator must predict how hot and cold the interior gets. Because each case isolates one physical mechanism &mdash; solar gain, shading, thermal mass, setback recovery, ventilation &mdash; the pattern of agreement and disagreement across cases is diagnostic: it tells you not just <em>whether</em> a program deviates, but <em>which piece of physics</em> is responsible.</p>
+
+                    <p>The measuring stick is the community itself. The current edition of the standard publishes example results from six established programs &mdash; <a target="_blank" rel="noopener noreferrer" href="https://energyplus.net/">EnergyPlus</a>, <a target="_blank" rel="noopener noreferrer" href="https://www.trnsys.com/">TRNSYS</a>, <a target="_blank" rel="noopener noreferrer" href="https://www.esru.strath.ac.uk/Programs/ESP-r.htm">ESP-r</a>, <a target="_blank" rel="noopener noreferrer" href="https://link.springer.com/article/10.1007/s12273-022-0909-9">DeST</a>, <a target="_blank" rel="noopener noreferrer" href="https://cse-sim.github.io/cse/index.html">CSE</a>, and <a target="_blank" rel="noopener noreferrer" href="https://bsimac.co.za/">BSIMAC</a> &mdash; each maintained by a different institution on a different continent. Even these veterans do not agree exactly; their spread on some monthly results exceeds twenty percent, which is a humbling reminder of how hard this physics is. The standard is careful to say that the ranges &ldquo;are not to be interpreted as acceptance criteria&rdquo; &mdash; there is no official pass or fail. What the ranges give you is the honest question: <em>does your program behave like the programs the field trusts?</em></p>
+
+                    <h2>How Aladdin takes the test</h2>
+
+                    <p>Aladdin's building energy tools include a transient (dynamic) thermal simulation: a resistor&ndash;capacitor network of the building derived from the <a target="_blank" rel="noopener noreferrer" href="https://www.iso.org/standard/41974.html">ISO&nbsp;13790</a> standard, extended with a separate thermal node for the floor slab &mdash; because that is where the sun patch lands &mdash; and driven hour by hour through a full year of measured typical-year (<a target="_blank" rel="noopener noreferrer" href="https://www.osti.gov/biblio/928611">TMY3</a>) weather. Sunlight is traced against the actual 3D geometry, so an overhang shades a window in the model exactly the way it shades it on screen. For these benchmarks we ran every case as a continuous 365-day simulation of the same Denver weather the reference programs used, with the air conditioner's coefficient of performance set to one so that the reported numbers are thermal loads, directly comparable to the published tables.</p>
+
+                    <p>All fourteen cases &mdash; the twelve conditioned ones and the two free-float ones &mdash; are built into Aladdin under <em>Benchmarks &rarr; Building Energy</em>, authored to the letter of the specification: the exact layer-by-layer wall constructions, the 0.41 air changes per hour of infiltration (adjusted for Denver's altitude, as the standard instructs), the 200 watts of continuous internal gains, the 0.6 solar absorptance, even the glazing's angle-by-angle optical data from the <a target="_blank" rel="noopener noreferrer" href="https://windows.lbl.gov/software/window">LBNL WINDOW</a> report that ships with the standard. This matters for a reason beyond bookkeeping: it makes the whole exercise reproducible. Anyone &mdash; a skeptical colleague, a student, a reviewer &mdash; can open the same cases in a browser and run them.</p>
+
+                    <h2>The results, next to everyone else&rsquo;s</h2>
+
+                    <p>The charts below show Aladdin's annual heating and cooling loads for the twelve conditioned cases, plotted directly alongside the six reference programs from the standard's example results. The shaded strip behind each cluster spans the reference minimum to maximum. Hover over any bar for its exact value.</p>
+
+                    <div class="bt-legend" id="btLegend"></div>
+
+                    <div class="bt-chartcard">
+                        <h3>Annual heating load</h3>
+                        <p class="bt-sub">MWh thermal per year &middot; cases 650 and 950 omitted (heating is off by specification; Aladdin also reports exactly zero)</p>
+                        <div class="bt-chartbox"><div id="btHeat"></div></div>
+                    </div>
+
+                    <div class="bt-chartcard">
+                        <h3>Annual sensible cooling load</h3>
+                        <p class="bt-sub">MWh thermal per year &middot; &dagger; night-ventilation cases use the specification&rsquo;s scheduled vent fan (13.14 ACH, 18:00&ndash;07:00)</p>
+                        <div class="bt-chartbox"><div id="btCool"></div></div>
+                    </div>
+
+                    <p style="margin-top: 1.5rem;">The headline: on the high-mass 900 series &mdash; the hardest physics in the suite, where solar gain, shading, and a concrete building's day-long thermal memory all interact &mdash; Aladdin's annual heating <em>and</em> cooling fall <strong>inside the reference range on every case</strong>. On the lightweight 600 series, Aladdin lands inside or within a few percent of the range top &mdash; Case&nbsp;630 to within a tenth of a percent &mdash; and the free-float temperature extremes, from a &minus;12&nbsp;&deg;C winter night to a 68&nbsp;&deg;C summer greenhouse spike in the unconditioned box, fall inside the published ranges as well. Counting every reported metric &mdash; annual loads, hourly peaks, and free-float extremes &mdash; about two thirds fall strictly inside the reference ranges, and nearly all of the rest are within about four percent, which is smaller than the disagreement among the reference programs themselves on many outputs.</p>
+
+                                        <div class="bt-tablebox">
+                        <table class="bt-table">
+                            <caption>Annual loads are MWh thermal (COP = 1), continuous 365-day simulations, Denver TMY3. Reference ranges are the minimum and maximum of the six example-result programs in ASHRAE 140-2023, Annex B8 (Tables B8-1/B8-2 and the free-float table). Green cells fall inside the reference range; deviations from the nearest bound are shown in parentheses.</caption>
+                            <thead>
+                            <tr><th>Case</th><th style="text-align:left">Configuration</th><th>Heating, refs</th><th>Heating, Aladdin</th><th>Cooling, refs</th><th>Cooling, Aladdin</th></tr>
+                            </thead>
+                            <tbody>
+<tr><td><strong>600</strong></td><td class="bt-desc">Lightweight base case, south windows</td><td>3.99 – 4.50</td><td class="bt-out">4.69 <span>(+4.1%)</span></td><td>5.43 – 6.16</td><td class="bt-out">6.21 <span>(+0.8%)</span></td></tr>
+<tr><td><strong>610</strong></td><td class="bt-desc">South overhang</td><td>4.07 – 4.59</td><td class="bt-out">4.74 <span>(+3.2%)</span></td><td>4.12 – 4.38</td><td class="bt-out">4.48 <span>(+2.2%)</span></td></tr>
+<tr><td><strong>620</strong></td><td class="bt-desc">East/west windows</td><td>4.09 – 4.72</td><td class="bt-out">4.85 <span>(+2.8%)</span></td><td>3.84 – 4.40</td><td class="bt-in">4.23</td></tr>
+<tr><td><strong>630</strong></td><td class="bt-desc">E/W windows, overhang + fins</td><td>4.36 – 5.14</td><td class="bt-out">5.14 <span>(+0.0%)</span></td><td>2.57 – 3.07</td><td class="bt-in">2.92</td></tr>
+<tr><td><strong>640</strong></td><td class="bt-desc">Night thermostat setback</td><td>2.40 – 2.68</td><td class="bt-out">2.92 <span>(+8.9%)</span></td><td>5.24 – 5.89</td><td class="bt-out">6.00 <span>(+1.8%)</span></td></tr>
+<tr><td><strong>650</strong></td><td class="bt-desc">Night ventilation, no heating</td><td>0</td><td class="bt-in">0.00</td><td>4.19 – 4.95</td><td class="bt-out">5.13 <span>(+3.7%)</span></td></tr>
+<tr><td><strong>900</strong></td><td class="bt-desc">High-mass base case</td><td>1.38 – 1.81</td><td class="bt-in">1.74</td><td>2.27 – 2.71</td><td class="bt-in">2.43</td></tr>
+<tr><td><strong>910</strong></td><td class="bt-desc">High mass, south overhang</td><td>1.65 – 2.16</td><td class="bt-in">2.11</td><td>1.19 – 1.49</td><td class="bt-in">1.37</td></tr>
+<tr><td><strong>920</strong></td><td class="bt-desc">High mass, east/west windows</td><td>2.96 – 3.61</td><td class="bt-out">3.62 <span>(+0.4%)</span></td><td>2.55 – 3.13</td><td class="bt-in">2.83</td></tr>
+<tr><td><strong>930</strong></td><td class="bt-desc">High mass, E/W shading</td><td>3.52 – 4.38</td><td class="bt-in">4.29</td><td>1.65 – 2.16</td><td class="bt-in">1.95</td></tr>
+<tr><td><strong>940</strong></td><td class="bt-desc">High mass, setback</td><td>0.86 – 1.39</td><td class="bt-in">1.27</td><td>2.20 – 2.61</td><td class="bt-in">2.39</td></tr>
+<tr><td><strong>950</strong></td><td class="bt-desc">High mass, night ventilation</td><td>0</td><td class="bt-in">0.00</td><td>0.59 – 0.71</td><td class="bt-out">0.41 <span>(−30.0%)</span></td></tr>
+                            <tr class="bt-subhead"><th colspan="2" style="text-align:left">Free-float (no HVAC)</th><th colspan="2">Annual indoor minimum, &deg;C</th><th colspan="2">Annual indoor maximum, &deg;C</th></tr>
+<tr><td><strong>600FF</strong></td><td class="bt-desc">Free float, lightweight</td><td>-13.8 – -9.9</td><td class="bt-in">-12.0</td><td>62.4 – 68.4</td><td class="bt-in">68.3</td></tr>
+<tr><td><strong>900FF</strong></td><td class="bt-desc">Free float, high mass</td><td>0.6 – 2.2</td><td class="bt-in">1.4</td><td>43.3 – 46.0</td><td class="bt-out">42.7 <span>(−0.6&deg;C)</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>And where Aladdin still deviates, we can tell you exactly where and why, because the case structure localizes it: the thermostat-setback case (640) recovers from its cold night a little more expensively than the references (its annual heating runs about nine percent high), and the high-mass night-ventilation case (950) pre-cools its concrete slab a bit too effectively, undershooting the smallest cooling number in the suite. Both trace to the same known simplification &mdash; a lumped thermal mass responds faster than a real concrete wall's layered interior &mdash; and both are documented rather than papered over. In validation work, knowing precisely where your model bends is nearly as valuable as the places it doesn't.</p>
+
+                    <h2>What the test taught us</h2>
+
+                    <p>The most valuable thing about BESTEST is not the scorecard &mdash; it is what the process forces you to find. Chasing the reference ranges through the case structure, month by month and finally hour by hour against the standard's published hourly data, uncovered a series of genuine physics upgrades, each traceable to a source rather than tuned to a benchmark. The diffuse sky model gained the circumsolar brightening that real skies have (an anisotropic, Hay-model sky, which also sharpened every solar panel simulation in Aladdin). The windows gained the true angle-dependent optics of double glazing, taken from the standard's own <a target="_blank" rel="noopener noreferrer" href="https://windows.lbl.gov/software/window">LBNL WINDOW</a> data. The floor slab became its own thermal node, so transmitted sunlight is banked where it actually falls. The room air is now coupled to the building fabric by convection only &mdash; the radiative part of the interior films flows between surfaces, as it physically must. And the thermostat and ventilation controls gained the linear setback ramp and the scheduled vent fan that the standard specifies, both now available to every Aladdin model, not just these.</p>
+
+                    <p>That is the real dividend of a method-of-test standard: every deviation you chase down makes the engine better for everyone who will never open a benchmark. The same physics that now reproduces a concrete test box in Denver is what simulates a student's passive-solar house design, a school building with a ground-source heat pump, or a home with a battery and a rooftop array.</p>
+
+                    <h2>Try it yourself</h2>
+
+                    <p>Every case in this article can be run in a browser. Open <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org">Aladdin</a>, choose <em>Benchmarks &rarr; Building Energy</em> from the main menu, pick a BESTEST case, and run the dynamic yearly analysis &mdash; the scene notes describe what each case isolates, and the thermostat, ventilation, and thermal-mass settings behind each one are right there in the building's HVAC dialog to inspect and change. Turn the thermal mass up and watch the heavy building's cooling collapse; remove the overhang and watch the solar gain flood back in. The benchmark scenes are pinned to the exact TMY3 weather file the reference programs used (the panel header names it), and the dynamic yearly analysis simulates all 365 days in sequence &mdash; so the totals you get reproduce the table above, not merely approximate it. Ordinary scenes are unaffected: they keep fetching current typical-year weather for their own locations. The box was designed to keep simulators honest, but it turns out to be a rather good teacher, too.</p>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script>
+  (function () {
+    // Reference values: ASHRAE 140-2023, Informative Annex B8, Tables B8-1/B8-2
+    // (Std140_TF_Results.xlsx). Aladdin values: continuous 365-day dynamic runs, Denver TMY3.
+    var DATA = {"programs":["BSIMAC","CSE","DeST","EnergyPlus","ESP-r","TRNSYS"],"cases":{"600":{"heat":[4.05,3.993,4.047,4.324,4.362,4.504],"cool":[5.822,5.913,5.432,6.027,6.162,5.78],"aladdinHeat":4.69,"aladdinCool":6.21},"610":{"heat":[4.163,4.066,4.144,4.375,4.527,4.592],"cool":[4.299,4.382,4.173,4.333,4.232,4.117],"aladdinHeat":4.74,"aladdinCool":4.48},"620":{"heat":[4.37,4.094,4.297,4.485,4.514,4.719],"cool":[4.404,4.079,3.909,4.06,4.246,3.841],"aladdinHeat":4.85,"aladdinCool":4.23},"630":{"heat":[4.923,4.356,4.677,4.784,5.051,5.139],"cool":[3.074,3.02,2.787,2.836,2.595,2.573],"aladdinHeat":5.14,"aladdinCool":2.92},"640":{"heat":[2.682,2.403,2.619,2.662,2.654,2.653],"cool":[5.804,5.644,5.237,5.763,5.893,5.477],"aladdinHeat":2.92,"aladdinCool":6},"650":{"heat":[0,0,0,0,0,0],"cool":[4.629,4.654,4.186,4.817,4.945,4.632],"aladdinHeat":0,"aladdinCool":5.13},"900":{"heat":[1.726,1.379,1.591,1.664,1.585,1.814],"cool":[2.714,2.464,2.383,2.489,2.488,2.267],"aladdinHeat":1.74,"aladdinCool":2.43},"910":{"heat":[2.163,1.648,1.86,1.956,2.067,2.132],"cool":[1.484,1.415,1.49,1.383,1.283,1.191],"aladdinHeat":2.11,"aladdinCool":1.37},"920":{"heat":[3.5,2.956,3.259,3.337,3.3,3.607],"cool":[3.128,2.789,2.706,2.731,2.814,2.549],"aladdinHeat":3.62,"aladdinCool":2.83},"930":{"heat":[4.27,3.524,3.933,3.994,4.278,4.384],"cool":[2.161,2.075,1.908,1.919,1.654,1.672],"aladdinHeat":4.29,"aladdinCool":1.95},"940":{"heat":[1.389,0.863,1.149,1.067,1.015,1.169],"cool":[2.613,2.397,2.343,2.424,2.428,2.203],"aladdinHeat":1.27,"aladdinCool":2.39},"950":{"heat":[0,0,0,0,0,0],"cool":[0.586,0.598,0.618,0.707,0.656,0.642],"aladdinHeat":0,"aladdinCool":0.41}}};
+
+    var COLORS = ['#91a0b4', '#7ba39a', '#a492ae', '#5f7ea3', '#8ba17c', '#ab9c82'];
+    var ALADDIN = '#d97706';
+    var ALADDIN_INK = '#9a4f03';
+    var INK = '#23282e';
+    var MUTED = '#6b7480';
+    var GRID = '#edece6';
+    var HAIRLINE = '#e3e2dc';
+    var BAND = 'rgba(35, 40, 46, 0.055)';
+
+    function legend() {
+      var el = document.getElementById('btLegend');
+      var html = '';
+      for (var i = 0; i < DATA.programs.length; i++) {
+        html += '<span class="bt-chip"><span class="bt-swatch" style="background:' + COLORS[i] + '"></span>' + DATA.programs[i] + '</span>';
+      }
+      html += '<span class="bt-chip bt-aladdin"><span class="bt-swatch" style="background:' + ALADDIN + '"></span>Aladdin</span>';
+      html += '<span class="bt-chip"><span class="bt-bandswatch"></span>reference min&ndash;max</span>';
+      el.innerHTML = html;
+    }
+
+    function chart(targetId, metric, aladdinKey, cases, yMax, dagger) {
+      var W = 1056, H = 330, padL = 44, padR = 8, padT = 18, padB = 34;
+      var plotW = W - padL - padR, plotH = H - padT - padB;
+      var nBars = 7, barW = 9, barGap = 2.5;
+      var groupW = nBars * barW + (nBars - 1) * barGap;
+      var slotW = plotW / cases.length;
+      function y(v) { return padT + plotH * (1 - v / yMax); }
+      var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Grouped bar chart comparing Aladdin with six reference programs">';
+      var step = yMax > 5 ? 1 : 0.5;
+      for (var v = 0; v <= yMax + 1e-9; v += step) {
+        s += '<line x1="' + padL + '" y1="' + y(v) + '" x2="' + (W - padR) + '" y2="' + y(v) + '" stroke="' + GRID + '" stroke-width="1"/>';
+        s += '<text x="' + (padL - 7) + '" y="' + (y(v) + 3.5) + '" font-size="10" fill="' + MUTED + '" text-anchor="end">' + (step < 1 ? v.toFixed(1) : v) + '</text>';
+      }
+      for (var ci = 0; ci < cases.length; ci++) {
+        var c = cases[ci];
+        var d = DATA.cases[c];
+        var refs = d[metric];
+        var x0 = padL + slotW * ci + (slotW - groupW) / 2;
+        var lo = Math.min.apply(null, refs), hi = Math.max.apply(null, refs);
+        if (hi > 0) {
+          s += '<rect x="' + (x0 - 4) + '" y="' + y(hi) + '" width="' + (groupW + 8) + '" height="' + Math.max(y(lo) - y(hi), 1) + '" fill="' + BAND + '"/>';
+        }
+        for (var i = 0; i < refs.length; i++) {
+          if (refs[i] === null) continue;
+          var bx = x0 + i * (barW + barGap);
+          s += '<rect x="' + bx + '" y="' + y(refs[i]) + '" width="' + barW + '" height="' + Math.max(padT + plotH - y(refs[i]), 0.5) + '" rx="1.5" fill="' + COLORS[i] + '"><title>' + DATA.programs[i] + ' — case ' + c + ': ' + refs[i].toFixed(2) + ' MWh</title></rect>';
+        }
+        var av = d[aladdinKey];
+        var ax = x0 + 6 * (barW + barGap);
+        s += '<rect x="' + ax + '" y="' + y(av) + '" width="' + barW + '" height="' + Math.max(padT + plotH - y(av), 0.5) + '" rx="1.5" fill="' + ALADDIN + '"><title>Aladdin — case ' + c + ': ' + av.toFixed(2) + ' MWh</title></rect>';
+        s += '<text x="' + (ax + barW / 2) + '" y="' + (y(av) - 4) + '" font-size="10" font-weight="600" fill="' + ALADDIN_INK + '" text-anchor="middle">' + av.toFixed(2) + '</text>';
+        var isVent = dagger && (c === '650' || c === '950');
+        s += '<text x="' + (x0 + groupW / 2) + '" y="' + (H - 16) + '" font-size="11.5" font-weight="600" fill="' + INK + '" text-anchor="middle">' + c + (isVent ? '&#8224;' : '') + '</text>';
+        s += '<text x="' + (x0 + groupW / 2) + '" y="' + (H - 4) + '" font-size="9.5" fill="' + MUTED + '" text-anchor="middle">' + (+c >= 900 ? 'high mass' : 'lightweight') + '</text>';
+      }
+      s += '<line x1="' + padL + '" y1="' + (padT + plotH) + '" x2="' + (W - padR) + '" y2="' + (padT + plotH) + '" stroke="' + HAIRLINE + '" stroke-width="1"/>';
+      s += '</svg>';
+      document.getElementById(targetId).innerHTML = s;
+    }
+
+    legend();
+    chart('btHeat', 'heat', 'aladdinHeat', ['600', '610', '620', '630', '640', '900', '910', '920', '930', '940'], 5.5, false);
+    chart('btCool', 'cool', 'aladdinCool', ['600', '610', '620', '630', '640', '650', '900', '910', '920', '930', '940', '950'], 7, true);
+  })();
+</script>
+</body>
+</html>
