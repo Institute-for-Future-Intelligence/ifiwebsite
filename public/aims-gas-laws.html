@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discover the Gas Laws via AI-Assisted Simulations — Institute for Future Intelligence</title>
-    <meta name="description" content="Investigate Boyle's, Charles's, Gay-Lussac's, and Avogadro's laws in AIMS with a molecular-dynamics gas and a movable-piston barostat — and let an AI agent run the experiments from a plain-English question.">
+    <meta name="description" content="Discover the gas laws by talking to an AI agent in AIMS: ask a plain-English question and it builds a molecular-dynamics simulation, runs Boyle's, Charles's, Gay-Lussac's, and Avogadro's experiments, plots the data, and helps you interpret it.">
 
     <style>
         @import url("css/system.base.css");
@@ -92,11 +92,13 @@
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
 
                     <p>The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gas_laws">gas laws</a> are among the first quantitative relationships a chemistry student meets:
-                    squeeze a gas and its volume drops, heat it and it expands, seal it and the pressure climbs as it warms. These laws are usually presented as formulas to memorize or as a cookbook laboratory
-                    exercise with a syringe and a hot-water bath. AIMS offers a third way &mdash; a genuine
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> simulation of a gas, in which the macroscopic laws are not
-                    programmed in but <em>emerge</em> from the motion and collisions of individual atoms. In the window below, a box of argon atoms is capped by a movable piston. Press the play button and watch
-                    the atoms fly, collide with the walls, and hold the piston up against the load pressing down on it.</p>
+                    squeeze a gas and its volume drops, heat it and it expands, seal it and the pressure climbs as it warms. They are usually presented as formulas to memorize or as a cookbook laboratory
+                    exercise with a syringe and a hot-water bath. AIMS offers a different path: you <em>discover</em> these laws by talking to an
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> that builds and runs a real
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> simulation for you. You ask a question in plain English; the agent
+                    sizes a box of atoms, conducts the experiment, plots the measured data, and helps you make sense of it. Nothing about the laws is programmed in &mdash; they <em>emerge</em> from the motion and
+                    collisions of individual atoms. In the window below, a box of argon is capped by a movable piston. Press the play button and watch the atoms fly, collide with the walls, and hold the piston up
+                    against the load pressing down on it.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Gas%20Laws"
@@ -117,7 +119,9 @@
                     applied load and grows longer as the pressure is raised, so students can literally see "push harder" before the plate has finished responding.</p>
 
                     <p>Because the pressure the gas exerts is computed from the momentum the atoms deliver to the walls, and the volume is read from the height at which the piston floats, the simulation gives
-                    students a microscopic picture of what pressure and volume actually <em>are</em>. A gas law that a textbook states in one line becomes something you can see happening, atom by atom.</p>
+                    students a microscopic picture of what pressure and volume actually <em>are</em>. A gas law that a textbook states in one line becomes something you can see happening, atom by atom. And you
+                    never have to configure any of this by hand: the AI agent knows how to size the container, place the gas, switch on the piston, set its load, and drive it &mdash; the whole apparatus is assembled
+                    from a sentence.</p>
 
                     <h2>Ask a Question, Run an Experiment</h2>
 
@@ -192,13 +196,14 @@
                     That temperature is absolute zero, and seeing it fall out of two different measured lines is a far more convincing encounter than being told the number. It is a small demonstration of how a
                     quantity that can never be reached in the laboratory reveals itself through the geometry of the data.</p>
 
-                    <h2>Why Simulation Matters</h2>
+                    <h2>Why AI-Assisted Simulation Matters</h2>
 
                     <p>The value of doing this in a simulation is that nothing about the gas laws is assumed in advance. The atoms obey only the elementary rules of motion and collision; the pressure is tallied
                     from momentum transfer, the volume from the piston height, the temperature from the average kinetic energy. When a straight line appears on the chart, it is the outcome of the microscopic
                     dynamics, not a curve drawn to match a formula. This lets students experience the gas laws as
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Emergence">emergent</a> consequences of kinetic theory &mdash; and to probe the boundaries, such as the gentle
-                    departure from ideal behavior when the gas is squeezed into a small volume.</p>
+                    departure from ideal behavior when the gas is squeezed into a small volume. What the AI adds is access: the machinery that makes such an experiment possible &mdash; a barostat, a thermostat, a
+                    stepped pressure sweep, an equilibrium average &mdash; is exactly the machinery a beginner does not yet know how to operate, and the agent operates it for them.</p>
 
                     <p>It also lets the investigation follow the student's curiosity rather than a fixed worksheet. Because the AI agent maps natural-language questions onto the right experiment, a student who
                     wonders <em>"does the pressure go up if I heat a sealed container?"</em> or <em>"does adding more gas change the density?"</em> gets an experiment and a chart in reply, not just a sentence. The
@@ -206,10 +211,11 @@
 
                     <h2>Conclusion</h2>
 
-                    <p>This article uses the gas laws to illustrate how AIMS combines an interactive molecular-dynamics simulation, a physically grounded piston barostat, and an AI agent into a single
-                    inquiry environment. The four historical laws &mdash; Boyle, Charles, Gay-Lussac, and Avogadro &mdash; and the ideal gas law that unifies them are not delivered as facts to be accepted but as
-                    patterns to be discovered, measured, and explained from the motion of atoms. In doing so, the example connects the microscopic and macroscopic pictures of matter and shows how AI can lower the
-                    barrier between a student's question and a genuine scientific experiment.</p>
+                    <p>This article uses the gas laws to illustrate a new way to learn science: not by reading about an experiment, and not by wrestling with simulation software, but by <em>conversing</em> with an
+                    AI agent that turns a plain-English question into a real molecular-dynamics experiment and hands back measured data. The four historical laws &mdash; Boyle, Charles, Gay-Lussac, and Avogadro &mdash;
+                    and the ideal gas law that unifies them are not delivered as facts to be accepted but as patterns to be discovered, measured, and explained from the motion of atoms. By pairing a physically
+                    grounded simulation with an AI that can set it up and run it, AIMS connects the microscopic and macroscopic pictures of matter and lowers the barrier between a student's curiosity and a genuine
+                    scientific investigation.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>
