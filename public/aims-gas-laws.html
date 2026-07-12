@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover the Gas Laws via AI-Assisted Simulations — Institute for Future Intelligence</title>
+    <meta name="description" content="Investigate Boyle's, Charles's, Gay-Lussac's, and Avogadro's laws in AIMS with a molecular-dynamics gas and a movable-piston barostat — and let an AI agent run the experiments from a plain-English question.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-article-audio { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.25rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: 0.75rem; margin: 0 0 2rem; }
+        .v2-article-audio-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+        .v2-article-audio audio { width: min(100%, 420px); }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="GAS LAWS">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Discover the Gas Laws via AI-Assisted Simulations</h1>
+                <p class="v2-tagline">
+                    Boyle, Charles, Gay-Lussac, and Avogadro in one box of atoms, controlled by AI agents.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gas_laws">gas laws</a> are among the first quantitative relationships a chemistry student meets:
+                    squeeze a gas and its volume drops, heat it and it expands, seal it and the pressure climbs as it warms. These laws are usually presented as formulas to memorize or as a cookbook laboratory
+                    exercise with a syringe and a hot-water bath. AIMS offers a third way &mdash; a genuine
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> simulation of a gas, in which the macroscopic laws are not
+                    programmed in but <em>emerge</em> from the motion and collisions of individual atoms. In the window below, a box of argon atoms is capped by a movable piston. Press the play button and watch
+                    the atoms fly, collide with the walls, and hold the piston up against the load pressing down on it.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Gas%20Laws"
+                                id="aims-frame1" allowfullscreen="true" title="Gas Laws demo"></iframe>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen1();">view fullscreen</a>. Chrome or Edge recommended.
+                        </figcaption>
+                    </figure>
+
+                    <h2>A Piston Made of Molecular Collisions</h2>
+
+                    <p>Every gas law is a statement about how three quantities &mdash; pressure, volume, and temperature &mdash; trade off for a fixed amount of gas. To study them we need a way to
+                    <em>hold one quantity constant while varying another</em>. AIMS does this with a movable-piston
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Barostat">barostat</a>: a weighted plate that seals the top of the container. A constant load pushes the plate
+                    down into the gas, while the gas atoms push it back up through countless tiny collisions. Where the two balance, the gas pressure equals the applied pressure &mdash; a real
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Isobaric_process">constant-pressure</a> ensemble, driven by
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Kinetic_theory_of_gases">kinetic theory</a>, not by any hard-coded rule. A red arrow on the plate shows the
+                    applied load and grows longer as the pressure is raised, so students can literally see "push harder" before the plate has finished responding.</p>
+
+                    <p>Because the pressure the gas exerts is computed from the momentum the atoms deliver to the walls, and the volume is read from the height at which the piston floats, the simulation gives
+                    students a microscopic picture of what pressure and volume actually <em>are</em>. A gas law that a textbook states in one line becomes something you can see happening, atom by atom.</p>
+
+                    <h2>Ask a Question, Run an Experiment</h2>
+
+                    <p>AIMS is an AI-native environment, and the gas-law investigations are the clearest example of what that means. A student does not need to know the name "Boyle's law" or how to configure a
+                    barostat sweep. They simply type an everyday question into the chat &mdash; <em>"what happens to the volume if I squeeze the gas?"</em> &mdash; and the built-in AI agent recognizes the intent,
+                    steps the piston pressure through a series of values, lets the gas re-equilibrate at each, measures the volume, and drops a live chart of the results straight into the conversation. The experiment
+                    the student would otherwise have to set up by hand is orchestrated for them, and the measured data &mdash; not a canned illustration &mdash; is what they see.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">You can build and run the whole investigation from scratch. Start a new Molecular Modeling project, open the chat, and type these prompts in order. The first group prepares the simulation &mdash; sizing the container, adding the gas, setting the conditions, and switching on the piston &mdash; so you have a working, watchable gas. The second group then runs the four experiments, each returning a chart in the chat.</p>
+
+                        <p class="v2-prompts-group">Prepare the simulation</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Size the container</span> &mdash; <span class="v2-prompt">"Resize the simulation box to 80 &times; 80 &times; 120 &aring;ngstr&ouml;ms so the gas has room to expand and the piston can travel."</span></li>
+                            <li><span class="v2-prompts-step">Add the gas</span> &mdash; <span class="v2-prompt">"Add argon to the gallery, then scatter 50 argon atoms across the box."</span></li>
+                            <li><span class="v2-prompts-step">Set the conditions</span> &mdash; <span class="v2-prompt">"Hold the temperature at 300 K and use a 5 fs time step, since argon's interactions are weak."</span></li>
+                            <li><span class="v2-prompts-step">Switch on the piston</span> &mdash; <span class="v2-prompt">"Turn on the piston at 2 MPa with a light 40 amu plate so I can see it move."</span></li>
+                            <li><span class="v2-prompts-step">Run it</span> &mdash; <span class="v2-prompt">"Run the simulation for 500 femtoseconds so I can watch the gas hold the piston up, then stop."</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Investigate the four gas laws</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Boyle's law</span> (volume vs. pressure) &mdash; <span class="v2-prompt">"What happens to the volume if I squeeze the gas?"</span></li>
+                            <li><span class="v2-prompts-step">Charles's law</span> (volume vs. temperature) &mdash; <span class="v2-prompt">"What happens to the volume when I heat the gas?"</span></li>
+                            <li><span class="v2-prompts-step">Gay-Lussac's law</span> (pressure vs. temperature) &mdash; <span class="v2-prompt">"In a sealed, rigid container, what happens to the pressure as the gas gets hotter?"</span></li>
+                            <li><span class="v2-prompts-step">Avogadro's law</span> (volume vs. amount) &mdash; <span class="v2-prompt">"If I add more gas at the same temperature and pressure, what happens to the volume and the density?"</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-intro" style="margin-top:1rem !important; margin-bottom:0 !important;">Each sweep re-uses the piston and thermostat you set up (Gay-Lussac temporarily switches the piston off for its constant-volume run) and restores your simulation afterward, so you can keep exploring between experiments.</p>
+                    </div>
+
+                    <p>Each investigation is a <em>sweep</em>: a sequence of small experiments in which one control variable is stepped and one observable is measured. The results accumulate into a single interactive
+                    chart embedded in the chat log &mdash; a lab notebook that records what was actually measured at that moment. The four classic gas laws map onto four sweeps.</p>
+
+                    <h2>The Four Gas Laws</h2>
+
+                    <p><b><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boyle%27s_law">Boyle's law</a> (constant temperature).</b> Holding the temperature fixed, the agent raises
+                    the piston pressure step by step and measures the shrinking volume. Plotted as volume against the reciprocal of pressure, the points fall on a straight line through the origin: the product
+                    <em>P&middot;V</em> is constant. Compress the gas and it takes up proportionally less room. At the highest pressures the line begins to bend &mdash; a real, dense gas departs slightly from the
+                    ideal law, which is itself a teachable moment rather than an error.</p>
+
+                    <p><b><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Charles%27s_law">Charles's law</a> (constant pressure).</b> With the piston holding the pressure fixed, the agent
+                    steps the temperature and measures the expanding volume. Volume rises in direct proportion to the absolute temperature, giving a straight line that, extended backward, crosses zero volume near
+                    &minus;273&nbsp;&deg;C &mdash; the simulation reproduces the classic extrapolation to
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Absolute_zero">absolute zero</a> directly from the measured data.</p>
+
+                    <p><b><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gay-Lussac%27s_law">Gay-Lussac's law</a> (constant volume).</b> This one is mechanically different: the piston is
+                    switched off and the container becomes a rigid, sealed box. Now volume is the constant and <em>pressure</em> is the measured quantity &mdash; read from the force the atoms exert on the walls.
+                    As the gas is heated, the pressure climbs in direct proportion to the absolute temperature. It is the same physics that makes a sealed can dangerous in a fire, and it too extrapolates to zero
+                    pressure at absolute zero.</p>
+
+                    <p><b><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Avogadro%27s_law">Avogadro's law</a> (constant temperature and pressure).</b> Here the agent changes the
+                    <em>amount</em> of gas &mdash; the number of atoms &mdash; while holding temperature and pressure fixed, and measures the volume. Volume grows in direct proportion to the number of particles:
+                    a straight line through the origin. This sweep also answers a subtler question that students often find confusing. Density is the mass divided by the volume, <em>&rho; = N&middot;m / V</em>.
+                    Because the volume grows in step with the number of atoms, the ratio <em>N / V</em> &mdash; and therefore the density &mdash; stays constant. Adding more gas at the same temperature and pressure
+                    makes the sample bigger but no denser, a fact that follows directly from the number of atoms and is easy to see once the V-versus-N line is on the screen.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-gas-laws-boyle.png" alt="Boyle's law sweep: volume vs 1/pressure">
+                        <img src="image/aims-gas-laws-charles.png" alt="Charles's law sweep: volume vs temperature extrapolating to absolute zero">
+                    </div>
+
+                    <h2>From the Ideal Gas Law to Absolute Zero</h2>
+
+                    <p>Taken together, the four laws are the pieces of a single equation: the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ideal_gas_law">ideal gas law</a>, <em>P&middot;V = N&middot;k&middot;T</em>. AIMS surfaces this relationship directly:
+                    while the piston is running, the simulation continuously reports the value of <em>P&middot;V / (N&middot;k&middot;T)</em>, which sits near 1 whenever the barostat has brought the gas to
+                    equilibrium and the gas is behaving ideally. Students can watch this dimensionless number settle toward unity as the piston finds its balance point, turning an abstract equation of state into a
+                    live readout they can test against their own conditions.</p>
+
+                    <p>Two of the sweeps &mdash; Charles's and Gay-Lussac's &mdash; independently extrapolate to the same special temperature at which an ideal gas would have zero volume and zero pressure.
+                    That temperature is absolute zero, and seeing it fall out of two different measured lines is a far more convincing encounter than being told the number. It is a small demonstration of how a
+                    quantity that can never be reached in the laboratory reveals itself through the geometry of the data.</p>
+
+                    <h2>Why Simulation Matters</h2>
+
+                    <p>The value of doing this in a simulation is that nothing about the gas laws is assumed in advance. The atoms obey only the elementary rules of motion and collision; the pressure is tallied
+                    from momentum transfer, the volume from the piston height, the temperature from the average kinetic energy. When a straight line appears on the chart, it is the outcome of the microscopic
+                    dynamics, not a curve drawn to match a formula. This lets students experience the gas laws as
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Emergence">emergent</a> consequences of kinetic theory &mdash; and to probe the boundaries, such as the gentle
+                    departure from ideal behavior when the gas is squeezed into a small volume.</p>
+
+                    <p>It also lets the investigation follow the student's curiosity rather than a fixed worksheet. Because the AI agent maps natural-language questions onto the right experiment, a student who
+                    wonders <em>"does the pressure go up if I heat a sealed container?"</em> or <em>"does adding more gas change the density?"</em> gets an experiment and a chart in reply, not just a sentence. The
+                    conversation becomes the laboratory notebook, and each question a new run.</p>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses the gas laws to illustrate how AIMS combines an interactive molecular-dynamics simulation, a physically grounded piston barostat, and an AI agent into a single
+                    inquiry environment. The four historical laws &mdash; Boyle, Charles, Gay-Lussac, and Avogadro &mdash; and the ideal gas law that unifies them are not delivered as facts to be accepted but as
+                    patterns to be discovered, measured, and explained from the motion of atoms. In doing so, the example connects the microscopic and macroscopic pictures of matter and shows how AI can lower the
+                    barrier between a student's question and a genuine scientific experiment.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
