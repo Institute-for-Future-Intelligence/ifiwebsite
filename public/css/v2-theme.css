@@ -172,7 +172,9 @@ body.page-v2 {
 }
 .v2-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    /* minmax(0, …) lets the column shrink below its content's min-width on
+       narrow screens; wide tables/charts then scroll inside their own boxes */
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.5rem;
 }
 @media (min-width: 860px) {

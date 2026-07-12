@@ -56,7 +56,7 @@
         /* the default clamp(2.5rem, 6vw, 4.25rem) is too large for this long title */
         .v2-hero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); }
         .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
-        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: minmax(0, 1fr); }
         .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
         .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
         .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
@@ -72,6 +72,7 @@
         .bt-chartcard h3 { margin: 0; font-size: 1.25rem; font-weight: 650; }
         .bt-chartcard .bt-sub { margin: 0.15rem 0 0.5rem; font-size: 1.05rem; color: var(--text-muted); }
         .bt-chartbox { overflow-x: auto; }
+        .bt-rowlabel { font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 0.6rem 0 0.15rem; font-weight: 600; }
         .bt-chartbox svg { display: block; min-width: 900px; width: 100%; height: auto; }
         .bt-chartbox svg text { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
         .bt-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; align-items: center; font-size: 1.02rem; margin: 0.75rem 0 0.25rem; }
@@ -120,7 +121,7 @@
 
                     <figure class="v2-embed">
                         <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=BESTEST%20Case%20600" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame" width="100%" height="600px" title="BESTEST Case 600 in Aladdin, interactive 3D model"></iframe>
-                        <figcaption>BESTEST Case 600, live in Aladdin. All fourteen test cases ship in Aladdin&rsquo;s Benchmarks menu, each carrying the standard&rsquo;s exact TMY3 weather file &mdash; running the dynamic yearly analysis reproduces the numbers in the table below. <a href="javascript:openFullscreen('aladdin-frame');">View in full screen</a>.</figcaption>
+                        <figcaption>BESTEST Case 600, live in Aladdin. All twenty-seven test cases ship in Aladdin&rsquo;s Benchmarks menu, each carrying the standard&rsquo;s exact TMY3 weather file &mdash; running the dynamic yearly analysis reproduces the numbers in the table below. <a href="javascript:openFullscreen('aladdin-frame');">View in full screen</a>.</figcaption>
                     </figure>
 
                     <div class="v2-model-link">
@@ -139,27 +140,37 @@
 
                     <p>Aladdin's building energy tools include a transient (dynamic) thermal simulation: a resistor&ndash;capacitor network of the building derived from the <a target="_blank" rel="noopener noreferrer" href="https://www.iso.org/standard/41974.html">ISO&nbsp;13790</a> standard, extended with a separate thermal node for the floor slab &mdash; because that is where the sun patch lands &mdash; and driven hour by hour through a full year of measured typical-year (<a target="_blank" rel="noopener noreferrer" href="https://www.osti.gov/biblio/928611">TMY3</a>) weather. Sunlight is traced against the actual 3D geometry, so an overhang shades a window in the model exactly the way it shades it on screen. For these benchmarks we ran every case as a continuous 365-day simulation of the same Denver weather the reference programs used, with the air conditioner's coefficient of performance set to one so that the reported numbers are thermal loads, directly comparable to the published tables.</p>
 
-                    <p>All fourteen cases &mdash; the twelve conditioned ones and the two free-float ones &mdash; are built into Aladdin under <em>Benchmarks &rarr; Building Energy</em>, authored to the letter of the specification: the exact layer-by-layer wall constructions, the 0.41 air changes per hour of infiltration (adjusted for Denver's altitude, as the standard instructs), the 200 watts of continuous internal gains, the 0.6 solar absorptance, even the glazing's angle-by-angle optical data from the <a target="_blank" rel="noopener noreferrer" href="https://windows.lbl.gov/software/window">LBNL WINDOW</a> report that ships with the standard. This matters for a reason beyond bookkeeping: it makes the whole exercise reproducible. Anyone &mdash; a skeptical colleague, a student, a reviewer &mdash; can open the same cases in a browser and run them.</p>
+                    <p>All twenty-seven cases &mdash; the core conditioned suite, the window-technology variants (low-e argon and single-pane glazing, each with its own WINDOW&nbsp;7 angular optics), the increased-insulation and zero-deadband variants, six free-floating buildings, and the two-zone sunspace (Case&nbsp;960) &mdash; are built into Aladdin under <em>Benchmarks &rarr; Building Energy</em>, authored to the letter of the specification: the exact layer-by-layer wall constructions, the 0.41 air changes per hour of infiltration (adjusted for Denver's altitude, as the standard instructs), the 200 watts of continuous internal gains, the 0.6 solar absorptance, even the glazing's angle-by-angle optical data from the <a target="_blank" rel="noopener noreferrer" href="https://windows.lbl.gov/software/window">LBNL WINDOW</a> report that ships with the standard. This matters for a reason beyond bookkeeping: it makes the whole exercise reproducible. Anyone &mdash; a skeptical colleague, a student, a reviewer &mdash; can open the same cases in a browser and run them.</p>
+
+                    <p>Twenty-seven is not all of them: the standard&rsquo;s thermal-fabric section defines fifty cases. The other twenty-three form an in-depth diagnostic series &mdash; a solid conduction box with the physics added back one mechanism at a time, plus variants that prescribe unusual surface properties (infrared emittances of 0.1, interior solar absorptances of 0.1, fixed film coefficients). They exist to localize disagreements between programs, not to represent buildings, and several deliberately vary quantities Aladdin fixes at their standard values to keep its interface simple. We skip them for now, openly: they would become worthwhile the day a regression needs hunting, not as a scorecard. Standard 140 also contains two further chapters entirely &mdash; analytical and comparative tests for space-cooling and space-heating <em>equipment</em> &mdash; which exercise HVAC hardware models rather than the building fabric, and which would be their own validation campaign.</p>
+
+                    <p>The sunspace case deserves a word, because it exercises something new: Case&nbsp;960 is a <em>two-zone</em> building &mdash; a conditioned back room behind a free-floating, heavily glazed sun room, separated by a massive concrete common wall. In Aladdin it is modeled the way users naturally compose complex houses: as two structures whose shared surfaces are declared interior. The simulation then treats them as coupled thermal zones, exchanging heat through the common wall while each keeps its own thermostat &mdash; the back zone conditioned, the sunspace riding free between a winter night around 7&nbsp;&deg;C and a summer afternoon near 49&nbsp;&deg;C, both inside the reference programs' range.</p>
 
                     <h2>The results, next to everyone else&rsquo;s</h2>
 
-                    <p>The charts below show Aladdin's annual heating and cooling loads for the twelve conditioned cases, plotted directly alongside the six reference programs from the standard's example results. The shaded strip behind each cluster spans the reference minimum to maximum. Hover over any bar for its exact value.</p>
+                    <p>The charts below show Aladdin's annual heating and cooling loads for all twenty-one conditioned zones, split into lightweight and high-mass rows (Case 960 charts its sunspace-fed back zone), plotted directly alongside the six reference programs from the standard's example results. The shaded strip behind each cluster spans the reference minimum to maximum. Hover over any bar for its exact value.</p>
 
                     <div class="bt-legend" id="btLegend"></div>
 
                     <div class="bt-chartcard">
                         <h3>Annual heating load</h3>
-                        <p class="bt-sub">MWh thermal per year &middot; cases 650 and 950 omitted (heating is off by specification; Aladdin also reports exactly zero)</p>
-                        <div class="bt-chartbox"><div id="btHeat"></div></div>
+                        <p class="bt-sub">MWh thermal per year &middot; cases 650 and 950 omitted (heating is off by specification; Aladdin also reports exactly zero) &middot; 960 = sunspace back zone (five reference programs)</p>
+                        <div class="bt-rowlabel">Lightweight</div>
+                        <div class="bt-chartbox"><div id="btHeatL"></div></div>
+                        <div class="bt-rowlabel">High mass &amp; sunspace</div>
+                        <div class="bt-chartbox"><div id="btHeatH"></div></div>
                     </div>
 
                     <div class="bt-chartcard">
                         <h3>Annual sensible cooling load</h3>
-                        <p class="bt-sub">MWh thermal per year &middot; &dagger; night-ventilation cases use the specification&rsquo;s scheduled vent fan (13.14 ACH, 18:00&ndash;07:00)</p>
-                        <div class="bt-chartbox"><div id="btCool"></div></div>
+                        <p class="bt-sub">MWh thermal per year &middot; &dagger; night-ventilation cases use the specification&rsquo;s scheduled vent fan (13.14 ACH, 18:00&ndash;07:00) &middot; 960 = sunspace back zone (five reference programs)</p>
+                        <div class="bt-rowlabel">Lightweight</div>
+                        <div class="bt-chartbox"><div id="btCoolL"></div></div>
+                        <div class="bt-rowlabel">High mass &amp; sunspace</div>
+                        <div class="bt-chartbox"><div id="btCoolH"></div></div>
                     </div>
 
-                    <p style="margin-top: 1.5rem;">The headline: Aladdin's annual heating falls <strong>inside the reference range on all twelve conditioned cases</strong> &mdash; lightweight and high-mass alike, including the notoriously demanding thermostat-setback cases &mdash; and so does every hourly peak-heating load. Annual cooling lands inside the range on the entire lightweight series and on most of the high-mass series, where the remaining cases sit a few percent below the range bottom. The free-float temperature extremes, from a &minus;12&nbsp;&deg;C winter night to a 68&nbsp;&deg;C summer greenhouse spike in the unconditioned box, fall inside the published ranges as well. Counting every reported metric &mdash; annual loads, hourly peaks, and free-float extremes &mdash; more than three quarters fall strictly inside the reference ranges, and all of the rest but one are within about five percent, which is smaller than the disagreement among the reference programs themselves on many outputs.</p>
+                    <p style="margin-top: 1.5rem;">The headline: Aladdin's annual heating falls <strong>inside the reference range on all thirteen conditioned zones of the core suite</strong> &mdash; lightweight, high-mass, and the two-zone sunspace alike, including the notoriously demanding thermostat-setback cases &mdash; and so does every one of their hourly peak-heating loads. The extended variants (increased insulation, zero-deadband thermostats) land inside or within about five percent; their absolute loads are roughly half as large, so the same small biases read as bigger percentages. Annual cooling lands inside the range on the entire lightweight series and on most of the high-mass series, where the remaining cases sit a few percent below the range bottom. The free-float temperature extremes, from a &minus;12&nbsp;&deg;C winter night to a 68&nbsp;&deg;C summer greenhouse spike in the unconditioned box, fall inside the published ranges as well. Counting every reported metric across all twenty-seven cases &mdash; ninety-eight numbers spanning annual loads, hourly peaks, and free-float extremes &mdash; two thirds fall strictly inside the reference ranges and, apart from the tiny night-ventilation cooling load of Case&nbsp;950, every miss is within about eight percent of the nearest bound (the free-float misses are fractions of a degree) &mdash; smaller than the disagreement among the reference programs themselves on many outputs.</p>
 
                                         <div class="bt-tablebox">
                         <table class="bt-table">
@@ -174,20 +185,34 @@
 <tr><td><strong>630</strong></td><td class="bt-desc">E/W windows, overhang + fins</td><td>4.36 – 5.14</td><td class="bt-in">4.68</td><td>2.57 – 3.07</td><td class="bt-in">2.67</td></tr>
 <tr><td><strong>640</strong></td><td class="bt-desc">Night thermostat setback</td><td>2.40 – 2.68</td><td class="bt-in">2.51</td><td>5.24 – 5.89</td><td class="bt-in">5.64</td></tr>
 <tr><td><strong>650</strong></td><td class="bt-desc">Night ventilation, no heating</td><td>0</td><td class="bt-in">0.00</td><td>4.19 – 4.95</td><td class="bt-in">4.85</td></tr>
+<tr><td><strong>660</strong></td><td class="bt-desc">Low-e argon windows</td><td>3.57 – 3.82</td><td class="bt-out">3.36 <span>(−6.0%)</span></td><td>2.97 – 3.34</td><td class="bt-in">3.12</td></tr>
+<tr><td><strong>670</strong></td><td class="bt-desc">Single-pane windows</td><td>5.30 – 6.14</td><td class="bt-in">5.43</td><td>5.95 – 6.62</td><td class="bt-in">6.47</td></tr>
+<tr><td><strong>680</strong></td><td class="bt-desc">Increased insulation</td><td>1.73 – 2.29</td><td class="bt-out">2.39 <span>(+4.5%)</span></td><td>5.93 – 6.53</td><td class="bt-in">6.46</td></tr>
+<tr><td><strong>685</strong></td><td class="bt-desc">“20,20” thermostat (no deadband)</td><td>4.53 – 5.04</td><td class="bt-in">4.69</td><td>8.24 – 9.13</td><td class="bt-in">8.86</td></tr>
+<tr><td><strong>695</strong></td><td class="bt-desc">Increased insulation + “20,20”</td><td>2.38 – 2.89</td><td class="bt-out">2.93 <span>(+1.3%)</span></td><td>8.39 – 9.17</td><td class="bt-in">9.10</td></tr>
 <tr><td><strong>900</strong></td><td class="bt-desc">High-mass base case</td><td>1.38 – 1.81</td><td class="bt-in">1.54</td><td>2.27 – 2.71</td><td class="bt-out">2.14 <span>(−5.6%)</span></td></tr>
 <tr><td><strong>910</strong></td><td class="bt-desc">High mass, south overhang</td><td>1.65 – 2.16</td><td class="bt-in">1.88</td><td>1.19 – 1.49</td><td class="bt-out">1.17 <span>(−1.8%)</span></td></tr>
 <tr><td><strong>920</strong></td><td class="bt-desc">High mass, east/west windows</td><td>2.96 – 3.61</td><td class="bt-in">3.30</td><td>2.55 – 3.13</td><td class="bt-in">2.58</td></tr>
 <tr><td><strong>930</strong></td><td class="bt-desc">High mass, E/W shading</td><td>3.52 – 4.38</td><td class="bt-in">3.92</td><td>1.65 – 2.16</td><td class="bt-in">1.75</td></tr>
 <tr><td><strong>940</strong></td><td class="bt-desc">High mass, setback</td><td>0.86 – 1.39</td><td class="bt-in">1.07</td><td>2.20 – 2.61</td><td class="bt-out">2.12 <span>(−3.8%)</span></td></tr>
 <tr><td><strong>950</strong></td><td class="bt-desc">High mass, night ventilation</td><td>0</td><td class="bt-in">0.00</td><td>0.59 – 0.71</td><td class="bt-out">0.39 <span>(−33.4%)</span></td></tr>
-                            <tr class="bt-subhead"><th colspan="2" style="text-align:left">Free-float (no HVAC)</th><th colspan="2">Annual indoor minimum, &deg;C</th><th colspan="2">Annual indoor maximum, &deg;C</th></tr>
+<tr><td><strong>960</strong></td><td class="bt-desc">Sunspace: conditioned back zone</td><td>2.52 – 2.86</td><td class="bt-in">2.63</td><td>0.79 – 0.95</td><td class="bt-out">0.77 <span>(−2.4%)</span></td></tr>
+<tr><td><strong>980</strong></td><td class="bt-desc">High mass, increased insulation</td><td>0.25 – 0.72</td><td class="bt-in">0.43</td><td>3.50 – 4.00</td><td class="bt-out">3.33 <span>(−4.9%)</span></td></tr>
+<tr><td><strong>985</strong></td><td class="bt-desc">High mass, “20,20” thermostat</td><td>2.12 – 2.80</td><td class="bt-out">2.05 <span>(−3.3%)</span></td><td>5.88 – 7.27</td><td class="bt-out">5.86 <span>(−0.3%)</span></td></tr>
+<tr><td><strong>995</strong></td><td class="bt-desc">High mass, insulation + “20,20”</td><td>0.76 – 1.33</td><td class="bt-in">0.87</td><td>6.77 – 7.48</td><td class="bt-in">6.80</td></tr>
+<tr class="bt-subhead"><th colspan="2" style="text-align:left">Free-float (no HVAC)</th><th colspan="2">Annual indoor minimum, &deg;C</th><th colspan="2">Annual indoor maximum, &deg;C</th></tr>
 <tr><td><strong>600FF</strong></td><td class="bt-desc">Free float, lightweight</td><td>-13.8 – -9.9</td><td class="bt-in">-11.8</td><td>62.4 – 68.4</td><td class="bt-in">67.9</td></tr>
+<tr><td><strong>650FF</strong></td><td class="bt-desc">Free float, night vent fan</td><td>-17.8 – -16.7</td><td class="bt-out">-18.1 <span>(−0.3&deg;C)</span></td><td>61.1 – 66.8</td><td class="bt-in">66.7</td></tr>
+<tr><td><strong>680FF</strong></td><td class="bt-desc">Free float, increased insulation</td><td>-8.1 – -5.7</td><td class="bt-out">-8.3 <span>(−0.2&deg;C)</span></td><td>69.8 – 78.5</td><td class="bt-in">77.4</td></tr>
 <tr><td><strong>900FF</strong></td><td class="bt-desc">Free float, high mass</td><td>0.6 – 2.2</td><td class="bt-in">1.1</td><td>43.3 – 46.0</td><td class="bt-out">42.6 <span>(−0.7&deg;C)</span></td></tr>
-                            </tbody>
+<tr><td><strong>950FF</strong></td><td class="bt-desc">High mass free float, night vent fan</td><td>-13.4 – -12.5</td><td class="bt-out">-13.6 <span>(−0.2&deg;C)</span></td><td>36.1 – 37.1</td><td class="bt-out">35.3 <span>(−0.8&deg;C)</span></td></tr>
+<tr><td><strong>980FF</strong></td><td class="bt-desc">High mass free float, increased insulation</td><td>7.3 – 12.5</td><td class="bt-in">9.2</td><td>48.5 – 52.8</td><td class="bt-out">48.2 <span>(−0.3&deg;C)</span></td></tr>
+<tr><td><strong>960</strong></td><td class="bt-desc">Sunspace: free-floating sun zone</td><td>4.2 – 8.0</td><td class="bt-in">6.6</td><td>48.1 – 53.2</td><td class="bt-in">49.2</td></tr>
+</tbody>
                         </table>
                     </div>
 
-                    <p>And where Aladdin still deviates, we can tell you exactly where and why, because the case structure localizes it: the high-mass buildings run their air conditioners a few percent less than the references &mdash; most visibly in the night-ventilation case (950), which pre-cools its concrete slab a bit too effectively and undershoots the smallest cooling number in the suite &mdash; and the lightweight peak-cooling hour comes in three to four percent above the range on the south-glazed cases. Both are documented rather than papered over. In validation work, knowing precisely where your model bends is nearly as valuable as the places it doesn't.</p>
+                    <p>And where Aladdin still deviates, we can tell you exactly where and why, because the case structure localizes it: the high-mass buildings run their air conditioners a few percent less than the references &mdash; most visibly in the night-ventilation case (950), which pre-cools its concrete slab a bit too effectively and undershoots the smallest cooling number in the suite &mdash; and the lightweight peak-cooling hour comes in three to four percent above the range on the south-glazed cases. The two-zone sunspace case follows the same pattern: its back-zone heating and the sunspace&rsquo;s temperature swing land inside the ranges, while its cooling reads a few percent low &mdash; partly the same high-mass cooling signature, and partly because the standard assigns a fifth of the sunspace&rsquo;s transmitted solar to the massive common wall, whose conduction into the back zone air-coupled zones deliver more weakly. The low-e window case underheats by six percent: Aladdin models that window as a constant air-to-air U-value with the standard&rsquo;s fixed film coefficients, while the reference programs resolve the pane-gap physics &mdash; temperature-dependent gas and radiative conductance, hourly films &mdash; and at this window&rsquo;s small U and small loads, tenths of a watt per square meter are worth several percent of the heating bill. The other extended variants stretch the familiar residuals rather than reveal new ones &mdash; the super-insulated buildings simply magnify the lightweight biases in percentage terms &mdash; and the free-float extremes sit within a fraction of a degree of the reference minima. All of it is documented rather than papered over. In validation work, knowing precisely where your model bends is nearly as valuable as the places it doesn't.</p>
 
                     <h2>What the test taught us</h2>
 
@@ -217,7 +242,7 @@
   (function () {
     // Reference values: ASHRAE 140-2023, Informative Annex B8, Tables B8-1/B8-2
     // (Std140_TF_Results.xlsx). Aladdin values: continuous 365-day dynamic runs, Denver TMY3.
-    var DATA = {"programs":["BSIMAC","CSE","DeST","EnergyPlus","ESP-r","TRNSYS"],"cases":{"600":{"heat":[4.05,3.993,4.047,4.324,4.362,4.504],"cool":[5.822,5.913,5.432,6.027,6.162,5.78],"aladdinHeat":4.23,"aladdinCool":5.88},"610":{"heat":[4.163,4.066,4.144,4.375,4.527,4.592],"cool":[4.299,4.382,4.173,4.333,4.232,4.117],"aladdinHeat":4.27,"aladdinCool":4.17},"620":{"heat":[4.37,4.094,4.297,4.485,4.514,4.719],"cool":[4.404,4.079,3.909,4.06,4.246,3.841],"aladdinHeat":4.4,"aladdinCool":3.92},"630":{"heat":[4.923,4.356,4.677,4.784,5.051,5.139],"cool":[3.074,3.02,2.787,2.836,2.595,2.573],"aladdinHeat":4.68,"aladdinCool":2.67},"640":{"heat":[2.682,2.403,2.619,2.662,2.654,2.653],"cool":[5.804,5.644,5.237,5.763,5.893,5.477],"aladdinHeat":2.51,"aladdinCool":5.64},"650":{"heat":[0,0,0,0,0,0],"cool":[4.629,4.654,4.186,4.817,4.945,4.632],"aladdinHeat":0,"aladdinCool":4.85},"900":{"heat":[1.726,1.379,1.591,1.664,1.585,1.814],"cool":[2.714,2.464,2.383,2.489,2.488,2.267],"aladdinHeat":1.54,"aladdinCool":2.14},"910":{"heat":[2.163,1.648,1.86,1.956,2.067,2.132],"cool":[1.484,1.415,1.49,1.383,1.283,1.191],"aladdinHeat":1.88,"aladdinCool":1.17},"920":{"heat":[3.5,2.956,3.259,3.337,3.3,3.607],"cool":[3.128,2.789,2.706,2.731,2.814,2.549],"aladdinHeat":3.3,"aladdinCool":2.58},"930":{"heat":[4.27,3.524,3.933,3.994,4.278,4.384],"cool":[2.161,2.075,1.908,1.919,1.654,1.672],"aladdinHeat":3.92,"aladdinCool":1.75},"940":{"heat":[1.389,0.863,1.149,1.067,1.015,1.169],"cool":[2.613,2.397,2.343,2.424,2.428,2.203],"aladdinHeat":1.07,"aladdinCool":2.12},"950":{"heat":[0,0,0,0,0,0],"cool":[0.586,0.598,0.618,0.707,0.656,0.642],"aladdinHeat":0,"aladdinCool":0.39}}};
+    var DATA = {"programs":["BSIMAC","CSE","DeST","EnergyPlus","ESP-r","TRNSYS"],"cases":{"600":{"heat":[4.05,3.993,4.047,4.324,4.362,4.504],"cool":[5.822,5.913,5.432,6.027,6.162,5.78],"aladdinHeat":4.23,"aladdinCool":5.88},"610":{"heat":[4.163,4.066,4.144,4.375,4.527,4.592],"cool":[4.299,4.382,4.173,4.333,4.232,4.117],"aladdinHeat":4.27,"aladdinCool":4.17},"620":{"heat":[4.37,4.094,4.297,4.485,4.514,4.719],"cool":[4.404,4.079,3.909,4.06,4.246,3.841],"aladdinHeat":4.4,"aladdinCool":3.92},"630":{"heat":[4.923,4.356,4.677,4.784,5.051,5.139],"cool":[3.074,3.02,2.787,2.836,2.595,2.573],"aladdinHeat":4.68,"aladdinCool":2.67},"640":{"heat":[2.682,2.403,2.619,2.662,2.654,2.653],"cool":[5.804,5.644,5.237,5.763,5.893,5.477],"aladdinHeat":2.51,"aladdinCool":5.64},"650":{"heat":[0,0,0,0,0,0],"cool":[4.629,4.654,4.186,4.817,4.945,4.632],"aladdinHeat":0,"aladdinCool":4.85},"900":{"heat":[1.726,1.379,1.591,1.664,1.585,1.814],"cool":[2.714,2.464,2.383,2.489,2.488,2.267],"aladdinHeat":1.54,"aladdinCool":2.14},"910":{"heat":[2.163,1.648,1.86,1.956,2.067,2.132],"cool":[1.484,1.415,1.49,1.383,1.283,1.191],"aladdinHeat":1.88,"aladdinCool":1.17},"920":{"heat":[3.5,2.956,3.259,3.337,3.3,3.607],"cool":[3.128,2.789,2.706,2.731,2.814,2.549],"aladdinHeat":3.3,"aladdinCool":2.58},"930":{"heat":[4.27,3.524,3.933,3.994,4.278,4.384],"cool":[2.161,2.075,1.908,1.919,1.654,1.672],"aladdinHeat":3.92,"aladdinCool":1.75},"940":{"heat":[1.389,0.863,1.149,1.067,1.015,1.169],"cool":[2.613,2.397,2.343,2.424,2.428,2.203],"aladdinHeat":1.07,"aladdinCool":2.12},"950":{"heat":[0,0,0,0,0,0],"cool":[0.586,0.598,0.618,0.707,0.656,0.642],"aladdinHeat":0,"aladdinCool":0.39},"680":{"heat":[2.219,1.786,1.732,2.18,2.132,2.286],"cool":[5.938,6.43,5.932,6.444,6.529,6.31],"aladdinHeat":2.39,"aladdinCool":6.46},"685":{"heat":[4.532,4.574,4.646,4.877,4.904,5.042],"cool":[9.13,8.859,8.238,9.119,9.121,8.851],"aladdinHeat":4.69,"aladdinCool":8.86},"695":{"heat":[2.709,2.415,2.385,2.802,2.732,2.892],"cool":[8.755,8.974,8.386,9.172,9.149,9.039],"aladdinHeat":2.93,"aladdinCool":9.1},"980":{"heat":[0.72,0.246,0.266,0.411,0.351,0.45],"cool":[3.501,3.995,3.758,3.712,3.775,3.519],"aladdinHeat":0.43,"aladdinCool":3.33},"985":{"heat":[2.801,2.12,2.279,2.369,2.283,2.536],"cool":[7.273,6.234,5.88,6.359,6.249,6.113],"aladdinHeat":2.05,"aladdinCool":5.86},"995":{"heat":[1.33,0.755,0.77,1.006,0.905,1.077],"cool":[7.482,7.202,6.771,7.203,7.149,7.064],"aladdinHeat":0.87,"aladdinCool":6.8},"660":{"heat":[3.574,3.602,3.821,3.707,3.787,3.79],"cool":[3.014,3.34,3.26,3.232,3.219,2.966],"aladdinHeat":3.36,"aladdinCool":3.12},"670":{"heat":[5.484,5.3,5.573,5.616,5.975,6.14],"cool":[6.539,6.578,5.954,6.623,6.52,6.198],"aladdinHeat":5.43,"aladdinCool":6.47},"960":{"heat":[null,2.522,2.771,2.689,2.624,2.86],"cool":[null,0.926,0.909,0.907,0.95,0.789],"aladdinHeat":2.63,"aladdinCool":0.77}}};
 
     var COLORS = ['#91a0b4', '#7ba39a', '#a492ae', '#5f7ea3', '#8ba17c', '#ab9c82'];
     var ALADDIN = '#d97706';
@@ -242,9 +267,11 @@
     function chart(targetId, metric, aladdinKey, cases, yMax, dagger) {
       var W = 1056, H = 330, padL = 44, padR = 8, padT = 18, padB = 34;
       var plotW = W - padL - padR, plotH = H - padT - padB;
-      var nBars = 7, barW = 9, barGap = 2.5;
-      var groupW = nBars * barW + (nBars - 1) * barGap;
+      // two-row layout: no row exceeds ten clusters, so every row fits full-size bars
+      var nBars = 7, barGap = 2;
       var slotW = plotW / cases.length;
+      var barW = Math.min(9, (slotW - 14 - (nBars - 1) * barGap) / nBars);
+      var groupW = nBars * barW + (nBars - 1) * barGap;
       function y(v) { return padT + plotH * (1 - v / yMax); }
       var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Grouped bar chart comparing Aladdin with six reference programs">';
       var step = yMax > 5 ? 1 : 0.5;
@@ -257,7 +284,8 @@
         var d = DATA.cases[c];
         var refs = d[metric];
         var x0 = padL + slotW * ci + (slotW - groupW) / 2;
-        var lo = Math.min.apply(null, refs), hi = Math.max.apply(null, refs);
+        var present = refs.filter(function (r) { return r !== null; });
+        var lo = Math.min.apply(null, present), hi = Math.max.apply(null, present);
         if (hi > 0) {
           s += '<rect x="' + (x0 - 4) + '" y="' + y(hi) + '" width="' + (groupW + 8) + '" height="' + Math.max(y(lo) - y(hi), 1) + '" fill="' + BAND + '"/>';
         }
@@ -272,7 +300,7 @@
         s += '<text x="' + (ax + barW / 2) + '" y="' + (y(av) - 4) + '" font-size="10" font-weight="600" fill="' + ALADDIN_INK + '" text-anchor="middle">' + av.toFixed(2) + '</text>';
         var isVent = dagger && (c === '650' || c === '950');
         s += '<text x="' + (x0 + groupW / 2) + '" y="' + (H - 16) + '" font-size="11.5" font-weight="600" fill="' + INK + '" text-anchor="middle">' + c + (isVent ? '&#8224;' : '') + '</text>';
-        s += '<text x="' + (x0 + groupW / 2) + '" y="' + (H - 4) + '" font-size="9.5" fill="' + MUTED + '" text-anchor="middle">' + (+c >= 900 ? 'high mass' : 'lightweight') + '</text>';
+        s += '<text x="' + (x0 + groupW / 2) + '" y="' + (H - 4) + '" font-size="9.5" fill="' + MUTED + '" text-anchor="middle">' + (c === '960' ? 'sunspace' : +c >= 900 ? 'high mass' : 'lightweight') + '</text>';
       }
       s += '<line x1="' + padL + '" y1="' + (padT + plotH) + '" x2="' + (W - padR) + '" y2="' + (padT + plotH) + '" stroke="' + HAIRLINE + '" stroke-width="1"/>';
       s += '</svg>';
@@ -280,8 +308,10 @@
     }
 
     legend();
-    chart('btHeat', 'heat', 'aladdinHeat', ['600', '610', '620', '630', '640', '900', '910', '920', '930', '940'], 5.5, false);
-    chart('btCool', 'cool', 'aladdinCool', ['600', '610', '620', '630', '640', '650', '900', '910', '920', '930', '940', '950'], 7, true);
+    chart('btHeatL', 'heat', 'aladdinHeat', ['600', '610', '620', '630', '640', '660', '670', '680', '685', '695'], 6.5, false);
+    chart('btHeatH', 'heat', 'aladdinHeat', ['900', '910', '920', '930', '940', '980', '985', '995', '960'], 5.5, false);
+    chart('btCoolL', 'cool', 'aladdinCool', ['600', '610', '620', '630', '640', '650', '660', '670', '680', '685', '695'], 10, true);
+    chart('btCoolH', 'cool', 'aladdinCool', ['900', '910', '920', '930', '940', '950', '980', '985', '995', '960'], 8, true);
   })();
 </script>
 </body>
