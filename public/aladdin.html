@@ -92,23 +92,24 @@
                         Artificial intelligence is changing the way people think and work. As a manifestation
                         of human ingenuity, design is a vital testbed for studying how we may meet
                         the opportunities and challenges posed by AI. Based on the fusion of
-                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computer-aided_design">CAD</a>
-                        and
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computer-aided_design">CAD</a>,
                         <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Computer-aided_engineering">CAE</a>,
+                        and
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Large_language_model">LLM</a>,
                         Aladdin is an experimental platform for engineering design in the AI era,
-                        with a current focus on civil and energy engineering.
+                        with a current focus on energy and civil engineering.
                     </p>
 
                     <figure class="v2-embed">
-                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Tehachapi%20Pass%20Wind%20Field"
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=Golden%20Gate%20Bridge"
                                 id="aladdin-frame" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" title="Aladdin live demo"></iframe>
                         <figcaption>
                             Live model &mdash; <a id="aladdin-fullscreen-link" href="#">view fullscreen</a>.
-                            Wind turbines on the hills of the Tehachapi Pass.
+                            The Golden Gate Bridge.
                         </figcaption>
                     </figure>
 
-                    <h2>Design and simulation</h2>
+                    <h2>Design, simulation, and analysis</h2>
                     <p>
                         Aladdin is an integrated CAD/CAE platform that lets you design a structure
                         and simulate its function <em>within a single system</em>. This eliminates
@@ -116,6 +117,45 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Toolchain">toolchains</a>
                         needed in traditional engineering design software and reduces the difficulty
                         of implementing automatic design with AI.
+                    </p>
+
+                    <h3>Building design</h3>
+                    <p>
+                        A building can be drawn wall by wall, or stated <em>parametrically</em> &mdash;
+                        a footprint, a height, a storey count, a window-to-wall ratio for each facade &mdash;
+                        so that a whole block can be massed in minutes and still be handed to the same
+                        thermal engine as a hand-drawn house. Simulations are driven by real weather:
+                        an hourly
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Typical_meteorological_year">typical
+                        meteorological year</a> for the site, so a design is tested against
+                        the climate it will actually stand in.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-four-season-heatmap.png" alt="Computational building-energy analysis with Aladdin">
+                        <figcaption>
+                            Computational building-energy analysis with Aladdin (see
+                            <a target="_blank" rel="noopener noreferrer" href="aladdin-building-energy-2.html">more information</a>).
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        Accuracy matters more than appearance in a tool meant for engineering, so
+                        Aladdin's building-energy simulation is checked against the
+                        <a target="_blank" rel="noopener noreferrer" href="aladdin-bestest-validation.html">ASHRAE
+                        BESTEST benchmarks</a>, the standard suite of test cases for validating
+                        building-energy software.
+                    </p>
+
+                    <h3>Solar power</h3>
+                    <p>
+                        Photovoltaic arrays can be laid out on roofs, facades, and open ground, with real
+                        module specifications, trackers that follow the sun, and bifacial panels that
+                        harvest the light reflected off the ground beneath them.
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Concentrated_solar_power">Concentrated
+                        solar power</a> is here as well &mdash; heliostat fields around a power tower, parabolic troughs
+                        and dishes, and linear Fresnel reflectors &mdash; and each is simulated with the
+                        same solar-radiation engine that shades a window or heats a wall.
                     </p>
 
                     <figure class="v2-screenshot">
@@ -126,24 +166,108 @@
                         </figcaption>
                     </figure>
 
+                    <h3>Wind power</h3>
+                    <p>
+                        A wind farm can be built from real machines or from imagined ones. Every turbine
+                        carries a <em>power curve</em> &mdash; the relationship between wind speed and
+                        electric output &mdash; which may be the manufacturer's, read straight off a
+                        datasheet by Aladdin, or one you invent for a rotor that does not exist
+                        yet. The wind itself comes from the site's typical meteorological year: an hourly
+                        record of speed and direction, gathered into a wind rose that shows where the
+                        year's energy actually blows from.
+                    </p>
+                    <p>
+                        Yield is computed turbine by turbine across the year, with wakes accounted for &mdash;
+                        a rotor standing downstream of another meets slower air and earns less &mdash; so the
+                        farm's capacity factor depends on how the machines are arranged and not merely on how
+                        many there are. The terrain counts too: elevation data is fetched for the site, so the
+                        turbines stand on the real hills rather than on a flat abstraction of them.
+                    </p>
+
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-four-season-heatmap.png" alt="Computational building-energy analysis with Aladdin">
+                        <img src="image/aladdin-wind-turbines-on-hills-windrose.png" alt="Wind rose for a wind farm site in Aladdin">
                         <figcaption>
-                            Computational building-energy analysis with Aladdin (see
-                            <a target="_blank" rel="noopener noreferrer" href="aladdin-heatmap.html">more information</a>).
+                            The wind rose of a site, drawn from hourly weather records (see
+                            <a target="_blank" rel="noopener noreferrer" href="aladdin-wind-turbines-on-hills.html">the
+                            power in the hills</a>).
                         </figcaption>
                     </figure>
 
                     <p>
-                        By supporting the design and simulation of multiple types of renewable
-                        energy &mdash; as well as the energy consumption of buildings &mdash;
-                        Aladdin makes it possible to model and analyze renewables colocation
-                        and microgrid systems on a single software platform.
+                        A wind farm is more than its yield, however, and Aladdin also maps what the neighbors
+                        will ask about: the noise it radiates and the shadow flicker its blades cast. And the
+                        layout itself can be searched rather than guessed &mdash; a genetic algorithm moves the
+                        turbines within the site boundary, weighing wake losses against the wind resource until
+                        it finds an arrangement that harvests more than the one you drew by hand.
                     </p>
 
-                    <h2>Artificial intelligence capabilities</h2>
+                    <h3>Bridge design</h3>
                     <p>
-                        Aladdin's AI capabilities are mainly based on agentic generative design,
+                        A bridge is assembled as a three-dimensional frame of deck, towers, cables, and
+                        piers, and solved with
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Finite_element_method">finite
+                        element analysis</a>. A static analysis reports the
+                        deflection under dead and traffic loads, the axial force and bending moment in every
+                        member, and how close each member runs to its capacity. A modal analysis extracts the
+                        natural frequencies and mode shapes &mdash; the ways the structure prefers to move.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-bridge-design-modes.gif" alt="Vibration modes of a bridge computed in Aladdin">
+                        <figcaption>
+                            The vibration modes of a bridge (see
+                            <a target="_blank" rel="noopener noreferrer" href="aladdin-bridge-design.html">the
+                            bridge that bends</a>).
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        From there the questions get harder. A seismic analysis shakes the structure, either
+                        against a design response spectrum or with a recorded ground motion such as El Centro.
+                        A wind analysis hunts for the speed at which the deck starts to shed vortices or to
+                        flutter &mdash; the mechanism that tore down the Tacoma Narrows Bridge. And a pushover
+                        analysis raises the load until members yield one after another and the structure comes
+                        down, a collapse you can replay to see which member went first. An optimizer can then
+                        search the design space for the cheapest structure that still keeps deflection and
+                        member utilization inside their limits.
+                    </p>
+
+                    <h2>Artificial intelligence</h2>
+                    <p>
+                        Aladdin's intelligence comes in two forms: an assistant that designs alongside you,
+                        and an evolutionary search that designs on its own.
+                    </p>
+
+                    <h3>The AI assistant</h3>
+                    <p>
+                        All of this is also available to an AI assistant that lives inside the application
+                        and works the software the way a person does. Ask it for a house with dormers and a
+                        front porch and it builds the thing element by element while you watch. Ask what the
+                        house would cost to heat and it runs the simulation and reads the answer back. Ask it
+                        to align the dormer ridges with the roof, to add a chimney, to tilt the panels toward
+                        the winter sun, to test the bridge in an earthquake, or to optimize the wind farm's
+                        layout, and it reaches for the same tools you would.
+                    </p>
+                    <p>
+                        It is not a chatbot bolted to the side of the program. It reads the live scene &mdash;
+                        including the change you just made by hand &mdash; and when a question is better
+                        answered by showing than by telling, it can open the very dialog you would have opened
+                        yourself, which makes it a tutor as much as a builder. Its purpose is not to take the
+                        design away from the designer but to remove the tedium between having an idea and
+                        seeing whether it works.
+                    </p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-building-design.png" alt="Architectural design with Aladdin">
+                        <figcaption>
+                            Architectural design with Aladdin (see
+                            <a target="_blank" rel="noopener noreferrer" href="aladdin-building-energy.html">more examples</a>).
+                        </figcaption>
+                    </figure>
+
+                    <h3>Generative design</h3>
+                    <p>
+                        Aladdin's other AI capability is agentic generative design,
                         a <em>tabula rasa</em> methodology inspired by biological evolution.
                         Once the design criteria and constraints of a product are specified, generative
                         design uses evolutionary computation to efficiently explore the entire
@@ -158,24 +282,12 @@
                         these outputs &mdash; often with the aid of
                         <a target="_blank" rel="noopener noreferrer" href="aladdin-generative-design-1.html">interactive
                         visual analytics</a> for intuitive evaluation and comparison &mdash; and choose
-                        one or more for prototyping (see
-                        <a target="_blank" rel="noopener noreferrer" href="aladdin-generative-design-csp.html">an
-                        example about concentrated solar power</a>).
-                    </p>
-                    <p>
-                        This paradigm shift entails a fundamental change of mindset for
+                        one or more for prototyping. This paradigm shift entails a fundamental change
+                        of mindset for
                         <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Design_thinking">design
                         thinking</a> that must be addressed in the engineering education of the
                         future workforce.
                     </p>
-
-                    <figure class="v2-screenshot">
-                        <img src="image/aladdin-building-design.png" alt="Architectural design with Aladdin">
-                        <figcaption>
-                            Architectural design with Aladdin (see
-                            <a target="_blank" rel="noopener noreferrer" href="aladdin-building-energy.html">more examples</a>).
-                        </figcaption>
-                    </figure>
 
                     <h2>How to cite Aladdin</h2>
                     <p>
@@ -236,6 +348,7 @@
                                 <li><a href="aladdin-csp.html">📡 Concentrated solar power</a></li>
                                 <li><a href="aladdin-wind-turbines-on-hills.html">🌬️ Wind power</a></li>
                                 <li><a href="aladdin-battery-storage.html">🔋 Energy storage</a></li>
+                                <li><a href="aladdin-pumped-hydro.html">💧 Pumped-hydro storage</a></li>
                                 <li><a href="aladdin-bridge-types.html"><svg width="1.15em" height="1.15em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.2em;margin-right:0.35em;"><path d="M2 17h20"/><path d="M4 17C4 6 20 6 20 17"/><path d="M7.5 10V17M12 9V17M16.5 10V17" stroke-width="1.3"/></svg>Bridge design</a></li>
                             </ul>
                         </div>
