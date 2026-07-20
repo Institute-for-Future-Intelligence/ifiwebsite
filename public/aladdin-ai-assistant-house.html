@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A New Way of Design — Institute for Future Intelligence</title>
+    <meta name="description" content="Aladdin's new AI assistant turns plain-language requests into a real, simulated house — designed and analyzed right in your scene, with no setup required.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) {
+        var elem = document.getElementById(id);
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        }
+      }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-col-main pre { background: var(--surface-raised); border: 1px solid rgba(15, 23, 42, 0.1); border-radius: 0.5rem; padding: 1rem; overflow-x: auto; font-size: 1.05rem; margin: 0.5rem 0 1.5rem; white-space: pre-wrap; }
+        .v2-col-main pre code { font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; }
+        .v2-chat-panel { max-width: 730px; margin: 1.75rem auto 2rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.16); border-radius: 1.35rem; box-shadow: 0 30px 60px -34px rgba(30, 30, 90, 0.55), 0 2px 8px rgba(15, 23, 42, 0.06); overflow: hidden; }
+        .v2-chat-head { display: flex; align-items: center; gap: 0.85rem; padding: 1.05rem 1.4rem; color: #fff; background: linear-gradient(135deg, #6366f1, #0ea5e9); }
+        .v2-chat-avatar { flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; font-size: 1.25rem; color: #fff; background: rgba(255, 255, 255, 0.16); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4); }
+        .v2-chat-title { display: flex; flex-direction: column; line-height: 1.25; }
+        .v2-chat-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; letter-spacing: 0.01em; }
+        .v2-chat-status { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.92rem; opacity: 0.9; }
+        .v2-chat-status::before { content: ''; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #4ade80; animation: v2-chat-pulse 2.4s infinite; }
+        @keyframes v2-chat-pulse { 0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); } 70% { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); } 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); } }
+        .v2-chat { list-style: none; padding: 1.4rem; margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+        .v2-chat li { position: relative; max-width: 82%; padding: 0.8rem 1.2rem; border-radius: 1.2rem; font-size: 1.2rem; line-height: 1.5; }
+        .v2-chat .you { align-self: flex-end; color: #fff; background: linear-gradient(135deg, #9aa5f2, #818cea); border-bottom-right-radius: 0.4rem; box-shadow: 0 10px 20px -14px rgba(129, 140, 234, 0.5); }
+        .v2-chat .ai { align-self: flex-start; color: var(--text); background: rgba(99, 102, 241, 0.07); border: 1px solid rgba(99, 102, 241, 0.16); border-bottom-left-radius: 0.4rem; }
+        .v2-chat .who { display: block; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.11em; margin-bottom: 0.3rem; }
+        .v2-chat .you .who { color: rgba(255, 255, 255, 0.8); }
+        .v2-chat .ai .who { color: var(--accent-dark); }
+        @media (prefers-color-scheme: dark) { .v2-chat .ai { background: rgba(148, 163, 220, 0.12); border-color: rgba(148, 163, 220, 0.2); } }
+        .v2-styles { margin: 1.5rem 0 1.9rem; padding: 1.9rem 2rem 2rem; border: 1px solid rgba(99, 102, 241, 0.16); border-radius: 1.2rem; background: linear-gradient(165deg, rgba(99, 102, 241, 0.05), rgba(14, 165, 233, 0.03)); box-shadow: 0 24px 50px -36px rgba(30, 30, 90, 0.45); }
+        .v2-styles-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem 1rem; margin: 0 0 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(99, 102, 241, 0.18); }
+        .v2-styles-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); margin: 0; }
+        .v2-styles-count { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-dark); }
+        .v2-styles-grid { column-width: 250px; column-count: 2; column-gap: 3rem; }
+        .v2-styles-group { break-inside: avoid; -webkit-column-break-inside: avoid; margin: 0 0 1.7rem; }
+        .v2-styles-group:last-child { margin-bottom: 0; }
+        .v2-styles-cat { font-family: var(--font-display); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin: 0 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(99, 102, 241, 0.18); }
+        .v2-styles-grid ul { list-style: none; margin: 0; padding: 0; }
+        .v2-styles-grid li { font-size: 1.06rem; line-height: 1.45; color: var(--text); padding: 0.18rem 0; display: flex; align-items: baseline; gap: 0.55rem; }
+        .v2-styles-grid li::before { content: '\25C6'; font-size: 0.5rem; line-height: 1; color: var(--accent); opacity: 0.65; transform: translateY(-0.15em); }
+        @media (prefers-color-scheme: dark) { .v2-styles-head, .v2-styles-cat { border-color: rgba(148, 163, 220, 0.22); } }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="ASSISTANT">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin</span>
+                <h1>A New Way of Design</h1>
+                <p class="v2-tagline">
+                    Aladdin's new AI assistant turns natural languages into design actions in complex projects
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>Designing something as intricate as a building has always meant learning to speak the software's language &mdash; the menus and tools of a CAD program to draw it, the input decks of a physics simulator to test it. Aladdin's new AI assistant inverts that arrangement. You speak <em>your</em> language, and it turns your words into design actions in the scene: you open a chat panel, type what you have in mind &mdash; "build a two-storey farmhouse facing south," "add a north wing and a front porch," "how much would it cost to heat in January?" &mdash; and it carries out the work directly in the 3D world in front of you. Nothing to import, nothing to configure. And it is not confined to a single tidy box: the same conversation scales to a complex project of many connected parts &mdash; wings, dormers, an attached garage, landscaping &mdash; drawing the design and evaluating how it performs in the same breath, with the model updating as you speak.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aladdin.intofuture.org/?client=web&viewonly=true&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=House%20in%20Kyiv" allow="fullscreen; gyroscope; accelerometer" allowfullscreen="true" id="aladdin-frame" width="100%" height="600px" title="A house designed with Aladdin's AI assistant, interactive 3D model"></iframe>
+                        <figcaption>A house created and refined entirely through the AI assistant, live &mdash; drag to orbit, scroll to zoom, and click any part to inspect it. <a href="javascript:openFullscreen('aladdin-frame');">View in full screen</a>.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&userid=QWecNcxhyvP6j6sBN11hBsfZDau1&title=House%20in%20Kyiv">Open this house in Aladdin and try the assistant</a>
+                    </div>
+
+                    <p>This article walks through what that new way of working actually looks like: how the assistant works on whatever is already in your scene with no setup, how it turns a single sentence into a real building you can keep editing, how it grows that building into a complex, many-part design through back-and-forth conversation, how it runs the energy physics and reads the results back to you, and how it explains its reasoning as it goes.</p>
+
+                    <h2>No setup &mdash; it works on whatever is in your scene</h2>
+
+                    <p>The first thing worth saying is how simple it is. You do not choose a template, fill in a form, or enter a special design mode to use the assistant. You open its chat panel and start typing. This is easy to underestimate, because a feature this capable feels like it ought to be walled off behind some heavier apparatus &mdash; a wizard, a separate workspace, a setup step first. It isn't. The assistant is simply present in your ordinary editing session, ready whenever you are.</p>
+
+                    <p>There is one thing you do need: you have to be <strong>signed in</strong>. The assistant works on your account &mdash; that is how it saves your design and keeps the conversation with it &mdash; so if you are browsing anonymously, Aladdin will prompt you to sign in (it is free) the moment you open the chat panel. Once you are in, everything below is a sentence away.</p>
+
+                    <p>What makes that possible is that the assistant is always looking at your live scene. Each time you send a message, it is handed a faithful description of what is currently there &mdash; the buildings and their walls, roofs, windows, and doors; the site's location, date, time, and weather; and whatever you happen to have selected. So your requests can be as loose as they would be with a human sitting beside you. "Make the south-facing roof steeper" works because it can see which roof you mean. "The windows on the selected wall are too small" works because it knows which wall you clicked. And because it reads the scene fresh every turn rather than relying on a memory of what it drew, it stays correct even after you rearrange things by hand: move a wing, delete a chimney, or drag a window in the normal editor, and the assistant's next answer reflects the house that is actually there.</p>
+
+                    <h2>From a sentence to a real building</h2>
+
+                    <p>Ask for a house and the assistant builds a genuine, editable structure rather than dropping in a fixed model. It works out a footprint, raises walls to a sensible storey height, chooses and pitches a roof, and arranges windows in tidy columns and rows along each wall with a front door where you would expect one. The house has real storeys &mdash; an actual second floor, not a tall single box with windows drawn on &mdash; and every dimension it picked remains a number you can revisit later just by asking. Nothing is baked in; the wall height, the roof rise, the window spacing, and the eave overhang are all still yours to change.</p>
+
+                    <p>The design vocabulary is broad. The assistant understands the roof shapes people actually build &mdash; gable, hip, gambrel, mansard, shed, and flat &mdash; and can trade one for another without your having to redraw the house. It also carries about thirty architectural idioms worked into it as recipes, so a request for a Georgian, a Spanish Revival, or a Gasshō-zukuri look sets sensible proportions and signature details rather than leaving you to specify them one by one:</p>
+
+                    <div class="v2-styles">
+                        <div class="v2-styles-head">
+                            <p class="v2-styles-title">The style library</p>
+                            <span class="v2-styles-count">~30 recipes</span>
+                        </div>
+                        <div class="v2-styles-grid">
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">American classical &amp; traditional</p>
+                                <ul>
+                                    <li>Colonial</li><li>Dutch Colonial</li><li>Cape Cod</li><li>Georgian</li><li>Federal</li><li>Greek Revival</li><li>Neoclassical</li><li>Italianate</li><li>Second Empire</li><li>Gothic Revival</li><li>American Foursquare</li><li>Craftsman bungalow</li><li>Ranch</li><li>Raised Ranch</li><li>Modern farmhouse</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">European &amp; vernacular</p>
+                                <ul>
+                                    <li>Spanish Revival</li><li>French Provincial</li><li>English cottage</li><li>Scottish baronial</li><li>Swiss chalet</li><li>Courtyard hacienda</li><li>Barn / barndominium</li><li>Pueblo / Adobe</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">Modernist</p>
+                                <ul>
+                                    <li>Modern flat-roof</li><li>Butterfly-roof mid-century</li><li>Cantilever house</li><li>Dome / roundhouse</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">East Asian</p>
+                                <ul>
+                                    <li>Chinese traditional</li><li>Japanese traditional</li><li>Gassh&#333;-zukuri</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-ai-assistant-greek-revival.png" loading="lazy" alt="A Greek Revival house designed by Aladdin's AI assistant, with a colossal columned portico under a pediment">
+                        <figcaption>One recipe brought to life: a Greek Revival house from the library &mdash; a colossal portico of full-height columns rising to a pediment, the low temple-front pitch turned gable-end to the street, generated from a single request.</figcaption>
+                    </figure>
+
+                    <p>None of these is a rigid template &mdash; each is guidance the assistant can blend or bend, and it will happily improvise a variant that isn't on the list. And it can add the elements that make a house feel like a house: porches and balconies, bay windows and dormers, chimneys, cupolas, an attached garage, a surrounding fence. Each new feature lands on the right wall and the right floor and tucks itself around the openings it would otherwise block, so you can grow a plain box into a characterful home a phrase at a time.</p>
+
+                    <h2>Refining by conversation</h2>
+
+                    <p>Designing is rarely a single command; it is a back-and-forth, and that is exactly how the assistant is meant to be used. You describe the next change and watch it happen, then react to what you see. The house at the top of this page was built exactly this way. Here are a few moments from the actual conversation that produced it &mdash; each request a plain sentence, each answer an immediate change to the model.</p>
+
+                    <div class="v2-chat-panel">
+                    <div class="v2-chat-head">
+                        <span class="v2-chat-avatar">&#10022;</span>
+                        <span class="v2-chat-title">
+                            <span class="v2-chat-name">Aladdin AI Assistant</span>
+                            <span class="v2-chat-status">A real chat that designed the house above</span>
+                        </span>
+                    </div>
+                    <ul class="v2-chat">
+                        <li class="you"><span class="who">You</span>build a house</li>
+                        <li class="ai"><span class="who">Assistant</span>Your <strong>Colonial house</strong> is ready. Size: 12 &times; 8 m footprint, 2 storeys (5.6 m walls). Roof: classic gable with a 2.4 m rise, in slate grey. Front door centred on the south wall. Windows: 4 per floor front and back, 2 per floor on the sides, all with black shutters. Location: Natick, MA.</li>
+                        <li class="you"><span class="who">You</span>add north wing to make this into a t-shaped house</li>
+                        <li class="ai"><span class="who">Assistant</span>The north wing has been added &mdash; 7 m wide &times; 9 m deep, extending north from the centre of the main house. Two storeys, with its gable ridge running north&ndash;south so the two roofs meet in a clean valley. The whole T-shape shares one HVAC system, so it reads as one house with a wing.</li>
+                        <li class="you"><span class="who">You</span>add a shed dormer to the south roof</li>
+                        <li class="ai"><span class="who">Assistant</span>Shed dormer added &mdash; a wide shed dormer now runs across the south slope of the main house roof, about 7 m wide. Its face stands 1.44 m above the roof, enough for a good-sized window to light the upper storey.</li>
+                        <li class="you"><span class="who">You</span>change the location to kyiv</li>
+                        <li class="ai"><span class="who">Assistant</span>Location changed to Kyiv, Ukraine &mdash; 50.45&deg; N, 30.52&deg; E. The scene's sun position and all future simulations will now reflect Kyiv's climate and solar conditions.</li>
+                        <li class="you"><span class="who">You</span>what is the width of the selected door</li>
+                        <li class="ai"><span class="who">Assistant</span>The selected door &mdash; on the north face of the wing &mdash; has a width of 0.99 m (and a height of 2.4 m).</li>
+                        <li class="you"><span class="who">You</span>add a garage attached to the east wall of the main house</li>
+                        <li class="ai"><span class="who">Assistant</span>A 2-car garage has been attached to the east wall of the main house &mdash; roof at the same pitch as the house, tucked neatly under its eave. It sits flush against the house wall.</li>
+                        <li class="you"><span class="who">You</span>run daily energy simulation</li>
+                        <li class="ai"><span class="who">Assistant</span>Daily energy simulation &mdash; June 22, Kyiv. Conditioned area 276.1 m&sup2; (main house + wing + lean-to). Heating 0 kWh, cooling 8.3 kWh, net 8.3 kWh. One HVAC zone serves the whole compound. On this warm June day, the AC draws about 8.3 kWh to hold 22 &deg;C.</li>
+                    </ul>
+                    </div>
+
+                    <p>Every one of those is a plain sentence, and behind each the assistant made the precise change it implies &mdash; raising a gable wing and knitting its roof into a clean valley, cutting a dormer into a slope, attaching a garage flush to a wall, or picking the whole site up and setting it down in Kyiv. Look at the fifth exchange: "what is the width of the selected door" gets a specific answer because the assistant can see what you have selected in the scene. The same conversational handle covers the rest of the model too &mdash; swap a roof type, restyle the facade, remove a window, add a porch, even plant a row of sunflowers &mdash; and when a request is ambiguous, the assistant leans on what it can see to resolve it and asks when it genuinely can't tell.</p>
+
+                    <p>That is the real lesson of the house at the top of this page. It is not a single box but a genuine compound &mdash; a main block with a north wing, a lean-to, an attached garage, dormers, a columned portico, a picket fence, and a row of sunflowers &mdash; and every piece of it was placed, attached, recoloured, and tidied up through natural language, never a menu. The assistant keeps the whole thing coherent as it grows: it knits new roofs into valleys, folds an added wing into a single shared heating zone, and strips the now-buried interior walls so the physics stays honest. This is what it means to run a complex project by conversation &mdash; the complexity lives in the building, not in the interface you have to operate.</p>
+
+                    <h2>Asking it to run the numbers</h2>
+
+                    <p>A house you can draw quickly is only half of what makes Aladdin useful; the other half is finding out how it will perform, and the assistant runs that analysis on request too. Ask "how much energy will this house use?" and it drives Aladdin's building-energy engine through a full year of hourly weather for the site and reports the result the way you would want to hear it &mdash; the heating, the cooling, and the net, broken down by month &mdash; then tells you what the numbers mean rather than leaving you to interpret a chart.</p>
+
+                    <p>Energy is just the start. The same engine can show how the temperature inside the house rises and falls over a day, so you can tell whether a room bakes in the afternoon or holds comfortable through the night. You can ask the assistant to add rooftop solar &mdash; it will cover a portion of a chosen roof face with panels, tilt and orient them, and compute how much electricity they generate across the year &mdash; and to pair that with battery storage, so the "net" figure reflects what the house draws after its own generation is counted. It can also produce Aladdin's analytical maps on demand, such as a solar-radiation heatmap painted across the roof or a study of glare and shading. Crucially, you never leave the conversation to get any of this: you ask, it computes, and it comes back with an answer and an explanation.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-ai-assistant-solar-heatmap.png" loading="lazy" alt="A solar-radiation heatmap painted across a house roof in Aladdin">
+                        <figcaption>Ask for a solar-radiation map and the assistant paints the yearly insolation straight onto the roofs and walls &mdash; warm colours mark the sunniest surfaces, so the best places for panels are obvious at a glance.</figcaption>
+                    </figure>
+
+                    <h2>It explains as it works</h2>
+
+                    <p>Because a large language model is doing the reasoning, the assistant does not just act &mdash; it can tell you <em>why</em>. Ask why the north rooms run cold, or whether thicker insulation or better windows would help more, and it will reason about the envelope, the climate, and the systems and recommend a next step, the way an experienced designer talking you through the trade-offs would. That makes it as useful for learning as for producing: a student can build a house, change one thing, re-run the simulation, and hear a plain-language account of why the result moved. The assistant turns a design session into a running dialogue about how buildings actually behave.</p>
+
+                    <h2>Conclusion</h2>
+
+                    <p>Every design tool ever built has asked you to learn its language first &mdash; this one learns yours. Instead of translating your intentions into the vocabulary of a CAD tool, and then again into the vocabulary of a simulator, you say what you want in your own words and the assistant turns it into the corresponding design actions &mdash; building, editing, attaching, simulating, explaining &mdash; on whatever is in front of you, however complex the project has become. You speak in ordinary sentences; it produces a real, editable, physically faithful model, refines it with you, runs the energy numbers whenever you ask, and tells you what they mean. There is nothing to set up and no simulator to master. It lets anyone &mdash; a curious homeowner, a practising designer, a classroom of students &mdash; both create a building and interrogate how it will perform, all in a web browser and all in natural language. The software no longer stands between the idea and the design; the conversation <em>is</em> the design.</p>
+
+                    <p>Which is, in the end, the promise the name was chosen for. In the old tale, Aladdin's lamp granted whatever its owner asked for; you spoke a wish and it came to life. For a long time that was only a fairytale of design &mdash; the wish still had to be hand-carried through menus and dialogs and input files before anything appeared. With an assistant that turns natural language straight into design and analysis, the lamp is finally doing what the story always said it could: you say what you want, and it takes shape in front of you.</p>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
