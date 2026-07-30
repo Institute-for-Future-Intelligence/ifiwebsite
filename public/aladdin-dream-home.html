@@ -235,7 +235,7 @@
 
                     <p>So home design tends to happen either on paper, where nothing can be tested, or in software that draws beautifully and knows nothing about physics. A drawing has no insulation, no thermal mass, no solar gain through the south windows and no January heating bill; the sun in the picture is decorative. You can make something lovely and learn nothing at all about whether it would be good to live in.</p>
 
-                    <p>Aladdin is built to close that gap. Describe the home you want, in your own words, and it appears in front of you &mdash; a real 3D model you can orbit, click and keep changing by talking. And because every wall, window and roof in it carries genuine physical properties, you can then ask what it would cost to heat in January, whether the summer sun bakes the upstairs, how much electricity the roof would make with panels on it, and whether trees on the southwest would help. The ease of a design and construction game, with a building&#8209;performance simulator underneath.</p>
+                    <p><em>Aladdin is built to close that gap with AI.</em> Describe the home you want, in your own words, and it appears in front of you &mdash; a real 3D model you can orbit, click and keep changing by talking. And because every wall, window and roof in it carries genuine physical properties, you can then ask what it would cost to heat in January, whether the summer sun bakes the upstairs, how much electricity the roof would make with panels on it, and whether trees on the southwest would help. And it is <em>easier</em> than a design and construction game, not harder: those are still built by hand through a GUI &mdash; block by block, wall by wall &mdash; or scripted by whoever has learned how. Here you say what you want in a sentence &mdash; and underneath the whole thing sits a real building&#8209;performance simulator.</p>
 
                     <p>What follows is a tour of what you can make: the architectural styles the AI knows, the details that turn a box into a house, the garden around it, the paint on it &mdash; and the science that makes all of it more than a picture.</p>
 
@@ -245,9 +245,30 @@
 
                     <p>What comes back is not a fixed model dropped into the scene but a genuine, editable structure: a footprint, walls at a sensible story height, a pitched roof, windows in tidy columns and rows along each wall, a front door where you would expect one. It has real stories &mdash; an actual second floor, not a tall box with windows painted on &mdash; and every number that went into it is still yours to change by asking. &ldquo;Make the roof steeper.&rdquo; &ldquo;The windows on the selected wall are too small.&rdquo; &ldquo;Move the whole thing three meters north.&rdquo;</p>
 
+                    <div class="v2-chat-panel">
+                    <div class="v2-chat-head">
+                        <span class="v2-chat-avatar">&#10022;</span>
+                        <span class="v2-chat-title">
+                            <span class="v2-chat-name">Aladdin AI Assistant</span>
+                            <span class="v2-chat-status">Design, dress and then interrogate a house</span>
+                        </span>
+                    </div>
+                    <ul class="v2-chat">
+                        <li class="you"><span class="who">You</span>build me a queen anne victorian with a corner turret</li>
+                        <li class="ai"><span class="who">Assistant</span>Your Victorian is up: a front&#8209;gabled main block 8 &times; 12&nbsp;m with a 10 &times; 7&nbsp;m wing running east, their ridges perpendicular so the roofs meet in a valley. An octagonal three&#8209;story turret stands on the southwest corner under a conical spire, with a porch tucked into the ell and a chimney on the main roof. Sage body, charcoal roofs, tall narrow sashes. Aladdin has no curved walls, so the &ldquo;round&rdquo; tower is an octagon &mdash; which is how Queen Anne towers were actually built.</li>
+                        <li class="you"><span class="who">You</span>design a cottage garden with a picket fence</li>
+                        <li class="ai"><span class="who">Assistant</span>A cottage garden is laid inside a new white picket fence: beds hugging the facades, an island bed under an ornamental tree, a pond behind the house. Planted 6 trees, 240 flowering plants and 9 boulders, with one lawn filling the enclosure and a paved driveway running from the garage door out to the street. The gate is cut on the front&#8209;door axis and the planting keeps that approach clear.</li>
+                        <li class="you"><span class="who">You</span>paint the house navy</li>
+                        <li class="ai"><span class="who">Assistant</span>Repainted in &ldquo;Navy &amp; Brass&rdquo;: deep navy body, crisp white trim, near&#8209;black shutters, a brass&#8209;oak front door and a slate roof.</li>
+                        <li class="you"><span class="who">You</span>now run the energy simulation for the year</li>
+                        <li class="ai"><span class="who">Assistant</span>Annual simulation done, using a full year of hourly weather for your site. I can break it down by month, show you where the losses are, or try a change &mdash; thicker insulation, better glazing, or the shade trees on the southwest &mdash; and re&#8209;run it so you can see which one actually pays.</li>
+                        <li class="you"><span class="who">You</span>which one would pay first?</li>
+                    </ul>
+                    </div>
+
                     <h2>Forty&#8209;two house styles, written down</h2>
 
-                    <p>&ldquo;Build a Greek Revival&rdquo; is a tall order, and it is the request people actually make. So the AI carries a library of architectural recipes: forty&#8209;two worked cases#8209;two worked cases, each a real house with real numbers &mdash; the plan, the story heights, the roof pitch, the window proportions, the palette, and the one or two details without which the style does not read. A Greek Revival is not a colonial with columns added to it. It is a wide symmetric block under a <em>low</em> temple pitch, giant&#8209;order columns running the full two stories to a pediment that stands above the eave, one white over both floors, paired end chimneys, and tall narrow sashes wearing no shutters &mdash; nothing is allowed to compete with the colossal order. The recipe says all of that, because a house with the right silhouette and none of the style's numbers has not been built in that style.</p>
+                    <p>&ldquo;Build a Greek Revival&rdquo; is a tall order, and it is the request people actually make. So the AI carries a library of architectural recipes: forty&#8209;two worked cases, each a real house with real numbers &mdash; the plan, the story heights, the roof pitch, the window proportions, the palette, and the one or two details without which the style does not read. A Greek Revival is not a colonial with columns added to it. It is a wide symmetric block under a <em>low</em> temple pitch, giant&#8209;order columns running the full two stories to a pediment that stands above the eave, one white over both floors, paired end chimneys, and tall narrow sashes wearing no shutters, so that nothing on the wall competes with the columns. The recipe spells all of that out, because the outline alone is not the style: get the pitch, the heights and the proportions wrong and what you have is a house gesturing at a Greek Revival rather than one.</p>
 
                     <div class="v2-styles">
                         <div class="v2-styles-head">
@@ -306,18 +327,16 @@
                         </div>
                     </div>
 
-                    <p>Several of them carry named variants: the L&#8209;plan <em>magariya</em> for a Japanese farmhouse, the ch&acirc;teau for a grand French Provincial, the battlemented castle for a Scottish baronial, the <em>siheyuan</em> for a Chinese courtyard house. And a plan variant is still the style &mdash; ask for an L&#8209;shaped or two&#8209;story version of any of them and it keeps every number that makes it what it is.</p>
-
                     <p>Here are four of them, built exactly as they are written:</p>
 
                     <div class="v2-shots">
                         <figure>
                             <img src="image/aladdin-style-greek-revival.png" loading="lazy" alt="A Greek Revival mansion: white body under a low side gable, with a colossal two-story portico of round columns rising to a pediment, and paired end chimneys">
-                            <figcaption><strong>Greek Revival.</strong> The colossal portico is the style: giant&#8209;order columns running the full two stories of a white facade to a pediment that breaks the roofline, over a low temple pitch, with paired end chimneys and the wide frieze band under the eaves. Miss the portico and it is a colonial with shutters.</figcaption>
+                            <figcaption><strong>Greek Revival.</strong> The colossal portico is the style: giant&#8209;order columns running the full two stories of a white facade to a pediment that breaks the roofline, over a low temple pitch, with paired end chimneys and the wide frieze band under the eaves.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-style-octagon.png" loading="lazy" alt="An octagon house after the Armour-Stiner house: eight sides under a bell-shaped dome, a colonnaded veranda wrapping every side, and a windowed belvedere on top">
-                            <figcaption><strong>Octagon house</strong>, the Armour&#8209;Stiner worked case. Three concentric octagons in one call: eight chord walls on a 7&nbsp;m circumradius, a veranda colonnade wrapping every face, and a lantern floating on the dome's deck. The dome is a mansard given side curvature &mdash; there is no dome roof type, and the octagon is real straight walls rather than a fake curve.</figcaption>
+                            <figcaption><strong>Octagon house.</strong> Three concentric octagons in one call: eight chord walls on a 7&nbsp;m circumradius, a veranda colonnade wrapping every face, and a lantern floating on the dome's deck. The dome is a mansard given side curvature, and the octagon is real straight walls rather than a fake curve.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-style-chalet.png" loading="lazy" alt="A Swiss chalet with the gable facing front, deep eaves and a full-width upper balcony on timber posts">
@@ -325,13 +344,13 @@
                         </figure>
                         <figure>
                             <img src="image/aladdin-style-minka.png" loading="lazy" alt="A Japanese minka farmhouse with a gently concave hip roof, deep eaves and an engawa veranda">
-                            <figcaption><strong>Japanese minka.</strong> A low timber podium, a hip roof with a subtle concave sweep and corners that barely lift &mdash; more and it flips Chinese &mdash; a metre of sheltering eave, pale plaster under a near&#8209;continuous run of dark&#8209;framed lattice, and the <em>engawa</em> veranda running under the eave.</figcaption>
+                            <figcaption><strong>Japanese minka.</strong> A low timber podium, a hip roof with a subtle concave sweep and corners that barely lift, a meter of sheltering eave, pale plaster under a near&#8209;continuous run of dark&#8209;framed lattice, and the <em>engawa</em> veranda running under the eave.</figcaption>
                         </figure>
                     </div>
 
                     <h2>The things that make a house a house</h2>
 
-                    <p>Style is mostly detail, and detail is where a generated building usually falls apart: a porch that floats, a dormer that punches through the ridge, a turret that lands on top of the front door. So the pieces that give a house character are built by the app rather than improvised out of boxes. You ask, and the right thing lands on the right wall and the right floor, tucked around whatever is already there.</p>
+                    <p>A house gets its character from its parts &mdash; the porch, the dormers, the bay window, the chimney &mdash; and those parts are exactly where AI&#8209;generated buildings tend to go wrong: a porch hovering above the ground, a dormer cutting straight through the ridge, a turret sitting on top of the front door. So the assistant does not improvise them out of boxes. Each one is a feature the app itself knows how to build, and knows where it belongs: ask for it and it is put on the right wall, at the right floor, fitted around whatever is already there.</p>
 
                     <ul class="v2-features">
                         <li>
@@ -343,8 +362,8 @@
                             <span class="v2-feature-body"><strong>Dormers</strong> &mdash; gable, shed and hipped, sized and spaced along a slope, with the roof pitch checked first because a shallow roof cannot carry one.</span>
                         </li>
                         <li>
-                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l6 7h-12z"/><path d="M10 10v18h12V10"/><path d="M14 16h4M14 22h4"/></svg></span>
-                            <span class="v2-feature-body"><strong>Turrets</strong> &mdash; the octagonal corner tower of a Queen Anne, rising past the eave under a conical spire.</span>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="22" height="20" rx="1.5"/><path d="M5 16h22M16 6v20"/><path d="M9 11l4 4M23 11l-4 4"/></svg></span>
+                            <span class="v2-feature-body"><strong>Wall dressing</strong> &mdash; half&#8209;timbering that draws its own posts, beams, studs and braces; parapets; shutters; arched, circular and semicircular windows; glazed and paneled front doors; bargeboards on the gables.</span>
                         </li>
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27V13l11-8 11 8v14"/><path d="M21 9V5h4v7"/><path d="M12 27v-8h8v8"/></svg></span>
@@ -355,14 +374,16 @@
                             <span class="v2-feature-body"><strong>An attached garage</strong>, tucked under the house eave at the same pitch, with a driveway that follows.</span>
                         </li>
                         <li>
-                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="22" height="20" rx="1.5"/><path d="M5 16h22M16 6v20"/><path d="M9 11l4 4M23 11l-4 4"/></svg></span>
-                            <span class="v2-feature-body"><strong>Wall dressing</strong> &mdash; half&#8209;timbering that draws its own posts, beams, studs and braces; parapets; shutters; arched, circular and semicircular windows; glazed and paneled front doors.</span>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l6 7h-12z"/><path d="M10 10v18h12V10"/><path d="M14 16h4M14 22h4"/></svg></span>
+                            <span class="v2-feature-body"><strong>Turrets</strong> &mdash; the octagonal corner tower of a Queen Anne, rising past the eave under a conical spire.</span>
                         </li>
                     </ul>
 
+                    <p>After dark a lighting plan takes over: carriage&#8209;lantern sconces beside every entry door, bollards pacing the walk, lamp posts at the street, lanterns at the gates, uplights in the trees and a glow at the pond, in four fixture styles.</p>
+
                     <h3>The gingerbread on the gable</h3>
 
-                    <p>One detail deserves a closer look, because it is the difference between a Gothic Revival and a shed with a steep roof: the <strong>bargeboard</strong>, the sawn board that hangs on the rake of a gable where the roof oversails the wall. It is the Carpenter Gothic signature, the chalet's verge, the Queen Anne's frill. Aladdin cuts ten patterns, most of them with a finial at the peak. Most are <em>sawn</em>, where the pattern is the lower edge of the board; a few are cut clean through the field between a top and a bottom rail, so the gable itself shows between the pieces &mdash; a far bigger change to a house than any edge treatment.</p>
+                    <p>One piece of that wall dressing is worth singling out, because it shows how far down into the detail Aladdin is willing to go &mdash; and because it is the difference between a Gothic Revival and a shed with a steep roof. The <strong>bargeboard</strong> is the sawn board that hangs on the rake of a gable where the roof oversails the wall. It is the Carpenter Gothic signature, the chalet's verge, the Queen Anne's frill. Aladdin cuts ten patterns, most of them with a finial at the peak. Most are <em>sawn</em>, where the pattern is the lower edge of the board; a few are cut clean through the field between a top and a bottom rail, so the gable itself shows between the pieces &mdash; a far bigger change to a house than any edge treatment.</p>
 
                     <p>Ask for it on every wall and let the runtime sort it out: a board is drawn only where a wall top actually <em>climbs</em>, so eave walls get nothing and a hipped or pyramid roof gets nothing at all. Here are nine of them on the same plain house:</p>
 
@@ -381,7 +402,7 @@
                         </figure>
                         <figure>
                             <img src="image/aladdin-bargeboard-ogee.png" loading="lazy" alt="A gable end with an ogee bargeboard: S-curved cusps running into sharp points">
-                            <figcaption><strong>Ogee</strong>S&#8209;curved cusps that leave the deep point slowly and then run straight into a sharper apex &mdash; the ogee arch of church Gothic, where cusped gives you a round bump.</figcaption>
+                            <figcaption><strong>Ogee</strong>S&#8209;curved cusps that leave the deep point slowly and then run straight into a sharper apex &mdash; the ogee arch of church Gothic.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-bargeboard-icicle.png" loading="lazy" alt="A gable end with an icicle bargeboard: narrow pendant drops hanging from a straight edge">
@@ -397,11 +418,11 @@
                         </figure>
                         <figure>
                             <img src="image/aladdin-bargeboard-spindle.png" loading="lazy" alt="A gable end with a spindle bargeboard: a close-set run of turned spindles between two rails">
-                            <figcaption><strong>Spindle</strong>Open, not sawn: a close&#8209;set run of turned spindles between two rails. Queen Anne and Eastlake &mdash; and the same motif a porch frieze builds, so one house can wear both.</figcaption>
+                            <figcaption><strong>Spindle</strong>Open, not sawn: a close&#8209;set run of turned spindles between two rails. Queen Anne and Eastlake &mdash; and the same motif a porch frieze builds.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-bargeboard-lattice.png" loading="lazy" alt="A gable end with a lattice bargeboard: alternating triangles cut away, leaving a zigzag of diagonal bracing">
-                            <figcaption><strong>Lattice</strong>Open as well: alternating triangles cut away, leaving a zigzag of diagonal bracing. The Swiss chalet and the Stick style, where the gable is meant to look framed.</figcaption>
+                            <figcaption><strong>Lattice</strong>Open as well: alternating triangles cut away, leaving a zigzag of diagonal bracing. The Swiss chalet, where the gable is meant to look framed.</figcaption>
                         </figure>
                     </div>
 
@@ -413,10 +434,10 @@
 
                     <figure class="v2-screenshot">
                         <img src="image/aladdin-landscaping-cottage.png" loading="lazy" alt="A cottage garden laid around a T-plan house with an attached garage: flower beds against the facades, a picket fence, a paved driveway, shade trees and a lawn">
-                        <figcaption><em>&ldquo;Design a cottage garden with a picket fence.&rdquo;</em> A white picket ring with an arbor gate on the front&#8209;door axis, beds crowding the facades and turning the corners of the T, a hedge along the boundary, shade trees placed for summer shade, a lawn filling the enclosure, and a paved driveway out of the garage door to the street &mdash; six trees and 240 flowering plants from one sentence.</figcaption>
+                        <figcaption><em>&ldquo;Design a cottage garden with a picket fence.&rdquo;</em> A white picket ring with an arbor gate on the front&#8209;door axis, beds crowding the facades and turning the corners of the T, a hedge along the boundary, shade trees placed for summer shade, a lawn filling the enclosure, and a paved driveway out of the garage door to the street &mdash; six trees and 240 flowering plants are generated from just one sentence.</figcaption>
                     </figure>
 
-                    <p>The layout is computed against the real geometry of the house, and most of the work is in the constraints that keep it looking deliberate. Beds follow the actual wall segments, so on an L&#8209;plan or a house with a wing the planting turns the corners with the building instead of cutting through it, and every bed stops at a doorway. Each door keeps a clear corridor out to the edge of the yard &mdash; the axis a gate or a rose arbor stands on. Ponds are dug with irregular outlines, never ovals, and edged in stone. Boulders are extruded from fractal footprints, because a smooth many&#8209;sided drum reads as cast concrete.</p>
+                    <p>The layout is computed against the real geometry of the house, and most of the work is in the constraints that keep it looking deliberate. Beds follow the actual wall segments, so on an L&#8209;plan or a house with a wing the planting turns the corners with the building instead of cutting through it, and every bed stops at a doorway. Each door keeps a clear corridor out to the edge of the yard &mdash; the axis a gate or a rose arbor stands on. Ponds are dug with irregular outlines and edged in stone. Boulders are extruded from fractal footprints to look natural.</p>
 
                     <p>There are nineteen landscape styles, and they differ in geometry and ground surface, not merely in flower color:</p>
 
@@ -468,19 +489,19 @@
                     <div class="v2-shots">
                         <figure>
                             <img src="image/aladdin-landscaping-formal.png" loading="lazy" alt="A formal parterre garden: mirrored clipped rows, matched trees and a raised stone basin">
-                            <figcaption><strong>Formal Parterre.</strong> Mirrored about the entrance axis: clipped rows flanking the approach, matched pairs of trees, a hedge ring round the lot and a raised stone basin instead of a natural pond. The one style that suppresses the usual jitter &mdash; here the symmetry <em>is</em> the design.</figcaption>
+                            <figcaption><strong>Formal Parterre.</strong> Mirrored about the entrance axis: clipped rows flanking the approach, matched pairs of trees, a hedge ring round the lot and a raised stone basin instead of a natural pond.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-landscaping-zen.png" loading="lazy" alt="A zen dry garden: a raked gravel court over the whole lot with boulder groups, moss islands, pines and stone lanterns">
-                            <figcaption><strong>Zen Dry Garden.</strong> A <em>karesansui</em> court: no grass at all, one raked gravel field combed with long parallel lines, waist&#8209;high boulder groups with moss at their feet, stone lanterns, a leaning maple. No pond &mdash; stone does the work of water.</figcaption>
+                            <figcaption><strong>Zen Dry Garden.</strong> A <em>karesansui</em> court: no grass at all, one raked gravel field combed with long parallel lines, waist&#8209;high boulder groups with moss at their feet, stone lanterns, a leaning maple.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-landscaping-rose.png" loading="lazy" alt="A rose garden: massed red roses inside clipped box edging with a ring bed on the front axis">
-                            <figcaption><strong>Rose Garden.</strong> Massed red roses inside clipped box edging, a ring bed on the front axis, climbing roses on paired arbors at the back wall. The signature species genuinely dominates &mdash; a rose garden that reads white from the street is not a rose garden.</figcaption>
+                            <figcaption><strong>Rose Garden.</strong> Massed red roses inside clipped box edging, a ring bed on the front axis, climbing roses on paired arbors at the back wall. The signature species genuinely dominates.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-landscaping-xeriscape.png" loading="lazy" alt="A desert garden: saguaro, organ pipe cactus and Joshua trees over cactus drifts, with fan palms for shade">
-                            <figcaption><strong>Desert Garden.</strong> Saguaro, organ&#8209;pipe cactus and Joshua trees over cactus drifts and boulder outcrops, with fan palms and coconuts doing the shading &mdash; a cactus shades nothing. Dry by default: no lawn, no pond unless you ask.</figcaption>
+                            <figcaption><strong>Desert Garden.</strong> Saguaro, organ&#8209;pipe cactus and Joshua trees over cactus drifts and boulder outcrops, with fan palms and coconuts doing the shading &mdash; a cactus shades nothing.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-landscaping-hawaiian.png" loading="lazy" alt="A Hawaiian lava garden: green lawn in front of the house giving way to a black basalt terrace with a lagoon pond behind it">
@@ -488,7 +509,7 @@
                         </figure>
                         <figure>
                             <img src="image/aladdin-landscaping-tropical.png" loading="lazy" alt="A tropical resort garden: palms leaning over a centerpiece pond with hibiscus drifts and mown lawn running to the water">
-                            <figcaption><strong>Tropical Resort Garden.</strong> The pond is the centerpiece, palms leaning over it and hibiscus drifting along the beds, with mown lawn running right down to the water &mdash; a resort, not a yard with a pond in it.</figcaption>
+                            <figcaption><strong>Tropical Resort Garden.</strong> The pond is the centerpiece, palms leaning over it and hibiscus drifting along the beds, with mown lawn running right down to the water.</figcaption>
                         </figure>
                     </div>
 
@@ -496,7 +517,7 @@
 
                     <h2>One thing at a time</h2>
 
-                    <p>A house does not need a landscape, and asking for one object must never wipe out the yard around it. So each piece stands alone: &ldquo;add a pond&rdquo; digs the water, its coping and its rim rocks and touches nothing else, on a fully planted yard or a bare one. The same goes for the lawn, the hedge, the shade&#8209;tree belt, the walkway and the driveway.</p>
+                    <p>Each piece stands alone: &ldquo;add a pond&rdquo; digs the water, its coping and its rim rocks and touches nothing else, on a fully planted yard or a bare one. The same goes for the lawn, the hedge, the shade&#8209;tree belt, the walkway and the driveway.</p>
 
                     <p>Beyond the planting there is a set of built additions. None of them ever appears unless you ask for it &mdash; no style lays one on its own:</p>
 
@@ -532,7 +553,7 @@
                         <figcaption>The back yard, each piece placed by naming a corner of the lot: a pool with its coping and apron, a pergola with the patio set and its umbrella beneath it, a gazebo, and a bench on the lawn. A fountain stands out on the front lawn, beyond the house.</figcaption>
                     </figure>
 
-                    <p>Placement has a small, strict grammar. Name an absolute spot &mdash; &ldquo;in the northeast corner&rdquo; &mdash; and it is resolved against the house's real orientation. Ask for a relative move &mdash; &ldquo;three meters west&rdquo; &mdash; and it is locked to that bearing: the thing lands as close to the distance you asked for as clearances allow along that line, and declines rather than quietly putting itself somewhere else. Things can also be placed relative to each other: a bench <em>west of the pond</em> goes on the pond's west shore, and a bench <em>under the pergola</em> goes deliberately inside it. Up to five of each per house. And revising one is not moving it &mdash; &ldquo;make the fountain smaller&rdquo; rebuilds it exactly where it stands.</p>
+                    <p>Placement has a small, strict grammar. Name an absolute spot &mdash; &ldquo;in the northeast corner&rdquo; &mdash; and it is resolved against the house's real orientation. Ask for a relative move &mdash; &ldquo;three meters west&rdquo; &mdash; and it is locked to that bearing: the thing lands as close to the distance you asked for as clearances allow along that line, and declines rather than quietly putting itself somewhere else. Things can also be placed relative to each other: a bench <em>west of the pond</em> goes on the pond's west shore, and a bench <em>under the pergola</em> goes deliberately inside it. Up to five of each per house. And revising one &mdash; &ldquo;make the fountain smaller&rdquo; &mdash; rebuilds it exactly where it stands.</p>
 
                     <h2>Draw the boundary</h2>
 
@@ -565,21 +586,19 @@
                         </figure>
                         <figure>
                             <img src="image/aladdin-fence-stonepiers.png" loading="lazy" alt="A fence of masonry piers with dark iron infill around a house">
-                            <figcaption><strong>Stone piers</strong>Masonry piers with dark iron between them. An estate frontage.</figcaption>
+                            <figcaption><strong>Stone piers</strong>Masonry piers at intervals with panels of dark iron spanning between them. The estate frontage, and the heaviest fence in the set.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-fence-horizontalslat.png" loading="lazy" alt="A horizontal slat fence of cedar bands between sparse square posts">
-                            <figcaption><strong>Horizontal slat</strong>Cedar slats running the other way, between sparse posts. The contemporary fence &mdash; the one to put around a flat&#8209;roofed modern house.</figcaption>
+                            <figcaption><strong>Horizontal slat</strong>Cedar slats running the other way, between sparse posts. The contemporary fence &mdash; the one to put around a modern house.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-fence-estateiron.png" loading="lazy" alt="A tall estate railing of dark round iron pickets with a belt rail">
-                            <figcaption><strong>Estate iron</strong>The same round pickets carried to 2&nbsp;m with a belt rail at mid height. Height is the whole difference: this one reads as grounds, not as yard.</figcaption>
+                            <figcaption><strong>Estate iron</strong>The same round pickets carried to 2&nbsp;m with a belt rail at mid height. Height is the whole difference.</figcaption>
                         </figure>
                     </div>
 
-                    <p>Two things about the ring are worth knowing. Each garden style has a fence paired to it by default &mdash; a cottage garden asks for picket, a formal parterre for wrought iron, a Mediterranean courtyard for the low wall &mdash; so asking for a landscape <em>with a fence</em> gets a boundary that belongs to it. And the ring is <strong>per side</strong>: &ldquo;move the north fence two meters north&rdquo; moves that run and leaves the other three where they are, resizing the enclosure, and the lawn refills to the new line in the same breath.</p>
-
-                    <p>After dark a lighting plan takes over: carriage&#8209;lantern sconces beside every entry door, bollards pacing the walk, lamp posts at the street, lanterns at the gates, uplights in the trees and a glow at the pond, in four fixture styles.</p>
+                    <p>Two things about the boundary fence are worth knowing. Each garden style has a fence paired to it by default &mdash; a cottage garden asks for picket, a formal parterre for wrought iron, a Mediterranean courtyard for the low wall &mdash; so asking for a landscape <em>with a fence</em> gets a boundary that belongs to it. And it is built as <strong>four independent runs</strong>, one per side: &ldquo;move the north fence two meters north&rdquo; moves that run and leaves the other three where they are, resizing the enclosure, and the lawn refills to the new line in the same breath.</p>
 
                     <h2>And paint it</h2>
 
@@ -604,11 +623,11 @@
                         </figure>
                         <figure>
                             <img src="image/aladdin-paint-keywest.png" loading="lazy" alt="The same house painted in the Key West Tropical scheme: turquoise body, white trim, deep-teal shutters, a coral door and a silver metal roof">
-                            <figcaption><strong>Key West Tropical</strong> &mdash; turquoise board body, white trim, deep&#8209;teal shutters, a hibiscus&#8209;coral door and a galvanized metal roof: the Conch house never wears a dark shingle.</figcaption>
+                            <figcaption><strong>Key West Tropical</strong> &mdash; turquoise board body, white trim, deep&#8209;teal shutters, and a hibiscus&#8209;coral door.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-paint-lodge.png" loading="lazy" alt="The same house painted in the Forest Lodge scheme: deep forest-green body, stone-cream trim, near-black shutters, a walnut door and a black roof">
-                            <figcaption><strong>Forest Lodge</strong> &mdash; deep forest&#8209;green body, stone&#8209;cream trim, near&#8209;black shutters, a walnut door and a black roof: the mountain cabin.</figcaption>
+                            <figcaption><strong>Forest Lodge</strong> &mdash; deep forest&#8209;green body, stone&#8209;cream trim, near&#8209;black shutters, a walnut door and a black roof.</figcaption>
                         </figure>
                     </div>
 
@@ -721,9 +740,7 @@
                         </div>
                     </div>
 
-                    <p>The full set was picked to cover the ground rather than to pile up names. The first ten clustered badly &mdash; six cream&#8209;to&#8209;white bodies, no red, no dark blue, no wood tone, and only two roofs that were not gray &mdash; so the second batch was chosen to fill exactly those gaps. The last three do the same job again, and each answers a house style that had no palette of its own: a saturated turquoise for the Key West conch house, a pale rose&#8209;and&#8209;lavender for the French provincial, and a deep forest green for the mountain lodge &mdash; the greens already there, olive and sage, are both mid&#8209;tone and quiet.</p>
-
-                    <h2>Now find out whether it works</h2>
+                    <h2>Now find out how it performs</h2>
 
                     <p>Everything above would be a pleasant toy if it stopped there. It does not, and that is the point of building a home here: what you have just made is an engineering model. The walls have U&#8209;values. The windows have solar heat gain coefficients. The sun moves correctly for your latitude, on the date and at the hour you set, and the weather comes from real measured data for your location.</p>
 
@@ -743,7 +760,7 @@
                             <p class="ans">With tilt, orientation, cell&#8209;temperature derating and battery storage, so the net figure counts what the house generates for itself.</p>
                         </li>
                         <li>
-                            <p class="ask">Show me where the sun actually falls.</p>
+                            <p class="ask">Show me where sunlight actually hits.</p>
                             <p class="ans">A solar&#8209;radiation heatmap painted straight onto the roofs and the walls.</p>
                         </li>
                         <li>
@@ -757,7 +774,7 @@
                         <figcaption>Ask for a solar&#8209;radiation map and the day's insolation is painted onto every surface &mdash; roofs, walls, the driveway, the lawn. Warm colors mark the sunniest faces, so the best places for panels are obvious at a glance, and the cool patches are the shade the tree and the house are actually casting.</figcaption>
                     </figure>
 
-                    <h2>Or let it optimize the house for you</h2>
+                    <h2>Or let AI optimize the house for you</h2>
 
                     <p>Answering questions is one thing. The more interesting move is to hand the whole problem over: <em>&ldquo;optimize this house.&rdquo;</em> The assistant then stops being a draftsman and becomes an engineer. It simulates the design you have, changes <em>one</em> thing to cut net energy &mdash; heating plus cooling, minus whatever the rooftop solar panels generate, if any &mdash; simulates again, and keeps the change only if it actually helped. If it did not, the change is rolled back and the next round has to try a different lever. It repeats for as many steps as you allow, and leaves your scene at the single best design it found.</p>
 
@@ -819,27 +836,6 @@
 
                     <p>And these are not decorative numbers. Aladdin's building&#8209;energy engine is checked against <a href="aladdin-bestest-validation.html">ASHRAE Standard 140 (BESTEST)</a>, the reference suite that whole&#8209;building simulation programs are validated with &mdash; the same bar professional tools are held to. That is the difference between a house you built and a house you know something about.</p>
 
-                    <div class="v2-chat-panel">
-                    <div class="v2-chat-head">
-                        <span class="v2-chat-avatar">&#10022;</span>
-                        <span class="v2-chat-title">
-                            <span class="v2-chat-name">Aladdin AI Assistant</span>
-                            <span class="v2-chat-status">Design, dress and then interrogate a house</span>
-                        </span>
-                    </div>
-                    <ul class="v2-chat">
-                        <li class="you"><span class="who">You</span>build me a queen anne victorian with a corner turret</li>
-                        <li class="ai"><span class="who">Assistant</span>Your Victorian is up: a front&#8209;gabled main block 8 &times; 12&nbsp;m with a 10 &times; 7&nbsp;m wing running east, their ridges perpendicular so the roofs meet in a valley. An octagonal three&#8209;story turret stands on the southwest corner under a conical spire, with a porch tucked into the ell and a chimney on the main roof. Sage body, charcoal roofs, tall narrow sashes. Aladdin has no curved walls, so the &ldquo;round&rdquo; tower is an octagon &mdash; which is how Queen Anne towers were actually built.</li>
-                        <li class="you"><span class="who">You</span>design a cottage garden with a picket fence</li>
-                        <li class="ai"><span class="who">Assistant</span>A cottage garden is laid inside a new white picket fence: beds hugging the facades, an island bed under an ornamental tree, a pond behind the house. Planted 6 trees, 240 flowering plants and 9 boulders, with one lawn filling the enclosure and a paved driveway running from the garage door out to the street. The gate is cut on the front&#8209;door axis and the planting keeps that approach clear.</li>
-                        <li class="you"><span class="who">You</span>paint the house navy</li>
-                        <li class="ai"><span class="who">Assistant</span>Repainted in &ldquo;Navy &amp; Brass&rdquo;: deep navy body, crisp white trim, near&#8209;black shutters, a brass&#8209;oak front door and a slate roof.</li>
-                        <li class="you"><span class="who">You</span>now run the energy simulation for the year</li>
-                        <li class="ai"><span class="who">Assistant</span>Annual simulation done, using a full year of hourly weather for your site. I can break it down by month, show you where the losses are, or try a change &mdash; thicker insulation, better glazing, or the shade trees on the southwest &mdash; and re&#8209;run it so you can see which one actually pays.</li>
-                        <li class="you"><span class="who">You</span>which one would pay first?</li>
-                    </ul>
-                    </div>
-
                     <h2>Why this matters for young builders</h2>
 
                     <p>There is a real educational opportunity hiding in all of this. Children who would never open a CAD program will happily spend hours on a house in a design and construction game, and what they are exercising is genuine design thinking: proportion, symmetry, circulation, taste. What has been missing is the feedback loop that turns that play into understanding. In a game, a wall of glass facing north costs nothing. Here you can build it, run the year, and watch the heating bill answer you.</p>
@@ -850,9 +846,9 @@
 
                     <p>Wherever building has been made easy, people have done an enormous amount of it &mdash; for years, unprompted, with no reward but the building itself. The desire is not the scarce part. The interface is.</p>
 
-                    <p>Aladdin removes the same friction &mdash; say what you want, watch it appear &mdash; and points it at a model that is scientifically real. The turret is an octagon because that is how turrets were built. The shade trees go southwest because that is where the summer sun is. The heating number comes from a full year of your location's weather, through an engine checked against the standard the profession uses. You get the home you dreamed of, and you get to find out whether it is a good one.</p>
+                    <p>Aladdin removes the same friction &mdash; say what you want, watch it appear &mdash; and points it at a model that is scientifically real. The shade trees go southwest because that is where the summer sun is. The heating number comes from a full year of your location's weather, through an engine checked against the standard the profession uses. You get the home you dreamed of, and you get to find out how much energy it will cost you.</p>
 
-                    <p>Which is, in the end, the promise the name was chosen for. In the old tale, the lamp granted whatever its owner asked for. Ask for your dream home now, and it takes shape in front of you &mdash; and then, unlike in the story, you can ask it what the house will cost you in January.</p>
+                    <p>Which is, in the end, the promise the name was chosen for. In the old tale, the lamp granted whatever its owner asked for. Ask for your dream home now, and it takes shape in front of you &mdash; and then, unlike in the story, you can use it as an engineering laboratory to learn.</p>
 
                     <p style="font-size:1.2rem; color:var(--text-muted);">Related reading: <a href="aladdin-ai-assistant-house.html">A new way of design</a> &middot; <a href="aladdin-bestest-validation.html">Validating against ASHRAE Standard 140</a></p>
 
