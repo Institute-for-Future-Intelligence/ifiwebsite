@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Designing Your Dream Home with AI — Institute for Future Intelligence</title>
-    <meta name="description" content="Build the home you have always wanted by describing it — dozens of architectural styles, porches and turrets, nineteen garden styles, seventeen color schemes — and then find out how it actually performs, because in Aladdin the house is a real engineering model.">
+    <meta name="description" content="Build the home you have always wanted by describing it — dozens of architectural styles, porches and turrets, nineteen garden styles, twenty color schemes — and then find out how it actually performs, because in Aladdin the house is a real engineering model.">
 
     <style>
         @import url("css/system.base.css");
@@ -38,6 +38,32 @@
     <script src="js/jquery.smartmenus.js"></script>
     <script src="js/jquery.smartmenus.bootstrap.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+      // Click-to-load: the poster is swapped for the live Aladdin iframe only when the reader asks
+      // for it, so a WebGL app does not boot on every visit to a page whose first figure it is.
+      function activateEmbed(facade) {
+        if (!facade || facade.dataset.activated) return document.getElementById(facade && facade.dataset.frameId);
+        var iframe = document.createElement("iframe");
+        iframe.src = facade.dataset.embedSrc;
+        iframe.id = facade.dataset.frameId;
+        iframe.title = facade.dataset.frameTitle || "";
+        iframe.setAttribute("allow", "fullscreen; gyroscope; accelerometer");
+        iframe.setAttribute("allowfullscreen", "true");
+        facade.dataset.activated = "1";
+        facade.parentNode.replaceChild(iframe, facade);
+        return iframe;
+      }
+      document.addEventListener("click", function (ev) {
+        var facade = ev.target.closest && ev.target.closest(".v2-embed-facade");
+        if (facade) activateEmbed(facade);
+      });
+      function openFullscreen(id) {
+        var e = document.getElementById(id);
+        if (!e) e = activateEmbed(document.querySelector('.v2-embed-facade[data-frame-id="' + id + '"]'));
+        if (e) (e.requestFullscreen || e.webkitRequestFullscreen || e.msRequestFullscreen).call(e);
+      }
+    </script>
 
     <style>
         .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
@@ -135,6 +161,10 @@
         /* The optimization loop, drawn as a RING — the point of a sweep is that it comes back round. */
         .v2-sweep { margin: 1.6rem 0 1.9rem; padding: 1.5rem 1.7rem 1.3rem; border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.05)); }
         .v2-sweep-title { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin: 0 0 0.6rem; }
+        /* The main column is a GRID ITEM, so its min-width:auto floors the whole column at the loop
+           diagram's min-content width and pushes the page wider than a phone. Let it shrink; the
+           diagram scrolls inside its own wrapper instead. */
+        .v2-col-main { min-width: 0; }
         .v2-loop-wrap { overflow-x: auto; }
         .v2-loop { display: block; width: 100%; min-width: 520px; height: auto; }
         .v2-loop .card { fill: var(--surface-raised); stroke: rgba(15, 23, 42, 0.12); stroke-width: 1; }
@@ -146,6 +176,16 @@
         .v2-loop .hub { fill: var(--accent-dark); font-family: var(--font-display); font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; }
         .v2-loop .hubsub { fill: var(--text-muted); font-size: 12px; }
         @media (prefers-color-scheme: dark) { .v2-loop .card { stroke: rgba(148, 163, 220, 0.24); } .v2-loop .hub { fill: #a5b4fc; } }
+        /* On a phone the ring cannot be read at 390px and side-scrolling a diagram is a trap, so the
+           same four steps stack as a numbered list instead and the ring is dropped. */
+        .v2-sweep-steps { display: none; list-style: none; counter-reset: sweep; margin: 0; padding: 0; gap: 1rem; }
+        .v2-sweep-steps li { counter-increment: sweep; position: relative; margin: 0; padding: 0 0 0 2.5rem; }
+        .v2-sweep-steps li::before { content: counter(sweep); position: absolute; left: 0; top: 0.05rem; width: 1.75rem; height: 1.75rem; display: grid; place-items: center; border-radius: 50%; font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, #6366f1, #0ea5e9); }
+        .v2-sweep-steps strong { display: block; font-family: var(--font-display); font-size: 1.16rem; color: var(--text); }
+        .v2-sweep-steps span { display: block; margin-top: 0.15rem; font-size: 1.05rem; line-height: 1.45; color: var(--text-muted); }
+        .v2-sweep-loop { display: none; margin: 1rem 0 0; padding-left: 2.5rem; font-size: 1.02rem; color: var(--accent-dark); font-weight: 600; }
+        @media (prefers-color-scheme: dark) { .v2-sweep-loop { color: #a5b4fc; } }
+        @media (max-width: 700px) { .v2-loop-wrap { display: none; } .v2-sweep-steps { display: grid; } .v2-sweep-loop { display: block; } }
 
         /* The bargeboards: close-ups of one detail, so they run tighter and wider than the fences. */
         .v2-barge { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 0.9rem 1rem; margin: 1.4rem 0 1.8rem; }
@@ -192,7 +232,7 @@
          * column, floated, the way a magazine sets one. Headings clear it so none can land beside
          * it, and on a narrow screen it stops floating and spans the column.
          */
-        .v2-pull { float: right; width: 50%; clear: right; position: relative; margin: 0.6rem 0 1.4rem 2.2rem; padding: 1.5rem 1.4rem 1.6rem 2.6rem; border: 1px solid rgba(99, 102, 241, 0.22); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.11), rgba(14, 165, 233, 0.07) 55%, rgba(22, 163, 74, 0.09)); box-shadow: 0 22px 45px -34px rgba(30, 30, 90, 0.55); overflow: hidden; }
+        .v2-pull { float: right; width: 25%; clear: right; position: relative; margin: 0.6rem 0 1.4rem 2.2rem; padding: 1.5rem 1.4rem 1.6rem 2.6rem; border: 1px solid rgba(99, 102, 241, 0.22); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.11), rgba(14, 165, 233, 0.07) 55%, rgba(22, 163, 74, 0.09)); box-shadow: 0 22px 45px -34px rgba(30, 30, 90, 0.55); overflow: hidden; }
         .v2-col-main h2 { clear: both; }
         .v2-pull::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #6366f1, #0ea5e9 55%, #16a34a); }
         .v2-pull::after { content: '\2726'; position: absolute; left: 0.95rem; top: 1.45rem; font-size: 1.45rem; line-height: 1; color: var(--accent); opacity: 0.5; }
@@ -230,10 +270,10 @@
 
                     <div class="v2-pull">
                         <p class="lead">Build for the joy of it, the way you would in a game.</p>
-                        <p class="turn">Then ask the questions no game can answer &mdash; and get <strong>real numbers</strong>, from <strong>real weather</strong>, at <strong>your real location</strong>.</p>
+                        <p class="turn">Then ask the questions no game can answer &mdash; and get <strong>real numbers</strong>, from <strong>real weather</strong>, at <strong>your real location</strong>, using <strong>real physics</strong>.</p>
                     </div>
 
-                    <p>So home design tends to happen either on paper, where nothing can be tested, or in software that draws beautifully and knows nothing about physics. A drawing has no insulation, no thermal mass, no solar gain through the south windows and no January heating bill; the sun in the picture is decorative. You can make something lovely and learn nothing at all about whether it would be good to live in.</p>
+                    <p>So home design tends to happen either on paper, where nothing can be tested, or in software that draws beautifully and knows nothing about physics. A drawing has no insulation, no thermal mass, no solar gain through the south windows and no January heating bill; the sun in the picture is decorative. You can make something lovely and learn nothing at all about science and engineering.</p>
 
                     <p><em>Aladdin is built to close that gap with AI.</em> Describe the home you want, in your own words, and it appears in front of you &mdash; a real 3D model you can orbit, click and keep changing by talking. And because every wall, window and roof in it carries genuine physical properties, you can then ask what it would cost to heat in January, whether the summer sun bakes the upstairs, how much electricity the roof would make with panels on it, and whether trees on the southwest would help. And it is <em>easier</em> than a design and construction game, not harder: those are still built by hand through a GUI &mdash; block by block, wall by wall &mdash; or scripted by whoever has learned how. Here you say what you want in a sentence &mdash; and underneath the whole thing sits a real building&#8209;performance simulator.</p>
 
@@ -245,6 +285,26 @@
 
                     <p>What comes back is not a fixed model dropped into the scene but a genuine, editable structure: a footprint, walls at a sensible story height, a pitched roof, windows in tidy columns and rows along each wall, a front door where you would expect one. It has real stories &mdash; an actual second floor, not a tall box with windows painted on &mdash; and every number that went into it is still yours to change by asking. &ldquo;Make the roof steeper.&rdquo; &ldquo;The windows on the selected wall are too small.&rdquo; &ldquo;Move the whole thing three meters north.&rdquo;</p>
 
+                    <p>And a house is only the start of it. The same conversation goes on to dress the building, plant the ground around it and furnish the yard, each request landing against whatever is already standing there:</p>
+
+                    <figure class="v2-embed">
+                        <button type="button" class="v2-embed-facade"
+                                data-embed-src="https://aladdin.intofuture.org/?client=web&amp;viewonly=true&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Cutting"
+                                data-frame-id="aladdin-cutting-frame" data-frame-title="A New England farmhouse with a cutting garden, interactive 3D model"
+                                style="background-image:url('image/aladdin-landscaping-cutting.png')"
+                                aria-label="Load the interactive 3D model of this house and garden">
+                            <span class="v2-embed-play" aria-hidden="true"></span>
+                            <span class="v2-embed-hint">Click to load the live model</span>
+                        </button>
+                        <figcaption>Nothing here was drawn by hand. The house, the columned portico, the pergola and the grapevine over it, the beds of hydrangea, rose and tulip, the fence &mdash; each was asked for in a sentence. This is the real scene, not a picture of one: drag to orbit, scroll to zoom, click any part to inspect it, or <a href="javascript:openFullscreen('aladdin-cutting-frame');">view it full screen</a>. On a phone or a headset you can go further and walk down into it, in VR mode.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Cutting">Open this house in Aladdin and keep changing it</a>
+                    </div>
+
+                    <p>A whole session reads like this:</p>
+
                     <div class="v2-chat-panel">
                     <div class="v2-chat-head">
                         <span class="v2-chat-avatar">&#10022;</span>
@@ -254,15 +314,16 @@
                         </span>
                     </div>
                     <ul class="v2-chat">
-                        <li class="you"><span class="who">You</span>build me a queen anne victorian with a corner turret</li>
-                        <li class="ai"><span class="who">Assistant</span>Your Victorian is up: a front&#8209;gabled main block 8 &times; 12&nbsp;m with a 10 &times; 7&nbsp;m wing running east, their ridges perpendicular so the roofs meet in a valley. An octagonal three&#8209;story turret stands on the southwest corner under a conical spire, with a porch tucked into the ell and a chimney on the main roof. Sage body, charcoal roofs, tall narrow sashes. Aladdin has no curved walls, so the &ldquo;round&rdquo; tower is an octagon &mdash; which is how Queen Anne towers were actually built.</li>
-                        <li class="you"><span class="who">You</span>design a cottage garden with a picket fence</li>
-                        <li class="ai"><span class="who">Assistant</span>A cottage garden is laid inside a new white picket fence: beds hugging the facades, an island bed under an ornamental tree, a pond behind the house. Planted 6 trees, 240 flowering plants and 9 boulders, with one lawn filling the enclosure and a paved driveway running from the garage door out to the street. The gate is cut on the front&#8209;door axis and the planting keeps that approach clear.</li>
-                        <li class="you"><span class="who">You</span>paint the house navy</li>
-                        <li class="ai"><span class="who">Assistant</span>Repainted in &ldquo;Navy &amp; Brass&rdquo;: deep navy body, crisp white trim, near&#8209;black shutters, a brass&#8209;oak front door and a slate roof.</li>
+                        <li class="you"><span class="who">You</span>build me a new england farmhouse with a wing</li>
+                        <li class="ai"><span class="who">Assistant</span>Your farmhouse is up: a two&#8209;story clapboard main block 12 &times; 8&nbsp;m under a gable roof, with a lower wing running west off the back so the two ridges meet in a valley. Six&#8209;over&#8209;six sashes in tidy rows, shutters on every one of them &mdash; which is half of what a New England front reads as &mdash; a columned entry portico on the front door, and a chimney on the main roof.</li>
+                        <li class="you"><span class="who">You</span>add a pergola and grow a grapevine over it</li>
+                        <li class="ai"><span class="who">Assistant</span>A pergola stands off the west side with a table and chairs under it, and a grapevine is trained over the beams &mdash; the canopy sized to the frame rather than dropped on top of it. Nothing else in the yard was touched.</li>
+                        <li class="you"><span class="who">You</span>design a cutting garden with a picket fence</li>
+                        <li class="ai"><span class="who">Assistant</span>A cutting garden is laid inside a new white picket fence: straight harvest ranks of tulips, peonies and roses behind the house, hydrangeas massed along the facades, potting planters at the back wall, with one lawn filling the enclosure and a paved driveway running out to the street. The gate is cut on the front&#8209;door axis and the planting keeps that approach clear.</li>
+                        <li class="you"><span class="who">You</span>paint it barn red</li>
+                        <li class="ai"><span class="who">Assistant</span>Repainted in &ldquo;Barn Red&rdquo;: saturated barn&#8209;red body, bone&#8209;white trim, dark walnut shutters, a black door and an iron roof.</li>
                         <li class="you"><span class="who">You</span>now run the energy simulation for the year</li>
                         <li class="ai"><span class="who">Assistant</span>Annual simulation done, using a full year of hourly weather for your site. I can break it down by month, show you where the losses are, or try a change &mdash; thicker insulation, better glazing, or the shade trees on the southwest &mdash; and re&#8209;run it so you can see which one actually pays.</li>
-                        <li class="you"><span class="who">You</span>which one would pay first?</li>
                     </ul>
                     </div>
 
@@ -273,7 +334,7 @@
                     <div class="v2-styles">
                         <div class="v2-styles-head">
                             <p class="v2-styles-title">The architectural style library</p>
-                            <span class="v2-styles-count">42 worked recipes</span>
+                            <span class="v2-styles-count">45 styles</span>
                         </div>
                         <div class="v2-styles-grid">
                             <div class="v2-styles-group">
@@ -517,7 +578,7 @@
 
                     <h2>One thing at a time</h2>
 
-                    <p>Each piece stands alone: &ldquo;add a pond&rdquo; digs the water, its coping and its rim rocks and touches nothing else, on a fully planted yard or a bare one. The same goes for the lawn, the hedge, the shade&#8209;tree belt, the walkway and the driveway.</p>
+                    <p>Every piece of a landscape can also be asked for on its own, and each one stands alone: &ldquo;add a pond&rdquo; digs the water, its coping and its rim rocks and touches nothing else, on a fully planted yard or a bare one. The same goes for the lawn, the hedge, the shade&#8209;tree belt, the walkway and the driveway.</p>
 
                     <p>Beyond the planting there is a set of built additions. None of them ever appears unless you ask for it &mdash; no style lays one on its own:</p>
 
@@ -623,7 +684,7 @@
                         </figure>
                         <figure>
                             <img src="image/aladdin-paint-keywest.png" loading="lazy" alt="The same house painted in the Key West Tropical scheme: turquoise body, white trim, deep-teal shutters, a coral door and a silver metal roof">
-                            <figcaption><strong>Key West Tropical</strong> &mdash; turquoise board body, white trim, deep&#8209;teal shutters, and a hibiscus&#8209;coral door.</figcaption>
+                            <figcaption><strong>Key West Tropical</strong> &mdash; turquoise board body, white trim, deep&#8209;teal shutters, a hibiscus&#8209;coral door and a silver metal roof.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-paint-lodge.png" loading="lazy" alt="The same house painted in the Forest Lodge scheme: deep forest-green body, stone-cream trim, near-black shutters, a walnut door and a black roof">
@@ -828,6 +889,13 @@
                             <text class="desc" x="105" y="282">never happened.</text>
                         </svg>
                         </div>
+                        <ol class="v2-sweep-steps" aria-hidden="true">
+                            <li><strong>Evaluate</strong><span>A full year simulated through the transient engine, solar credited.</span></li>
+                            <li><strong>Revise</strong><span>Change one lever: glazing, insulation, orientation, panels.</span></li>
+                            <li><strong>Re-evaluate</strong><span>The same year simulated again, so the two numbers are comparable.</span></li>
+                            <li><strong>Keep or roll back</strong><span>Better by a real margin, or it never happened.</span></li>
+                        </ol>
+                        <p class="v2-sweep-loop" aria-hidden="true">&#8635; Then round again &mdash; one lap is one step.</p>
                     </div>
 
                     <p>What makes this different from an ordinary optimizer is what proposes the changes. There is no list of parameters to sweep and no numeric solver hunting through them: the thing suggesting the next move is the language model, reasoning about <em>this</em> house in <em>this</em> climate &mdash; that the west glazing is what bakes the upstairs, that the overhang is too short to shade a south window in July. The loop supplies the discipline, the measurement and the veto; the model supplies the ideas. You get back the trajectory, step by step, with what changed and how much net energy fell.</p>
