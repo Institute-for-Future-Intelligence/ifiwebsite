@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing Your Dream Home with AI — Institute for Future Intelligence</title>
+    <meta name="description" content="Build the home you have always wanted by describing it — dozens of architectural styles, porches and turrets, nineteen garden styles, seventeen color schemes — and then find out how it actually performs, because in Aladdin the house is a real engineering model.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-col-main ul.v2-list { font-size: 1.35rem; line-height: 1.5; }
+        .v2-col-main pre { background: var(--surface-raised); border: 1px solid rgba(15, 23, 42, 0.1); border-radius: 0.5rem; padding: 1rem; overflow-x: auto; font-size: 1.05rem; margin: 0.5rem 0 1.5rem; white-space: pre-wrap; }
+        .v2-col-main pre code { font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; }
+        .v2-chat-panel { max-width: 730px; margin: 1.75rem auto 2rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.16); border-radius: 1.35rem; box-shadow: 0 30px 60px -34px rgba(30, 30, 90, 0.55), 0 2px 8px rgba(15, 23, 42, 0.06); overflow: hidden; }
+        .v2-chat-head { display: flex; align-items: center; gap: 0.85rem; padding: 1.05rem 1.4rem; color: #fff; background: linear-gradient(135deg, #6366f1, #0ea5e9); }
+        .v2-chat-avatar { flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; font-size: 1.25rem; color: #fff; background: rgba(255, 255, 255, 0.16); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4); }
+        .v2-chat-title { display: flex; flex-direction: column; line-height: 1.25; }
+        .v2-chat-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; letter-spacing: 0.01em; }
+        .v2-chat-status { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.92rem; opacity: 0.9; }
+        .v2-chat-status::before { content: ''; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #4ade80; animation: v2-chat-pulse 2.4s infinite; }
+        @keyframes v2-chat-pulse { 0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); } 70% { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); } 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); } }
+        .v2-chat { list-style: none; padding: 1.4rem; margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+        .v2-chat li { position: relative; max-width: 82%; padding: 0.8rem 1.2rem; border-radius: 1.2rem; font-size: 1.2rem; line-height: 1.5; }
+        .v2-chat .you { align-self: flex-end; color: #fff; background: linear-gradient(135deg, #9aa5f2, #818cea); border-bottom-right-radius: 0.4rem; box-shadow: 0 10px 20px -14px rgba(129, 140, 234, 0.5); }
+        .v2-chat .ai { align-self: flex-start; color: var(--text); background: rgba(99, 102, 241, 0.07); border: 1px solid rgba(99, 102, 241, 0.16); border-bottom-left-radius: 0.4rem; }
+        .v2-chat .who { display: block; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.11em; margin-bottom: 0.3rem; }
+        .v2-chat .you .who { color: rgba(255, 255, 255, 0.8); }
+        .v2-chat .ai .who { color: var(--accent-dark); }
+        @media (prefers-color-scheme: dark) { .v2-chat .ai { background: rgba(148, 163, 220, 0.12); border-color: rgba(148, 163, 220, 0.2); } }
+        .v2-styles { margin: 1.5rem 0 1.9rem; padding: 1.9rem 2rem 2rem; border: 1px solid rgba(99, 102, 241, 0.16); border-radius: 1.2rem; background: linear-gradient(165deg, rgba(99, 102, 241, 0.05), rgba(14, 165, 233, 0.03)); box-shadow: 0 24px 50px -36px rgba(30, 30, 90, 0.45); }
+        .v2-styles.is-green { background: linear-gradient(165deg, rgba(22, 163, 74, 0.06), rgba(14, 165, 233, 0.03)); }
+        .v2-styles-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem 1rem; margin: 0 0 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(99, 102, 241, 0.18); }
+        .v2-styles-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); margin: 0; }
+        .v2-styles-count { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-dark); }
+        .v2-styles-grid { column-width: 230px; column-count: 3; column-gap: 2.4rem; }
+        .v2-styles-grid.is-two { column-count: 2; column-gap: 3rem; }
+        .v2-styles-group { break-inside: avoid; -webkit-column-break-inside: avoid; margin: 0 0 1.7rem; }
+        .v2-styles-group:last-child { margin-bottom: 0; }
+        .v2-styles-cat { font-family: var(--font-display); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin: 0 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(99, 102, 241, 0.18); }
+        .v2-styles-grid ul { list-style: none; margin: 0; padding: 0; }
+        .v2-styles-grid li { font-size: 1.02rem; line-height: 1.45; color: var(--text); padding: 0.18rem 0; display: flex; align-items: baseline; gap: 0.55rem; }
+        .v2-styles-grid li::before { content: '\25C6'; font-size: 0.5rem; line-height: 1; color: var(--accent); opacity: 0.65; transform: translateY(-0.15em); }
+        @media (prefers-color-scheme: dark) { .v2-styles-head, .v2-styles-cat { border-color: rgba(148, 163, 220, 0.22); } }
+        @media (max-width: 720px) { .v2-styles-grid { column-count: 1; } }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+
+        /* Two-up screenshot grid, used for the style pairs and the paint comparisons. */
+        .v2-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.1rem; margin: 1.4rem 0 1.9rem; }
+        .v2-shots figure { margin: 0; }
+        .v2-shots img { width: 100%; height: auto; display: block; border-radius: 0.6rem; border: 1px solid rgba(15, 23, 42, 0.12); }
+        .v2-shots figcaption { font-size: 1.02rem; line-height: 1.4; color: var(--text-muted); margin-top: 0.5rem; }
+        .v2-shots figcaption strong { color: var(--text); font-weight: 600; }
+        @media (max-width: 720px) { .v2-shots { grid-template-columns: 1fr; } }
+
+        /* The paint-scheme palette table: five flat colors per scheme, shown as real swatches. */
+        .v2-palettes { margin: 1.5rem 0 2rem; padding: 1.8rem 1.9rem; border: 1px solid rgba(99, 102, 241, 0.16); border-radius: 1.2rem; background: linear-gradient(165deg, rgba(99, 102, 241, 0.05), rgba(14, 165, 233, 0.03)); }
+        .v2-palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.1rem 1.4rem; }
+        .v2-palette { display: flex; flex-direction: column; gap: 0.45rem; }
+        .v2-palette-name { font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; color: var(--text); }
+        .v2-swatches { display: flex; border-radius: 0.45rem; overflow: hidden; border: 1px solid rgba(15, 23, 42, 0.18); height: 2.2rem; }
+        .v2-swatches span { flex: 1; }
+        .v2-palette-note { font-size: 0.92rem; line-height: 1.35; color: var(--text-muted); }
+
+        /*
+         * Captions on the full-width figures. The theme's default is small and grey, which under a
+         * 1100px-wide render reads as a footnote nobody finishes. These get room, contrast and an
+         * accent rule, and the opening clause is set in the display face so the eye has a way in.
+         */
+        .v2-col-main figure.v2-screenshot { margin: 1.6rem 0 2.1rem; }
+        .v2-col-main figure.v2-screenshot img { border-radius: 0.7rem 0.7rem 0 0; display: block; }
+        .v2-col-main figure.v2-screenshot figcaption { margin: 0; padding: 1.05rem 1.3rem 1.15rem; font-size: 1.22rem; line-height: 1.55; color: var(--text-muted); background: linear-gradient(160deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.04)); border: 1px solid rgba(99, 102, 241, 0.16); border-top: none; border-radius: 0 0 0.7rem 0.7rem; border-left: 4px solid var(--accent); text-align: left; }
+        .v2-col-main figure.v2-screenshot figcaption strong,
+        .v2-col-main figure.v2-screenshot figcaption em:first-child { color: var(--text); }
+        .v2-col-main figure.v2-screenshot figcaption a { color: var(--accent); }
+        @media (prefers-color-scheme: dark) { .v2-col-main figure.v2-screenshot figcaption { background: linear-gradient(160deg, rgba(148, 163, 220, 0.11), rgba(14, 165, 233, 0.05)); border-color: rgba(148, 163, 220, 0.2); border-left-color: var(--accent); } }
+
+        /*
+         * The questions you can put to the model, set the way they are actually asked — each one a
+         * chat bubble in the same indigo as the transcript further down, with its answer beneath.
+         */
+        .v2-asks { list-style: none; margin: 1.5rem 0 2rem; padding: 0; }
+        .v2-asks li { position: relative; margin: 0 0 1.15rem; padding: 0 0 1.15rem 1.4rem; border-bottom: 1px solid rgba(99, 102, 241, 0.14); }
+        .v2-asks li:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .v2-asks li::before { content: ''; position: absolute; left: 0; top: 0.35rem; bottom: 1.4rem; width: 3px; border-radius: 2px; background: linear-gradient(180deg, #6366f1, #0ea5e9); opacity: 0.55; }
+        .v2-asks li:last-child::before { bottom: 0.25rem; }
+        .v2-asks .ask { display: inline-block; margin: 0; padding: 0.5rem 1.05rem; border-radius: 1.1rem 1.1rem 1.1rem 0.35rem; font-family: var(--font-display); font-size: 1.24rem; font-weight: 600; line-height: 1.35; color: #fff; background: linear-gradient(135deg, #6366f1, #818cea); box-shadow: 0 10px 22px -16px rgba(99, 102, 241, 0.95); }
+        .v2-asks .ask::before { content: '\201C'; }
+        .v2-asks .ask::after { content: '\201D'; }
+        .v2-asks .ans { margin: 0.65rem 0 0; font-size: 1.24rem; line-height: 1.55; color: var(--text-muted); }
+        .v2-asks .ans strong { color: var(--text); font-weight: 700; }
+        @media (prefers-color-scheme: dark) { .v2-asks li { border-bottom-color: rgba(148, 163, 220, 0.18); } }
+
+        /* The optimization loop, drawn as numbered steps rather than described in a sentence. */
+        .v2-sweep { margin: 1.6rem 0 1.9rem; padding: 1.5rem 1.7rem 1.6rem; border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.05)); }
+        .v2-sweep-title { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin: 0 0 1.1rem; }
+        .v2-sweep-steps { list-style: none; counter-reset: sweep; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.9rem 1.1rem; }
+        .v2-sweep-steps li { counter-increment: sweep; position: relative; margin: 0; padding: 0 0 0 2.5rem; }
+        .v2-sweep-steps li::before { content: counter(sweep); position: absolute; left: 0; top: 0.05rem; width: 1.75rem; height: 1.75rem; display: grid; place-items: center; border-radius: 50%; font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, #6366f1, #0ea5e9); }
+        .v2-sweep-steps strong { display: block; font-family: var(--font-display); font-size: 1.16rem; color: var(--text); }
+        .v2-sweep-steps span { display: block; margin-top: 0.15rem; font-size: 1.05rem; line-height: 1.45; color: var(--text-muted); }
+        .v2-sweep-steps li:not(:last-child)::after { content: '\2192'; position: absolute; right: -0.75rem; top: 0.25rem; color: var(--accent); opacity: 0.45; font-size: 1.1rem; }
+        @media (max-width: 900px) { .v2-sweep-steps li::after { display: none; } }
+
+        /* The yard's opt-in extras: a name and one line each, marked in the landscape green. */
+        .v2-extras { list-style: none; margin: 1.5rem 0 1.9rem; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0.8rem 1rem; }
+        .v2-extras li { display: flex; gap: 0.9rem; align-items: flex-start; margin: 0; padding: 0.95rem 1.1rem; border-radius: 0.9rem; border: 1px solid rgba(22, 163, 74, 0.18); background: linear-gradient(160deg, rgba(22, 163, 74, 0.06), rgba(14, 165, 233, 0.03)); }
+        .v2-extra-mark { flex: none; width: 2.4rem; height: 2.4rem; display: grid; place-items: center; border-radius: 50%; color: #fff; background: linear-gradient(135deg, #16a34a, #0ea5e9); box-shadow: 0 8px 18px -12px rgba(22, 163, 74, 0.95); }
+        .v2-extra-mark svg { width: 1.4rem; height: 1.4rem; }
+        .v2-extra-text { font-size: 1.1rem; line-height: 1.45; color: var(--text-muted); }
+        .v2-extra-text strong { display: block; font-family: var(--font-display); font-size: 1.16rem; font-weight: 700; color: var(--text); margin-bottom: 0.15rem; }
+        @media (prefers-color-scheme: dark) { .v2-extras li { border-color: rgba(148, 163, 220, 0.2); background: linear-gradient(160deg, rgba(22, 163, 74, 0.12), rgba(14, 165, 233, 0.05)); } }
+
+        /* The feature list, set as cards with a drawn mark rather than as bullets. */
+        .v2-features { list-style: none; margin: 1.6rem 0 1.9rem; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 0.9rem 1rem; }
+        .v2-features li { display: flex; gap: 0.95rem; align-items: flex-start; margin: 0; padding: 1.15rem 1.25rem; border: 1px solid rgba(99, 102, 241, 0.16); border-radius: 0.95rem; background: linear-gradient(160deg, rgba(99, 102, 241, 0.055), rgba(14, 165, 233, 0.03)); transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease; }
+        .v2-features li:hover { border-color: rgba(99, 102, 241, 0.4); transform: translateY(-2px); box-shadow: 0 16px 34px -26px rgba(30, 30, 90, 0.6); }
+        .v2-feature-icon { flex: none; width: 2.6rem; height: 2.6rem; display: grid; place-items: center; border-radius: 0.7rem; color: #fff; background: linear-gradient(135deg, #6366f1, #0ea5e9); box-shadow: 0 8px 18px -12px rgba(79, 70, 229, 0.9); }
+        .v2-feature-icon svg { width: 1.5rem; height: 1.5rem; }
+        .v2-feature-body { font-size: 1.16rem; line-height: 1.5; color: var(--text-muted); }
+        .v2-feature-body strong { color: var(--text); font-weight: 700; }
+        @media (prefers-color-scheme: dark) { .v2-features li { border-color: rgba(148, 163, 220, 0.2); background: linear-gradient(160deg, rgba(148, 163, 220, 0.09), rgba(14, 165, 233, 0.04)); } }
+
+        .v2-callout { margin: 1.5rem 0 1.9rem; padding: 1.35rem 1.6rem; border-left: 4px solid var(--accent); border-radius: 0 0.8rem 0.8rem 0; background: rgba(99, 102, 241, 0.07); }
+        .v2-callout p { margin: 0; font-size: 1.28rem; line-height: 1.5; }
+        .v2-callout p + p { margin-top: 0.8rem; }
+
+        /*
+         * The thesis of the article, set as a pull quote the text runs AROUND — a third of the
+         * column, floated, the way a magazine sets one. Headings clear it so none can land beside
+         * it, and on a narrow screen it stops floating and spans the column.
+         */
+        .v2-pull { float: right; width: 50%; clear: right; position: relative; margin: 0.6rem 0 1.4rem 2.2rem; padding: 1.5rem 1.4rem 1.6rem 2.6rem; border: 1px solid rgba(99, 102, 241, 0.22); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.11), rgba(14, 165, 233, 0.07) 55%, rgba(22, 163, 74, 0.09)); box-shadow: 0 22px 45px -34px rgba(30, 30, 90, 0.55); overflow: hidden; }
+        .v2-col-main h2 { clear: both; }
+        .v2-pull::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #6366f1, #0ea5e9 55%, #16a34a); }
+        .v2-pull::after { content: '\2726'; position: absolute; left: 0.95rem; top: 1.45rem; font-size: 1.45rem; line-height: 1; color: var(--accent); opacity: 0.5; }
+        .v2-pull p { margin: 0; }
+        .v2-pull .lead { font-family: var(--font-display); font-size: 1.72rem; font-weight: 700; line-height: 1.32; color: var(--text); letter-spacing: -0.012em; }
+        .v2-pull .turn { margin-top: 0.6rem; font-size: 1.28rem; line-height: 1.5; color: var(--text-muted); }
+        .v2-pull .turn strong { color: var(--accent-dark); font-weight: 700; }
+        @media (prefers-color-scheme: dark) { .v2-pull { border-color: rgba(148, 163, 220, 0.26); } .v2-pull .turn strong { color: #a5b4fc; } }
+        @media (max-width: 860px) { .v2-pull { float: none; width: auto; margin: 1.6rem 0 1.8rem; padding: 1.6rem 1.5rem 1.7rem 2.8rem; } .v2-pull .lead { font-size: 1.9rem; } .v2-pull .turn { font-size: 1.4rem; } }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="DREAM HOME">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin</span>
+                <h1>Designing Your Dream Home with AI</h1>
+                <p class="v2-tagline">
+                    Describe the home you have always wanted and watch it appear &mdash; then make it energy&#8209;efficient
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>The wish to design a home is close to universal. People sketch plans on the backs of envelopes, rearrange rooms in their heads on the drive to work, and hold firm opinions about roof pitch and the color of the siding. A whole genre of design and construction games &mdash; such as <em>Minecraft</em> and <em>Welcome to Bloxburg</em> &mdash; exists because of it, and children will spend hours building houses in them unprompted. What stops most people going further is not imagination but tooling: to draw a house properly you first have to learn a CAD program, and to find out whether it is a good house you then have to learn a simulator.</p>
+
+                    <div class="v2-pull">
+                        <p class="lead">Build for the joy of it, the way you would in a game.</p>
+                        <p class="turn">Then ask the questions no game can answer &mdash; and get <strong>real numbers</strong>, from <strong>real weather</strong>, at <strong>your real location</strong>.</p>
+                    </div>
+
+                    <p>So home design tends to happen either on paper, where nothing can be tested, or in software that draws beautifully and knows nothing about physics. A drawing has no insulation, no thermal mass, no solar gain through the south windows and no January heating bill; the sun in the picture is decorative. You can make something lovely and learn nothing at all about whether it would be good to live in.</p>
+
+                    <p>Aladdin is built to close that gap. Describe the home you want, in your own words, and it appears in front of you &mdash; a real 3D model you can orbit, click and keep changing by talking. And because every wall, window and roof in it carries genuine physical properties, you can then ask what it would cost to heat in January, whether the summer sun bakes the upstairs, how much electricity the roof would make with panels on it, and whether trees on the southwest would help. The ease of a design and construction game, with a building&#8209;performance simulator underneath.</p>
+
+                    <p>What follows is a tour of what you can make: the architectural styles the AI knows, the details that turn a box into a house, the garden around it, the paint on it &mdash; and the science that makes all of it more than a picture.</p>
+
+                    <h2>From a sentence to a real house</h2>
+
+                    <p>You open the AI Assistant in Aladdin and type. &ldquo;Build a two&#8209;story farmhouse facing south.&rdquo; &ldquo;Make it a Queen Anne with a corner turret.&rdquo; &ldquo;Add a north wing and a front porch.&rdquo; There is no template to pick, no wizard, no separate design mode. The assistant sits in your ordinary editing session and reads the live scene fresh every time you speak, so it knows what is actually there &mdash; even after you have dragged things around by hand.</p>
+
+                    <p>What comes back is not a fixed model dropped into the scene but a genuine, editable structure: a footprint, walls at a sensible story height, a pitched roof, windows in tidy columns and rows along each wall, a front door where you would expect one. It has real stories &mdash; an actual second floor, not a tall box with windows painted on &mdash; and every number that went into it is still yours to change by asking. &ldquo;Make the roof steeper.&rdquo; &ldquo;The windows on the selected wall are too small.&rdquo; &ldquo;Move the whole thing three meters north.&rdquo;</p>
+
+                    <h2>Forty&#8209;two house styles, written down</h2>
+
+                    <p>&ldquo;Build a Greek Revival&rdquo; is a tall order, and it is the request people actually make. So the AI carries a library of architectural recipes: forty&#8209;two worked cases#8209;two worked cases, each a real house with real numbers &mdash; the plan, the story heights, the roof pitch, the window proportions, the palette, and the one or two details without which the style does not read. A Greek Revival is not a colonial with columns added to it. It is a wide symmetric block under a <em>low</em> temple pitch, giant&#8209;order columns running the full two stories to a pediment that stands above the eave, one white over both floors, paired end chimneys, and tall narrow sashes wearing no shutters &mdash; nothing is allowed to compete with the colossal order. The recipe says all of that, because a house with the right silhouette and none of the style's numbers has not been built in that style.</p>
+
+                    <div class="v2-styles">
+                        <div class="v2-styles-head">
+                            <p class="v2-styles-title">The architectural style library</p>
+                            <span class="v2-styles-count">42 worked recipes</span>
+                        </div>
+                        <div class="v2-styles-grid">
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">American classical</p>
+                                <ul>
+                                    <li>Colonial</li><li>Georgian</li><li>Federal</li><li>Greek Revival</li><li>Neoclassical</li><li>American Foursquare</li><li>Cape Cod</li><li>Saltbox</li><li>Dutch Colonial</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">Victorian era</p>
+                                <ul>
+                                    <li>Victorian (Queen Anne)</li><li>Italianate</li><li>Second Empire</li><li>Gothic Revival</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">20th-century American</p>
+                                <ul>
+                                    <li>Craftsman bungalow</li><li>Ranch</li><li>Raised ranch / split-level</li><li>Modern farmhouse</li><li>Barn / barndominium</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">European</p>
+                                <ul>
+                                    <li>English cottage</li><li>Tudor Revival</li><li>French Provincial</li><li>Scottish baronial</li><li>Swiss chalet</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">Warm climates</p>
+                                <ul>
+                                    <li>Mediterranean / Spanish Revival</li><li>Courtyard hacienda</li><li>Pueblo / adobe</li><li>Florida Cracker</li><li>Key West / Conch</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">East Asian</p>
+                                <ul>
+                                    <li>Chinese traditional</li><li>Japanese minka</li><li>Gassh&#333;-zukuri</li><li>Korean hanok</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">Modern</p>
+                                <ul>
+                                    <li>Modern flat-roof</li><li>Cantilever house</li><li>Floating box</li><li>A-frame</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">Plans &amp; forms</p>
+                                <ul>
+                                    <li>Cross-gable (T / L plan)</li><li>U-plan</li><li>H-plan</li><li>E-plan</li><li>Cruciform (cross plan)</li><li>Octagon house</li><li>Monitor / clerestory</li><li>Terraced row house</li><li>Dome / roundhouse</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Several of them carry named variants: the L&#8209;plan <em>magariya</em> for a Japanese farmhouse, the ch&acirc;teau for a grand French Provincial, the battlemented castle for a Scottish baronial, the <em>siheyuan</em> for a Chinese courtyard house. And a plan variant is still the style &mdash; ask for an L&#8209;shaped or two&#8209;story version of any of them and it keeps every number that makes it what it is.</p>
+
+                    <p>Here are four of them, built exactly as they are written:</p>
+
+                    <div class="v2-shots">
+                        <figure>
+                            <img src="image/aladdin-style-greek-revival.png" loading="lazy" alt="A Greek Revival mansion: white body under a low side gable, with a colossal two-story portico of round columns rising to a pediment, and paired end chimneys">
+                            <figcaption><strong>Greek Revival.</strong> The colossal portico is the style: giant&#8209;order columns running the full two stories of a white facade to a pediment that breaks the roofline, over a low temple pitch, with paired end chimneys and the wide frieze band under the eaves. Miss the portico and it is a colonial with shutters.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-style-octagon.png" loading="lazy" alt="An octagon house after the Armour-Stiner house: eight sides under a bell-shaped dome, a colonnaded veranda wrapping every side, and a windowed belvedere on top">
+                            <figcaption><strong>Octagon house</strong>, the Armour&#8209;Stiner worked case. Three concentric octagons in one call: eight chord walls on a 7&nbsp;m circumradius, a veranda colonnade wrapping every face, and a lantern floating on the dome's deck. The dome is a mansard given side curvature &mdash; there is no dome roof type, and the octagon is real straight walls rather than a fake curve.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-style-chalet.png" loading="lazy" alt="A Swiss chalet with the gable facing front, deep eaves and a full-width upper balcony on timber posts">
+                            <figcaption><strong>Swiss chalet.</strong> The gable faces the street, the eaves fly deep on every side, and a full&#8209;width railed gallery crosses the upper front on square timber posts, with the door walking out underneath. Wood tones throughout, dark green shutters, two attic lights in the gable.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-style-minka.png" loading="lazy" alt="A Japanese minka farmhouse with a gently concave hip roof, deep eaves and an engawa veranda">
+                            <figcaption><strong>Japanese minka.</strong> A low timber podium, a hip roof with a subtle concave sweep and corners that barely lift &mdash; more and it flips Chinese &mdash; a metre of sheltering eave, pale plaster under a near&#8209;continuous run of dark&#8209;framed lattice, and the <em>engawa</em> veranda running under the eave.</figcaption>
+                        </figure>
+                    </div>
+
+                    <h2>The things that make a house a house</h2>
+
+                    <p>Style is mostly detail, and detail is where a generated building usually falls apart: a porch that floats, a dormer that punches through the ridge, a turret that lands on top of the front door. So the pieces that give a house character are built by the app rather than improvised out of boxes. You ask, and the right thing lands on the right wall and the right floor, tucked around whatever is already there.</p>
+
+                    <ul class="v2-features">
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15 16 6l12 9"/><path d="M7 15v11h18V15"/><path d="M11 26v-8h4v8"/><path d="M19 19h4v3h-4z"/></svg></span>
+                            <span class="v2-feature-body"><strong>Porches and verandas</strong> &mdash; including wraparound porches that mitre properly at every corner, with railings, square or round posts, a Victorian spindle frieze, a raised platform and a real stair.</span>
+                        </li>
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 24 16 9l13 15"/><path d="M12 24v-7l4-4 4 4v7"/><path d="M14 20h4"/></svg></span>
+                            <span class="v2-feature-body"><strong>Dormers</strong> &mdash; gable, shed and hipped, sized and spaced along a slope, with the roof pitch checked first because a shallow roof cannot carry one.</span>
+                        </li>
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l6 7h-12z"/><path d="M10 10v18h12V10"/><path d="M14 16h4M14 22h4"/></svg></span>
+                            <span class="v2-feature-body"><strong>Turrets</strong> &mdash; the octagonal corner tower of a Queen Anne, rising past the eave under a conical spire.</span>
+                        </li>
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27V13l11-8 11 8v14"/><path d="M21 9V5h4v7"/><path d="M12 27v-8h8v8"/></svg></span>
+                            <span class="v2-feature-body"><strong>Chimneys, cupolas, balconies, porticos and bay windows</strong>, each landing where it belongs and clearing the windows it would otherwise cover.</span>
+                        </li>
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 27V15l10-6 14 6v12"/><path d="M17 27v-9h8v9"/><path d="M17 22h8"/></svg></span>
+                            <span class="v2-feature-body"><strong>An attached garage</strong>, tucked under the house eave at the same pitch, with a driveway that follows.</span>
+                        </li>
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="22" height="20" rx="1.5"/><path d="M5 16h22M16 6v20"/><path d="M9 11l4 4M23 11l-4 4"/></svg></span>
+                            <span class="v2-feature-body"><strong>Wall dressing</strong> &mdash; half&#8209;timbering that draws its own posts, beams, studs and braces; parapets; shutters; arched, circular and semicircular windows; glazed and paneled front doors.</span>
+                        </li>
+                    </ul>
+
+                    <h2>Then landscape it</h2>
+
+                    <p>A house does not stop at its walls. Ask to landscape the yard and one request lays a complete garden around the building already standing there: beds hugging every facade, drifts of flowers, shade trees, a clipped hedge, a pond held in stone, a lawn, a paved driveway out of the garage, and lamps that come on after dark.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-landscaping-cottage.png" loading="lazy" alt="A cottage garden laid around a T-plan house with an attached garage: flower beds against the facades, a picket fence, a paved driveway, shade trees and a lawn">
+                        <figcaption><em>&ldquo;Design a cottage garden with a picket fence.&rdquo;</em> A white picket ring with an arbor gate on the front&#8209;door axis, beds crowding the facades and turning the corners of the T, a hedge along the boundary, shade trees placed for summer shade, a lawn filling the enclosure, and a paved driveway out of the garage door to the street &mdash; six trees and 240 flowering plants from one sentence.</figcaption>
+                    </figure>
+
+                    <p>The layout is computed against the real geometry of the house, and most of the work is in the constraints that keep it looking deliberate. Beds follow the actual wall segments, so on an L&#8209;plan or a house with a wing the planting turns the corners with the building instead of cutting through it, and every bed stops at a doorway. Each door keeps a clear corridor out to the edge of the yard &mdash; the axis a gate or a rose arbor stands on. Ponds are dug with irregular outlines, never ovals, and edged in stone. Boulders are extruded from fractal footprints, because a smooth many&#8209;sided drum reads as cast concrete.</p>
+
+                    <p>There are nineteen landscape styles, and they differ in geometry and ground surface, not merely in flower color:</p>
+
+                    <div class="v2-styles is-green">
+                        <div class="v2-styles-head">
+                            <p class="v2-styles-title">The landscape library</p>
+                            <span class="v2-styles-count">19 styles</span>
+                        </div>
+                        <div class="v2-styles-grid is-two">
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">Flower gardens</p>
+                                <ul>
+                                    <li>Cottage Garden</li><li>Rose Garden</li><li>Cutting Garden</li><li>Pollinator Meadow</li><li>Prairie Meadow</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">Formal &amp; architectural</p>
+                                <ul>
+                                    <li>Formal Parterre</li><li>Mediterranean Courtyard</li><li>Classic Front Lawn</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">East Asian</p>
+                                <ul>
+                                    <li>Japanese Garden</li><li>Zen Dry Garden</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">Dry &amp; warm climates</p>
+                                <ul>
+                                    <li>Desert Garden (xeriscape)</li><li>Coastal Garden</li><li>Hawaiian Lava Garden</li><li>Tropical Resort Garden</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">Woodland &amp; working</p>
+                                <ul>
+                                    <li>Woodland Garden</li><li>Alpine Rock Garden</li><li>Rain Garden</li><li>Orchard &amp; Kitchen Garden</li>
+                                </ul>
+                            </div>
+                            <div class="v2-styles-group">
+                                <p class="v2-styles-cat">Performance</p>
+                                <ul>
+                                    <li>Energy-Saver Garden</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="v2-shots">
+                        <figure>
+                            <img src="image/aladdin-landscaping-formal.png" loading="lazy" alt="A formal parterre garden: mirrored clipped rows, matched trees and a raised stone basin">
+                            <figcaption><strong>Formal Parterre.</strong> Mirrored about the entrance axis: clipped rows flanking the walk, matched pairs of trees, a hedge ring round the lot and a raised stone basin instead of a natural pond. The one style that suppresses the usual jitter &mdash; here the symmetry <em>is</em> the design.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-landscaping-zen.png" loading="lazy" alt="A zen dry garden: a raked gravel court over the whole lot with boulder groups, moss islands, pines and stone lanterns">
+                            <figcaption><strong>Zen Dry Garden.</strong> A <em>karesansui</em> court: no grass at all, one raked gravel field combed with long parallel lines, waist&#8209;high boulder groups with moss at their feet, stone lanterns, a leaning maple. No pond &mdash; stone does the work of water.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-landscaping-rose.png" loading="lazy" alt="A rose garden: massed red roses inside clipped box edging with a ring bed on the front axis">
+                            <figcaption><strong>Rose Garden.</strong> Massed red roses inside clipped box edging, a ring bed on the front axis, climbing roses on paired arbors at the back wall. The signature species genuinely dominates &mdash; a rose garden that reads white from the street is not a rose garden.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-landscaping-xeriscape.png" loading="lazy" alt="A desert garden: saguaro, organ pipe cactus and Joshua trees over cactus drifts, with fan palms for shade">
+                            <figcaption><strong>Desert Garden.</strong> Saguaro, organ&#8209;pipe cactus and Joshua trees over cactus drifts and boulder outcrops, with fan palms and coconuts doing the shading &mdash; a cactus shades nothing. Dry by default: no lawn, no pond unless you ask.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>Some styles change the ground itself. The Zen court is raked gravel; the Coastal garden lays a pale pebble&#8209;sand surface over the whole lot; and the Hawaiian garden changes surface <em>across</em> the lot &mdash; green lawn at the street, black basalt terrace behind the house, with a lagoon pond and massed hibiscus against the stone.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-landscaping-hawaiian.png" loading="lazy" alt="A Hawaiian lava garden: green lawn in front of the house giving way to a black basalt terrace with a lagoon pond behind it">
+                        <figcaption>The Hawaiian Lava Garden: lawn in front, a black lava terrace behind, with the lagoon pond, the palm grove and the hibiscus massed against the stone.</figcaption>
+                    </figure>
+
+                    <h2>One thing at a time</h2>
+
+                    <p>A house does not need a landscape, and asking for one object must never wipe out the yard around it. So each piece stands alone: &ldquo;add a pond&rdquo; digs the water, its coping and its rim rocks and touches nothing else, on a fully planted yard or a bare one. The same goes for the lawn, the hedge, the shade&#8209;tree belt, the walkway and the driveway.</p>
+
+                    <p>Beyond the planting there is a set of built additions. None of them ever appears unless you ask for it &mdash; no style lays one on its own:</p>
+
+                    <ul class="v2-extras">
+                        <li>
+                            <span class="v2-extra-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="24" height="16" rx="2"/><path d="M4 17c3-2 5 2 8 0s5 2 8 0 5 2 8 0"/><path d="M9 11V6h6"/></svg></span>
+                            <span class="v2-extra-text"><strong>Swimming pool</strong>A real basin: caustic water, a coping ring and a paved apron, each paintable on its own.</span>
+                        </li>
+                        <li>
+                            <span class="v2-extra-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h24"/><path d="M7 9v18M25 9v18"/><path d="M10 5v4M16 5v4M22 5v4"/><path d="M7 15h18"/></svg></span>
+                            <span class="v2-extra-text"><strong>Pergola</strong>Posts, beams and open rafters &mdash; with grape vines trained up opposite posts if you want them.</span>
+                        </li>
+                        <li>
+                            <span class="v2-extra-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4l9 8H7z"/><path d="M9 12v14M23 12v14"/><path d="M9 20h14"/><path d="M6 26h20"/></svg></span>
+                            <span class="v2-extra-text"><strong>Gazebo</strong>Octagonal, on a raised deck, its railing left open toward the house, under tiered roofs and a finial.</span>
+                        </li>
+                        <li>
+                            <span class="v2-extra-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5v6"/><path d="M11 13h10l-2 5h-6z"/><path d="M6 24h20l-2 4H8z"/><path d="M16 18v6"/></svg></span>
+                            <span class="v2-extra-text"><strong>Fountain</strong>Tiered stone &mdash; basin ring, pedestal, upper bowl &mdash; with a translucent jet, because still water is a birdbath.</span>
+                        </li>
+                        <li>
+                            <span class="v2-extra-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h22"/><path d="M7 12h18"/><path d="M8 17v9M24 17v9"/><path d="M7 12l1-4h16l1 4"/></svg></span>
+                            <span class="v2-extra-text"><strong>Benches</strong>They seat themselves at the pond's edge, facing the water &mdash; or under the pergola, in pairs facing each other.</span>
+                        </li>
+                        <li>
+                            <span class="v2-extra-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3v11"/><path d="M6 11h20l-10-6z"/><path d="M9 19h14l-1 8H10z"/><path d="M9 23h14"/></svg></span>
+                            <span class="v2-extra-text"><strong>Patio set</strong>A round table with a ring of chairs turned to face it, an umbrella through the middle, a lounger alongside.</span>
+                        </li>
+                    </ul>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-landscaping-extras.png" loading="lazy" alt="The back yard of a T-plan house with a swimming pool, a pergola, a gazebo, a patio set with a red umbrella and a bench">
+                        <figcaption>The back yard, each piece placed by naming a corner of the lot: a pool with its coping and apron, a pergola with the patio set and its umbrella beneath it, a gazebo, and a bench on the lawn. A fountain stands out on the front lawn, beyond the house.</figcaption>
+                    </figure>
+
+                    <p>Placement has a small, strict grammar. Name an absolute spot &mdash; &ldquo;in the northeast corner&rdquo; &mdash; and it is resolved against the house's real orientation. Ask for a relative move &mdash; &ldquo;three meters west&rdquo; &mdash; and it is locked to that bearing: the thing lands as close to the distance you asked for as clearances allow along that line, and declines rather than quietly putting itself somewhere else. Things can also be placed relative to each other: a bench <em>west of the pond</em> goes on the pond's west shore, and a bench <em>under the pergola</em> goes deliberately inside it. Up to five of each per house. And revising one is not moving it &mdash; &ldquo;make the fountain smaller&rdquo; rebuilds it exactly where it stands.</p>
+
+                    <p>Boundaries and light finish the picture. There are seven fence constructions &mdash; picket, privacy boards, split rail, wrought iron, a low garden wall, lattice&#8209;top, and masonry piers with iron infill &mdash; each paired by default to a garden style, with the gate cut where the walk actually crosses the line. The ring is per&#8209;side, so &ldquo;move the north fence two meters north&rdquo; moves that run and leaves the other three where they are. After dark a lighting plan takes over: carriage&#8209;lantern sconces beside every entry door, bollards pacing the walk, lamp posts at the street, lanterns at the gates, uplights in the trees and a glow at the pond, in four fixture styles.</p>
+
+                    <h2>And paint it</h2>
+
+                    <p>The last decision is the one everybody has an opinion about. A color scheme repaints the whole house coherently in one step: walls take the body color, trim and posts the trim color, windows their trim and shutters, the entry door its accent &mdash; keeping its paneling, which tints rather than flattens &mdash; and the roof its own color. Four of the seventeen, on the same house:</p>
+
+                    <div class="v2-shots">
+                        <figure>
+                            <img src="image/aladdin-paint-santorini.png" loading="lazy" alt="A house painted in the Santorini White scheme: whitewashed body with cobalt trim, shutters and door">
+                            <figcaption><strong>Santorini White</strong> &mdash; whitewashed body with cobalt trim, shutters and door, and a pale roof: the Greek&#8209;island look.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-paint-noir.png" loading="lazy" alt="The same house painted in the Monochrome Noir scheme: black body, trim, shutters and roof, with a burnt-orange door">
+                            <figcaption><strong>Monochrome Noir</strong> &mdash; black on black: body, trim, shutters and roof all one tone, with a single burnt&#8209;orange door.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-paint-brick.png" loading="lazy" alt="The same house painted in the Red Brick scheme: red-brick body, white trim, black shutters and door, charcoal roof">
+                            <figcaption><strong>Red Brick</strong> &mdash; red&#8209;brick body, white trim, black shutters and door, charcoal roof: the classic masonry facade.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-paint-mediterranean.png" loading="lazy" alt="The same house painted in the Mediterranean Stucco scheme: pale stucco body, white trim, azure shutters and a tile-red roof">
+                            <figcaption><strong>Mediterranean Stucco</strong> &mdash; pale stucco body, white trim, azure shutters, a walnut door and a tile&#8209;red roof.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="v2-palettes">
+                        <div class="v2-styles-head">
+                            <p class="v2-styles-title">The color schemes</p>
+                            <span class="v2-styles-count">17 palettes</span>
+                        </div>
+                        <div class="v2-palette-grid">
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Modern Farmhouse</span>
+                                <span class="v2-swatches"><span style="background:#f5f2ea"></span><span style="background:#ffffff"></span><span style="background:#2e2e2e"></span><span style="background:#1f1f1f"></span><span style="background:#3d3f42"></span></span>
+                                <span class="v2-palette-note">warm white body, crisp white trim, matte black shutters and door, charcoal roof</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Coastal Blue</span>
+                                <span class="v2-swatches"><span style="background:#a8c4d4"></span><span style="background:#ffffff"></span><span style="background:#29527a"></span><span style="background:#d94f30"></span><span style="background:#6b6f73"></span></span>
+                                <span class="v2-palette-note">soft sea&#8209;blue body, white trim, navy shutters, coral front door, driftwood&#8209;gray roof</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Nantucket Gray</span>
+                                <span class="v2-swatches"><span style="background:#b9c0bd"></span><span style="background:#ffffff"></span><span style="background:#3a4a3f"></span><span style="background:#7a1f2b"></span><span style="background:#5a5e62"></span></span>
+                                <span class="v2-palette-note">weathered gray&#8209;shingle body, white trim, spruce shutters, cranberry door</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Painted Lady</span>
+                                <span class="v2-swatches"><span style="background:#7b6a8f"></span><span style="background:#e8dcc0"></span><span style="background:#43324f"></span><span style="background:#274040"></span><span style="background:#4a3f52"></span></span>
+                                <span class="v2-palette-note">plum body, cream trim, aubergine shutters, deep teal door &mdash; the San Francisco Victorian</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Craftsman Earth</span>
+                                <span class="v2-swatches"><span style="background:#6b7a53"></span><span style="background:#e5decb"></span><span style="background:#4a3527"></span><span style="background:#8a4b2a"></span><span style="background:#4f4a40"></span></span>
+                                <span class="v2-palette-note">sage body, parchment trim, walnut shutters, oak door, bark&#8209;brown roof</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Classic Colonial</span>
+                                <span class="v2-swatches"><span style="background:#f0e8d8"></span><span style="background:#ffffff"></span><span style="background:#1f3a2e"></span><span style="background:#24356b"></span><span style="background:#46474a"></span></span>
+                                <span class="v2-palette-note">cream body, white trim, bottle&#8209;green shutters, federal&#8209;blue door</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Desert Adobe</span>
+                                <span class="v2-swatches"><span style="background:#d9b48f"></span><span style="background:#f2e9da"></span><span style="background:#75543a"></span><span style="background:#5f8575"></span><span style="background:#8a5a3b"></span></span>
+                                <span class="v2-palette-note">sun&#8209;baked clay body, sand trim, mesquite shutters, sage door, terracotta roof</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Nordic Dark</span>
+                                <span class="v2-swatches"><span style="background:#33393d"></span><span style="background:#f4f4f2"></span><span style="background:#2a2f33"></span><span style="background:#b0824f"></span><span style="background:#2c2f33"></span></span>
+                                <span class="v2-palette-note">near&#8209;black body, pale birch trim, natural&#8209;oak door, iron roof &mdash; the Scandinavian cabin</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Buttercream Cottage</span>
+                                <span class="v2-swatches"><span style="background:#e9d9a8"></span><span style="background:#fffdf5"></span><span style="background:#6d7f5a"></span><span style="background:#90513c"></span><span style="background:#6b5d4c"></span></span>
+                                <span class="v2-palette-note">buttery body, ivory trim, moss shutters, clay&#8209;red door, thatch&#8209;brown roof</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Mediterranean Stucco</span>
+                                <span class="v2-swatches"><span style="background:#f4e6cf"></span><span style="background:#ffffff"></span><span style="background:#3e5f8a"></span><span style="background:#7c4a2d"></span><span style="background:#a04f2c"></span></span>
+                                <span class="v2-palette-note">pale stucco body, white trim, azure shutters, walnut door, tile&#8209;red roof</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Red Brick</span>
+                                <span class="v2-swatches"><span style="background:#8f4b3c"></span><span style="background:#ffffff"></span><span style="background:#2b2b2b"></span><span style="background:#1f1f1f"></span><span style="background:#4a4c4f"></span></span>
+                                <span class="v2-palette-note">red&#8209;brick body, white trim, black shutters and door, charcoal roof</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Navy &amp; Brass</span>
+                                <span class="v2-swatches"><span style="background:#2b3a52"></span><span style="background:#f7f7f4"></span><span style="background:#1d2838"></span><span style="background:#b5892f"></span><span style="background:#3f4348"></span></span>
+                                <span class="v2-palette-note">deep navy body, crisp white trim, near&#8209;black shutters, brass&#8209;oak door, slate roof</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Santorini White</span>
+                                <span class="v2-swatches"><span style="background:#ffffff"></span><span style="background:#1f5fa8"></span><span style="background:#1f5fa8"></span><span style="background:#1f5fa8"></span><span style="background:#e8e8e6"></span></span>
+                                <span class="v2-palette-note">whitewashed body with cobalt trim, shutters and door, pale roof &mdash; the Greek&#8209;island look</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Cedar &amp; Forest</span>
+                                <span class="v2-swatches"><span style="background:#8a5a34"></span><span style="background:#3c4a35"></span><span style="background:#2f3a2b"></span><span style="background:#5a3520"></span><span style="background:#4f4a40"></span></span>
+                                <span class="v2-palette-note">natural cedar body, forest&#8209;green trim, bark shutters, chestnut door, moss roof</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Barn Red</span>
+                                <span class="v2-swatches"><span style="background:#7d2b25"></span><span style="background:#f2efe6"></span><span style="background:#3a2018"></span><span style="background:#2e2e2e"></span><span style="background:#40434a"></span></span>
+                                <span class="v2-palette-note">saturated barn red, bone&#8209;white trim, dark walnut shutters, black door, iron roof</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Monochrome Noir</span>
+                                <span class="v2-swatches"><span style="background:#1c1e20"></span><span style="background:#1c1e20"></span><span style="background:#1c1e20"></span><span style="background:#c25a2a"></span><span style="background:#1a1c1e"></span></span>
+                                <span class="v2-palette-note">black on black &mdash; body, trim, shutters and roof one tone, with a single burnt&#8209;orange door</span>
+                            </div>
+                            <div class="v2-palette">
+                                <span class="v2-palette-name">Sage &amp; Cream</span>
+                                <span class="v2-swatches"><span style="background:#9aa88c"></span><span style="background:#f4f1e6"></span><span style="background:#4b5744"></span><span style="background:#2e2e2e"></span><span style="background:#54585c"></span></span>
+                                <span class="v2-palette-note">soft sage body, cream trim, deep&#8209;green shutters, black door, gray roof</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>The full set was picked to cover the ground rather than to pile up names. The first ten clustered badly &mdash; six cream&#8209;to&#8209;white bodies, no red, no dark blue, no wood tone, and only two roofs that were not gray &mdash; so the second batch was chosen to fill exactly those gaps.</p>
+
+                    <h2>Now find out whether it works</h2>
+
+                    <p>Everything above would be a pleasant toy if it stopped there. It does not, and that is the point of building a home here: what you have just made is an engineering model. The walls have U&#8209;values. The windows have solar heat gain coefficients. The sun moves correctly for your latitude, on the date and at the hour you set, and the weather comes from real measured data for your location.</p>
+
+                    <p>So you can ask, in the same chat window that built the house:</p>
+
+                    <ul class="v2-asks">
+                        <li>
+                            <p class="ask">How much energy will this house use?</p>
+                            <p class="ans">It drives the building&#8209;energy engine through a full year of hourly weather and reports the heating, the cooling and the net, month by month &mdash; then tells you what the numbers mean.</p>
+                        </li>
+                        <li>
+                            <p class="ask">Does the upstairs overheat in July?</p>
+                            <p class="ans">The indoor temperature across a day, so you can see whether a room bakes in the afternoon or holds comfortable overnight.</p>
+                        </li>
+                        <li>
+                            <p class="ask">Put solar panels on the south roof and tell me the annual yield.</p>
+                            <p class="ans">With tilt, orientation, cell&#8209;temperature derating and battery storage, so the net figure counts what the house generates for itself.</p>
+                        </li>
+                        <li>
+                            <p class="ask">Show me where the sun actually falls.</p>
+                            <p class="ans">A solar&#8209;radiation heatmap painted straight onto the roofs and the walls.</p>
+                        </li>
+                        <li>
+                            <p class="ask">Would trees help?</p>
+                            <p class="ans">Here the garden stops being decoration. Trees are real occluders in the simulations &mdash; which is why the landscaper puts deciduous shade trees on the true sun side, where they block the summer sun and, bare in winter, let the low winter sun through, with evergreens opposite as a windbreak. One landscape style, the <strong>Energy&#8209;Saver Garden</strong>, exists purely so you can run the year before and after and watch the number move.</p>
+                        </li>
+                    </ul>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-daily-energy.png" loading="lazy" alt="A solar-radiation heatmap painted across a landscaped house in Aladdin: red on the sunlit roofs and the driveway, green on the shaded walls">
+                        <figcaption>Ask for a solar&#8209;radiation map and the day's insolation is painted onto every surface &mdash; roofs, walls, the driveway, the lawn. Warm colors mark the sunniest faces, so the best places for panels are obvious at a glance, and the cool patches are the shade the tree and the house are actually casting.</figcaption>
+                    </figure>
+
+                    <h2>Or let it optimize the house for you</h2>
+
+                    <p>Answering questions is one thing. The more interesting move is to hand the whole problem over: <em>&ldquo;optimize this house.&rdquo;</em> The assistant then stops being a draftsman and becomes an engineer. It simulates the design you have, changes <em>one</em> thing to cut net energy &mdash; heating plus cooling, minus whatever the rooftop solar panels generate, if any &mdash; simulates again, and keeps the change only if it actually helped. If it did not, the change is rolled back and the next round has to try a different lever. It repeats for as many steps as you allow, and leaves your scene at the single best design it found.</p>
+
+                    <div class="v2-sweep">
+                        <p class="v2-sweep-title">One step of the loop</p>
+                        <ol class="v2-sweep-steps">
+                            <li><strong>Simulate</strong><span>A full year through the transient engine, on&#8209;site solar credited &mdash; a few seconds.</span></li>
+                            <li><strong>Revise</strong><span>Change one lever: glazing, insulation, orientation, overhangs, panels.</span></li>
+                            <li><strong>Re-simulate</strong><span>The same year again, so the two numbers are comparable.</span></li>
+                            <li><strong>Keep or roll back</strong><span>Better by a real margin, or it never happened &mdash; and the next round must try something else.</span></li>
+                        </ol>
+                    </div>
+
+                    <p>What makes this different from an ordinary optimizer is what proposes the changes. There is no list of parameters to sweep and no numeric solver hunting through them: the thing suggesting the next move is the language model, reasoning about <em>this</em> house in <em>this</em> climate &mdash; that the west glazing is what bakes the upstairs, that the overhang is too short to shade a south window in July. The loop supplies the discipline, the measurement and the veto; the model supplies the ideas. You get back the trajectory, step by step, with what changed and how much net energy fell.</p>
+
+                    <p>There is a wider version of the same idea. Rather than refining one house, ask for several: the assistant generates a handful of genuinely different candidates for one brief, stands them side by side in your scene, scores them all in a single yearly run, and tells you which won &mdash; leaving the row up so you can see for yourself what a deeper plan or a different roof was worth. Then you can point the optimizer at the winner.</p>
+
+                    <p>And these are not decorative numbers. Aladdin's building&#8209;energy engine is checked against <a href="aladdin-bestest-validation.html">ASHRAE Standard 140 (BESTEST)</a>, the reference suite that whole&#8209;building simulation programs are validated with &mdash; the same bar professional tools are held to. That is the difference between a house you built and a house you know something about.</p>
+
+                    <div class="v2-chat-panel">
+                    <div class="v2-chat-head">
+                        <span class="v2-chat-avatar">&#10022;</span>
+                        <span class="v2-chat-title">
+                            <span class="v2-chat-name">Aladdin AI Assistant</span>
+                            <span class="v2-chat-status">Design, dress and then interrogate a house</span>
+                        </span>
+                    </div>
+                    <ul class="v2-chat">
+                        <li class="you"><span class="who">You</span>build me a queen anne victorian with a corner turret</li>
+                        <li class="ai"><span class="who">Assistant</span>Your Victorian is up: a front&#8209;gabled main block 8 &times; 12&nbsp;m with a 10 &times; 7&nbsp;m wing running east, their ridges perpendicular so the roofs meet in a valley. An octagonal three&#8209;story turret stands on the southwest corner under a conical spire, with a porch tucked into the ell and a chimney on the main roof. Sage body, charcoal roofs, tall narrow sashes. Aladdin has no curved walls, so the &ldquo;round&rdquo; tower is an octagon &mdash; which is how Queen Anne towers were actually built.</li>
+                        <li class="you"><span class="who">You</span>design a cottage garden with a picket fence</li>
+                        <li class="ai"><span class="who">Assistant</span>A cottage garden is laid inside a new white picket fence: beds hugging the facades, an island bed under an ornamental tree, a pond behind the house. Planted 6 trees, 240 flowering plants and 9 boulders, with one lawn filling the enclosure and a paved driveway running from the garage door out to the street. The gate is cut on the front&#8209;door axis and the planting keeps that approach clear.</li>
+                        <li class="you"><span class="who">You</span>paint the house navy</li>
+                        <li class="ai"><span class="who">Assistant</span>Repainted in &ldquo;Navy &amp; Brass&rdquo;: deep navy body, crisp white trim, near&#8209;black shutters, a brass&#8209;oak front door and a slate roof.</li>
+                        <li class="you"><span class="who">You</span>now run the energy simulation for the year</li>
+                        <li class="ai"><span class="who">Assistant</span>Annual simulation done, using a full year of hourly weather for your site. I can break it down by month, show you where the losses are, or try a change &mdash; thicker insulation, better glazing, or the shade trees on the southwest &mdash; and re&#8209;run it so you can see which one actually pays.</li>
+                        <li class="you"><span class="who">You</span>which one would pay first?</li>
+                    </ul>
+                    </div>
+
+                    <h2>Why this matters for young builders</h2>
+
+                    <p>There is a real educational opportunity hiding in all of this. Children who would never open a CAD program will happily spend hours on a house in a design and construction game, and what they are exercising is genuine design thinking: proportion, symmetry, circulation, taste. What has been missing is the feedback loop that turns that play into understanding. In a game, a wall of glass facing north costs nothing. Here you can build it, run the year, and watch the heating bill answer you.</p>
+
+                    <p>That loop &mdash; build something you care about, change one thing, re&#8209;run, hear why the result moved &mdash; is how physical intuition is actually formed. And because the assistant explains as it works, a student can ask <em>why</em> the north rooms run cold, or whether insulation or better windows would help more, and get the reasoning rather than a chart. The house they wanted to build anyway becomes the laboratory.</p>
+
+                    <h2>Conclusion</h2>
+
+                    <p>Wherever building has been made easy, people have done an enormous amount of it &mdash; for years, unprompted, with no reward but the building itself. The desire is not the scarce part. The interface is.</p>
+
+                    <p>Aladdin removes the same friction &mdash; say what you want, watch it appear &mdash; and points it at a model that is scientifically real. The turret is an octagon because that is how turrets were built. The shade trees go southwest because that is where the summer sun is. The heating number comes from a full year of your location's weather, through an engine checked against the standard the profession uses. You get the home you dreamed of, and you get to find out whether it is a good one.</p>
+
+                    <p>Which is, in the end, the promise the name was chosen for. In the old tale, the lamp granted whatever its owner asked for. Ask for your dream home now, and it takes shape in front of you &mdash; and then, unlike in the story, you can ask it what the house will cost you in January.</p>
+
+                    <p style="font-size:1.2rem; color:var(--text-muted);">Related reading: <a href="aladdin-ai-assistant-house.html">A new way of design</a> &middot; <a href="aladdin-building-energy.html">Building energy in Aladdin</a> &middot; <a href="aladdin-bestest-validation.html">Validating against ASHRAE Standard 140</a></p>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
