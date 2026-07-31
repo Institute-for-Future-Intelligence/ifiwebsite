@@ -187,6 +187,29 @@
         @media (prefers-color-scheme: dark) { .v2-sweep-loop { color: #a5b4fc; } }
         @media (max-width: 700px) { .v2-loop-wrap { display: none; } .v2-sweep-steps { display: grid; } .v2-sweep-loop { display: block; } }
 
+        /* Sweep vs. evolutionary search, side by side: the distinction is what proposes the move. */
+        .v2-versus { margin: 1.7rem 0 2rem; padding: 1.5rem 1.7rem 1.6rem; border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.06), rgba(14, 165, 233, 0.04)); }
+        .v2-versus-title { font-family: var(--font-display); font-size: 0.86rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-muted); text-align: center; margin: 0 0 0.55rem; }
+        .v2-versus-rule { width: 46px; height: 2px; margin: 0 auto 1.9rem; border-radius: 2px; background: linear-gradient(90deg, #6366f1, #0ea5e9); }
+        .v2-versus-grid { position: relative; display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0 2.4rem; }
+        .v2-versus-div { background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.14) 14%, rgba(15, 23, 42, 0.14) 86%, transparent); }
+        .v2-versus-div::after { content: 'vs'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 2.2rem; height: 2.2rem; display: grid; place-items: center; border-radius: 50%; background: var(--surface-raised); border: 1px solid rgba(15, 23, 42, 0.12); font-family: var(--font-display); font-size: 0.9rem; font-style: italic; color: var(--text-muted); }
+        .v2-versus-card { margin: 0; }
+        .v2-versus-card .eyebrow { display: block; font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 0.35rem; }
+        .v2-versus-card h4 { margin: 0; font-family: var(--font-display); font-size: 1.55rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text); }
+        .v2-versus-card .sub { display: block; margin: 0.3rem 0 1rem; padding-bottom: 0.9rem; border-bottom: 1px solid rgba(15, 23, 42, 0.09); font-size: 1.16rem; font-style: italic; line-height: 1.45; color: var(--text-muted); }
+        .v2-versus-card ul { list-style: none; margin: 0; padding: 0; }
+        .v2-versus-card li { margin: 0 0 0.95rem; font-size: 1.24rem; line-height: 1.5; color: var(--text-muted); }
+        .v2-versus-card li:last-child { margin-bottom: 0; }
+        .v2-versus-card li strong { display: block; font-family: var(--font-display); font-size: 1.08rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--text); margin-bottom: 0.1rem; }
+        @media (prefers-color-scheme: dark) {
+            .v2-versus-div { background: linear-gradient(180deg, transparent, rgba(148, 163, 220, 0.22) 14%, rgba(148, 163, 220, 0.22) 86%, transparent); }
+            .v2-versus-div::after { border-color: rgba(148, 163, 220, 0.26); }
+            .v2-versus-card .sub { border-bottom-color: rgba(148, 163, 220, 0.16); }
+            .v2-versus-card .eyebrow { color: #a5b4fc; }
+        }
+        @media (max-width: 720px) { .v2-versus-grid { grid-template-columns: 1fr; gap: 1.6rem; } .v2-versus-div { display: none; } }
+
         /* The bargeboards: close-ups of one detail, so they run tighter and wider than the fences. */
         .v2-barge { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 0.9rem 1rem; margin: 1.4rem 0 1.8rem; }
         .v2-barge figure { margin: 0; }
@@ -899,6 +922,36 @@
                     </div>
 
                     <p>What makes this different from an ordinary optimizer is what proposes the changes. There is no list of parameters to sweep and no numeric solver hunting through them: the thing suggesting the next move is the language model, reasoning about <em>this</em> house in <em>this</em> climate &mdash; that the west glazing is what bakes the upstairs, that the overhang is too short to shade a south window in July. The loop supplies the discipline, the measurement and the veto; the model supplies the ideas. You get back the trajectory, step by step, with what changed and how much net energy fell.</p>
+
+                    <div class="v2-versus">
+                        <p class="v2-versus-title">Two ways to search a design space</p>
+                        <div class="v2-versus-rule" aria-hidden="true"></div>
+                        <div class="v2-versus-grid">
+                            <div class="v2-versus-card">
+                                <span class="eyebrow">The classical way</span>
+                                <h4>An evolutionary algorithm</h4>
+                                <span class="sub">Genetic algorithms and particle swarms &mdash; what Aladdin itself uses to lay out a solar farm.</span>
+                                <ul>
+                                    <li><strong>A fixed list of numbers</strong>Chosen in advance and bounded: tilt angle, row spacing, rows per rack.</li>
+                                    <li><strong>Blind moves</strong>Random resets and recombination. The operator has no idea what a wall is.</li>
+                                    <li><strong>Paid for in volume</strong>Which is why it needs a population and thousands of cheap evaluations.</li>
+                                </ul>
+                            </div>
+                            <div class="v2-versus-div" aria-hidden="true"></div>
+                            <div class="v2-versus-card">
+                                <span class="eyebrow">The way here</span>
+                                <h4>The design sweep</h4>
+                                <span class="sub">The assistant refining a house you have already built.</span>
+                                <ul>
+                                    <li><strong>No parameter list</strong>A move is any edit it could make by hand: glazing, insulation, an overhang, the orientation, panels on the roof.</li>
+                                    <li><strong>Reasoned moves</strong>The model reads this house in this climate and picks the lever it expects to pay.</li>
+                                    <li><strong>Paid for in judgment</strong>So a dozen simulations are enough &mdash; and each step comes back explained.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>One searches widely because it cannot think; the other searches narrowly because it can. Both are implemented in Aladdin, and they are good at different jobs: the genetic algorithm where the variables are known and an evaluation is cheap, the sweep where the hard part is knowing <em>which</em> variable to touch.</p>
 
                     <p>There is a wider version of the same idea. Rather than refining one house, ask for several: the assistant generates a handful of genuinely different candidates for one brief, stands them side by side in your scene, scores them all in a single yearly run, and tells you which won &mdash; leaving the row up so you can see for yourself what a deeper plan or a different roof was worth. Then you can point the optimizer at the winner.</p>
 
