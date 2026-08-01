@@ -152,6 +152,27 @@
         @media (prefers-color-scheme: dark) { .v2-col-main figure.v2-screenshot figcaption, .v2-col-main figure.v2-embed figcaption { background: linear-gradient(160deg, rgba(148, 163, 220, 0.11), rgba(14, 165, 233, 0.05)); border-color: rgba(148, 163, 220, 0.2); border-left-color: var(--accent); } }
 
         /*
+         * The showcase rail: ten finished scenes under one viewer. The rail shows all ten at once, so
+         * each scene is ONE moderate JPEG (~1600px, q80, 50-120 KB) doing double duty as the card and as
+         * the stage poster — cheaper than ten full-size PNGs, and nothing to regenerate when one changes.
+         */
+        /* TWO ROWS OF FIVE, not a scroll rail: at a size where a scene is actually legible the ten no
+           longer fit across the column, and anything past the right edge of a scroll rail is a slide
+           most readers never find. Five fixed columns keeps every one of them on screen. */
+        .v2-showcase .v2-slide-rail { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.65rem; margin: 0.7rem 0 0; padding: 0.15rem 0.1rem 0; }
+        .v2-slide { display: flex; flex-direction: column; gap: 0.4rem; padding: 0; border: 1px solid rgba(15, 23, 42, 0.12); border-radius: 0.55rem; background: var(--surface-raised); cursor: pointer; overflow: hidden; text-align: left; transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease; }
+        .v2-slide img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #0b1020; }
+        .v2-slide span { display: block; padding: 0 0.6rem 0.5rem; font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; line-height: 1.25; color: var(--text-muted); }
+        .v2-slide:hover { transform: translateY(-2px); border-color: rgba(99, 102, 241, 0.45); box-shadow: 0 14px 26px -20px rgba(30, 30, 90, 0.7); }
+        .v2-slide.is-active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.28); }
+        .v2-slide.is-active span { color: var(--text); }
+        .v2-showcase figcaption .v2-showcase-ask { color: var(--text); font-weight: 600; }
+        @media (prefers-color-scheme: dark) { .v2-slide { border-color: rgba(148, 163, 220, 0.22); } }
+        /* Five across stops being legible on a narrow screen, so the ten regroup into wider rows. */
+        @media (max-width: 720px) { .v2-showcase .v2-slide-rail { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; } .v2-slide span { font-size: 0.88rem; } }
+        @media (max-width: 460px) { .v2-showcase .v2-slide-rail { grid-template-columns: repeat(2, 1fr); } }
+
+        /*
          * The questions you can put to the model, set the way they are actually asked — each one a
          * chat bubble in the same indigo as the transcript further down, with its answer beneath.
          */
@@ -335,23 +356,156 @@
 
                     <p>What comes back is not a fixed model dropped into the scene but a genuine, editable structure: a footprint, walls at a sensible story height, a pitched roof, windows in tidy columns and rows along each wall, a front door where you would expect one. It has real stories &mdash; an actual second floor, not a tall box with windows painted on &mdash; and every number that went into it is still yours to change by asking. &ldquo;Make the roof steeper.&rdquo; &ldquo;The windows on the selected wall are too small.&rdquo; &ldquo;Move the whole thing three meters north.&rdquo;</p>
 
-                    <p>And a house is only the start of it. The same conversation goes on to dress the building, plant the ground around it and furnish the yard, each request landing against whatever is already standing there:</p>
+                    <p>And a house is only the start of it. The same conversation goes on to dress the building, plant the ground around it and furnish the yard, each request landing against whatever is already standing there. Ten finished scenes are lined up under the viewer below &mdash; click any one and it loads, live, in the same window:</p>
 
-                    <figure class="v2-embed">
+                    <figure class="v2-embed v2-showcase">
                         <button type="button" class="v2-embed-facade"
                                 data-embed-src="https://aladdin.intofuture.org/?client=web&amp;viewonly=true&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Cutting"
-                                data-frame-id="aladdin-cutting-frame" data-frame-title="A New England farmhouse with a cutting garden, interactive 3D model"
-                                style="background-image:url('image/aladdin-landscaping-cutting.png')"
+                                data-frame-id="aladdin-showcase-frame" data-frame-title="A finished Aladdin scene, interactive 3D model"
+                                style="background-image:url('image/aladdin-dream-home-cutting.jpg')"
                                 aria-label="Load the interactive 3D model of this house and garden">
                             <span class="v2-embed-play" aria-hidden="true"></span>
-                            <span class="v2-embed-hint">Click to load the live model</span>
+                            <span class="v2-embed-hint">Click to load the live model &mdash; or pick another one below</span>
                         </button>
-                        <figcaption>Nothing here was drawn by hand. The house, the columned portico, the pergola and the grapevine over it, the beds of hydrangea, rose and tulip, the fence &mdash; each was asked for in a sentence. This is the real scene, not a picture of one: drag to orbit, scroll to zoom, click any part to inspect it, or <a href="javascript:openFullscreen('aladdin-cutting-frame');">view it full screen</a>. On a phone or a headset you can go further and walk down into it, in VR mode.</figcaption>
+
+                        <div class="v2-slide-rail" role="tablist" aria-label="Choose a model to load into the viewer">
+                            <button type="button" class="v2-slide is-active" role="tab" aria-selected="true" aria-controls="aladdin-showcase-frame"
+                                    data-model="Cutting" data-poster="image/aladdin-dream-home-cutting.jpg" data-label="the cutting garden"
+                                    data-ask="Build me a New England farmhouse with a wing, then design a cutting garden with a picket fence."
+                                    data-note="The house, the columned portico, the pergola and the grapevine over it, the harvest ranks of tulip, peony and rose, the fence &mdash; each was asked for in a sentence.">
+                                <img src="image/aladdin-dream-home-cutting.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Cutting garden</span>
+                            </button>
+                            <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
+                                    data-model="Cottage Landscaping" data-poster="image/aladdin-dream-home-cottage-landscaping.jpg" data-label="the cottage garden"
+                                    data-ask="Design a cottage garden with a picket fence."
+                                    data-note="Beds crowd the facades and turn the corners of the T&#8209;plan, an arbor gate stands on the front&#8209;door axis, and the driveway runs out of the garage to the street.">
+                                <img src="image/aladdin-dream-home-cottage-landscaping.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Cottage garden</span>
+                            </button>
+                            <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
+                                    data-model="Formal Parterre" data-poster="image/aladdin-dream-home-formal-parterre.jpg" data-label="the formal parterre"
+                                    data-ask="Landscape it as a formal parterre."
+                                    data-note="Mirrored about the entrance axis: clipped box rows flanking the approach, matched pairs of trees, and a raised stone basin instead of a natural pond.">
+                                <img src="image/aladdin-dream-home-formal-parterre.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Formal parterre</span>
+                            </button>
+                            <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
+                                    data-model="Rose Garden" data-poster="image/aladdin-dream-home-rose-garden.jpg" data-label="the rose garden"
+                                    data-ask="Make it a rose garden."
+                                    data-note="Massed red roses inside clipped box edging, a ring bed on the front axis, and climbing roses on paired arbors at the back wall.">
+                                <img src="image/aladdin-dream-home-rose-garden.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Rose garden</span>
+                            </button>
+                            <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
+                                    data-model="Xeriscape" data-poster="image/aladdin-dream-home-xeriscape.jpg" data-label="the desert garden"
+                                    data-ask="Give it a desert garden."
+                                    data-note="Saguaro, organ&#8209;pipe cactus and Joshua trees over cactus drifts and boulder outcrops, with fan palms doing the shading &mdash; a cactus shades nothing.">
+                                <img src="image/aladdin-dream-home-xeriscape.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Desert garden</span>
+                            </button>
+                            <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
+                                    data-model="Hawaiian Landscaping" data-poster="image/aladdin-dream-home-hawaiian-landscaping.jpg" data-label="the lava garden"
+                                    data-ask="Landscape it as a Hawaiian lava garden."
+                                    data-note="Lawn at the street, a black basalt terrace behind the house, and the lagoon pond with the palm grove and the hibiscus massed against the stone.">
+                                <img src="image/aladdin-dream-home-hawaiian-landscaping.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Lava garden</span>
+                            </button>
+                            <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
+                                    data-model="Orchard" data-poster="image/aladdin-dream-home-orchard.jpg" data-label="the orchard house"
+                                    data-ask="Paint the house in Craftsman, add a walkway and a driveway, and put lights on every door."
+                                    data-note="The longest conversation of the ten: a hundred&#8209;odd turns of dressing &mdash; bargeboards on the gables, a spindle frieze under the porch beam, the fence repainted to the body color, apple trees in the orchard behind, and two cars on the drive.">
+                                <img src="image/aladdin-dream-home-orchard.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Orchard</span>
+                            </button>
+                            <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
+                                    data-model="Aegean Blue and White" data-poster="image/aladdin-dream-home-aegean-blue-and-white.jpg" data-label="the Aegean house"
+                                    data-ask="Park a sedan on the driveway."
+                                    data-note="Cobalt sashes and doors against pale stucco, ninety&#8209;odd hibiscus massed through the beds, and the sedan pulled up where it was asked for &mdash; in four turns, one of which was an undo after a pickup went in first.">
+                                <img src="image/aladdin-dream-home-aegean-blue-and-white.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Aegean house</span>
+                            </button>
+                            <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
+                                    data-model="Mediterranean" data-poster="image/aladdin-dream-home-mediterranean.jpg" data-label="the Mediterranean house"
+                                    data-ask="Park an SUV here. Open the garage door."
+                                    data-note="Half of this conversation is pointing rather than describing: shrubs cleared out of a dragged region, two windows turned into bay windows and then tripled in width, a third converted into a glazed door, a lamp moved from one side of it to the other, and three cars parked exactly where the pin was dropped.">
+                                <img src="image/aladdin-dream-home-mediterranean.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Mediterranean</span>
+                            </button>
+                            <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
+                                    data-model="Classic Landscaping" data-poster="image/aladdin-dream-home-classic-landscaping.jpg" data-label="the classic front lawn"
+                                    data-ask="Do classic landscaping &mdash; then change the fence to lattice top and plant the hedge outside it."
+                                    data-note="The classic front lawn, argued into shape over a dozen turns: the fence swapped for lattice&#8209;top, the hedge moved outside it to soften the line from the street, the arbor squared to the front door, and the porch posts pulled out and rebuilt as a portico.">
+                                <img src="image/aladdin-dream-home-classic-landscaping.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Classic lawn</span>
+                            </button>
+                        </div>
+
+                        <figcaption>Nothing here was drawn by hand. <em class="v2-showcase-ask"></em> <span class="v2-showcase-note"></span> The chat panel opens with the model on purpose: the conversation that built it is saved inside the file, so you can scroll back through the actual requests and see that every one of these scenes came out of the assistant rather than a mouse. These are the real scenes, not pictures of them: pick one below, then drag to orbit, scroll to zoom, click any part to inspect it, or <a href="javascript:openFullscreen('aladdin-showcase-frame');">view it full screen</a>. On a phone or a headset you can go further and walk down into it, in VR mode.</figcaption>
                     </figure>
 
                     <div class="v2-model-link">
-                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Cutting">Open this house in Aladdin</a>
+                        <a id="aladdin-showcase-open" target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Cutting">Open the cutting garden in Aladdin</a>
                     </div>
+
+                    <script>
+                      // The showcase rail: ten finished scenes, one viewer. A thumbnail click swaps the
+                      // model in the iframe — and boots the iframe on the first click, so no WebGL app
+                      // starts until the reader actually asks for one.
+                      (function () {
+                        var USER = 'QWecNcxhyvP6j6sBN11hBsfZDau1';
+                        var FRAME = 'aladdin-showcase-frame';
+                        var rail = document.querySelector('.v2-showcase .v2-slide-rail');
+                        if (!rail) return;
+                        var slides = [].slice.call(rail.querySelectorAll('.v2-slide'));
+                        var facade = document.querySelector('.v2-showcase .v2-embed-facade');
+                        var askEl = document.querySelector('.v2-showcase-ask');
+                        var noteEl = document.querySelector('.v2-showcase-note');
+                        var openLink = document.getElementById('aladdin-showcase-open');
+                        var url = function (title, viewonly) {
+                          return 'https://aladdin.intofuture.org/?client=web' + (viewonly ? '&viewonly=true' : '') +
+                                 '&userid=' + USER + '&title=' + encodeURIComponent(title);
+                        };
+                        var describe = function (slide) {
+                          var title = slide.dataset.model;
+                          if (askEl) askEl.textContent = '“' + slide.dataset.ask + '”';
+                          if (noteEl) noteEl.textContent = slide.dataset.note;
+                          if (openLink) {
+                            openLink.href = url(title, false);
+                            openLink.textContent = 'Open ' + slide.dataset.label + ' in Aladdin';
+                          }
+                          var frame = document.getElementById(FRAME);
+                          if (frame) frame.title = slide.querySelector('span').textContent + ', interactive 3D model';
+                        };
+                        var select = function (slide, load) {
+                          slides.forEach(function (s) {
+                            var on = s === slide;
+                            s.classList.toggle('is-active', on);
+                            s.setAttribute('aria-selected', on ? 'true' : 'false');
+                          });
+                          describe(slide);
+                          var src = url(slide.dataset.model, true);
+                          var frame = document.getElementById(FRAME);
+                          if (frame) {
+                            frame.src = src;                       // viewer is already up: just swap the model
+                          } else if (facade) {
+                            facade.dataset.embedSrc = src;         // still a poster: retarget it...
+                            facade.style.backgroundImage = "url('" + slide.dataset.poster + "')";
+                            if (load) activateEmbed(facade);       // ...and boot it only on a real click
+                          }
+                        };
+                        slides.forEach(function (slide, i) {
+                          slide.addEventListener('click', function () { select(slide, true); });
+                          slide.addEventListener('keydown', function (ev) {
+                            var step = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+                            if (!step) return;
+                            ev.preventDefault();
+                            slides[(i + step + slides.length) % slides.length].focus();
+                          });
+                        });
+                        select(slides[0], false);
+                      })();
+                    </script>
 
                     <p>A whole session reads like this:</p>
 
@@ -442,19 +596,19 @@
 
                     <div class="v2-shots">
                         <figure>
-                            <img src="image/aladdin-style-greek-revival.png" loading="lazy" alt="A Greek Revival mansion: white body under a low side gable, with a colossal two-story portico of round columns rising to a pediment, and paired end chimneys">
+                            <img src="image/aladdin-style-greek-revival.jpg" loading="lazy" alt="A Greek Revival mansion: white body under a low side gable, with a colossal two-story portico of round columns rising to a pediment, and paired end chimneys">
                             <figcaption><strong>Greek Revival.</strong> The colossal portico is the style: giant&#8209;order columns running the full two stories of a white facade to a pediment that breaks the roofline, over a low temple pitch, with paired end chimneys and the wide frieze band under the eaves.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-style-octagon.png" loading="lazy" alt="An octagon house after the Armour-Stiner house: eight sides under a bell-shaped dome, a colonnaded veranda wrapping every side, and a windowed belvedere on top">
+                            <img src="image/aladdin-style-octagon.jpg" loading="lazy" alt="An octagon house after the Armour-Stiner house: eight sides under a bell-shaped dome, a colonnaded veranda wrapping every side, and a windowed belvedere on top">
                             <figcaption><strong>Octagon house.</strong> Three concentric octagons in one call: eight chord walls on a 7&nbsp;m circumradius, a veranda colonnade wrapping every face, and a lantern floating on the dome's deck. The dome is a mansard given side curvature, and the octagon is real straight walls rather than a fake curve.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-style-chalet.png" loading="lazy" alt="A Swiss chalet with the gable facing front, deep eaves and a full-width upper balcony on timber posts">
+                            <img src="image/aladdin-style-chalet.jpg" loading="lazy" alt="A Swiss chalet with the gable facing front, deep eaves and a full-width upper balcony on timber posts">
                             <figcaption><strong>Swiss chalet.</strong> The gable faces the street, the eaves fly deep on every side, and a full&#8209;width railed gallery crosses the upper front on square timber posts, with the door walking out underneath. Wood tones throughout, dark green shutters, two attic lights in the gable.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-style-minka.png" loading="lazy" alt="A Japanese minka farmhouse with a gently concave hip roof, deep eaves and an engawa veranda">
+                            <img src="image/aladdin-style-minka.jpg" loading="lazy" alt="A Japanese minka farmhouse with a gently concave hip roof, deep eaves and an engawa veranda">
                             <figcaption><strong>Japanese minka.</strong> A low timber podium, a hip roof with a subtle concave sweep and corners that barely lift, a meter of sheltering eave, pale plaster under a near&#8209;continuous run of dark&#8209;framed lattice, and the <em>engawa</em> veranda running under the eave.</figcaption>
                         </figure>
                     </div>
@@ -466,11 +620,11 @@
                     <ul class="v2-features">
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15 16 6l12 9"/><path d="M7 15v11h18V15"/><path d="M11 26v-8h4v8"/><path d="M19 19h4v3h-4z"/></svg></span>
-                            <span class="v2-feature-body"><strong>Porches and verandas</strong> &mdash; including wraparound porches that mitre properly at every corner, with railings, square or round posts, a Victorian spindle frieze, a raised platform and a real stair.</span>
+                            <span class="v2-feature-body"><strong>Porches and verandas</strong> &mdash; including wraparound porches that mitre properly at every corner, with railings, square or round posts, a raised platform, a real stair, and a frieze band under the beam in five patterns: Queen Anne spindlework, a sawn spandrel arcade, the Doric triglyph rhythm, a Georgian dentil course, or chalet lattice.</span>
                         </li>
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 24 16 9l13 15"/><path d="M12 24v-7l4-4 4 4v7"/><path d="M14 20h4"/></svg></span>
-                            <span class="v2-feature-body"><strong>Dormers</strong> &mdash; gable, shed and hipped, sized and spaced along a slope, with the roof pitch checked first because a shallow roof cannot carry one.</span>
+                            <span class="v2-feature-body"><strong>Dormers</strong> &mdash; gable, shed and barrel&#8209;vaulted, sized and spaced along a slope, with the roof pitch checked first because a shallow roof cannot carry one.</span>
                         </li>
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="22" height="20" rx="1.5"/><path d="M5 16h22M16 6v20"/><path d="M9 11l4 4M23 11l-4 4"/></svg></span>
@@ -478,7 +632,7 @@
                         </li>
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27V13l11-8 11 8v14"/><path d="M21 9V5h4v7"/><path d="M12 27v-8h8v8"/></svg></span>
-                            <span class="v2-feature-body"><strong>Chimneys, cupolas, balconies, porticos and bay windows</strong>, each landing where it belongs and clearing the windows it would otherwise cover.</span>
+                            <span class="v2-feature-body"><strong>Chimneys, cupolas, balconies, porticos and bay windows</strong>, each landing where it belongs and clearing the windows it would otherwise cover. An entry portico can be crowned four ways &mdash; a pediment, a flat top, a balustrade, or a barrel arch you look through at the door &mdash; and it can stand on columns or on arched masonry piers, which is the Spanish and Mission entry.</span>
                         </li>
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 27V15l10-6 14 6v12"/><path d="M17 27v-9h8v9"/><path d="M17 22h8"/></svg></span>
@@ -490,6 +644,8 @@
                         </li>
                     </ul>
 
+                    <p>The round vault turns up in three of those places, and it is the same arc every time &mdash; struck through the eave and the ridge, and running flat over the crown: a barrel roof rolls a gable's two slopes into one continuous sweep, a barrel dormer carries an arc&#8209;topped face, and the arched portico puts that vault over the front door.</p>
+
                     <p>After dark a lighting plan takes over: carriage&#8209;lantern sconces beside every entry door, bollards pacing the walk, lamp posts at the street, lanterns at the gates, uplights in the trees and a glow at the pond, in four fixture styles.</p>
 
                     <h3>The gingerbread on the gable</h3>
@@ -500,39 +656,39 @@
 
                     <div class="v2-barge">
                         <figure>
-                            <img src="image/aladdin-bargeboard-cusped.png" loading="lazy" alt="A gable end with a cusped bargeboard: Gothic arcs meeting at downward points, pierced with round holes">
+                            <img src="image/aladdin-bargeboard-cusped.jpg" loading="lazy" alt="A gable end with a cusped bargeboard: Gothic arcs meeting at downward points, pierced with round holes">
                             <figcaption><strong>Cusped</strong>Gothic arcs meeting at downward points, with a row of round piercings. The cottage&#8209;grade Carpenter Gothic board, and the default.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-bargeboard-tracery.png" loading="lazy" alt="A gable end with a tracery bargeboard: a deeper board cut through with quatrefoils">
+                            <img src="image/aladdin-bargeboard-tracery.jpg" loading="lazy" alt="A gable end with a tracery bargeboard: a deeper board cut through with quatrefoils">
                             <figcaption><strong>Tracery</strong>The full article: a deeper board cut clean through with quatrefoils, so the gable shows between them. For a showpiece villa &mdash; too rich for a cottage.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-bargeboard-trefoil.png" loading="lazy" alt="A gable end with a trefoil bargeboard: the tracery board with three-lobed foils instead of four">
+                            <img src="image/aladdin-bargeboard-trefoil.jpg" loading="lazy" alt="A gable end with a trefoil bargeboard: the tracery board with three-lobed foils instead of four">
                             <figcaption><strong>Trefoil</strong>The same board with three&#8209;lobed foils instead of four. A quieter tracery &mdash; the one for a house that wants the Gothic without the showpiece.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-bargeboard-ogee.png" loading="lazy" alt="A gable end with an ogee bargeboard: S-curved cusps running into sharp points">
+                            <img src="image/aladdin-bargeboard-ogee.jpg" loading="lazy" alt="A gable end with an ogee bargeboard: S-curved cusps running into sharp points">
                             <figcaption><strong>Ogee</strong>S&#8209;curved cusps that leave the deep point slowly and then run straight into a sharper apex &mdash; the ogee arch of church Gothic.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-bargeboard-icicle.png" loading="lazy" alt="A gable end with an icicle bargeboard: narrow pendant drops hanging from a straight edge">
+                            <img src="image/aladdin-bargeboard-icicle.jpg" loading="lazy" alt="A gable end with an icicle bargeboard: narrow pendant drops hanging from a straight edge">
                             <figcaption><strong>Icicle</strong>Narrow pendant drops hanging off a straight edge. The Gothic cottage's lighter version, and the one that reads best from a distance.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-bargeboard-dagged.png" loading="lazy" alt="A gable end with a dagged bargeboard: a zigzag of sharp triangles">
+                            <img src="image/aladdin-bargeboard-dagged.jpg" loading="lazy" alt="A gable end with a dagged bargeboard: a zigzag of sharp triangles">
                             <figcaption><strong>Dagged</strong>A medieval zigzag of sharp triangles &mdash; no curves, no holes. Early and plain: the one for a Tudor.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-bargeboard-scalloped.png" loading="lazy" alt="A gable end with a scalloped bargeboard: a smooth wave with no points or piercings">
+                            <img src="image/aladdin-bargeboard-scalloped.jpg" loading="lazy" alt="A gable end with a scalloped bargeboard: a smooth wave with no points or piercings">
                             <figcaption><strong>Scalloped</strong>A smooth wave, no points and no piercings &mdash; the quietest of the sawn boards. The Swiss chalet and Queen Anne verge.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-bargeboard-spindle.png" loading="lazy" alt="A gable end with a spindle bargeboard: a close-set run of turned spindles between two rails">
+                            <img src="image/aladdin-bargeboard-spindle.jpg" loading="lazy" alt="A gable end with a spindle bargeboard: a close-set run of turned spindles between two rails">
                             <figcaption><strong>Spindle</strong>Open, not sawn: a close&#8209;set run of turned spindles between two rails. Queen Anne and Eastlake &mdash; and the same motif a porch frieze builds.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-bargeboard-lattice.png" loading="lazy" alt="A gable end with a lattice bargeboard: alternating triangles cut away, leaving a zigzag of diagonal bracing">
+                            <img src="image/aladdin-bargeboard-lattice.jpg" loading="lazy" alt="A gable end with a lattice bargeboard: alternating triangles cut away, leaving a zigzag of diagonal bracing">
                             <figcaption><strong>Lattice</strong>Open as well: alternating triangles cut away, leaving a zigzag of diagonal bracing. The Swiss chalet, where the gable is meant to look framed.</figcaption>
                         </figure>
                     </div>
@@ -544,11 +700,11 @@
                     <p>A house does not stop at its walls. Ask to landscape the yard and one request lays a complete garden around the building already standing there: beds hugging every facade, drifts of flowers, shade trees, a clipped hedge, a pond held in stone, a lawn, a paved driveway out of the garage, and lamps that come on after dark.</p>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-landscaping-cottage.png" loading="lazy" alt="A cottage garden laid around a T-plan house with an attached garage: flower beds against the facades, a picket fence, a paved driveway, shade trees and a lawn">
+                        <img src="image/aladdin-landscaping-cottage.jpg" loading="lazy" alt="A cottage garden laid around a T-plan house with an attached garage: flower beds against the facades, a picket fence, a paved driveway, shade trees and a lawn">
                         <figcaption><em>&ldquo;Design a cottage garden with a picket fence.&rdquo;</em> A white picket ring with an arbor gate on the front&#8209;door axis, beds crowding the facades and turning the corners of the T, a hedge along the boundary, shade trees placed for summer shade, a lawn filling the enclosure, and a paved driveway out of the garage door to the street &mdash; six trees and 240 flowering plants are generated from just one sentence.</figcaption>
                     </figure>
 
-                    <p>The layout is computed against the real geometry of the house, and most of the work is in the constraints that keep it looking deliberate. Beds follow the actual wall segments, so on an L&#8209;plan or a house with a wing the planting turns the corners with the building instead of cutting through it, and every bed stops at a doorway. Each door keeps a clear corridor out to the edge of the yard &mdash; the axis a gate or a rose arbor stands on. Ponds are dug with irregular outlines and edged in stone. Boulders are extruded from fractal footprints to look natural.</p>
+                    <p>The layout is computed against the real geometry of the house, and most of the work is in the constraints that keep it looking deliberate. Beds follow the actual wall segments, so on an L&#8209;plan or a house with a wing the planting turns the corners with the building instead of cutting through it, and every bed stops at a doorway. Each door keeps a clear corridor out to the edge of the yard &mdash; the axis a gate or a rose arbor stands on. Ponds are dug with irregular outlines, and how the water meets the land follows the style: a cut&#8209;stone kerb in a tended garden, a raised basin in a formal one, and no stonework at all in the wild ones &mdash; the meadow, the woodland pool, the prairie pothole and the rain garden get an edgeless shore, water running straight into the grass, because masonry around an infiltration basin would contradict the whole premise. Boulders are extruded from fractal footprints to look natural.</p>
 
                     <p>There are nineteen landscape styles, and they differ in geometry and ground surface, not merely in flower color:</p>
 
@@ -599,27 +755,27 @@
 
                     <div class="v2-shots">
                         <figure>
-                            <img src="image/aladdin-landscaping-formal.png" loading="lazy" alt="A formal parterre garden: mirrored clipped rows, matched trees and a raised stone basin">
+                            <img src="image/aladdin-landscaping-formal.jpg" loading="lazy" alt="A formal parterre garden: mirrored clipped rows, matched trees and a raised stone basin">
                             <figcaption><strong>Formal Parterre.</strong> Mirrored about the entrance axis: clipped rows flanking the approach, matched pairs of trees, a hedge ring round the lot and a raised stone basin instead of a natural pond.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-landscaping-zen.png" loading="lazy" alt="A zen dry garden: a raked gravel court over the whole lot with boulder groups, moss islands, pines and stone lanterns">
+                            <img src="image/aladdin-landscaping-zen.jpg" loading="lazy" alt="A zen dry garden: a raked gravel court over the whole lot with boulder groups, moss islands, pines and stone lanterns">
                             <figcaption><strong>Zen Dry Garden.</strong> A <em>karesansui</em> court: no grass at all, one raked gravel field combed with long parallel lines, waist&#8209;high boulder groups with moss at their feet, stone lanterns, a leaning maple.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-landscaping-rose.png" loading="lazy" alt="A rose garden: massed red roses inside clipped box edging with a ring bed on the front axis">
+                            <img src="image/aladdin-landscaping-rose.jpg" loading="lazy" alt="A rose garden: massed red roses inside clipped box edging with a ring bed on the front axis">
                             <figcaption><strong>Rose Garden.</strong> Massed red roses inside clipped box edging, a ring bed on the front axis, climbing roses on paired arbors at the back wall. The signature species genuinely dominates.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-landscaping-xeriscape.png" loading="lazy" alt="A desert garden: saguaro, organ pipe cactus and Joshua trees over cactus drifts, with fan palms for shade">
+                            <img src="image/aladdin-landscaping-xeriscape.jpg" loading="lazy" alt="A desert garden: saguaro, organ pipe cactus and Joshua trees over cactus drifts, with fan palms for shade">
                             <figcaption><strong>Desert Garden.</strong> Saguaro, organ&#8209;pipe cactus and Joshua trees over cactus drifts and boulder outcrops, with fan palms and coconuts doing the shading &mdash; a cactus shades nothing.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-landscaping-hawaiian.png" loading="lazy" alt="A Hawaiian lava garden: green lawn in front of the house giving way to a black basalt terrace with a lagoon pond behind it">
+                            <img src="image/aladdin-landscaping-hawaiian.jpg" loading="lazy" alt="A Hawaiian lava garden: green lawn in front of the house giving way to a black basalt terrace with a lagoon pond behind it">
                             <figcaption><strong>Hawaiian Lava Garden.</strong> Lawn at the street, a black basalt terrace behind the house, with the lagoon pond, the palm grove and the hibiscus massed against the stone.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-landscaping-tropical.png" loading="lazy" alt="A tropical resort garden: palms leaning over a centerpiece pond with hibiscus drifts and mown lawn running to the water">
+                            <img src="image/aladdin-landscaping-tropical.jpg" loading="lazy" alt="A tropical resort garden: palms leaning over a centerpiece pond with hibiscus drifts and mown lawn running to the water">
                             <figcaption><strong>Tropical Resort Garden.</strong> The pond is the centerpiece, palms leaning over it and hibiscus drifting along the beds, with mown lawn running right down to the water.</figcaption>
                         </figure>
                     </div>
@@ -660,7 +816,7 @@
                     </ul>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-landscaping-extras.png" loading="lazy" alt="The back yard of a T-plan house with a swimming pool, a pergola, a gazebo, a patio set with a red umbrella and a bench">
+                        <img src="image/aladdin-landscaping-extras.jpg" loading="lazy" alt="The back yard of a T-plan house with a swimming pool, a pergola, a gazebo, a patio set with a red umbrella and a bench">
                         <figcaption>The back yard, each piece placed by naming a corner of the lot: a pool with its coping and apron, a pergola with the patio set and its umbrella beneath it, a gazebo, and a bench on the lawn. A fountain stands out on the front lawn, beyond the house.</figcaption>
                     </figure>
 
@@ -668,10 +824,10 @@
 
                     <p>And when no words quite name the spot, point. Drop a <strong>guide pin</strong> anywhere in the scene and say &ldquo;put the gazebo here,&rdquo; and <em>here</em> is exactly where it goes. Or drag out a <strong>guide region</strong> &mdash; a rectangle on the ground &mdash; and the verb decides what happens inside it: <em>fit</em> the pool to the box, <em>tile</em> it with flower beds, <em>scatter</em> trees across it. The region drapes itself over the terrain, so &ldquo;in here&rdquo; works on a hillside too.</p>
 
-                    <p>The driveway gets its occupant as well: &ldquo;park a car&rdquo; stands an electric pickup, sedan or SUV on it &mdash; clean low&#8209;poly bodies at real&#8209;world dimensions, the pickup in its unmistakable angular stainless steel, the others in any paint you name. Cars are decoration and know their place: they never shade a solar simulation and never wear a heatmap.</p>
+                    <p>The driveway gets its occupant as well: &ldquo;park a car&rdquo; stands an electric pickup, sedan or SUV on it &mdash; clean low&#8209;poly bodies at real&#8209;world dimensions, the pickup in its unmistakable angular stainless steel, the others in any paint you name. Ask for one in the garage instead and it pulls inside, provided the bay is deep enough and the door wide enough for that body &mdash; and if it is not, it tells you which of the two it was. Cars are decoration and know their place: they never shade a solar simulation and never wear a heatmap.</p>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-parked-cars.png" loading="lazy" alt="A stainless angular electric pickup and a blue sedan parked nose-in on the driveway apron of a brown house, in front of an attached garage with its door standing open">
+                        <img src="image/aladdin-parked-cars.jpg" loading="lazy" alt="A stainless angular electric pickup and a blue sedan parked nose-in on the driveway apron of a brown house, in front of an attached garage with its door standing open">
                         <figcaption><em>&ldquo;Park two cars in the driveway.&rdquo;</em> The stainless pickup and a sedan pull up nose&#8209;in on the apron.</figcaption>
                     </figure>
 
@@ -681,39 +837,39 @@
 
                     <div class="v2-fences">
                         <figure>
-                            <img src="image/aladdin-fence-picket.png" loading="lazy" alt="A white picket fence around a house, with an arbor over the front gate">
+                            <img src="image/aladdin-fence-picket.jpg" loading="lazy" alt="A white picket fence around a house, with an arbor over the front gate">
                             <figcaption><strong>Picket</strong>Square white pickets, about waist height. The default, and the one a cottage garden reaches for.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-fence-privacy.png" loading="lazy" alt="A tall privacy fence of near-touching boards around a house">
+                            <img src="image/aladdin-fence-privacy.jpg" loading="lazy" alt="A tall privacy fence of near-touching boards around a house">
                             <figcaption><strong>Privacy</strong>Tall near&#8209;touching boards, 1.8&nbsp;m. Screens the yard outright &mdash; and is the one a hedge is usually planted <em>outside</em>, to soften it from the street.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-fence-splitrail.png" loading="lazy" alt="A split-rail fence of sparse posts and horizontal rails around a house">
+                            <img src="image/aladdin-fence-splitrail.jpg" loading="lazy" alt="A split-rail fence of sparse posts and horizontal rails around a house">
                             <figcaption><strong>Split rail</strong>Sparse posts and horizontal rails. Marks the line without enclosing anything: the ranch and farmhouse boundary.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-fence-wroughtiron.png" loading="lazy" alt="A wrought-iron fence of thin dark round pickets around a house">
+                            <img src="image/aladdin-fence-wroughtiron.jpg" loading="lazy" alt="A wrought-iron fence of thin dark round pickets around a house">
                             <figcaption><strong>Wrought iron</strong>Thin dark round pickets. The estate and townhouse railing &mdash; and what to ask for when you want chain link, which is not modeled.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-fence-gardenwall.png" loading="lazy" alt="A low solid stone-colored garden wall around a house">
+                            <img src="image/aladdin-fence-gardenwall.jpg" loading="lazy" alt="A low solid stone-colored garden wall around a house">
                             <figcaption><strong>Garden wall</strong>A low solid wall, 0.7&nbsp;m, in stone color. Mediterranean and cottage &mdash; something to sit on rather than see through.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-fence-latticetop.png" loading="lazy" alt="A lattice-top fence: privacy boards under a band of slat lattice">
+                            <img src="image/aladdin-fence-latticetop.jpg" loading="lazy" alt="A lattice-top fence: privacy boards under a band of slat lattice">
                             <figcaption><strong>Lattice top</strong>Privacy boards under a band of slats. The screen without the blankness, and the one climbers are meant to grow up.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-fence-stonepiers.png" loading="lazy" alt="A fence of masonry piers with dark iron infill around a house">
+                            <img src="image/aladdin-fence-stonepiers.jpg" loading="lazy" alt="A fence of masonry piers with dark iron infill around a house">
                             <figcaption><strong>Stone piers</strong>Masonry piers at intervals with panels of dark iron spanning between them. The estate frontage, and the heaviest fence in the set.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-fence-horizontalslat.png" loading="lazy" alt="A horizontal slat fence of cedar bands between sparse square posts">
+                            <img src="image/aladdin-fence-horizontalslat.jpg" loading="lazy" alt="A horizontal slat fence of cedar bands between sparse square posts">
                             <figcaption><strong>Horizontal slat</strong>Cedar slats running the other way, between sparse posts. The contemporary fence &mdash; the one to put around a modern house.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-fence-estateiron.png" loading="lazy" alt="A tall estate railing of dark round iron pickets with a belt rail">
+                            <img src="image/aladdin-fence-estateiron.jpg" loading="lazy" alt="A tall estate railing of dark round iron pickets with a belt rail">
                             <figcaption><strong>Estate iron</strong>The same round pickets carried to 2&nbsp;m with a belt rail at mid height. Height is the whole difference.</figcaption>
                         </figure>
                     </div>
@@ -726,27 +882,27 @@
 
                     <div class="v2-shots">
                         <figure>
-                            <img src="image/aladdin-paint-santorini.png" loading="lazy" alt="A house painted in the Santorini White scheme: whitewashed body with cobalt trim, shutters and door">
+                            <img src="image/aladdin-paint-santorini.jpg" loading="lazy" alt="A house painted in the Santorini White scheme: whitewashed body with cobalt trim, shutters and door">
                             <figcaption><strong>Santorini White</strong> &mdash; whitewashed body with cobalt trim, shutters and door, and a pale roof: the Greek&#8209;island look.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-paint-noir.png" loading="lazy" alt="The same house painted in the Monochrome Noir scheme: black body, trim, shutters and roof, with a burnt-orange door">
+                            <img src="image/aladdin-paint-noir.jpg" loading="lazy" alt="The same house painted in the Monochrome Noir scheme: black body, trim, shutters and roof, with a burnt-orange door">
                             <figcaption><strong>Monochrome Noir</strong> &mdash; black on black: body, trim, shutters and roof all one tone, with a single burnt&#8209;orange door.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-paint-brick.png" loading="lazy" alt="The same house painted in the Red Brick scheme: red-brick body, white trim, black shutters and door, charcoal roof">
+                            <img src="image/aladdin-paint-brick.jpg" loading="lazy" alt="The same house painted in the Red Brick scheme: red-brick body, white trim, black shutters and door, charcoal roof">
                             <figcaption><strong>Red Brick</strong> &mdash; red&#8209;brick body, white trim, black shutters and door, charcoal roof: the classic masonry facade.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-paint-mediterranean.png" loading="lazy" alt="The same house painted in the Mediterranean Stucco scheme: pale stucco body, white trim, azure shutters and a tile-red roof">
+                            <img src="image/aladdin-paint-mediterranean.jpg" loading="lazy" alt="The same house painted in the Mediterranean Stucco scheme: pale stucco body, white trim, azure shutters and a tile-red roof">
                             <figcaption><strong>Mediterranean Stucco</strong> &mdash; pale stucco body, white trim, azure shutters, a walnut door and a tile&#8209;red roof.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-paint-keywest.png" loading="lazy" alt="The same house painted in the Key West Tropical scheme: turquoise body, white trim, deep-teal shutters, a coral door and a silver metal roof">
+                            <img src="image/aladdin-paint-keywest.jpg" loading="lazy" alt="The same house painted in the Key West Tropical scheme: turquoise body, white trim, deep-teal shutters, a coral door and a silver metal roof">
                             <figcaption><strong>Key West Tropical</strong> &mdash; turquoise board body, white trim, deep&#8209;teal shutters, a hibiscus&#8209;coral door and a silver metal roof.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-paint-lodge.png" loading="lazy" alt="The same house painted in the Forest Lodge scheme: deep forest-green body, stone-cream trim, near-black shutters, a walnut door and a black roof">
+                            <img src="image/aladdin-paint-lodge.jpg" loading="lazy" alt="The same house painted in the Forest Lodge scheme: deep forest-green body, stone-cream trim, near-black shutters, a walnut door and a black roof">
                             <figcaption><strong>Forest Lodge</strong> &mdash; deep forest&#8209;green body, stone&#8209;cream trim, near&#8209;black shutters, a walnut door and a black roof.</figcaption>
                         </figure>
                     </div>
@@ -890,7 +1046,7 @@
                     </ul>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-daily-energy.png" loading="lazy" alt="A solar-radiation heatmap painted across a landscaped house in Aladdin: red on the sunlit roofs and the driveway, green on the shaded walls">
+                        <img src="image/aladdin-daily-energy.jpg" loading="lazy" alt="A solar-radiation heatmap painted across a landscaped house in Aladdin: red on the sunlit roofs and the driveway, green on the shaded walls">
                         <figcaption>Ask for a solar&#8209;radiation map and the day's insolation is painted onto every surface &mdash; roofs, walls, the driveway, the lawn. Warm colors mark the sunniest faces, so the best places for panels are obvious at a glance, and the cool patches are the shade the tree and the house are actually casting.</figcaption>
                     </figure>
 
