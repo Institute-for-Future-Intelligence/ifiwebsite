@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Designing Your Dream Home with AI — Institute for Future Intelligence</title>
-    <meta name="description" content="Build the home you have always wanted by describing it — dozens of architectural styles, porches and turrets, nineteen garden styles, twenty color schemes — and then find out how it actually performs, because in Aladdin the house is a real engineering model.">
+    <meta name="description" content="Build the home you have always wanted by describing it — dozens of architectural styles, porches and dormers, nineteen garden styles, twenty color schemes — and then find out how it actually performs, because in Aladdin the house is a real engineering model.">
 
     <style>
         @import url("css/system.base.css");
@@ -218,16 +218,14 @@
         .v2-loop .hub { fill: var(--accent-dark); font-family: var(--font-display); font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; }
         .v2-loop .hubsub { fill: var(--text-muted); font-size: 12px; }
         @media (prefers-color-scheme: dark) { .v2-loop .card { stroke: rgba(148, 163, 220, 0.24); } .v2-loop .hub { fill: #a5b4fc; } }
-        /* On a phone the ring cannot be read at 390px and side-scrolling a diagram is a trap, so the
-           same four steps stack as a numbered list instead and the ring is dropped. */
-        .v2-sweep-steps { display: none; list-style: none; counter-reset: sweep; margin: 0; padding: 0; gap: 1rem; }
-        .v2-sweep-steps li { counter-increment: sweep; position: relative; margin: 0; padding: 0 0 0 2.5rem; }
-        .v2-sweep-steps li::before { content: counter(sweep); position: absolute; left: 0; top: 0.05rem; width: 1.75rem; height: 1.75rem; display: grid; place-items: center; border-radius: 50%; font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, #6366f1, #0ea5e9); }
-        .v2-sweep-steps strong { display: block; font-family: var(--font-display); font-size: 1.16rem; color: var(--text); }
-        .v2-sweep-steps span { display: block; margin-top: 0.15rem; font-size: 1.05rem; line-height: 1.45; color: var(--text-muted); }
-        .v2-sweep-loop { display: none; margin: 1rem 0 0; padding-left: 2.5rem; font-size: 1.02rem; color: var(--accent-dark); font-weight: 600; }
-        @media (prefers-color-scheme: dark) { .v2-sweep-loop { color: #a5b4fc; } }
-        @media (max-width: 700px) { .v2-loop-wrap { display: none; } .v2-sweep-steps { display: grid; } .v2-sweep-loop { display: block; } }
+        /* THE SAME LOOP, DRAWN PORTRAIT, for a phone: the landscape ring's 13px labels come out
+           around 7px once a 660-wide viewBox is squeezed into 390, and side-scrolling a diagram is
+           a trap. So below 700px the wide ring is swapped for a narrow one whose viewBox is sized
+           for the screen it lands on — four full-width cards, the loop still closed by a dashed
+           return up the right gutter. It reuses every .v2-loop paint rule; only the 520px floor
+           that keeps the wide one legible has to go, or it would force a sideways scroll again. */
+        .v2-loop-portrait { display: none; min-width: 0; }
+        @media (max-width: 700px) { .v2-loop-wrap { display: none; } .v2-loop-portrait { display: block; } }
 
         /* Sweep vs. evolutionary search, side by side: the distinction is what proposes the move. */
         .v2-versus { margin: 1.7rem 0 2rem; padding: 1.5rem 1.7rem 1.6rem; border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.06), rgba(14, 165, 233, 0.04)); }
@@ -446,14 +444,14 @@
                             <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
                                     data-model="Aegean Blue and White" data-poster="image/aladdin-dream-home-aegean-blue-and-white.jpg" data-label="the Aegean house"
                                     data-ask="Park a sedan on the driveway."
-                                    data-note="Cobalt sashes and doors against pale stucco, ninety&#8209;odd hibiscus massed through the beds, and the sedan pulled up where it was asked for &mdash; in four turns, one of which was an undo after a pickup went in first.">
+                                    data-note="The sedan was the last of four turns. The cobalt sashes and doors against pale stucco and the ninety&#8209;odd hibiscus massed through the beds came before it &mdash; and one of the four was an undo, after a pickup went in first.">
                                 <img src="image/aladdin-dream-home-aegean-blue-and-white.jpg" alt="" loading="lazy" decoding="async">
                                 <span>Aegean house</span>
                             </button>
                             <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-showcase-frame"
                                     data-model="Mediterranean" data-poster="image/aladdin-dream-home-mediterranean.jpg" data-label="the Mediterranean house"
                                     data-ask="Park an SUV here. Open the garage door."
-                                    data-note="Half of this conversation is pointing rather than describing: shrubs cleared out of a dragged region, two windows turned into bay windows and then tripled in width, a third converted into a glazed door, a lamp moved from one side of it to the other, and three cars parked exactly where the pin was dropped.">
+                                    data-note="The SUV closed a long session, and half of that session was pointing rather than describing: shrubs cleared out of a dragged region, two windows turned into bay windows and then tripled in width, a third converted into a glazed door, a lamp moved from one side of it to the other, and three cars parked exactly where the pin was dropped.">
                                 <img src="image/aladdin-dream-home-mediterranean.jpg" alt="" loading="lazy" decoding="async">
                                 <span>Mediterranean</span>
                             </button>
@@ -553,7 +551,7 @@
                         <li class="you"><span class="who">You</span>paint it barn red</li>
                         <li class="ai"><span class="who">Assistant</span>Repainted in &ldquo;Barn Red&rdquo;: saturated barn&#8209;red body, bone&#8209;white trim, dark walnut shutters, a black door and an iron roof.</li>
                         <li class="you"><span class="who">You</span>now run the energy simulation for the year</li>
-                        <li class="ai"><span class="who">Assistant</span>Annual simulation done, using a full year of hourly weather for your site. I can break it down by month, show you where the losses are, or try a change &mdash; thicker insulation, better glazing, or the shade trees on the southwest &mdash; and re&#8209;run it so you can see which one actually pays.</li>
+                        <li class="ai"><span class="who">Assistant</span>Annual simulation done &mdash; a day out of every month, hour by hour, on your site's own weather. I can break it down by month, show you where the losses are, or try a change &mdash; thicker insulation, better glazing, or the shade trees on the southwest &mdash; and re&#8209;run it so you can see which one actually pays.</li>
                     </ul>
                     </div>
 
@@ -561,7 +559,7 @@
 
                     <h2>Forty&#8209;five house styles</h2>
 
-                    <p>&ldquo;Build a Greek Revival&rdquo; is a tall order, and it is the request people actually make. So the AI carries a library of architectural recipes: forty&#8209;five worked cases, each a real house with real numbers &mdash; the plan, the story heights, the roof pitch, the window proportions, the palette, and the one or two details without which the style does not read. A Greek Revival is not a colonial with columns added to it. It is a wide symmetric block under a <em>low</em> temple pitch, giant&#8209;order columns running the full two stories to a pediment that stands above the eave, one white over both floors, paired end chimneys, and tall narrow sashes wearing no shutters, so that nothing on the wall competes with the columns. The recipe spells all of that out.</p>
+                    <p>&ldquo;Build a Greek Revival&rdquo; is a tall order, and it is the request people actually make. So the AI carries a library of architectural recipes: forty&#8209;five worked cases, each a real house with real numbers &mdash; the plan, the story heights, the roof pitch, the window proportions, the palette, and the one or two details without which the style does not read. A Greek Revival is not a colonial with columns added to it. It is a wide symmetric block under a <em>low</em> temple pitch, giant&#8209;order columns running the full two stories to a pediment that stands above the eave, one white wall carried over both floors, paired end chimneys, and tall narrow sashes wearing no shutters, so that nothing on the wall competes with the columns. The recipe spells all of that out.</p>
 
                     <div class="v2-styles">
                         <div class="v2-styles-head">
@@ -648,35 +646,49 @@
                     <ul class="v2-features">
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15 16 6l12 9"/><path d="M7 15v11h18V15"/><path d="M11 26v-8h4v8"/><path d="M19 19h4v3h-4z"/></svg></span>
-                            <span class="v2-feature-body"><strong>Porches and verandas</strong> &mdash; including wraparound porches that mitre properly at every corner, with railings, square or round posts, a raised platform, a real stair, and a frieze band under the beam in five patterns: Queen Anne spindlework, a sawn spandrel arcade, the Doric triglyph rhythm, a Georgian dentil course, or chalet lattice.</span>
+                            <span class="v2-feature-body"><strong>Porches and verandas</strong> &mdash; including wraparound porches that mitre properly at every corner, with railings whose balusters are plain or lathe&#8209;turned, square or round posts, a raised platform, a real stair, and a frieze band under the beam in five patterns: Queen Anne spindlework, a sawn spandrel arcade, the Doric triglyph rhythm, a Georgian dentil course, or chalet lattice.</span>
                         </li>
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27V13l11-8 11 8v14"/><path d="M21 9V5h4v7"/><path d="M12 27v-8h8v8"/></svg></span>
-                            <span class="v2-feature-body"><strong>Chimneys, cupolas, balconies, porticos and bay windows</strong>, each landing where it belongs and clearing the windows it would otherwise cover. An entry portico can be crowned four ways &mdash; a pediment, a flat top, a balustrade, or a barrel arch you look through at the door &mdash; and it can stand on columns or on arched masonry piers.</span>
+                            <span class="v2-feature-body"><strong>Chimneys, cupolas, balconies and porticos</strong>, each landing where it belongs and clearing the windows it would otherwise cover. An entry portico can be crowned four ways &mdash; pediment, flat top, balustrade or barrel arch &mdash; and stands on columns or on arched masonry piers.</span>
                         </li>
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="22" height="20" rx="1.5"/><path d="M5 16h22M16 6v20"/><path d="M9 11l4 4M23 11l-4 4"/></svg></span>
-                            <span class="v2-feature-body"><strong>Wall dressing</strong> &mdash; half&#8209;timbering that draws its own posts, beams, studs and braces; parapets; shutters; round&#8209;arched, pointed (ogee), gable&#8209;topped, circular and fanlight windows, and French ones glazed as a pair of leaves that read as doors; glazed and paneled front doors; bargeboards on the gables.</span>
+                            <span class="v2-feature-body"><strong>Wall dressing</strong> &mdash; half&#8209;timbering that draws its own posts, beams, studs and braces; parapets; shutters; round&#8209;arched, pointed (ogee), gable&#8209;topped, circular and fanlight windows, and French ones glazed as a pair of leaves that read as doors; bargeboards on the gables.</span>
+                        </li>
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 28V14a8 8 0 0 1 16 0v14"/><path d="M5 28h22"/><path d="M12 13h8"/><circle cx="20.5" cy="20" r="1.1"/></svg></span>
+                            <span class="v2-feature-body"><strong>Doors</strong> &mdash; paneled or glazed, round&#8209;arched, or the sectional garage door in bands of raised panels. The face composes: panel grids, glazed lites, a fanlight over the head, sidelights flanking it, a second leaf for a French pair that swings open, and a knob, lever or pull in the finish you name. A door can start <em>above</em> the floor &mdash; the split&#8209;level entry &mdash; or sit back in the facade as a <strong>recessed entry</strong>, under a squared head or a keystoned arch.</span>
                         </li>
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 24 16 9l13 15"/><path d="M12 24v-7l4-4 4 4v7"/><path d="M14 20h4"/></svg></span>
-                            <span class="v2-feature-body"><strong>Dormers</strong> &mdash; gable, shed and barrel&#8209;vaulted, sized and spaced along a slope, with the roof pitch checked first because a shallow roof cannot carry one.</span>
+                            <span class="v2-feature-body"><strong>Dormers</strong> &mdash; gable, shed, barrel&#8209;vaulted, and the A&#8209;frame triangle that springs straight off the shingles with no upright face at all, sized and spaced along a slope, with the roof pitch checked first because a shallow roof cannot carry one.</span>
+                        </li>
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15 16 6l12 9"/><path d="M3 17.5h26"/><path d="M3 21h26"/><path d="M26 21v7"/><path d="M23.5 28h5"/></svg></span>
+                            <span class="v2-feature-body"><strong>Eaves and gutters</strong> &mdash; an eave can be left open or boxed: a plumb fascia and a level soffit closing the overhang, mitred at the corners, the soffit painted separately so a dark roof keeps its white band. Hang a gutter and the trough follows every level eave, dropping a downspout at each outside corner.</span>
+                        </li>
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16h19"/><path d="M6 16v9M19 16v9"/><path d="M3 7h19"/><path d="M9 7v9M15 7v9"/><path d="M22 16v4h3.5v5h4"/></svg></span>
+                            <span class="v2-feature-body"><strong>Decks and patios</strong> &mdash; a raised deck on posts, railed on its three open sides with steps down to the grass, or a ground&#8209;level paved patio with none of the three. It takes a rear wall unless you say otherwise, never the front&#8209;door one, and stays out of the floor area and the thermal envelope.</span>
+                        </li>
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 28V14l7-6 7 6v14"/><path d="M17 19h12v9H17z"/><path d="M16.5 19 29 15.5"/><path d="M23 19v9M17 23.5h12"/></svg></span>
+                            <span class="v2-feature-body"><strong>Bay windows, sunrooms and skylights</strong> &mdash; a bay steps the glass out of the wall on three faces, punching its own opening so the room simply opens into it. A sunroom leans on the house under a flat roof carrying one big skylight, or a shed roof continuing the house's own slope; solarium, conservatory and Florida room are the same request. It is deliberately unconditioned &mdash; a solar buffer outside the thermal envelope, never living space. Skylights go into any roof on their own.</span>
+                        </li>
+                        <li>
+                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 9.5h6l1.6 13.5h-9.2z"/><path d="M11.2 9.5 16 4.8l4.8 4.7"/><path d="M16 4.8V2.8"/><path d="M12.2 26.5h7.6"/></svg></span>
+                            <span class="v2-feature-body"><strong>Outdoor lighting</strong> &mdash; after dark a whole plan comes on: sconces flanking every entry door, a pair on each garage door, bollards pacing the walk and the drive, lamp posts at the street, lanterns at the fence gates, well lights up the trees and one cool glow at the pond. Name a look &mdash; classic, modern, farmhouse or Victorian &mdash; and every fixture is reshaped from a catalog of seven housings: carriage lantern, cylinder, gooseneck barn light, overhead downlight, lantern head, mushroom cap and globe.</span>
                         </li>
                         <li>
                             <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 27V15l10-6 14 6v12"/><path d="M17 27v-9h8v9"/><path d="M17 22h8"/></svg></span>
                             <span class="v2-feature-body"><strong>An attached garage</strong>, tucked under the house eave at the same pitch, with a driveway that follows.</span>
                         </li>
-                        <li>
-                            <span class="v2-feature-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l6 7h-12z"/><path d="M10 10v18h12V10"/><path d="M14 16h4M14 22h4"/></svg></span>
-                            <span class="v2-feature-body"><strong>Turrets</strong> &mdash; the octagonal corner tower of a Queen Anne, rising past the eave under a conical spire.</span>
-                        </li>
                     </ul>
-
-                    <p>After dark a lighting plan takes over: carriage&#8209;lantern sconces beside every entry door, bollards pacing the walk, lamp posts at the street, lanterns at the gates, uplights in the trees and a glow at the pond, in four fixture styles.</p>
 
                     <h3>The gingerbread on the gable</h3>
 
-                    <p>One piece of that wall dressing is worth singling out, because it shows how far down into the detail Aladdin is willing to go &mdash; and because it is the difference between a Gothic Revival and a shed with a steep roof. The <strong>bargeboard</strong> is the sawn board that hangs on the rake of a gable where the roof oversails the wall. It is the Carpenter Gothic signature, the chalet's verge, the Queen Anne's frill. Aladdin cuts ten patterns, most of them with a finial at the peak. Most are <em>sawn</em>, where the pattern is the lower edge of the board; a few are cut clean through the field between a top and a bottom rail, so the gable itself shows between the pieces &mdash; a far bigger change to a house than any edge treatment.</p>
+                    <p>One piece of that wall dressing is worth singling out, because it shows how far down into the detail Aladdin is willing to go &mdash; and because it is the difference between a Gothic Revival and a shed with a steep roof. The <strong>bargeboard</strong> is the sawn board that hangs on the rake of a gable where the roof oversails the wall. It is the Carpenter Gothic signature, the chalet's verge, the Queen Anne's frill. Aladdin cuts ten patterns, most of them with a finial at the peak. Most are <em>sawn</em>, where the pattern is the lower edge of the board and the field above it is solid, though several are pierced with a row of holes. Two &mdash; the spindle run and the lattice &mdash; are <em>open</em>: no field at all, just turned or crossed pieces between a top and a bottom rail, so the gable itself shows between them, which changes a house far more than any edge treatment.</p>
 
                     <p>Ask for it on every wall and let the runtime sort it out: a board is drawn only where a wall top actually <em>climbs</em>, so eave walls get nothing and a hipped or pyramid roof gets nothing at all. Nine of the ten are Western boards; the tenth is the East Asian <em>hafu</em>, which belongs on a minka, a hanok or a Chinese gable &mdash; broad and plain, its ornament a carved pendant hanging <em>below</em> the peak rather than a spire standing above it. Here are the nine, on the same plain house:</p>
 
@@ -687,7 +699,7 @@
                         </figure>
                         <figure>
                             <img src="image/aladdin-bargeboard-tracery.jpg" loading="lazy" alt="A gable end with a tracery bargeboard: a deeper board cut through with quatrefoils">
-                            <figcaption><strong>Tracery</strong>The full article: a deeper board cut clean through with quatrefoils, so the gable shows between them. For a showpiece villa &mdash; too rich for a cottage.</figcaption>
+                            <figcaption><strong>Tracery</strong>The full article: a deeper board pierced clean through with quatrefoils, so the gable shows through most of its area. For a showpiece villa &mdash; too rich for a cottage.</figcaption>
                         </figure>
                         <figure>
                             <img src="image/aladdin-bargeboard-trefoil.jpg" loading="lazy" alt="A gable end with a trefoil bargeboard: the tracery board with three-lobed foils instead of four">
@@ -1100,14 +1112,14 @@
 
                     <h2>Now find out how it performs</h2>
 
-                    <p>Everything above would be a pleasant toy if it stopped there. It does not, and that is the point of building a home here: what you have just made is an engineering model. The walls have U&#8209;values. The windows have solar heat gain coefficients. The sun moves correctly for your latitude, on the date and at the hour you set, and the weather comes from real measured data for your location.</p>
+                    <p>Everything above would be a pleasant toy if it stopped there. It does not, and that is the point of building a home here: what you have just made is an engineering model. The walls have U&#8209;values. The windows have solar heat gain coefficients &mdash; and if you are shopping for real ones, name the make and model and the assistant drafts that product for you, U&#8209;factor, solar heat gain coefficient and visible transmittance filled in, to check and keep in your own window library. The sun moves correctly for your latitude, on the date and at the hour you set, and the weather comes from real measured data for your location &mdash; the nearest station's monthly record by default, or an hourly TMY file for the site when you want one.</p>
 
                     <p>So you can ask, in the same chat window that built the house:</p>
 
                     <ul class="v2-asks">
                         <li>
                             <p class="ask">How much energy will this house use?</p>
-                            <p class="ans">It drives the building&#8209;energy engine through a full year of hourly weather and reports the heating, the cooling and the net, month by month &mdash; then tells you what the numbers mean.</p>
+                            <p class="ans">It drives the building&#8209;energy engine through the year &mdash; a representative day of each month, simulated hour by hour on your site's weather &mdash; and reports the heating, the cooling and the net, month by month, then tells you what the numbers mean.</p>
                         </li>
                         <li>
                             <p class="ask">Does the upstairs overheat in July?</p>
@@ -1120,6 +1132,10 @@
                         <li>
                             <p class="ask">Show me where sunlight actually hits.</p>
                             <p class="ans">A solar&#8209;radiation heatmap painted straight onto the roofs and the walls.</p>
+                        </li>
+                        <li>
+                            <p class="ask">Will the panels dazzle the neighbors?</p>
+                            <p class="ans">A glare map: where sunlight bouncing off the array would reach someone standing at eye height, in the clear&#8209;sky worst case, graded green, yellow or red on the SGHAT scale and measured against the thirty minutes a year that permitting bodies treat as the line.</p>
                         </li>
                         <li>
                             <p class="ask">Would trees help?</p>
@@ -1139,7 +1155,7 @@
                     <div class="v2-sweep">
                         <p class="v2-sweep-title">How a design sweep runs</p>
                         <div class="v2-loop-wrap">
-                        <svg class="v2-loop" viewBox="70 25 660 450" role="img" aria-label="The design sweep loop: evaluate by simulating a full year, revise one lever, re-evaluate the same way, then keep or roll back — and round again for the next step.">
+                        <svg class="v2-loop" viewBox="70 25 660 450" role="img" aria-label="The design sweep loop: evaluate by simulating a day out of each month, revise one lever, re-evaluate the same way, then keep or roll back — and round again for the next step.">
                             <!-- the ring, drawn behind the cards: four arcs of one ellipse with a head on each quarter -->
                             <ellipse class="ring" cx="400" cy="250" rx="195" ry="165"/>
                             <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(537.9,133.3) rotate(40.2)"/>
@@ -1158,8 +1174,8 @@
                             <circle cx="308" cy="69" r="15" fill="#6366f1"/>
                             <text class="num" x="308" y="74" text-anchor="middle">1</text>
                             <text class="name" x="332" y="75">Evaluate</text>
-                            <text class="desc" x="300" y="99">A full year simulated through the</text>
-                            <text class="desc" x="300" y="117">transient engine, solar credited.</text>
+                            <text class="desc" x="300" y="99">The year sampled a day per month,</text>
+                            <text class="desc" x="300" y="117">hour by hour. Solar credited.</text>
 
                             <!-- 2. revise -->
                             <rect class="card" x="475" y="204" width="240" height="92" rx="14"/>
@@ -1174,7 +1190,7 @@
                             <circle cx="308" cy="399" r="15" fill="#2b8ae0"/>
                             <text class="num" x="308" y="404" text-anchor="middle">3</text>
                             <text class="name" x="332" y="405">Re&#8209;evaluate</text>
-                            <text class="desc" x="300" y="429">The same year simulated again, so</text>
+                            <text class="desc" x="300" y="429">The same days simulated again, so</text>
                             <text class="desc" x="300" y="447">the two numbers are comparable.</text>
 
                             <!-- 4. keep or roll back -->
@@ -1186,16 +1202,56 @@
                             <text class="desc" x="105" y="282">never happened.</text>
                         </svg>
                         </div>
-                        <!-- The narrow-screen version of the ring above, and the ONLY version a
-                             phone renders: it must stay readable to assistive tech, because at
-                             that width the SVG is display:none and its aria-label goes with it. -->
-                        <ol class="v2-sweep-steps">
-                            <li><strong>Evaluate</strong><span>A full year simulated through the transient engine, solar credited.</span></li>
-                            <li><strong>Revise</strong><span>Change one lever: glazing, insulation, orientation, panels.</span></li>
-                            <li><strong>Re-evaluate</strong><span>The same year simulated again, so the two numbers are comparable.</span></li>
-                            <li><strong>Keep or roll back</strong><span>Better by a real margin, or it never happened.</span></li>
-                        </ol>
-                        <p class="v2-sweep-loop">&#8635; Then round again &mdash; one lap is one step.</p>
+                        <!-- The narrow-screen ring, and the ONLY diagram a phone renders. Same four
+                             steps, same paint classes, stacked instead of orbited: the loop closes
+                             as a dashed path up the right gutter and back into step 1. Its own
+                             aria-label carries the sequence, since the wide ring's goes dark with
+                             it at this width. -->
+                        <svg class="v2-loop v2-loop-portrait" viewBox="0 0 360 588" role="img" aria-label="The design sweep loop: evaluate by simulating a day out of each month, revise one lever, re-evaluate the same way, then keep or roll back — and round again for the next step.">
+                            <!-- the return: out of step 4, up the gutter, back into step 1 -->
+                            <path class="ring" d="M308,476 H334 V56 H330"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(318,56) rotate(180)"/>
+
+                            <!-- 1. evaluate -->
+                            <rect class="card" x="8" y="12" width="300" height="88" rx="13"/>
+                            <circle cx="40" cy="42" r="15" fill="#6366f1"/>
+                            <text class="num" x="40" y="47" text-anchor="middle">1</text>
+                            <text class="name" x="64" y="48">Evaluate</text>
+                            <text class="desc" x="28" y="74">The year sampled a day per month,</text>
+                            <text class="desc" x="28" y="92">hour by hour. Solar credited.</text>
+                            <path class="ring" d="M158,108 V132"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(158,146) rotate(90)"/>
+
+                            <!-- 2. revise -->
+                            <rect class="card" x="8" y="152" width="300" height="88" rx="13"/>
+                            <circle cx="40" cy="182" r="15" fill="#4f6cf0"/>
+                            <text class="num" x="40" y="187" text-anchor="middle">2</text>
+                            <text class="name" x="64" y="188">Revise</text>
+                            <text class="desc" x="28" y="214">Change one lever: glazing,</text>
+                            <text class="desc" x="28" y="232">insulation, orientation, panels.</text>
+                            <path class="ring" d="M158,248 V272"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(158,286) rotate(90)"/>
+
+                            <!-- 3. re-evaluate -->
+                            <rect class="card" x="8" y="292" width="300" height="88" rx="13"/>
+                            <circle cx="40" cy="322" r="15" fill="#2b8ae0"/>
+                            <text class="num" x="40" y="327" text-anchor="middle">3</text>
+                            <text class="name" x="64" y="328">Re&#8209;evaluate</text>
+                            <text class="desc" x="28" y="354">The same days simulated again,</text>
+                            <text class="desc" x="28" y="372">so the two numbers compare.</text>
+                            <path class="ring" d="M158,388 V412"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(158,426) rotate(90)"/>
+
+                            <!-- 4. keep or roll back -->
+                            <rect class="card" x="8" y="432" width="300" height="88" rx="13"/>
+                            <circle cx="40" cy="462" r="15" fill="#0ea5e9"/>
+                            <text class="num" x="40" y="467" text-anchor="middle">4</text>
+                            <text class="name" x="64" y="468">Keep or roll back</text>
+                            <text class="desc" x="28" y="494">Better by a real margin, or it</text>
+                            <text class="desc" x="28" y="512">never happened.</text>
+
+                            <text class="hub" x="158" y="562" text-anchor="middle">ONE LAP = ONE STEP</text>
+                        </svg>
                     </div>
 
                     <p>What makes this different from an ordinary optimizer is what proposes the changes. There is no list of parameters to sweep and no numeric solver hunting through them: the thing suggesting the next move is the language model, reasoning about <em>this</em> house in <em>this</em> climate &mdash; that the west glazing is what bakes the upstairs, that the overhang is too short to shade a south window in July. The loop supplies the discipline, the measurement and the veto; the model supplies the ideas. You get back the trajectory, step by step, with what changed and how much net energy fell.</p>
@@ -1293,7 +1349,7 @@
 
                     <p>Wherever building has been made easy, people have done an enormous amount of it &mdash; for years, unprompted, with no reward but the building itself. The desire is not the scarce part. The interface is.</p>
 
-                    <p>Aladdin removes the same friction &mdash; say what you want, watch it appear &mdash; and points it at a model that is scientifically real. The shade trees go southwest because that is where the summer sun is. The heating number comes from a full year of your location's weather, through an engine checked against the standard the profession uses. You get the home you dreamed of, and you get to find out how much energy it will cost you.</p>
+                    <p>Aladdin removes the same friction &mdash; say what you want, watch it appear &mdash; and points it at a model that is scientifically real. The shade trees go southwest because that is where the summer sun is. The heating number comes from your location's own measured weather, run month by month through an engine checked against the standard the profession uses. You get the home you dreamed of, and you get to find out how much energy it will cost you.</p>
 
                     <p>Which is, in the end, the promise the name was chosen for. In the old tale, the lamp granted whatever its owner asked for. Ask for your dream home now, and it takes shape in front of you &mdash; and then, unlike in the story, you can use it as an engineering laboratory to learn.</p>
 
