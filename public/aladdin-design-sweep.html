@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Assisted Design Exploration — Institute for Future Intelligence</title>
+    <meta name="description" content="The design sweep in Aladdin is not just an optimizer. It is a divergent-convergent design method the AI runs with you: fan out into a handful of candidate houses, converge on one by score or by eye, refine it with measured edits, and fan out again when the design grows a new question.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        /* This article has no sidebar, so the main column takes the whole wide section; without
+           this the grid keeps an empty second track and squeezes the text to two thirds width. */
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        /* The column is a grid item, so its automatic min-width floors the whole column at the
+           widest thing inside it (the diagrams). Without this a phone gets a sideways page. */
+        .v2-col-main { min-width: 0; }
+        /* The backlink and byline are NOT in v2-theme.css — every v2 article carries its own copy. */
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        /* The optimization loop, drawn as a RING — the point of a sweep is that it comes back round. */
+        .v2-sweep { margin: 1.6rem 0 1.9rem; padding: 1.5rem 1.7rem 1.3rem; border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.05)); }
+        .v2-sweep-title { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin: 0 0 0.6rem; }
+        /* The main column is a GRID ITEM, so its min-width:auto floors the whole column at the loop
+           diagram's min-content width and pushes the page wider than a phone. Let it shrink; the
+           diagram scrolls inside its own wrapper instead. */
+        .v2-col-main { min-width: 0; }
+        .v2-loop-wrap { overflow-x: auto; }
+        .v2-loop { display: block; width: 100%; min-width: 520px; height: auto; }
+        .v2-loop .card { fill: var(--surface-raised); stroke: rgba(15, 23, 42, 0.12); stroke-width: 1; }
+        .v2-loop .ring { fill: none; stroke: var(--accent); stroke-width: 2.4; opacity: 0.4; stroke-dasharray: 9 7; }
+        .v2-loop .head { fill: var(--accent); opacity: 0.85; }
+        .v2-loop .num { fill: #fff; font-family: var(--font-display); font-size: 15px; font-weight: 700; }
+        .v2-loop .name { fill: var(--text); font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+        .v2-loop .desc { fill: var(--text-muted); font-size: 13px; }
+        .v2-loop .hub { fill: var(--accent-dark); font-family: var(--font-display); font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; }
+        .v2-loop .hubsub { fill: var(--text-muted); font-size: 12px; }
+        @media (prefers-color-scheme: dark) { .v2-loop .card { stroke: rgba(148, 163, 220, 0.24); } .v2-loop .hub { fill: #a5b4fc; } }
+        /* THE SAME LOOP, DRAWN PORTRAIT, for a phone: the landscape ring's 13px labels come out
+           around 7px once a 660-wide viewBox is squeezed into 390, and side-scrolling a diagram is
+           a trap. So below 700px the wide ring is swapped for a narrow one whose viewBox is sized
+           for the screen it lands on — four full-width cards, the loop still closed by a dashed
+           return up the right gutter. It reuses every .v2-loop paint rule; only the 520px floor
+           that keeps the wide one legible has to go, or it would force a sideways scroll again. */
+        .v2-loop-portrait { display: none; min-width: 0; }
+        @media (max-width: 700px) { .v2-loop-wrap { display: none; } .v2-loop-portrait { display: block; } }
+
+        /* Sweep vs. evolutionary search, side by side: the distinction is what proposes the move. */
+        .v2-versus { margin: 1.7rem 0 2rem; padding: 1.5rem 1.7rem 1.6rem; border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.06), rgba(14, 165, 233, 0.04)); }
+        .v2-versus-title { font-family: var(--font-display); font-size: 0.86rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-muted); text-align: center; margin: 0 0 0.55rem; }
+        .v2-versus-rule { width: 46px; height: 2px; margin: 0 auto 1.9rem; border-radius: 2px; background: linear-gradient(90deg, #6366f1, #0ea5e9); }
+        .v2-versus-grid { position: relative; display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0 2.4rem; }
+        .v2-versus-div { background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.14) 14%, rgba(15, 23, 42, 0.14) 86%, transparent); }
+        .v2-versus-div::after { content: 'vs'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 2.2rem; height: 2.2rem; display: grid; place-items: center; border-radius: 50%; background: var(--surface-raised); border: 1px solid rgba(15, 23, 42, 0.12); font-family: var(--font-display); font-size: 0.9rem; font-style: italic; color: var(--text-muted); }
+        .v2-versus-card { margin: 0; }
+        .v2-versus-card .eyebrow { display: block; font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 0.35rem; }
+        .v2-versus-card h4 { margin: 0; font-family: var(--font-display); font-size: 1.55rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text); }
+        .v2-versus-card .sub { display: block; margin: 0.3rem 0 1rem; padding-bottom: 0.9rem; border-bottom: 1px solid rgba(15, 23, 42, 0.09); font-size: 1.16rem; font-style: italic; line-height: 1.45; color: var(--text-muted); }
+        .v2-versus-card ul { list-style: none; margin: 0; padding: 0; }
+        .v2-versus-card li { margin: 0 0 0.95rem; font-size: 1.24rem; line-height: 1.5; color: var(--text-muted); }
+        .v2-versus-card li:last-child { margin-bottom: 0; }
+        .v2-versus-card li strong { display: block; font-family: var(--font-display); font-size: 1.08rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--text); margin-bottom: 0.1rem; }
+        /* The two schematic charts, drawn to the SAME axes — net energy falling as evaluations are
+           spent — so the only visible difference is how each method spends them: a cloud of guesses
+           per generation on the left, a dozen labeled steps (one rolled back) on the right. */
+        .v2-vs-chart { display: block; width: 100%; height: auto; margin: 0 0 1.15rem; }
+        .v2-vs-chart .axis { stroke: var(--text-muted); stroke-width: 1.2; opacity: 0.5; fill: none; }
+        .v2-vs-chart .lbl { fill: var(--text-muted); font-size: 11.5px; }
+        .v2-vs-chart .tgt { stroke: #16a34a; stroke-width: 1.4; stroke-dasharray: 5 5; opacity: 0.6; }
+        .v2-vs-chart .tgtlbl { fill: #16a34a; font-size: 10.5px; font-weight: 600; opacity: 0.9; }
+        .v2-vs-chart .dot { fill: var(--accent); opacity: 0.5; }
+        .v2-vs-chart .drift { stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 2 5; fill: none; opacity: 0.5; }
+        .v2-vs-chart .step { stroke: var(--accent-dark); stroke-width: 2.2; fill: none; stroke-linejoin: round; }
+        .v2-vs-chart .sim { fill: var(--accent-dark); }
+        .v2-vs-chart .bad { stroke: #dc2626; stroke-width: 1.7; stroke-dasharray: 4 4; fill: none; opacity: 0.75; }
+        .v2-vs-chart .badx { stroke: #dc2626; stroke-width: 2; opacity: 0.85; }
+        .v2-vs-chart .badlbl { fill: #dc2626; font-size: 10.5px; opacity: 0.9; }
+        .v2-vs-chart .steplbl { fill: var(--text-muted); font-size: 10.5px; }
+        @media (prefers-color-scheme: dark) {
+            .v2-versus-div { background: linear-gradient(180deg, transparent, rgba(148, 163, 220, 0.22) 14%, rgba(148, 163, 220, 0.22) 86%, transparent); }
+            .v2-versus-div::after { border-color: rgba(148, 163, 220, 0.26); }
+            .v2-versus-card .sub { border-bottom-color: rgba(148, 163, 220, 0.16); }
+            .v2-versus-card .eyebrow { color: #a5b4fc; }
+            .v2-vs-chart .step { stroke: #a5b4fc; }
+            .v2-vs-chart .sim { fill: #a5b4fc; }
+        }
+        @media (max-width: 720px) { .v2-versus-grid { grid-template-columns: 1fr; gap: 1.6rem; } .v2-versus-div { display: none; } }
+        .v2-callout { margin: 1.5rem 0 1.9rem; padding: 1.35rem 1.6rem; border-left: 4px solid var(--accent); border-radius: 0 0.8rem 0.8rem 0; background: rgba(99, 102, 241, 0.07); }
+        .v2-callout p { margin: 0; font-size: 1.28rem; line-height: 1.5; }
+        .v2-callout p + p { margin-top: 0.8rem; }
+
+        /* THE DIVERGENT-CONVERGENT FIGURE — the article's spine, so it leads rather than illustrates.
+           One brief fans out into candidates, the candidates converge on one, that one is refined
+           inside a ring (the same ring the sweep diagram below draws in full), and the design fans
+           out again. The second fan is dashed and faded because it is the NEXT turn, not this one. */
+        .v2-dc { margin: 1.7rem 0 2rem; padding: 1.5rem 1.7rem 1.3rem; border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.05)); }
+        .v2-dc-title { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin: 0 0 0.6rem; }
+        /* Same trick as the loop: the figure has a legibility floor, so it scrolls inside its own
+           box rather than forcing the whole article column wider than the viewport. */
+        .v2-dc-wrap { overflow-x: auto; }
+        .v2-dc-svg { display: block; width: 100%; min-width: 560px; height: auto; }
+        .v2-dc-svg .seed { fill: var(--accent); }
+        .v2-dc-svg .fan { fill: none; stroke: var(--accent); stroke-width: 1.6; opacity: 0.42; }
+        .v2-dc-svg .fan-dim { stroke-dasharray: 6 6; opacity: 0.3; }
+        .v2-dc-svg .glyph rect, .v2-dc-svg .glyph path { fill: var(--surface-raised); stroke: var(--accent); stroke-width: 1.6; stroke-linejoin: round; }
+        .v2-dc-svg .glyph-pick rect, .v2-dc-svg .glyph-pick path { fill: var(--accent-soft); stroke: var(--accent-dark); stroke-width: 2.2; }
+        .v2-dc-svg .glyph-dim rect, .v2-dc-svg .glyph-dim path { opacity: 0.42; }
+        .v2-dc-svg .ring { fill: none; stroke: var(--accent-dark); stroke-width: 2; opacity: 0.5; stroke-dasharray: 9 7; }
+        .v2-dc-svg .head { fill: var(--accent-dark); opacity: 0.9; }
+        .v2-dc-svg .phase { fill: var(--accent-dark); font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; }
+        .v2-dc-svg .sub { fill: var(--text-muted); font-size: 12px; }
+        @media (prefers-color-scheme: dark) {
+            .v2-dc-svg .glyph rect, .v2-dc-svg .glyph path { fill: rgba(148, 163, 220, 0.12); stroke: #a5b4fc; }
+            .v2-dc-svg .glyph-pick rect, .v2-dc-svg .glyph-pick path { fill: rgba(165, 180, 252, 0.28); stroke: #c7d2fe; }
+            .v2-dc-svg .seed, .v2-dc-svg .fan { fill: #a5b4fc; stroke: #a5b4fc; }
+            .v2-dc-svg .ring, .v2-dc-svg .phase { stroke: #a5b4fc; fill: #a5b4fc; }
+            .v2-dc-svg .head { fill: #a5b4fc; }
+        }
+
+        /* THE GUARD TABLE. A search this free needs rules, and the rules are the article's spine —
+           so they get a table rather than a list: the rule, what it forbids, and whether the user
+           can lift it. The "unlock" column is the whole argument in one word per row. */
+        .v2-rules { width: 100%; border-collapse: collapse; margin: 1.5rem 0 1.9rem; font-size: 1.16rem; line-height: 1.5; }
+        .v2-rules caption { caption-side: top; text-align: left; font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); padding-bottom: 0.7rem; }
+        .v2-rules th, .v2-rules td { text-align: left; vertical-align: top; padding: 0.85rem 1rem; border-bottom: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-rules thead th { font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); border-bottom-width: 2px; }
+        .v2-rules tbody th { font-family: var(--font-display); font-weight: 700; color: var(--text); width: 12.5rem; }
+        .v2-rules td { color: var(--text-muted); }
+        .v2-rules .unlock { width: 8.5rem; font-style: italic; }
+        .v2-rules .no { color: #dc2626; font-style: normal; font-weight: 600; }
+        .v2-rules .yes { color: #16a34a; font-style: normal; font-weight: 600; }
+        @media (prefers-color-scheme: dark) { .v2-rules th, .v2-rules td { border-bottom-color: rgba(148, 163, 220, 0.18); } .v2-rules .no { color: #f87171; } .v2-rules .yes { color: #4ade80; } }
+        /* On a phone the three columns stop fitting; the rule becomes a heading over its own row. */
+        @media (max-width: 700px) {
+            .v2-rules, .v2-rules tbody, .v2-rules tr, .v2-rules td, .v2-rules th { display: block; width: auto; }
+            .v2-rules thead { display: none; }
+            .v2-rules tr { padding: 0.6rem 0; border-bottom: 1px solid rgba(15, 23, 42, 0.1); }
+            .v2-rules th, .v2-rules td { border: none; padding: 0.15rem 0; }
+            .v2-rules tbody th { font-size: 1.24rem; }
+            .v2-rules .unlock::before { content: 'Can you lift it? '; font-style: normal; color: var(--text-muted); }
+        }
+
+        /* The step trajectory, shown the way the chat transcript shows it. */
+        .v2-traj { width: 100%; border-collapse: collapse; margin: 1.3rem 0 1.9rem; font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+        .v2-traj caption { caption-side: top; text-align: left; font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); padding-bottom: 0.7rem; }
+        .v2-traj th, .v2-traj td { text-align: left; padding: 0.6rem 0.9rem; border-bottom: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-traj thead th { font-family: var(--font-display); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+        .v2-traj td { color: var(--text-muted); }
+        .v2-traj .kept { color: #16a34a; font-weight: 600; }
+        .v2-traj .rev { color: #dc2626; font-weight: 600; }
+        .v2-traj .num { text-align: right; }
+        @media (prefers-color-scheme: dark) { .v2-traj th, .v2-traj td { border-bottom-color: rgba(148, 163, 220, 0.18); } .v2-traj .kept { color: #4ade80; } .v2-traj .rev { color: #f87171; } }
+        @media (max-width: 700px) { .v2-traj { font-size: 1rem; } .v2-traj th, .v2-traj td { padding: 0.5rem 0.5rem; } }
+    </style>
+</head>
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="SWEEP">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin</span>
+                <h1>AI-Assisted Design Exploration</h1>
+                <p class="v2-tagline">
+                    The design sweep is a way of doing engineering design, not just an optimizer &mdash; and the AI runs both halves
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>Most of what you do with Aladdin&rsquo;s AI Assistant is drafting: you describe a house and it builds one, you ask for a dormer and it cuts one in. The design sweep is something else. It is not a feature for making a model &mdash; it is a way of <em>doing design</em>, and the assistant can run both halves of it.</p>
+
+                    <p>Engineering design has a shape that predates any of this. You open the problem up: you generate alternatives, deliberately different from one another, because the answer you want may not be the first one you thought of. Then you close it down: you compare, you choose, and you refine what you chose. Designers call the two motions divergent and convergent thinking, and the interesting thing about a real design process is that it does not do them once. It fans out, picks, improves, and when the design grows a new question &mdash; a porch, a garage, a different roof &mdash; it fans out again from where it stands.</p>
+
+                    <p>Optimization is only the second motion. It is a wonderful tool and Aladdin has a good one, but a search for a minimum can only ever find the best version of the thing you already handed it. It cannot invent the alternative it was never given. That is why the design sweep is built as both motions rather than as an optimizer with a nice interface.</p>
+
+                    <div class="v2-dc">
+                        <p class="v2-dc-title">The loop the design sweep runs</p>
+                        <div class="v2-dc-wrap">
+                        <svg class="v2-dc-svg" viewBox="0 0 780 348" role="img" aria-label="The divergent-convergent loop: one brief fans out into a handful of candidate houses; the candidates converge on the one you keep; that design is refined step by step; and when the design grows a new question it fans out again.">
+                            <!-- diverge: one brief out to five candidates -->
+                            <circle class="seed" cx="46" cy="165" r="7"/>
+                            <path class="fan" d="M56,165 L178,60"/>
+                            <path class="fan" d="M56,165 L178,112"/>
+                            <path class="fan" d="M56,165 L178,165"/>
+                            <path class="fan" d="M56,165 L178,218"/>
+                            <path class="fan" d="M56,165 L178,270"/>
+                            <!-- converge: the five back down to one -->
+                            <path class="fan" d="M222,60 L370,165"/>
+                            <path class="fan" d="M222,112 L370,165"/>
+                            <path class="fan" d="M222,165 L370,165"/>
+                            <path class="fan" d="M222,218 L370,165"/>
+                            <path class="fan" d="M222,270 L370,165"/>
+                            <!-- the five candidates, each a different massing -->
+                            <g class="glyph"><rect x="189" y="56" width="22" height="16"/><path d="M185,56 L200,45 L215,56 Z"/></g>
+                            <g class="glyph"><rect x="189" y="106" width="22" height="20"/><path d="M185,106 L200,93 L215,106 Z"/></g>
+                            <g class="glyph"><rect x="189" y="161" width="22" height="14"/><path d="M185,161 L200,152 L215,161 Z"/></g>
+                            <g class="glyph"><rect x="189" y="212" width="22" height="22"/><path d="M185,212 L200,198 L215,212 Z"/></g>
+                            <g class="glyph"><rect x="189" y="266" width="22" height="17"/><path d="M185,266 L200,254 L215,266 Z"/></g>
+                            <!-- the one that is kept, and the refinement loop around it -->
+                            <g class="glyph glyph-pick"><rect x="384" y="156" width="32" height="24"/><path d="M378,156 L400,140 L422,156 Z"/></g>
+                            <ellipse class="ring" cx="400" cy="163" rx="62" ry="56"/>
+                            <path class="head" d="M-11,-9 L11,0 L-11,9 Z" transform="translate(404,107) rotate(12)"/>
+                            <!-- diverge again: dashed, out of the refined design -->
+                            <path class="fan fan-dim" d="M468,150 L648,96"/>
+                            <path class="fan fan-dim" d="M468,163 L648,165"/>
+                            <path class="fan fan-dim" d="M468,176 L648,234"/>
+                            <g class="glyph glyph-dim"><rect x="659" y="92" width="22" height="18"/><path d="M655,92 L670,80 L685,92 Z"/></g>
+                            <g class="glyph glyph-dim"><rect x="659" y="161" width="22" height="15"/><path d="M655,161 L670,151 L685,161 Z"/></g>
+                            <g class="glyph glyph-dim"><rect x="659" y="230" width="22" height="21"/><path d="M655,230 L670,216 L685,230 Z"/></g>
+                            <!-- phase labels -->
+                            <text class="phase" x="140" y="322" text-anchor="middle">DIVERGE</text>
+                            <text class="sub" x="140" y="339" text-anchor="middle">a handful of candidates, one brief</text>
+                            <text class="phase" x="316" y="322" text-anchor="middle">CONVERGE</text>
+                            <text class="sub" x="316" y="339" text-anchor="middle">by score, or by eye</text>
+                            <text class="phase" x="470" y="322" text-anchor="middle">REFINE</text>
+                            <text class="sub" x="470" y="339" text-anchor="middle">one measured edit at a time</text>
+                            <text class="phase" x="660" y="322" text-anchor="middle">DIVERGE AGAIN</text>
+                            <text class="sub" x="660" y="339" text-anchor="middle">when the design grows a question</text>
+                        </svg>
+                        </div>
+                    </div>
+
+                    <p>The two motions are two tools, and they are deliberately not the same tool, because they answer to different masters. One generates and refuses to rank; the other ranks and refuses to invent.</p>
+
+                    <h2>Diverging: many houses from one brief</h2>
+
+                    <p>Ask for an exploration and the assistant generates a handful of <em>independent</em> candidate designs for a single brief &mdash; up to six of them &mdash; and stands them all up in your scene at once, side by side, so you can walk around the whole search rather than being handed a conclusion.</p>
+
+                    <p>Three things about that turn out to matter, and all three only showed up once it was built.</p>
+
+                    <p><strong>Variation has to be asked for.</strong> Left alone, a model given the same brief six times returns six near-identical buildings; the brief is doing all the work and there is nothing in the request that rewards being different. So each generation prompt carries a digest of the candidates already made and an explicit instruction to differ from them structurally. It is the same feed-the-history trick the refinement loop uses on its trajectory, pointed at diversity instead of progress.</p>
+
+                    <p><strong>The row has a geometry.</strong> Candidates are laid out in an east&ndash;west row, twenty metres apart and well clear of anything already in the scene. Shadows at these latitudes point north, so a north&ndash;south column would stand each candidate in its neighbour&rsquo;s shade &mdash; a two-storey house throws a midwinter noon shadow around twenty-two metres long, and a row that scored one candidate in the shade of another would be measuring the layout instead of the designs.</p>
+
+                    <p><strong>And the whole row is scored by one simulation.</strong> A single yearly run reports per-building totals, so six candidates standing together cost one simulation rather than six. That is what makes generating a population affordable inside a conversation.</p>
+
+                    <h2>Two ways to judge, and one of them is not a number</h2>
+
+                    <p>This is the part that makes the sweep a design method rather than an optimizer with extra steps. An exploration can be judged two ways, and you choose which when you ask for it.</p>
+
+                    <p><strong>By energy.</strong> One yearly simulation scores every candidate, lowest net energy wins, and the winner is picked for you. This is the convergent motion in its purest form: a scalar, an argmin, a result.</p>
+
+                    <p><strong>By form.</strong> No simulation. No score. No automatic winner. The candidates are generated for architectural variety, left standing side by side, and <em>you</em> pick the one you like.</p>
+
+                    <p>The second mode exists because of the order real people design in. A house nobody wants to live in does not become more wanted by being efficient, so ranking by kilowatt-hours before the form is settled spends the whole run &mdash; and the yearly simulation is most of its wall clock &mdash; answering a question nobody is asking yet. Beauty has no scalar. Rather than invent one, the loop generates the diversity and hands the judgement back to you.</p>
+
+                    <div class="v2-callout">
+                        <p>That refusal is the design principle of the divergent half, and it is the mirror image of the principle that governs the convergent half further down this page. One tool must not invent a number where none exists. The other must not cheat the number it has.</p>
+                    </div>
+
+                    <h2>Converging: choosing one</h2>
+
+                    <p>Convergence is a decision, not necessarily an arithmetic. Every candidate an exploration produces is recorded on your file as a design series: a compact row of entries under the assistant&rsquo;s message, each one opening a real interactive 3D preview you can orbit, with its score breakdown if it was scored, and a Restore button that puts that design into the scene at full size.</p>
+
+                    <p>Because the candidates live on the file rather than only in the scene, the losers are not lost when the row comes down &mdash; and the scene goes back to showing one design, so a saved file never accidentally contains a comparison row. When you do want them side by side again, compare mode rebuilds the whole row from the stored geometry on demand and throws it away when you are done. It is scaffolding, deliberately: every element it adds is dropped by the file exporter, so a comparison cannot leak into a saved document even if you save in the middle of one.</p>
+
+                    <p>Then you keep the one you want, and the second motion begins.</p>
+
+                    <h2>Refining: the optimizer with no dials</h2>
+
+                    <p>Now the objective comes back. Point the sweep at the design you kept and it hill-climbs: simulate, change <em>one</em> thing, simulate again, keep the change only if net energy actually fell, and roll it back if it did not.</p>
+
+                    <div class="v2-sweep">
+                        <p class="v2-sweep-title">How a design sweep runs</p>
+                        <div class="v2-loop-wrap">
+                        <svg class="v2-loop" viewBox="70 25 660 450" role="img" aria-label="The design sweep loop: evaluate by simulating a day out of each month, revise one lever, re-evaluate the same way, then keep or roll back — and round again for the next step.">
+                            <!-- the ring, drawn behind the cards: four arcs of one ellipse with a head on each quarter -->
+                            <ellipse class="ring" cx="400" cy="250" rx="195" ry="165"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(537.9,133.3) rotate(40.2)"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(537.9,366.7) rotate(139.8)"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(262.1,366.7) rotate(220.2)"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(262.1,133.3) rotate(319.8)"/>
+
+                            <!-- the hub: a small circular arrow, because the whole point is that it comes back round -->
+                            <path class="ring" style="stroke-dasharray:none; opacity:0.55" d="M388.4,253.9 A34,34 0 1 1 411.6,253.9"/>
+                            <path class="head" d="M-8,-6.5 L8,0 L-8,6.5 Z" transform="translate(411.6,253.9) rotate(160)"/>
+                            <text class="hub" x="400" y="292" text-anchor="middle">ONE LAP</text>
+                            <text class="hub" x="400" y="310" text-anchor="middle">= ONE STEP</text>
+
+                            <!-- 1. simulate -->
+                            <rect class="card" x="280" y="39" width="240" height="92" rx="14"/>
+                            <circle cx="308" cy="69" r="15" fill="#6366f1"/>
+                            <text class="num" x="308" y="74" text-anchor="middle">1</text>
+                            <text class="name" x="332" y="75">Evaluate</text>
+                            <text class="desc" x="300" y="99">The year sampled a day per month,</text>
+                            <text class="desc" x="300" y="117">hour by hour. Solar credited.</text>
+
+                            <!-- 2. revise -->
+                            <rect class="card" x="475" y="204" width="240" height="92" rx="14"/>
+                            <circle cx="503" cy="234" r="15" fill="#4f6cf0"/>
+                            <text class="num" x="503" y="239" text-anchor="middle">2</text>
+                            <text class="name" x="527" y="240">Revise</text>
+                            <text class="desc" x="495" y="264">Change one lever: glazing,</text>
+                            <text class="desc" x="495" y="282">insulation, orientation, panels.</text>
+
+                            <!-- 3. re-simulate -->
+                            <rect class="card" x="280" y="369" width="240" height="92" rx="14"/>
+                            <circle cx="308" cy="399" r="15" fill="#2b8ae0"/>
+                            <text class="num" x="308" y="404" text-anchor="middle">3</text>
+                            <text class="name" x="332" y="405">Re&#8209;evaluate</text>
+                            <text class="desc" x="300" y="429">The same days simulated again, so</text>
+                            <text class="desc" x="300" y="447">the two numbers are comparable.</text>
+
+                            <!-- 4. keep or roll back -->
+                            <rect class="card" x="85" y="204" width="240" height="92" rx="14"/>
+                            <circle cx="113" cy="234" r="15" fill="#0ea5e9"/>
+                            <text class="num" x="113" y="239" text-anchor="middle">4</text>
+                            <text class="name" x="137" y="240">Keep or roll back</text>
+                            <text class="desc" x="105" y="264">Better by a real margin, or it</text>
+                            <text class="desc" x="105" y="282">never happened.</text>
+                        </svg>
+                        </div>
+                        <!-- The narrow-screen ring, and the ONLY diagram a phone renders. Same four
+                             steps, same paint classes, stacked instead of orbited: the loop closes
+                             as a dashed path up the right gutter and back into step 1. Its own
+                             aria-label carries the sequence, since the wide ring's goes dark with
+                             it at this width. -->
+                        <svg class="v2-loop v2-loop-portrait" viewBox="0 0 360 588" role="img" aria-label="The design sweep loop: evaluate by simulating a day out of each month, revise one lever, re-evaluate the same way, then keep or roll back — and round again for the next step.">
+                            <!-- the return: out of step 4, up the gutter, back into step 1 -->
+                            <path class="ring" d="M308,476 H334 V56 H330"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(318,56) rotate(180)"/>
+
+                            <!-- 1. evaluate -->
+                            <rect class="card" x="8" y="12" width="300" height="88" rx="13"/>
+                            <circle cx="40" cy="42" r="15" fill="#6366f1"/>
+                            <text class="num" x="40" y="47" text-anchor="middle">1</text>
+                            <text class="name" x="64" y="48">Evaluate</text>
+                            <text class="desc" x="28" y="74">The year sampled a day per month,</text>
+                            <text class="desc" x="28" y="92">hour by hour. Solar credited.</text>
+                            <path class="ring" d="M158,108 V132"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(158,146) rotate(90)"/>
+
+                            <!-- 2. revise -->
+                            <rect class="card" x="8" y="152" width="300" height="88" rx="13"/>
+                            <circle cx="40" cy="182" r="15" fill="#4f6cf0"/>
+                            <text class="num" x="40" y="187" text-anchor="middle">2</text>
+                            <text class="name" x="64" y="188">Revise</text>
+                            <text class="desc" x="28" y="214">Change one lever: glazing,</text>
+                            <text class="desc" x="28" y="232">insulation, orientation, panels.</text>
+                            <path class="ring" d="M158,248 V272"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(158,286) rotate(90)"/>
+
+                            <!-- 3. re-evaluate -->
+                            <rect class="card" x="8" y="292" width="300" height="88" rx="13"/>
+                            <circle cx="40" cy="322" r="15" fill="#2b8ae0"/>
+                            <text class="num" x="40" y="327" text-anchor="middle">3</text>
+                            <text class="name" x="64" y="328">Re&#8209;evaluate</text>
+                            <text class="desc" x="28" y="354">The same days simulated again,</text>
+                            <text class="desc" x="28" y="372">so the two numbers compare.</text>
+                            <path class="ring" d="M158,388 V412"/>
+                            <path class="head" d="M-10,-8 L10,0 L-10,8 Z" transform="translate(158,426) rotate(90)"/>
+
+                            <!-- 4. keep or roll back -->
+                            <rect class="card" x="8" y="432" width="300" height="88" rx="13"/>
+                            <circle cx="40" cy="462" r="15" fill="#0ea5e9"/>
+                            <text class="num" x="40" y="467" text-anchor="middle">4</text>
+                            <text class="name" x="64" y="468">Keep or roll back</text>
+                            <text class="desc" x="28" y="494">Better by a real margin, or it</text>
+                            <text class="desc" x="28" y="512">never happened.</text>
+
+                            <text class="hub" x="158" y="562" text-anchor="middle">ONE LAP = ONE STEP</text>
+                        </svg>
+                    </div>
+
+
+                    <p><strong>Evaluate.</strong> The engine runs over the building and records one number: net energy, meaning heating plus cooling minus whatever the rooftop panels generate. A yearly evaluation samples twelve representative days &mdash; the 22nd of each month, hour by hour &mdash; which is what makes a step cost seconds rather than minutes.</p>
+
+                    <p><strong>Revise.</strong> The model is handed a compact description of the current design and asked for exactly one concrete change. It gets four rounds to make it: read the scene, call one editing tool, say what it did. It may not run a simulation of its own &mdash; the loop owns the measurement &mdash; and it may not start another sweep inside this one.</p>
+
+                    <p><strong>Re-evaluate.</strong> The same days are simulated again on the revised geometry, so the two numbers are comparable. The renderer is given a frame to publish the new geometry first; a simulation of a half-built roof would be worse than no simulation at all.</p>
+
+                    <p><strong>Keep or roll back.</strong> The revision has to beat the current best by a real margin, not by rounding noise: two tenths of a percent of the baseline, or half a kilowatt-hour, whichever is larger. Clear it and the revision becomes the new base. Miss it and the design is restored from a snapshot taken before the edit, and the model is told what failed &mdash; so the next step tries a different lever instead of walking back into the same dead end.</p>
+
+                    <p>Then round again, up to eight steps, stopping early on convergence or on the time budget you gave it. Because each step revises the current best, the trajectory only ever improves, and the scene is left at the single best design found rather than at whatever the last step happened to try.</p>
+
+                    <h2>What proposes the move</h2>
+
+                    <p>There is no list of parameters to sweep and no numeric solver hunting through them. The thing suggesting the next move is the language model, reasoning about <em>this</em> house in <em>this</em> climate &mdash; that the west glazing is what bakes the upstairs, that the overhang is too short to shade a south window in July. The loop supplies the discipline, the measurement and the veto; the model supplies the ideas.</p>
+
+                    <p>Aladdin has shipped the classical kind of search for years &mdash; a genetic algorithm and a particle swarm, used to lay out solar panel arrays and find tilt angles. They are a useful mirror, because they fail in the opposite direction.</p>
+
+                    <div class="v2-versus">
+                        <p class="v2-versus-title">Two ways to search a design space</p>
+                        <div class="v2-versus-rule" aria-hidden="true"></div>
+                        <div class="v2-versus-grid">
+                            <div class="v2-versus-card">
+                                <span class="eyebrow">The classical way</span>
+                                <h4>An evolutionary algorithm</h4>
+                                <span class="sub">Genetic algorithms and particle swarms &mdash; what Aladdin itself uses to lay out a solar farm.</span>
+                                <svg class="v2-vs-chart" viewBox="0 0 340 200" role="img" aria-label="Schematic: net energy versus simulations for an evolutionary algorithm. Each generation is a cloud of guesses; the clouds drift down toward the best design over thousands of simulations.">
+                                    <path class="axis" d="M38,14 V168 H328"/>
+                                    <text class="lbl" transform="translate(15,91) rotate(-90)" text-anchor="middle">net energy</text>
+                                    <text class="lbl" x="183" y="188" text-anchor="middle">simulations &mdash; thousands of them</text>
+                                    <line class="tgt" x1="38" y1="152" x2="328" y2="152"/>
+                                    <text class="tgtlbl" x="44" y="146">best found</text>
+                                    <path class="drift" d="M72,48 C112,64 142,88 176,102 S244,134 280,146"/>
+                                    <!-- generation 1: a wide cloud of guesses, high on the energy axis -->
+                                    <g>
+                                        <circle class="dot" cx="57" cy="40" r="2.5"/><circle class="dot" cx="67" cy="51" r="2.5"/><circle class="dot" cx="78" cy="36" r="2.5"/><circle class="dot" cx="86" cy="54" r="2.5"/><circle class="dot" cx="72" cy="60" r="2.5"/><circle class="dot" cx="60" cy="58" r="2.5"/><circle class="dot" cx="82" cy="44" r="2.5"/><circle class="dot" cx="70" cy="32" r="2.5"/><circle class="dot" cx="88" cy="38" r="2.5"/>
+                                    </g>
+                                    <g>
+                                        <circle class="dot" cx="109" cy="68" r="2.5"/><circle class="dot" cx="119" cy="79" r="2.5"/><circle class="dot" cx="130" cy="64" r="2.5"/><circle class="dot" cx="138" cy="82" r="2.5"/><circle class="dot" cx="124" cy="88" r="2.5"/><circle class="dot" cx="112" cy="86" r="2.5"/><circle class="dot" cx="134" cy="72" r="2.5"/><circle class="dot" cx="122" cy="60" r="2.5"/><circle class="dot" cx="140" cy="66" r="2.5"/>
+                                    </g>
+                                    <g>
+                                        <circle class="dot" cx="161" cy="94" r="2.5"/><circle class="dot" cx="171" cy="105" r="2.5"/><circle class="dot" cx="182" cy="90" r="2.5"/><circle class="dot" cx="190" cy="108" r="2.5"/><circle class="dot" cx="176" cy="114" r="2.5"/><circle class="dot" cx="164" cy="112" r="2.5"/><circle class="dot" cx="186" cy="98" r="2.5"/><circle class="dot" cx="174" cy="86" r="2.5"/><circle class="dot" cx="192" cy="92" r="2.5"/>
+                                    </g>
+                                    <g>
+                                        <circle class="dot" cx="213" cy="118" r="2.5"/><circle class="dot" cx="223" cy="129" r="2.5"/><circle class="dot" cx="234" cy="114" r="2.5"/><circle class="dot" cx="242" cy="132" r="2.5"/><circle class="dot" cx="228" cy="136" r="2.5"/><circle class="dot" cx="216" cy="134" r="2.5"/><circle class="dot" cx="238" cy="122" r="2.5"/><circle class="dot" cx="226" cy="110" r="2.5"/><circle class="dot" cx="244" cy="116" r="2.5"/>
+                                    </g>
+                                    <!-- generation n: a tight cloud settled onto the best-found line -->
+                                    <g>
+                                        <circle class="dot" cx="268" cy="141" r="2.5"/><circle class="dot" cx="276" cy="149" r="2.5"/><circle class="dot" cx="285" cy="138" r="2.5"/><circle class="dot" cx="292" cy="150" r="2.5"/><circle class="dot" cx="281" cy="155" r="2.5"/><circle class="dot" cx="270" cy="153" r="2.5"/><circle class="dot" cx="288" cy="144" r="2.5"/><circle class="dot" cx="280" cy="133" r="2.5"/><circle class="dot" cx="296" cy="142" r="2.5"/>
+                                    </g>
+                                    <text class="steplbl" x="72" y="24" text-anchor="middle">generation 1</text>
+                                    <text class="steplbl" x="291" y="123" text-anchor="middle">generation n</text>
+                                </svg>
+                                <ul>
+                                    <li><strong>A fixed list of numbers</strong>Chosen in advance and bounded: tilt angle, row spacing, rows per rack.</li>
+                                    <li><strong>Blind moves</strong>Random resets and recombination. The operator has no idea what a wall is.</li>
+                                    <li><strong>Paid for in volume</strong>Which is why it needs a population and thousands of cheap evaluations.</li>
+                                </ul>
+                            </div>
+                            <div class="v2-versus-div" aria-hidden="true"></div>
+                            <div class="v2-versus-card">
+                                <span class="eyebrow">The way here</span>
+                                <h4>The design sweep</h4>
+                                <span class="sub">The assistant refining a house you have already built.</span>
+                                <svg class="v2-vs-chart" viewBox="0 0 340 200" role="img" aria-label="Schematic: net energy versus simulations for the design sweep. A staircase of about a dozen reasoned edits steps down to the best design; one edit that made things worse is shown dashed and rolled back.">
+                                    <path class="axis" d="M38,14 V168 H328"/>
+                                    <text class="lbl" transform="translate(15,91) rotate(-90)" text-anchor="middle">net energy</text>
+                                    <text class="lbl" x="183" y="188" text-anchor="middle">simulations &mdash; about a dozen</text>
+                                    <line class="tgt" x1="38" y1="152" x2="328" y2="152"/>
+                                    <text class="tgtlbl" x="44" y="146">best found</text>
+                                    <!-- each riser is ONE reasoned edit; each landing is one simulation -->
+                                    <path class="step" d="M48,40 H92 V72 H140 V98 H210 V124 H258 V146 H322"/>
+                                    <circle class="sim" cx="48" cy="40" r="3"/>
+                                    <circle class="sim" cx="92" cy="72" r="3"/>
+                                    <circle class="sim" cx="140" cy="98" r="3"/>
+                                    <circle class="sim" cx="210" cy="124" r="3"/>
+                                    <circle class="sim" cx="258" cy="146" r="3"/>
+                                    <text class="steplbl" x="97" y="62">glazing</text>
+                                    <text class="steplbl" x="135" y="89" text-anchor="end">insulation</text>
+                                    <text class="steplbl" x="215" y="115">orientation</text>
+                                    <text class="steplbl" x="263" y="139">panels</text>
+                                    <!-- the edit that made things WORSE: tried, measured, and rolled back -->
+                                    <path class="bad" d="M162,98 h16 v-13"/>
+                                    <path class="badx" d="M174,77 l8,8 M182,77 l-8,8"/>
+                                    <text class="badlbl" x="190" y="85">worse &mdash; rolled back</text>
+                                </svg>
+                                <ul>
+                                    <li><strong>No parameter list</strong>A move is any edit it could make by hand: glazing, insulation, an overhang, the orientation, panels on the roof.</li>
+                                    <li><strong>Reasoned moves</strong>The model reads this house in this climate and picks the lever it expects to pay.</li>
+                                    <li><strong>Paid for in judgment</strong>So a dozen simulations are enough &mdash; and each step comes back explained.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>One searches widely because it cannot think; the other searches narrowly because it can. They are good at different jobs: the genetic algorithm where the variables are known and an evaluation is cheap, the sweep where the hard part is knowing <em>which</em> variable to touch.</p>
+
+                    <h2>The dial list that is not there</h2>
+
+                    <p><strong>Every building optimizer before this one searched a space somebody parameterized in advance.</strong> You decide beforehand that the variables are the tilt angle, the row spacing, the window-to-wall ratio; you give each a range; the solver moves those dials and nothing else. Expose no dial for the roof shape and no amount of searching will ever try a hip roof.</p>
+
+                    <p>The sweep has no dial list. A move is any edit the assistant could make by hand &mdash; change the roof type, add dormers, cut in skylights, deepen an overhang, re-glaze the south face, rotate the building, lay out a solar array, upgrade the heat pump &mdash; so the search can change what the design <em>is</em>, not merely how big its parts are. That is a door no slider box opens.</p>
+
+                    <h2>The rules a search this free has to carry</h2>
+
+                    <p>Opening the move set that wide creates a problem nobody had to solve before. A search that can make any edit will find the dishonest wins. The fastest way to cut a heating bill is a smaller house with fewer windows; the second fastest is to stop heating it so warmly; the third is to write down an air-conditioner that does not exist. A dial-based optimizer cannot cheat in any of those ways unless you hand it the dial &mdash; <strong>the parameterization <em>was</em> the ethics.</strong> Take the parameterization away and the ethics has to be built back in explicitly.</p>
+
+                    <table class="v2-rules">
+                        <caption>What the sweep may not do, and why</caption>
+                        <thead>
+                            <tr><th scope="col">The rule</th><th scope="col">What it stops</th><th scope="col" class="unlock">Can you lift it?</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Keep the house</th>
+                                <td>A revision may not cut the conditioned floor area, not by more than a rounding error. Shrinking the building lowers the number without improving anything, and the objective is supposed to compare the same house with itself.</td>
+                                <td class="unlock"><span class="no">No</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Leave the thermostat alone</th>
+                                <td>Setpoints are the <em>service</em> the building delivers, not part of its design. Widen the comfort band and you save energy by being colder in winter and warmer in summer &mdash; the before and after are no longer the same house keeping you equally comfortable.</td>
+                                <td class="unlock"><span class="yes">Yes</span> &mdash; ask for it</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Buy equipment that exists</th>
+                                <td>Cooling electricity is the load divided by the air-conditioner&rsquo;s coefficient of performance, so a single revision claiming a COP of 25 divides most of the objective away with a number rather than a building. What may be specified is capped at the best product on the market.</td>
+                                <td class="unlock"><span class="no">No</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Do not redefine the job</th>
+                                <td>A revision may not build a second house, open another file, load an example, or start a sweep inside the sweep. It may not run a simulation either: the loop owns the measurement, so no step can score itself.</td>
+                                <td class="unlock"><span class="no">No</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>The thermostat rule is the one worth dwelling on, because the point of it is not that the lever is illegitimate. A night setback is a standard, sensible energy measure and a perfectly good thing to study. The point is that <em>the optimizer must not choose it on your behalf</em> and then quote the result as though the building had got better. So say <em>&ldquo;try a night setback&rdquo;</em> and the guard stands down for that run &mdash; and the report then tells you, separately, how much of the saving was the building and how much was the extra sweater.</p>
+
+                    <p>The equipment rule works differently, and the difference is instructive. Buying a better machine <em>is</em> a real design decision: swapping electric resistance for a heat pump is exactly the retrofit an energy study should be free to propose, and the house still delivers the same comfort afterwards. So this is a ceiling rather than a ban. Honest upgrades pass untouched, a fantasy machine is rejected before it is ever scored, and whatever the winning design did buy is disclosed in the report &mdash; because a saving that arrives with a new machine and its price tag should not read as a fabric improvement. And unlike the thermostat, it has no unlock: no phrasing you could type makes a COP&nbsp;40 chiller purchasable, so an unlock would only let the search launder an impossible number through a stray wording.</p>
+
+                    <p>An optimizer that cannot make you colder to flatter its own number is the design principle here, and it is one this generation of tools is going to need.</p>
+
+                    <h2>What comes back</h2>
+
+                    <p>A multi-minute search that leaves behind only a paragraph of prose is not much use half an hour later, so the sweep writes its trajectory into the transcript: one row per step, what it tried, what the meter read, and whether it survived.</p>
+
+                    <table class="v2-traj">
+                        <caption>A trajectory, as the transcript records it</caption>
+                        <thead>
+                            <tr><th scope="col">Step</th><th scope="col">What it changed</th><th scope="col" class="num">Net kWh</th><th scope="col">Outcome</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>0</td><td>baseline</td><td class="num">9,140</td><td>&mdash;</td></tr>
+                            <tr><td>1</td><td>Triple-glazed the west and south windows</td><td class="num">8,610</td><td class="kept">kept</td></tr>
+                            <tr><td>2</td><td>Raised the roof insulation</td><td class="num">8,290</td><td class="kept">kept</td></tr>
+                            <tr><td>3</td><td>Deepened the south overhang to 1.2 m</td><td class="num">8,315</td><td class="rev">reverted</td></tr>
+                            <tr><td>4</td><td>Laid out a solar array on the south roof</td><td class="num">6,880</td><td class="kept">kept</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>Alongside it comes the arithmetic that matters: the baseline, the best design found, the kilowatt-hours saved and the percentage, how many revisions were accepted, and which levers turned out to be dead ends. If the scene held more than one house, the report names the one these figures are about &mdash; scoring the sum of every building in the scene would quietly ruin both the percentage and the comparison. If the run stopped early it says so, and says plainly that this is not a finished optimization. And if the thermostat was opened or the plant was upgraded, that is called out separately from the headline number rather than folded into it.</p>
+
+                    <p>These are not decorative figures. Aladdin&rsquo;s building-energy engine is checked against <a href="aladdin-bestest-validation.html">ASHRAE Standard 140 (BESTEST)</a>, the reference suite whole-building simulation programs are validated with &mdash; the same bar the professional tools are held to.</p>
+
+                    <h2>Diverging again</h2>
+
+                    <p>A hill-climb has a horizon, and it is worth being blunt about where it is. The sweep takes the best single edit it can find at each step and never backtracks past a decision it has banked, so it converges on a good version of the house you gave it. It will not discover that the whole thing wanted to be an L-plan.</p>
+
+                    <p>That is not a defect to be engineered away; it is the reason the method has a second motion. When the refined design raises a new question &mdash; how should the porch go, what happens if this becomes two storeys, which of four roofs suits it &mdash; you go back up and fan out again, this time from everything you have already settled. The brief for the second exploration is richer than the brief for the first, because it carries the decisions you made in between. Compare the new candidates, keep one, refine it, and the design has climbed a level rather than a slope.</p>
+
+                    <p>Run it a few times and the shape of the thing becomes obvious: a spiral rather than a loop. Each turn is a diverge and a converge, and each turn starts from a design that is more decided than the last.</p>
+
+                    <h2>Where this sits</h2>
+
+                    <p>Both halves have a lineage, and they are good ones. Optimizing a building by simulating it, changing something and simulating again is how the field has worked for decades &mdash; NREL&rsquo;s BEopt, Berkeley Lab&rsquo;s GenOpt, jEPlus over EnergyPlus, Galapagos and Octopus in Grasshopper, generative design inside Revit. Letting a language model do the proposing has its own line of research, from <em>Evolution through Large Models</em> and OPRO to FunSearch and Eureka: propose, measure, feed the scored history back, keep what survives. And divergent generation is the oldest idea in design methods, going back to the design-methods movement of the 1960s and running through every ideation tool since.</p>
+
+                    <p>What has been missing is the pairing. The generative tools generate and do not measure; the optimizers measure and cannot generate; and the two have historically lived in different programs, with an export in between. Here they are two tools over one scene, sharing one representation, so the output of the divergent motion <em>is</em> the input of the convergent one with nothing in between to translate.</p>
+
+                    <p>The setting does the rest. The evaluator lives in the same program as the geometry, so there is no export, no intermediate file and no batch job &mdash; which is why a whole turn of the spiral fits inside a conversation. The search edits your actual scene and can undo, so what comes back is a better house, not a table of numbers to rebuild from. And it begins with a sentence: the professional tools in this space are excellent and every one of them assumes an expert with a configuration file, while here a fifteen-year-old types <em>optimize this house</em> and watches it happen.</p>
+
+                    <h2>What it does not do yet</h2>
+
+                    <p>The convergent objective is still energy alone. That is the axis the simulator measures directly, and it is the right first one, but it is not the only thing a design decision trades against.</p>
+
+                    <div class="v2-callout">
+                        <p>Cost is the next axis &mdash; what a suggestion is worth against what it is worth paying for &mdash; and the same loop takes it without changing shape: the evaluator returns two numbers instead of one, and the accept test becomes a trade rather than a comparison.</p>
+                    </div>
+
+                    <p>The divergent half has its own frontier. Today an exploration generates independent candidates for a brief; the natural next step is variation on a design already settled &mdash; five gardens for one house, four roofs for one plan &mdash; which is a different generative problem from five houses for one site, and the one the second turn of the spiral asks for most often.</p>
+
+                    <p>To see the sweep in the context of actually designing something, it appears near the end of <a href="aladdin-dream-home.html">Designing Your Dream Home with AI</a>, after the house has been built, furnished and planted. There is a wider tour of what the assistant can be asked to reason about in <a href="aladdin-llm-sim.html">An AI-Aided Engineering Design Loop</a>, and the modelling side of it in <a href="aladdin-llm-cad.html">Using LLMs to Create 3D Models in Aladdin</a>.</p>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
