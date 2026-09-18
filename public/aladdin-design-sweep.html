@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Assisted Design Exploration — Institute for Future Intelligence</title>
-    <meta name="description" content="The design sweep in Aladdin is not just an optimizer. It is a divergent-convergent design method the AI runs with you: fan out into a handful of candidate houses, converge on one by score or by eye, refine it with measured edits, and fan out again when the design grows a new question.">
+    <meta name="description" content="The design sweep in Aladdin is not just an optimizer. It is a divergent-convergent design method the AI runs with you: fan out into a handful of candidate houses, converge on one by score or by eye, refine it with measured edits — against one objective or several, with a Pareto front of energy, cost, living area and payback — and fan out again when the design grows a new question. The same loop sweeps a solar farm, a wind farm or a concentrated solar plant.">
 
     <style>
         @import url("css/system.base.css");
@@ -175,6 +175,23 @@
             .v2-rules .unlock::before { content: 'Can you lift it? '; font-style: normal; color: var(--text-muted); }
         }
 
+        /* THE PARETO FIGURE: every design the sweep scored, on two axes at once. Kept designs sit
+           on the front (joined, stepwise, because between two points there is no design), the knee
+           is starred, the dominated ones are hollow — the same marks the chat card draws. */
+        .v2-pf { margin: 1.7rem 0 2rem; padding: 1.5rem 1.7rem 1.3rem; border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.05)); }
+        .v2-pf-title { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin: 0 0 0.6rem; }
+        .v2-pf-svg { display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto; }
+        .v2-pf-svg .axis { stroke: var(--text-muted); stroke-width: 1.2; opacity: 0.5; fill: none; }
+        .v2-pf-svg .lbl { fill: var(--text-muted); font-size: 12px; }
+        .v2-pf-svg .front { stroke: var(--accent-dark); stroke-width: 2.2; fill: none; stroke-linejoin: round; }
+        .v2-pf-svg .on { fill: var(--accent-dark); }
+        .v2-pf-svg .off { fill: var(--surface-raised); stroke: var(--accent); stroke-width: 1.6; opacity: 0.8; }
+        .v2-pf-svg .knee { fill: #f59e0b; stroke: #b45309; stroke-width: 1.2; }
+        .v2-pf-svg .base { fill: none; stroke: var(--accent-dark); stroke-width: 2; }
+        .v2-pf-svg .note { fill: var(--text-muted); font-size: 11.5px; }
+        .v2-pf-svg .note-k { fill: #b45309; font-size: 11.5px; font-weight: 600; }
+        @media (prefers-color-scheme: dark) { .v2-pf-svg .front, .v2-pf-svg .base { stroke: #a5b4fc; } .v2-pf-svg .on { fill: #a5b4fc; } .v2-pf-svg .off { stroke: #a5b4fc; } .v2-pf-svg .note-k { fill: #fbbf24; } }
+
         /* The step trajectory, shown the way the chat transcript shows it. */
         .v2-traj { width: 100%; border-collapse: collapse; margin: 1.3rem 0 1.9rem; font-size: 1.1rem; font-variant-numeric: tabular-nums; }
         .v2-traj caption { caption-side: top; text-align: left; font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); padding-bottom: 0.7rem; }
@@ -183,8 +200,11 @@
         .v2-traj td { color: var(--text-muted); }
         .v2-traj .kept { color: #16a34a; font-weight: 600; }
         .v2-traj .rev { color: #dc2626; font-weight: 600; }
+        .v2-traj .front { color: #4f46e5; font-weight: 600; }
+        .v2-traj .knee { color: #b45309; font-weight: 600; }
+        .v2-traj .dom { color: var(--text-muted); font-style: italic; }
         .v2-traj .num { text-align: right; }
-        @media (prefers-color-scheme: dark) { .v2-traj th, .v2-traj td { border-bottom-color: rgba(148, 163, 220, 0.18); } .v2-traj .kept { color: #4ade80; } .v2-traj .rev { color: #f87171; } }
+        @media (prefers-color-scheme: dark) { .v2-traj th, .v2-traj td { border-bottom-color: rgba(148, 163, 220, 0.18); } .v2-traj .kept { color: #4ade80; } .v2-traj .rev { color: #f87171; } .v2-traj .front { color: #a5b4fc; } .v2-traj .knee { color: #fbbf24; } }
         @media (max-width: 700px) { .v2-traj { font-size: 1rem; } .v2-traj th, .v2-traj td { padding: 0.5rem 0.5rem; } }
     </style>
 </head>
@@ -198,7 +218,7 @@
                 <span class="v2-eyebrow">Aladdin</span>
                 <h1>AI-Assisted Design Exploration</h1>
                 <p class="v2-tagline">
-                    The design sweep is a way of doing engineering design, not just an optimizer &mdash; and the AI runs both halves
+                    The design sweep is a way of doing engineering design, not just an optimizer &mdash; the AI runs both halves, and it can trade energy against cost, living area and payback on a Pareto front
                 </p>
             </div>
         </header>
@@ -300,7 +320,7 @@
 
                     <h2>Refining: the optimizer with no dials</h2>
 
-                    <p>Now the objective comes back. Point the sweep at the design you kept and it hill-climbs: simulate, change <em>one</em> thing, simulate again, keep the change only if net energy actually fell, and roll it back if it did not.</p>
+                    <p>Now the objective comes back. Point the sweep at the design you kept and it hill-climbs: simulate, change <em>one</em> thing, simulate again, keep the change only if net energy actually fell, and roll it back if it did not. That is the single-objective form of the loop. Give it two objectives &mdash; energy and cost, say &mdash; and the same four steps run, but the fourth step stops asking <em>is it better?</em> and asks <em>is it a trade nobody has beaten yet?</em> That form gets its own section further down.</p>
 
                     <div class="v2-sweep">
                         <p class="v2-sweep-title">How a design sweep runs</p>
@@ -506,6 +526,8 @@
 
                     <p>The sweep has no dial list. A move is any edit the assistant could make by hand &mdash; change the roof type, add dormers, cut in skylights, deepen an overhang, re-glaze the south face, rotate the building, lay out a solar array, upgrade the heat pump &mdash; so the search can change what the design <em>is</em>, not merely how big its parts are. That is a door no slider box opens.</p>
 
+                    <p>What it does have is a vocabulary. The moves a house sweep may make fall into twelve named <em>levers</em> &mdash; wall insulation, roof insulation, airtightness, glazing performance, window area, shading (a porch, a portico, a recessed entry, trees, shutters), roof form, orientation, skylights, on-site solar, the HVAC plant and the thermostat &mdash; and floor area as a thirteenth when you put it on the table. A lever is not a dial. It names a <em>kind</em> of edit and the tools that may make it, not a number and a range: &ldquo;shading&rdquo; may add a porch or plant a tree, and the model decides which. Left alone the sweep chooses the lever at each step itself. But because the levers have names you can also hand it a <em>route</em> &mdash; &ldquo;insulation first, then the windows, then solar&rdquo;, or &ldquo;just try a heat pump&rdquo; &mdash; and the loop confines each step to the lever you named for it, in your order, and says so in the report. That is the difference between an optimizer you configure and one you talk to: the vocabulary is there so that your instructions have something to bind to.</p>
+
                     <h2>The rules a search this free has to carry</h2>
 
                     <p>Opening the move set that wide creates a problem nobody had to solve before. A search that can make any edit will find the dishonest wins. The fastest way to cut a heating bill is a smaller house with fewer windows; the second fastest is to stop heating it so warmly; the third is to write down an air-conditioner that does not exist. A dial-based optimizer cannot cheat in any of those ways unless you hand it the dial &mdash; <strong>the parameterization <em>was</em> the ethics.</strong> Take the parameterization away and the ethics has to be built back in explicitly.</p>
@@ -519,6 +541,11 @@
                             <tr>
                                 <th scope="row">Keep the house</th>
                                 <td>A revision may not cut the conditioned floor area, not by more than a rounding error. Shrinking the building lowers the number without improving anything, and the objective is supposed to compare the same house with itself.</td>
+                                <td class="unlock"><span class="yes">Yes</span> &mdash; name a floor</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Keep the envelope real</th>
+                                <td>Insulation and glazing are capped at what can be bought: roughly R-40 walls and R-57 roofs in imperial units, windows no better than U-0.5 in SI units (about U-0.09 imperial), and the air leakage of a wall or a window can be lowered but never to zero. Above those, the search is no longer insulating a house; it is dividing the loss term by a number. The fresh-air ventilation the occupants breathe may not be cut at all.</td>
                                 <td class="unlock"><span class="no">No</span></td>
                             </tr>
                             <tr>
@@ -536,6 +563,11 @@
                                 <td>A revision may not build a second house, open another file, load an example, or start a sweep inside the sweep. It may not run a simulation either: the loop owns the measurement, so no step can score itself.</td>
                                 <td class="unlock"><span class="no">No</span></td>
                             </tr>
+                            <tr>
+                                <th scope="row">Leave the land alone</th>
+                                <td>On a solar farm, a wind farm or a solar plant the site is the given: a revision may re-lay the field on the same slab but may not enlarge it, may not place a rack or a turbine off it, may not remove the array outright, and may not ask for a machine that does not exist &mdash; a 300-metre rotor, a mirror with a reflectance above 95 percent.</td>
+                                <td class="unlock"><span class="no">No</span></td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -543,11 +575,53 @@
 
                     <p>The equipment rule works differently, and the difference is instructive. Buying a better machine <em>is</em> a real design decision: swapping electric resistance for a heat pump is exactly the retrofit an energy study should be free to propose, and the house still delivers the same comfort afterwards. So this is a ceiling rather than a ban. Honest upgrades pass untouched, a fantasy machine is rejected before it is ever scored, and whatever the winning design did buy is disclosed in the report &mdash; because a saving that arrives with a new machine and its price tag should not read as a fabric improvement. And unlike the thermostat, it has no unlock: no phrasing you could type makes a COP&nbsp;40 chiller purchasable, so an unlock would only let the search launder an impossible number through a stray wording.</p>
 
+                    <p>The envelope rule was learned the hard way. An early sweep took a house in Massachusetts to net zero on insulation and a heat pump alone, which is not a result but a warning: the model house had been hermetically sealed, with no air leakage and no fresh air, and the reviser had written down wall R-values that no product supplies. A building that does not breathe is very cheap to heat. So a house now leaks and ventilates by default, at rates a real house does, the insulation and glazing have ceilings, and the ventilation is off limits to the search. The same honesty runs the other way, too: the sweep scores under whatever weather the scene already uses and says which in its report &mdash; the synthesized climate, which is optimistic, or measured typical-year weather &mdash; and it never switches the basis behind your back, because the baseline has to be the number you were just shown.</p>
+
                     <p>An optimizer that cannot make you colder to flatter its own number is the design principle here, and it is one this generation of tools is going to need.</p>
+
+                    <h2>Two numbers, and a front</h2>
+
+                    <p>Energy is the axis the simulator measures directly, and it was the right first objective. It is not what a design decision actually trades against. Triple glazing saves energy and costs money; a smaller house saves both and gives up living space; a heat pump pays for itself in some number of years or never does. A single scalar cannot hold any of that, and the classical fix &mdash; a weighted sum, with the weights chosen by whoever configured the run &mdash; decides the trade-off before the search has shown you what the trade-off is.</p>
+
+                    <p>So the sweep takes more than one objective, and when it does, it changes what it keeps. Ask for energy against cost and each candidate is scored on both: the same yearly simulation for the kilowatt-hours, and the construction estimator &mdash; the one behind the assistant&rsquo;s budget tool, a quantity take-off priced from a book of unit rates &mdash; for the dollars. The accept test is no longer <em>is it better?</em> A revision is kept if it is <strong>not dominated</strong>: if no design the sweep has scored so far beats it on every objective at once. A cheaper house that uses a little more energy is a legitimate new point, not a failure. Every design the run touches, kept or reverted, goes into an archive with its numbers, and at the end the archive is sifted for the ones nothing dominates. That set is the <strong>Pareto front</strong>: the menu of trade-offs the search found, with no point on it called the optimum, because along a front there is no such thing.</p>
+
+                    <div class="v2-pf">
+                        <p class="v2-pf-title">What a two-objective sweep returns</p>
+                        <svg class="v2-pf-svg" viewBox="0 0 520 300" role="img" aria-label="A scatter of every design the sweep scored, construction cost across and net energy up. Five designs form a descending front from the cheap, energy-hungry baseline to the costly, efficient end; the knee in the middle is starred, and four dominated designs sit hollow above the front.">
+                            <path class="axis" d="M50,20 V250 H490"/>
+                            <text class="lbl" x="270" y="278" text-anchor="middle">construction cost &rarr;</text>
+                            <text class="lbl" transform="translate(28,135) rotate(-90)" text-anchor="middle">net energy &darr; lower is better</text>
+                            <!-- the front, joined stepwise: between two points there is no design -->
+                            <path class="front" d="M80,70 H150 V120 H230 V160 H340 V185 H450 V198"/>
+                            <!-- dominated: hollow, above and to the right of something on the front -->
+                            <circle class="off" cx="205" cy="98" r="5"/>
+                            <circle class="off" cx="300" cy="140" r="5"/>
+                            <circle class="off" cx="400" cy="176" r="5"/>
+                            <circle class="off" cx="118" cy="42" r="5"/>
+                            <!-- on the front -->
+                            <circle class="on" cx="80" cy="70" r="5.5"/>
+                            <circle class="base" cx="80" cy="70" r="10"/>
+                            <circle class="on" cx="150" cy="120" r="5.5"/>
+                            <circle class="on" cx="340" cy="185" r="5.5"/>
+                            <circle class="on" cx="450" cy="198" r="5.5"/>
+                            <!-- the knee -->
+                            <path class="knee" transform="translate(230,160)" d="M0,-11 L3.2,-3.6 L11,-3.4 L4.9,1.6 L6.8,9 L0,4.6 L-6.8,9 L-4.9,1.6 L-11,-3.4 L-3.2,-3.6 Z"/>
+                            <text class="note" x="96" y="60">baseline</text>
+                            <text class="note-k" x="246" y="152">knee &mdash; the scene is left here</text>
+                            <text class="note" x="216" y="90">dominated</text>
+                            <text class="note" x="360" y="214">on the front</text>
+                        </svg>
+                    </div>
+
+                    <p>A front is a menu, and a menu needs a default. The scene is left at the <strong>knee</strong> &mdash; the point on the front closest, with each axis normalized to the front&rsquo;s own span, to the corner where both objectives would be at their best at once. It is where the trade-off bends: to the left of it you pay a lot of energy for a little money, to the right a lot of money for a little energy. But the knee is a suggestion, not a verdict. Every design on the front, and every dominated one behind it, is recorded on the file as a design series &mdash; the same compact row of restorable entries an exploration leaves under the assistant&rsquo;s message &mdash; so you read the menu, orbit any point in its preview, and put the one you want into the scene with a click.</p>
+
+                    <p>The objectives on offer are five. For a house: <strong>net energy</strong>, <strong>construction cost</strong>, <strong>floor area</strong> and <strong>payback period</strong>. Floor area is the odd one, because it is maximized: put it on the table and the search is allowed to grow the house as well as shrink it, and the no-shrink rule relaxes to a floor. Payback is the one people actually ask for &mdash; <em>shorten my payback</em>, <em>what has the best return</em> &mdash; and it is a ratio of two things every scored design already carries: the extra construction cost over the baseline, divided by the energy the design saves each year at your electricity price. A design that saves nothing never pays back, and loses to any that does; one that saves energy <em>and</em> costs less than the baseline pays back at once. For a plant, the fifth objective, <strong>annual yield</strong>, replaces energy, and payback becomes the project&rsquo;s own: capital cost against yearly revenue less operations, the number the payback card shows.</p>
+
+                    <p>The trade-off does not have to be two-way. Ask for energy, cost and floor area together and the archive keeps a three-dimensional front, the scatter draws the third objective as the size of each mark, and the knee is found in three dimensions. Beyond three the front still exists and is still reported as a table; only the picture stops being a picture.</p>
 
                     <h2>What comes back</h2>
 
-                    <p>A multi-minute search that leaves behind only a paragraph of prose is not much use half an hour later, so the sweep writes its trajectory into the transcript: one row per step, what it tried, what the meter read, and whether it survived.</p>
+                    <p>A multi-minute search that leaves behind only a paragraph of prose is not much use half an hour later, so the sweep writes its trajectory into the transcript: one row per step, what it tried, what the meter read &mdash; heating, cooling and solar separately, so a rooftop array that was already cutting the bill is on the record and not silently absorbed into the net &mdash; and whether it survived. Under a multi-objective run the rows carry the cost, the area and the payback as well, and the outcome column stops saying <em>kept</em> and <em>reverted</em> and says where each design stands: on the front, at the knee, or dominated by something already found.</p>
 
                     <table class="v2-traj">
                         <caption>A trajectory, as the transcript records it</caption>
@@ -563,9 +637,37 @@
                         </tbody>
                     </table>
 
+                    <table class="v2-traj">
+                        <caption>The same house swept for energy against cost</caption>
+                        <thead>
+                            <tr><th scope="col">Step</th><th scope="col">What it changed</th><th scope="col" class="num">Net kWh</th><th scope="col" class="num">Cost $</th><th scope="col">Stands</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>0</td><td>baseline</td><td class="num">9,140</td><td class="num">312,400</td><td class="front">on the front</td></tr>
+                            <tr><td>1</td><td>Raised the roof insulation</td><td class="num">8,720</td><td class="num">314,100</td><td class="knee">on the front, knee</td></tr>
+                            <tr><td>2</td><td>Triple-glazed every window</td><td class="num">8,190</td><td class="num">329,800</td><td class="front">on the front</td></tr>
+                            <tr><td>3</td><td>Deepened the south overhang to 1.2 m</td><td class="num">8,215</td><td class="num">331,600</td><td class="dom">dominated</td></tr>
+                            <tr><td>4</td><td>Laid out a solar array on the south roof</td><td class="num">6,880</td><td class="num">343,900</td><td class="front">on the front</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>Two charts come with the rows. The first is the staircase from the diagram above, drawn from the real numbers: net energy stepping down through the run, one landing per kept step. The second, for a multi-objective run, is the scatter on the previous figure: every scored design on two axes, the front joined, the knee starred, the dominated designs hollow. Both live in the chat and in the file, and both survive into the PDF report the assistant can export, as still pictures.</p>
+
                     <p>Alongside it comes the arithmetic that matters: the baseline, the best design found, the kilowatt-hours saved and the percentage, how many revisions were accepted, and which levers turned out to be dead ends. If the scene held more than one house, the report names the one these figures are about &mdash; scoring the sum of every building in the scene would quietly ruin both the percentage and the comparison. If the run stopped early it says so, and says plainly that this is not a finished optimization. And if the thermostat was opened or the plant was upgraded, that is called out separately from the headline number rather than folded into it.</p>
 
                     <p>These are not decorative figures. Aladdin&rsquo;s building-energy engine is checked against <a href="aladdin-bestest-validation.html">ASHRAE Standard 140 (BESTEST)</a>, the reference suite whole-building simulation programs are validated with &mdash; the same bar the professional tools are held to.</p>
+
+                    <h2>The same loop over a solar farm, a wind farm, a solar plant</h2>
+
+                    <p>Nothing in the four steps says <em>house</em>. The evaluator, the vocabulary of levers and the guards are what make a sweep a house sweep, and each of those can be swapped. So the same tool now sweeps the other things Aladdin builds, and the assistant decides which from what is standing in the scene &mdash; or from what you name, since a house and the ground-mounted array that feeds it are one scene with two sweepable things in it.</p>
+
+                    <p><strong>A solar farm</strong> is scored on annual yield, the more the better, by the same yearly simulation that scores its rooftop cousins. The levers are the ones a farm designer actually turns &mdash; tilt, row pitch and ground-coverage ratio, azimuth, rows per rack and their orientation, pole height, the module itself including bifacial ones &mdash; and the slab and the module count are held fixed, so a &ldquo;better&rdquo; layout that quietly bought more panels is refused. Trackers are left out of the study on purpose; they are a different question. Yield against build cost is the natural front, and payback the natural single objective.</p>
+
+                    <p><strong>A concentrated solar plant</strong> &mdash; parabolic troughs, linear Fresnel reflectors, a heliostat field around a power tower, or dishes &mdash; is scored on the energy its field collects over a year. Each type has its own levers: for a trough field the row pitch, the collector width and length and the focal geometry; for Fresnel the absorber height above all; for a tower the tower height, the mirror size and spacing and the shape of the field, with the field&rsquo;s radius and the number of towers treated as the land and left alone. The reviser rebuilds the plant in place on its own slab, keeping the slab and every identity, which is what stopped an early version from standing a second field beside the first every time it tried a wider pitch. A heliostat field is the slowest thing the program simulates, so a tower step is a minute or more, and the report says so.</p>
+
+                    <p><strong>A wind farm</strong> is the fast one. Its annual energy comes from a wind-resource integral over the site&rsquo;s wind rose, with wake losses between turbines modelled analytically, so an evaluation is instant and a step costs only the reviser&rsquo;s thinking. The sweep fetches the site&rsquo;s measured wind rose first if the scene has none, so the wakes are directional for the whole run. The levers are the turbine model, hub height and rotor, the number of machines against their spacing, the row bearing and stagger, and placement &mdash; and inside a wind sweep, uniquely, the reviser may call Aladdin&rsquo;s own wake optimizer to reposition the machines, because that is a real move a wind engineer would make. Fewer turbines is a legitimate design here; overlapping rotors and hubs above 200 metres are not.</p>
+
+                    <p>In every case the plant is swept on its own numbers, and when a house shares the scene the report names it and says that the plant&rsquo;s generation is credited to it, so that the house&rsquo;s net can be re-run once against the new plant rather than blended into the plant&rsquo;s score.</p>
 
                     <h2>Diverging again</h2>
 
@@ -585,10 +687,10 @@
 
                     <h2>What it does not do yet</h2>
 
-                    <p>The convergent objective is still energy alone. That is the axis the simulator measures directly, and it is the right first one, but it is not the only thing a design decision trades against.</p>
+                    <p>The front a sweep returns is the front of the designs it happened to visit, and a greedy walk visits a path, not a population. Ten steps give you ten or so points, chosen by a reasoner working along a trajectory, and a good front deserves more than that: repeated runs from different starting points, or a proper multi-objective evolutionary search using the language model as the mutation operator, so the front is filled in rather than sketched. Where the picture stops is a smaller version of the same limit &mdash; three objectives draw, four or more only tabulate, and a parallel-coordinates view is the obvious next card. And a front still has no way to hear a preference: &ldquo;I care about cost twice as much&rdquo; should move the knee, and today it does not.</p>
 
                     <div class="v2-callout">
-                        <p>Cost is the next axis &mdash; what a suggestion is worth against what it is worth paying for &mdash; and the same loop takes it without changing shape: the evaluator returns two numbers instead of one, and the accept test becomes a trade rather than a comparison.</p>
+                        <p>Each of those is a way of getting more front for the same simulations. None of them changes the shape of the loop, which is the point of having built it as a loop.</p>
                     </div>
 
                     <p>The divergent half has its own frontier. Today an exploration generates independent candidates for a brief; the natural next step is variation on a design already settled &mdash; five gardens for one house, four roofs for one plan &mdash; which is a different generative problem from five houses for one site, and the one the second turn of the spiral asks for most often.</p>

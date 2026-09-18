@@ -54,13 +54,13 @@
             border-bottom: 2px solid var(--accent);
         }
         .v2-pub-year:first-of-type { margin-top: 0.5rem; }
-        .v2-pub-list {
+        .v2-col-main .v2-pub-list {
             list-style: none;
             padding: 0;
             margin: 0;
             counter-reset: pub;
         }
-        .v2-pub-item {
+        .v2-col-main .v2-pub-item {
             position: relative;
             padding: 1.3rem 0 1.3rem 4rem;
             border-bottom: 1px solid var(--border);
@@ -69,7 +69,7 @@
             color: var(--text);
             counter-increment: pub;
         }
-        .v2-pub-item::before {
+        .v2-col-main .v2-pub-item::before {
             content: counter(pub);
             position: absolute;
             left: 0;
@@ -84,9 +84,9 @@
             padding: 0.25rem 0.65rem;
             text-align: center;
         }
-        .v2-pub-item a { color: var(--accent-dark); }
-        .v2-pub-item a:hover { text-decoration: underline; }
-        .v2-pub-item i { color: var(--text-muted); }
+        .v2-col-main .v2-pub-item a { color: var(--accent-dark); }
+        .v2-col-main .v2-pub-item a:hover { text-decoration: underline; }
+        .v2-col-main .v2-pub-item i { color: var(--text-muted); }
     </style>
 </head>
 
