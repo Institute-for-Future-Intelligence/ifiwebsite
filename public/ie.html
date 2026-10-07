@@ -328,26 +328,15 @@
             margin-top: 0.15rem;
             font-family: var(--font-body);
         }
-        .v2-chip-list {
-            list-style: none;
-            padding: 0;
+        .v2-bullet-list {
+            list-style: disc;
+            padding-left: 1.4rem;
             margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
         }
-        .v2-chip-list li {
+        .v2-bullet-list li {
             font-size: 1.1875rem;
-            padding: 0.35rem 0.8rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 999px;
             color: var(--text);
-        }
-        .v2-chip-list li.beta {
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-            border-color: transparent;
+            margin: 0.25rem 0;
         }
         .v2-googleplay {
             display: inline-block;
@@ -575,17 +564,17 @@
 
                         <div class="v2-sidebar-section">
                             <h3 class="v2-sidebar-heading">Supported cameras</h3>
-                            <ul class="v2-chip-list">
+                            <ul class="v2-bullet-list">
                                 <li>FLIR ONE Gen 3</li>
                                 <li>FLIR ONE Pro</li>
-                                <li class="beta">FLIR ONE Edge · Beta</li>
-                                <li class="beta">FLIR ONE Edge Pro · Beta</li>
+                                <li>FLIR ONE Edge</li>
+                                <li>FLIR ONE Edge Pro</li>
                             </ul>
                         </div>
 
                         <div class="v2-sidebar-section">
                             <h3 class="v2-sidebar-heading">Portal</h3>
-                            <a class="v2-sidebar-link" target="_blank" rel="noopener noreferrer" href="https://institute-for-future-intelligence.github.io/infrared-explorer-web/">
+                            <a class="v2-sidebar-link" target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org">
                                 Laboratory Dashboard
                             </a>
                         </div>
