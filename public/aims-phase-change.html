@@ -152,7 +152,7 @@
                     <div class="v2-prompts">
                         <p class="v2-prompts-intro">Open one of the four seeded-growth examples from the Examples menu (Materials Science), open the chat, and type the prompts below. The temperatures are for silicon; for the other crystals use the ones in parentheses, also listed in the table that follows.</p>
 
-                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, roughly a tenth of a picosecond per second of real time on a typical laptop. Pressing Play in an example, copper freezes in a few minutes, while silicon and nitrogen take ten to twenty. A growth run by the agent first melts the crystal and then regrows it, which takes 10&ndash;20 minutes; finding the melting point chains three or four such runs and can take 30 minutes to an hour. Leave the tab open and in front while it runs, because browsers slow down pages in background tabs.</p>
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, roughly a tenth of a picosecond per second of real time on a typical laptop. Pressing Play in an example, copper freezes in a few minutes, salt in five or more, and silicon and nitrogen in ten to twenty. A growth run by the agent first melts the crystal and then regrows it, which takes 10&ndash;20 minutes; finding the melting point chains three or four such runs and can take 30 minutes to an hour. Leave the tab open and in front while it runs, because browsers slow down pages in background tabs.</p>
 
                         <p class="v2-prompts-group">Pick a crystal</p>
                         <ol>
@@ -165,7 +165,7 @@
                         <p class="v2-prompts-group">Investigate melting and freezing</p>
                         <ol>
                             <li><span class="v2-prompts-step">Freezing</span> (growth below the melting point) &mdash; <span class="v2-prompt">"Grow the crystal from a seed at 1500 K."</span> (copper 1100 K, salt 1000 K, nitrogen 35 K)</li>
-                            <li><span class="v2-prompts-step">Stalling</span> (growth above the melting point) &mdash; <span class="v2-prompt">"Now try it at 1700 K."</span> (copper 1300 K, salt 1200 K, nitrogen 45 K)</li>
+                            <li><span class="v2-prompts-step">Stalling</span> (growth above the melting point) &mdash; <span class="v2-prompt">"Now try it at 1800 K."</span> (copper 1300 K, salt 1200 K, nitrogen 45 K)</li>
                             <li><span class="v2-prompts-step">The melting point</span> &mdash; <span class="v2-prompt">"Find the melting point of this model."</span></li>
                             <li><span class="v2-prompts-step">Compare the potential</span> &mdash; <span class="v2-prompt">"How does this model's melting point compare with the real material, and why are they different?"</span></li>
                         </ol>
@@ -184,7 +184,7 @@
                                 <tr><th>Crystal</th><th>Type</th><th>Held together by</th><th>Grows at</th><th>Stalls at</th><th>Model T<sub>m</sub></th><th>Real T<sub>m</sub></th><th>Growth time</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td>Silicon</td><td>Covalent</td><td>Directional bonds, four per atom</td><td class="num">1500 K</td><td class="num">1700 K</td><td class="num">&asymp; 1650 K</td><td class="num">1687 K</td><td class="num">~60 ps</td></tr>
+                                <tr><td>Silicon</td><td>Covalent</td><td>Directional bonds, four per atom</td><td class="num">1500 K</td><td class="num">1800 K</td><td class="num">&asymp; 1700&ndash;1750 K</td><td class="num">1687 K</td><td class="num">~60 ps</td></tr>
                                 <tr><td>Copper</td><td>Metallic</td><td>Shared sea of electrons</td><td class="num">1100 K</td><td class="num">1300 K</td><td class="num">&asymp; 1100&ndash;1200 K</td><td class="num">1358 K</td><td class="num">~10&ndash;30 ps</td></tr>
                                 <tr><td>Rock salt</td><td>Ionic</td><td>Attraction of Na<sup>+</sup> and Cl<sup>&minus;</sup></td><td class="num">1000 K</td><td class="num">1200 K</td><td class="num">1000&ndash;1200 K</td><td class="num">1074 K</td><td class="num">~20&ndash;30 ps</td></tr>
                                 <tr><td>Nitrogen</td><td>Molecular</td><td>Weak van der Waals forces between N<sub>2</sub> molecules</td><td class="num">35 K</td><td class="num">45 K</td><td class="num">40&ndash;45 K</td><td class="num">63 K</td><td class="num">~60&ndash;80 ps</td></tr>
@@ -194,15 +194,15 @@
 
                     <p><b>Covalent: silicon.</b> In a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diamond_cubic">diamond-structure</a> crystal each atom is bonded to exactly
                     four neighbours at the corners of a tetrahedron. An atom joining the crystal must find four partners at the right angles at once, so silicon is the slowest of the four to grow: about
-                    60 picoseconds at 1500&nbsp;K, ten minutes or more of watching in a browser. The topmost layer stays rough, because at this temperature a free silicon surface never quite settles. Growth stalls at 1700&nbsp;K, and the
-                    model's melting point comes out near 1650&nbsp;K &mdash; close to the real 1687&nbsp;K. That agreement matters: the temperature of the melt, and how far below the melting point the growing crystal is held,
+                    60 picoseconds at 1500&nbsp;K, ten minutes or more of watching in a browser. The topmost layer stays rough, because at this temperature a free silicon surface never quite settles. Growth stalls at 1800&nbsp;K, and the
+                    model's melting point comes out near 1700&ndash;1750&nbsp;K &mdash; close to the real 1687&nbsp;K. That agreement matters: the temperature of the melt, and how far below the melting point the growing crystal is held,
                     is what an ingot grower controls, and here students can see why a crystal grows at one temperature and dissolves at another.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Copper%20Growth%20from%20a%20Seed"
                                 id="aims-frame2" loading="lazy" allowfullscreen="true" title="Copper Growth from a Seed demo"></iframe>
                         <figcaption>
-                            Metallic crystal: copper &mdash; <a href="javascript:openFullscreen('aims-frame2');">view fullscreen</a>.
+                            Metallic crystal: copper &mdash; <a href="javascript:openFullscreen('aims-frame2');">view fullscreen</a>. The fastest of the four: the crystal emerges in a few minutes on a typical computer.
                         </figcaption>
                     </figure>
 
@@ -214,7 +214,7 @@
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Salt%20Growth%20from%20a%20Seed"
                                 id="aims-frame3" loading="lazy" allowfullscreen="true" title="Salt Growth from a Seed demo"></iframe>
                         <figcaption>
-                            Ionic crystal: rock salt &mdash; <a href="javascript:openFullscreen('aims-frame3');">view fullscreen</a>.
+                            Ionic crystal: rock salt &mdash; <a href="javascript:openFullscreen('aims-frame3');">view fullscreen</a>. Be patient: the crystal takes five minutes or more to emerge on a typical computer.
                         </figcaption>
                     </figure>
 
@@ -227,7 +227,7 @@
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Nitrogen%20Growth%20from%20a%20Seed"
                                 id="aims-frame4" loading="lazy" allowfullscreen="true" title="Nitrogen Growth from a Seed demo"></iframe>
                         <figcaption>
-                            Molecular crystal: solid nitrogen &mdash; <a href="javascript:openFullscreen('aims-frame4');">view fullscreen</a>.
+                            Molecular crystal: solid nitrogen &mdash; <a href="javascript:openFullscreen('aims-frame4');">view fullscreen</a>. Be patient: the crystal takes ten minutes or more to emerge on a typical computer, and an occasional run stalls before it finishes.
                         </figcaption>
                     </figure>
 
@@ -268,7 +268,25 @@
                     <p><b>Beyond melting.</b> The same kind of conversation covers the other phase changes. In the <em>Evaporation of Argon</em> example the agent measures how the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Vapor_pressure">vapour pressure</a> of a liquid rises with temperature and fits it with the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Clausius%E2%80%93Clapeyron_relation">Clausius&ndash;Clapeyron relation</a>; in <em>Evaporation of Water</em> it opens the top of
-                    the box, pumps the vapour away, and records the pool cooling as its most energetic molecules escape. In <em>Annealing of Amorphous Copper</em> it heats a glass until it remembers how to be a crystal.</p>
+                    the box, pumps the vapour away, and records the pool cooling as its most energetic molecules escape.</p>
+
+                    <h2>Glass or Crystal? Annealing</h2>
+
+                    <p>Freezing onto a seed is not the only way a liquid can become a solid. Cool it fast enough and the atoms never find their lattice sites at all: they jam in a disordered pile, a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Amorphous_metal">glass</a>. The <em>Annealing of Amorphous Copper</em> example (Metallic Crystals) opens on
+                    exactly that &mdash; 108 copper atoms melted at 3000&nbsp;K and then frozen in half a picosecond. Orbit it and look along any direction: there are no rows. Press Play at 150&nbsp;K and the atoms jiggle,
+                    but the pile stays a pile, stuck in a local energy minimum about 80&nbsp;meV per atom above the crystal.</p>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Annealing_(materials_science)">Annealing</a> is how a glass gets out. Ask the agent
+                    <em>"Anneal it: heat to 1000 K, hold for 10 ps, then cool back to 150 K over 20 ps."</em> It drives the whole temperature schedule and charts the energy as it goes. During the hold &mdash; well below the
+                    melting point, so nothing melts &mdash; the atoms gain just enough mobility to hop into place, the energy drops in a step, and rows appear. Then run history backward and forward: melt the block and quench
+                    it in half a picosecond, and it is a glass again; heat it to 1200&nbsp;K and cool it slowly over 30&nbsp;ps, and the liquid crystallizes on the way down. Same atoms, same final temperature, different
+                    history: the <em>cooling rate</em> decides whether a solid ends up a glass or a crystal. These runs are short &mdash; tens of picoseconds on 108 atoms &mdash; so each takes only a few minutes.</p>
+
+                    <p>Annealing also brings the story back to chips. After a silicon wafer is cut from its ingot, dopant atoms are fired into it by
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ion_implantation">ion implantation</a>, which knocks the lattice near the surface out of order. The wafer is then
+                    annealed: heated so the damaged layer can rebuild itself on the perfect crystal underneath and the dopants can settle onto lattice sites. It is a solid-state cousin of seeded growth, and one of
+                    many times a chip passes through the furnace on its way to becoming a working device.</p>
 
                     <h2>Why AI-Assisted Simulation Matters</h2>
 
