@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Phase Changes via AI-Assisted Simulations — Institute for Future Intelligence</title>
+    <meta name="description" content="Explore melting and freezing in the four types of crystals (metallic, ionic, covalent, and molecular) by talking to an AI agent in AIMS: ask a plain-English question and it melts a crystal, grows one back from a seed, and brackets the melting point with real molecular-dynamics simulations.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; }
+        .v2-compare { width: 100%; border-collapse: collapse; font-size: 1.05rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid rgba(15, 23, 42, 0.1); vertical-align: top; }
+        .v2-compare th { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
+        .v2-compare td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; }
+        .v2-compare td.num { white-space: nowrap; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="PHASE CHANGE">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Explore Phase Changes via AI-Assisted Simulations</h1>
+                <p class="v2-tagline">
+                    From the silicon in your phone to the salt on your table: watch liquids freeze into crystals and ask AI about it.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>Silicon melts at 1687&nbsp;K, copper at 1358&nbsp;K, salt at 1074&nbsp;K, and solid nitrogen at a frigid 63&nbsp;K. Chemistry textbooks sort solids into four families &mdash;
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Metallic_bonding">metallic</a>,
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ionic_crystal">ionic</a>,
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Network_covalent_bonding">covalent</a>, and
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_solid">molecular</a> &mdash; and explain that the kind of bond holding a crystal together
+                    decides how hard it is to take apart. It is usually left at that: a table of melting points to memorize. AIMS lets students <em>watch</em> it instead. You talk to an
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a>, and it runs a real
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> experiment for you: it melts a crystal, grows one back from a seed,
+                    and brackets the melting point, then drops the measured data into the chat as a live chart. Nothing about melting is programmed in &mdash; the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Phase_transition">phase change</a> <em>emerges</em> from atoms, ions, and molecules pushing and pulling on
+                    each other. We start with the crystal that matters most to today's industry. Almost every computer chip, solar cell, and power transistor begins as a single crystal of silicon grown from a seed. In the
+                    window below, a layer of liquid silicon sits on a thin seed of crystalline silicon. Press the play button and watch the liquid freeze: atoms build tetrahedra onto the seed one layer at a time, each new
+                    layer copying the one below, until the melt has become part of a single crystal. Further down is the same experiment for a metallic, an ionic, and a molecular crystal.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Silicon%20Growth%20from%20a%20Seed"
+                                id="aims-frame1" allowfullscreen="true" title="Silicon Growth from a Seed demo"></iframe>
+                        <figcaption>
+                            Covalent crystal: silicon &mdash; <a href="javascript:openFullscreen('aims-frame1');">view fullscreen</a>. Chrome or Edge recommended. Be patient: the crystal takes ten minutes or more to emerge on a typical computer.
+                        </figcaption>
+                    </figure>
+
+                    <h2>From Melt to Microchip</h2>
+
+                    <p>Every chip in a phone, a laptop, or a data center starts the same way: as a pure single crystal of silicon. Before a single transistor is patterned, silicon refined to
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polycrystalline_silicon">electronic grade</a> &mdash; better than 99.9999999&nbsp;% pure, fewer than one foreign atom
+                    in a billion &mdash; is melted in a quartz crucible at 1414&nbsp;&deg;C. In the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Czochralski_method">Czochralski process</a>,
+                    a small seed crystal is dipped into the melt and pulled upward slowly, a few centimetres an hour, while seed and crucible rotate. The liquid freezes onto the seed atom by atom, copying its lattice,
+                    and grows into an ingot up to 300&nbsp;mm across and as tall as a person that is <em>one</em> flawless crystal from end to end. The ingot is then sliced into thin
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Wafer_(electronics)">wafers</a> and polished to a mirror finish, and only then do lithography, doping, and the hundreds of
+                    other steps of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Semiconductor_device_fabrication">chip fabrication</a> begin.</p>
+
+                    <p>Why go to such lengths? Because a transistor depends on electrons moving through a perfectly regular lattice. Where two crystal grains meet, or where an atom sits out of place, the lattice is broken:
+                    electrons scatter, charges get trapped, and dopants spread unevenly, so devices built on a flawed crystal leak, slow down, or fail. A billion transistors on one chip need the same perfect crystal under
+                    every one of them. Growing a pure single crystal is therefore the first, and in many ways the most unforgiving, step in making a chip: get the crystal wrong, and nothing built on top of it can be right.</p>
+
+                    <p>The model above shows that first step at the scale where it actually happens &mdash; the solid&ndash;liquid interface, one atomic layer at a time. Students can see that the seed decides everything: each
+                    arriving atom takes its place from the layer below, so the whole ingot inherits the seed's orientation. They can also see why the temperature at the interface must be held just right: a little below the
+                    melting point the crystal grows, a little above it the crystal dissolves back into the melt. In the real process, the pull rate and the heat flowing through the interface are tuned to keep that balance
+                    for days, the whole time an ingot grows.</p>
+
+                    <h2>Melting Is Easy, Freezing Is Hard</h2>
+
+                    <p>In a simulation, melting a crystal is easy: heat it and it falls apart. Freezing a liquid is surprisingly hard. A liquid has no template, so a crystal can only begin from a tiny ordered cluster
+                    that forms by chance, and most such clusters dissolve again before they can grow. This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nucleation">nucleation</a>,
+                    and it is why real liquids can be <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Supercooling">supercooled</a> well below their freezing points. In a simulation the
+                    wait for a nucleus can run to nanoseconds or longer &mdash; far beyond what a browser can compute while you watch.</p>
+
+                    <p>The way around it is the same trick the semiconductor industry relies on to grow its silicon ingots: give the liquid a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Seed_crystal">seed crystal</a> to grow on, and the barrier disappears. AIMS does the same thing in miniature. Each of the four labs in this article holds a few hundred atoms: a thin crystal seed at the bottom, its lowest layers anchored in place (drawn
+                    see-through) and the rest free to vibrate, under a freshly melted liquid with an open surface on top. Below the melting point the liquid freezes onto the seed, layer by layer. Above it the growth
+                    front stalls and the seed itself dissolves. Right at the melting point, crystal and liquid are in balance and the front advances and retreats without getting anywhere. That makes seeded growth a
+                    direct way to find the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Melting_point">melting point</a> &mdash; and it works the same way for every kind of crystal.</p>
+
+                    <h2>Ask a Question, Run an Experiment</h2>
+
+                    <p>AIMS is an AI-native environment. A student does not need to know what a seeded-growth run is, how to pin a layer of atoms, or how to measure crystallinity. They simply ask &mdash;
+                    <em>"can the liquid freeze back?"</em>, <em>"what is the melting point of this model?"</em>, <em>"what happens if I heat the crystal?"</em> &mdash; and the built-in AI agent recognizes the intent,
+                    configures the lab, runs the experiment, and drops a live chart of the results into the conversation. The machinery &mdash; a thermostat, a seed, a melt, a meter for how much of the sample is
+                    crystalline &mdash; is operated for them, and what they see is measured data, not a canned animation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open one of the four seeded-growth examples from the Examples menu (Materials Science), open the chat, and type the prompts below. The temperatures are for silicon; for the other crystals use the ones in parentheses, also listed in the table that follows.</p>
+
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, roughly a tenth of a picosecond per second of real time on a typical laptop. Pressing Play in an example, copper freezes in a few minutes, while silicon and nitrogen take ten to twenty. A growth run by the agent first melts the crystal and then regrows it, which takes 10&ndash;20 minutes; finding the melting point chains three or four such runs and can take 30 minutes to an hour. Leave the tab open and in front while it runs, because browsers slow down pages in background tabs.</p>
+
+                        <p class="v2-prompts-group">Pick a crystal</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Covalent</span> &mdash; <em>Silicon Growth from a Seed</em> (Covalent Crystals)</li>
+                            <li><span class="v2-prompts-step">Metallic</span> &mdash; <em>Copper Growth from a Seed</em> (Metallic Crystals)</li>
+                            <li><span class="v2-prompts-step">Ionic</span> &mdash; <em>Salt Growth from a Seed</em> (Ionic Crystals)</li>
+                            <li><span class="v2-prompts-step">Molecular</span> &mdash; <em>Nitrogen Growth from a Seed</em> or <em>Dry Ice Growth from a Seed</em> (Molecular Crystals)</li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Investigate melting and freezing</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Freezing</span> (growth below the melting point) &mdash; <span class="v2-prompt">"Grow the crystal from a seed at 1500 K."</span> (copper 1100 K, salt 1000 K, nitrogen 35 K)</li>
+                            <li><span class="v2-prompts-step">Stalling</span> (growth above the melting point) &mdash; <span class="v2-prompt">"Now try it at 1700 K."</span> (copper 1300 K, salt 1200 K, nitrogen 45 K)</li>
+                            <li><span class="v2-prompts-step">The melting point</span> &mdash; <span class="v2-prompt">"Find the melting point of this model."</span></li>
+                            <li><span class="v2-prompts-step">Compare the potential</span> &mdash; <span class="v2-prompt">"How does this model's melting point compare with the real material, and why are they different?"</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-intro" style="margin-top:1rem !important; margin-bottom:0 !important;">Each run restores the lab when it finishes, and a "Show final state" button on the chart brings back its last frame. The "Melting of Copper", "Melting of Salt", "Melting of Silicon", and "Melting of Ice" examples start from a solid instead, for the heating experiments described below.</p>
+                    </div>
+
+                    <h2>Four Crystals, Four Kinds of Bond</h2>
+
+                    <p>The table summarizes what the four labs show. Each "grows" and "stalls" temperature is a measured run, not a lookup; the model's melting point lies between them. The growth time is how long the
+                    melt takes to freeze onto the seed at the "grows" temperature.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Crystal</th><th>Type</th><th>Held together by</th><th>Grows at</th><th>Stalls at</th><th>Model T<sub>m</sub></th><th>Real T<sub>m</sub></th><th>Growth time</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Silicon</td><td>Covalent</td><td>Directional bonds, four per atom</td><td class="num">1500 K</td><td class="num">1700 K</td><td class="num">&asymp; 1650 K</td><td class="num">1687 K</td><td class="num">~60 ps</td></tr>
+                                <tr><td>Copper</td><td>Metallic</td><td>Shared sea of electrons</td><td class="num">1100 K</td><td class="num">1300 K</td><td class="num">&asymp; 1100&ndash;1200 K</td><td class="num">1358 K</td><td class="num">~10&ndash;30 ps</td></tr>
+                                <tr><td>Rock salt</td><td>Ionic</td><td>Attraction of Na<sup>+</sup> and Cl<sup>&minus;</sup></td><td class="num">1000 K</td><td class="num">1200 K</td><td class="num">1000&ndash;1200 K</td><td class="num">1074 K</td><td class="num">~20&ndash;30 ps</td></tr>
+                                <tr><td>Nitrogen</td><td>Molecular</td><td>Weak van der Waals forces between N<sub>2</sub> molecules</td><td class="num">35 K</td><td class="num">45 K</td><td class="num">40&ndash;45 K</td><td class="num">63 K</td><td class="num">~60&ndash;80 ps</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p><b>Covalent: silicon.</b> In a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diamond_cubic">diamond-structure</a> crystal each atom is bonded to exactly
+                    four neighbours at the corners of a tetrahedron. An atom joining the crystal must find four partners at the right angles at once, so silicon is the slowest of the four to grow: about
+                    60 picoseconds at 1500&nbsp;K, ten minutes or more of watching in a browser. The topmost layer stays rough, because at this temperature a free silicon surface never quite settles. Growth stalls at 1700&nbsp;K, and the
+                    model's melting point comes out near 1650&nbsp;K &mdash; close to the real 1687&nbsp;K. That agreement matters: the temperature of the melt, and how far below the melting point the growing crystal is held,
+                    is what an ingot grower controls, and here students can see why a crystal grows at one temperature and dissolves at another.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Copper%20Growth%20from%20a%20Seed"
+                                id="aims-frame2" loading="lazy" allowfullscreen="true" title="Copper Growth from a Seed demo"></iframe>
+                        <figcaption>
+                            Metallic crystal: copper &mdash; <a href="javascript:openFullscreen('aims-frame2');">view fullscreen</a>.
+                        </figcaption>
+                    </figure>
+
+                    <p><b>Metallic: copper.</b> In a metal, the outer electrons are shared by the whole crystal, and the bond between two atoms barely cares about direction. An atom arriving at the growth front only
+                    has to find a hollow among its neighbours, so copper freezes fastest of the four: at 1000&nbsp;K the melt is crystal in about ten picoseconds, several times faster than silicon. At 1300&nbsp;K a layer or two next to the seed order,
+                    but the front stalls; at 1200&nbsp;K it advances and retreats without finishing. The model's melting point lies near 1100&ndash;1200&nbsp;K.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Salt%20Growth%20from%20a%20Seed"
+                                id="aims-frame3" loading="lazy" allowfullscreen="true" title="Salt Growth from a Seed demo"></iframe>
+                        <figcaption>
+                            Ionic crystal: rock salt &mdash; <a href="javascript:openFullscreen('aims-frame3');">view fullscreen</a>.
+                        </figcaption>
+                    </figure>
+
+                    <p><b>Ionic: rock salt.</b> Sodium chloride sets a test the metal does not: two kinds of ion must each find the right place, every sodium surrounded by six chlorides and every chloride by six
+                    sodiums. An ion that lands next to one of its own kind is pushed out again before the layer can close, so salt grows more slowly than copper &mdash; 20 to 30 picoseconds at 1000&nbsp;K. Watch the
+                    melt, too: molten salt is much less dense than the crystal, so the liquid starts out swollen and shrinks back as it freezes. At 1200&nbsp;K the growth front stalls, which puts the model's melting point
+                    between 1000 and 1200&nbsp;K, bracketing the real value of 1074&nbsp;K.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Nitrogen%20Growth%20from%20a%20Seed"
+                                id="aims-frame4" loading="lazy" allowfullscreen="true" title="Nitrogen Growth from a Seed demo"></iframe>
+                        <figcaption>
+                            Molecular crystal: solid nitrogen &mdash; <a href="javascript:openFullscreen('aims-frame4');">view fullscreen</a>.
+                        </figcaption>
+                    </figure>
+
+                    <p><b>Molecular: nitrogen.</b> Most solids around us &mdash; ice, sugar, wax, every drug in a pharmacy &mdash; are built from molecules held together by forces far weaker than a chemical bond. Solid
+                    nitrogen is the simplest: N<sub>2</sub> dumbbells stacked on the same face-centred cubic lattice as copper, held there by
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_der_Waals_force">van der Waals</a> attraction so feeble that the crystal melts at 63&nbsp;K. Here everything
+                    happens tens of kelvin above absolute zero instead of a thousand: the liquid freezes onto the seed at 35&nbsp;K over 60 to 80 picoseconds, and stalls at 45&nbsp;K. Look closely at the grown crystal:
+                    the molecular <em>centres</em> settle onto lattice sites, but the dumbbells keep tumbling. That is how many molecular crystals behave near their melting points &mdash; the positions freeze first, and the
+                    orientations lock in only much colder. Because 35&nbsp;K is only a few kelvin below this model's melting point, the front advances in fits and starts, and now and then a run stalls halfway; a second
+                    run from Reset takes a different path. The <em>Dry Ice Growth from a Seed</em> example shows a harder case: carbon dioxide molecules must also line up in a fixed orientation, and they do.</p>
+
+                    <p>Read down the "Model T<sub>m</sub>" column and the lesson of the four families appears in measured numbers: the melting point follows the strength of what holds the crystal together, from a few tens of
+                    kelvin for molecules held by van der Waals forces to more than a thousand for metals, ions, and covalent networks. Read across the "Growth time" column and a second lesson appears that textbooks rarely
+                    mention: the more particular a bond is about its neighbours and directions, the more slowly a crystal can grow.</p>
+
+                    <h2>Models Make Predictions</h2>
+
+                    <p>None of the four simulations is told its melting point. Each uses a published <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Interatomic_potential">interatomic potential</a>
+                    &mdash; an embedded-atom potential for copper, Tosi&ndash;Fumi for salt, Stillinger&ndash;Weber for silicon, and a two-site potential for nitrogen &mdash; fitted mostly to properties of the cold crystal,
+                    such as its spacing, stiffness, and cohesive energy. The melting point is a <em>prediction</em>. Salt and silicon land close to experiment; copper and nitrogen come out lower, because their potentials
+                    capture the solid better than the liquid. Students can ask the agent why, switch copper to a different potential with one sentence, and watch the melting point move by hundreds of kelvin &mdash; a
+                    direct look at what a model can and cannot know.</p>
+
+                    <h2>Other Ways to Look at Melting</h2>
+
+                    <p><b>Watching the order collapse.</b> Open one of the "Melting of" examples (copper, salt, silicon, or ice) and ask the agent to <em>"show how the lattice order changes with temperature."</em> It heats
+                    the crystal step by step and measures an order parameter that is high for a lattice and near zero for a liquid, choosing the measure that fits the lattice (rock salt and copper order differently).
+                    The curve stays high, then drops off a cliff. It is a vivid picture, but the cliff is <em>not</em> the melting point: a perfect crystal has nowhere for the liquid to start, so it can be
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Superheating">superheated</a> well past its melting point before it gives way. Salt holds on to 1250&ndash;1350&nbsp;K,
+                    and silicon past 2000&nbsp;K. Comparing the cliff with the seeded-growth bracket is a lesson in itself.</p>
+
+                    <p><b>The heating curve and latent heat.</b> Ask for <em>"a heating curve"</em> and the agent feeds energy into the crystal at a steady rate and plots temperature against heat added. As the lattice breaks
+                    up, energy goes into tearing particles out of their sites instead of making them move faster &mdash; the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Latent_heat">latent heat</a>.
+                    In a small simulation the plateau sometimes appears as a flat shelf, and sometimes as a striking <em>dip</em>: the superheated solid collapses all at once, and the latent heat it suddenly absorbs is paid
+                    out of the particles' kinetic energy, so the temperature <em>falls</em> while heat keeps flowing in. For rock salt the gap between the solid and liquid branches gives a latent heat within a few percent of
+                    the handbook value.</p>
+
+                    <p><b>Beyond melting.</b> The same kind of conversation covers the other phase changes. In the <em>Evaporation of Argon</em> example the agent measures how the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Vapor_pressure">vapour pressure</a> of a liquid rises with temperature and fits it with the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Clausius%E2%80%93Clapeyron_relation">Clausius&ndash;Clapeyron relation</a>; in <em>Evaporation of Water</em> it opens the top of
+                    the box, pumps the vapour away, and records the pool cooling as its most energetic molecules escape. In <em>Annealing of Amorphous Copper</em> it heats a glass until it remembers how to be a crystal.</p>
+
+                    <h2>Why AI-Assisted Simulation Matters</h2>
+
+                    <p>Phase changes are where the microscopic and macroscopic pictures of matter meet most dramatically. A melting point is a single number in a table, but behind it are particles deciding, one collision at a
+                    time, whether to stay in a lattice or wander in a liquid. In AIMS none of these numbers is assumed: the particles obey only the forces between them, and the crystalline fraction and the temperature are
+                    measured as the simulation runs. When a growth front stalls in salt but sweeps through copper, students are seeing an
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Emergence">emergent</a> outcome of the bonding, not a drawing made to match a textbook.</p>
+
+                    <p>These experiments are also among the hardest to set up by hand. A trustworthy melting point needs a seed, a melt, a thermostat, and a way to judge crystallinity &mdash; and each kind of crystal needs
+                    its own force field and its own measure of order. That is exactly the machinery a beginner does not yet know how to operate, and the AI agent operates it for them. Because it maps plain questions onto
+                    the right experiment, a student who wonders <em>"why does salt melt at a thousand degrees but nitrogen at minus two hundred?"</em> gets four experiments and four charts, not just a sentence. The
+                    conversation becomes the laboratory notebook, and each question a new run.</p>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses phase changes to illustrate a new way to learn science: not by memorizing a table of melting points, and not by wrestling with simulation software, but by <em>conversing</em> with an
+                    AI agent that turns a plain-English question into a molecular-dynamics experiment and hands back measured data. The four families of crystals &mdash; metallic, ionic, covalent, and molecular &mdash;
+                    are not presented as categories to be accepted but as behaviour to be watched, measured, and explained: how hot each must be to melt, how fast each can grow, and why. By pairing physically grounded
+                    simulations with an AI that can set them up and run them, AIMS lowers the barrier between a student's curiosity and a genuine scientific investigation of how matter changes its state.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
