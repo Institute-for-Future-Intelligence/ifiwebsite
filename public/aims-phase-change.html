@@ -121,7 +121,7 @@
                     other steps of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Semiconductor_device_fabrication">chip fabrication</a> begin.</p>
 
                     <p>Why go to such lengths? Because a transistor depends on electrons moving through a perfectly regular lattice. Where two crystal grains meet, or where an atom sits out of place, the lattice is broken:
-                    electrons scatter, charges get trapped, and dopants spread unevenly, so devices built on a flawed crystal leak, slow down, or fail. A billion transistors on one chip need the same perfect crystal under
+                    electrons scatter, charges get trapped, and dopants spread unevenly, so devices built on a flawed crystal leak, slow down, or fail. Tens of billions of transistors on one chip need the same perfect crystal under
                     every one of them. Growing a pure single crystal is therefore the first, and in many ways the most unforgiving, step in making a chip: get the crystal wrong, and nothing built on top of it can be right.</p>
 
                     <p>The model above shows that first step at the scale where it actually happens &mdash; the solid&ndash;liquid interface, one atomic layer at a time. Students can see that the seed decides everything: each
@@ -129,9 +129,9 @@
                     melting point the crystal grows, a little above it the crystal dissolves back into the melt. In the real process, the pull rate and the heat flowing through the interface are tuned to keep that balance
                     for days, the whole time an ingot grows.</p>
 
-                    <h2>Melting Is Easy, Freezing Is Hard</h2>
+                    <h2>Why Start from a Seed?</h2>
 
-                    <p>In a simulation, melting a crystal is easy: heat it and it falls apart. Freezing a liquid is surprisingly hard. A liquid has no template, so a crystal can only begin from a tiny ordered cluster
+                    <p>Heat a simulated crystal and it soon melts, but cool the liquid and it usually does not freeze. A liquid has no template, so a crystal can only begin from a tiny ordered cluster
                     that forms by chance, and most such clusters dissolve again before they can grow. This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nucleation">nucleation</a>,
                     and it is why real liquids can be <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Supercooling">supercooled</a> well below their freezing points. In a simulation the
                     wait for a nucleus can run to nanoseconds or longer &mdash; far beyond what a browser can compute while you watch.</p>
@@ -165,9 +165,9 @@
                         <p class="v2-prompts-group">Investigate melting and freezing</p>
                         <ol>
                             <li><span class="v2-prompts-step">Freezing</span> (growth below the melting point) &mdash; <span class="v2-prompt">"Grow the crystal from a seed at 1500 K."</span> (copper 1100 K, salt 1000 K, nitrogen 35 K)</li>
-                            <li><span class="v2-prompts-step">Stalling</span> (growth above the melting point) &mdash; <span class="v2-prompt">"Now try it at 1800 K."</span> (copper 1300 K, salt 1200 K, nitrogen 45 K)</li>
+                            <li><span class="v2-prompts-step">Stalling</span> (growth above the melting point) &mdash; <span class="v2-prompt">"Now try it at 1700 K."</span> (copper 1300 K, salt 1200 K, nitrogen 45 K)</li>
                             <li><span class="v2-prompts-step">The melting point</span> &mdash; <span class="v2-prompt">"Find the melting point of this model."</span></li>
-                            <li><span class="v2-prompts-step">Compare the potential</span> &mdash; <span class="v2-prompt">"How does this model's melting point compare with the real material, and why are they different?"</span></li>
+                            <li><span class="v2-prompts-step">Model vs. reality</span> &mdash; <span class="v2-prompt">"How does this model's melting point compare with the real material, and why are they different?"</span></li>
                         </ol>
 
                         <p class="v2-prompts-intro" style="margin-top:1rem !important; margin-bottom:0 !important;">Each run restores the lab when it finishes, and a "Show final state" button on the chart brings back its last frame. The "Melting of Copper", "Melting of Salt", "Melting of Silicon", and "Melting of Ice" examples start from a solid instead, for the heating experiments described below.</p>
@@ -184,7 +184,7 @@
                                 <tr><th>Crystal</th><th>Type</th><th>Held together by</th><th>Grows at</th><th>Stalls at</th><th>Model T<sub>m</sub></th><th>Real T<sub>m</sub></th><th>Growth time</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td>Silicon</td><td>Covalent</td><td>Directional bonds, four per atom</td><td class="num">1500 K</td><td class="num">1800 K</td><td class="num">&asymp; 1700&ndash;1750 K</td><td class="num">1687 K</td><td class="num">~60 ps</td></tr>
+                                <tr><td>Silicon</td><td>Covalent</td><td>Directional bonds, four per atom</td><td class="num">1500 K</td><td class="num">1700 K</td><td class="num">&asymp; 1600&ndash;1700 K</td><td class="num">1687 K</td><td class="num">~60 ps</td></tr>
                                 <tr><td>Copper</td><td>Metallic</td><td>Shared sea of electrons</td><td class="num">1100 K</td><td class="num">1300 K</td><td class="num">&asymp; 1100&ndash;1200 K</td><td class="num">1358 K</td><td class="num">~10&ndash;30 ps</td></tr>
                                 <tr><td>Rock salt</td><td>Ionic</td><td>Attraction of Na<sup>+</sup> and Cl<sup>&minus;</sup></td><td class="num">1000 K</td><td class="num">1200 K</td><td class="num">1000&ndash;1200 K</td><td class="num">1074 K</td><td class="num">~20&ndash;30 ps</td></tr>
                                 <tr><td>Nitrogen</td><td>Molecular</td><td>Weak van der Waals forces between N<sub>2</sub> molecules</td><td class="num">35 K</td><td class="num">45 K</td><td class="num">40&ndash;45 K</td><td class="num">63 K</td><td class="num">~60&ndash;80 ps</td></tr>
@@ -194,8 +194,8 @@
 
                     <p><b>Covalent: silicon.</b> In a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diamond_cubic">diamond-structure</a> crystal each atom is bonded to exactly
                     four neighbours at the corners of a tetrahedron. An atom joining the crystal must find four partners at the right angles at once, so silicon is the slowest of the four to grow: about
-                    60 picoseconds at 1500&nbsp;K, ten minutes or more of watching in a browser. The topmost layer stays rough, because at this temperature a free silicon surface never quite settles. Growth stalls at 1800&nbsp;K, and the
-                    model's melting point comes out near 1700&ndash;1750&nbsp;K &mdash; close to the real 1687&nbsp;K. That agreement matters: the temperature of the melt, and how far below the melting point the growing crystal is held,
+                    60 picoseconds at 1500&nbsp;K, ten minutes or more of watching in a browser. The topmost layer stays rough, because at this temperature a free silicon surface never quite settles. Growth stalls at 1700&nbsp;K, and the
+                    model's melting point comes out near 1650&nbsp;K &mdash; close to the real 1687&nbsp;K. That agreement matters: the temperature of the melt, and how far below the melting point the growing crystal is held,
                     is what an ingot grower controls, and here students can see why a crystal grows at one temperature and dissolves at another.</p>
 
                     <figure class="v2-embed">
@@ -207,7 +207,7 @@
                     </figure>
 
                     <p><b>Metallic: copper.</b> In a metal, the outer electrons are shared by the whole crystal, and the bond between two atoms barely cares about direction. An atom arriving at the growth front only
-                    has to find a hollow among its neighbours, so copper freezes fastest of the four: at 1000&nbsp;K the melt is crystal in about ten picoseconds, several times faster than silicon. At 1300&nbsp;K a layer or two next to the seed order,
+                    has to find a hollow among its neighbours, so copper freezes fastest of the four: at 1100&nbsp;K the melt is crystal in 20 to 30 picoseconds, two to three times faster than silicon. At 1300&nbsp;K a layer or two next to the seed order,
                     but the front stalls; at 1200&nbsp;K it advances and retreats without finishing. The model's melting point lies near 1100&ndash;1200&nbsp;K.</p>
 
                     <figure class="v2-embed">
@@ -236,7 +236,7 @@
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_der_Waals_force">van der Waals</a> attraction so feeble that the crystal melts at 63&nbsp;K. Here everything
                     happens tens of kelvin above absolute zero instead of a thousand: the liquid freezes onto the seed at 35&nbsp;K over 60 to 80 picoseconds, and stalls at 45&nbsp;K. Look closely at the grown crystal:
                     the molecular <em>centres</em> settle onto lattice sites, but the dumbbells keep tumbling. That is how many molecular crystals behave near their melting points &mdash; the positions freeze first, and the
-                    orientations lock in only much colder. Because 35&nbsp;K is only a few kelvin below this model's melting point, the front advances in fits and starts, and now and then a run stalls halfway; a second
+                    orientations lock in only much colder. Because the molecules are held so weakly and the lab holds only a couple of hundred of them, chance plays a large part: the front advances in fits and starts, and now and then a run stalls halfway; a second
                     run from Reset takes a different path. The <em>Dry Ice Growth from a Seed</em> example shows a harder case: carbon dioxide molecules must also line up in a fixed orientation, and they do.</p>
 
                     <p>Read down the "Model T<sub>m</sub>" column and the lesson of the four families appears in measured numbers: the melting point follows the strength of what holds the crystal together, from a few tens of
@@ -248,7 +248,7 @@
                     <p>None of the four simulations is told its melting point. Each uses a published <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Interatomic_potential">interatomic potential</a>
                     &mdash; an embedded-atom potential for copper, Tosi&ndash;Fumi for salt, Stillinger&ndash;Weber for silicon, and a two-site potential for nitrogen &mdash; fitted mostly to properties of the cold crystal,
                     such as its spacing, stiffness, and cohesive energy. The melting point is a <em>prediction</em>. Salt and silicon land close to experiment; copper and nitrogen come out lower, because their potentials
-                    capture the solid better than the liquid. Students can ask the agent why, switch copper to a different potential with one sentence, and watch the melting point move by hundreds of kelvin &mdash; a
+                    capture the solid better than the liquid. Students can ask the agent why, switch copper to a different potential with one sentence, and watch the melting point move by about 200 kelvin &mdash; a
                     direct look at what a model can and cannot know.</p>
 
                     <h2>Other Ways to Look at Melting</h2>
@@ -275,7 +275,7 @@
                     <p>Freezing onto a seed is not the only way a liquid can become a solid. Cool it fast enough and the atoms never find their lattice sites at all: they jam in a disordered pile, a
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Amorphous_metal">glass</a>. The <em>Annealing of Amorphous Copper</em> example (Metallic Crystals) opens on
                     exactly that &mdash; 108 copper atoms melted at 3000&nbsp;K and then frozen in half a picosecond. Orbit it and look along any direction: there are no rows. Press Play at 150&nbsp;K and the atoms jiggle,
-                    but the pile stays a pile, stuck in a local energy minimum about 80&nbsp;meV per atom above the crystal.</p>
+                    but the pile stays a pile, stuck in a local energy minimum about 90&nbsp;meV per atom above the crystal.</p>
 
                     <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Annealing_(materials_science)">Annealing</a> is how a glass gets out. Ask the agent
                     <em>"Anneal it: heat to 1000 K, hold for 10 ps, then cool back to 150 K over 20 ps."</em> It drives the whole temperature schedule and charts the energy as it goes. During the hold &mdash; well below the
