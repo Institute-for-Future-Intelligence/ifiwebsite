@@ -122,22 +122,22 @@
 
                     <p>Why go to such lengths? Because a transistor depends on electrons moving through a perfectly regular lattice. Where two crystal grains meet, or where an atom sits out of place, the lattice is broken:
                     electrons scatter, charges get trapped, and dopants spread unevenly, so devices built on a flawed crystal leak, slow down, or fail. Tens of billions of transistors on one chip need the same perfect crystal under
-                    every one of them. Growing a pure single crystal is therefore the first, and in many ways the most demanding, step in making a chip.</p>
+                    every one of them. Growing a pure single crystal is therefore the first step in making a chip once the silicon is refined, and in many ways the most demanding.</p>
 
                     <p>The model above shows that first step at the scale where it actually happens &mdash; the solid&ndash;liquid interface, one atomic layer at a time. Students can see how the seed is copied: each
                     arriving atom takes its place from the layer below, so the whole ingot inherits the seed's orientation. They can also see why the temperature at the interface must be held just right: a little below the
-                    melting point the crystal grows, a little above it the crystal melts back. In the real process, the pull rate and the heat flowing through the interface are tuned to hold the interface just below the melting point
+                    melting point the crystal grows, a little above it, growth stops and the crystal can melt back. In the real process, the pull rate and the heat flowing through the interface are tuned to hold the interface just below the melting point
                     for days, the whole time an ingot grows.</p>
 
                     <h2>Why Start from a Seed?</h2>
 
-                    <p>Heat a crystal far enough and it melts on its own, but a liquid can be <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Supercooling">supercooled</a> well below its freezing point and stay liquid. A liquid has no template, so a crystal can only begin from a tiny ordered cluster
+                    <p>Heat a crystal far enough and it always melts, but a liquid can be <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Supercooling">supercooled</a>: cooled well below its freezing point without freezing. Unless dust or a container wall offers a template, a crystal must begin from a tiny ordered cluster
                     that forms by chance, and most such clusters fall apart again before they can grow. This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nucleation">nucleation</a>.
                     In a simulation the
                     wait for a nucleus can run to nanoseconds or longer &mdash; far beyond what a browser can compute while a student watches.</p>
 
                     <p>The way around it is the same trick the semiconductor industry relies on to grow its silicon ingots: give the liquid a
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Seed_crystal">seed crystal</a> to grow on, and the nucleation barrier disappears. AIMS does the same thing in miniature. Each of the four labs in this article holds a few hundred atoms: a crystal seed a few atomic layers thick at the bottom, its lowest layers anchored in place (drawn
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Seed_crystal">seed crystal</a> to grow on, and the nucleation barrier disappears. AIMS does the same thing in miniature. Each of the four labs in this article holds a few hundred atoms: a crystal seed a few atomic layers thick at the bottom, its lowest layer or two anchored in place (drawn
                     see-through) and the rest free to vibrate, under a freshly melted liquid with an open surface on top. Below the melting point the liquid freezes onto the seed, layer by layer. Above it the
                     liquid stays liquid; at most a layer or two next to the seed take order from it. Right at the melting point, crystal and liquid are in balance and the front advances and retreats without getting anywhere. That makes seeded growth a
                     direct way to find the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Melting_point">melting point</a> &mdash; and it works the same way for every kind of crystal.</p>
@@ -149,9 +149,9 @@
                     configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
 
                     <div class="v2-prompts">
-                        <p class="v2-prompts-intro">Open one of the seeded-growth examples from the Examples menu (Materials Science), open the chat, and type the prompts below. The temperatures are for silicon; for the other crystals use the ones in parentheses, also listed in the table that follows.</p>
+                        <p class="v2-prompts-intro">Open one of the seeded-growth examples from the Examples menu (Materials Science), open the chat, and type the prompts below. The temperatures are for silicon; for the other crystals use the ones in parentheses (all but dry ice are also in the table that follows).</p>
 
-                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, roughly a tenth of a picosecond per second of real time on a typical laptop. If you press Play in an example, copper freezes in a few minutes, salt in five or more, and silicon and nitrogen in ten to twenty. A growth run by the agent first melts the crystal and then regrows it, which takes longer than pressing Play, up to half an hour for silicon; finding the melting point chains three or four such runs and can take 30 minutes to an hour. Leave the tab open and in front while it runs, because browsers slow down pages in background tabs.</p>
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, roughly a tenth of a picosecond per second of real time on a typical laptop. If you press Play in an example, copper freezes in a few minutes, salt in five or more, and silicon and nitrogen in ten to twenty. A growth run by the agent first melts the crystal and then regrows it, which takes longer than pressing Play: about ten minutes for copper, up to half an hour for silicon. Finding the melting point chains three or four such runs, from about half an hour for copper to well over an hour for silicon. Leave the tab open and in front while it runs, because browsers slow down pages in background tabs.</p>
 
                         <p class="v2-prompts-group">Pick a crystal</p>
                         <ol>
@@ -183,7 +183,7 @@
                                 <tr><th>Crystal</th><th>Type</th><th>Held together by</th><th>Grows at</th><th>Stays liquid at</th><th>Model T<sub>m</sub></th><th>Real T<sub>m</sub></th><th>Time to freeze</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td>Silicon</td><td>Covalent</td><td>Shared electron pairs, each atom to four neighbors</td><td class="num">1500 K</td><td class="num">1700 K</td><td class="num">&asymp; 1600&ndash;1700 K</td><td class="num">1687 K</td><td class="num">~60 ps</td></tr>
+                                <tr><td>Silicon</td><td>Covalent</td><td>Shared electron pairs, each atom to four neighbors</td><td class="num">1500 K</td><td class="num">1700 K</td><td class="num">1600&ndash;1700 K</td><td class="num">1687 K</td><td class="num">~60 ps</td></tr>
                                 <tr><td>Copper</td><td>Metallic</td><td>A sea of delocalized electrons</td><td class="num">1100 K</td><td class="num">1300 K</td><td class="num">&asymp; 1200 K</td><td class="num">1358 K</td><td class="num">~20&ndash;30 ps</td></tr>
                                 <tr><td>Rock salt</td><td>Ionic</td><td>Attraction between Na<sup>+</sup> and Cl<sup>&minus;</sup> ions</td><td class="num">1000 K</td><td class="num">1200 K</td><td class="num">1000&ndash;1200 K</td><td class="num">1074 K</td><td class="num">~15&ndash;25 ps</td></tr>
                                 <tr><td>Nitrogen</td><td>Molecular</td><td>Weak van der Waals forces between N<sub>2</sub> molecules</td><td class="num">35 K</td><td class="num">45 K</td><td class="num">40&ndash;45 K</td><td class="num">63 K</td><td class="num">~60&ndash;80 ps</td></tr>
@@ -193,9 +193,9 @@
 
                     <p><b>Covalent: silicon.</b> In a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diamond_cubic">diamond-structure</a> crystal each atom is bonded to exactly
                     four neighbors at the corners of a tetrahedron. An atom joining the crystal must find four partners at the right angles at once, so silicon grows slowly: about
-                    60 picoseconds at 1500&nbsp;K, ten minutes or more of watching in a browser. The topmost layer stays rough, because at this temperature a free silicon surface never quite settles. At 1700&nbsp;K the melt stays liquid, and the
+                    60 picoseconds at 1500&nbsp;K, ten minutes or more of watching in a browser. The topmost layer stays rough, because at this temperature a free silicon surface never quite settles. A run at 1600&nbsp;K still grows, more slowly; at 1700&nbsp;K the melt stays liquid, so the
                     model's melting point comes out near 1650&nbsp;K &mdash; close to the real 1687&nbsp;K, as the potential's authors intended. That agreement matters, because this is what an ingot grower controls:
-                    how far below the melting point the crystal grows. Here students can see why a crystal grows at one temperature and melts at another.</p>
+                    how far below the melting point the crystal grows. Here students can see the same melt crystallize at one temperature and stay liquid at another.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Copper%20Growth%20from%20a%20Seed"
@@ -233,13 +233,13 @@
                     <p><b>Molecular: nitrogen.</b> Many solids around us &mdash; ice, sugar, wax, most drugs in a pharmacy &mdash; are built from molecules held together by forces far weaker than a chemical bond. Solid
                     nitrogen is one of the simplest: N<sub>2</sub> dumbbells stacked on the same face-centered cubic lattice as copper, held there by
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_der_Waals_force">van der Waals</a> attraction so feeble that the crystal melts at 63&nbsp;K. Here everything
-                    happens tens of kelvin above absolute zero instead of a thousand: the liquid freezes onto the seed at 35&nbsp;K over 60 to 80 picoseconds, and stays liquid at 45&nbsp;K. Look closely at the grown crystal:
+                    happens tens of kelvin above absolute zero instead of a thousand or more: the liquid freezes onto the seed at 35&nbsp;K over 60 to 80 picoseconds, and stays liquid at 45&nbsp;K. Look closely at the grown crystal:
                     the molecular <em>centers</em> settle onto lattice sites, but the dumbbells keep tumbling. That is how many molecular crystals behave near their melting points &mdash; the positions freeze first, and the
                     orientations lock in only much colder. (Real nitrogen tumbles on a hexagonal lattice; this model keeps the cubic one.) Because the molecules are held so weakly and the lab contains only a couple of hundred of them, chance plays a large part: the front advances in fits and starts, and now and then a run stalls halfway; a second
                     run from Reset takes a different path. The <em>Dry Ice Growth from a Seed</em> example shows a harder case: carbon dioxide molecules must also line up in a fixed orientation, and they do.</p>
 
                     <p>Read down the "Model T<sub>m</sub>" column and the lesson of the four families appears in measured numbers: the melting point follows the strength of what holds the crystal together, from a few tens of
-                    kelvin for molecules held by van der Waals forces to more than a thousand for metals, ionic crystals, and covalent networks. The "Time to freeze" column shows something textbooks rarely
+                    kelvin for molecules held by van der Waals forces to a thousand or more for metals, ionic crystals, and covalent networks. The "Time to freeze" column shows something textbooks rarely
                     mention: how fast a crystal grows depends on more than how strongly it is bound. Silicon is slow because each arriving atom must find four neighbors at the right angles. Nitrogen is slow for a different reason: at 35&nbsp;K its molecules move about four times more slowly than copper atoms do at 1100&nbsp;K.</p>
 
                     <h2>Models Make Predictions</h2>
@@ -278,7 +278,7 @@
                     <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Annealing_(materials_science)">Annealing</a> is how a glass escapes that minimum. Ask the agent
                     <em>"Anneal it: heat to 1000 K, hold for 10 ps, then cool back to 150 K over 20 ps."</em> It drives the whole temperature schedule and charts the energy as it goes. During the hold &mdash; below the
                     melting point, so nothing melts &mdash; the atoms gain just enough mobility to hop into place, the energy drops in a step, and rows appear. Then press Reset to get the glass back and try two other histories: melt it and quench
-                    it in half a picosecond, and it is a glass again; heat it to 1200&nbsp;K, where the glass melts, and cool it slowly over 30&nbsp;ps, and the liquid crystallizes on the way down. Both runs use the same atoms and end at the same temperature;
+                    it to 150&nbsp;K in half a picosecond, and it is a glass again; heat it to 1200&nbsp;K, where the glass melts, and cool it slowly to 150&nbsp;K over 30&nbsp;ps, and the liquid crystallizes on the way down. Both runs use the same atoms and end at the same temperature;
                     the big difference is the <em>cooling rate</em>, and it decides whether a solid ends up a glass or a crystal. These runs are short &mdash; tens of picoseconds on 108 atoms &mdash; so each takes only a few minutes.</p>
 
                     <p>Annealing also brings the story back to chips. After a silicon wafer is cut from its ingot, dopant atoms are fired into it by
