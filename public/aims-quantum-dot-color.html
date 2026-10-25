@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why a Quantum Dot's Color Is a Matter of Size — Institute for Future Intelligence</title>
+    <meta name="description" content="The textbook size effect of nanoscience, investigated with an AI agent in AIMS: ask for a cadmium-free green quantum dot and the agent builds dots of four materials atom by atom, solves their energy levels, finds the size that emits green, and shows that size, not shape, sets the color.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 64rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; }
+        .v2-compare thead tr:first-child th { padding-bottom: 0.25rem; }
+        .v2-compare thead tr:last-child th { border-bottom: 1px solid rgba(99, 102, 241, 0.25); padding-top: 0.25rem; }
+        .v2-compare thead th[rowspan] { vertical-align: bottom; padding-bottom: 0.85rem; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare thead th.group { text-align: center; font-size: 0.95rem; color: var(--accent); }
+        .v2-compare thead th.group span { display: block; border-bottom: 1px solid rgba(99, 102, 241, 0.3); padding-bottom: 0.3rem; }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare .bond { color: var(--text-muted); font-size: 1.25rem; min-width: 18rem; }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+        .v2-type { display: inline-block; font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 999px; white-space: nowrap; }
+        .v2-type.pick { color: #047857; background: #d1fae5; }
+        .v2-type.cadmium { color: #b45309; background: #fef3c7; }
+        .v2-type.unreachable { color: #4338ca; background: #eef2ff; }
+        .v2-type.toobig { color: #0369a1; background: #e0f2fe; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="QUANTUM DOT">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Why a Quantum Dot's Color Is a Matter of Size</h1>
+                <p class="v2-tagline">
+                    The same crystal glows blue, green, or red depending only on how small it is: ask an AI agent to find the size that makes a television's green pixel, without cadmium.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>Make crystals of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Indium_phosphide">indium phosphide</a> only a few nanometers across and
+                    something odd happens: a 2&nbsp;nm crystal glows blue under ultraviolet light, a 2.4&nbsp;nm crystal glows green, and a somewhat larger one glows orange, though the chemistry is the same in all three.
+                    These are <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quantum_dot">quantum dots</a>, and the dependence of their color on their size is the textbook example of a nanoscale
+                    size effect, the demonstration that nearly every introduction to nanoscience reaches for first. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Alexey_Ekimov">Alexei Ekimov</a> noticed it in the early 1980s in glass colored with copper chloride
+                    nanocrystals: the longer the glass was heated, the larger the crystals grew, and the more its color shifted. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Louis_E._Brus">Louis Brus</a>
+                    found the same thing a few years later in cadmium sulfide particles suspended in a liquid and explained it, and
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Moungi_Bawendi">Moungi Bawendi</a> worked out how to make dots of a chosen size in quantity. The three shared the
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.nobelprize.org/prizes/chemistry/2023/summary/">2023 Nobel Prize in Chemistry</a>. The effect has been commercialized. A
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quantum_dot_display">quantum-dot television</a> puts a film of dots of two sizes between its blue backlight and the screen; part of the blue passes
+                    through, the rest is absorbed by the dots and re-emitted as red and green, and the purity of those two colors depends largely on how narrow a range of sizes the factory can hold the dots to.</p>
+
+                    <p>Textbooks usually tell this story with a photograph of vials glowing from blue to red and a sentence about quantum confinement. In AIMS, students can work through it themselves. They ask an
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> a question, and the agent builds the dots atom by atom, solves for the energy
+                    levels of each one, and puts the results in the chat as a chart. No color is looked up anywhere; each one is computed from the positions of a few hundred atoms and the rules that govern their electrons.
+                    The window below shows the agent answering, in four turns, a question that a display engineer might actually ask.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Choosing%20a%20Cadmium-Free%20Quantum%20Dot"
+                                id="aims-frame1" allowfullscreen="true" title="Choosing a Cadmium-Free Quantum Dot demo"></iframe>
+                        <figcaption>
+                            Choosing a Cadmium-Free Quantum Dot &mdash; <a href="javascript:openFullscreen('aims-frame1');">view fullscreen</a>. Chrome or Edge recommended. Scroll through the chat on the left to follow the four turns. The 2.4&nbsp;nm indium phosphide dot the agent settled on, 281 host atoms under a shell of hydrogen, is loaded in the lab on the right.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Why a Smaller Box Glows Bluer</h2>
+
+                    <p>A semiconductor emits light when an electron drops from the conduction band to the valence band, and the photon carries away the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Band_gap">band gap</a> as its energy. The gap is a property of the bulk crystal; for indium phosphide it is 1.35&nbsp;eV,
+                    which lies in the infrared. Confine the electron to a crystal a few nanometers wide, however, and it behaves like a wave trapped in a box. A wave in a smaller box has to bend more sharply, which costs
+                    kinetic energy, so every level moves up and the gap widens. This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Potential_well#Quantum_confinement">quantum confinement</a>.
+                    To a first approximation the extra energy grows as one over the diameter squared, just as it does for the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Particle_in_a_box">particle in a box</a> of an introductory quantum mechanics course, so the smaller the dot, the bluer the light.</p>
+
+                    <p>Converting a gap to a color takes one division: the wavelength of a photon in nanometers is 1240 divided by its energy in electron volts. The bulk gap of indium phosphide, 1.35&nbsp;eV, corresponds to
+                    918&nbsp;nm. Widen it to 2.34&nbsp;eV and the dot emits at 530&nbsp;nm, the green a display needs. If you ask the agent to <em>"build a 2 nm indium phosphide quantum dot and compute its energy levels,"</em> it cuts a
+                    sphere of 147 indium and phosphorus atoms out of the crystal, caps the surface, solves for the levels, and reports a gap of 2.57&nbsp;eV, or 482&nbsp;nm, which is blue. Since confinement can only widen the gap, a dot can
+                    only be bluer than its parent crystal, never redder. This one-way rule turns out to matter for the design problem below.</p>
+
+                    <h2>The Design Problem: A Green Pixel Without Cadmium</h2>
+
+                    <p>The first commercial quantum dots were made of cadmium selenide, and cadmium is now
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Restriction_of_Hazardous_Substances_Directive">restricted</a> in consumer electronics. The industry's replacement has been indium
+                    phosphide, but it is not the only possible choice, and a display engineer has more to think about than hitting the right color once. No synthesis produces dots of exactly one size. A batch whose diameters vary by 5%
+                    emits a band of colors rather than a single one, and the width of that band is the slope of color against size multiplied by the spread. A material whose color changes quickly with size is hard to manufacture
+                    consistently, whatever that color is.</p>
+
+                    <p>The opening question of the example therefore asks for more than a color: <em>"Design a green quantum dot for a display without cadmium: compare indium phosphide, zinc telluride and zinc selenide dots, pick the
+                    material that reaches 530 nm with the least color shift per nanometer of diameter, and build it."</em> The agent adds cadmium telluride, the kind of material the industry is moving away from, as a benchmark. Then, in a
+                    single tool call, it cuts dots of all four materials over a range of sizes, solves each one, plots the four color-versus-size curves on one chart, and reads off where each curve crosses 530&nbsp;nm and how steep it is there.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th rowspan="2">Host crystal</th><th rowspan="2">Bulk gap</th><th rowspan="2">Bulk emission</th><th class="group" colspan="3"><span>At the 530 nm target</span></th><th rowspan="2">Verdict</th></tr>
+                                <tr><th class="num">Diameter</th><th class="num">Color drift</th><th class="num">Spread from &plusmn;5% in size</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Indium phosphide</b><small>InP</small></td><td class="num">1.35 eV</td><td class="num">918 nm (infrared)</td><td class="num model">2.4 nm</td><td class="num">~105 nm per nm</td><td class="num">about &plusmn;6 nm</td><td><span class="v2-type pick">The pick</span></td></tr>
+                                <tr><td class="crystal"><b>Cadmium telluride</b><small>CdTe</small></td><td class="num">1.50 eV</td><td class="num">827 nm (infrared)</td><td class="num model">2.4 nm</td><td class="num">~100 nm per nm</td><td class="num">about &plusmn;6 nm</td><td><span class="v2-type cadmium">As good, but cadmium</span></td></tr>
+                                <tr><td class="crystal"><b>Zinc telluride</b><small>ZnTe</small></td><td class="num">2.26 eV</td><td class="num">549 nm (green)</td><td class="num model">far beyond 3 nm</td><td class="num">small</td><td class="num">small</td><td><span class="v2-type toobig">Steadiest, but too large to model</span></td></tr>
+                                <tr><td class="crystal"><b>Zinc selenide</b><small>ZnSe</small></td><td class="num">2.70 eV</td><td class="num">459 nm (blue)</td><td class="num model">none</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="v2-type unreachable">Already bluer than green</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>The answer is indium phosphide, and the table adds a detail that the usual statement "indium phosphide replaced cadmium" leaves out: the replacement costs almost nothing in manufacturing tolerance. Cadmium
+                    telluride reaches green at the same size with nearly the same drift, so a batch of either material with a 5% spread in size has its green peak smeared by about 6&nbsp;nm in each direction. A band some 12&nbsp;nm wide is
+                    acceptable for a display primary, which is part of why indium phosphide dots are in products today. (The drift figures come from a power-law fit through the computed dots near the target size rather than from a single
+                    pair of neighboring points. An early version of the tool used the raw slopes between adjacent dots, and those made indium phosphide look twice as drifty as cadmium telluride, purely because of where the discrete atom
+                    cuts happened to fall.)</p>
+
+                    <h2>The Rule That Falls Out</h2>
+
+                    <p>The two zinc compounds fail in opposite ways, and together they show how to choose a host material. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Zinc_selenide">Zinc selenide</a>
+                    is blue already in the bulk, at 459&nbsp;nm. Confinement can only push it further toward the blue, so no zinc selenide dot of any size will emit green, and the agent reports the target as out of reach instead of
+                    extrapolating to a size that does not exist.</p>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Zinc_telluride">Zinc telluride</a> fails the other way, and its case is the more instructive. Its bulk emission, at 549&nbsp;nm,
+                    is nearly green already, so reaching 530&nbsp;nm requires very little confinement. That means a large dot, and on a large dot the color-versus-size curve is nearly flat, which is exactly the steadiness a manufacturer would
+                    like. But the dot would have to be bigger than anything the model can solve, and the trend of the computed dots places it at 15&nbsp;nm or more, a size at which zinc telluride is essentially bulk material. The agent says
+                    as much: the slope is too far out to trust. When the second question in the example asks <em>why</em> zinc telluride would give the steadiest color if it could be made, the answer is the rule itself. The host whose
+                    bulk gap sits just below the target color gives the steadiest dot, because it needs the least confinement; the price is a dot too large to be useful. Indium phosphide falls between the two zinc compounds, far enough
+                    below green that a small, strongly confined dot reaches it, and close enough that the slope at the crossing is moderate.</p>
+
+                    <h2>The Cube That Was a Smaller Sphere</h2>
+
+                    <p>Real batches do not consist of perfect spheres, so the third question in the example asks whether a 2.4&nbsp;nm indium phosphide cube emits the same green as the 2.4&nbsp;nm sphere. It does not. The cube comes out
+                    18&nbsp;nm bluer, at 513&nbsp;nm instead of 531&nbsp;nm, and it would be natural to conclude that shape matters. That is not what is going on.</p>
+
+                    <p>The agent reports the atom count beside every structure it builds. The 2.4&nbsp;nm sphere contains 281 indium and phosphorus atoms; the 2.4&nbsp;nm cube contains 239. A cube cut from a crystal loses more atoms at its
+                    corners to the cleanup step that removes singly bonded surface atoms, and the nominal size says nothing about that. Spread 239 atoms into a sphere at the density of the crystal and the sphere is 2.25&nbsp;nm across. The
+                    cube is, in effect, a 2.25&nbsp;nm dot, and a smaller dot is bluer; that accounts for the whole 18&nbsp;nm.</p>
+
+                    <p>The fair comparison, which the fourth question asks for, sweeps spheres and cubes together from 1.2 to 2.6&nbsp;nm and plots every dot at its <em>effective</em> diameter, the diameter of the sphere its atoms would
+                    fill. The two curves lie on top of each other. At equal atom count the shape barely affects the color, and size accounts for nearly all of it. For anyone making dots the conclusion is practical: control the size
+                    distribution first, and treat shape as a second-order concern. It is also a reminder that a nominal size is not a measurement. The number that mattered here was the atom count.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. A student does not need to know how to cut a nanoparticle out of a crystal, how to passivate its surface, or how to set up a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tight_binding">tight-binding</a> calculation. They simply ask &mdash; <em>"what color does a 2 nm dot emit?"</em>, <em>"which material
+                    reaches green with the least drift?"</em>, <em>"does a cube emit the same color as a sphere?"</em> &mdash; and the built-in AI agent recognizes the intent, builds the structures, runs the calculation, and posts a chart of the
+                    results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Choosing a Cadmium-Free Quantum Dot</em> from the Examples menu (Nanotechnology), read the four turns, then open the chat and ask your own questions. Each dot is solved in your browser. A single dot takes a few seconds; a sweep over four materials takes a minute or two.</p>
+
+                        <p class="v2-prompts-group">The four turns of the example</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">The design question</span> &mdash; <span class="v2-prompt">"Design a green quantum dot for a display without cadmium: compare indium phosphide, zinc telluride and zinc selenide dots, pick the material that reaches 530 nm with the least color shift per nanometer of diameter, and build it."</span></li>
+                            <li><span class="v2-prompts-step">The rule</span> &mdash; <span class="v2-prompt">"Why would zinc telluride give the steadiest color if it could be made, and is there a rule for choosing the host material from its bulk band gap?"</span></li>
+                            <li><span class="v2-prompts-step">Shape or size</span> &mdash; <span class="v2-prompt">"In a real batch the dots are not all spheres. Does a 2.4 nm indium phosphide cube emit the same green as the sphere, and which matters more for the color, shape or size?"</span></li>
+                            <li><span class="v2-prompts-step">The fair test</span> &mdash; <span class="v2-prompt">"Run that fair test: sweep spheres and cubes from 1.2 to 2.6 nm and compare them at the same effective diameter."</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Go further</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Red</span> &mdash; <span class="v2-prompt">"Which of these materials would make the red pixel at 630 nm, and at what size?"</span></li>
+                            <li><span class="v2-prompts-step">Tolerance</span> &mdash; <span class="v2-prompt">"If my synthesis holds the diameter to 3%, how wide is the green peak?"</span></li>
+                            <li><span class="v2-prompts-step">Silicon</span> &mdash; <span class="v2-prompt">"Could a silicon quantum dot emit green, and how small would it have to be?"</span> (see also the example <em>Why Silicon Glows When It Is Small</em>)</li>
+                            <li><span class="v2-prompts-step">Dots versus wires</span> &mdash; the example <em>Quantum Dots Versus Nanowires</em> asks why a wire of the same thickness shifts only about half as far.</li>
+                        </ol>
+                    </div>
+
+                    <h2>What Is Under the Hood, and What to Trust</h2>
+
+                    <p>Every dot in the example is an actual cluster of atoms, cut from the crystal and solved with the same
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tight_binding">empirical tight-binding</a> model that AIMS uses for bulk band structures. Each atom carries five orbitals, and
+                    every bond between neighboring atoms couples them with parameters fitted to the measured gaps and critical points of the bulk material. Dangling bonds at the surface are capped, as a hydrogen shell caps a real dot, by
+                    pushing their states out of the gap. The energy levels then come from diagonalizing the full matrix, which is practical up to about 1600 orbitals, or roughly 320 host atoms. That is why the sweep stops near 2.6&nbsp;nm,
+                    and why the agent has to say so when a design calls for a larger dot.</p>
+
+                    <p>This is a textbook-level model rather than a research one, and every card in the example says so. It leaves out the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Exciton">exciton</a>,
+                    the attraction between the excited electron and the hole it leaves behind, which shifts the emission by roughly a tenth of an electron volt at these sizes. It leaves out spin-orbit coupling, which matters for the
+                    heavier hosts. And its nearest-neighbor parameters make the electrons too heavy, so the confinement shifts come out somewhat low. These errors are the same for every host and every shape, which is why the comparisons
+                    hold up even where the absolute numbers would not. The trends can be trusted: which host reaches green, which is steadier, and that size matters more than shape. The absolute numbers cannot. A real 2.4&nbsp;nm indium
+                    phosphide dot should be expected to emit within a few tens of nanometers of the predicted 531&nbsp;nm, not at it. One reason is that the model predicts where a dot <em>absorbs</em>: real dots emit
+                    somewhat redder than they absorb, by a few tens of nanometers (the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stokes_shift">Stokes shift</a>), so a dot that emits green is a little smaller than the 2.4&nbsp;nm the model names, and the
+                    green dots in a real display are core&ndash;shell particles whose shell shifts the color as well. Each card prints the bulk gap next to the dot's gap because that one number is fitted to experiment.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">Nothing Here Was Looked Up</p>
+                        <p class="v2-prompts-intro">The model is given only the atoms and the rules for their electrons. Everything below was computed from them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Blue to green</span> &mdash; a 2&nbsp;nm indium phosphide dot emits at 482&nbsp;nm and a 2.4&nbsp;nm dot at 531&nbsp;nm; the color-versus-size curve is an output of the calculation, not an input.</li>
+                            <li><span class="v2-prompts-step">The sizing curve</span> &mdash; the 1/d<sup>p</sup> confinement law, with p near 1.2 for these dots, is fitted to the computed points rather than assumed.</li>
+                            <li><span class="v2-prompts-step">The one-way rule</span> &mdash; zinc selenide cannot reach green at any size, because confinement only widens the gap.</li>
+                            <li><span class="v2-prompts-step">The host rule</span> &mdash; the material whose bulk gap sits just below the target gives the steadiest color, and the steadiest candidate of all needs a dot too large to be practical.</li>
+                            <li><span class="v2-prompts-step">Size over shape</span> &mdash; a cube and a sphere with the same number of atoms emit the same green; the "2.4 nm cube" was bluer only because it held fewer atoms.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses the textbook size effect of nanoscience to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language design question into a quantum
+                    mechanical calculation on real atoms and hands back computed data. The size-dependent color of a quantum dot stops being a photograph of glowing vials. Students find the size that gives the color they want,
+                    discover which materials can and cannot get there, and see why controlling size is the same thing as controlling color. By pairing a physically grounded model with an AI that can build the structures and run the
+                    calculations, AIMS turns a student's curiosity into a genuine investigation of how matter behaves when it is very small.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
