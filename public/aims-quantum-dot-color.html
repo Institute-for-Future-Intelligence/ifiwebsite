@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why a Quantum Dot's Color Is a Matter of Size — Institute for Future Intelligence</title>
-    <meta name="description" content="The textbook size effect of nanoscience, investigated with an AI agent in AIMS: ask for a cadmium-free green quantum dot and the agent builds dots of four materials atom by atom, solves their energy levels, finds the size that emits green, and shows that size, not shape, sets the color.">
+    <meta name="description" content="The size-dependent color of quantum dots, investigated with an AI agent in AIMS: ask for a cadmium-free green quantum dot and the agent builds dots of four materials, solves their energy levels, finds the size that emits green, and shows that size, not shape, sets the color.">
 
     <style>
         @import url("css/system.base.css");
@@ -145,10 +145,10 @@
 
                     <p>The dots in this article are tiny crystals of a semiconductor, and their color follows from how a semiconductor emits light: an electron falls from the conduction band into the valence band, and the
                     energy of the photon is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Band_gap">band gap</a>. For indium phosphide the gap is 1.35&nbsp;eV, which is in the infrared.
-                    In a crystal only a few nanometers across the picture changes. In quantum mechanics the electron behaves as a wave, and a wave confined to a smaller box must bend more sharply, which costs kinetic energy. Every level rises and the gap widens. This is the effect of
+                    In a crystal only a few nanometers across, the picture changes. In quantum mechanics the electron behaves as a wave, and a wave confined to a smaller box must bend more sharply, which costs kinetic energy. Every level rises and the gap widens. This is the effect of
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Potential_well#Quantum_confinement">quantum confinement</a>. The extra energy grows roughly as one over the diameter squared, the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Particle_in_a_box">particle-in-a-box</a> result from an introductory course in quantum mechanics (in real dots, and in the model
-                    below, the power is nearer 1.2 than 2): smaller dot, bluer light. Since the bands of a
+                    below, the power is nearer 1.2 than 2): the smaller the dot, the bluer the light. Since the bands of a
                     dot have become a ladder of discrete levels, AIMS reports a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/HOMO_and_LUMO">HOMO&ndash;LUMO gap</a>, the spacing between the highest
                     occupied and the lowest unoccupied level, as it would for a molecule. Light can excite an electron across larger gaps too, which is what the dot's absorption spectrum shows, but an excited electron drops to
                     the lowest empty level within a picosecond before it emits, so the color of the glow is set by the smallest gap.</p>
@@ -210,7 +210,7 @@
 
                     <p>The atom counts, which the agent prints beside every structure, explain the difference. The 2.4&nbsp;nm sphere has 281 indium and phosphorus atoms; the 2.4&nbsp;nm cube has 239. Cutting a cube from a crystal leaves more loose
                     atoms at the corners, and the cleanup step that removes singly bonded surface atoms takes them away, something the nominal size does not record. Put 239 atoms into a sphere at the crystal's density and the sphere is
-                    2.25&nbsp;nm across. The cube is really a 2.25&nbsp;nm dot, and a 2.25&nbsp;nm dot is 18&nbsp;nm bluer than a 2.4&nbsp;nm one.</p>
+                    2.25&nbsp;nm across. The cube is in effect a 2.25&nbsp;nm dot, and a 2.25&nbsp;nm dot is 18&nbsp;nm bluer than a 2.4&nbsp;nm one.</p>
 
                     <p>The fourth question asks for the fair comparison: spheres and cubes swept together from 1.2 to 2.6&nbsp;nm and plotted at their <em>effective</em> diameter, the diameter of the sphere their atoms would fill. The two
                     curves fall on top of each other. At equal atom count the shape hardly matters. For anyone making dots, the size distribution is the thing to control; shape is secondary. And a nominal size is a label, not a measurement.</p>
@@ -251,7 +251,7 @@
                     when a design asks for a bigger dot.</p>
 
                     <p>This is a textbook model, not a research one, and every card in the example says as much. It omits the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Exciton">exciton</a>, the
-                    attraction between the excited electron and the hole it left, worth about a tenth of an electron volt at these sizes. It omits spin&ndash;orbit coupling, which matters for the heavier elements. And its nearest-neighbor
+                    attraction between the excited electron and the hole it left behind, worth about a tenth of an electron volt at these sizes. It omits spin&ndash;orbit coupling, which matters for the heavier elements. And its nearest-neighbor
                     parameters make the electrons too heavy, so the confinement shifts come out a little low. These errors are the same for every host and every shape, so the comparisons survive them even though the absolute numbers do
                     not. A real 2.4&nbsp;nm indium phosphide dot should emit within a few tens of nanometers of the predicted 531&nbsp;nm, not at it. Part of the reason is that the model predicts where a dot <em>absorbs</em>, and real dots
                     emit somewhat to the red of where they absorb (the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stokes_shift">Stokes shift</a>), so a green emitter is a bit smaller than
