@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gibbs–Thomson Effect — Institute for Future Intelligence</title>
+    <meta name="description" content="The size-dependent melting point of gold nanoparticles, investigated with an AI agent in AIMS: cut a 55-atom cluster and two spheres out of gold, measure where the model's bulk gold melts, heat each nanoparticle until it melts, and watch the melting points line up on the Gibbs–Thomson line.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-col-main .v2-callout { float: right; width: 33%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border-left: 4px solid var(--accent); border-radius: 0 0.8rem 0.8rem 0; background: rgba(99, 102, 241, 0.07); }
+        .v2-col-main .v2-callout p { margin: 0; font-size: 1.25rem; line-height: 1.5; }
+        .v2-col-main .v2-embed { clear: both; }
+        @media (max-width: 720px) { .v2-col-main .v2-callout { float: none; width: auto; margin: 1.5rem 0; } }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 64rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; }
+        .v2-compare thead tr:first-child th { padding-bottom: 0.25rem; }
+        .v2-compare thead tr:last-child th { border-bottom: 1px solid rgba(99, 102, 241, 0.25); padding-top: 0.25rem; }
+        .v2-compare thead th[rowspan] { vertical-align: bottom; padding-bottom: 0.85rem; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare thead th.group { text-align: center; font-size: 0.95rem; color: var(--accent); }
+        .v2-compare thead th.group span { display: block; border-bottom: 1px solid rgba(99, 102, 241, 0.3); padding-bottom: 0.3rem; }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+        .v2-type { display: inline-block; font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 999px; white-space: nowrap; }
+        .v2-type.bulk { color: #0369a1; background: #e0f2fe; }
+        .v2-type.sharp { color: #047857; background: #d1fae5; }
+        .v2-type.hump { color: #b45309; background: #fef3c7; }
+        .v2-type.range { color: #4338ca; background: #eef2ff; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="GOLD">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>The Gibbs&ndash;Thomson Effect</h1>
+                <p class="v2-tagline">
+                    A gold nanoparticle melts hundreds of degrees below the melting point of bulk gold, and the smaller the nanoparticle, the lower its melting point. Ask an AI agent in AIMS to cut three nanoparticles out of a gold crystal and find the melting point of each.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>The melting point of bulk gold is 1064&nbsp;&deg;C. The number is in every handbook, and it applies to any ordinary piece of gold. A
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Colloidal_gold">gold nanoparticle</a> melts well below it. Gold nanoparticles 2 to 3&nbsp;nm across have been measured to melt at roughly half the bulk temperature in kelvin. Pawlow showed in 1909, from thermodynamics, that a
+                    nanoparticle had to melt at a lower temperature than the bulk, decades before anyone could make them to a chosen size. Takagi observed it in thin films of lead, tin and bismuth by electron diffraction in 1954. In 1976 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevA.13.2287">Buffat and Borel</a> put gold nanoparticles from 2 to 25&nbsp;nm on the heated
+                    stage of an electron microscope and recorded, for each size, the temperature at which its diffraction rings disappeared. Their plot of melting point against diameter is the one that appears in nanoscience textbooks. The curve has a simple form:
+                    the drop below the bulk value is inversely proportional to the diameter. This is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gibbs%E2%80%93Thomson_equation">Gibbs&ndash;Thomson effect</a>.</p>
+
+                    <div class="v2-callout">
+                        <p>Nanoparticle inks are one industrial use. Silver or gold nanoparticles suspended in a solvent are printed on a plastic film and baked at 150 to 250&nbsp;&deg;C, and the nanoparticles fuse into a conducting line
+                        (<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Printed_electronics">printed electronics</a>). Silver melts at 962&nbsp;&deg;C, far above any temperature a plastic film can withstand. The same effect
+                        is a problem in catalysis. The fine metal nanoparticles on a catalyst support merge and grow in a hot reactor, and the catalyst loses surface area.</p>
+                    </div>
+
+                    <p>The usual textbook treatment is a diagram of surface energies and the Buffat&ndash;Borel curve. In AIMS a student can run the experiment. They tell the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> what to cut and what to heat, and the agent cuts the nanoparticles out of a gold crystal, runs a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> simulation of each one at a ladder of temperatures, and posts charts in the chat showing where each one melts.
+                    The melting points come out of the motion of a few hundred atoms under a model of the forces between them. The example below has three turns: cut the nanoparticles, find out where the model's own bulk gold melts, then melt the nanoparticles and compare.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Melting%20of%20Gold%20Nanoparticles"
+                                id="aims-frame1" allowfullscreen="true" title="Melting of Gold Nanoparticles demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Melting of Gold Nanoparticles. Scroll through the chat on the left to follow the three turns. The last chart plots each nanoparticle's melting point against one over its diameter, with bulk gold at the origin and the Gibbs&ndash;Thomson line fitted through the points. The lab on the right holds the 1.9&nbsp;nm sphere, 201 gold atoms, at room temperature.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Why a Smaller Nanoparticle Has a Lower Melting Point</h2>
+
+                    <p>An atom inside a gold crystal has twelve neighbors. An atom on the surface has eight or nine, and one on an edge or at a corner has fewer. Fewer neighbors means fewer bonds holding the atom in place, so surface atoms start to move at a lower temperature than interior ones.
+                    In a bar of gold this hardly matters, because almost none of the atoms are on the surface. In a nanoparticle a couple of nanometers across, most of them are. The first turn of the example counts them. The agent cuts a sphere 1.9&nbsp;nm across (201 atoms, 61% of them on the surface), a sphere
+                    1.5&nbsp;nm across (87 atoms, 78%), and a 55-atom <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Cuboctahedron">cuboctahedron</a> about 1&nbsp;nm across. The cuboctahedron is a closed-shell cluster, one atom surrounded by a shell of 12 and
+                    then a shell of 42, so its surface is a complete polyhedron with 12 atoms at corners, 24 on edges and 6 at the centers of its square faces. Thirteen atoms are inside; 76% are on the surface.</p>
+
+                    <p>The thermodynamic argument is short. When a nanoparticle melts, its solid surface becomes a liquid surface, and the liquid surface has the lower energy. The energy saved scales with the surface area. The latent heat needed to melt the interior scales with the volume. Area over volume is proportional to 1/d, so the melting point drops
+                    in proportion to 1/d. Written out, this is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gibbs%E2%80%93Thomson_equation">Gibbs&ndash;Thomson</a> equation, T<sub>m</sub>(d) = T<sub>bulk</sub>(1 &minus; &beta;/d), with &beta; a length built from the two surface energies and the latent heat.
+                    For gold &beta; is about 1&nbsp;nm, which is why a 2&nbsp;nm nanoparticle melts at about half the bulk temperature in kelvin. Plotted against 1/d, the equation is a straight line that starts at the bulk melting point. Drawing that line from simulated nanoparticles is what the third turn does.</p>
+
+                    <h2>Where Does This Gold Melt?</h2>
+
+                    <p>The second turn answers a question that is easy to skip: where does the simulation's bulk gold melt? The gold in the lab is not real gold. Its atoms interact through an
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Embedded_atom_model">embedded-atom</a> potential fitted to properties of the bulk crystal, and a potential like that reproduces some properties of the metal better than others. The agent finds out by seeded growth.
+                    It builds a slab of 288 atoms, eight unit cells tall with a free top surface, melts the top seven cells while holding the bottom cell crystalline, then releases the seed and holds the whole slab at a chosen temperature. Below the melting point, crystal grows upward from the seed into the liquid. Above it, the seed melts.
+                    At 1100&nbsp;K the crystal was still growing when the run ended. At 1200&nbsp;K the seed melted. So the model's gold melts between 1100 and 1200&nbsp;K, or 1150&nbsp;&plusmn;&nbsp;50&nbsp;K, which is about 190&nbsp;K below the real 1337&nbsp;K (1064&nbsp;&deg;C).</p>
+
+                    <p>That difference is a property of the potential and has nothing to do with nanoparticle size. It is the reason the bulk value has to be measured in the same model rather than copied from a handbook. Otherwise every depression would come out 190&nbsp;K too large, and the points would no longer line up with the bulk value at the origin.</p>
+
+                    <h2>Three Nanoparticles, Three Melting Points</h2>
+
+                    <p>In the third turn each nanoparticle is heated from 300 to 1500&nbsp;K in steps of 50&nbsp;K. At every step the nanoparticle is held for 24&nbsp;ps to settle and then sampled for another 24&nbsp;ps, which adds up to 1.2&nbsp;ns per nanoparticle. Two things are measured at each step. The first is the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_capacity">heat capacity</a>, the energy the nanoparticle absorbs per degree. A solid that is only vibrating absorbs about the same amount per atom at every temperature. While it is melting it absorbs more, because for a few steps the energy goes into breaking up the lattice,
+                    so melting appears as a peak, and the area under the peak is the latent heat. The second is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Lindemann_index">Lindemann index</a>, which measures how much the distance between pairs of atoms fluctuates during the sampling. In a solid the distances
+                    fluctuate by a few percent. Once atoms start changing places, the index jumps. Where the heat capacity peaks and the Lindemann index jumps at the same temperature, the nanoparticle has melted.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th rowspan="2">Sample</th><th rowspan="2">Atoms</th><th rowspan="2">Fills a sphere of</th><th rowspan="2">On the surface</th><th class="group" colspan="2"><span>In this model</span></th><th rowspan="2">How it melts</th></tr>
+                                <tr><th class="num">Melting point</th><th class="num">Below bulk</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Bulk gold</b><small>288-atom slab, seeded growth</small></td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num model">1150 &plusmn; 50 K</td><td class="num">&mdash;</td><td><span class="v2-type bulk">The reference</span></td></tr>
+                                <tr><td class="crystal"><b>1.9 nm sphere</b><small>cut from the crystal</small></td><td class="num">201</td><td class="num">1.86 nm</td><td class="num">61%</td><td class="num model">870 K</td><td class="num">280 K</td><td><span class="v2-type sharp">Sharp peak, 800&ndash;950 K</span></td></tr>
+                                <tr><td class="crystal"><b>1.5 nm sphere</b><small>cut from the crystal</small></td><td class="num">87</td><td class="num">1.41 nm</td><td class="num">78%</td><td class="num model">698 K</td><td class="num">452 K</td><td><span class="v2-type hump">Hump, 650&ndash;750 K</span></td></tr>
+                                <tr><td class="crystal"><b>1.0 nm cuboctahedron</b><small>closed shell: 1 + 12 + 42</small></td><td class="num">55</td><td class="num">1.21 nm</td><td class="num">76%</td><td class="num model">696 K</td><td class="num">454 K</td><td><span class="v2-type hump">Hump, 650&ndash;750 K</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>The melting point drops as the nanoparticle shrinks, and it drops in proportion to 1/d. The last chart of the example plots the four melting points against one over the diameter, with the bulk value at the origin, and fits the Gibbs&ndash;Thomson line through them. All four points fall within 50&nbsp;K of the line, and the fitted &beta; is 0.50&nbsp;nm.</p>
+
+                    <p>One detail of the plot matters. Each nanoparticle is placed at its effective diameter, the diameter of the sphere its atoms would fill at the density of gold, rather than the size it was cut to. The sphere cut to 1.9&nbsp;nm ends up with 201 atoms, and 201 gold atoms fill a sphere 1.86&nbsp;nm across. The 87-atom sphere fills 1.41&nbsp;nm. The cuboctahedron
+                    was never a sphere, and its diameter, 1.21&nbsp;nm, comes from its atom count alone. The <a href="aims-quantum-dot-color.html">quantum dot article</a> found the same thing with a cube that was really a smaller dot.</p>
+
+                    <h2>Melting Changes Character</h2>
+
+                    <p>Besides melting at different temperatures, the three nanoparticles melt in different ways, and the heat-capacity chart shows it. The 201-atom sphere melts like a very small piece of bulk gold. Its heat capacity stays near the solid value up to 650&nbsp;K, rises through 700 and 750, peaks at 850&nbsp;K at almost three times the solid value, and is back down at
+                    the liquid value by 1000&nbsp;K. The Lindemann index goes from 0.05 to 0.11 between 850 and 900&nbsp;K. The latent heat under the peak is about 0.06&nbsp;eV per atom, half of bulk gold's 0.13&nbsp;eV. The other half is missing because of the surface. Of the 201 atoms, 122 were on the surface and bound less tightly than the 79 inside, so less energy was needed to melt them.</p>
+
+                    <p>The two smaller nanoparticles are different. With three quarters of their atoms on the surface, their heat capacity is above the solid value by 500&nbsp;K and keeps rising, and the Lindemann index starts climbing around 500&nbsp;K. Much of each nanoparticle is rearranging well below the temperature at which the chart shows melting. The melting of the core, 13 atoms in the cuboctahedron
+                    and 19 in the sphere, shows up as a modest hump on top of that, with about 0.015&nbsp;eV per atom under it. Make the nanoparticle a little smaller and the hump disappears. A 43-atom sphere has one interior atom. It is a solid at room temperature, but neither an 8 nor a 24&nbsp;ps hold produces a peak. It melts over a spread of temperatures instead of at one.</p>
+
+                    <p>This is why the example uses a cuboctahedron for its smallest nanoparticle. A sphere cut to a radius ends with a partial outer shell and some atoms with few neighbors, while the 55-atom cuboctahedron has every atom of its outer shell in place. On shorter holds of 8&nbsp;ps per step, the 87-atom sphere shows no peak at all, but the cuboctahedron, with fewer atoms, still does. Fifty-five is one of the
+                    magic numbers for metal clusters, and this is why: a complete shell is harder to disturb than a partial one.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>None of this requires knowing how to cut a cuboctahedron, how to set up seeded growth, or how a Lindemann index is computed. The student asks for what they want to know in ordinary language, and the agent picks the tool, builds the structure, runs it, and posts the chart in the chat.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Melting of Gold Nanoparticles</em> from the Examples menu (Nanotechnology). Read the three turns, then ask your own questions in the chat. Everything runs in your browser. Counting surface atoms is instant. The bulk bracket takes ten to fifteen minutes, and a sweep with 24&nbsp;ps steps takes tens of minutes per nanoparticle, which is why the sweep in the example was run once and saved. For a sweep you can watch, ask for 8&nbsp;ps steps or for one small nanoparticle.</p>
+
+                        <p class="v2-prompts-group">The three turns of the example</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">The nanoparticles</span> &mdash; <span class="v2-prompt">"Cut a closed-shell 55-atom gold cluster (a 1.0 nm cuboctahedron) and gold spheres 1.5 and 1.9 nm across, and show how many of their atoms sit on the surface."</span></li>
+                            <li><span class="v2-prompts-step">The reference</span> &mdash; <span class="v2-prompt">"Before melting them, load the bulk gold crystal into the lab (not a sphere) and bracket this model's bulk melting point by seeded growth, starting at 1100 and 1500 K."</span></li>
+                            <li><span class="v2-prompts-step">The sweep</span> &mdash; <span class="v2-prompt">"Now heat the three gold particles stepwise (50 K steps, holding 24 ps and sampling 24 ps at each step) and find where each one melts, measured against that bulk value."</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Go further</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Toward bulk</span> &mdash; <span class="v2-prompt">"Add a 2.3 nm sphere to the sweep."</span> That is 369 atoms, the next point along the line toward the origin. Does it land on the line?</li>
+                            <li><span class="v2-prompts-step">Below the smallest</span> &mdash; <span class="v2-prompt">"Melt a 43-atom gold sphere with the same steps."</span> One interior atom. Watch the peak disappear.</li>
+                            <li><span class="v2-prompts-step">Shape at equal size</span> &mdash; <span class="v2-prompt">"Cut a 1.4 nm gold cuboctahedron and melt it next to the 1.9 nm sphere."</span> Both hold 201 atoms. Does the shape change the melting point?</li>
+                            <li><span class="v2-prompts-step">Superheating</span> &mdash; <span class="v2-prompt">"Repeat the 1.9 nm sphere with 8 ps steps."</span> The shorter hold reads a few tens of kelvin higher. Why would faster heating read higher?</li>
+                            <li><span class="v2-prompts-step">Another metal</span> &mdash; <span class="v2-prompt">"Do the same for copper."</span> Copper has a different melting point and different surface energies, so it should have a different &beta;.</li>
+                        </ol>
+                    </div>
+
+                    <h2>How the Nanoparticles Are Melted, and What to Trust</h2>
+
+                    <p>The nanoparticles are actual fragments of the gold crystal, and the forces between their atoms come from the embedded-atom potential of Zhou and coworkers (2004), the one AIMS uses for bulk gold. An embedded-atom potential adds to the usual pair interaction an energy that depends on how much electron density an atom's neighbors put at its site, which is what lets one
+                    potential handle both a twelve-neighbor interior and an eight-neighbor surface. The temperature is set with a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Berendsen_thermostat">Berendsen thermostat</a>. The nanoparticle's overall translation and rotation are removed at every step, since otherwise rotation would be counted as thermal motion.
+                    The heat capacity on the chart is the slope of the potential energy against temperature, so a harmonic solid reads 1.5&nbsp;k<sub>B</sub> per atom; the peak of the 201-atom sphere reaches 5.2.</p>
+
+                    <p>The results should be read as properties of this model and this protocol. The clearest sign is the slope. &beta; comes out at 0.50&nbsp;nm where Buffat and Borel measured about 1&nbsp;nm, so the model's nanoparticles have melting points only about half as far below bulk as real ones do. Several things contribute. A nanoparticle heated in 50&nbsp;K steps can overshoot its melting point before the lattice has time to melt;
+                    the 1.9&nbsp;nm sphere read about 900&nbsp;K with 8&nbsp;ps steps and 870&nbsp;K with 24&nbsp;ps, and some <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Superheating">superheating</a> probably remains at 24&nbsp;ps. The potential was fitted to bulk properties and not to surface energies. The nanoparticles are cut from the face-centered cubic crystal, whereas real gold clusters
+                    of this size rearrange into icosahedra, which have a different surface. And a run of fifty or two hundred atoms is one sample. Repeating a run can shift its melting point by 50 to 100&nbsp;K. The numbers in the table, 696 and 698&nbsp;K, mean about 700, and 870 means about 870. The trend is the result.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">Nothing Here Was Programmed</p>
+                        <p class="v2-prompts-intro">The model was given the atoms and a potential fitted to bulk gold. Everything below came out of the simulation:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">The depression</span> &mdash; the bulk slab melts at 1150&nbsp;K, the 1.9&nbsp;nm sphere at 870 and the 55-atom cluster at 696. No surface energy was entered anywhere.</li>
+                            <li><span class="v2-prompts-step">The straight line</span> &mdash; against 1/d the four points fall within 50&nbsp;K of a Gibbs&ndash;Thomson line, and &beta; was fitted to the points, not assumed.</li>
+                            <li><span class="v2-prompts-step">Two signals in one place</span> &mdash; the heat-capacity peak and the rise of the Lindemann index land at the same temperatures for every nanoparticle. They are computed independently.</li>
+                            <li><span class="v2-prompts-step">Sharp to soft</span> &mdash; the 201-atom sphere melts with a sharp peak and half the bulk latent heat; the 55- and 87-atom nanoparticles melt as a hump over an already liquid-like background; a 43-atom sphere shows no peak at all.</li>
+                            <li><span class="v2-prompts-step">The closed shell</span> &mdash; the 55-atom cuboctahedron shows a clear melting point on hold lengths where an 87-atom sphere shows none.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>The student ends up with more than a number from a table. They have seen that this model's gold melts at 1150&nbsp;K rather than 1337, that the melting point of a 201-atom sphere is 280&nbsp;K lower and that of a 55-atom cluster 450&nbsp;K lower, that these lie on a line in 1/d, and that below about fifty atoms the idea of a single melting point stops applying.
+                    They got there by asking three questions, and every number was computed in front of them from the atoms.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
