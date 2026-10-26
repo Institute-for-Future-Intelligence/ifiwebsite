@@ -166,7 +166,7 @@
                     5%, the batch emits a band of wavelengths, and the band is as wide as the slope of color against size times the spread. The faster a material's color changes with size, the harder it is to make dots that emit the same green batch after
                     batch.</p>
 
-                    <p>So the first question in the example asks for more than a color: <em>"Design a green quantum dot for a display without cadmium: compare indium phosphide, zinc telluride and zinc selenide dots, pick the material that
+                    <p>The first question in the example therefore asks for more than a color: <em>"Design a green quantum dot for a display without cadmium: compare indium phosphide, zinc telluride and zinc selenide dots, pick the material that
                     reaches 530 nm with the least color shift per nanometer of diameter, and build it."</em> The agent adds cadmium telluride, a cadmium compound of the kind the industry is leaving, as a point of comparison. Then, in one
                     tool call, it cuts dots of all four materials over a range of sizes, solves them, plots the four curves on one chart, and reads off where each crosses 530&nbsp;nm and how steeply.</p>
 
@@ -185,23 +185,23 @@
                         </table>
                     </div>
 
-                    <p>Indium phosphide is the answer, and the table says something the usual one-line summary ("indium phosphide replaced cadmium") leaves out: the switch cost almost nothing in tolerance. Cadmium telluride hits green at the
+                    <p>Indium phosphide is the answer, and the table says something the usual one-line summary ("indium phosphide replaced cadmium") leaves out: the switch away from cadmium cost almost nothing in tolerance, at least by this benchmark. Cadmium telluride hits green at the
                     same size with about the same slope, so a 5% spread in size smears the peak of either material by roughly 6&nbsp;nm each way. That is small next to the 35 to 40&nbsp;nm linewidth of commercial indium phosphide dots, most of which comes from the dots themselves rather than from
                     their spread in size. Where the slope matters is in hitting the color at all: at 105&nbsp;nm per nm, a batch whose dots average 0.05&nbsp;nm too large emits 5&nbsp;nm too red, and 0.05&nbsp;nm is a fraction of one
                     atomic layer. (The slopes come from a power-law fit
                     through the computed dots near the target. An early version of the tool used the raw slope between neighboring dots, which made indium phosphide look twice as steep as cadmium telluride only because of where the
                     discrete atom cuts happened to fall.)</p>
 
-                    <h2>The Rule That Falls Out</h2>
+                    <h2>A Rule for Choosing the Material</h2>
 
-                    <p>The two zinc compounds fail for opposite reasons, and between them they give the rule for picking a host. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Zinc_selenide">Zinc selenide</a>
+                    <p>The two zinc compounds fail for opposite reasons, and between them they give the rule for picking a host, the bulk crystal a dot is cut from. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Zinc_selenide">Zinc selenide</a>
                     is blue already as a bulk crystal, at 459&nbsp;nm. Confinement can only push it further into the blue, so no zinc selenide dot of any size emits green. The agent reports the target as unreachable rather than extrapolating.</p>
 
                     <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Zinc_telluride">Zinc telluride</a> fails the other way. Its bulk emission is 549&nbsp;nm, almost green, so getting to 530&nbsp;nm takes
-                    hardly any confinement. That means a large dot, and on a large dot the color barely moves with size, which is just what a manufacturer wants. But the dot would have to be bigger than the model can handle. The trend
+                    hardly any confinement. That means a large dot, and on a large dot the color barely moves with size, which is what a manufacturer wants. But the dot would have to be bigger than the model can handle. The trend
                     of the computed points puts it at 15&nbsp;nm or more, where zinc telluride is for practical purposes bulk material, and the agent says so: the slope is too far out to trust. The second question in the example asks why
-                    zinc telluride would be steadiest if it could be made, and the answer is a rule: the host whose bulk gap lies just below the target color gives the steadiest dot, because it needs the least confinement, at the cost
-                    of a dot too big to be useful. Indium phosphide sits between the two zinc compounds: far enough below green that a small dot reaches it, close enough that the slope at the crossing is moderate.</p>
+                    zinc telluride would be steadiest if it could be made, and the answer is a rule: the host whose bulk gap lies just below the target color gives the steadiest dot, because it needs the least confinement. The cost
+                    is a dot too big to be useful. Indium phosphide sits between the two zinc compounds: far enough below green that a small dot reaches it, close enough that the slope at the crossing is moderate.</p>
 
                     <h2>Does the Shape Matter?</h2>
 
@@ -213,7 +213,7 @@
                     2.25&nbsp;nm across. The cube is in effect a 2.25&nbsp;nm dot, and a 2.25&nbsp;nm dot is 18&nbsp;nm bluer than a 2.4&nbsp;nm one.</p>
 
                     <p>The fourth question asks for the fair comparison: spheres and cubes swept together from 1.2 to 2.6&nbsp;nm and plotted at their <em>effective</em> diameter, the diameter of the sphere their atoms would fill. The two
-                    curves fall on top of each other. At equal atom count the shape hardly matters. For anyone making dots, the size distribution is the thing to control; shape is secondary. And a nominal size is a label, not a measurement.</p>
+                    curves fall on top of each other. At equal atom count the shape hardly matters. For anyone making dots, the size distribution is the thing to control, shape is secondary, and a nominal size is a label, not a measurement.</p>
 
                     <h2>Running Experiments by Asking</h2>
 
@@ -242,7 +242,7 @@
                         </ol>
                     </div>
 
-                    <h2>What Is Under the Hood, and What to Trust</h2>
+                    <h2>How the Dots Are Computed, and What to Trust</h2>
 
                     <p>Each dot in the example is an actual cluster of atoms, cut from the crystal and solved with the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tight_binding">empirical tight-binding</a> model that AIMS uses for bulk band structures. Each atom has five orbitals, and each bond
@@ -252,10 +252,10 @@
 
                     <p>This is a textbook model, not a research one, and every card in the example says as much. It omits the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Exciton">exciton</a>, the
                     attraction between the excited electron and the hole it left behind, worth about a tenth of an electron volt at these sizes. It omits spin&ndash;orbit coupling, which matters for the heavier elements. And its nearest-neighbor
-                    parameters make the electrons too heavy, so the confinement shifts come out a little low. These errors are the same for every host and every shape, so the comparisons survive them even though the absolute numbers do
+                    parameters make the electrons too heavy, so the confinement shifts come out a little low. These errors are similar for every host and every shape, so the comparisons survive them even though the absolute numbers do
                     not. A real 2.4&nbsp;nm indium phosphide dot should emit within a few tens of nanometers of the predicted 531&nbsp;nm, not at it. Part of the reason is that the model predicts where a dot <em>absorbs</em>, and real dots
                     emit somewhat to the red of where they absorb (the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stokes_shift">Stokes shift</a>), so a green emitter is a bit smaller than
-                    2.4&nbsp;nm; the green dots in a real display are also core&ndash;shell particles, and the shell shifts the color too. Each card prints the bulk gap beside the dot's gap because that one number is fitted to experiment.</p>
+                    2.4&nbsp;nm. The green dots in a real display are also core&ndash;shell particles, and the shell shifts the color too. Each card prints the bulk gap beside the dot's gap because that one number is fitted to experiment.</p>
 
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">Nothing Here Was Programmed</p>
