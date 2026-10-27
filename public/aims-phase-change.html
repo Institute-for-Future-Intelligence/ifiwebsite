@@ -293,10 +293,51 @@
                     out of the particles' kinetic energy, so the temperature <em>falls</em> while heat keeps flowing in. For rock salt the gap between the solid and liquid branches gives a latent heat within a few percent of
                     the handbook value.</p>
 
-                    <p><b>Beyond melting.</b> The same kind of conversation covers evaporation, too. In the <em>Evaporation of Argon</em> example the agent measures how the
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Vapor_pressure">vapor pressure</a> of a liquid rises with temperature and fits it with the
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Clausius%E2%80%93Clapeyron_relation">Clausius&ndash;Clapeyron relation</a>; in <em>Evaporation of Water</em> it opens the top of
-                    the box, pumps the vapor away, and records the pool cooling as its most energetic molecules escape.</p>
+                    <h2>From Liquid to Vapor</h2>
+
+                    <p>Melting is half of what a phase diagram shows. A liquid also has a boundary with its vapor, and the <em>Evaporation of Argon</em> example (Chemistry) shows that boundary in a box.
+                    The lab holds 192 argon atoms under gravity in a sealed box 30&nbsp;&Aring; wide and 90&nbsp;&Aring; tall, at 95&nbsp;K. The floor is lined with one layer of argon atoms pinned in place and drawn see-through, for the same reason the growth labs anchor their seeds:
+                    the walls of the lab only repel, so a liquid on a bare floor balls up into a drop, and on a floor of its own kind it spreads into a flat pool. Press Play. Atoms leave the pool, fly up through the empty space, strike the walls, and fall back into the liquid.
+                    The atoms in flight at any moment are the vapor, and their number settles within a few picoseconds: as many atoms leave the surface as return to it. Raise the temperature to 105&nbsp;K and the space above the pool fills with them; lower it to 85&nbsp;K and most of them settle back.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Evaporation%20of%20Argon"
+                                id="aims-frame5" loading="lazy" allowfullscreen="true" title="Evaporation of Argon demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame5');">View fullscreen</a><br>
+                            A liquid and its vapor: argon at 95&nbsp;K. The vapor forms within seconds of Play; the pinned floor layer is drawn see-through.
+                        </figcaption>
+                    </figure>
+
+                    <p>The agent turns the picture into a measurement. Ask <span class="v2-prompt">"How much argon evaporates between 85 and 105 K?"</span> and it holds the pool at five temperatures, counts the atoms in the gas at each, and converts each count to a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Vapor_pressure">vapor pressure</a> with the ideal gas law. The count rises from 8 atoms at 85&nbsp;K to 36 at 105&nbsp;K, a pressure from 2.4 to 12.7&nbsp;bar. Plotted against temperature the points curve upward;
+                    plotted as the logarithm of the pressure against the reciprocal of the temperature they fall on a line, the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Clausius%E2%80%93Clapeyron_relation">Clausius&ndash;Clapeyron relation</a>. The slope of that line is the heat of vaporization, 6.2&nbsp;kJ/mol for this model, and the line reaches 1&nbsp;bar at 77&nbsp;K, the model's normal
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boiling_point">boiling point</a>. Unlike melting, evaporation has no single transition temperature: a liquid is in balance with its vapor at every temperature along that curve, from the
+                    triple point to the critical point, and the boiling point is the temperature at which the vapor pressure reaches the pressure of the air above the liquid, 1&nbsp;bar. At 2&nbsp;bar argon boils at about 94&nbsp;K.</p>
+
+                    <p>The handbook values for argon are 6.5&nbsp;kJ/mol and 87.3&nbsp;K, and the comparison needs one correction. The model's atoms attract one another with the measured strength, but the lab ignores the attraction beyond 2.5 atomic diameters, so the model's
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Critical_point_(thermodynamics)">critical point</a> is near 130&nbsp;K, where argon's is 151&nbsp;K. Every temperature and energy on the model's liquid&ndash;vapor curve is lower by that ratio, 0.86, so the targets for the model are
+                    5.6&nbsp;kJ/mol and 75&nbsp;K. The measured line gives 6.2&nbsp;kJ/mol and 77&nbsp;K. Each point counts a few dozen atoms and scatters by about 15 percent, so the fitted line is the number to trust.</p>
+
+                    <p>Nitrogen joins the two halves of this article. The molecule that freezes onto a seed at 35&nbsp;K in the table above also boils, in the <em>Evaporation of Nitrogen</em> example: 144 molecules on a pinned layer of nitrogen, held between 65 and 85&nbsp;K, read 6 to 21 molecules in the gas, a vapor pressure from
+                    2.0 to 8.5&nbsp;bar, a heat of vaporization of 3.5&nbsp;kJ/mol, and 1&nbsp;bar at 59&nbsp;K. The handbook values are 5.6&nbsp;kJ/mol and 77.4&nbsp;K. This nitrogen is a two-site potential fitted to the real liquid, with the same cutoff at 2.5 diameters and without the molecule's
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quadrupole">quadrupole</a>, the small charge pattern that pulls real nitrogen molecules into T-shaped pairs. The two omissions cost about a quarter of the binding, and the whole liquid&ndash;vapor curve sits that much lower.
+                    As with the melting points, the agent reports the model's number next to the measured one and can explain the gap when asked.</p>
+
+                    <p>Evaporation also cools. The <em>Evaporation of Water</em> example holds 108 water molecules on a pinned layer of water at 395&nbsp;K, above the normal boiling point. Ask <span class="v2-prompt">"Open the top of the box and show me evaporative cooling."</span> The agent switches the heat bath off, removes every molecule that leaves the pool, as a dry wind would, and charts the temperature of the pool against time.
+                    The pool cools by about 35&nbsp;K in 400 picoseconds while 11 molecules escape, about 3&nbsp;K per molecule, and the cooling slows as the pool cools, because a cooler pool evaporates more slowly. Each molecule that leaves takes its heat of vaporization with it, and the fastest molecules leave first, which is why sweat, a wet cloth, or a puddle feels cold.
+                    The heat per molecule comes out near 24&nbsp;kJ/mol against the handbook 40.7, a rough figure for a film three molecules thick. The pool starts above 373&nbsp;K and does not boil: with the top open to vacuum there is no pressure for a bubble to push against, and a film this thin has no interior for a bubble to form in, so the water leaves from the surface only.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Evaporation of Argon</em>, <em>Evaporation of Nitrogen</em>, or <em>Evaporation of Water</em> from the Examples menu (Chemistry) and type the prompts below. A five-point vapor-pressure ladder takes several minutes; the water cooling run takes about ten.</p>
+                        <p class="v2-prompts-group">Investigate evaporation</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Vapor pressure</span> &mdash; <span class="v2-prompt">"How much argon evaporates between 85 and 105 K?"</span> (nitrogen: 65 and 85 K)</li>
+                            <li><span class="v2-prompts-step">The boiling point</span> &mdash; <span class="v2-prompt">"Where does the vapor pressure reach 1 bar, and how does that compare with the real boiling point?"</span></li>
+                            <li><span class="v2-prompts-step">Evaporative cooling</span> (<em>Evaporation of Water</em>) &mdash; <span class="v2-prompt">"Open the top of the box and show me evaporative cooling."</span></li>
+                        </ol>
+                    </div>
 
                     <h2>Glass or Crystal: Annealing</h2>
 
@@ -338,6 +379,8 @@
                             <li><span class="v2-prompts-step">Superheating</span> &mdash; salt and silicon stay solid far past their melting points.</li>
                             <li><span class="v2-prompts-step">A falling temperature</span> &mdash; a heating curve can dip as a superheated solid collapses, though heat keeps flowing in.</li>
                             <li><span class="v2-prompts-step">Glass or crystal</span> &mdash; the same atoms, ending at the same temperature, become one or the other depending only on how fast they cool.</li>
+                            <li><span class="v2-prompts-step">Vapor pressure</span> &mdash; the pressure of the vapor above a liquid rises exponentially with temperature, and the slope of the line gives the heat of vaporization.</li>
+                            <li><span class="v2-prompts-step">Evaporative cooling</span> &mdash; a pool open to vacuum cools as its fastest molecules leave, and cools ever more slowly as it does.</li>
                         </ul>
                     </div>
 
