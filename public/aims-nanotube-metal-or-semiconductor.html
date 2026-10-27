@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Nanotubes: Metal or Semiconductor? — Institute for Future Intelligence</title>
+    <meta name="description" content="Why one carbon nanotube conducts like a metal and another like a semiconductor, investigated with an AI agent in AIMS: build a zigzag nanotube and an armchair nanotube atom by atom, solve their band structures, and sweep ten zigzag nanotubes to find which are metallic and how the band gap depends on the diameter.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-col-main .v2-callout { float: right; width: 33%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border-left: 4px solid var(--accent); border-radius: 0 0.8rem 0.8rem 0; background: rgba(99, 102, 241, 0.07); }
+        .v2-col-main .v2-callout p { margin: 0; font-size: 1.25rem; line-height: 1.5; }
+        .v2-col-main .v2-embed { clear: both; }
+        @media (max-width: 720px) { .v2-col-main .v2-callout { float: none; width: auto; margin: 1.5rem 0; } }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 0.8rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+        .v2-type { display: inline-block; font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 999px; white-space: nowrap; }
+        .v2-type.metal { color: #b45309; background: #fef3c7; }
+        .v2-type.semi { color: #047857; background: #d1fae5; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="TUBE">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Carbon Nanotubes: Metal or Semiconductor?</h1>
+                <p class="v2-tagline">
+                    Roll a sheet of graphene one way and the nanotube conducts like a metal. Roll it a slightly different way and it is a semiconductor. Ask an AI agent in AIMS to build the nanotubes atom by atom and compute which is which.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotube</a> is a sheet of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphene">graphene</a> rolled into a cylinder about a nanometer across. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/354056a0">Iijima</a> reported the first ones in 1991. Within a year,
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.68.1579">Hamada, Sawada and Oshiyama</a>, and independently <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.107080">Saito, Fujita, Dresselhaus and Dresselhaus</a>, predicted from band theory that the way the sheet is rolled decides whether the nanotube is a metal or a semiconductor. The roll is described by two integers (n, m) that say how many hexagons the circumference spans along the two directions of the honeycomb lattice. (n, 0) nanotubes are called zigzag and (n, n) nanotubes armchair, after the pattern of their rims. The prediction was that a nanotube is metallic when n &minus; m is a multiple of three and semiconducting otherwise, so that one nanotube in three, taken at random, is a metal. In 1998 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/34139">Wild&ouml;er and coworkers</a> and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/34145">Odom and coworkers</a> confirmed the rule on individual nanotubes with a scanning tunneling microscope. The gap of a semiconducting nanotube is inversely proportional to its diameter.</p>
+
+                    <div class="v2-callout">
+                        <p>The rule matters because the two kinds of nanotube come out of the same furnace together. A transistor needs a semiconducting channel, and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/29954">Tans, Verschueren and Dekker</a> built the first nanotube transistor in 1998 from a single semiconducting nanotube. A wire needs a metallic one. Sorting the two kinds, or growing only one of them, has been a central problem of nanotube electronics ever since.</p>
+                    </div>
+
+                    <p>The usual textbook treatment is a picture of the graphene Brillouin zone with lines drawn across it. In AIMS a student can test the rule on nanotubes they choose. They name a nanotube by its two integers, the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> builds it atom by atom, solves its electronic structure in a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tight_binding">tight-binding</a> model, and posts the band structure in the chat. The example below has three turns: build a zigzag nanotube and classify it, build an armchair nanotube and compare, then sweep ten zigzag nanotubes to find which are metallic and how the gap depends on the diameter.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Carbon%20Nanotubes%3A%20Metal%20or%20Semiconductor%3F"
+                                id="aims-frame1" allowfullscreen="true" title="Carbon Nanotubes: Metal or Semiconductor? demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Carbon Nanotubes: Metal or Semiconductor? Scroll through the chat on the left to follow the three turns. Each of the first two turns posts a band-structure chart for the infinite nanotube and an energy-level chart for the 2&nbsp;nm segment in the lab. The last chart plots the band gap of ten zigzag nanotubes against their diameter.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Why the Rolling Direction Decides</h2>
+
+                    <p>Graphene is a semiconductor with a gap of zero. Its valence band and conduction band touch at two points of the Brillouin zone, called K and K&prime;, and are separated everywhere else. The electrons that carry the current are the ones in the p<sub>z</sub> orbitals, one per carbon atom, standing perpendicular to the sheet. In the simplest model of graphene each electron hops between neighboring p<sub>z</sub> orbitals with an energy of about 2.7&nbsp;eV, and that single hopping energy produces the two bands and their touching points. This is the &pi; tight-binding model, and it is the model the agent solves.</p>
+
+                    <p>Rolling the sheet into a nanotube adds one condition. An electron wave traveling around the circumference must return to its starting value after one lap, so only wavelengths that fit a whole number of times around the nanotube are allowed. In the Brillouin zone of graphene this restricts the electron to a set of parallel lines, one for each allowed wavelength, and the integers (n, m) fix where the lines fall. When one of the lines passes through a K point, the nanotube inherits the touching bands of graphene and is a metal. When every line misses, the bands closest to K are separated by a gap, and the nanotube is a semiconductor. Whether a line passes through K depends on n &minus; m. If n &minus; m is a multiple of three, a line passes through. Otherwise the nearest line misses K by one third of the line spacing, and the gap is set by that distance. The line spacing is inversely proportional to the circumference, so the gap is inversely proportional to the diameter d. In the &pi; model the gap of a semiconducting nanotube is 2&middot;t&middot;a<sub>cc</sub>/d, where t is the hopping energy and a<sub>cc</sub> the carbon&ndash;carbon bond length of 0.142&nbsp;nm. With t = 2.7&nbsp;eV, that is 0.77&nbsp;eV&middot;nm divided by the diameter. This way of obtaining the bands of a nanotube from the bands of graphene is called zone folding.</p>
+
+                    <h2>A Zigzag Nanotube and an Armchair Nanotube</h2>
+
+                    <p>In the first turn the agent builds a (10,0) zigzag nanotube, 0.78&nbsp;nm across and 2.13&nbsp;nm long, 200 carbon atoms. It loads the segment into the lab and solves the infinitely long nanotube by repeating one period along the axis. The band-structure chart shows a gap of 0.95&nbsp;eV at the center of the zone, and 10 &minus; 0 leaves a remainder of 1 on division by three, so the nanotube is a semiconductor. In the second turn the agent builds a (6,6) armchair nanotube of the same length, 0.81&nbsp;nm across and 192 atoms. Its band-structure chart shows two bands crossing at the Fermi level, two thirds of the way from the zone center to the zone boundary, and no gap. The two nanotubes have nearly the same diameter and nearly the same number of atoms per nanometer of length. They differ in the direction in which the sheet was rolled.</p>
+
+                    <p>Each turn also posts an energy-level chart for the 2&nbsp;nm segment the lab holds, and the segment behaves differently from the infinite nanotube. The (10,0) segment has fourteen levels within 0.2&nbsp;eV of zero, seven at each end, in the middle of what should be a 0.95&nbsp;eV gap. They live on the two open rims, where every carbon atom has lost one of its three bonds. A zigzag edge of graphene carries a band of such states pinned at the Fermi level, as <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevB.54.17954">Nakada, Fujita, Dresselhaus and Dresselhaus</a> showed in 1996, and a zigzag nanotube cut open has one such edge at each end. The agent tells the two kinds of level apart by where each wavefunction lives, and the chart draws the rim states dashed. The segment's own extended states are 2.3&nbsp;eV apart, far more than the 0.95&nbsp;eV of the infinite nanotube, because a 2&nbsp;nm box quantizes them. A real nanotube is capped or chemically terminated, and the rim states are gone. The number that classifies the nanotube is the gap of the infinite one. The (6,6) segment shows a second finite-size effect. Its highest occupied and lowest empty levels are 0.59&nbsp;eV apart, although the infinite nanotube is a metal, because a 2&nbsp;nm piece of any metal has discrete levels. Armchair rims carry no edge states, so its level chart has no dashed lines.</p>
+
+                    <h2>Ten Zigzag Nanotubes</h2>
+
+                    <p>The third turn builds every zigzag nanotube from (7,0) to (16,0), solves each one, and plots the band gap against the diameter. Three of the ten have no gap, and they are the three whose n is divisible by three. The other seven have gaps that fall as the nanotube widens, from 1.33&nbsp;eV at 0.55&nbsp;nm to 0.60&nbsp;eV at 1.25&nbsp;nm, and the chart draws the zone-folding line 0.77&nbsp;eV&middot;nm/d through them. Every semiconducting point lies within five percent of the line.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Nanotube</th><th class="num">Diameter</th><th class="num">Band gap</th><th class="num">0.77 eV&middot;nm / d</th><th>Verdict</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>(7,0)</b></td><td class="num">0.548 nm</td><td class="num model">1.334 eV</td><td class="num">1.40 eV</td><td><span class="v2-type semi">Semiconductor</span></td></tr>
+                                <tr><td class="crystal"><b>(8,0)</b></td><td class="num">0.626 nm</td><td class="num model">1.267 eV</td><td class="num">1.22 eV</td><td><span class="v2-type semi">Semiconductor</span></td></tr>
+                                <tr><td class="crystal"><b>(9,0)</b></td><td class="num">0.705 nm</td><td class="num model">0</td><td class="num">&mdash;</td><td><span class="v2-type metal">Metal</span></td></tr>
+                                <tr><td class="crystal"><b>(10,0)</b></td><td class="num">0.783 nm</td><td class="num model">0.948 eV</td><td class="num">0.98 eV</td><td><span class="v2-type semi">Semiconductor</span></td></tr>
+                                <tr><td class="crystal"><b>(11,0)</b></td><td class="num">0.861 nm</td><td class="num model">0.914 eV</td><td class="num">0.89 eV</td><td><span class="v2-type semi">Semiconductor</span></td></tr>
+                                <tr><td class="crystal"><b>(12,0)</b></td><td class="num">0.939 nm</td><td class="num model">0</td><td class="num">&mdash;</td><td><span class="v2-type metal">Metal</span></td></tr>
+                                <tr><td class="crystal"><b>(13,0)</b></td><td class="num">1.018 nm</td><td class="num model">0.735 eV</td><td class="num">0.75 eV</td><td><span class="v2-type semi">Semiconductor</span></td></tr>
+                                <tr><td class="crystal"><b>(14,0)</b></td><td class="num">1.096 nm</td><td class="num model">0.714 eV</td><td class="num">0.70 eV</td><td><span class="v2-type semi">Semiconductor</span></td></tr>
+                                <tr><td class="crystal"><b>(15,0)</b></td><td class="num">1.174 nm</td><td class="num model">0</td><td class="num">&mdash;</td><td><span class="v2-type metal">Metal</span></td></tr>
+                                <tr><td class="crystal"><b>(16,0)</b></td><td class="num">1.253 nm</td><td class="num model">0.600 eV</td><td class="num">0.61 eV</td><td><span class="v2-type semi">Semiconductor</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>The gaps alternate around the line because the nearest allowed line misses the K point on one side for (7,0), (10,0), (13,0) and (16,0) and on the other side for (8,0), (11,0) and (14,0), and the energy surface of graphene is a cone only close to K. Farther out it is warped into a triangle, so a line passing on one side of K gives a slightly smaller gap than a line at the same distance on the other side. A sweep of armchair nanotubes would put every point at zero, since n &minus; m is zero for all of them.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>The student names a nanotube by its two integers and asks whether it is a metal or a semiconductor. The agent picks the tool, builds the structure, solves it, and posts the chart in the chat. Building a (6,6) nanotube atom by atom, setting up the repeated period, and telling rim states from extended states are the agent's work.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Carbon Nanotubes: Metal or Semiconductor?</em> from the Examples menu (Nanotechnology). Read the three turns, then ask your own questions in the chat. Everything runs in your browser. Building a nanotube and solving it takes a few seconds, and the ten-nanotube sweep takes well under a minute, so every question below can be answered while you watch.</p>
+
+                        <p class="v2-prompts-group">The three turns of the example</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">The zigzag nanotube</span> &mdash; <span class="v2-prompt">"Build a (10,0) carbon nanotube about 2 nm long and tell me whether it conducts like a metal or a semiconductor."</span></li>
+                            <li><span class="v2-prompts-step">The armchair nanotube</span> &mdash; <span class="v2-prompt">"Now build a (6,6) armchair tube of the same length and compare the two."</span></li>
+                            <li><span class="v2-prompts-step">The sweep</span> &mdash; <span class="v2-prompt">"Sweep the zigzag tubes from (7,0) to (16,0): how does the band gap depend on the diameter, and which ones are metallic?"</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Go further</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">A chiral nanotube</span> &mdash; <span class="v2-prompt">"Build a (6,5) chiral tube. Is it metallic?"</span> Here n &minus; m is 1. The period of a chiral nanotube is much longer than that of a zigzag or armchair one, so this one has hundreds of atoms per period.</li>
+                            <li><span class="v2-prompts-step">The armchair family</span> &mdash; <span class="v2-prompt">"Sweep the armchair tubes from (5,5) to (10,10)."</span> Every point should be at zero.</li>
+                            <li><span class="v2-prompts-step">Ribbons</span> &mdash; <span class="v2-prompt">"Make a 9-atom-wide armchair graphene nanoribbon and compare its gap with a 10-wide one."</span> Armchair ribbons come in three families by width, for the same reason nanotubes do.</li>
+                            <li><span class="v2-prompts-step">A closed cage</span> &mdash; <span class="v2-prompt">"Build C60 and show me its energy levels."</span> Buckminsterfullerene has sixty carbon atoms and no rim, and the same &pi; model gives it a gap of 2.0&nbsp;eV between its highest occupied and lowest empty levels.</li>
+                        </ol>
+                    </div>
+
+                    <h2>The Model and Its Limits</h2>
+
+                    <p>The agent builds each nanotube by geometry alone, from the two integers and the carbon&ndash;carbon bond length. The electronic structure comes from the nearest-neighbor &pi; tight-binding model with a hopping energy of 2.7&nbsp;eV, which is the model in which the (n, m) rule was first derived. The infinite nanotube is solved by applying Bloch's theorem along the axis to one period of the structure. The finite segment in the lab is solved as a cluster, every p<sub>z</sub> orbital at once. The segment also carries the Tersoff carbon force field, so it can be heated, stretched or cut in the lab. The force field governs the motion of the atoms, and the tight-binding model governs the electrons.</p>
+
+                    <p>The results are properties of this model. The model treats the bonds of a rolled sheet exactly as it treats the bonds of a flat one. In a real nanotube the curvature mixes the in-plane &sigma; orbitals into the &pi; states, and for the nominally metallic zigzag nanotubes that mixing opens a small gap. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.1058853">Ouyang, Huang, Cheung and Lieber</a> measured those gaps by tunneling spectroscopy in 2001 and found them to shrink as the inverse square of the nanotube radius. Armchair nanotubes have no such gap, because their symmetry protects the crossing. The (9,0), (12,0) and (15,0) nanotubes in the table are therefore semiconductors with very small gaps where the model says zero. The same mixing lowers the gaps of the narrowest semiconducting nanotubes below the &pi;-model values, so the (7,0) and (8,0) entries in the table are the least reliable. The model also omits the interaction between electrons, which matters for the ribbons in the Go further list. The hopping energy and the bond length are the two quantities in the model taken from experiment, and the tunneling measurements of 1998 gave the inverse-diameter law with a hopping energy close to the one used here.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Solver Produced</p>
+                        <p class="v2-prompts-intro">The model was given the positions of the carbon atoms and one hopping energy. Everything below came out of the calculation:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">The rule</span> &mdash; among the ten zigzag nanotubes, exactly (9,0), (12,0) and (15,0) have no gap, and (6,6) has none either.</li>
+                            <li><span class="v2-prompts-step">The inverse-diameter law</span> &mdash; the seven semiconducting gaps fall within five percent of 0.77&nbsp;eV&middot;nm divided by the diameter.</li>
+                            <li><span class="v2-prompts-step">The rim states</span> &mdash; the open (10,0) segment has fourteen levels near the Fermi energy, seven at each end, and the agent located them on the rims before classifying the nanotube by its infinite-length gap.</li>
+                            <li><span class="v2-prompts-step">Two nanotubes, one difference</span> &mdash; the (10,0) and (6,6) nanotubes have nearly the same diameter and atom count, and one is a semiconductor with a 0.95&nbsp;eV gap while the other is a metal.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses the electronic structure of carbon nanotubes to illustrate a new way to learn science: students converse with an AI agent that turns a plain-language question into a quantum mechanical calculation and hands back the result as a chart. The rule that a nanotube is a metal when n &minus; m is a multiple of three, normally a sentence in a nanoscience course, becomes something students test for themselves. They build a zigzag nanotube and an armchair nanotube of the same size, find a gap in one and none in the other, and sweep a family of ten to watch the gap fall with the diameter and vanish at every third member. They also learn how a finite segment differs from an infinite nanotube, and where the model departs from the measured nanotubes. By pairing a physically grounded solver with an AI that can build the structures and run it, AIMS lets students investigate a rule they would otherwise only read about.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
