@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Quantum Dot's Color Is a Matter of Size — Institute for Future Intelligence</title>
-    <meta name="description" content="The size-dependent color of quantum dots, investigated with an AI agent in AIMS: ask for a cadmium-free green quantum dot and the agent builds dots of four materials, solves their energy levels, finds the size that emits green, and shows that size, not shape, sets the color.">
+    <meta name="description" content="The size-dependent color of quantum dots, investigated with an AI agent in AIMS: ask for a cadmium-free green quantum dot and the agent builds dots of four materials, solves their energy levels, finds the size that emits green, and shows that a dot's color follows its atom count whatever its shape.">
 
     <style>
         @import url("css/system.base.css");
@@ -112,25 +112,25 @@
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
 
-                    <p>If you make crystals of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Indium_phosphide">indium phosphide</a> small enough, their color depends on how small they are.
-                    Crystals under 2&nbsp;nm across fluoresce blue under an ultraviolet lamp. At around 2.5&nbsp;nm the same material fluoresces green, at 3&nbsp;nm orange, and by 4&nbsp;nm red. Semiconductor crystals this small are called
+                    <p>If you make crystals of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Indium_phosphide">indium phosphide</a> small enough, their color depends on their size.
+                    In the laboratory, crystals under 2&nbsp;nm across fluoresce blue under an ultraviolet lamp. At around 2.5&nbsp;nm the same material fluoresces green, at 3&nbsp;nm orange, and by 4&nbsp;nm red. Semiconductor crystals this small are called
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quantum_dot">quantum dots</a>, and this size effect is a common example in a nanoscience course.
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Alexey_Ekimov">Alexei Ekimov</a> discovered it in the early 1980s while studying glass colored with copper chloride: heating
                     the glass longer grew larger crystals in it, and the color of the glass changed with their size. A few years later <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Louis_E._Brus">Louis Brus</a>
-                    saw the same thing in cadmium sulfide particles in solution and explained it. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Moungi_Bawendi">Moungi Bawendi</a> later developed
-                    a way to grow such particles to a chosen size in quantity, which is what made them useful. The three shared the
+                    observed the same effect in cadmium sulfide nanoparticles in solution and explained it. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Moungi_Bawendi">Moungi Bawendi</a> later developed
+                    a way to grow such nanoparticles to a chosen size in quantity, which is what made them useful. The three shared the
                     <a target="_blank" rel="noopener noreferrer" href="https://www.nobelprize.org/prizes/chemistry/2023/summary/">2023 Nobel Prize in Chemistry</a>.</p>
 
                     <div class="v2-callout">
-                        <p>The effect has been commercialized. A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quantum_dot_display">quantum-dot television</a> puts a film of dots of two sizes
-                        between its blue backlight and the screen. Some of the blue passes through; the rest is absorbed by the dots and re-emitted as red and green. How pure those two colors are depends in part on how tightly the
+                        <p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quantum_dot_display">quantum-dot television</a> uses the effect: a film of dots of two sizes
+                        sits between its blue backlight and the screen. Some of the blue passes through; the rest is absorbed by the dots and re-emitted as red and green. How pure those two colors are depends in part on how tightly the
                         factory can hold the size of the dots.</p>
                     </div>
 
-                    <p>Textbooks show the effect with a photograph of vials glowing from blue to red and explain it with quantum confinement, but a student reading about it cannot try it. In AIMS they can. They ask the
+                    <p>Textbooks show the effect with a photograph of vials glowing from blue to red and explain it with quantum confinement, but students reading about it cannot try it. In AIMS they can: they ask the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> a question, and the agent cuts dots out of a bulk crystal, computes the energy
-                    levels of each, and shows the result in the chat as a chart, each dot plotted in the color it would emit. No color is preset. Everything, down to the color of each point, follows from the positions of a few hundred atoms and a quantum mechanical model of their electrons. In the window below, the
-                    agent is given a question that a display engineer might actually face, then three follow-ups, four turns in all.</p>
+                    levels of each, and shows the result in the chat as a chart, each dot plotted in the color it would emit. Nothing about the colors is preset: everything, down to the color of each point, follows from the positions of at most a few hundred atoms and a quantum mechanical model of their electrons. In the window below, the
+                    agent is given a question that a display engineer might face, then three follow-ups, four turns in all.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Choosing%20a%20Cadmium-Free%20Quantum%20Dot"
@@ -145,31 +145,31 @@
 
                     <p>The dots in this article are tiny crystals of a semiconductor, and their color follows from how a semiconductor emits light: an electron falls from the conduction band into the valence band, and the
                     energy of the photon is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Band_gap">band gap</a>. For indium phosphide the gap is 1.35&nbsp;eV, which is in the infrared.
-                    In a crystal only a few nanometers across, the picture changes. In quantum mechanics the electron behaves as a wave, and a wave confined to a smaller box must bend more sharply, which costs kinetic energy. The lowest empty level moves up, the highest filled level moves down, and the gap widens. This is the effect of
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Potential_well#Quantum_confinement">quantum confinement</a>. The extra energy grows roughly as one over the diameter squared, the
+                    In a crystal only a few nanometers across, the gap is no longer fixed. In quantum mechanics the electron behaves as a wave, and a wave confined to a smaller box must bend more sharply, which costs kinetic energy. The lowest empty level moves up, the highest filled level moves down, and the gap widens. This is the effect of
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Potential_well#Quantum_confinement">quantum confinement</a>. The extra energy is roughly inversely proportional to the square of the diameter, the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Particle_in_a_box">particle-in-a-box</a> result from an introductory course in quantum mechanics, so the smaller the dot, the
-                    bluer the light. (In the model below the power comes out nearer 1.2 than 2, and measured sizing curves fall short of 2 as well.) Since the bands of a
+                    bluer the light. (In the model below the power comes out nearer 1.2 than 2, and exponents fitted to measured sizing curves are also below 2.) Since the bands of a
                     dot have become a ladder of discrete levels, AIMS reports a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/HOMO_and_LUMO">HOMO&ndash;LUMO gap</a>, the spacing between the highest
-                    occupied and the lowest unoccupied level, as it would for a molecule. Light can also lift an electron to higher empty levels, which is what the dot's absorption spectrum shows, but an excited electron drops to
+                    occupied and the lowest unoccupied level, as it would for a molecule. Light can also excite an electron to higher empty levels, which is what the dot's absorption spectrum shows, but an excited electron drops to
                     the lowest empty level within a picosecond before it emits, so the color of the glow is set by the smallest gap.</p>
 
                     <p>Going from a gap to a color takes one division: the wavelength in nanometers is 1240 divided by the energy in electron volts. For bulk indium phosphide that gives 918&nbsp;nm. For 530&nbsp;nm, the green a display
-                    wants, the gap has to be 2.34&nbsp;eV. The charts in the example do the division for the reader: the left axis is the gap in electron volts, and the right axis is the same scale marked in nanometers. Each point is drawn in the color of
-                    its emission, gray when that falls outside the visible range, and when the question names a target wavelength a dashed line marks it. Ask the agent to <em>"build a 2 nm indium phosphide quantum dot and compute its energy levels"</em> and it carves a sphere of 147 indium and phosphorus atoms out of the crystal,
-                    caps the surface, solves for the levels, and reports 2.57&nbsp;eV, or 482&nbsp;nm, which is blue. Confinement can only widen the gap, so a dot can be bluer than the crystal it came from, which this article calls its <em>host</em>, but never redder, and that
+                    needs, the gap has to be 2.34&nbsp;eV. The charts in the example do the division for the reader: the left axis is the gap in electron volts, and the right axis is the same scale marked in nanometers. Each point is drawn in the color of
+                    its emission, or gray when that emission falls outside the visible range. When the question names a target wavelength, a dashed line marks it. Ask the agent to <em>"build a 2 nm indium phosphide quantum dot and compute its energy levels"</em> and it cuts a sphere of 147 indium and phosphorus atoms out of the crystal,
+                    caps the surface, solves for the levels, and reports 2.57&nbsp;eV, or 482&nbsp;nm, which is blue. Confinement can only widen the gap, so a dot can be bluer than the crystal it was cut from, which this article calls its <em>host</em>, but never redder. That
                     constraint matters below.</p>
 
                     <h2>The Design Problem: A Green Pixel Without Cadmium</h2>
 
                     <p>The first quantum dots to reach the market were made of cadmium selenide, and cadmium is
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Restriction_of_Hazardous_Substances_Directive">restricted</a> in consumer electronics. The industry switched to indium phosphide.
-                    But indium phosphide is not the only cadmium-free semiconductor, and a display engineer worries about more than hitting a color once. No synthesis makes every dot the same size. If the diameters in a batch spread over
+                    But indium phosphide is not the only cadmium-free semiconductor, and a display engineer worries about more than reaching a color once. No synthesis makes every dot the same size. If the diameters in a batch spread over
                     5%, 2.5% either side of the mean, the batch emits a band of wavelengths, and the band is as wide as the slope of color against size times the spread. The faster a material's color changes with size, the harder it is to make dots that emit the same green batch after
                     batch.</p>
 
                     <p>The first question in the example therefore asks for more than a color: <em>"Design a green quantum dot for a display without cadmium: compare indium phosphide, zinc telluride and zinc selenide dots, pick the material that
-                    reaches 530 nm with the least color shift per nanometer of diameter, and build it."</em> The agent adds cadmium telluride as a point of comparison, so that the cadmium-free candidates can be judged against a cadmium compound. (Cadmium selenide, the one the industry actually used, is not among the crystals AIMS has tight-binding parameters for.) Then, in one
-                    tool call, it cuts dots of all four hosts over a range of sizes, solves them, plots the four curves on one chart, and reads off where each crosses the 530&nbsp;nm line and how steeply.</p>
+                    reaches 530 nm with the least color shift per nanometer of diameter, and build it."</em> The agent adds cadmium telluride as a point of comparison, so that the cadmium-free candidates can be judged against a cadmium compound. (Cadmium selenide, the one the industry used, is not among the crystals AIMS has parameters for.) Then, in one
+                    tool call, it cuts dots of all four hosts over a range of sizes, solves them, plots the four curves on one chart, and reads off where each crosses the 530&nbsp;nm line, if it does, and how steeply.</p>
 
                     <div class="v2-table-wrap">
                         <table class="v2-compare">
@@ -186,39 +186,39 @@
                         </table>
                     </div>
 
-                    <p>Indium phosphide is the answer, and the table says something the usual one-line summary ("indium phosphide replaced cadmium") leaves out: the switch away from cadmium cost almost nothing in tolerance, at least by this benchmark. Cadmium telluride hits green at the
-                    same size with about the same slope, so a 5% spread in size smears the peak of either material by roughly 6&nbsp;nm each way. That is small next to the 35 to 40&nbsp;nm linewidth of commercial indium phosphide dots. Where the slope matters is in hitting the color at all: at 105&nbsp;nm per nm, a batch whose dots average 0.05&nbsp;nm too large emits 5&nbsp;nm too red, and 0.05&nbsp;nm is a fraction of one
-                    atomic layer. A display holds the peak of its green to within a few nanometers, so that shift is one the factory would have to correct. (The slopes come from a power-law fit
-                    through the computed dots near the target. A slope taken between two neighboring cuts can be off by half, because it depends on where the discrete atom counts happen to fall.)</p>
+                    <p>Indium phosphide is the answer, and the table says something the usual one-line summary ("indium phosphide replaced cadmium") leaves out: against the one cadmium compound the model can compute, indium phosphide loses nothing in size tolerance. Cadmium telluride reaches green at the
+                    same size with about the same slope, so a 5% spread in size broadens the peak of either material by roughly 6&nbsp;nm each way. That is small next to the linewidth of commercial indium phosphide dots, about 40&nbsp;nm. Where the slope matters is in centering the peak on the target: at 105&nbsp;nm per nm, a batch whose dots average 0.05&nbsp;nm too large emits 5&nbsp;nm too red. That 0.05&nbsp;nm is a fraction of one
+                    atomic layer. A display must hold the peak of its green close to the target, so the factory would have to correct that shift. (The slopes come from a power-law fit
+                    through the computed dots near the target. A slope taken between two neighboring cuts can differ from the fitted one by as much as 50%, because it depends on where the discrete atom counts happen to fall.)</p>
 
                     <h2>A Rule for Choosing the Material</h2>
 
                     <p>The two zinc compounds fail for opposite reasons, and between them they give the rule for picking a host. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Zinc_selenide">Zinc selenide</a>
-                    is blue already as a bulk crystal, at 459&nbsp;nm. Confinement can only push it to shorter wavelengths still, so no zinc selenide dot of any size emits green. The agent reports the target as unreachable rather than extrapolating. On the chart all five of its points are gray: every zinc selenide dot the sweep solved emits in the ultraviolet, below 350&nbsp;nm.</p>
+                    is blue already as a bulk crystal, at 459&nbsp;nm. Confinement can only shift it to shorter wavelengths, so no zinc selenide dot of any size emits green. The agent reports the target as unreachable rather than extrapolating. On the chart all five of its points are gray: every zinc selenide dot the sweep solved emits in the ultraviolet, below 350&nbsp;nm.</p>
 
                     <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Zinc_telluride">Zinc telluride</a> fails the other way. Its bulk emission is 549&nbsp;nm, already green but on the yellow side of the 530&nbsp;nm target, so getting there takes
-                    hardly any confinement. That means a large dot, and on a large dot the color barely moves with size, which is what a manufacturer wants. But the dot would have to be bigger than the model can handle. The largest zinc telluride dot the solver can hold, 2.5&nbsp;nm across, still emits in the violet, at 430&nbsp;nm. The trend
+                    hardly any confinement. That means a large dot, and on a large dot the color barely changes with size, which is what a manufacturer wants. But the dot would have to be bigger than the model can handle: the largest zinc telluride dot within its limit, 2.5&nbsp;nm across, still emits in the violet, at 430&nbsp;nm. The trend
                     of the computed points puts the green crossing at 15&nbsp;nm or more, several times that, and the agent flags the number: an extrapolation that far past the computed points cannot be trusted. The second question in the example asks why
                     zinc telluride would be steadiest if it could be made, and the answer is a rule: the host whose bulk gap lies just below the target in energy gives the steadiest dot, because it needs the least confinement. The cost
-                    is a dot so large that it is barely a quantum dot at all. The rule is a first cut, not the whole story. Cadmium telluride's gap lies closer to green than indium phosphide's, yet the two cross at the same size with
-                    about the same slope, because how much confinement a given size buys also depends on how heavy the host's electrons and holes are. Indium phosphide's gap lies much further below green than zinc telluride's. It pays for the distance with a steeper slope, but it reaches the target at a size the solver can hold.</p>
+                    is a dot so large that confinement barely affects it. The rule is only an approximation. Cadmium telluride's gap lies closer to green than indium phosphide's, yet the two cross at the same size with
+                    about the same slope. How much confinement a given size produces also depends on the effective masses of the host's electrons and holes: the heavier they are, the less the gap widens at a given size. Indium phosphide's gap lies much further below green than zinc telluride's, so its curve is steeper at the crossing, but it reaches the target at a size within the model's limit.</p>
 
                     <h2>Does the Shape Matter?</h2>
 
-                    <p>Real dots are not all spheres, so the third question asks whether a 2.4&nbsp;nm indium phosphide cube, cut to the same volume as the 2.4&nbsp;nm sphere, emits the same green as the sphere. It does not. The cube comes out 18&nbsp;nm bluer, 513&nbsp;nm against
+                    <p>Real dots are not all spheres, so the third question asks whether a 2.4&nbsp;nm indium phosphide cube, cut to the same volume as the 2.4&nbsp;nm sphere, emits the same green as the sphere. It does not: the cube comes out 18&nbsp;nm bluer, 513&nbsp;nm against
                     531&nbsp;nm, and one might conclude that shape matters.</p>
 
                     <p>The atom counts, which the agent prints beside every structure, explain the difference. The 2.4&nbsp;nm sphere has 281 indium and phosphorus atoms; the 2.4&nbsp;nm cube has 239. Since the cube was cut to the same volume as the sphere, the two start with about the same number of atoms. But a cube has
-                    corners and edges, which leave more loose, singly bonded atoms, and the cleanup step that removes them takes far more from the cube, something the nominal size does not record. Put 239 atoms into a sphere at the crystal's density and the sphere is
-                    2.25&nbsp;nm across. The cube is in effect a 2.25&nbsp;nm dot, and a 2.25&nbsp;nm dot is 18&nbsp;nm bluer than a 2.4&nbsp;nm one.</p>
+                    corners and edges, which leave more atoms bonded to only one neighbor, and the cleanup step that removes them removes far more atoms from the cube, something the nominal size does not record. Put 239 atoms into a sphere at the crystal's density and the sphere is
+                    2.25&nbsp;nm across. The cube is in effect a 2.25&nbsp;nm dot, and on the computed curve a 2.25&nbsp;nm dot is 18&nbsp;nm bluer than a 2.4&nbsp;nm one.</p>
 
-                    <p>The fourth question asks for the fair comparison: spheres and cubes swept together from 1.2 to 2.6&nbsp;nm and plotted at their <em>effective</em> diameter, the diameter of the sphere their atoms would fill. (The 2.6&nbsp;nm cuts were over the solver's limit and were left out.) The two
-                    curves fall on top of each other. At equal atom count the shape hardly matters. What sets the color is how many atoms a dot holds, and a nominal size, whether in this tool or in a synthesis recipe, is only a proxy for that.</p>
+                    <p>The fourth question asks for the fair comparison: spheres and cubes swept together from 1.2 to 2.6&nbsp;nm and plotted at their <em>effective</em> diameter, the diameter of the sphere their atoms would fill. (The 2.6&nbsp;nm cuts were over the model's limit and were left out.) The two
+                    curves coincide. At equal atom count the shape hardly matters. What sets the color is how many atoms a dot holds, and a nominal size, whether in this tool or in a synthesis recipe, is only a proxy for that.</p>
 
                     <h2>Running Experiments by Asking</h2>
 
-                    <p>AIMS is an AI-native environment. A student does not need to know how to cut a nanoparticle out of a crystal, how to passivate its surface, or how to set up a
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tight_binding">tight-binding</a> calculation. They simply ask &mdash; <em>"what color does a 2 nm dot emit?"</em>, <em>"which material
+                    <p>AIMS is an AI-native environment. Students do not need to know how to cut a nanoparticle out of a crystal, how to passivate its surface, or how to set up a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tight_binding">tight-binding</a> calculation. They ask &mdash; <em>"what color does a 2 nm dot emit?"</em>, <em>"which material
                     reaches green with the least shift?"</em>, <em>"does a cube emit the same color as a sphere?"</em> &mdash; and the built-in AI agent recognizes the intent, builds the structures, runs the calculation, and posts a chart of the
                     results in the conversation.</p>
 
@@ -246,33 +246,30 @@
 
                     <p>Each dot in the example is an actual fragment of the crystal, cut from the bulk and solved with the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tight_binding">empirical tight-binding</a> model that AIMS uses for bulk band structures. Each atom has five orbitals, and each bond
-                    couples neighboring atoms with parameters fitted to the measured gaps and critical points of the bulk crystal. The dangling bonds at the surface are shown capped with hydrogen, and the calculation passivates them by pushing their states
-                    out of the gap. The levels then come from diagonalizing the whole matrix, which is practical up to about 1600 orbitals, or about 320 host atoms. That is why the sweeps cannot go much past 2.5&nbsp;nm, and why the agent says so
+                    couples nearest neighbors with parameters fitted to the measured gaps and critical points of the bulk crystal. The dangling bonds at the surface are shown capped with hydrogen, and the calculation passivates them by moving their states
+                    out of the gap. The levels then come from diagonalizing the whole matrix, which is practical up to about 1600 orbitals, or about 320 atoms of the semiconductor. That is why the sweeps cannot go much past 2.5&nbsp;nm, and why the agent says so
                     when a question asks for a bigger dot.</p>
 
-                    <p>This is a textbook model, not a research one, and every result card the agent posts in the chat says as much. It omits the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Exciton">exciton</a>, the
+                    <p>This is a textbook model, and every result card the agent posts in the chat says as much. It omits the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Exciton">exciton</a>, the
                     attraction between the excited electron and the hole it left behind, worth one or two tenths of an electron volt at these sizes. It omits spin&ndash;orbit coupling, which matters for the heavier elements. And its nearest-neighbor
-                    parameters make the electrons too heavy, so the confinement shifts come out a little low. These errors are of the same kind for every host and every shape, so the comparisons survive them better than the absolute numbers
-                    do. A real 2.4&nbsp;nm indium phosphide dot should emit within a few tens of nanometers of the predicted 531&nbsp;nm, not at it. The errors pull in both directions. The heavy electrons make the computed gap a little too small, which reads too red. The missing exciton pushes the other way, and so does the fact that the computed gap is where a dot begins to <em>absorb</em>, while a real dot
-                    emits somewhat to the red of that (the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stokes_shift">Stokes shift</a>). The green dots in a real display are also core&ndash;shell particles, and the shell shifts the color too. Each card prints the bulk gap beside the dot's gap because that one number is fitted to experiment.</p>
+                    parameters make the electrons too heavy, so the confinement shifts come out a little low. These errors are of the same kind for every host and every shape, so they affect the comparisons less than they affect the absolute numbers. Each of them is worth a few tenths of an electron volt at most, so a real 2.4&nbsp;nm indium phosphide dot should emit within a few tens of nanometers of the predicted 531&nbsp;nm. The errors have opposite signs. The heavy electrons make the computed gap a little too small, which makes the predicted color too red. The missing exciton has the opposite effect, and so does the fact that the computed gap is where a dot begins to <em>absorb</em>, while a real dot
+                    emits somewhat to the red of that (the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stokes_shift">Stokes shift</a>). The green dots in a real display are also core&ndash;shell nanoparticles, and the shell shifts the color too. Each card prints the bulk gap beside the dot's gap because that one number is fitted to experiment.</p>
 
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">Nothing Here Was Programmed</p>
                         <p class="v2-prompts-intro">The model is given only the atoms and a handful of fitted parameters for their electrons. Everything below emerged from them:</p>
                         <ul>
-                            <li><span class="v2-prompts-step">Blue to green</span> &mdash; a 2&nbsp;nm indium phosphide dot comes out at 482&nbsp;nm and a 2.4&nbsp;nm dot at 531&nbsp;nm, and on the chart the points run from gray (ultraviolet) through violet and blue to green as the dots grow. The color-versus-size curve is an output of the calculation, not an input.</li>
-                            <li><span class="v2-prompts-step">The sizing curve</span> &mdash; the exponent of the 1/d<sup>p</sup> confinement law is fitted to the computed points and comes out near 1.2 for these dots, not the textbook 2.</li>
+                            <li><span class="v2-prompts-step">Blue to green</span> &mdash; a 2&nbsp;nm indium phosphide dot comes out at 482&nbsp;nm and a 2.4&nbsp;nm dot at 531&nbsp;nm, and on the chart the points run from gray (ultraviolet) through violet and blue to green as the dots grow. The color-versus-size curve is an output of the calculation.</li>
+                            <li><span class="v2-prompts-step">The sizing curve</span> &mdash; the exponent of the 1/d<sup>p</sup> confinement law is fitted to the computed points and comes out near 1.2 for these dots, below the textbook value of 2.</li>
                             <li><span class="v2-prompts-step">The one-way rule</span> &mdash; zinc selenide cannot reach green at any size, because confinement only widens the gap.</li>
                             <li><span class="v2-prompts-step">The host rule</span> &mdash; the host that needs the least confinement gives the flattest curve, and that candidate, zinc telluride, needs a dot so large that it is barely a quantum dot.</li>
-                            <li><span class="v2-prompts-step">Size over shape</span> &mdash; a cube and a sphere with the same number of atoms emit the same green; the "2.4 nm cube" was bluer only because it held fewer atoms.</li>
+                            <li><span class="v2-prompts-step">Size over shape</span> &mdash; a cube and a sphere with the same number of atoms emit the same color; the "2.4 nm cube" was bluer only because it held fewer atoms.</li>
                         </ul>
                     </div>
 
                     <h2>Conclusion</h2>
 
-                    <p>The point of this article is less the quantum dot than the way of studying it. A student asks a design question in plain language, and an AI agent turns it into a quantum mechanical calculation on actual atoms
-                    and reports what it finds. The student ends up knowing what size of indium phosphide dot emits green, why zinc selenide never will, why zinc telluride would be the steadiest, at a size the model cannot reach, and why a 2.4&nbsp;nm cube emits the color of a
-                    smaller sphere. None of it was looked up in a reference. It was computed in front of them, from the atoms up.</p>
+                    <p>This article uses the color of quantum dots to illustrate a new way to learn science: students converse with an AI agent that turns a plain-language design question into a quantum mechanical calculation on actual atoms and hands back the result. Quantum confinement, normally a formula in a nanoscience course, becomes something students work out for themselves. They cut dots of four materials out of their crystals, find the size at which indium phosphide emits green, and discover why zinc selenide never will, why zinc telluride would be the steadiest at a size the model cannot reach, and why a 2.4&nbsp;nm cube emits the color of a smaller sphere. They also see where the model disagrees with experiment, and why. By pairing a physically grounded calculation with an AI that can set it up and run it, AIMS lets students investigate a nanoscale phenomenon that they would otherwise only read about.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>
