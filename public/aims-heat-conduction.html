@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measure Heat Conduction with AI-Assisted Simulations — Institute for Future Intelligence</title>
+    <meta name="description" content="Measure the thermal conductivity of salt and silicon by talking to an AI agent in AIMS: it holds the two ends of a crystal at different temperatures, charts the temperature profile, computes the conductivity, and extrapolates from a series of sample lengths to the bulk value.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      function openFullscreen2() { var e = document.getElementById("aims-frame2"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol, .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        .v2-screenshot-row img, .v2-screenshot-single img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-screenshot-single { max-width: 641px; margin: 1rem auto 1.5rem; }
+        .v2-data { border-collapse: collapse; margin: 0.5rem 0 1.75rem; font-size: 1.1rem; }
+        .v2-data th, .v2-data td { padding: 0.4rem 1.1rem; text-align: right; border-bottom: 1px solid rgba(15, 23, 42, 0.12); }
+        .v2-data th { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-data th:first-child, .v2-data td:first-child { text-align: left; }
+        .v2-data caption { caption-side: bottom; text-align: left; font-size: 1rem; color: var(--text-muted); padding-top: 0.5rem; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="HEAT">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Measure Heat Conduction with AI-Assisted Simulations</h1>
+                <p class="v2-tagline">
+                    The thermal conductivity of salt and silicon, measured atom by atom in experiments run by an AI agent.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>Heat flows from a hot place to a cold one. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_conduction#Fourier's_law">Fourier's law</a> states how fast:
+                    the heat current through a material is proportional to the temperature gradient, the change of temperature per unit length. The constant of proportionality is the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_conductivity_and_resistivity">thermal conductivity</a>, written <em>&kappa;</em> and measured in watts per meter per kelvin.
+                    Copper conducts about 400&nbsp;W/(m&middot;K), silicon about 150, and table salt about 6.5. In an electrical insulator such as salt, heat is carried by
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Phonon">phonons</a>, the quantized vibrations of the crystal lattice. A phonon travels some distance before it scatters off another phonon or a defect. That distance is the phonon
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Mean_free_path">mean free path</a>, and it sets the conductivity of the crystal.</p>
+
+                    <p>In AIMS, students measure thermal conductivity by talking to an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a>. They describe the experiment in plain language, and the agent loads a
+                    crystal into a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> simulation, holds its two ends at different temperatures, charts the temperature along the crystal, and computes <em>&kappa;</em> from the measured gradient and heat current.
+                    The window below shows the example on sodium chloride. Press Play to run the experiment: the bottom of the slab is held at 500&nbsp;K and the top at 100&nbsp;K, and each ion is colored by its kinetic energy, red for fast and blue for slow.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Heat%20Conduction%20in%20Salt"
+                                id="aims-frame1" allowfullscreen="true" title="Heat Conduction in Salt demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen1();">View fullscreen</a>
+                        </figcaption>
+                    </figure>
+
+                    <h2>A Crystal Between a Hot Bath and a Cold Bath</h2>
+
+                    <p>The experiment is the one a materials laboratory performs on a bar of metal: heat one end, cool the other, and measure the temperature along the bar and the power that flows through it. In the simulation, the crystal is a slab with free surfaces at both ends.
+                    Two <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Berendsen_thermostat">thermostats</a> act as the heat baths. One acts on the atoms in the bottom fifth of the slab and holds that band at the hot temperature, and the other holds the band in the top fifth at the cold temperature. The atoms between the two bands have no thermostat, so their energy changes only by the heat that flows in from the hot band and out to the cold band.</p>
+
+                    <p>The simulation divides the slab into thin layers and records the temperature of each layer as the run goes on. After the first ten or twenty picoseconds, the profile stops drifting: the heat entering from the hot bath equals the heat leaving through the cold bath. The agent averages the profile over the second half of the run and fits a straight line to the layers between the two bands, leaving out the layer next to each band. The slope of that line is the temperature gradient. The heat current is the energy the hot thermostat adds per unit time, averaged with the energy the cold thermostat removes. Fourier's law then gives the conductivity: <em>&kappa;</em> equals the heat current divided by the cross-sectional area of the slab and by the gradient.</p>
+
+                    <p>The first run of the salt example uses a slab of 256 ions, 4.2&nbsp;nm long and 1.27&nbsp;nm<sup>2</sup> in cross-section, held at 500&nbsp;K and 100&nbsp;K for 30 picoseconds. The interior gradient is 72&nbsp;&plusmn;&nbsp;4&nbsp;K/nm, and the heat current through the slab is 209 nanowatts. Together these give <em>&kappa;</em>&nbsp;=&nbsp;2.3&nbsp;W/(m&middot;K), with a range of 2.2 to 2.4 from the scatter of the layer temperatures. The value is about a third of the handbook value of 6.5&nbsp;W/(m&middot;K).</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">You can run the whole investigation yourself. Start a new Crystal Builder project, open the chat, and type these prompts in order. Each experiment returns a chart of the temperature profile in the chat.</p>
+
+                        <p class="v2-prompts-group">Salt</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Run one experiment</span> &mdash; <span class="v2-prompt">"Load sodium chloride into the lab as a 2x2x8 supercell. Then hold the bottom of the slab at 500 K and the top at 100 K and measure how heat conducts through it."</span></li>
+                            <li><span class="v2-prompts-step">Ask about the result</span> &mdash; <span class="v2-prompt">"Why is the conductivity still below the handbook value?"</span></li>
+                            <li><span class="v2-prompts-step">Vary the length</span> &mdash; <span class="v2-prompt">"Now run the same slab experiment at 4, 8, 12 and 16 cells, 60 ps each, and extrapolate the conductivity to the bulk value."</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Silicon</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Run one experiment</span> &mdash; <span class="v2-prompt">"Load silicon into the lab as a 2x2x8 supercell. Then hold the bottom of the slab at 600 K and the top at 100 K and show me how heat conducts through it."</span></li>
+                            <li><span class="v2-prompts-step">Ask about the result</span> &mdash; <span class="v2-prompt">"Why does the temperature drop so sharply at the edges of the two thermostatted bands, and why is the conductivity so far below bulk silicon?"</span></li>
+                            <li><span class="v2-prompts-step">Vary the length</span> &mdash; <span class="v2-prompt">"Now run the same slab experiment at 4, 8, 12 and 16 cells, 60 ps each, and extrapolate the conductivity to the bulk value."</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-intro" style="margin-top:1rem !important; margin-bottom:0 !important;">The first experiment takes about ten minutes, and the series of four lengths takes one to two hours. The lab keeps the two thermostats set after each run, so you can press Play and watch the experiment, or change the bath temperatures and run it again.</p>
+                    </div>
+
+                    <h2>Temperature Jumps at the Bands</h2>
+
+                    <p>The temperature profile is a straight line across the middle of the slab, as Fourier's law predicts, and it jumps at the two edges where the thermostatted bands meet the rest of the crystal. In the first salt run, the interior accounts for about 181&nbsp;K of the 400&nbsp;K difference between the baths, and the two jumps account for the rest. In the silicon example described below, the interior accounts for only about 37&nbsp;K of 500&nbsp;K.</p>
+
+                    <p>Each jump comes from a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Interfacial_thermal_resistance">thermal contact resistance</a>. The heat a thermostat supplies or removes must cross the inner edge of its band, where the band meets the rest of the crystal. The thermostat changes how the atoms in its band move, so phonons arriving at that edge are partly scattered back, and heat crosses the edge only with a temperature difference across it, as it does at the boundary between two different materials. The fit leaves the jumps out, so the measured gradient and the conductivity computed from it describe the interior of the slab.</p>
+
+                    <h2>From a Sample to a Material</h2>
+
+                    <p>The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermal_conductivity_and_resistivity#Lattice_waves,_phonons,_in_dielectric_solids">kinetic theory</a> of phonons gives the conductivity as <em>&kappa;</em> = <em>C v &#8467;</em>/3, where <em>C</em> is the heat capacity per unit volume, <em>v</em> is the speed of the phonons, and <em>&#8467;</em> is their mean free path. In a bulk crystal, <em>&#8467;</em> is set by collisions between phonons and with defects. In a slab, a phonon also scatters when it reaches the hot or the cold band, so the distance it travels between collisions is limited by the slab length <em>L</em>. The two kinds of scattering add their rates (<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Matthiessen%27s_rule">Matthiessen's rule</a>), so the reciprocal of the mean free path is the bulk value plus a term proportional to 1/<em>L</em>. Because <em>&kappa;</em> is proportional to <em>&#8467;</em>, the measured conductivity follows the same form:</p>
+
+                    <p style="text-align:center;">1/<em>&kappa;</em> = 1/<em>&kappa;</em><sub>&infin;</sub> + <em>b</em>/<em>L</em>,</p>
+
+                    <p>where <em>&kappa;</em><sub>&infin;</sub> is the conductivity of the bulk material and <em>b</em> is a constant. Plotted against 1/<em>L</em>, the reciprocal of the measured conductivity is a straight line, and its intercept at 1/<em>L</em> = 0, which corresponds to an infinitely long sample, is the reciprocal of the bulk conductivity. This extrapolation was introduced by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevB.65.144306">Patrick Schelling, Simon Phillpot, and Pawel Keblinski</a> in 2002. The straight line holds when the slab is at least comparable in length to the bulk mean free path. In a much shorter slab, most phonons cross from one band to the other without scattering, and the points fall off the line.</p>
+
+                    <p>In the third turn of the salt example, the agent repeats the experiment on four slabs, 4, 8, 12, and 16 unit cells long, for 60 picoseconds each, and fits the line. The measured conductivity rises with length:</p>
+
+                    <table class="v2-data">
+                        <tr><th>Length (nm)</th><th>Ions</th><th>Gradient (K/nm)</th><th><em>&kappa;</em> (W/(m&middot;K))</th></tr>
+                        <tr><td>2.0</td><td>128</td><td>153 &plusmn; 10</td><td>1.15</td></tr>
+                        <tr><td>4.2</td><td>256</td><td>76 &plusmn; 4</td><td>2.12</td></tr>
+                        <tr><td>6.5</td><td>384</td><td>58 &plusmn; 2</td><td>2.69</td></tr>
+                        <tr><td>8.7</td><td>512</td><td>46 &plusmn; 2</td><td>3.55</td></tr>
+                        <caption>Sodium chloride slabs held at 500&nbsp;K and 100&nbsp;K for 60 picoseconds each.</caption>
+                    </table>
+
+                    <p>All four points lie within about 5 percent of one line, and its intercept gives a bulk conductivity of 7.7&nbsp;W/(m&middot;K), with a range of 6.9 to 8.7. The handbook value at room temperature is 6.5&nbsp;W/(m&middot;K). The 4.2&nbsp;nm slab measured 2.29&nbsp;W/(m&middot;K) in the first run and 2.12 in this one, so two independent runs of the same slab agree within 8 percent. The agent draws the fitted line back on a chart of <em>&kappa;</em> against length as a curve that rises toward the bulk value.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-heat-conduction-salt-profile.png" alt="Temperature profile along an 8.7 nm sodium chloride slab held at 500 K and 100 K, with a straight-line fit across the interior">
+                        <img src="image/aims-heat-conduction-salt-kappa.png" alt="Thermal conductivity of sodium chloride against slab length, with the fitted curve rising toward the extrapolated bulk value">
+                    </div>
+
+                    <p>The extrapolated value is about 20 percent above the handbook value. Two features of the simulation can account for the difference. The interior of the longest slab runs from about 360&nbsp;K at its hot end to about 170&nbsp;K at its cold end and averages about 260&nbsp;K, below room temperature. The conductivity of an insulating crystal is roughly inversely proportional to the absolute temperature, so an average of 260&nbsp;K raises it by about 15 percent over its value at 300&nbsp;K. The forces between the ions follow the rigid-ion potential of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0022-3697(64)90160-X">Mario Tosi and Fausto Fumi</a>, which was fitted to the lattice energy and the lattice spacing of the alkali halides, and its phonons can differ from those of real salt.</p>
+
+                    <h2>Silicon: A Slab Shorter Than the Phonon Path</h2>
+
+                    <p>The extrapolation reaches a bulk value for salt because the slabs are comparable in length to the phonon mean free path. The kinetic formula with the handbook conductivity, heat capacity, and speed of sound of sodium chloride gives an average mean free path of a few nanometers. In silicon, the phonons that carry most of the heat travel hundreds of nanometers before they scatter. The second example runs the same experiment on silicon, with the forces given by the potential of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevB.31.5262">Frank Stillinger and Thomas Weber</a>, the baths at 600&nbsp;K and 100&nbsp;K, and the same four lengths.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Heat%20Conduction%20in%20Silicon"
+                                id="aims-frame2" allowfullscreen="true" title="Heat Conduction in Silicon demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen2();">View fullscreen</a>
+                        </figcaption>
+                    </figure>
+
+                    <table class="v2-data">
+                        <tr><th>Length (nm)</th><th>Atoms</th><th>Gradient (K/nm)</th><th><em>&kappa;</em> (W/(m&middot;K))</th></tr>
+                        <tr><td>2.0</td><td>128</td><td>109 &plusmn; 18</td><td>0.44</td></tr>
+                        <tr><td>4.2</td><td>256</td><td>22 &plusmn; 5</td><td>6.4</td></tr>
+                        <tr><td>6.4</td><td>384</td><td>13 &plusmn; 2</td><td>11.7</td></tr>
+                        <tr><td>8.6</td><td>512</td><td>8 &plusmn; 1</td><td>21.9</td></tr>
+                        <caption>Silicon slabs held at 600&nbsp;K and 100&nbsp;K for 60 picoseconds each.</caption>
+                    </table>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-heat-conduction-silicon-kappa.png" alt="Thermal conductivity of silicon against slab length: the four points rise steeply and no fitted curve is drawn">
+                    </div>
+
+                    <p>The conductivity of silicon more than triples while the length doubles from 4.2 to 8.6&nbsp;nm. A conductivity that grows at least in proportion to the length is the signature of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ballistic_conduction">ballistic transport</a>: most phonons cross the whole slab without scattering, and most of the temperature drop occurs at the two jumps. The line of 1/<em>&kappa;</em> against 1/<em>L</em> then passes through the origin or below it, whichever lengths are kept, and the extrapolation yields no bulk value. The agent reports what the data support: the bulk conductivity of this model of silicon is larger than 21.9&nbsp;W/(m&middot;K), the value of the longest slab. Measuring the handbook value of 150&nbsp;W/(m&middot;K) by this method requires slabs hundreds of nanometers long, far more atoms than a simulation in a web browser can follow.</p>
+
+                    <p>Silicon also shows how much a single run on a few hundred atoms varies. The 4.2&nbsp;nm slab measured 12.2&nbsp;W/(m&middot;K) in the first run and 6.4 in the ladder of lengths. In salt, where the interior gradient is measured to within 4 to 7 percent, the same comparison agrees within 8 percent.</p>
+
+                    <h2>Why Use AI to Assist Scientific Simulations?</h2>
+
+                    <p>Each measurement in this article requires two thermostats set on two bands of atoms, a run long enough to reach a steady state, a temperature profile averaged over time, a straight-line fit that leaves out the contact layers, and a bookkeeping of the energy the baths add and remove. The extrapolation requires the whole experiment four times at four lengths. The AI agent carries out these steps for the student and reports each number with its uncertainty.</p>
+
+                    <p>The investigation follows the questions the student asks. A student who wonders why the temperature jumps at the edges of the bands can ask, and the agent explains the contact resistance using the jumps in that student's own chart. A student who asks for a series of lengths gets four new experiments and a chart of the results. The chat log records each question and the run that answered it.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the forces among the atoms. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Fourier's law</span> &mdash; the temperature falls linearly across the interior of a slab that carries a steady heat current.</li>
+                            <li><span class="v2-prompts-step">Contact resistance</span> &mdash; the temperature jumps where each thermostatted band meets the rest of the crystal.</li>
+                            <li><span class="v2-prompts-step">A length-dependent conductivity</span> &mdash; the measured conductivity of a slab a few nanometers long rises with its length.</li>
+                            <li><span class="v2-prompts-step">The conductivity of salt</span> &mdash; 7.7&nbsp;W/(m&middot;K) extrapolated from four slabs, against a handbook value of 6.5.</li>
+                            <li><span class="v2-prompts-step">Ballistic phonons in silicon</span> &mdash; the conductivity grows at least in proportion to the length, because most phonons cross the slab without scattering.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses heat conduction to illustrate a new way to learn science: students <em>converse</em> with an
+                    AI agent that turns a plain-language question into a molecular dynamics experiment and hands back measured data. Fourier's law and the thermal conductivity listed in a handbook
+                    become something students measure for themselves, and the comparison of salt and silicon shows them when a measurement on a small sample describes the material. By pairing a physically
+                    grounded simulation with an AI that can set it up and run it, AIMS lets students trace the flow of heat to the vibrations of individual atoms and turns their curiosity into a genuine scientific investigation of how heat moves through solids.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

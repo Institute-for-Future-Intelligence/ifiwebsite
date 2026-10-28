@@ -113,12 +113,12 @@
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ionic_crystal">ionic</a>,
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Network_covalent_bonding">covalent</a>, and
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_solid">molecular</a> &mdash; and explain that the type of bond holding a crystal together
-                    decides how hard it is to take apart. It is usually left at that: a table of melting points to memorize. With AIMS, students <em>investigate</em> the connection instead. They talk to an
+                    decides how hard it is to take apart. Students are usually given a table of melting points to memorize. With AIMS, students <em>investigate</em> the connection between bonding and melting. They talk to an
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a>, and it runs real
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> experiments for them: it melts a crystal, grows one back from a seed,
-                    and brackets the melting point, then drops the measured data into the chat as a live chart.
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Phase_transition">Melting and freezing</a> are not programmed; they are computed, from nothing but the forces among atoms.
-                    We start with silicon, the crystal that matters most to today's industry: almost every computer chip, solar cell, and power transistor begins as a single crystal grown from a seed. In the
+                    and brackets the melting point, then posts the measured data in the chat as a live chart.
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Phase_transition">Melting and freezing</a> are computed from the forces among atoms.
+                    We start with silicon, the most important crystal in the electronics industry. Almost every computer chip, solar cell, and power transistor begins as a single crystal grown from a seed. In the
                     window below, liquid silicon sits on a seed crystal only four atomic layers thick. Press Play and watch the liquid crystallize: atoms build tetrahedra onto the seed one layer at a time, each new
                     layer copying the one below, until everything below the rough top layer is one single crystal. Further down is the same experiment for a metallic, an ionic, and a molecular crystal.</p>
 
@@ -131,13 +131,13 @@
                         </figcaption>
                     </figure>
 
-                    <p>Look closely as it grows: no line of code says "build a tetrahedron" or "copy the layer below." Each atom feels only the forces from the atoms around it, computed afresh every
+                    <p>As the crystal grows, each atom feels only the forces from the atoms around it, computed afresh every
                     femtosecond or two. The ordered lattice, the speed of the growth front, and the temperature at which growth stops all arise from millions of those small calculations. That is what
-                    <em>emergent</em> means here: crystallization is an outcome of the simulation, not an instruction given to it.</p>
+                    <em>emergent</em> means here: the crystal forms as a result of those forces.</p>
 
                     <h2>From Melt to Microchip</h2>
 
-                    <p>The chips in a phone, a laptop, or a data center start the same way: as a pure single crystal of silicon. Before a single transistor is patterned, silicon refined to
+                    <p>The chips in a phone, a laptop, or a data center all start as a pure single crystal of silicon. Before a single transistor is patterned, silicon refined to
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polycrystalline_silicon">electronic grade</a> &mdash; better than 99.9999999% pure, fewer than one foreign atom
                     in a billion &mdash; is melted in a quartz crucible at 1414&nbsp;&deg;C (1687&nbsp;K). In the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Czochralski_method">Czochralski process</a>,
                     a small seed crystal is dipped into the melt and pulled upward slowly, a few centimeters an hour, while seed and crucible rotate. The liquid freezes onto the seed atom by atom, copying its lattice,
@@ -145,13 +145,12 @@
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Wafer_(electronics)">wafers</a> and polished to a mirror finish, and only then do lithography, doping, and the hundreds of
                     other steps of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Semiconductor_device_fabrication">chip fabrication</a> begin.</p>
 
-                    <p>Why go to such lengths? Because a transistor depends on electrons moving through a perfectly regular lattice. Where two crystal grains meet, or where an atom sits out of place, the lattice is broken:
+                    <p>A single crystal is needed because a transistor depends on electrons moving through a perfectly regular lattice. Where two crystal grains meet, or where an atom sits out of place, the lattice is broken:
                     electrons scatter, charges get trapped, and dopants spread unevenly, so devices built on a flawed crystal leak, slow down, or fail. Tens of billions of transistors on one chip need the same perfect crystal under
                     every one of them. Growing a pure single crystal is therefore the first step in making a chip once the silicon is refined, and in many ways the most demanding.</p>
 
-                    <p>The model above shows that first step at the scale where it actually happens &mdash; the solid&ndash;liquid interface, one atomic layer at a time. Students can see how the seed is copied: each
-                    arriving atom takes its place from the layer below, so the whole ingot inherits the seed's orientation. They can also see why the temperature at the interface must be held just right: a little below the
-                    melting point the crystal grows; a little above it, growth stops and the crystal can melt back. In the real process, the pull rate and the heat flowing through the interface are tuned to hold the interface just below the melting point
+                    <p>The model above shows that first step at the solid&ndash;liquid interface, one atomic layer at a time. Students can see how the seed is copied: each
+                    arriving atom takes its place from the layer below, so the whole ingot inherits the seed's orientation. They can also see why the temperature at the interface must be controlled. A little below the melting point the crystal grows, and a little above it growth stops and the crystal can melt back. In the real process, the pull rate and the heat flowing through the interface are tuned to hold the interface just below the melting point
                     for days, the whole time an ingot grows.</p>
 
                     <h2>Why Start from a Seed?</h2>
@@ -161,20 +160,20 @@
                     In a simulation the
                     wait for a nucleus can run to nanoseconds or longer &mdash; far beyond what a browser can compute while a student watches.</p>
 
-                    <p>The way around it is the same trick the semiconductor industry relies on to grow its silicon ingots: give the liquid a
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Seed_crystal">seed crystal</a> to grow on, and the nucleation barrier disappears. AIMS does the same thing in miniature. Each of the four labs in this article holds a few hundred atoms: a crystal seed a few atomic layers thick at the bottom, its lowest layer or two anchored in place (drawn
+                    <p>The semiconductor industry avoids the wait when it grows silicon ingots: it gives the liquid a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Seed_crystal">seed crystal</a> to grow on, which removes the nucleation barrier. AIMS does the same on a small scale. Each of the four labs in this article holds a few hundred atoms: a crystal seed a few atomic layers thick at the bottom, its lowest layer or two anchored in place (drawn
                     see-through) and the rest free to vibrate, under a freshly melted liquid with an open surface on top. Below the melting point the liquid freezes onto the seed, layer by layer. Above it the
-                    liquid stays liquid; at most a layer or two next to the seed take order from it. Right at the melting point, crystal and liquid are in balance and the front advances and retreats without getting anywhere. That makes seeded growth a
-                    direct way to find the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Melting_point">melting point</a> &mdash; and it works the same way for every kind of crystal.</p>
+                    liquid stays liquid, and at most a layer or two next to the seed become ordered. Right at the melting point, crystal and liquid are in balance and the growth front advances and retreats with no net progress. That makes seeded growth a
+                    direct way to find the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Melting_point">melting point</a>, and it works the same way for every kind of crystal.</p>
 
                     <h2>Running Experiments by Asking</h2>
 
-                    <p>AIMS is an AI-native environment. A student does not need to know what a seeded-growth run is, how to pin a layer of atoms, or how to measure crystallinity. They simply ask &mdash;
+                    <p>AIMS is an AI-native environment. Setting up a seeded-growth run, pinning a layer of atoms, and measuring crystallinity are the agent's work. A student asks &mdash;
                     <em>"can the liquid freeze again?"</em>, <em>"what is the melting point of this model?"</em>, <em>"what happens if I heat the crystal?"</em> &mdash; and the built-in AI agent recognizes the intent,
                     configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
 
                     <div class="v2-prompts">
-                        <p class="v2-prompts-intro">Open one of the seeded-growth examples from the Examples menu (Materials Science), open the chat, and type the prompts below. The temperatures are for silicon; for the other crystals use the ones in parentheses (all but dry ice are also in the table that follows).</p>
+                        <p class="v2-prompts-intro">Open one of the seeded-growth examples from the Examples menu (Materials Science), open the chat, and type the prompts below. The temperatures are for silicon. For the other crystals, use the ones in parentheses (all but dry ice are also in the table that follows).</p>
 
                         <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, roughly a tenth of a picosecond per second of real time on a typical laptop. If you press Play in an example, copper freezes in a few minutes, salt in five or more, and silicon and nitrogen in ten to twenty. A growth run by the agent first melts the crystal and then regrows it, which takes longer than pressing Play: about ten minutes for copper, up to half an hour for silicon. Finding the melting point chains three or four such runs, from about half an hour for copper to well over an hour for silicon. Leave the tab open and in front while it runs, because browsers slow down pages in background tabs.</p>
 
@@ -194,13 +193,13 @@
                             <li><span class="v2-prompts-step">Model vs. reality</span> &mdash; <span class="v2-prompt">"How does this model's melting point compare with the real material, and why are they different?"</span></li>
                         </ol>
 
-                        <p class="v2-prompts-intro" style="margin-top:1rem !important; margin-bottom:0 !important;">Each run restores the lab when it finishes, and a "Show final state" button on the chart brings back its last frame. The "Melting of Copper", "Melting of Salt", "Melting of Silicon", and "Melting of Ice" examples start from a solid instead, for the heating experiments described below.</p>
+                        <p class="v2-prompts-intro" style="margin-top:1rem !important; margin-bottom:0 !important;">Each run restores the lab when it finishes, and a "Show final state" button on the chart brings back its last frame. The "Melting of Copper", "Melting of Salt", "Melting of Silicon", and "Melting of Ice" examples start from a solid, for the heating experiments described below.</p>
                     </div>
 
                     <h2>Four Types of Crystalline Solids</h2>
 
-                    <p>The table summarizes what the four labs show. Each "grows" and "stays liquid" temperature is a measured run, not a lookup; the model's melting point lies between them. "Time to freeze" is how long the
-                    melt takes to become crystal at the "grows" temperature, in simulated time (not the minutes you wait in a browser).</p>
+                    <p>The table summarizes what the four labs show. Each "grows" and "stays liquid" temperature is a measured run, and the model's melting point lies between them. "Time to freeze" is how long the
+                    melt takes to become crystal at the "grows" temperature, in simulated time.</p>
 
                     <div class="v2-table-wrap">
                         <table class="v2-compare">
@@ -209,7 +208,7 @@
                                 <tr><th class="num">Grows at</th><th class="num">Stays liquid at</th><th class="num">Model T<sub>m</sub></th><th class="num">Real T<sub>m</sub></th></tr>
                             </thead>
                             <tbody>
-                                <tr><td class="crystal"><b>Silicon</b><small>Si</small></td><td><span class="v2-type covalent">Covalent</span></td><td class="bond">Shared electron pairs, each atom to four neighbors</td><td class="num">1500 K</td><td class="num">1700 K</td><td class="num model">1600&ndash;1700 K</td><td class="num">1687 K</td><td class="num">~60 ps</td></tr>
+                                <tr><td class="crystal"><b>Silicon</b><small>Si</small></td><td><span class="v2-type covalent">Covalent</span></td><td class="bond">Shared electron pairs, each atom to four nearest neighbors</td><td class="num">1500 K</td><td class="num">1700 K</td><td class="num model">1600&ndash;1700 K</td><td class="num">1687 K</td><td class="num">~60 ps</td></tr>
                                 <tr><td class="crystal"><b>Copper</b><small>Cu</small></td><td><span class="v2-type metallic">Metallic</span></td><td class="bond">A sea of delocalized electrons</td><td class="num">1100 K</td><td class="num">1300 K</td><td class="num model">&asymp; 1200 K</td><td class="num">1358 K</td><td class="num">~20&ndash;30 ps</td></tr>
                                 <tr><td class="crystal"><b>Rock salt</b><small>NaCl</small></td><td><span class="v2-type ionic">Ionic</span></td><td class="bond">Attraction between Na<sup>+</sup> and Cl<sup>&minus;</sup> ions</td><td class="num">1000 K</td><td class="num">1200 K</td><td class="num model">1000&ndash;1200 K</td><td class="num">1074 K</td><td class="num">~15&ndash;25 ps</td></tr>
                                 <tr><td class="crystal"><b>Nitrogen</b><small>N<sub>2</sub></small></td><td><span class="v2-type molecular">Molecular</span></td><td class="bond">Weak van der Waals forces between N<sub>2</sub> molecules</td><td class="num">35 K</td><td class="num">45 K</td><td class="num model">40&ndash;45 K</td><td class="num">63 K</td><td class="num">~60&ndash;80 ps</td></tr>
@@ -218,10 +217,8 @@
                     </div>
 
                     <p><b>Covalent: silicon.</b> In a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diamond_cubic">diamond-structure</a> crystal each atom is bonded to exactly
-                    four neighbors at the corners of a tetrahedron. An atom joining the crystal must find four partners at the right angles at once, so silicon grows slowly: about
-                    60 picoseconds at 1500&nbsp;K, ten minutes or more of watching in a browser. The topmost layer stays rough, because at this temperature a free silicon surface never quite settles. A run at 1600&nbsp;K still grows, more slowly; at 1700&nbsp;K the melt stays liquid, so the
-                    model's melting point comes out near 1650&nbsp;K &mdash; close to the real 1687&nbsp;K, as the potential's authors intended. That agreement matters, because this is what an ingot grower controls:
-                    how far below the melting point the crystal grows. Here students can see the same melt crystallize at one temperature and stay liquid at another.</p>
+                    four nearest neighbors at the corners of a tetrahedron. An atom joining the crystal must find four partners at the right angles at once, so silicon grows slowly: about
+                    60 picoseconds at 1500&nbsp;K, ten minutes or more of watching in a browser. The topmost layer stays rough, because a free silicon surface stays disordered at this temperature. A run at 1600&nbsp;K still grows, more slowly, and at 1700&nbsp;K the melt stays liquid, so the model's melting point is near 1650&nbsp;K &mdash; close to the real 1687&nbsp;K, as the potential's authors intended. The agreement matters because an ingot grower controls how far below the melting point the crystal grows. Here students can see the same melt crystallize at one temperature and stay liquid at another.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Copper%20Growth%20from%20a%20Seed"
@@ -232,9 +229,8 @@
                         </figcaption>
                     </figure>
 
-                    <p><b>Metallic: copper.</b> In a metal, the outer electrons are shared by the whole crystal, and the bond between two atoms barely cares about direction. An atom arriving at the growth front only
-                    has to find a hollow among its neighbors, so copper freezes quickly: at 1100&nbsp;K the melt is crystal in 20 to 30 picoseconds, two to three times faster than silicon. At 1300&nbsp;K a layer or two next to the seed become ordered,
-                    but the rest stays liquid; at 1200&nbsp;K the growth front advances and retreats without finishing. The model's melting point lies near 1200&nbsp;K.</p>
+                    <p><b>Metallic: copper.</b> In a metal, the outer electrons are shared by the whole crystal, and the bond between two atoms depends little on direction. An atom arriving at the growth front only has to settle into a hollow between atoms of the crystal, so copper freezes quickly: at 1100&nbsp;K the melt is crystal in 20 to 30 picoseconds, two to three times faster than silicon. At 1300&nbsp;K a layer or two next to the seed become ordered,
+                    but the rest stays liquid, and at 1200&nbsp;K the growth front advances and retreats without finishing. The model's melting point lies near 1200&nbsp;K.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Salt%20Growth%20from%20a%20Seed"
@@ -245,8 +241,8 @@
                         </figcaption>
                     </figure>
 
-                    <p><b>Ionic: rock salt.</b> Sodium chloride sets a test the metal does not: two kinds of ions must each find the right place, every sodium surrounded by six chlorides and every chloride by six
-                    sodiums. An ion that lands next to one of its own kind is pushed out again. Even so, salt freezes about as fast as copper: 15 to 25 picoseconds at 1000&nbsp;K. It only takes longer to watch, because the long reach of the electric force between ions makes each step more costly to compute. Watch the
+                    <p><b>Ionic: rock salt.</b> Sodium chloride has a requirement the metal does not: two kinds of ions must each find the right place, every sodium surrounded by six chlorides and every chloride by six
+                    sodiums. An ion that lands next to one of its own kind is pushed out again. Even so, salt freezes about as fast as copper: 15 to 25 picoseconds at 1000&nbsp;K. It takes longer to watch because the long reach of the electric force between ions makes each step more costly to compute. Watch the
                     melt, too: molten salt is much less dense than the crystal, so the liquid starts out swollen and shrinks back as it freezes. At 1200&nbsp;K the melt stays liquid, which puts the model's melting point
                     between 1000 and 1200&nbsp;K, bracketing the real value of 1074&nbsp;K.</p>
 
@@ -261,76 +257,71 @@
 
                     <p><b>Molecular: nitrogen.</b> Many solids around us &mdash; ice, sugar, wax, most drugs in a pharmacy &mdash; are built from molecules held together by forces far weaker than a chemical bond. Solid
                     nitrogen is one of the simplest: N<sub>2</sub> dumbbells stacked on the same face-centered cubic lattice as copper, held there by
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_der_Waals_force">van der Waals</a> attraction so feeble that the crystal melts at 63&nbsp;K. Here everything
-                    happens tens of kelvin above absolute zero instead of a thousand or more: the liquid freezes onto the seed at 35&nbsp;K over 60 to 80 picoseconds, and stays liquid at 45&nbsp;K. In the grown crystal,
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_der_Waals_force">van der Waals</a> attraction so weak that the crystal melts at 63&nbsp;K. Here everything happens tens of kelvin above absolute zero: the liquid freezes onto the seed at 35&nbsp;K over 60 to 80 picoseconds, and stays liquid at 45&nbsp;K. In the grown crystal,
                     the molecular <em>centers</em> settle onto lattice sites, but the dumbbells keep tumbling. That is how many molecular crystals behave near their melting points &mdash; the positions freeze first, and the
-                    orientations lock in only much colder. (Real nitrogen tumbles on a hexagonal lattice; this model keeps the cubic one.) Because the molecules are held so weakly and the lab contains only a couple of hundred of them, chance plays a large part: the front advances in fits and starts, and now and then a run stalls halfway; a second
-                    run from Reset takes a different path. The <em>Dry Ice Growth from a Seed</em> example shows a harder case: carbon dioxide molecules must also line up in a fixed orientation, and they do.</p>
+                    orientations order only at much lower temperatures. (Real nitrogen tumbles on a hexagonal lattice, and this model keeps the cubic one.) Because the molecules are held so weakly and the lab contains only a couple of hundred of them, chance plays a large part. The growth front advances irregularly, and now and then a run stalls halfway. A second run from Reset takes a different path. The <em>Dry Ice Growth from a Seed</em> example shows a harder case: carbon dioxide molecules must also line up in a fixed orientation, and they do.</p>
 
                     <p>Read down the "Model T<sub>m</sub>" column and the lesson of the four families appears in measured numbers: the melting point follows the strength of what holds the crystal together, from a few tens of
                     kelvin for molecules held by van der Waals forces to a thousand or more for metals, ionic crystals, and covalent networks. The "Time to freeze" column shows something textbooks rarely
-                    mention: how fast a crystal grows depends on more than how strongly it is bound. Silicon is slow because each arriving atom must find four neighbors at the right angles. Nitrogen is slow for a different reason: at 35&nbsp;K its molecules move about four times more slowly than copper atoms do at 1100&nbsp;K.</p>
+                    mention: how fast a crystal grows depends on more than how strongly it is bound. Silicon is slow because each arriving atom must find four nearest neighbors at the right angles. Nitrogen is slow for a different reason: at 35&nbsp;K its molecules move about four times more slowly than copper atoms do at 1100&nbsp;K.</p>
 
                     <h2>Models Make Predictions</h2>
 
-                    <p>None of the four simulations is told its melting point. Each uses a published <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Interatomic_potential">interatomic potential</a>
+                    <p>Each of the four simulations uses a published <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Interatomic_potential">interatomic potential</a>
                     &mdash; an embedded-atom potential for copper, Tosi&ndash;Fumi for salt, Stillinger&ndash;Weber for silicon, and a two-site potential for nitrogen. Most were fitted to properties of the cold crystal,
-                    such as its spacing, stiffness, and cohesive energy (for nitrogen, rescaled to match the last); Stillinger&ndash;Weber's authors also tuned it to silicon's melting point and liquid structure. For the others the melting point is a genuine <em>prediction</em>: salt lands close to experiment, while copper and nitrogen come out lower, likely because their potentials
+                    such as its spacing, stiffness, and cohesive energy (for nitrogen, rescaled to match the last). Stillinger&ndash;Weber's authors also tuned it to silicon's melting point and liquid structure. For the others the melting point is a genuine <em>prediction</em>: salt comes out close to experiment, and copper and nitrogen come out lower, probably because their potentials
                     capture the solid better than the liquid.</p>
-                    <p><b>The decisive test.</b> If a melting point truly emerges from the forces, then changing the forces should change it &mdash; and nothing else should be needed. Ask the agent to switch copper to a different published potential, one sentence, and run the same experiment again: the same atoms, the same lab, the same procedure, and the crystal now melts about 300 kelvin lower than before. Students can then ask the agent why the two potentials disagree.</p>
+                    <p><b>Changing the potential.</b> If the melting point comes from the forces, then changing the forces should change it. Ask the agent in one sentence to switch copper to a different published potential and run the same experiment again. With the same atoms, the same lab, and the same procedure, the crystal now melts about 300 kelvin lower than before. Students can then ask the agent why the two potentials disagree.</p>
 
                     <h2>Other Ways to Study Melting</h2>
 
                     <p><b>Watching the order collapse.</b> Open one of the "Melting of" examples (copper, salt, silicon, or ice) and ask the agent to <em>"show how the lattice order changes with temperature."</em> It heats
                     the crystal step by step and measures an order parameter that is high for a lattice and near zero for a liquid, choosing the measure that fits the lattice (rock salt and copper order differently).
-                    The curve stays high, then drops off a cliff. It is a vivid picture, but the cliff is not always the melting point: a crystal whose surface does not premelt, as salt's and silicon's do not, has nowhere for the liquid to start, so it can be
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Superheating">superheated</a> well past its melting point before it gives way. Salt holds on to 1250&ndash;1350&nbsp;K,
-                    and silicon past 2000&nbsp;K. Comparing the cliff with the seeded-growth bracket is a lesson in itself.</p>
+                    The curve stays high and then drops steeply. The drop can come well above the melting point. A crystal whose surface does not premelt, as the surfaces of salt and silicon do not, has no place for the liquid to start, so it can be
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Superheating">superheated</a> well past its melting point before it melts. Salt stays solid to 1250&ndash;1350&nbsp;K,
+                    and silicon past 2000&nbsp;K. Students can compare the temperature of the drop with the seeded-growth bracket.</p>
 
                     <p><b>The heating curve and latent heat.</b> Ask for <em>"a heating curve"</em> and the agent feeds energy into the crystal at a steady rate and plots temperature against heat added. As the lattice breaks
-                    up, energy goes into tearing particles out of their sites instead of making them move faster &mdash; the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Latent_heat">latent heat</a>.
-                    In a small simulation the melting step sometimes appears as a flat plateau, and sometimes as a striking <em>dip</em>: the superheated solid collapses all at once, and the latent heat it suddenly absorbs is paid
-                    out of the particles' kinetic energy, so the temperature <em>falls</em> while heat keeps flowing in. For rock salt the gap between the solid and liquid branches gives a latent heat within a few percent of
+                    up, the added energy goes into pulling atoms out of their lattice sites, and the temperature stops rising. That energy is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Latent_heat">latent heat</a>.
+                    In a small simulation the melting step sometimes appears as a flat plateau, and sometimes as a <em>dip</em>: the superheated solid melts all at once, and the latent heat it absorbs comes from the kinetic energy of its atoms, so the temperature <em>falls</em> while heat keeps flowing in. For rock salt the gap between the solid and liquid branches gives a latent heat within a few percent of
                     the handbook value.</p>
 
                     <h2>From Liquid to Vapor</h2>
 
                     <p>Melting is half of what a phase diagram shows. A liquid also has a boundary with its vapor, and the <em>Evaporation of Argon</em> example (Chemistry) shows that boundary in a box.
                     The lab holds 192 argon atoms under gravity in a sealed box 30&nbsp;&Aring; wide and 90&nbsp;&Aring; tall, at 95&nbsp;K. The floor is lined with one layer of argon atoms pinned in place and drawn see-through, for the same reason the growth labs anchor their seeds:
-                    the walls of the lab only repel, so a liquid on a bare floor balls up into a drop, and on a floor of its own kind it spreads into a flat pool. Press Play. Atoms leave the pool, fly up through the empty space, strike the walls, and fall back into the liquid.
-                    The atoms in flight at any moment are the vapor, and their number settles within a few picoseconds: as many atoms leave the surface as return to it. Raise the temperature to 105&nbsp;K and the space above the pool fills with them; lower it to 85&nbsp;K and most of them settle back.</p>
+                    the walls of the lab only repel, so a liquid on a bare floor forms a drop, and on a floor of its own kind it spreads into a flat pool. Press Play. Atoms leave the pool, fly up through the empty space, strike the walls, and fall back into the liquid.
+                    The atoms in flight at any moment are the vapor, and their number settles within a few picoseconds: as many atoms leave the surface as return to it. At 105&nbsp;K the space above the pool fills with atoms, and at 85&nbsp;K most of them settle back.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Evaporation%20of%20Argon"
                                 id="aims-frame5" loading="lazy" allowfullscreen="true" title="Evaporation of Argon demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame5');">View fullscreen</a><br>
-                            A liquid and its vapor: argon at 95&nbsp;K. The vapor forms within seconds of Play; the pinned floor layer is drawn see-through.
+                            A liquid and its vapor: argon at 95&nbsp;K. The vapor forms within seconds of Play, and the pinned floor layer is drawn see-through.
                         </figcaption>
                     </figure>
 
                     <p>The agent turns the picture into a measurement. Ask <span class="v2-prompt">"How much argon evaporates between 85 and 105 K?"</span> and it holds the pool at five temperatures, counts the atoms in the gas at each, and converts each count to a
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Vapor_pressure">vapor pressure</a> with the ideal gas law. The count rises from 8 atoms at 85&nbsp;K to 36 at 105&nbsp;K, a pressure from 2.4 to 12.7&nbsp;bar. Plotted against temperature the points curve upward;
-                    plotted as the logarithm of the pressure against the reciprocal of the temperature they fall on a line, the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Vapor_pressure">vapor pressure</a> with the ideal gas law. The count rises from 8 atoms at 85&nbsp;K to 36 at 105&nbsp;K, a pressure from 2.4 to 12.7&nbsp;bar. Plotted against temperature, the points curve upward. Plotted as the logarithm of the pressure against the reciprocal of the temperature, they fall on a line, the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Clausius%E2%80%93Clapeyron_relation">Clausius&ndash;Clapeyron relation</a>. The slope of that line is the heat of vaporization, 6.2&nbsp;kJ/mol for this model, and the line reaches 1&nbsp;bar at 77&nbsp;K, the model's normal
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boiling_point">boiling point</a>. Unlike melting, evaporation has no single transition temperature: a liquid is in balance with its vapor at every temperature along that curve, from the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boiling_point">boiling point</a>. Unlike melting, evaporation has no single transition temperature: a liquid is in balance with its vapor at every temperature along the vapor-pressure curve, from the
                     triple point to the critical point, and the boiling point is the temperature at which the vapor pressure reaches the pressure of the air above the liquid, 1&nbsp;bar. At 2&nbsp;bar argon boils at about 94&nbsp;K.</p>
 
                     <p>The handbook values for argon are 6.5&nbsp;kJ/mol and 87.3&nbsp;K, and the comparison needs one correction. The model's atoms attract one another with the measured strength, but the lab ignores the attraction beyond 2.5 atomic diameters, so the model's
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Critical_point_(thermodynamics)">critical point</a> is near 130&nbsp;K, where argon's is 151&nbsp;K. Every temperature and energy on the model's liquid&ndash;vapor curve is lower by that ratio, 0.86, so the targets for the model are
-                    5.6&nbsp;kJ/mol and 75&nbsp;K. The measured line gives 6.2&nbsp;kJ/mol and 77&nbsp;K. Each point counts a few dozen atoms and scatters by about 15 percent, so the fitted line is the number to trust.</p>
+                    5.6&nbsp;kJ/mol and 75&nbsp;K. The measured line gives 6.2&nbsp;kJ/mol and 77&nbsp;K. Each point counts a few dozen atoms and scatters by about 15 percent, so the fitted line is more reliable than any single point.</p>
 
-                    <p>Nitrogen joins the two halves of this article. The molecule that freezes onto a seed at 35&nbsp;K in the table above also boils, in the <em>Evaporation of Nitrogen</em> example: 144 molecules on a pinned layer of nitrogen, held between 65 and 85&nbsp;K, read 6 to 21 molecules in the gas, a vapor pressure from
-                    2.0 to 8.5&nbsp;bar, a heat of vaporization of 3.5&nbsp;kJ/mol, and 1&nbsp;bar at 59&nbsp;K. The handbook values are 5.6&nbsp;kJ/mol and 77.4&nbsp;K. This nitrogen is a two-site potential fitted to the real liquid, with the same cutoff at 2.5 diameters and without the molecule's
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quadrupole">quadrupole</a>, the small charge pattern that pulls real nitrogen molecules into T-shaped pairs. The two omissions cost about a quarter of the binding, and the whole liquid&ndash;vapor curve sits that much lower.
+                    <p>Nitrogen appears in both halves of this article. The molecule that freezes onto a seed at 35&nbsp;K in the table above also boils, in the <em>Evaporation of Nitrogen</em> example, which holds 144 molecules on a pinned layer of nitrogen. Between 65 and 85&nbsp;K the agent counts 6 to 21 molecules in the gas, a vapor pressure from 2.0 to 8.5&nbsp;bar. The fitted line gives a heat of vaporization of 3.5&nbsp;kJ/mol and reaches 1&nbsp;bar at 59&nbsp;K. The handbook values are 5.6&nbsp;kJ/mol and 77.4&nbsp;K. This nitrogen is a two-site potential fitted to the real liquid, with the same cutoff at 2.5 diameters and without the molecule's
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quadrupole">quadrupole</a>, the small charge pattern that pulls real nitrogen molecules into T-shaped pairs. The two omissions remove about a quarter of the binding energy, and the whole liquid&ndash;vapor curve is lower by that fraction.
                     As with the melting points, the agent reports the model's number next to the measured one and can explain the gap when asked.</p>
 
                     <p>Evaporation also cools. The <em>Evaporation of Water</em> example holds 108 water molecules on a pinned layer of water at 395&nbsp;K, above the normal boiling point. Ask <span class="v2-prompt">"Open the top of the box and show me evaporative cooling."</span> The agent switches the heat bath off, removes every molecule that leaves the pool, as a dry wind would, and charts the temperature of the pool against time.
                     The pool cools by about 35&nbsp;K in 400 picoseconds while 11 molecules escape, about 3&nbsp;K per molecule, and the cooling slows as the pool cools, because a cooler pool evaporates more slowly. Each molecule that leaves takes its heat of vaporization with it, and the fastest molecules leave first, which is why sweat, a wet cloth, or a puddle feels cold.
-                    The heat per molecule comes out near 24&nbsp;kJ/mol against the handbook 40.7, a rough figure for a film three molecules thick. The pool starts above 373&nbsp;K and does not boil: with the top open to vacuum there is no pressure for a bubble to push against, and a film this thin has no interior for a bubble to form in, so the water leaves from the surface only.</p>
+                    The heat per molecule comes out near 24&nbsp;kJ/mol, a rough figure for a film three molecules thick, compared with the handbook value of 40.7&nbsp;kJ/mol. The pool starts above 373&nbsp;K and does not boil: with the top open to vacuum there is no pressure for a bubble to push against, and a film this thin has no interior for a bubble to form in, so the water leaves from the surface only.</p>
 
                     <div class="v2-prompts">
-                        <p class="v2-prompts-intro">Open <em>Evaporation of Argon</em>, <em>Evaporation of Nitrogen</em>, or <em>Evaporation of Water</em> from the Examples menu (Chemistry) and type the prompts below. A five-point vapor-pressure ladder takes several minutes; the water cooling run takes about ten.</p>
+                        <p class="v2-prompts-intro">Open <em>Evaporation of Argon</em>, <em>Evaporation of Nitrogen</em>, or <em>Evaporation of Water</em> from the Examples menu (Chemistry) and type the prompts below. A five-point vapor-pressure ladder takes several minutes. The water cooling run takes about ten.</p>
                         <p class="v2-prompts-group">Investigate evaporation</p>
                         <ol>
                             <li><span class="v2-prompts-step">Vapor pressure</span> &mdash; <span class="v2-prompt">"How much argon evaporates between 85 and 105 K?"</span> (nitrogen: 65 and 85 K)</li>
@@ -341,46 +332,41 @@
 
                     <h2>Glass or Crystal: Annealing</h2>
 
-                    <p>Freezing onto a seed is not the only way a liquid can become a solid. Cool it fast enough and the atoms never find their lattice sites at all: they jam in a disordered pile, a
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Amorphous_metal">glass</a>. The <em>Annealing of Amorphous Copper</em> example (Metallic Crystals) opens on
-                    exactly that &mdash; 108 copper atoms melted at 3000&nbsp;K and then quenched in half a picosecond. Orbit it and look along any direction: there are no rows. Press Play and, at 150&nbsp;K, the atoms jiggle,
-                    but the pile stays a pile, stuck in a local energy minimum about 90&nbsp;meV per atom above the crystal.</p>
+                    <p>A liquid can also become a solid without crystallizing. Cooled fast enough, its atoms are locked in a disordered arrangement, a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Amorphous_metal">glass</a>. The <em>Annealing of Amorphous Copper</em> example (Metallic Crystals) opens on such a glass: 108 copper atoms melted at 3000&nbsp;K and then quenched in half a picosecond. Orbit it and look along any direction: there are no rows. Press Play and, at 150&nbsp;K, the atoms vibrate, but the arrangement stays disordered, held in a local energy minimum about 90&nbsp;meV per atom above the crystal.</p>
 
-                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Annealing_(materials_science)">Annealing</a> is how a glass escapes that minimum. Ask the agent
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Annealing_(materials_science)">Annealing</a> moves a glass out of that minimum. Ask the agent
                     <em>"Anneal it: heat to 1000 K, hold for 10 ps, then cool back to 150 K over 20 ps."</em> It drives the whole temperature schedule and charts the energy as it goes. During the hold &mdash; below the
                     melting point, so nothing melts &mdash; the atoms gain just enough mobility to hop into place, the energy drops in a step, and rows appear. Then press Reset to get the glass back and try two other histories: melt it and quench
-                    it to 150&nbsp;K in half a picosecond, and it is a glass again; heat it to 1200&nbsp;K, where the glass melts, and cool it slowly to 150&nbsp;K over 30&nbsp;ps, and the liquid crystallizes on the way down. Both runs use the same atoms and end at the same temperature;
-                    the big difference is the <em>cooling rate</em>, and it decides whether a solid ends up a glass or a crystal. These runs are short &mdash; tens of picoseconds on 108 atoms &mdash; so each takes only a few minutes.</p>
+                    it to 150&nbsp;K in half a picosecond, and it is a glass again. Heat it to 1200&nbsp;K, where the glass melts, and cool it slowly to 150&nbsp;K over 30&nbsp;ps, and the liquid crystallizes on the way down. Both runs use the same atoms and end at the same temperature. They differ in the <em>cooling rate</em>, which decides whether a solid ends up a glass or a crystal. These runs are short &mdash; tens of picoseconds on 108 atoms &mdash; so each takes only a few minutes.</p>
 
-                    <p>Annealing also brings the story back to chips. After a silicon wafer is cut from its ingot, dopant atoms are fired into it by
+                    <p>Annealing is also a step in making chips. After a silicon wafer is cut from its ingot, dopant atoms are fired into it by
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ion_implantation">ion implantation</a>, which knocks the lattice near the surface out of order. The wafer is then
-                    annealed: heated so the damaged layer can rebuild itself on the perfect crystal underneath and the dopants can settle onto lattice sites. It is a solid-state cousin of seeded growth, and one of
-                    many times a chip passes through the furnace on its way to becoming a working device.</p>
+                    annealed: heated so the damaged layer can rebuild itself on the perfect crystal underneath and the dopants can settle onto lattice sites. This is seeded growth in the solid state, and it is one of many furnace steps in making a chip.</p>
 
                     <h2>Why Use AI to Assist Scientific Simulations?</h2>
 
                     <p>Experiments like these are among the hardest to set up by hand. A trustworthy melting point needs a seed, a melt, a thermostat, and a way to judge crystallinity &mdash; and each kind of crystal needs
-                    its own force field and its own measure of order. That is exactly the machinery a beginner does not yet know how to operate, and the AI agent operates it for them. Because it maps plain questions onto
-                    the right experiment, a student who wonders <em>"why does salt melt at eight hundred degrees but nitrogen at minus two hundred?"</em> can grow and melt both crystals and compare two measured charts, not just read a sentence.</p>
+                    its own force field and its own measure of order. The AI agent handles this setup for the student. Because it maps plain questions onto
+                    the right experiment, a student who wonders <em>"why does salt melt at eight hundred degrees but nitrogen at minus two hundred?"</em> can grow and melt both crystals and compare two measured charts.</p>
 
-                    <p>And this is what computing promises at its best: write down only the laws that govern the parts, and let the behavior of the whole appear on its own.
-                        No one programmed a melting point, a growth rate, a supercooled liquid, or a glass into AIMS. They
-                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Emergence">emerge</a> from the forces among a few hundred particles, computed one
-                        femtosecond at a time, while the crystalline fraction and the temperature are measured as they go. The AI agent's role is to take a student's question straight to the place where that happens.</p>
+                    <p>A melting point, a growth rate, a supercooled liquid, and a glass all
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Emergence">emerge</a> from the forces among a few hundred atoms or molecules, computed one
+                        femtosecond at a time, while the crystalline fraction and the temperature are measured as they go. The AI agent sets up the simulation that answers a student's question.</p>
                     <div class="v2-prompts">
-                        <p class="v2-prompts-group" style="margin-top:0 !important;">Nothing Here Was Programmed</p>
-                        <p class="v2-prompts-intro">The simulations are given only the forces among particles. Everything below emerged from them:</p>
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the forces among atoms and molecules. Everything below came out of them:</p>
                         <ul>
-                            <li><span class="v2-prompts-step">Melting points</span> &mdash; no model is told its melting point; each is measured, and for three of the four crystals it is a genuine prediction.</li>
+                            <li><span class="v2-prompts-step">Melting points</span> &mdash; each model's melting point is measured, and for three of the four crystals it is a genuine prediction.</li>
                             <li><span class="v2-prompts-step">Growth by copying</span> &mdash; a liquid freezes onto a seed one layer at a time, each layer copying the one below.</li>
-                            <li><span class="v2-prompts-step">Growth speed</span> &mdash; silicon grows two to three times slower than copper, because each arriving atom must find four neighbors at the right angles.</li>
+                            <li><span class="v2-prompts-step">Growth speed</span> &mdash; silicon grows two to three times slower than copper, because each arriving atom must find four nearest neighbors at the right angles.</li>
                             <li><span class="v2-prompts-step">Swelling and shrinking</span> &mdash; molten salt is less dense than its crystal and shrinks back as it freezes.</li>
                             <li><span class="v2-prompts-step">Order in stages</span> &mdash; nitrogen molecules settle onto lattice sites while they keep tumbling.</li>
                             <li><span class="v2-prompts-step">Superheating</span> &mdash; salt and silicon stay solid far past their melting points.</li>
-                            <li><span class="v2-prompts-step">A falling temperature</span> &mdash; a heating curve can dip as a superheated solid collapses, though heat keeps flowing in.</li>
+                            <li><span class="v2-prompts-step">A falling temperature</span> &mdash; a heating curve can dip as a superheated solid melts all at once, though heat keeps flowing in.</li>
                             <li><span class="v2-prompts-step">Glass or crystal</span> &mdash; the same atoms, ending at the same temperature, become one or the other depending only on how fast they cool.</li>
-                            <li><span class="v2-prompts-step">Vapor pressure</span> &mdash; the pressure of the vapor above a liquid rises exponentially with temperature, and the slope of the line gives the heat of vaporization.</li>
-                            <li><span class="v2-prompts-step">Evaporative cooling</span> &mdash; a pool open to vacuum cools as its fastest molecules leave, and cools ever more slowly as it does.</li>
+                            <li><span class="v2-prompts-step">Vapor pressure</span> &mdash; the pressure of the vapor above a liquid rises exponentially with temperature, and the slope of its logarithm against the reciprocal of the temperature gives the heat of vaporization.</li>
+                            <li><span class="v2-prompts-step">Evaporative cooling</span> &mdash; a pool open to vacuum cools as its fastest molecules leave, and cools more slowly as its temperature falls.</li>
                         </ul>
                     </div>
 
@@ -388,7 +374,7 @@
 
                     <p>This article uses phase changes to illustrate a new way to learn science: students <em>converse</em> with an
                     AI agent that turns a plain-language question into a molecular dynamics experiment and hands back measured data. The four families of crystals &mdash; metallic, ionic, covalent, and molecular &mdash;
-                    are no longer categories to memorize; students investigate how hot each must be to melt, how fast each can grow, and why. By pairing physically grounded
+                    become something students investigate: how hot each must be to melt, how fast each can grow, and why. By pairing physically grounded
                     simulations with an AI that can set them up and run them, AIMS turns a student's curiosity into a genuine scientific investigation of how matter changes its state.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>

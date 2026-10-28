@@ -85,14 +85,10 @@
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
 
                     <p>The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gas_laws">gas laws</a> are among the first quantitative relationships a chemistry student meets:
-                    squeeze a gas and its volume drops, heat it and it expands, seal it and the pressure climbs as it warms. They are usually presented as formulas to memorize or as a cookbook laboratory
-                    exercise with a syringe and a hot-water bath. With AIMS, students <em>discover</em> these laws instead. They talk to an
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> that builds and runs a real
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> simulation for them: they ask a question in plain language, and the agent
-                    sizes a box of molecules, conducts the experiment, plots the measured data, and helps them make sense of it. Nothing about the laws is programmed in &mdash; they <em>emerge</em> from the motion of
-                    individual molecules and the forces between them. In the window below, a box of hydrogen molecules is capped by a movable piston. Press Play and watch the molecules fly, collide with the walls, and hold
-                    the piston up against the load pressing down on it. Each atom is colored by its kinetic energy &mdash; red for fast, blue for slow &mdash; so students can watch energy pass from
-                    molecule to molecule as they collide.</p>
+                    compressing a gas reduces its volume, heating a gas makes it expand, and heating a sealed gas raises its pressure. They are usually presented as formulas to memorize or as a step-by-step laboratory exercise with a syringe and a hot-water bath. With AIMS, students <em>discover</em> these laws. They talk to an
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> that builds and runs a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> simulation for them: they ask a question in plain language, and the agent
+                    sizes a box of molecules, conducts the experiment, plots the measured data, and helps them interpret the results. The laws <em>emerge</em> from the motion of
+                    individual molecules and the forces between them. In the window below, a box of hydrogen molecules is capped by a movable piston. Press Play and watch the molecules move, collide with the walls, and hold up the piston against the load pressing down on it. Each atom is colored by its kinetic energy, red for fast and blue for slow, so students can watch energy pass from molecule to molecule as the molecules collide.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Gas%20Laws%20of%20Hydrogen%20Molecules"
@@ -104,28 +100,21 @@
 
                     <h2>A Piston Driven by Molecular Collisions</h2>
 
-                    <p>Every gas law relates two of four quantities &mdash; pressure, volume, temperature, and amount &mdash; while the other two are held fixed. To study them we need a way to
-                    <em>hold two quantities constant while varying a third</em>. AIMS does this with a movable-piston
+                    <p>Each gas law relates two of four quantities (pressure, volume, temperature, and amount) while the other two are held fixed. To study a gas law, the simulation must <em>hold two quantities constant while a third is varied</em>. AIMS holds the pressure constant with a movable-piston
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Barostat">barostat</a>: a weighted plate that seals the top of the container. A constant load pushes the plate
-                    down into the gas, while the gas molecules push it back up through a steady stream of collisions. Where the two balance, the gas pressure equals the applied pressure &mdash; a real
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Isobaric_process">constant-pressure</a> ensemble that comes straight from the
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Kinetic_theory_of_gases">kinetic theory of gases</a>, not from any hard-coded rule. A red arrow on the plate shows the
-                    applied load and grows longer as the pressure is raised, so students can see "push harder" before the plate has finished responding.</p>
+                    down into the gas, while the gas molecules push it back up by colliding with it. When the two forces balance, the gas pressure equals the applied pressure. The result is a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Isobaric_process">constant-pressure</a> ensemble in which the pressure comes from molecular impacts, as described by the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Kinetic_theory_of_gases">kinetic theory of gases</a>. A red arrow on the plate shows the
+                    applied load and grows longer as the pressure is raised, so students can see the load increase before the plate reaches its new height.</p>
 
-                    <p>Because the pressure is a load the molecules must hold up by striking the plate, and the volume is read from the height at which the piston floats, the simulation gives
-                    students a microscopic picture of what pressure and volume actually <em>are</em>. A gas law that a textbook states in one line becomes something students can watch happen, molecule by molecule. And they
-                    never have to build any of this through menus and dials: they describe what they want in plain words, and the AI agent sizes the container, places the gas, switches on the piston, sets its load, and
-                    drives it &mdash; the whole apparatus is assembled from a few sentences.</p>
+                    <p>Because the pressure is a load the molecules must hold up by striking the plate, and the volume is computed from the height of the piston, the simulation gives
+                    students a microscopic picture of what pressure and volume <em>are</em>. Students set up this apparatus by describing it in plain words. The AI agent sizes the container, places the gas, switches on the piston, sets its load, and runs the simulation.</p>
 
                     <h2>Ask a Question, Run an Experiment</h2>
 
-                    <p>AIMS is an AI-native environment, and the gas-law investigations are a clear example of what that means. A student does not need to know the name "Boyle's law" or how to configure a
-                    barostat sweep. They simply type an everyday question into the chat &mdash; <em>"what happens to the volume if I squeeze the gas?"</em> &mdash; and the built-in AI agent recognizes the intent,
-                    steps the piston pressure through a series of values, waits for the gas to re-equilibrate at each, measures the volume, and drops a live chart of the results straight into the conversation. The experiment
-                    a student would otherwise have to build by hand is set up and run for them, and the measured data &mdash; not a canned illustration &mdash; is what they see.</p>
+                    <p>A student types an everyday question into the chat, such as <em>"what happens to the volume if I squeeze the gas?"</em>, and the built-in AI agent recognizes the intent,
+                    steps the piston pressure through a series of values, waits for the gas to re-equilibrate at each value, measures the volume, and posts a live chart of the results in the conversation. The chart shows the data measured in that run.</p>
 
                     <div class="v2-prompts">
-                        <p class="v2-prompts-intro">You can build and run the whole investigation from scratch. Start a new Molecular Modeling project, open the chat, and type these prompts in order. The first group prepares the simulation &mdash; sizing the container, adding the gas, setting the conditions, and switching on the piston &mdash; so you have a working, watchable gas. The second group then runs the four experiments, each returning a chart in the chat.</p>
+                        <p class="v2-prompts-intro">You can build and run the whole investigation from scratch. Start a new Molecular Modeling project, open the chat, and type these prompts in order. The first group prepares the simulation: it sizes the container, adds the gas, sets the conditions, and switches on the piston. The second group runs the four experiments, and each returns a chart in the chat.</p>
 
                         <p class="v2-prompts-group">Prepare the simulation</p>
                         <ol>
@@ -147,69 +136,47 @@
                         <p class="v2-prompts-intro" style="margin-top:1rem !important; margin-bottom:0 !important;">Each sweep reuses the piston and thermostat you set up (Gay-Lussac temporarily switches the piston off for its constant-volume run) and restores your simulation afterward, so you can keep exploring between experiments.</p>
                     </div>
 
-                    <p>Each investigation is a <em>sweep</em>: a sequence of small experiments in which one control variable is stepped and one observable is measured. The results accumulate into a single interactive
-                    chart embedded in the chat log &mdash; a lab notebook that records what was actually measured at that moment. The four classic gas laws map onto four sweeps.</p>
+                    <p>Each investigation is a <em>sweep</em>: a sequence of small experiments in which one control variable is stepped and one observable is measured. The results are collected in one interactive chart in the chat log, which keeps a record of what was measured in each run. Each of the four classic gas laws corresponds to one sweep.</p>
 
                     <h2>The Four Gas Laws</h2>
 
                     <p><b><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Boyle%27s_law">Boyle's law</a> (constant temperature).</b> Holding the temperature fixed, the agent raises
-                    the piston pressure step by step and measures the shrinking volume. Plotted as volume against the reciprocal of pressure, the points fall on a straight line through the origin: the product
-                    <em>P&middot;V</em> is constant. Double the pressure and the volume halves. Push the pressure much higher and a dense gas begins to depart from the
-                    ideal law, which is itself a teachable moment rather than an error.</p>
+                    the piston pressure step by step and measures the shrinking volume. In the example, the 50 hydrogen molecules are held at 300&nbsp;K while the pressure is stepped from 0.5 to 4&nbsp;MPa. Plotted as volume against the reciprocal of pressure, the points lie on a straight line through the origin (<em>r</em><sup>2</sup> = 0.997), so the product <em>P&middot;V</em> is nearly constant. Raising the pressure from 2 to 4&nbsp;MPa reduces the volume from 135,000 to 69,000&nbsp;&aring;<sup>3</sup>. At much higher pressures, a dense gas departs from the ideal gas law.</p>
 
                     <p><b><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Charles%27s_law">Charles's law</a> (constant pressure).</b> With the piston holding the pressure fixed, the agent
-                    steps the temperature and measures the expanding volume. Volume rises in direct proportion to the absolute temperature, giving a straight line that, extended backward, heads toward zero volume near
-                    &minus;273&nbsp;&deg;C &mdash; the classic extrapolation toward
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Absolute_zero">absolute zero</a>, here extended from the measured data.</p>
+                    steps the temperature and measures the expanding volume. In the example, the piston holds 1&nbsp;MPa while the temperature is stepped from 200 to 450&nbsp;K, and the volume rises in proportion to the absolute temperature (<em>r</em><sup>2</sup> = 0.94). Extended to lower temperatures, the fitted line reaches zero volume at &minus;23&nbsp;K, which is 23 kelvin below <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Absolute_zero">absolute zero</a> (0&nbsp;K, or &minus;273&nbsp;&deg;C). With 50 molecules, each point scatters by several percent, and the scatter moves the extrapolated temperature by tens of kelvin from one run to the next.</p>
 
-                    <p><b><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gay-Lussac%27s_law">Gay-Lussac's law</a> (constant volume).</b> This one is mechanically different: the piston is
-                    switched off and the container becomes a rigid, sealed box. Now volume is the constant and <em>pressure</em> is the measured quantity, computed from the molecules' motion and the forces between them.
-                    As the gas is heated, the pressure climbs in direct proportion to the absolute temperature. It is the same physics that makes a sealed can dangerous in a fire, and it too extrapolates to zero
-                    pressure at absolute zero.</p>
+                    <p><b><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gay-Lussac%27s_law">Gay-Lussac's law</a> (constant volume).</b> In this sweep the piston is switched off, and the container becomes a rigid, sealed box. The volume is constant, and the <em>pressure</em> is measured. It is computed from the molecules' motion and the forces between them.
+                    As the gas is heated, the pressure increases in direct proportion to the absolute temperature. The same relationship explains why a sealed can is dangerous in a fire. The fitted line extrapolates to zero pressure at absolute zero.</p>
 
-                    <p><b><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Avogadro%27s_law">Avogadro's law</a> (constant temperature and pressure).</b> Here the agent changes the
-                    <em>amount</em> of gas &mdash; the number of molecules &mdash; while holding temperature and pressure fixed, and measures the volume. Volume grows in direct proportion to the number of molecules:
-                    a straight line through the origin. This sweep also answers a subtler question that students often find confusing. Density is the mass divided by the volume, <em>&rho; = N&middot;m / V</em>.
-                    Because the volume grows in step with the number of molecules, the ratio <em>N / V</em> &mdash; and therefore the density &mdash; stays constant. Adding more gas at the same temperature and pressure
-                    makes the sample bigger but no denser, a fact that follows from <em>V</em> &prop; <em>N</em> and is easy to see once the V-versus-N line is on the screen.</p>
+                    <p><b><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Avogadro%27s_law">Avogadro's law</a> (constant temperature and pressure).</b> In this sweep the agent changes the <em>amount</em> of gas, the number of molecules, while holding temperature and pressure fixed, and measures the volume. The volume grows in direct proportion to the number of molecules, so the points fall on a straight line through the origin. The same sweep shows how the density depends on the amount of gas. Density is the mass divided by the volume, <em>&rho; = N&middot;m / V</em>.
+                    Because <em>V</em> is proportional to <em>N</em>, the ratio <em>N / V</em>, and therefore the density, stays constant. Adding more gas at the same temperature and pressure increases the volume of the sample and leaves its density unchanged.</p>
 
                     <div class="v2-screenshot-row">
                         <img src="image/aims-gas-laws-boyle.png" alt="Boyle's law sweep: volume vs 1/pressure">
-                        <img src="image/aims-gas-laws-charles.png" alt="Charles's law sweep: volume vs temperature extrapolating to absolute zero">
+                        <img src="image/aims-gas-laws-charles.png" alt="Charles's law sweep: volume vs temperature, with the fitted line extended toward absolute zero">
                     </div>
 
                     <h2>Why Molecules Matter</h2>
 
-                    <p>The gas in these experiments does not have to be hydrogen, and the choice matters more than it first appears. In the ideal gas law &mdash; written <em>P&middot;V = nRT</em> with <em>n</em> in moles,
-                    or equivalently <em>P&middot;V = NkT</em> with <em>N</em> the number of molecules &mdash; the amount of gas is counted in <em>molecules</em>, not atoms; each molecule, whatever its internal makeup,
-                    strikes the walls and claims its share of the volume as a single particle. A monatomic gas
-                    hides this distinction, because its atoms <em>are</em> its molecules; but for hydrogen the two differ by a factor of two, and for larger molecules by more. That is exactly why it matters that AIMS
-                    can build genuine molecules, not just lone atoms of an inert gas: the gas laws are laws about molecules, and a box of 50 hydrogen molecules behaves as 50 particles, not 100.</p>
+                    <p>In the ideal gas law, written <em>P&middot;V = nRT</em> with <em>n</em> in moles, or <em>P&middot;V = NkT</em> with <em>N</em> the number of molecules, the amount of gas is counted in <em>molecules</em>. Each molecule counts once, whatever its number of atoms. In a monatomic gas the atoms <em>are</em> the molecules, so the two counts are the same. In hydrogen the number of atoms is twice the number of molecules, and in larger molecules the ratio is higher. AIMS simulates hydrogen as bonded H<sub>2</sub> molecules, so a box of 50 hydrogen molecules obeys the gas laws with <em>N</em> = 50.</p>
 
-                    <p>Hydrogen is only the starting point. AIMS can build almost any molecule on request, so a student can swap it for nitrogen, oxygen, carbon dioxide, methane, water vapor, or a noble gas like helium
-                    or argon with a single sentence, then rerun the same sweeps. Comparing the results turns the choice of gas into an experiment of its own: small, weakly interacting molecules track the ideal-gas laws
-                    closely, while larger or more strongly attracting ones deviate sooner &mdash; a direct, measured look at where the ideal-gas picture holds and where it breaks down.</p>
+                    <p>A student can replace the hydrogen with nitrogen, oxygen, carbon dioxide, methane, water vapor, or a noble gas such as helium or argon by asking the agent in one sentence, and then rerun the same sweeps. Small, weakly interacting molecules are expected to follow the ideal gas law closely, and larger or more strongly attracting molecules to depart from it at lower pressures. Comparing the sweeps for different gases lets students measure where the ideal gas law holds.</p>
 
                     <h2>Why Use AI to Assist Scientific Simulations?</h2>
 
-                    <p>The value of doing this in a simulation is that nothing about the gas laws is assumed in advance. The molecules obey only Newton's laws and the forces between them; the pressure is
-                    either the load their impacts hold up or, in a sealed box, computed from their motion and forces; the volume comes from the piston height, and the temperature from the average kinetic energy. When a straight line appears on the chart, it is the outcome of the microscopic
-                    dynamics, not a curve drawn to match a formula. Students experience the gas laws as
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Emergence">emergent</a> consequences of kinetic theory &mdash; and probe the boundaries, such as how a gas
-                    departs from ideal behavior when it is squeezed hard enough. What the AI adds is access: the machinery that makes such an experiment possible &mdash; a barostat, a thermostat, a
-                    stepped pressure sweep, an equilibrium average &mdash; is exactly the machinery a beginner does not yet know how to operate, and the agent operates it for them.</p>
+                    <p>The molecules in the simulation move according to Newton's laws and the forces between them. With the piston on, the pressure is the load that their impacts hold up. In a sealed box, the pressure is computed from their motion and forces. The volume comes from the height of the piston, and the temperature from the average kinetic energy of the atoms. A straight line on the chart is a result of these molecular motions. Students see the gas laws as
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Emergence">emergent</a> consequences of kinetic theory, and they can test the limits of the laws, such as the departure from ideal behavior at high pressure. Each of these experiments requires a barostat, a thermostat, a stepped pressure sweep, and an equilibrium average. The AI agent handles this setup for the student.</p>
 
-                    <p>And the investigation follows the student's curiosity rather than a fixed worksheet. Because the AI agent maps natural-language questions onto the right experiment, a student who
-                    wonders <em>"does the pressure go up if I heat a sealed container?"</em> or <em>"does adding more gas change the density?"</em> gets an experiment and a chart in reply, not just a sentence. The
-                    conversation becomes the laboratory notebook, and each question a new run.</p>
+                    <p>The investigation follows the questions the student asks. Because the AI agent matches each question to the right experiment, a student who
+                    wonders <em>"does the pressure go up if I heat a sealed container?"</em> or <em>"does adding more gas change the density?"</em> gets an experiment and a chart in reply. The chat log records each question and the run that answered it.</p>
 
                     <h2>Conclusion</h2>
 
                     <p>This article uses the gas laws to illustrate a new way to learn science: students <em>converse</em> with an
-                    AI agent that turns a plain-language question into a real molecular dynamics experiment and hands back measured data. The four historical laws &mdash; Boyle, Charles, Gay-Lussac, and Avogadro &mdash;
+                    AI agent that turns a plain-language question into a molecular dynamics experiment and hands back measured data. The four historical laws &mdash; Boyle, Charles, Gay-Lussac, and Avogadro &mdash;
                     become patterns that students discover, measure, and explain from the motion of molecules. By pairing a physically
-                    grounded simulation with an AI that can set it up and run it, AIMS connects the microscopic and macroscopic pictures of matter and lowers the barrier between a student's curiosity and a genuine
-                    scientific investigation.</p>
+                    grounded simulation with an AI that can set it up and run it, AIMS connects the microscopic and macroscopic pictures of matter and turns a student's curiosity into a genuine scientific investigation of how gases behave.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>
