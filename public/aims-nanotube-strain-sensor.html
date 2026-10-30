@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing a Nanotube Strain Sensor — Institute for Future Intelligence</title>
+    <meta name="description" content="Stretch a semiconducting carbon nanotube and its band gap moves, which makes it a strain gauge hundreds of times more sensitive than metal foil. An AI agent in AIMS designs one: it charts the gap of fourteen nanotubes against strain, finds the cos 3θ rule and the sign rule, rejects a nanotube too thin for the model, compares the nanotubes one can buy, and stretches the chosen nanotube in a tensile test.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-col-main .v2-callout { float: right; width: 33%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border-left: 4px solid var(--accent); border-radius: 0 0.8rem 0.8rem 0; background: rgba(99, 102, 241, 0.07); }
+        .v2-col-main .v2-callout p { margin: 0; font-size: 1.25rem; line-height: 1.5; }
+        .v2-col-main .v2-embed { clear: both; }
+        @media (max-width: 720px) { .v2-col-main .v2-callout { float: none; width: auto; margin: 1.5rem 0; } }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 0.8rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+        .v2-type { display: inline-block; font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 999px; white-space: nowrap; }
+        .v2-type.up { color: #047857; background: #d1fae5; }
+        .v2-type.down { color: #b45309; background: #fef3c7; }
+        .v2-type.metal { color: #4338ca; background: #e0e7ff; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="STRAIN">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Designing a Nanotube Strain Sensor</h1>
+                <p class="v2-tagline">
+                    Stretch a semiconducting carbon nanotube by one percent and its band gap moves by a tenth of an electron-volt. Ask an AI agent in AIMS to find the nanotube that moves the most.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Strain_gauge">strain gauge</a> is a conductor whose resistance changes when it is stretched. The metal-foil gauges glued to bridges and aircraft wings change their resistance by about two percent for every percent of stretch, a ratio called the gauge factor. A semiconducting <a target="_blank" rel="noopener noreferrer" href="aims-nanotube-metal-or-semiconductor.html">carbon nanotube</a> can do far better, because stretching it changes its band gap, and the number of electrons that can carry current in a semiconductor depends exponentially on the gap. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevB.55.6820">Heyd, Charlier and McRae</a> computed in 1997 that stress along the axis shifts the gap of a nanotube, and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.85.154">Yang and Han</a> derived the rule in 2000: the shift per unit strain is proportional to cos&nbsp;3&theta;, where &theta; is the chiral angle of the nanotube, so zigzag nanotubes respond most and armchair nanotubes not at all, and the sign of the shift depends on whether n &minus; m leaves a remainder of 1 or 2 on division by three. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/35015519">Tombler and coworkers</a> pressed a suspended nanotube with the tip of an atomic force microscope in 2000 and watched its conductance drop a hundredfold. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.90.156401">Minot and coworkers</a> measured the gaps of individual nanotubes under strain in 2003 and found shifts of both signs, as the rule predicts, and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.90.157601">Cao, Wang and Dai</a> stretched metallic, nearly metallic and semiconducting nanotubes the same year. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/nl0606527">Stampfer and coworkers</a> built displacement sensors from single nanotubes in 2006, with gauge factors hundreds of times that of metal foil.</p>
+
+                    <div class="v2-callout">
+                        <p>The strain sensors sold for wearable electronics are films of many nanotubes. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/nnano.2011.36">Yamada and coworkers</a> made one in 2011 from aligned nanotube films, which survive strains far beyond what a single nanotube can take. Their resistance rises because the film cracks and the nanotubes slide apart, leaving the current fewer paths. The band gap of a single nanotube plays no part in them. This article is about the single-nanotube effect, the one behind the laboratory sensors.</p>
+                    </div>
+
+                    <p>In AIMS a student can turn that physics into a design problem. The example below is a conversation in four turns: ask for the most sensitive nanotube that stays semiconducting to 3&nbsp;% strain, ask whether the model can be trusted for the nanotube it picked, ask how the nanotubes one can actually buy compare, and stretch the chosen nanotube in a tensile test to see what 3&nbsp;% costs in force. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> records the goal, charts the band gap of several nanotubes against strain in one sweep, builds the winner atom by atom, and reports whether the goal was met.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Designing%20a%20Nanotube%20Strain%20Sensor"
+                                id="aims-frame1" allowfullscreen="true" title="Designing a Nanotube Strain Sensor demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Designing a Nanotube Strain Sensor. Scroll through the chat on the left to follow the four turns. The first three turns each post a chart of band gap against strain, several nanotubes to a chart. The last turn posts the stress&ndash;strain curve of the chosen nanotube. The structure in the lab is the (13,0) nanotube of the tensile test.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Why Stretching Moves the Gap</h2>
+
+                    <p>In the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tight_binding">&pi; tight-binding model</a> each electron hops between the p<sub>z</sub> orbitals of bonded carbon atoms, and the hopping energy decreases as the bond lengthens. In an unstrained nanotube the three bonds at every atom are equal, 0.142&nbsp;nm long with a hopping energy of 2.7&nbsp;eV. With three equal hoppings the valence and conduction bands of graphene touch at the K points of its Brillouin zone. Rolling the sheet into a nanotube restricts the electron to a set of parallel lines across that zone, one for each wavelength that fits around the circumference, and the nanotube is metallic when a line passes through K and semiconducting otherwise, with a gap set by the distance from K to the nearest line. The <a href="aims-nanotube-metal-or-semiconductor.html">previous article</a> works through that picture.</p>
+
+                    <p>Stretching the nanotube along its axis lengthens the three bonds by different amounts. A bond along the axis stretches by the full strain. A bond around the circumference shortens, because the nanotube narrows as it stretches, by a fraction of the strain called the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Poisson%27s_ratio">Poisson ratio</a>, about 0.2 for a nanotube. A bond between the two directions changes by an amount in between. The three hoppings are no longer equal, and the point where the bands touch moves away from K. The lines stay where they were: a line is fixed by the number of wavelengths that fit around the circumference, and that number does not change when the circumference stretches. So the touching point moves while the lines stand still, and the gap, which is set by the distance from the touching point to the nearest line, changes.</p>
+
+                    <p>How fast the gap changes depends on the direction in which the touching point moves. In a zigzag nanotube one bond lies along the axis, the point moves straight across the lines, and the gap changes fastest. In an armchair nanotube the point moves along its own line, so the gap does not change, and an armchair nanotube stays metallic at any strain. Between the two the response is proportional to cos&nbsp;3&theta;, where &theta; is the chiral angle, 0&deg; for zigzag and 30&deg; for armchair. The sign depends on which side of the touching point the nearest line lies. In nanotubes where n &minus; m leaves a remainder of 1 on division by three, tension moves the point away from the nearest line and the gap widens. Where the remainder is 2, tension moves the point toward the line, the gap narrows, and at a large enough strain it closes. A metallic nanotube, with a line through its touching point, opens a gap as soon as the point moves off the line, unless it is armchair. Yang and Han wrote the rule as a formula: the gap changes by 3&middot;t&middot;(1&nbsp;+&nbsp;&nu;)&middot;&epsilon;&middot;cos&nbsp;3&theta;, where t is the hopping energy, &nu; the Poisson ratio and &epsilon; the strain, with the hopping taken to decrease as the inverse square of the bond length. For a zigzag nanotube with t = 2.7&nbsp;eV and &nu; = 0.2 that is about 100&nbsp;meV per percent of strain.</p>
+
+                    <p>A shift of 100&nbsp;meV is a large signal. The number of electrons excited across a gap at temperature T is proportional to exp(&minus;E<sub>g</sub>/2kT), and 2kT is 51&nbsp;meV at room temperature, so a shift of 100&nbsp;meV changes that number by a factor of about seven. By this estimate one percent of stretch changes the resistance of the nanotube sevenfold, a gauge factor in the hundreds, against 2 for a metal foil.</p>
+
+                    <h2>Eight Nanotubes on One Chart</h2>
+
+                    <p>The first turn asks for the most sensitive nanotube that stays semiconducting to 3&nbsp;% strain. The agent records the goal, then sweeps eight nanotubes from 0 to 3&nbsp;% in steps of a quarter of a percent: the zigzag nanotubes (7,0), (8,0), (10,0) and (11,0), the chiral nanotubes (8,2), (9,2), (10,2) and (7,3), one of them, (8,2), metallic. For each nanotube the sweep solves the infinite nanotube by zone folding with the stretched bond lengths, which takes a fraction of a second for any chirality, and reports the gap at rest, the gap at 3&nbsp;% and the sensitivity, the slope of the gap against strain at zero. The four zigzag nanotubes respond at 159 to 168&nbsp;meV per percent, the chiral ones less, in proportion to cos&nbsp;3&theta;: the (7,3) nanotube, 17&deg; from zigzag, responds at 105&nbsp;meV per percent, 0.65 of the zigzag value, and cos&nbsp;51&deg; is 0.63. The sign follows the family. The gaps of (7,0), (10,0), (9,2) and (7,3) widen under tension, and those of (8,0), (11,0) and (10,2) narrow. The metallic (8,2) opens a gap of 0.39&nbsp;eV at 3&nbsp;%. The agent picks (8,0), whose sensitivity of 168&nbsp;meV per percent is the largest in magnitude, and whose gap narrows from 1.27 to 0.79&nbsp;eV at 3&nbsp;%, still a semiconductor. The agent builds the nanotube, 224 carbon atoms and 3&nbsp;nm long, loads it into the lab, and reports the goal met.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Nanotube</th><th class="num">Diameter</th><th class="num">Chiral angle</th><th>Family</th><th class="num">Gap at rest</th><th class="num">Gap at 3&nbsp;%</th><th class="num">Sensitivity</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>(7,0)</b></td><td class="num">0.548 nm</td><td class="num">0&deg;</td><td><span class="v2-type up">Widens</span></td><td class="num">1.334 eV</td><td class="num">1.782 eV</td><td class="num model">+159 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(8,0)</b></td><td class="num">0.626 nm</td><td class="num">0&deg;</td><td><span class="v2-type down">Narrows</span></td><td class="num">1.267 eV</td><td class="num">0.791 eV</td><td class="num model">&minus;168 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(10,0)</b></td><td class="num">0.783 nm</td><td class="num">0&deg;</td><td><span class="v2-type up">Widens</span></td><td class="num">0.948 eV</td><td class="num">1.401 eV</td><td class="num model">+161 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(11,0)</b></td><td class="num">0.861 nm</td><td class="num">0&deg;</td><td><span class="v2-type down">Narrows</span></td><td class="num">0.914 eV</td><td class="num">0.441 eV</td><td class="num model">&minus;167 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(13,0)</b></td><td class="num">1.018 nm</td><td class="num">0&deg;</td><td><span class="v2-type up">Widens</span></td><td class="num">0.735 eV</td><td class="num">1.091 eV</td><td class="num model">+161 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(14,0)</b></td><td class="num">1.096 nm</td><td class="num">0&deg;</td><td><span class="v2-type down">Narrows</span></td><td class="num">0.714 eV</td><td class="num">0.244 eV</td><td class="num model">&minus;166 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(16,0)</b></td><td class="num">1.253 nm</td><td class="num">0&deg;</td><td><span class="v2-type up">Widens</span></td><td class="num">0.600 eV</td><td class="num">0.791 eV</td><td class="num model">+162 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(17,0)</b></td><td class="num">1.331 nm</td><td class="num">0&deg;</td><td><span class="v2-type down">Narrows</span></td><td class="num">0.586 eV</td><td class="num">0.117 eV</td><td class="num model">&minus;166 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(10,2)</b></td><td class="num">0.872 nm</td><td class="num">9&deg;</td><td><span class="v2-type down">Narrows</span></td><td class="num">0.899 eV</td><td class="num">0.481 eV</td><td class="num model">&minus;147 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(9,2)</b></td><td class="num">0.795 nm</td><td class="num">10&deg;</td><td><span class="v2-type up">Widens</span></td><td class="num">0.938 eV</td><td class="num">1.338 eV</td><td class="num model">+142 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(8,2)</b></td><td class="num">0.718 nm</td><td class="num">11&deg;</td><td><span class="v2-type metal">Metallic</span></td><td class="num">0</td><td class="num">0.391 eV</td><td class="num model">+137 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(7,3)</b></td><td class="num">0.696 nm</td><td class="num">17&deg;</td><td><span class="v2-type up">Widens</span></td><td class="num">1.073 eV</td><td class="num">1.374 eV</td><td class="num model">+105 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(7,5)</b></td><td class="num">0.817 nm</td><td class="num">24.5&deg;</td><td><span class="v2-type down">Narrows</span></td><td class="num">0.941 eV</td><td class="num">0.826 eV</td><td class="num model">&minus;41 meV/%</td></tr>
+                                <tr><td class="crystal"><b>(6,5)</b></td><td class="num">0.747 nm</td><td class="num">27&deg;</td><td><span class="v2-type up">Widens</span></td><td class="num">1.016 eV</td><td class="num">1.109 eV</td><td class="num model">+32 meV/%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>The table collects the fourteen nanotubes swept across the first three turns. The sensitivity is the slope of the gap at zero strain, in the model of the example, whose hopping energy decreases faster with bond length than the inverse square of the textbook rule; the section on the model below gives the factor.</p>
+
+                    <h2>A Thin Nanotube and a Safer One</h2>
+
+                    <p>The second turn objects. The (8,0) nanotube is 0.63&nbsp;nm across, and the &pi; model treats the bonds of a nanotube that thin as if the sheet were flat. In a real nanotube that narrow, the curvature mixes the in-plane &sigma; orbitals into the &pi; states and changes the gap. The tool itself flags the nanotube as below the diameter at which the model can be trusted, about 1&nbsp;nm. The agent sweeps four wider zigzag nanotubes, (13,0), (14,0), (16,0) and (17,0), all 1&nbsp;nm across or more. Their sensitivities are the same as the thin ones to within a few percent, 161 to 166&nbsp;meV per percent, because the sensitivity depends on the chiral angle and all four are zigzag. The agent chooses (13,0): 1.02&nbsp;nm across, responding at 161&nbsp;meV per percent, 4&nbsp;% below the (8,0), with a gap that widens from 0.74 to 1.09&nbsp;eV at 3&nbsp;%.</p>
+
+                    <p>The chart of this turn shows a second effect. The gap of the (16,0) nanotube widens to 0.91&nbsp;eV at 2&nbsp;% strain and then narrows, to 0.79&nbsp;eV at 3&nbsp;%. The gap of the (13,0) does the same, reaching 1.13&nbsp;eV at 2.75&nbsp;% before it turns down. In a nanotube whose gap widens, the touching point moves away from the nearest line and toward the next one, and halfway between the two lines the next one becomes the nearest. From then on the gap narrows. At rest the touching point sits one third of the line spacing from the nearest line, and at the turning point it sits one half, so the largest gap a nanotube of this family can reach is about 1.5 times its gap at rest: 0.90&nbsp;eV for the (16,0), 1.10&nbsp;eV for the (13,0). A wider nanotube reaches its turning point at a smaller strain, because its lines are closer together. The agent chose the (13,0) over the (16,0) as the better balance of size and sensitivity. The chart gives a second reason: the (16,0) stops responding inside the 3&nbsp;% working range of the sensor.</p>
+
+                    <h2>The Nanotubes You Can Buy</h2>
+
+                    <p>The third turn asks about the nanotubes sold today. Samples enriched in a single chirality are mostly (6,5) and (7,5), and the question is how a sensor made from them would compare with the (13,0). The agent sweeps the three together. The (6,5) responds at 32&nbsp;meV per percent and the (7,5) at 41, a fifth and a quarter of the (13,0). Both are close to the armchair angle, 27&deg; and 24.5&deg;, where cos&nbsp;3&theta; is 0.16 and 0.28. The sign again follows the family: the gap of the (6,5), with remainder 1, widens from 1.02 to 1.11&nbsp;eV, and the gap of the (7,5), with remainder 2, narrows from 0.94 to 0.83&nbsp;eV. Both stay semiconducting to 3&nbsp;%, and both are thinner than 1&nbsp;nm, so the model's caution about curvature applies to them as it did to the (8,0). The zigzag nanotubes that respond most are scarce in the sorted samples sold today.</p>
+
+                    <h2>How Much Force Three Percent Takes</h2>
+
+                    <p>The last turn builds the (13,0) nanotube, 338 carbon atoms and 2.8&nbsp;nm long, and runs a tensile test on it in the lab. The test clamps the two ends, stretches the nanotube in eight steps to 3&nbsp;%, and lets the atoms relax at each step under the Tersoff bond-order potential, the force field that gives graphite and diamond their stiffness. The stress is the force divided by the cross-section of the wall, taken as a ring of the nanotube's diameter and 0.335&nbsp;nm thick, the spacing of the layers in graphite. The slope of the stress&ndash;strain curve at zero strain gives a Young's modulus of 1.19&nbsp;TPa, the same to within a few percent as the 1.18&nbsp;TPa of the (6,6) and (10,0) nanotubes in the example <em>Stretching a Carbon Nanotube</em>, and in the range of 1&nbsp;TPa measured on real nanotubes. At the last point of the test, 2.8&nbsp;% strain, the stress is 29.6&nbsp;GPa, and the curve has begun to bend below its initial slope, so 3&nbsp;% takes about 31&nbsp;GPa. In the tensile tests of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.84.5552">Yu, Files, Arepalli and Ruoff</a> in 2000, ropes of single-wall nanotubes broke at strains up to 5.3&nbsp;%, and the same group measured <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.287.5453.637">multiwall nanotubes</a> breaking at strains up to 12&nbsp;%. A sensor working to 3&nbsp;% stays inside the range that measured nanotubes survive.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>The student states a design goal in a sentence. The agent records it, chooses which nanotubes to sweep, runs the sweep, reads the chart, builds the winner, and reports against the goal. When the student objects to the winner, the agent sweeps again with the objection as a new constraint. Choosing the eight nanotubes of the first sweep, picking the wider candidates of the second, and running the tensile test are the agent's work.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Designing a Nanotube Strain Sensor</em> from the Examples menu (Nanotechnology). Read the four turns, then ask your own questions in the chat. The calculations run in your browser. A strain sweep of several nanotubes takes a second or two, and the tensile test of a 3&nbsp;nm nanotube takes a minute or two, so every question below can be answered while you watch.</p>
+
+                        <p class="v2-prompts-group">The four turns of the example</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">The goal</span> &mdash; <span class="v2-prompt">"Design a carbon nanotube strain sensor: maximize how much the band gap changes per percent of stretch, while the tube stays semiconducting up to 3% strain."</span></li>
+                            <li><span class="v2-prompts-step">The objection</span> &mdash; <span class="v2-prompt">"The (8,0) tube is only 0.63 nm across. Can this model be trusted for a tube that thin? Is there a safer choice that is about as sensitive?"</span></li>
+                            <li><span class="v2-prompts-step">The market</span> &mdash; <span class="v2-prompt">"Sorted nanotube samples you can actually buy are mostly (6,5) and (7,5), not zigzag tubes. How sensitive would a sensor made from them be compared with (13,0), and why?"</span></li>
+                            <li><span class="v2-prompts-step">The tensile test</span> &mdash; <span class="v2-prompt">"Build the (13,0) tube and stretch it to 3% in a tensile test. How much stress does 3% take, and how far is that from where a real nanotube breaks?"</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Go further</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Closing gaps</span> &mdash; <span class="v2-prompt">"Which zigzag tubes have a gap that closes before 3 %?"</span> The gap of a nanotube whose remainder is 2 narrows at about 166&nbsp;meV per percent, so a nanotube with a gap under 0.5&nbsp;eV at rest, wider than about 1.5&nbsp;nm, closes it inside the working range.</li>
+                            <li><span class="v2-prompts-step">A metal under strain</span> &mdash; <span class="v2-prompt">"Stretch a (9,0) metallic tube."</span> A zigzag metal opens a gap at the full zigzag rate. Then try the (6,6): an armchair nanotube opens none.</li>
+                            <li><span class="v2-prompts-step">Compression</span> &mdash; <span class="v2-prompt">"Compress the (13,0) tube by 2 %."</span> The touching point moves the other way, and the gap of the (13,0) narrows.</li>
+                            <li><span class="v2-prompts-step">The textbook decay</span> &mdash; <span class="v2-prompt">"Repeat the zigzag sweep with hoppingDecay 2."</span> With the hopping decreasing as the inverse square of the bond length, the zigzag sensitivity comes out at the 100&nbsp;meV per percent of Yang and Han's formula.</li>
+                            <li><span class="v2-prompts-step">Beyond the turning point</span> &mdash; <span class="v2-prompt">"Sweep the (16,0) and (19,0) tubes to 6 %."</span> Each gap rises to about 1.5 times its rest value and then decreases, the wider nanotube first.</li>
+                        </ol>
+                    </div>
+
+                    <h2>The Model and Its Limits</h2>
+
+                    <p>The strain sweeps use the nearest-neighbor &pi; tight-binding model with a hopping energy of 2.7&nbsp;eV at the rest bond length, solved by zone folding: the states of the nanotube are the states of graphene on the allowed lines, and strain enters only through the three hopping energies, each set by the stretched length of its bond. The lines do not move with strain, because the number of wavelengths around the circumference is fixed. The nanotube narrows by a Poisson ratio of 0.2. The hopping energy decreases with bond length as exp(&minus;&beta;(r/r<sub>0</sub> &minus; 1)) with &beta; = 3.37, which is steeper than the inverse-square decay of Yang and Han's formula, where &beta; would be 2. The sensitivities in the table are therefore 1.7 times the textbook values: 160&nbsp;meV per percent for a zigzag nanotube against about 100. The ratios between nanotubes, the cos&nbsp;3&theta; rule and the sign rule do not depend on &beta;, and the sweep accepts a different decay on request.</p>
+
+                    <p>The model omits what curvature does to the orbitals of a thin nanotube, which is why the agent moved from the (8,0) to the (13,0). It omits torsion, which also shifts the gap and enters Yang and Han's formula as a second term. It omits the interaction between the excited electron and the hole it leaves behind, and it says nothing about the contacts through which a real sensor is read, which contribute a resistance of their own. The tensile test is a different model: the Tersoff potential moves the atoms, at absolute zero and with no thermal vibration, and it stretches bonds smoothly past the strain at which a real nanotube breaks, so it reports a modulus and a stress but no breaking point. The gap sweeps are for infinitely long nanotubes. The 2.8&nbsp;nm segment in the lab is the structure that is stretched, and its gap would carry the finite-size effects described in the previous article.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Solver Produced</p>
+                        <p class="v2-prompts-intro">The model was given the positions of the carbon atoms, one hopping energy and how it decreases with bond length, and one Poisson ratio. Everything below came out of the calculation:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">The cos&nbsp;3&theta; rule</span> &mdash; the eight zigzag nanotubes respond at 159 to 168&nbsp;meV per percent, the (7,3) at 17&deg; at 105, and the (6,5) at 27&deg; at 32.</li>
+                            <li><span class="v2-prompts-step">The sign rule</span> &mdash; every nanotube with remainder 1 widened its gap under tension, and every nanotube with remainder 2 narrowed it.</li>
+                            <li><span class="v2-prompts-step">A metal opening a gap</span> &mdash; the metallic (8,2) reached a gap of 0.39&nbsp;eV at 3&nbsp;% strain.</li>
+                            <li><span class="v2-prompts-step">The turning point</span> &mdash; the gap of the (16,0) peaked at 0.91&nbsp;eV at 2&nbsp;% and the gap of the (13,0) at 1.13&nbsp;eV at 2.75&nbsp;%, each about 1.5 times its gap at rest.</li>
+                            <li><span class="v2-prompts-step">The tensile test</span> &mdash; a Young's modulus of 1.19&nbsp;TPa for the (13,0) nanotube and 29.6&nbsp;GPa of stress at 2.8&nbsp;% strain.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses the strain sensitivity of carbon nanotubes to illustrate a new way to learn science: students converse with an AI agent that turns a plain-language design goal into a quantum mechanical calculation and hands back the result as a chart. Students find for themselves that the response of a nanotube to stretching is set by its chiral angle and its sign by its family, two rules predicted in 2000 and confirmed by measurement in 2003. They watch the agent pick a winner, object that the winner is too thin for the model, get a safer nanotube that responds as well, learn why the nanotubes on the market respond a fifth as well, and stretch the chosen nanotube to see what the working strain costs in force. By pairing a physically grounded solver with an AI that can set up the sweeps and run them, AIMS lets students carry a design from a rule of physics to a candidate nanotube and its mechanical test.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
