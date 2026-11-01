@@ -149,7 +149,7 @@
                         <p class="v2-prompts-intro">Open one of the four examples from the Examples menu (Materials Science, Soft Matter), open the chat, and type the prompts below.</p>
 
                         <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser. A ramp with ten temperature steps of 80&nbsp;ps each takes several minutes, and the micelle needs
-                        most of a nanosecond, about ten minutes of Play, to assemble. The first chat turn of the micelle example keeps the assembled state: press "Load this state" on its card and the lab jumps to it.</p>
+                        most of a nanosecond, about four minutes of Play, to assemble. The first chat turn of the micelle example keeps the assembled state: press "Load this state" on its card and the lab jumps to it.</p>
 
                         <p class="v2-prompts-group">Liquid crystal &mdash; <em>Modeling Liquid Crystals with Gay-Berne Particles</em></p>
                         <ol>
@@ -164,7 +164,15 @@
 
                         <p class="v2-prompts-group">Folding &mdash; <em>A Sequence That Folds and One That Does Not</em></p>
                         <ol>
-                            <li><span class="v2-prompts-step">Denaturing</span> &mdash; <span class="v2-prompt">"Heat the two chains from 300 K to 550 K in steps of 50 K, holding about 60 ps at each step, and chart the radius of gyration of each against temperature."</span></li>
+                            <li><span class="v2-prompts-step">Denaturing</span> &mdash; <span class="v2-prompt">"Heat the two chains from 300 K to 600 K in steps of 50 K, holding about 150 ps at each step, and chart the radius of gyration of each against temperature."</span></li>
+                            <li><span class="v2-prompts-step">Does the fold hold?</span> &mdash; <span class="v2-prompt">"Hold the folded chain at 300 K for 400 ps and measure its conformational stability: how far it drifts from its starting structure and how many of its contacts it keeps."</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">A real fold &mdash; <em>A Protein That Folds and Holds</em></p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Stability</span> &mdash; <span class="v2-prompt">"Hold the villin chain at 300 K for 400 ps and measure its conformational stability."</span></li>
+                            <li><span class="v2-prompts-step">Unfolding</span> &mdash; <span class="v2-prompt">"Heat it from 300 K to 1700 K in steps of 200 K, holding about 150 ps at each step, and chart the RMSD and the native contacts against temperature."</span></li>
+                            <li><span class="v2-prompts-step">Another protein</span> &mdash; <span class="v2-prompt">"Build a Gō model of Trp-cage, PDB 1L2Y, and put it in the lab."</span></li>
                         </ol>
 
                         <p class="v2-prompts-group">Micelles &mdash; <em>Micelle Formation</em></p>
@@ -246,27 +254,61 @@
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ma00200a030">Lau and Dill</a>, with two kinds of bead: hydrophobic beads, which attract one another because they would rather
                     hide from water, and polar beads, which do not. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/bi00483a001">Dill</a> argued in 1990 that this
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hydrophobic_effect">hydrophobic effect</a> is the dominant force in protein folding. Each bead in this lab is one residue, with the
-                    mass of an average amino acid and the 3.8&nbsp;&Aring; spacing of a protein backbone. Two chains of 24 residues share the box, each pinned at its middle bead so the two cannot drift into each other.
-                    One has its hydrophobic residues arranged so they can gather into a core; the other has the same count of each kind in an order that keeps them apart.</p>
+                    mass of an average amino acid, the 3.8&nbsp;&Aring; spacing of a protein backbone, and a bending stiffness fitted to a protein's C&alpha; trace, far softer than a hydrocarbon chain's. Two chains of 72 residues share the box, each pinned at its middle bead
+                    so the two cannot drift into each other. One is half hydrophobic, with its hydrophobic residues in blocks of four, so a stretch of the chain can bury together into a core; the other has one hydrophobic residue in four,
+                    each alone among polar residues, so there is nothing for the chain to fold around. A sequence is which residues as well as where they sit, and the two chains differ in both.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Sequence%20That%20Folds%20and%20One%20That%20Does%20Not"
                                 id="aims-frame3" loading="lazy" allowfullscreen="true" title="A Sequence That Folds and One That Does Not demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame3');">View fullscreen</a><br>
-                            Two 24-residue chains at 300&nbsp;K. The orange beads are hydrophobic, the pale ones polar. One chain curls up; the other stays open.
+                            Two 72-residue chains at 300&nbsp;K. The orange beads are hydrophobic, the pale ones polar. Within a minute or two of Play one chain curls up; the other stays open.
                         </figcaption>
                     </figure>
 
                     <p>Press Play at 300&nbsp;K and the first chain curls up, its orange beads clustered in the middle and the pale ones facing outward, a crude version of what every globular protein does. The second stays an open coil.
                     The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radius_of_gyration">radius of gyration</a>, the average distance of the beads from the chain's center, tells the two apart in numbers:
-                    8.8&nbsp;&Aring; for the folded chain against 12.3&nbsp;&Aring; for the coil. Heating in steps of 50&nbsp;K, the folded chain holds together and then opens: 9.7&nbsp;&Aring; at 350&nbsp;K, 10.3 at 450&nbsp;K,
-                    13.7 at 500&nbsp;K. It is halfway open near 464&nbsp;K, the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Denaturation_(biochemistry)">denaturing</a> temperature of the model.
+                    10.8&nbsp;&Aring; for the folded chain against 20.5&nbsp;&Aring; for the coil, with the hydrophobic beads of the folded chain about 4&nbsp;&Aring; closer to its center than the polar ones in a separate 1&nbsp;ns run. Heating in steps of 50&nbsp;K, the folded
+                    chain holds together and then opens unevenly: 11.1&nbsp;&Aring; at 350&nbsp;K, 11.3 at 450&nbsp;K, 15.2 at 500&nbsp;K, 12.6 at 550&nbsp;K, and 18.0 at 600&nbsp;K. It is halfway open near 490&nbsp;K, the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Denaturation_(biochemistry)">denaturing</a> temperature of the model in this run; repeat runs land between about 450 and 600&nbsp;K, because a single chain opens by chance within a 150&nbsp;ps hold.
                     Real proteins unfold a few tens of degrees above room temperature, which is why an egg white turns solid in a pan; this chain stays folded to a much higher temperature because its beads bind more strongly than real residues
-                    and there is no water around them. The coil wanders between 9 and 13&nbsp;&Aring; with no step of its own, because no arrangement of its beads ever brought enough hydrophobic ones together. Each radius fluctuates by an
-                    &aring;ngstr&ouml;m or two at any temperature, so the trend matters more than any one point. Cool the box and the first chain refolds, though not always into the same shape.</p>
+                    and there is no water around them. The coil wanders between 18 and 27&nbsp;&Aring; with no step of its own. Only one bead in four of it is hydrophobic, each alone among polar beads, so no stretch of the chain can bury
+                    together into a core, and a chain with no fold has none to lose. A chain with the folder's composition but its hydrophobic residues strictly alternating was tried as the control first: it collapsed into a loose blob of
+                    about 15&nbsp;&Aring; at 300&nbsp;K, since in three dimensions hydrophobic residues two apart can still find one another, and it opened only above 350&nbsp;K. Each radius fluctuates by an &aring;ngstr&ouml;m or two at any temperature, so the trend matters more than any one point. Cool the box and the first chain
+                    refolds, though not always into the same shape.</p>
+
+                    <p>Compact is one thing, a structure is another. A real protein holds one arrangement of its chain, every residue in its place, and vibrates about it. Ask the agent whether the folded chain holds its structure and it takes
+                    the chain's arrangement at 300&nbsp;K as a reference and follows two numbers for 400&nbsp;ps, both blind to rotation, translation and vibration: the RMSD after the best rigid superposition, how far the beads have moved from the
+                    reference once the chain's rotation and drift are taken out, and Q, the fraction of native contacts, the share of the bead pairs in contact in the reference that are still in contact, the folding coordinate of
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.1311599110">Best, Hummer and Eaton</a>. For the folded HP chain the RMSD climbs to about 9&nbsp;&Aring;, near its own radius, and Q falls
+                    to about 0.27: a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molten_globule">molten globule</a>. The chain stays a ball with its hydrophobic beads inside, but the beads keep sliding past
+                    one another, and after a few hundred picoseconds most of the original contacts have been swapped for others. With only two kinds of bead, any hydrophobic bead can take any other's place at no cost, so hundreds of
+                    packings of the same core share one energy and the chain wanders among them. The hydrophobic effect explains collapse; it takes more than two letters to pick out one structure.</p>
 
                     <p>A sequence is a hypothesis about folding, and the box tests it. A student can type any string of H and P into the Build Chain dialog, or ask the agent to build one, and run the same ramp.</p>
+
+                    <h2>A Protein That Folds and Holds</h2>
+
+                    <p>To show a chain that does hold one structure, AIMS builds a model with the answer written in. The <em>A Protein That Folds and Holds</em> example takes the
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.rcsb.org/structure/1YRF">crystal structure of the villin headpiece</a>, a 35-residue protein that folds in microseconds, and places one bead per residue
+                    where the structure puts that residue, hydrophobic residues orange and polar ones pale blue. The rules are those of a Gō model, named after Nobuhiro Gō and given its modern form by
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1006/jmbi.2000.3693">Clementi, Nymeyer and Onuchic</a>: only the pairs of residues that touch in the real structure attract one another, each at the
+                    distance the structure gives it; every other pair repels; and the bends and twists of the backbone rest at their native values. A student can build the same model of any small protein by asking the agent for it with a
+                    PDB id.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Protein%20That%20Folds%20and%20Holds"
+                                id="aims-frame5" loading="lazy" allowfullscreen="true" title="A Protein That Folds and Holds demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame5');">View fullscreen</a><br>
+                            A Gō model of the villin headpiece at 300&nbsp;K: three helices that vibrate about their places.
+                        </figcaption>
+                    </figure>
+
+                    <p>Held at 300&nbsp;K for 400&nbsp;ps, this chain reads an RMSD from the crystal structure below an &aring;ngstr&ouml;m and keeps every native contact: a folded protein. Heated in steps, it holds to somewhere between 700 and 1100&nbsp;K, depending on the run, and then loses its shape: the RMSD jumps above 10&nbsp;&Aring; while many short-range contacts stay in place, and at 1700&nbsp;K about half of the native contacts remain. The temperature is high because each contact in the model is worth about three kilocalories
+                    per mole, several times a real residue contact, which is what keeps a chain of only 35 beads folded at room temperature; the real protein unfolds near 340&nbsp;K. Cooled again in the same short steps it does not return to the crystal structure: in the published run it ends at 300&nbsp;K with 81 percent of its contacts and an RMSD near 9&nbsp;&Aring;. Real villin takes about a microsecond to fold, thousands of times longer than each hold. The lesson the two examples make together is that the hydrophobic effect explains why a chain
+                    collapses, and specific contacts explain why it folds to one structure.</p>
 
                     <h2>Soap Makes Micelles</h2>
 
@@ -286,21 +328,22 @@
                                 id="aims-frame4" loading="lazy" allowfullscreen="true" title="Micelle Formation demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame4');">View fullscreen</a><br>
-                            Sixty soap molecules at 300&nbsp;K. Assembly takes about ten minutes of Play; the "Load this state" card in the first chat turn jumps to the finished micelle.
+                            Sixty soap molecules at 300&nbsp;K. Assembly takes about four minutes of Play; the "Load this state" card in the first chat turn jumps to the finished micelles.
                         </figcaption>
                     </figure>
 
-                    <p>The lipids start scattered at random, 40 separate clusters by the count the agent uses, which joins any two lipids whose tails touch. At 300&nbsp;K the tails find one another quickly: 21 clusters after 50&nbsp;ps,
-                    the largest with 11 lipids; three clusters by 300&nbsp;ps; and by 1000&nbsp;ps a single micelle of all 60, a ball with a thick shell of yellow heads and the gray tails fanning in toward its center. Two balls form first and
-                    merge, because the natural size of a micelle of this lipid is larger than 60. With a tail of two beads the same box makes two or three smaller micelles with free lipids drifting between them, the way a
+                    <p>The lipids start scattered at random, dozens of separate clusters by the count the agent uses, which joins any two lipids whose tails touch. At 300&nbsp;K the tails find one another quickly: 11 clusters after 50&nbsp;ps,
+                    the largest with 17 lipids, and two balls of about 30 by 200&nbsp;ps, each with a thick shell of yellow heads and the gray tails fanning in toward its center. Joining the two into one is the slow step, two finished micelles drifting
+                    into each other across the box; within the nanosecond of this run it did not happen, and in repeat runs it happens about half the time, because a micelle of this lipid can hold all 60. With a tail of two beads the same box makes
+                    two or three smaller micelles with free lipids drifting between them, the way a
                     dilute soap solution looks above its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Critical_micelle_concentration">critical micelle concentration</a>.</p>
 
-                    <p>Heating undoes it. Stepping from 300 to 600&nbsp;K, the micelle sheds lipids and splits: still one cluster of 60 at 300&nbsp;K, five clusters with the largest at 56 at 400&nbsp;K, ten with the largest at 28
-                    at 450&nbsp;K, and 26 clusters with the largest at 12 at 600&nbsp;K. The tail attraction, worth about 630&nbsp;K per bead contact, can no longer hold against the thermal motion. Real soap stays below the boiling point of water; the box leaves the water out, so the model can be heated past it. Cool it again and micelles reform, usually not the same ones.</p>
+                    <p>Heating undoes it. Stepping from 300 to 600&nbsp;K, the micelles hold to 450&nbsp;K, then shed lipids and split: 3 clusters with the largest at 34 lipids at 300&nbsp;K and still 3 at 450&nbsp;K, 11 clusters at 500&nbsp;K,
+                    and 22 clusters with the largest at 15 at 600&nbsp;K. The tail attraction, worth about 630&nbsp;K per bead contact, can no longer hold against the thermal motion. Real soap stays below the boiling point of water; the box leaves the water out, so the model can be heated past it. Cool it again and micelles reform, usually not the same ones.</p>
 
-                    <h2>Four Models, Four Transitions</h2>
+                    <h2>Five Models</h2>
 
-                    <p>The table summarizes the four labs. Each model temperature is a measured run, and the real value is the handbook figure for the material the beads were fitted to, where one exists.</p>
+                    <p>The table summarizes the labs. Each model temperature is a measured run, and the real value is the handbook figure for the material the beads were fitted to, where one exists.</p>
 
                     <div class="v2-table-wrap">
                         <table class="v2-compare">
@@ -310,13 +353,14 @@
                             <tbody>
                                 <tr><td class="crystal"><b>Liquid crystal</b><small>Gay&ndash;Berne rods</small></td><td class="bond">One 5CB molecule, an ellipsoid 18&nbsp;&Aring; by 5&nbsp;&Aring;</td><td class="num">400</td><td class="bond">Clearing point, where S crosses 0.5</td><td class="num model">309 K</td><td class="num">308 K</td></tr>
                                 <tr><td class="crystal"><b>Polymer melt</b><small>Kremer&ndash;Grest chains</small></td><td class="bond">One styrene unit, 104 g/mol</td><td class="num">400</td><td class="bond">Glass transition, where diffusion stops in 10 ps</td><td class="num model">370 &plusmn; 50 K</td><td class="num">373 K</td></tr>
-                                <tr><td class="crystal"><b>Folding chain</b><small>HP model</small></td><td class="bond">One amino acid, hydrophobic or polar</td><td class="num">48</td><td class="bond">Denaturing, where the folded chain is halfway open</td><td class="num model">464 K</td><td class="num">&mdash;</td></tr>
-                                <tr><td class="crystal"><b>Micelle</b><small>Solvent-free lipids</small></td><td class="bond">A wide head or four carbons of tail</td><td class="num">240</td><td class="bond">Clusters, from 40 to 1 in a nanosecond; break-up above 400 K</td><td class="num model">&mdash;</td><td class="num">&mdash;</td></tr>
+                                <tr><td class="crystal"><b>Folding chain</b><small>HP model</small></td><td class="bond">One amino acid, hydrophobic or polar</td><td class="num">144</td><td class="bond">Denaturing, where the folded chain is halfway open</td><td class="num model">490 K</td><td class="num">&mdash;</td></tr>
+                                <tr><td class="crystal"><b>Real fold</b><small>Gō model of villin</small></td><td class="bond">One residue at its C&alpha;, native contacts attract</td><td class="num">35</td><td class="bond">Holds at 300 K (RMSD under 1 Å, all contacts); loses its shape above 700 K</td><td class="num model">700&ndash;1100 K</td><td class="num">340 K</td></tr>
+                                <tr><td class="crystal"><b>Micelle</b><small>Solvent-free lipids</small></td><td class="bond">A wide head or four carbons of tail</td><td class="num">240</td><td class="bond">Clusters, from dozens to two micelles within 200 ps; break-up above 450 K</td><td class="num model">&mdash;</td><td class="num">&mdash;</td></tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <p>Two of the four model temperatures land within a few kelvin of the real material, and the agent is careful about what that means. The clearing point of the rods is close to 5CB's because the cell is periodic and
+                    <p>Two of the model temperatures land within a few kelvin of the real material, and the agent is careful about what that means. The clearing point of the rods is close to 5CB's because the cell is periodic and
                     the density was chosen so that temperature decides the order. The glass transition of the melt is a coincidence within its uncertainty. The folding chain and the micelle have no
                     single real counterpart, because the HP model stands for every protein and the soap model for every surfactant, and both leave water out; their transition temperatures are the model's, and the agent says so.</p>
 
@@ -337,10 +381,12 @@
                             <li><span class="v2-prompts-step">Hysteresis</span> &mdash; cooled back down, the rods stay disordered to 263&nbsp;K, where the heating leg began fully ordered.</li>
                             <li><span class="v2-prompts-step">A pixel switch</span> &mdash; an aligning field turns disordered rods toward vertical in about 9&nbsp;ps.</li>
                             <li><span class="v2-prompts-step">A glass transition</span> &mdash; the melt's beads stop getting anywhere in 10&nbsp;ps near 370&nbsp;K, and the measured temperature depends on how fast the melt is cooled.</li>
-                            <li><span class="v2-prompts-step">Folding by sequence</span> &mdash; of two chains with the same residues, only the one whose hydrophobic residues can gather folds, and it unfolds near 464&nbsp;K.</li>
-                            <li><span class="v2-prompts-step">Self-assembly</span> &mdash; 60 scattered soap molecules become one micelle in a nanosecond, heads out and tails in, from two rules.</li>
+                            <li><span class="v2-prompts-step">Folding by sequence</span> &mdash; a chain with its hydrophobic residues in blocks folds into a globule less than half the size of a chain with few, scattered ones, and it opens near 490&nbsp;K in the published run.</li>
+                            <li><span class="v2-prompts-step">A molten globule</span> &mdash; the folded two-letter chain keeps its core but swaps about three quarters of its contacts within 400&nbsp;ps, drifting about 9&nbsp;&Aring; from its own earlier structure.</li>
+                            <li><span class="v2-prompts-step">A fold that holds</span> &mdash; the Gō model of villin stays within an &aring;ngstr&ouml;m of the crystal structure with every native contact at 300&nbsp;K.</li>
+                            <li><span class="v2-prompts-step">Self-assembly</span> &mdash; 60 scattered soap molecules become two micelles within 200&nbsp;ps, heads out and tails in, from two rules.</li>
                             <li><span class="v2-prompts-step">Shape decides structure</span> &mdash; a wide head gives micelles; a head as thin as its tails gives a lump with tails on its surface.</li>
-                            <li><span class="v2-prompts-step">Break-up</span> &mdash; the micelle survives to 400&nbsp;K and is in 26 pieces by 600&nbsp;K.</li>
+                            <li><span class="v2-prompts-step">Break-up</span> &mdash; the micelles survive to 450&nbsp;K and are in 22 pieces by 600&nbsp;K.</li>
                         </ul>
                     </div>
 
