@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Chemical Reactions with Reactive Molecular Simulations — Institute for Future Intelligence</title>
+    <meta name="description" content="In a reactive simulation, bonds break and form as atoms move, so a chemical reaction happens in front of the student. AIMS runs three: hydrogen burning in oxygen, methyl radicals joining into ethane, and hydrogen splitting into atoms until it reaches chemical equilibrium. An AI agent runs the experiments, measures the equilibrium constant from both sides, and shows Le Chatelier's principle by heating and squeezing the gas.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="REACTION">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Explore Chemical Reactions with Reactive Molecular Simulations</h1>
+                <p class="v2-tagline">
+                    Watch bonds break and form, and investigate reactions and chemical equilibrium with an AI agent.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>A chemical equation such as 2&nbsp;H<sub>2</sub> + O<sub>2</sub> &rarr; 2&nbsp;H<sub>2</sub>O lists what goes in and what comes out. What happens in between, which bond breaks first and which
+                    short-lived fragments carry the reaction forward, is hard to show on paper. In a reactive molecular simulation, bonds break and form as the atoms move, so the reaction happens in front of the student.
+                    AIMS runs such simulations in a web browser, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments:
+                    a student asks a plain-language question, and the agent runs the reaction, counts the molecules of every kind as they form and disappear, and posts the measured data in the chat as a live chart.
+                    In the window below, hydrogen and oxygen at 2500&nbsp;K react to form water. Press Play and watch water molecules form.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Hydrogen%20and%20Oxygen%20Reaction"
+                                id="aims-frame1" allowfullscreen="true" title="Hydrogen and Oxygen Reaction demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Hydrogen and oxygen at 2500&nbsp;K, started by 24 free hydrogen atoms. About half of the water forms in the first 10&nbsp;ps.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Bonds That Can Break</h2>
+
+                    <p>Most molecular simulations, including most of the others on this site, hold each bond between a fixed pair of atoms for the whole run. Molecules can move, spin, and vibrate, and their chemistry stays the same. A reactive force field computes the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Bond_order">bond order</a> of every pair of nearby atoms from the distance between them at every step, so a
+                    bond weakens as its atoms move apart and a new bond grows as two atoms approach. The best-known force field of this kind is ReaxFF, by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/jp004368u">van Duin,
+                    Dasgupta, Lorant, and Goddard</a>, which is widely used to simulate combustion and other reactions. AIMS uses a simplified force field of the same kind. Its energies
+                    were checked against measured ones: breaking the bond of a hydrogen molecule takes 4.54&nbsp;eV in the model and 4.52&nbsp;eV in measurements, and the energies of fourteen steps in the burning of
+                    hydrogen lie within 0.13&nbsp;eV of the measured reaction energies. The atoms carry no partial charges. That is the setting in which the force field was fitted,
+                    and real H<sub>2</sub> and O<sub>2</sub> molecules are neutral. Real water molecules carry partial charges that attract one another; at these temperatures water is a gas, and that attraction matters little.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Running the reaction, counting the species, changing the temperature or the size of the box, and plotting the results are the agent's work. A student asks
+                    <em>"does it reach the same balance from both sides?"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open the three examples from the Examples menu (Chemistry, Chemical Reactions), open the chat, and type the prompts below.</p>
+
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every femtosecond is computed in your browser. Most of a reaction happens within one to a few minutes of Play, a full run in the chat takes several minutes, and a sweep through several temperatures takes about half an hour.
+                        The chat of each example already holds the results of the prompts below.</p>
+
+                        <p class="v2-prompts-group">Hydrogen and Oxygen Reaction</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">The reaction</span> &mdash; press Play, then <span class="v2-prompt">"Plot the reactants and products over time."</span></li>
+                        </ol>
+                        <p class="v2-prompts-group">Methyl Radicals to Ethanes</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">The reaction</span> &mdash; press Play, then <span class="v2-prompt">"Plot the reactants and products over time."</span></li>
+                        </ol>
+                        <p class="v2-prompts-group">Hydrogen Dissociation Equilibrium</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Equilibrium</span> &mdash; press Play, then <span class="v2-prompt">"Plot the reactants and products over time."</span></li>
+                            <li><span class="v2-prompts-step">From both sides</span> &mdash; <span class="v2-prompt">"Heat it from 5000 to 7000 K and cool it back down. Does it reach the same balance from both sides?"</span></li>
+                            <li><span class="v2-prompts-step">Heating</span> &mdash; <span class="v2-prompt">"Let it settle at 5000 K, then jump the thermostat to 7000 K, then back to 5000 K, 20 ps each. Show how the mix responds."</span></li>
+                            <li><span class="v2-prompts-step">Squeezing</span> &mdash; <span class="v2-prompt">"Squeeze the box from 50 Å to 35 Å at 6000 K, then let it back out, 20 ps each. Does the mix shift?"</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>A Chain Reaction: Hydrogen Burns</h2>
+
+                    <p>A mixture of hydrogen and oxygen can sit for a long time without reacting, because an H<sub>2</sub> molecule that hits an O<sub>2</sub> molecule has to break strong bonds before anything new can form.
+                    A spark or a flame starts the reaction by supplying a few free atoms. The lab holds 28 H<sub>2</sub> and 20 O<sub>2</sub> molecules in a box 21&nbsp;&Aring; on a side at 2500&nbsp;K, with 24 free hydrogen atoms
+                    in the role of the spark: 120 atoms, enough to make 40 water molecules. A free hydrogen atom joins an O<sub>2</sub> molecule to make HO<sub>2</sub> or splits it into OH and O, and these fragments attack H<sub>2</sub> and pass the
+                    hydrogen along. Chemists call this a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Chain_reaction">chain reaction</a>, and the reactive fragments that carry it are
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radical_(chemistry)">radicals</a>.</p>
+
+                    <p>In the run shown in the chat, the first water molecule appeared at 0.1&nbsp;ps. There were 9 water molecules at 5&nbsp;ps, 20 at 10&nbsp;ps, 28 at 30&nbsp;ps, and 34 by 50&nbsp;ps, when the count stopped rising.
+                    HO<sub>2</sub> and OH appeared and disappeared along the way. Six H<sub>2</sub> and three O<sub>2</sub> molecules were left at the end, because once the radicals were used up, the remaining molecules rarely
+                    met a partner they could react with. In the runs we tried, 34 to 40 of the possible 40 water molecules formed within about 60&nbsp;ps. The box is far denser than a flame, so the times
+                    describe this box. The sequence of events is the one a chemistry textbook describes for burning hydrogen.</p>
+
+                    <h2>Two Radicals Make One Molecule</h2>
+
+                    <p>A methyl radical, CH<sub>3</sub>, is a carbon atom with three hydrogen atoms and one unpaired electron. When two methyl radicals meet, their unpaired electrons pair up into a carbon&ndash;carbon bond, and the
+                    result is ethane: 2&nbsp;CH<sub>3</sub> &rarr; C<sub>2</sub>H<sub>6</sub>. Reactions like this one end radical chains in flames and in the atmosphere. The second example packs 16 methyl radicals into a box of
+                    15&nbsp;&times;&nbsp;15&nbsp;&times;&nbsp;10&nbsp;&Aring;, about 12&nbsp;mol/L, at 365&nbsp;K. The reaction needs no spark: the first ethane formed within 0.05&nbsp;ps, five had formed by 1.4&nbsp;ps, the sixth and
+                    seventh at about 2.7 and 3.6&nbsp;ps, and the eighth and last at about 8.6&nbsp;ps. No other species appeared. The first ethanes probably formed quickly because many radicals started next to a partner, and the last two radicals
+                    had the farthest to travel.</p>
+
+                    <p>The thermostat of this example rescales the speeds of the atoms at every step and adds no randomness, so pressing Reset and then Play reproduces the same run exactly.
+                    The hydrogen examples use a thermostat that gives the atoms random kicks, and every run of them is different.</p>
+
+                    <h2>Chemical Equilibrium</h2>
+
+                    <p>Many reactions run both ways at once. Hydrogen molecules split into atoms, H<sub>2</sub> &rarr; 2&nbsp;H, and free atoms that meet join again, 2&nbsp;H &rarr; H<sub>2</sub>. The third example holds 100 H<sub>2</sub>
+                    molecules, 200 atoms, in a box 50&nbsp;&Aring; on a side at 6000&nbsp;K. Press Play in the window below. At first only splitting happens, because there are no free atoms to join. As free atoms build up, they meet more
+                    often, until joining keeps pace with splitting. From then on the mix stays about the same, even though single molecules keep splitting and forming. That balance is
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Chemical_equilibrium">chemical equilibrium</a>, written H<sub>2</sub>&nbsp;&#8652;&nbsp;2&nbsp;H.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Hydrogen%20Dissociation%20Equilibrium"
+                                id="aims-frame2" allowfullscreen="true" title="Hydrogen Dissociation Equilibrium demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
+                            100 H<sub>2</sub> molecules at 6000&nbsp;K. About a quarter of the atoms are free once the gas has settled, after about 10&nbsp;ps.
+                        </figcaption>
+                    </figure>
+
+                    <p>In the run shown in the chat, the gas settled after about 6&nbsp;ps. From 10&nbsp;ps on, the number of free atoms ranged from 36 to 72 and averaged 52, about 26% of the atoms. The number moves up and down because only a few
+                    dozen atoms are free at any moment. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Equilibrium_constant">equilibrium constant</a> of real hydrogen, computed from its
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Partition_function_(statistical_mechanics)">partition functions</a> and its measured bond energy for an ideal gas, gives about 30% at the same temperature and density.</p>
+
+                    <p>Free atoms that meet a molecule also swap partners, H + H<sub>2</sub> &rarr; H<sub>2</sub> + H, which leaves the counts the same. This is often called the simplest chemical reaction.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1524/zpch.2013.9023">Eyring and Polanyi</a> computed its energy landscape in 1931, the first such landscape computed for a chemical reaction. Halfway through the swap the three atoms sit in a line at the top of an energy
+                    barrier, 0.42&nbsp;eV high for real hydrogen and 0.44&nbsp;eV in the AIMS model.</p>
+
+                    <h2>The Same Balance from Both Sides</h2>
+
+                    <p>The test of an equilibrium is that the system reaches the same balance whether it starts with too many molecules or with too many atoms. The second chat turn asks the agent to heat the gas from 5000 to
+                    7000&nbsp;K in steps of 500&nbsp;K and to cool it back down through the same temperatures. At each step the agent holds the temperature for 5&nbsp;ps and then averages the counts for 15&nbsp;ps. On the way up,
+                    the gas arrives at each temperature with too few atoms, and splitting catches up. On the way down, it arrives with too many, and joining catches up.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                            <tr><th class="num">Temperature</th><th class="num">Split, heating</th><th class="num">Split, cooling</th><th class="num">Real hydrogen</th></tr>
+                            </thead>
+                            <tbody>
+                            <tr><td class="num">5000 K</td><td class="num model">11.0%</td><td class="num model">14.8%</td><td class="num">14%</td></tr>
+                            <tr><td class="num">5500 K</td><td class="num model">20.8%</td><td class="num model">17.5%</td><td class="num">22%</td></tr>
+                            <tr><td class="num">6000 K</td><td class="num model">25.9%</td><td class="num model">30.0%</td><td class="num">30%</td></tr>
+                            <tr><td class="num">6500 K</td><td class="num model">35.9%</td><td class="num model">33.4%</td><td class="num">39%</td></tr>
+                            <tr><td class="num">7000 K</td><td class="num model">35.2%</td><td class="num">&mdash;</td><td class="num">48%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>At every temperature the heating and cooling legs agree within 4 percentage points, and the heating leg is higher at some temperatures and the cooling leg at others, which is the scatter of a few dozen free atoms.
+                    The model splits a little less of the hydrogen than real hydrogen does, most at the hot end. The 7000&nbsp;K point came out slightly below the 6500&nbsp;K point, within the scatter of a single point.</p>
+
+                    <p>The agent also computes the equilibrium constant K<sub>c</sub> = [H]<sup>2</sup>/[H<sub>2</sub>] at every temperature from the counts and the volume of the box. K<sub>c</sub> rose from about 0.07 and 0.14&nbsp;mol/L
+                    on the heating and cooling legs at 5000&nbsp;K to about 1&nbsp;mol/L at 6500 to 7000&nbsp;K, and the model's K<sub>c</sub> is about 0.73 times that of real hydrogen. The second chart of the turn plots the natural logarithm of K<sub>c</sub> against
+                    1000/T. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_%27t_Hoff_equation">van 't Hoff equation</a> says this plot is a straight line whose slope gives the energy
+                    the reaction takes in: 385&nbsp;kJ/mol for the model. Real hydrogen, fitted the same way over the same temperatures, gives 430&nbsp;kJ/mol, close to the 436&nbsp;kJ/mol it takes to break the H&ndash;H bond.</p>
+
+                    <h2>Le Chatelier's Principle</h2>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Le_Chatelier%27s_principle">Le Chatelier's principle</a> says that a system at equilibrium, disturbed by a change in its
+                    conditions, shifts in the direction that partly counters the change. The third and fourth chat turns disturb the gas in two ways.</p>
+
+                    <p><b>Heating.</b> The agent holds the gas at 5000&nbsp;K for 20&nbsp;ps, steps the thermostat to 7000&nbsp;K for 20&nbsp;ps, and steps it back to 5000&nbsp;K for 20&nbsp;ps. The number of free atoms
+                    settles at about 30, 15% of the atoms, climbs to about 88, 44%, after the step up, and returns to about 31 after the step down. Each shift is half done about 1.2&nbsp;ps after the step. Splitting a molecule takes in
+                    energy, so a hotter gas holds more atoms. Returning to 5000&nbsp;K brings back the old balance, so the balance depends on the conditions alone. The thermostat holds each temperature, so this run cannot show the gas
+                    countering the heating: in a gas left to itself, splitting would take up part of the added heat and slow the warming.</p>
+
+                    <p><b>Squeezing.</b> At 6000&nbsp;K throughout, the agent shrinks the box from 50&nbsp;&Aring; to 35&nbsp;&Aring; on a side, a third of the volume, for 20&nbsp;ps and then lets it back out. The pressure jumps from about
+                    96&nbsp;MPa, or 950&nbsp;bar, to 280 to 300&nbsp;MPa. The number of free atoms falls from about 48, 24% of the atoms, to about 33, 16%, half of the shift within 0.5&nbsp;ps, and climbs to about 55 when the box is let out.
+                    Two atoms that join make one molecule, so pairing up leaves fewer particles to hit the walls, and the squeezed gas shifts toward the side with fewer particles. Squeezing at a fixed temperature leaves K<sub>c</sub> the same:
+                    it read about 0.40, 0.49, and 0.55&nbsp;mol/L in the three stretches, equal within the scatter. Right after the squeeze every concentration triples, the ratio [H]<sup>2</sup>/[H<sub>2</sub>] triples with them, and atoms pair up until the ratio is back at K<sub>c</sub>.
+                    Heating moves the balance because it changes K<sub>c</sub>. Squeezing moves the balance while K<sub>c</sub> stays the same.</p>
+
+                    <h2>Why 6000&nbsp;K?</h2>
+
+                    <p>Real hydrogen at the ordinary pressure of 1&nbsp;bar is already 30% split at 3500&nbsp;K. The squeeze explains why the lab needs 6000&nbsp;K: the box is packed to about 1000&nbsp;bar, and a dense gas favors the side with fewer particles.
+                    At 1&nbsp;bar and 3500&nbsp;K, the same 100 molecules would need a box about 360&nbsp;&Aring; across, the atoms would meet a few hundred times less often, and the gas would take an estimated nanosecond or more to settle, too long to watch in a browser.
+                    The lab packs the gas tightly so that it settles within a minute or two of Play, and heats it to make up for the pressure.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the forces among atoms. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">A chain reaction</span> &mdash; 24 free hydrogen atoms start the burning of hydrogen in oxygen, which runs through HO<sub>2</sub> and OH and makes 34 of the possible 40 water molecules in the published run.</li>
+                            <li><span class="v2-prompts-step">Radical recombination</span> &mdash; 16 methyl radicals pair into 8 ethane molecules within 9&nbsp;ps, with no spark.</li>
+                            <li><span class="v2-prompts-step">Equilibrium from both sides</span> &mdash; hydrogen heated and cooled through 5000 to 7000&nbsp;K reaches the same balance within 4 percentage points from both directions, a little below real hydrogen.</li>
+                            <li><span class="v2-prompts-step">The van 't Hoff energy</span> &mdash; the slope of ln K<sub>c</sub> against 1/T gives 385&nbsp;kJ/mol, against 430&nbsp;kJ/mol for real hydrogen fitted the same way.</li>
+                            <li><span class="v2-prompts-step">Le Chatelier's principle</span> &mdash; heating from 5000 to 7000&nbsp;K raises the share of free atoms from 15% to 44%; squeezing to a third of the volume lowers it from 24% to 16% while K<sub>c</sub> stays the same.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses chemical reactions to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. A chemical equation, a chain reaction, and chemical equilibrium become things students watch and measure for themselves in a browser: which fragments carry hydrogen to oxygen, how a gas
+                    reaches the same balance from both sides, and how that balance shifts when the gas is heated or squeezed. By pairing a physically grounded reactive simulation with an AI that can set it up and run it, AIMS turns a
+                    student's curiosity into a genuine scientific investigation of the reactions they read about in a chemistry textbook.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
