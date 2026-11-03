@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Protein Folding with Coarse-Grained Molecular Simulations — Institute for Future Intelligence</title>
+    <meta name="description" content="A protein folds because of the order of its amino acids. AIMS models each residue as one bead, and an AI agent runs the experiments: it compares a sequence that folds with one that does not, heats them until the fold opens, tests whether a fold holds one structure, and unfolds and refolds a Gō model of a real protein.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 64rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare .bond { color: var(--text-muted); font-size: 1.25rem; min-width: 16rem; }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="PROTEIN FOLDING">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Explore Protein Folding with Coarse-Grained Molecular Simulations</h1>
+                <p class="v2-tagline">
+                    The white of an egg: model its proteins as chains of beads, and investigate with an AI agent.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>An egg white turns solid in a hot pan because its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Protein">proteins</a> unfold. A protein is a chain of amino acids
+                    that folds into a compact shape, and the order of the amino acids decides whether it does. A small protein has hundreds of atoms, and its folding takes far longer than a browser can follow one atom at a time.
+                    AIMS models each amino acid as a single bead instead, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments.
+                    A student asks a plain-language question, and the agent heats a folded chain until it opens, follows whether a fold keeps its structure, or builds a model of a real protein from its structure in the Protein Data Bank, and posts the measured data in the chat as a live chart.
+                    In the window below, two chains of 72 residues start as random coils at 300&nbsp;K. Press Play and watch one of them curl up.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Sequence%20That%20Folds%20and%20One%20That%20Does%20Not"
+                                id="aims-frame3" allowfullscreen="true" title="A Sequence That Folds and One That Does Not demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame3');">View fullscreen</a><br>
+                            Two 72-residue chains at 300&nbsp;K. The orange beads are hydrophobic, the pale ones polar. Within a minute or two of Play one chain curls up; the other stays open.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Why Trade Atoms for Beads?</h2>
+
+                    <p>An atomistic simulation computes the force on every atom from every nearby atom, a femtosecond or two at a time. For a few hundred atoms a browser can do that fast enough to watch,
+                    and the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site work that way. Folding is a rearrangement of a whole chain,
+                    and a model that keeps every hydrogen atom spends its whole budget on detail the collapse of the chain does not depend on.
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">Coarse-grained modeling</a> keeps the degrees of freedom that matter and drops the rest.
+                    Each bead in these labs is one residue, with the mass of an average amino acid and the 3.8&nbsp;&Aring; spacing of a protein backbone. Chemistry below the size of a bead, a hydrogen bond for example,
+                    is outside the model, and the labs leave out the water. Because the units are real, the thermometer in the lab reads kelvin.
+                    Companion articles apply the same approach to <a href="aims-liquid-crystals.html">liquid crystals</a>, <a href="aims-glass-transition.html">the glass transition of a polymer</a>, and
+                    <a href="aims-micelle-formation.html">soap micelles</a>.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Building a chain, stepping its temperature, measuring its size and its contacts, and plotting them are the agent's work. A student asks
+                    <em>"does this sequence fold?"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open one of the two examples below from the Examples menu (Materials Science, Soft Matter), open the chat, and type the prompts.</p>
+
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser. A ramp with ten temperature steps of 150&nbsp;ps each takes several minutes.</p>
+
+                        <p class="v2-prompts-group">Folding &mdash; <em>A Sequence That Folds and One That Does Not</em></p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Denaturing</span> &mdash; <span class="v2-prompt">"Heat the two chains from 300 K to 800 K, holding about 150 ps at each step, and chart the radius of gyration of each against temperature."</span></li>
+                            <li><span class="v2-prompts-step">Does the fold hold?</span> &mdash; <span class="v2-prompt">"Hold the folded chain at 300 K for 400 ps and measure its conformational stability: how far it drifts from its starting structure and how many of its contacts it keeps."</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">A real fold &mdash; <em>A Protein That Folds and Holds</em></p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Stability</span> &mdash; <span class="v2-prompt">"Hold the villin chain at 300 K for 400 ps and measure its conformational stability."</span></li>
+                            <li><span class="v2-prompts-step">Unfolding</span> &mdash; <span class="v2-prompt">"Heat it from 300 K to 1100 K in steps of 100 K, holding about 200 ps at each step, and chart the RMSD and the native contacts against temperature."</span></li>
+                            <li><span class="v2-prompts-step">Refolding</span> &mdash; <span class="v2-prompt">"Cool it back down the same way and see whether it refolds."</span></li>
+                            <li><span class="v2-prompts-step">Another protein</span> &mdash; <span class="v2-prompt">"Build a Gō model of Trp-cage, PDB 1L2Y, and put it in the lab."</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>A Chain That Folds and One That Does Not</h2>
+
+                    <p>The simplest model of folding is the HP model of
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ma00200a030">Lau and Dill</a>, with two kinds of bead: hydrophobic beads, which attract one another because they would rather
+                    hide from water, and polar beads, which do not. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/bi00483a001">Dill</a> argued in 1990 that this
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hydrophobic_effect">hydrophobic effect</a> is the dominant force in protein folding. The backbone of each chain in this lab has a bending stiffness
+                    fitted to a protein's C&alpha; trace, far softer than a hydrocarbon chain's. Two chains of 72 residues share the box, each pinned at its middle bead
+                    so the two cannot drift into each other. One is half hydrophobic, with its hydrophobic residues in blocks of four, so a stretch of the chain can bury together into a core; the other has one hydrophobic residue in four,
+                    each alone among polar residues, so there is nothing for the chain to fold around. A sequence is which residues as well as where they sit, and the two chains differ in both.</p>
+
+                    <p>Press Play at 300&nbsp;K and the first chain curls up, its orange beads clustered in the middle and the pale ones facing outward, a crude version of what every globular protein does. The second stays an open coil.
+                    The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radius_of_gyration">radius of gyration</a>, the average distance of the beads from the chain's center, tells the two apart in numbers:
+                    10.5&nbsp;&Aring; for the folded chain against 22.4&nbsp;&Aring; for the coil. Heating in steps of 50&nbsp;K, the folded
+                    chain holds together and then opens: 10.8&nbsp;&Aring; at 500&nbsp;K, 11.6 at 700&nbsp;K, 13.5 at 750&nbsp;K, and 18.1 at 800&nbsp;K. It is halfway open near 758&nbsp;K, the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Denaturation_(biochemistry)">denaturing</a> temperature of the model in this run; a single chain opens by chance within a 150&nbsp;ps hold, so repeat runs differ.
+                    Real proteins unfold a few tens of degrees above room temperature, which is why an egg white turns solid in a pan; this chain stays folded to a much higher temperature because its beads bind more strongly than real residues
+                    and there is no water around them. The coil wanders between 19 and 29&nbsp;&Aring; with no step of its own. Only one bead in four of it is hydrophobic, each alone among polar beads, so no stretch of the chain can bury
+                    together into a core, and a chain with no fold has none to lose. Each radius fluctuates by an &aring;ngstr&ouml;m or two at any temperature, so the trend matters more than any one point. Cool the box and the first chain
+                    refolds, though not always into the same shape.</p>
+
+                    <h2>Does the Fold Hold?</h2>
+
+                    <p>A real protein holds one arrangement of its chain, every residue in its place, and vibrates about it. Ask the agent whether the folded chain holds its structure and it takes
+                    the chain's arrangement at 300&nbsp;K as a reference and follows two numbers for 400&nbsp;ps, both blind to rotation, translation and vibration: the RMSD after the best rigid superposition, how far the beads have moved from the
+                    reference once the chain's rotation and drift are taken out, and Q, the fraction of native contacts, the share of the bead pairs in contact in the reference that are still in contact, the folding coordinate of
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.1311599110">Best, Hummer and Eaton</a>. For the folded HP chain the RMSD climbs to about 6&nbsp;&Aring; and Q falls to about 0.4: a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molten_globule">molten globule</a>. The chain stays a ball with its hydrophobic beads inside, but the beads keep sliding past
+                    one another, and after a few hundred picoseconds most of the original contacts have been swapped for others. With only two kinds of bead, any hydrophobic bead can take any other's place at no cost, so hundreds of
+                    packings of the same core share one energy and the chain wanders among them. The hydrophobic effect explains collapse; it takes more than two letters to pick out one structure.</p>
+
+                    <p>A sequence is a hypothesis about folding, and the box tests it. A student can type any string of H and P into the Build Chain dialog, or ask the agent to build one, and run the same ramp.</p>
+
+                    <h2>A Protein That Folds and Holds</h2>
+
+                    <p>To show a chain that does hold one structure, AIMS builds a model with the answer written in. The <em>A Protein That Folds and Holds</em> example takes the
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.rcsb.org/structure/1YRF">crystal structure of the villin headpiece</a>, a 35-residue protein that folds in microseconds, and places one bead per residue
+                    where the structure puts that residue, hydrophobic residues orange and polar ones pale blue. The rules are those of a Gō model, named after Nobuhiro Gō and given its modern form by
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1006/jmbi.2000.3693">Clementi, Nymeyer and Onuchic</a>: only the pairs of residues that touch in the real structure attract one another, each at the
+                    distance the structure gives it; every other pair repels; and the bends and twists of the backbone rest at their native values. A student can build the same model of any small protein by asking the agent for it with a
+                    PDB id.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Protein%20That%20Folds%20and%20Holds"
+                                id="aims-frame5" loading="lazy" allowfullscreen="true" title="A Protein That Folds and Holds demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame5');">View fullscreen</a><br>
+                            A Gō model of the villin headpiece at 300&nbsp;K: three helices that vibrate about their places.
+                        </figcaption>
+                    </figure>
+
+                    <p>Held at 300&nbsp;K for 400&nbsp;ps, this chain reads an RMSD from the crystal structure between 0.6 and 1.0&nbsp;&Aring; and keeps 99 percent of its native contacts: a folded protein. Heated in steps of 100&nbsp;K, it holds through 600&nbsp;K and then comes apart, with half of the native contacts gone somewhere between about 650 and 800&nbsp;K, depending on the run, and an RMSD near 10&nbsp;&Aring; above that. That temperature belongs to the model: each contact is worth about 1.4 kilocalories per mole, chosen so that a chain of 35 beads stays still at room temperature, and the real protein unfolds near 340&nbsp;K. Cooled again, it refolded in each of the runs we examined, ending at 300&nbsp;K with 97 to 99 percent of its contacts and an RMSD of about 1&nbsp;&Aring;. Each run differs, and a run can end short of the crystal structure. Real denatured proteins can also refold, which is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Anfinsen%27s_dogma">Anfinsen's</a> result. The model makes it easy, since the only attractions it has are the native ones, so it shows how a chain reaches a known structure and does not predict the structure from the sequence. The lesson the two examples make together is that the hydrophobic effect explains why a chain
+                    collapses, and specific contacts explain why it folds to one structure.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the forces among beads. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Folding by sequence</span> &mdash; a chain with its hydrophobic residues in blocks folds into a globule less than half the size of a chain with few, scattered ones, and it opens near 758&nbsp;K in the published run.</li>
+                            <li><span class="v2-prompts-step">A molten globule</span> &mdash; the folded two-letter chain keeps its core but swaps more than half of its contacts within 400&nbsp;ps, drifting about 6&nbsp;&Aring; from its own earlier structure.</li>
+                            <li><span class="v2-prompts-step">A fold that holds</span> &mdash; the Gō model of villin stays within an &aring;ngstr&ouml;m of the crystal structure at 300&nbsp;K, unfolds on heating and refolds on cooling.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses protein folding to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. The collapse of a chain around its hydrophobic residues, the difference between a compact chain and a folded one, and the unfolding and refolding of a real protein become something students measure for themselves in a browser.
+                    By pairing physically grounded coarse-grained simulations with an AI that can set them up and run them, AIMS turns a student's curiosity into a genuine scientific investigation of the molecules of life.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

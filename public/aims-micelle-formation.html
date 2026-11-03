@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Micelle Formation with Coarse-Grained Molecular Simulations — Institute for Future Intelligence</title>
+    <meta name="description" content="Soap molecules gather into balls called micelles, tails inside and heads outside. AIMS models each soap molecule as four beads, and an AI agent runs the experiments: it watches sixty scattered molecules assemble into micelles, checks that they are micelles by measuring their shape, and heats them until they break apart.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 64rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare .bond { color: var(--text-muted); font-size: 1.25rem; min-width: 16rem; }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="MICELLE">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Explore Micelle Formation with Coarse-Grained Molecular Simulations</h1>
+                <p class="v2-tagline">
+                    The soap you use every day: model its molecules as beads, and investigate with an AI agent.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>Soap cleans because its molecules gather into balls called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Micelle">micelles</a>, which hold grease inside them.
+                    A micelle holds dozens of soap molecules with tens of atoms each, more than a web browser can simulate one atom at a time for the hundreds of picoseconds a micelle needs to assemble even in a small simulation. AIMS models each soap molecule as four beads instead, and an
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent
+                    runs the molecules, counts the clusters they form, measures the shape of each cluster, or heats the box until the clusters break apart, and posts the measured data in the chat as a live chart.
+                    In the window below, sixty soap molecules start scattered at random at 300&nbsp;K. Press Play and watch their tails gather.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Micelle%20Formation"
+                                id="aims-frame4" allowfullscreen="true" title="Micelle Formation demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame4');">View fullscreen</a><br>
+                            Sixty soap molecules at 300&nbsp;K. Assembly takes a few minutes of Play; the "Load this state" card in the first chat turn jumps to the finished micelle.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Why Trade Atoms for Beads?</h2>
+
+                    <p>An atomistic simulation computes the force on every atom from every nearby atom, a femtosecond or two at a time. For a few hundred atoms a browser can do that fast enough to watch,
+                    and the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site work that way. What makes a micelle is dozens of soap molecules
+                    turning their heads outward around one center, and a model that keeps every hydrogen atom spends its whole budget on detail the assembly does not depend on.
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">Coarse-grained modeling</a> keeps the degrees of freedom that matter and drops the rest.
+                    The <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/jp071097f">Martini</a> force field of Marrink and coworkers, used today to simulate cell membranes and proteins, maps about four
+                    heavy atoms onto one bead, and the tail beads in this lab have the size of Martini's. Because the units are real, the thermometer in the lab reads kelvin.
+                    Companion articles apply the same approach to <a href="aims-liquid-crystals.html">liquid crystals</a>, <a href="aims-glass-transition.html">the glass transition of a polymer</a>, and
+                    <a href="aims-protein-folding.html">protein folding</a>.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Running the molecules, counting their clusters, measuring the shape of each, and plotting the results are the agent's work. A student asks
+                    <em>"why does soap work?"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Micelle Formation</em> from the Examples menu (Materials Science, Soft Matter), open the chat, and type the prompts below.</p>
+
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, and the molecules need a few hundred picoseconds, one to a few minutes of Play, to assemble.
+                        Each of the two chat turns of the example keeps its last frame: press "Load this state" on its card and the lab jumps to it.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Self-assembly</span> &mdash; <span class="v2-prompt">"Run the lipids for 1000 ps at 300 K and count the clusters every 50 ps."</span></li>
+                            <li><span class="v2-prompts-step">Break-up</span> &mdash; <span class="v2-prompt">"Now heat the box from 300 K to 800 K, holding about 80 ps at each step, and chart the number of clusters against temperature."</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>Two Rules Stand In for the Water</h2>
+
+                    <p>A soap molecule has two ends: a polar head that dissolves in water and a hydrocarbon tail that does not. Put enough of them in water and they gather into micelles,
+                    tails inside and heads outside, which is how soap carries grease away. Each molecule in this lab is four beads: a yellow head bead 7&nbsp;&Aring; wide and a tail of three gray beads 4.7&nbsp;&Aring; wide. The lab and the agent call these molecules lipids, the general name for molecules with a polar head and an oily tail. The box has no water in it. Following
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevE.72.011506">Cooke, Kremer, and Deserno</a>, who showed in 2005 that lipids made of a few beads assemble into membranes
+                    without any solvent, the two rules of the model stand in for the water: the tails attract one another with a well 630&nbsp;K deep per bead contact, 1.5 times the 420&nbsp;K that Martini gives two such beads, because the attraction also has to do the
+                    work of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hydrophobic_effect">hydrophobic effect</a>, and the heads repel everything.</p>
+
+                    <p>The head is wider than the tail on purpose. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1039/F29767201525">Israelachvili, Mitchell, and Ninham</a> showed in 1976 that the
+                    shape of the molecule decides the shape of the aggregate: a wide head on a thin tail is a cone, and cones pack into balls; a head no wider than its tails is a cylinder, and cylinders pack into sheets.
+                    That is why soap makes micelles while the lipids of a cell membrane, each with two hydrocarbon chains side by side, make bilayers.</p>
+
+                    <h2>Self-Assembly</h2>
+
+                    <p>The agent counts clusters by joining any two molecules whose tails touch. The sixty molecules start scattered at random, 34 separate clusters, the largest with 9 molecules. At 300&nbsp;K the tails
+                    find one another quickly: 13 clusters after 50&nbsp;ps, the largest with 24 molecules; 4 clusters after 100&nbsp;ps, the largest with 41; and by 350&nbsp;ps a single cluster of all 60, which stays whole to the end of the
+                    nanosecond.</p>
+
+                    <p>A count of clusters cannot tell a micelle from a tangle of molecules or a pile pressed together, because each of those also counts as one cluster. So the agent measures the shape of every cluster of five or more
+                    molecules at the end of the run: the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radius_of_gyration">radius of gyration</a> of its tail beads, which is the size of
+                    its oily core, and the share of its molecules whose head sits farther from the center of the core than the average distance of their own tail beads. The single cluster has a core with a radius of gyration of 14&nbsp;&Aring;, and all 60 heads
+                    point outward: an oily core covered by heads, the structure of a micelle.</p>
+
+                    <h2>One Micelle or Two</h2>
+
+                    <p>Our runs of this example ended in one of two ways. In four of six runs, all 60 molecules joined one micelle within 350 to 1000&nbsp;ps. In the other two, two micelles formed
+                    within about 500&nbsp;ps, 36 and 24 molecules in one run and 35 and 25 in the other, and did not merge within the run: one pair was followed for 2.8&nbsp;ns, its two micelles 34 to 42&nbsp;&Aring; apart and unchanged in size,
+                    every head outward and cores of 11 and 10&nbsp;&Aring;. A finished micelle is covered by heads, and in this model heads repel everything, so two finished micelles can sit side by side for a long time.
+                    A real soap solution above its
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Critical_micelle_concentration">critical micelle concentration</a> holds very many micelles, each of a typical size; sixty molecules make one or two.
+                    Press Reset and run the example again to see which ending a new run reaches.</p>
+
+                    <p>The size of a micelle depends on the shape of the molecule. In runs of the same box with a tail of two beads instead of three, sequence <em>"HD TL TL"</em>, the molecules made three smaller micelles of about
+                    25, 19, and 16 molecules, with one or two molecules left floating free. A head no wider than the tails makes a cylinder that no longer fits on the surface of a ball. A student can build either molecule in the Build Chain dialog and see what it forms.</p>
+
+                    <h2>Heating Breaks Them Up</h2>
+
+                    <p>Heating undoes the assembly. Stepping from 300 to 800&nbsp;K in steps of 50&nbsp;K, with 60&nbsp;ps at each temperature and then 20&nbsp;ps of counting, the micelle stays whole to 400&nbsp;K. It loses a few
+                    molecules at 450&nbsp;K, takes most of them back at 500&nbsp;K, splits at 550&nbsp;K into pieces of which the largest holds 35, and is in 18 clusters at 650&nbsp;K and 25 at 800&nbsp;K, the largest with 11 molecules. The tail attraction, worth about
+                    630&nbsp;K per bead contact, is no longer large compared with the thermal energy of the beads. Real soap stays below the boiling point of water; the box leaves the water out, so the model can be heated past it.</p>
+
+                    <p>Cooled again, the molecules reassemble. The second chat turn keeps its last frame, the broken-up box at 800&nbsp;K. Press "Load this state" on its card and then Play: the thermostat of the lab stays at its setting, 300&nbsp;K in the example, so the
+                    hot molecules cool and gather into micelles within a few hundred picoseconds. In a run cooled this way, the box held two micelles of 50 and 10 molecules after 200&nbsp;ps and one micelle of all 60 after 400&nbsp;ps; runs cooled step by step ended as one micelle of 60 or as two micelles of 42 and 18.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the forces among beads. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Self-assembly</span> &mdash; 60 scattered soap molecules become one micelle within 350&nbsp;ps in the published run, with every head outward.</li>
+                            <li><span class="v2-prompts-step">Two endings</span> &mdash; in two of six runs two micelles formed instead and stayed apart, one pair for 2.8&nbsp;ns, each covered by heads that repel the other.</li>
+                            <li><span class="v2-prompts-step">Shape decides size</span> &mdash; molecules with a tail of two beads form three smaller micelles in the same box.</li>
+                            <li><span class="v2-prompts-step">Break-up and reassembly</span> &mdash; the micelle survives to 400&nbsp;K, is in 25 pieces by 800&nbsp;K, and reassembles when the box is cooled.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses soap to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. Micelle formation, the textbook explanation of how soap works, becomes something students watch and measure for themselves in a browser: how scattered molecules gather into micelles, how to tell a micelle from a tangle,
+                    and how the shape of a molecule changes the micelles it forms. By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of the soap they use every day.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

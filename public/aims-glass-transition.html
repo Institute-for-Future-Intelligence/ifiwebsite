@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore the Glass Transition with Coarse-Grained Molecular Simulations — Institute for Future Intelligence</title>
+    <meta name="description" content="A polymer melt is a tangle of long chains that flows when warm and turns to glass when cold. AIMS models polystyrene as chains of beads, one bead per styrene unit, and an AI agent cools the melt and measures where its chains stop moving: the glass transition of the model.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 64rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare .bond { color: var(--text-muted); font-size: 1.25rem; min-width: 16rem; }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="GLASS TRANSITION">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Explore the Glass Transition with Coarse-Grained Molecular Simulations</h1>
+                <p class="v2-tagline">
+                    The plastic of a foam cup: model its chains as beads, and investigate with an AI agent.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>A plastic cup is made of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polystyrene">polystyrene</a>, long chains of styrene units tangled together. A single chain has
+                    thousands of atoms, and a piece of plastic holds many chains, far more than a web browser can simulate one atom at a time. AIMS models each styrene unit as a single bead instead, and an
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent
+                    cools the melt step by step, measures how far its beads move, and posts the measured data in the chat as a live chart. In the window below, twenty chains of twenty beads fill a box at 450&nbsp;K,
+                    well above the glass transition. Press Play and watch the chains slide past one another.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Polymer%20Melt%20Near%20Its%20Glass%20Transition"
+                                id="aims-frame2" allowfullscreen="true" title="A Polymer Melt Near Its Glass Transition demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
+                            Twenty chains of twenty styrene beads at 450&nbsp;K. Open the analysis panel to watch the mean squared displacement grow.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Why Trade Atoms for Beads?</h2>
+
+                    <p>An atomistic simulation computes the force on every atom from every nearby atom, a femtosecond or two at a time. For a few hundred atoms a browser can do that fast enough to watch,
+                    and the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site work that way. What makes a glass is chains too tangled to slide
+                    past one another, which involves hundreds of chain segments and takes nanoseconds. A model that keeps every hydrogen atom spends its whole budget on detail the glass transition does not depend on.</p>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">Coarse-grained modeling</a> keeps the degrees of freedom that matter and drops the rest.
+                    A landmark of the approach is the 1990 simulation by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.458541">Kremer and Grest</a>, who modeled polymer melts as chains of soft beads
+                    on springs and reproduced how the chains move and tangle. A bead has a mass, a size, and an attraction to other beads, and chains of beads have springs, bending stiffness, and a torsion term. One bead in this lab has the
+                    mass of a styrene unit, 104&nbsp;g/mol, and an attraction fitted so that the melt stops flowing near the glass transition of polystyrene. Because the units are real, the thermometer in the lab reads kelvin.
+                    Companion articles apply the same approach to <a href="aims-liquid-crystals.html">liquid crystals</a>, <a href="aims-protein-folding.html">protein folding</a>, and
+                    <a href="aims-micelle-formation.html">soap micelles</a>.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Building a melt, stepping its temperature, measuring how far its beads move, and plotting the result are the agent's work. A student asks
+                    <em>"when does the melt become a glass?"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Polymer Melt Near Its Glass Transition</em> from the Examples menu (Materials Science, Soft Matter), open the chat, and type the prompt below.</p>
+
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, and the ramp takes a few minutes.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">The glass transition</span> &mdash; <span class="v2-prompt">"Cool the melt from 550 K to 200 K in steps of 50 K, holding about 20 ps at each step, and chart the diffusion coefficient against temperature."</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>A Melt and Its Glass Transition</h2>
+
+                    <p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polymer">polymer</a> melt is a tangle of long chains. Warm, the chains slide past one another and the material flows;
+                    cold, they lock in place and the material is a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Glass_transition">glass</a>, hard and brittle and without any crystal order.
+                    The temperature at which that happens is the glass transition, and for polystyrene it is 373&nbsp;K (100&nbsp;&deg;C), which is why a foam cup softens in boiling water. This lab packs twenty chains of twenty beads into
+                    a box, 400 beads in all, in the manner of Kremer and Grest, and the melt opens at 450&nbsp;K. Press Play and open the analysis panel:
+                    the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Mean_squared_displacement">mean squared displacement</a> of the beads grows steadily with time, which is a liquid
+                    diffusing, and the radius of gyration of each chain fluctuates as the chain changes shape.</p>
+
+                    <p>Ask the agent to cool the melt from 550&nbsp;K to 200&nbsp;K in steps of 50&nbsp;K and it measures the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diffusion#Diffusion_coefficient">diffusion coefficient</a> at each step: 0.291&nbsp;&Aring;&sup2;/ps at 550&nbsp;K, 0.062 at 400&nbsp;K, 0.045 at 350&nbsp;K, and 0.018 at 200&nbsp;K. A falling coefficient by itself leaves the glass transition undefined, because a bead boxed in by its neighbors still rattles, and every 10&nbsp;ps window
+                    reads a value above zero. What tells a liquid from a glass is whether the displacement keeps growing with time: in a liquid the mean squared displacement rises in proportion to the time elapsed, and in a glass it
+                    rises for a picosecond and then levels off. The agent fits that growth exponent at every step and charts it too. It falls from 0.80 at 550&nbsp;K to 0.27 at 400&nbsp;K, 0.15 at 350&nbsp;K, and 0.01 at 200&nbsp;K, where each bead moves only 0.7&nbsp;&Aring;, 0.15 of its own diameter, inside its cage. The exponent drops below 0.3 at about 410&nbsp;K, give or take 40&nbsp;K, and that is the glass
+                    transition of the model on a 10&nbsp;ps time scale.</p>
+
+                    <p>Polystyrene's own glass transition is 373&nbsp;K, and the attraction of the bead was chosen to land near it, so the agreement is a fit; repeat runs land tens of kelvin apart. A glass transition seen in picoseconds after cooling at a trillion kelvin per second is a kinetic transition: it moves with the cooling rate, the length of the window, the depth of the
+                    bead well, and the fact that nearly half of a 400-bead blob is surface, where a bead has fewer neighbors to cage it. Hold each step longer and the measured transition moves up. Warm the melt again and the motion returns.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulation Produced</p>
+                        <p class="v2-prompts-intro">The simulation was given the forces among beads. Everything below came out of it:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">A slowing melt</span> &mdash; the diffusion coefficient falls sixteenfold between 550 and 200&nbsp;K.</li>
+                            <li><span class="v2-prompts-step">A glass transition</span> &mdash; the growth exponent of the displacement drops below 0.3 near 410&nbsp;K in this run, a kinetic transition seen after very fast cooling.</li>
+                            <li><span class="v2-prompts-step">Caged beads</span> &mdash; at 200&nbsp;K each bead moves 0.7&nbsp;&Aring;, 0.15 of its own diameter, in 10&nbsp;ps.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses a polymer melt to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. The glass transition of a plastic becomes something students measure for themselves in a browser, along with the reason the measured value depends on how fast the melt is cooled.
+                    By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of the plastics of everyday life.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
