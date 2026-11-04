@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore Liquid Crystals with Coarse-Grained Molecular Simulations — Institute for Future Intelligence</title>
-    <meta name="description" content="The molecules in an LCD screen are rods that point the same way. AIMS models each 5CB molecule as one Gay–Berne rod, and an AI agent runs the experiments: it finds the clearing point of the liquid crystal, the hysteresis on cooling, the sharper transition at constant pressure, and the switch of a pixel under an aligning field.">
+    <meta name="description" content="The molecules in an LCD screen are rods that point the same way. AIMS models each 5CB molecule as one Gay–Berne rod, and an AI agent runs the experiments: it finds the clearing point of the liquid crystal, the hysteresis on cooling, the sharper transition at constant pressure, the switch of a pixel under an aligning field, and how a mixture of long and short rods loses its order.">
 
     <style>
         @import url("css/system.base.css");
@@ -103,14 +103,14 @@
                     AIMS models each molecule as a single rod instead, with the length, width, and mass of the molecule it stands for, and an
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent
                     heats the liquid crystal until its order collapses, cools it back down, squeezes it at constant pressure, turns its rods with a field, or mixes in longer rods, and posts the measured data in the chat as a live chart.
-                    In the window below, 200 rods modeled on a classic display liquid crystal stand on a lattice at room temperature. Press Play and watch them jostle: they keep pointing roughly the same way.</p>
+                    In the window below, 216 rods modeled on a classic display liquid crystal stand on a lattice at room temperature. Press Play and watch them jostle: they keep pointing roughly the same way.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Modeling%20Liquid%20Crystals%20with%20Gay-Berne%20Particles"
                                 id="aims-frame1" allowfullscreen="true" title="Modeling Liquid Crystals with Gay-Berne Particles demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
-                            A liquid crystal of 200 rods at 293&nbsp;K. Open the resolution chip in the top-left rail to read the order parameter S, which starts at 1 on the lattice and settles near 0.75 within about a minute of Play.
+                            A liquid crystal of 216 rods at 293&nbsp;K. Open the resolution chip in the top-left rail to read the order parameter S, which starts at 1 on the lattice and settles near 0.75 within about a minute of Play.
                         </figcaption>
                     </figure>
 
@@ -125,7 +125,7 @@
                     <p>The model in this lab is the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> potential of 1981, a single ellipsoid per molecule whose
                     attraction depends on how two ellipsoids are oriented; in the model a pair of rods attracts five times more strongly side by side than end to end. Each rod here is 18&nbsp;&Aring; long and 5&nbsp;&Aring; wide and weighs what
                     a molecule of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/4-Cyano-4%27-pentylbiphenyl">5CB</a>, the classic display liquid crystal, weighs, and it rotates under the torque its
-                    neighbors exert. Because the units are real, the thermometer in the lab reads kelvin, and a student can compare the transition temperature of the model with the handbook value for 5CB.
+                    neighbors exert. Because the units are real, the temperature in the lab is a real temperature, and a student can compare the transition temperature of the model with the handbook value for 5CB.
                     Companion articles apply the same approach to <a href="aims-glass-transition.html">the glass transition of a polymer</a>, <a href="aims-protein-folding.html">protein folding</a>, and
                     <a href="aims-micelle-formation.html">soap micelles</a>.</p>
 
@@ -137,7 +137,7 @@
                     <div class="v2-prompts">
                         <p class="v2-prompts-intro">Open <em>Modeling Liquid Crystals with Gay-Berne Particles</em> from the Examples menu (Materials Science, Soft Matter), open the chat, and type the prompts below.</p>
 
-                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser. A ramp with ten temperature steps of 80&nbsp;ps each takes ten to twenty minutes on a typical computer, and the first prompt below, 25 steps up and back down, takes half an hour or more.</p>
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser. A ramp with ten temperature steps of 80&nbsp;ps each takes about ten minutes on a typical computer, and the first prompt below, 25 steps up and back down, takes twenty to thirty minutes.</p>
 
                         <ol>
                             <li><span class="v2-prompts-step">The clearing point</span> &mdash; <span class="v2-prompt">"Heat the rods from 263 K to 383 K in steps of 10 K and then cool them back down the same way, holding about 80 ps at each step, and chart the order parameter of both legs on one chart."</span></li>
@@ -159,26 +159,32 @@
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Liquid_crystal#Nematic_phase">nematic</a>.
                     In 1949 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1111/j.1749-6632.1949.tb27296.x">Onsager</a> showed that shape alone can produce it: long rods packed densely
                     enough line up because parallel rods leave one another more room to move than crossed rods do. Attraction between the rods adds to the effect. The cell in this lab has
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Periodic_boundary_conditions">periodic boundaries</a>: it has no walls and repeats in every direction, so the 200 rods
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Periodic_boundary_conditions">periodic boundaries</a>: it has no walls and repeats in every direction, so the 216 rods
                     stand for a small piece of bulk liquid crystal. They sit at a little over half the density of 5CB itself. At the full density, rods this long stay aligned at every temperature tried, up to 850&nbsp;K, because they order by packing
                     alone; the lower density is what lets temperature decide.</p>
+
+                    <p>The rods start on a lattice, and the lattice is layered: three flat sheets of rods stacked end to end, the arrangement of a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Liquid_crystal#Smectic_phases">smectic</a> liquid crystal, which has order in position along one axis as well as in direction. 5CB itself has no smectic phase.
+                    At 293&nbsp;K the layers blur within the first picoseconds of Play but do not disappear: after 200&nbsp;ps the centers of the rods still bunch into layers far more than rods placed at random would.
+                    The order measured at the low end of a ramp therefore includes some layering carried over from the lattice, and the drop near the clearing point includes the loss of those layers as well as of the shared direction.
+                    In one 200&nbsp;ps run started without layers, from the same rods with each column shifted along its axis by a random amount, S at 293&nbsp;K stayed near 0.5, so the clearing point of a nematic with no layers may lie below the one quoted next.</p>
 
                     <h2>The Clearing Point</h2>
 
                     <p>The measure of alignment is the nematic <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Liquid_crystal#Order_parameter">order parameter</a> S, which is 1 when
                     every rod is parallel and 0 when they point in every direction; 5CB at room temperature measures about 0.6. In the published run of the heating and cooling ramp above, the agent held the rods 60&nbsp;ps at
-                    each temperature and then averaged S over 20&nbsp;ps more. At 263&nbsp;K the rods are nematic with S = 0.86. Heating in steps of 10&nbsp;K, S falls slowly to 0.72 at 293&nbsp;K, then drops through
-                    0.59 at 303&nbsp;K, 0.39 at 313&nbsp;K, and 0.29 at 323&nbsp;K to 0.10 at 333&nbsp;K, and stays between 0.1 and 0.2 to 383&nbsp;K. It crosses 0.5 at about 307&nbsp;K. That is the
+                    each temperature and then averaged S over 20&nbsp;ps more. At 263&nbsp;K the rods are strongly ordered, S = 0.81. Heating in steps of 10&nbsp;K, S falls slowly to 0.75 at 293&nbsp;K, then drops through
+                    0.64 at 303&nbsp;K and 0.37 at 313&nbsp;K to 0.06 at 323&nbsp;K, and stays between 0.06 and 0.18 to 383&nbsp;K. It crosses 0.5 at about 308&nbsp;K. That is the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Liquid_crystal#Phase_transitions">clearing point</a> of the model, the temperature at which the liquid crystal becomes an
-                    ordinary liquid with no preferred direction. The crossing moves by several kelvin from one run to the next: three more runs of the same heating steps crossed at 308, 315, and 319&nbsp;K. Real 5CB clears at 308&nbsp;K, 35&nbsp;&deg;C; displays use mixtures of similar molecules whose clearing points lie well above the temperatures a screen meets.
+                    ordinary liquid with no preferred direction. The crossing moves by several kelvin from one run to the next: three runs of the same heating steps on a 200-rod cell at the same density crossed at 308, 315, and 319&nbsp;K. Real 5CB clears at 308&nbsp;K, 35&nbsp;&deg;C; displays use mixtures of similar molecules whose clearing points lie well above the temperatures a screen meets.
                     Part of that agreement is built into the model. The depth of the attraction between rods was set so that they are nematic at room temperature and lose their order on heating, and the density of the cell was chosen so that temperature decides the order, so the match with 308&nbsp;K checks that the model is consistent with 5CB. The hysteresis, the jump in volume at constant pressure, and the response to the field were not tuned: they come out of the simulation.
                     The drop in the model is spread over a few tens of kelvin where a real sample switches within a degree, for two reasons the agent explains when asked: the cell holds the rods at a fixed volume, so it passes through a mixed state of nematic and liquid on the way, and
-                    200 rods are few.</p>
+                    216 rods are few.</p>
 
-                    <p>The cooling leg is the more surprising half of the chart. Stepping back down from 383&nbsp;K, S stays between 0.08 and 0.18 all the way to 273&nbsp;K and only starts to rise at 263&nbsp;K, reaching 0.44 where the heating leg
-                    began at 0.86. Regaining order needs a starting point: a nematic grows from a patch of rods that happen to agree, and in a cooling liquid that takes extra undercooling and time.
+                    <p>The cooling leg is the more surprising half of the chart. Stepping back down from 383&nbsp;K, S stays between 0.10 and 0.33 all the way down to 263&nbsp;K, where it reads 0.16 against the 0.81 the heating leg
+                    began at. Regaining order needs a starting point: a nematic grows from a patch of rods that happen to agree, and in a cooling liquid that takes extra undercooling and time.
                     The cell has no walls to seed it, and 80&nbsp;ps per step is far too short for a nematic to grow on its own, so the liquid
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Supercooling">supercools</a> through nearly the whole ramp. The gap between the two legs is
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Supercooling">supercools</a> through the whole ramp. The gap between the two legs is
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hysteresis">hysteresis</a>, the mark of a first-order transition, and it is the same reason the liquids in the
                     <a href="aims-phase-change.html">phase-change</a> article have to be given a seed crystal to freeze.</p>
 
@@ -186,17 +192,17 @@
 
                     <p>The fixed volume is the first reason the drop of the model is spread out, and the third experiment removes it. Reload the example before running it: the pixel switch leaves the rods as a hot liquid, and that liquid, cooled to 303&nbsp;K at 8&nbsp;MPa, stays disordered for the whole ramp, for the same reason the cooling leg above does. Hold Pressure replaces the fixed cell with a fixed pressure of 8&nbsp;MPa, about eighty atmospheres, and a
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.448118">Berendsen barostat</a> rescales the cell a little every step until the rods push back with that pressure on average. At 303&nbsp;K it first packs them,
-                    from a reduced density of 0.185 to 0.228, and the denser rods are more ordered, S = 0.90. Heated in the same 10&nbsp;K steps, they keep S at 0.80 through 343&nbsp;K and fall to 0.08 at 353&nbsp;K: the whole
-                    clearing happens within one step, near 347&nbsp;K. At constant pressure the cell can grow as the rods lose their order, and it does: it is 86 percent larger at the end of the ramp, and it grows by 29 percent in the
-                    one step where the order is lost. A sudden change of volume at a single temperature is what a first-order transition looks like when the sample is free to expand. The clearing point itself moves 40&nbsp;K above
-                    the fixed-volume 307&nbsp;K, because the pressure packs the rods closer together than the fixed cell does.</p>
+                    from a reduced density of 0.185 to 0.248, and the denser rods are more ordered, S = 0.95. Heated in the same 10&nbsp;K steps, they keep S at 0.79 or above through 343&nbsp;K and fall to 0.14 at 353&nbsp;K: the whole
+                    clearing happens within one step, near 347&nbsp;K. At constant pressure the cell can grow as the rods lose their order, and it does: it is 93 percent larger at the end of the ramp than at 303&nbsp;K, and it grows by 28 percent between 333 and 343&nbsp;K and by 23 percent more between
+                    343 and 353&nbsp;K, where the order is lost. A large change of volume over a narrow range of temperature is what a first-order transition looks like when the sample is free to expand. The clearing point itself moves 39&nbsp;K above
+                    the fixed-volume 308&nbsp;K. The pressure starts the rods denser, but by 343&nbsp;K the cell has grown back to about the density of the fixed cell, 0.183 against 0.185, and the rods there still read S = 0.79, where the fixed cell read 0.15. So part of the shift is the rods keeping their order longer when they are heated at constant pressure, beyond what their density alone would give.</p>
 
                     <h2>The Switch Inside a Pixel</h2>
 
                     <p>In a display, a voltage across the cell turns the rods, and light passes through the pixel or not depending on which way they point. The walls of a display cell hold the rods in place until the voltage passes a threshold, and the turning that follows is the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fr%C3%A9edericksz_transition">Fr&eacute;edericksz transition</a>. The lab applies an aligning field, which plays the part of the voltage and turns the rods by the same coupling. The cell has no walls, so the rods turn at any field strength, with no threshold to pass.
-                    With the rods disordered at 383&nbsp;K, S near 0.24 and the average direction leaning 74&deg; from vertical, the agent switches the field on. During the 10&nbsp;ps pulse S climbs to 0.44 and the tilt drops to 3&deg;.
-                    When the field is switched off, the rods keep about half of the order it added, S near 0.35 with the tilt at 11&deg;, for the 10&nbsp;ps recorded. A student can try the same switch at 293&nbsp;K, where the field only sharpens an order that is already there, and
+                    With the rods disordered at 383&nbsp;K, S near 0.16 and the average direction leaning 84&deg; from vertical, the agent switches the field on. During the 10&nbsp;ps pulse S climbs to about 0.26 and the tilt drops to about 5&deg;.
+                    When the field is switched off, the rods keep the order it added, S near 0.28 with the tilt at 6&deg;, for the 10&nbsp;ps recorded. A student can try the same switch at 293&nbsp;K, where the field only sharpens an order that is already there, and
                     weaken the field to see how the turn shrinks.</p>
 
                     <h2>Mixing Long and Short Rods</h2>
@@ -217,7 +223,7 @@
                     </figure>
 
                     <p>Asked to heat the mixture from 283&nbsp;K to 473&nbsp;K and chart each kind of rod on its own, the agent measured the order of each kind about its own average direction, and the two kinds part ways.
-                    The short rods lose their order much as a cell of short rods alone does, crossing S = 0.5 near 318&nbsp;K. The long rods stay above 0.5 at every step to 473&nbsp;K and still read 0.60 there, 165&nbsp;K above the clearing point of real 5CB.
+                    The short rods cross S = 0.5 near 318&nbsp;K, close to the 313&nbsp;K of a cell of short rods alone, but above that they keep some order that the pure host loses: 0.20 at 473&nbsp;K, where the pure host reads 0.04. The long rods stay above 0.5 at every step to 473&nbsp;K and still read 0.60 there, 165&nbsp;K above the clearing point of real 5CB.
                     A long rod touches more neighbors along its length than a short rod does, and at this packing it has little room to turn, so it is the last to lose its direction. Taken together, all the rods cross 0.5 near 324&nbsp;K.</p>
 
                     <p>Asked next to build the same cell with no long rods and with 80, and to run the same ramp on each, the agent charted the three compositions together. With no long rods S crosses 0.5 near 313&nbsp;K, with 40 near 324&nbsp;K, and with 80 near 472&nbsp;K;
@@ -229,10 +235,10 @@
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
                         <p class="v2-prompts-intro">The simulations were given the forces among rods. Everything below came out of them:</p>
                         <ul>
-                            <li><span class="v2-prompts-step">A clearing point</span> &mdash; 200 rods lose their shared direction between 293 and 333&nbsp;K, crossing S = 0.5 at 307&nbsp;K, within about 10&nbsp;K of 5CB's 308&nbsp;K in repeated runs, with the attraction between rods set so that they order at room temperature.</li>
-                            <li><span class="v2-prompts-step">Hysteresis</span> &mdash; cooled back down, the rods stay disordered to 273&nbsp;K and only begin to re-order at 263&nbsp;K, where the heating leg began at S = 0.86.</li>
-                            <li><span class="v2-prompts-step">A sharp transition under pressure</span> &mdash; at 8&nbsp;MPa the rods clear within one 10&nbsp;K step near 347&nbsp;K, and the cell grows by 29 percent in that step.</li>
-                            <li><span class="v2-prompts-step">A pixel switch</span> &mdash; a 10&nbsp;ps pulse of an aligning field turns the average direction of disordered rods to within 3&deg; of vertical and raises S from 0.24 to 0.44.</li>
+                            <li><span class="v2-prompts-step">A clearing point</span> &mdash; 216 rods started on a layered lattice lose their shared direction between 293 and 323&nbsp;K, crossing S = 0.5 at 308&nbsp;K, within about 10&nbsp;K of 5CB's 308&nbsp;K in repeated runs, with the attraction between rods set so that they order at room temperature.</li>
+                            <li><span class="v2-prompts-step">Hysteresis</span> &mdash; cooled back down, the rods stay disordered all the way to 263&nbsp;K, where the heating leg began at S = 0.81.</li>
+                            <li><span class="v2-prompts-step">A sharp transition under pressure</span> &mdash; at 8&nbsp;MPa the rods clear within one 10&nbsp;K step near 347&nbsp;K, and the cell grows by about a quarter in each of the two steps around it.</li>
+                            <li><span class="v2-prompts-step">A pixel switch</span> &mdash; a 10&nbsp;ps pulse of an aligning field turns the average direction of disordered rods to within about 5&deg; of vertical and raises S from 0.16 to 0.26.</li>
                             <li><span class="v2-prompts-step">A mixture that parts ways</span> &mdash; in a cell of 320 short and 40 long rods, the short rods lose their order near 318&nbsp;K while the long rods stay above S = 0.5 to 473&nbsp;K; with 80 long rods the whole cell still reads 0.50 at 473&nbsp;K.</li>
                         </ul>
                     </div>

@@ -71,6 +71,9 @@
         .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
         .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
         .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        .v2-screenshot-row img, .v2-screenshot-single img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-screenshot-single { max-width: 44rem; margin: 1rem auto 1.5rem; }
     </style>
 </head>
 
@@ -155,10 +158,14 @@
                     hydrogen along. Chemists call this a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Chain_reaction">chain reaction</a>, and the reactive fragments that carry it are
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radical_(chemistry)">radicals</a>.</p>
 
-                    <p>In the run shown in the chat, the first water molecule appeared at 0.1&nbsp;ps. There were 9 water molecules at 5&nbsp;ps, 20 at 10&nbsp;ps, 28 at 30&nbsp;ps, and 34 by 50&nbsp;ps, when the count stopped rising.
-                    HO<sub>2</sub> and OH appeared and disappeared along the way. Six H<sub>2</sub> and three O<sub>2</sub> molecules were left at the end, because once the radicals were used up, the remaining molecules rarely
-                    met a partner they could react with. In the runs we tried, 34 to 40 of the possible 40 water molecules formed within about 60&nbsp;ps. The box is far denser than a flame, so the times
+                    <p>In the run shown in the chat, the first water molecule appeared at 0.1&nbsp;ps. There were 9 water molecules at 5&nbsp;ps, 20 at 10&nbsp;ps, 28 at 25&nbsp;ps, 31 at 40&nbsp;ps, and 34 by the end at 58&nbsp;ps.
+                    HO<sub>2</sub> and OH appeared and disappeared along the way. Water formed fastest in the first 10&nbsp;ps and then more slowly as the radicals ran low: without radicals, the remaining H<sub>2</sub> and O<sub>2</sub> molecules
+                    rarely react with one another. At the end, two free hydrogen atoms were still at work, with five H<sub>2</sub> and three O<sub>2</sub> molecules left. This run is typical: in 24 runs we tried, the median was 34 of the possible 40 water molecules within about 60&nbsp;ps, 17 runs made 32 to 38, and the full range was 18 to 38. The box is far denser than a flame, so the times
                     describe this box. The sequence of events is the one a chemistry textbook describes for burning hydrogen.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-chemical-reactions-burn.png" alt="Mole percent of water, hydrogen, oxygen, HO2, free hydrogen atoms and OH against time over 58 ps: water rises quickly for 10 ps and then slowly to 34 molecules while hydrogen and oxygen fall">
+                    </div>
 
                     <h2>Two Radicals Make One Molecule</h2>
 
@@ -183,13 +190,13 @@
                                 id="aims-frame2" allowfullscreen="true" title="Hydrogen Dissociation Equilibrium demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
-                            100 H<sub>2</sub> molecules at 6000&nbsp;K. About a quarter of the atoms are free once the gas has settled, after about 10&nbsp;ps.
+                            100 H<sub>2</sub> molecules at 6000&nbsp;K. About a quarter of the atoms are free once the gas has settled, within about 10&nbsp;ps.
                         </figcaption>
                     </figure>
 
                     <p>In the run shown in the chat, the gas settled after about 6&nbsp;ps. From 10&nbsp;ps on, the number of free atoms ranged from 36 to 72 and averaged 52, about 26% of the atoms. The number moves up and down because only a few
-                    dozen atoms are free at any moment. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Equilibrium_constant">equilibrium constant</a> of real hydrogen, computed from its
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Partition_function_(statistical_mechanics)">partition functions</a> and its measured bond energy for an ideal gas, gives about 30% at the same temperature and density.</p>
+                    dozen atoms are free at any moment. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Equilibrium_constant">equilibrium constant</a> of real hydrogen, computed for an ideal gas from its
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Partition_function_(statistical_mechanics)">partition functions</a> and its measured bond energy, gives about 30% at the same temperature and density.</p>
 
                     <p>Free atoms that meet a molecule also swap partners, H + H<sub>2</sub> &rarr; H<sub>2</sub> + H, which leaves the counts the same. This is often called the simplest chemical reaction.
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1524/zpch.2013.9023">Eyring and Polanyi</a> computed its energy landscape in 1931, the first such landscape computed for a chemical reaction. Halfway through the swap the three atoms sit in a line at the top of an energy
@@ -216,13 +223,18 @@
                         </table>
                     </div>
 
-                    <p>At every temperature the heating and cooling legs agree within 4 percentage points, and the heating leg is higher at some temperatures and the cooling leg at others, which is the scatter of a few dozen free atoms.
+                    <p>At every temperature the heating and cooling legs agree within 4 percentage points, and the heating leg is higher at some temperatures and the cooling leg at others, as expected from the scatter of a few dozen free atoms.
                     The model splits a little less of the hydrogen than real hydrogen does, most at the hot end. The 7000&nbsp;K point came out slightly below the 6500&nbsp;K point, within the scatter of a single point.</p>
 
                     <p>The agent also computes the equilibrium constant K<sub>c</sub> = [H]<sup>2</sup>/[H<sub>2</sub>] at every temperature from the counts and the volume of the box. K<sub>c</sub> rose from about 0.07 and 0.14&nbsp;mol/L
-                    on the heating and cooling legs at 5000&nbsp;K to about 1&nbsp;mol/L at 6500 to 7000&nbsp;K, and the model's K<sub>c</sub> is about 0.73 times that of real hydrogen. The second chart of the turn plots the natural logarithm of K<sub>c</sub> against
-                    1000/T. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_%27t_Hoff_equation">van 't Hoff equation</a> says this plot is a straight line whose slope gives the energy
+                    on the heating and cooling legs at 5000&nbsp;K to about 1&nbsp;mol/L at 6500 to 7000&nbsp;K, and the model's K<sub>c</sub> is about 0.73 times that of real hydrogen. The second chart of the turn, on the right below, plots the natural logarithm of K<sub>c</sub> against
+                    1000/T. The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_%27t_Hoff_equation">van 't Hoff equation</a> says this plot is a straight line, and its downward slope times the gas constant is the energy
                     the reaction takes in: 385&nbsp;kJ/mol for the model. Real hydrogen, fitted the same way over the same temperatures, gives 430&nbsp;kJ/mol, close to the 436&nbsp;kJ/mol it takes to break the H&ndash;H bond.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-chemical-reactions-both-sides.png" alt="Share of hydrogen split into atoms against temperature from 5000 to 7000 K: heating and cooling points lie together, with real hydrogen slightly above">
+                        <img src="image/aims-chemical-reactions-vant-hoff.png" alt="Van 't Hoff plot: the natural logarithm of the equilibrium constant against 1000 over the temperature, with heating, cooling and real hydrogen points and the dashed model fit of 385 kJ/mol">
+                    </div>
 
                     <h2>Le Chatelier's Principle</h2>
 
@@ -230,12 +242,16 @@
                     conditions, shifts in the direction that partly counters the change. The third and fourth chat turns disturb the gas in two ways.</p>
 
                     <p><b>Heating.</b> The agent holds the gas at 5000&nbsp;K for 20&nbsp;ps, steps the thermostat to 7000&nbsp;K for 20&nbsp;ps, and steps it back to 5000&nbsp;K for 20&nbsp;ps. The number of free atoms
-                    settles at about 30, 15% of the atoms, climbs to about 88, 44%, after the step up, and returns to about 31 after the step down. Each shift is half done about 1.2&nbsp;ps after the step. Splitting a molecule takes in
+                    settles at about 30 (15% of the atoms), climbs to about 88 (44%) after the step up, and returns to about 31 (15%) after the step down. The chart below counts each free atom and each molecule as one particle (mole percent), so the same balances read about 26%, 61%, and 27% there. Each shift is half done about 1.2&nbsp;ps after the step. Splitting a molecule takes in
                     energy, so a hotter gas holds more atoms. Returning to 5000&nbsp;K brings back the old balance, so the balance depends on the conditions alone. The thermostat holds each temperature, so this run cannot show the gas
                     countering the heating: in a gas left to itself, splitting would take up part of the added heat and slow the warming.</p>
 
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-chemical-reactions-temperature-step.png" alt="Mole percent of H2 and free H atoms over 60 ps: free atoms rise to about 25% at 5000 K, jump to about 60% when the thermostat steps to 7000 K at 20 ps, and fall back when it returns to 5000 K at 40 ps">
+                    </div>
+
                     <p><b>Squeezing.</b> At 6000&nbsp;K throughout, the agent shrinks the box from 50&nbsp;&Aring; to 35&nbsp;&Aring; on a side, a third of the volume, for 20&nbsp;ps and then lets it back out. The pressure jumps from about
-                    96&nbsp;MPa, or 950&nbsp;bar, to 280 to 300&nbsp;MPa. The number of free atoms falls from about 48, 24% of the atoms, to about 33, 16%, half of the shift within 0.5&nbsp;ps, and climbs to about 55 when the box is let out.
+                    96&nbsp;MPa, or 950&nbsp;bar, to 280 to 300&nbsp;MPa. The number of free atoms falls from about 48 (24% of the atoms) to about 33 (16%), half of the shift within 0.5&nbsp;ps, and climbs to about 55 (27%) when the box is let out.
                     Two atoms that join make one molecule, so pairing up leaves fewer particles to hit the walls, and the squeezed gas shifts toward the side with fewer particles. Squeezing at a fixed temperature leaves K<sub>c</sub> the same:
                     it read about 0.40, 0.49, and 0.55&nbsp;mol/L in the three stretches, equal within the scatter. Right after the squeeze every concentration triples, the ratio [H]<sup>2</sup>/[H<sub>2</sub>] triples with them, and atoms pair up until the ratio is back at K<sub>c</sub>.
                     Heating moves the balance because it changes K<sub>c</sub>. Squeezing moves the balance while K<sub>c</sub> stays the same.</p>
@@ -250,7 +266,7 @@
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
                         <p class="v2-prompts-intro">The simulations were given the forces among atoms. Everything below came out of them:</p>
                         <ul>
-                            <li><span class="v2-prompts-step">A chain reaction</span> &mdash; 24 free hydrogen atoms start the burning of hydrogen in oxygen, which runs through HO<sub>2</sub> and OH and makes 34 of the possible 40 water molecules in the published run.</li>
+                            <li><span class="v2-prompts-step">A chain reaction</span> &mdash; 24 free hydrogen atoms start the burning of hydrogen in oxygen, which runs through HO<sub>2</sub> and OH and makes a median of 34 of the possible 40 water molecules in 24 runs.</li>
                             <li><span class="v2-prompts-step">Radical recombination</span> &mdash; 16 methyl radicals pair into 8 ethane molecules within 9&nbsp;ps, with no spark.</li>
                             <li><span class="v2-prompts-step">Equilibrium from both sides</span> &mdash; hydrogen heated and cooled through 5000 to 7000&nbsp;K reaches the same balance within 4 percentage points from both directions, a little below real hydrogen.</li>
                             <li><span class="v2-prompts-step">The van 't Hoff energy</span> &mdash; the slope of ln K<sub>c</sub> against 1/T gives 385&nbsp;kJ/mol, against 430&nbsp;kJ/mol for real hydrogen fitted the same way.</li>

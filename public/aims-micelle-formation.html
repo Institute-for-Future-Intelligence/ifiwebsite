@@ -109,7 +109,7 @@
                                 id="aims-frame4" allowfullscreen="true" title="Micelle Formation demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame4');">View fullscreen</a><br>
-                            Sixty soap molecules at 300&nbsp;K. Assembly takes a few minutes of Play; the "Load this state" card in the first chat turn jumps to the finished micelle.
+                            Sixty soap molecules at 300&nbsp;K. Assembly takes one to three minutes of Play; the "Load this state" card in the first chat turn jumps to the finished micelle.
                         </figcaption>
                     </figure>
 
@@ -126,13 +126,13 @@
 
                     <h2>Running Experiments by Asking</h2>
 
-                    <p>AIMS is an AI-native environment. Running the molecules, counting their clusters, measuring the shape of each, and plotting the results are the agent's work. A student asks
-                    <em>"why does soap work?"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
+                    <p>AIMS is an AI-native environment. Running the molecules, counting their clusters, measuring the shape of each, and plotting the results are the agent's work. A student asks the agent to
+                    <em>"watch the micelles form and count the clusters"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
 
                     <div class="v2-prompts">
                         <p class="v2-prompts-intro">Open <em>Micelle Formation</em> from the Examples menu (Materials Science, Soft Matter), open the chat, and type the prompts below.</p>
 
-                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, and the molecules need a few hundred picoseconds, one to a few minutes of Play, to assemble.
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, and the molecules need 300 to 1000 picoseconds, one to three minutes of Play, to assemble.
                         Each of the two chat turns of the example keeps its last frame: press "Load this state" on its card and the lab jumps to it.</p>
 
                         <ol>
@@ -144,7 +144,7 @@
                     <h2>Two Rules Stand In for the Water</h2>
 
                     <p>A soap molecule has two ends: a polar head that dissolves in water and a hydrocarbon tail that does not. Put enough of them in water and they gather into micelles,
-                    tails inside and heads outside, which is how soap carries grease away. Each molecule in this lab is four beads: a yellow head bead 7&nbsp;&Aring; wide and a tail of three gray beads 4.7&nbsp;&Aring; wide. The lab and the agent call these molecules lipids, the general name for molecules with a polar head and an oily tail. The box has no water in it. Following
+                    tails inside and heads outside, which is how soap carries grease away. Each molecule in this lab is four beads: a yellow head bead 7&nbsp;&Aring; wide and a tail of three gray beads 4.7&nbsp;&Aring; wide. Sixty of them share a closed box 66&nbsp;&Aring; on a side, a concentration of about 0.35 moles per liter. The lab and the agent call these molecules lipids, the general name for molecules with a polar head and an oily tail. The box has no water in it. Following
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevE.72.011506">Cooke, Kremer, and Deserno</a>, who showed in 2005 that lipids made of a few beads assemble into membranes
                     without any solvent, the two rules of the model stand in for the water: the tails attract one another with a well 630&nbsp;K deep per bead contact, 1.5 times the 420&nbsp;K that Martini gives two such beads, because the attraction also has to do the
                     work of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hydrophobic_effect">hydrophobic effect</a>, and the heads repel everything.</p>
@@ -156,8 +156,8 @@
                     <h2>Self-Assembly</h2>
 
                     <p>The agent counts clusters by joining any two molecules whose tails touch. The sixty molecules start scattered at random, 34 separate clusters, the largest with 9 molecules. At 300&nbsp;K the tails
-                    find one another quickly: 13 clusters after 50&nbsp;ps, the largest with 24 molecules; 4 clusters after 100&nbsp;ps, the largest with 41; and by 350&nbsp;ps a single cluster of all 60, which stays whole to the end of the
-                    nanosecond.</p>
+                    find one another quickly. The agent averages the count over each 50&nbsp;ps: 13 clusters over the first 50&nbsp;ps, the largest with 24 molecules; 4 clusters over the next 50&nbsp;ps, the largest with 41; and a single cluster of all 60 in every window from 300&nbsp;ps on, the points from 350&nbsp;ps on in the chart. It stays whole to the end of the
+                    nanosecond apart from one molecule that leaves it briefly in the window ending at 550&nbsp;ps.</p>
 
                     <p>A count of clusters cannot tell a micelle from a tangle of molecules or a pile pressed together, because each of those also counts as one cluster. So the agent measures the shape of every cluster of five or more
                     molecules at the end of the run: the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radius_of_gyration">radius of gyration</a> of its tail beads, which is the size of
@@ -166,30 +166,29 @@
 
                     <h2>One Micelle or Two</h2>
 
-                    <p>Our runs of this example ended in one of two ways. In four of six runs, all 60 molecules joined one micelle within 350 to 1000&nbsp;ps. In the other two, two micelles formed
-                    within about 500&nbsp;ps, 36 and 24 molecules in one run and 35 and 25 in the other, and did not merge within the run: one pair was followed for 2.8&nbsp;ns, its two micelles 34 to 42&nbsp;&Aring; apart and unchanged in size,
-                    every head outward and cores of 11 and 10&nbsp;&Aring;. A finished micelle is covered by heads, and in this model heads repel everything, so two finished micelles can sit side by side for a long time.
+                    <p>Our runs of this example ended in one of two ways. In four of six runs, all 60 molecules joined one micelle between about 300 and 1000&nbsp;ps after the start. In the other two, two micelles formed
+                    within about 500&nbsp;ps, 36 and 24 molecules in one run and 35 and 25 in the other, and did not merge within the run: one pair was followed for 2.8&nbsp;ns, the centers of its two micelles 34 to 42&nbsp;&Aring; apart and their sizes unchanged,
+                    every head outward and the cores with radii of gyration of 11 and 10&nbsp;&Aring;. A finished micelle is covered by heads, and in this model heads repel everything, so two finished micelles can sit side by side for a long time.
                     A real soap solution above its
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Critical_micelle_concentration">critical micelle concentration</a> holds very many micelles, each of a typical size; sixty molecules make one or two.
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Critical_micelle_concentration">critical micelle concentration</a> holds very many micelles, each of a typical size. The box is far above that concentration, which is about 8 millimoles per liter for sodium dodecyl sulfate, a common soap, but it holds only 60 molecules, enough for one or two micelles.
                     Press Reset and run the example again to see which ending a new run reaches.</p>
 
-                    <p>The size of a micelle depends on the shape of the molecule. In runs of the same box with a tail of two beads instead of three, sequence <em>"HD TL TL"</em>, the molecules made three smaller micelles of about
-                    25, 19, and 16 molecules, with one or two molecules left floating free. A head no wider than the tails makes a cylinder that no longer fits on the surface of a ball. A student can build either molecule in the Build Chain dialog and see what it forms.</p>
+                    <p>The size of a micelle depends on the shape of the molecule. In runs of the same box with a tail of two beads instead of three, sequence <em>"HD TL TL"</em>, the molecules made three smaller micelles, of about 25, about 19, and 12 to 16 molecules
+                    in two runs, with one to three molecules left floating free. A head no wider than the tails makes a cylinder that no longer fits on the surface of a ball. A student can build either molecule in the Build Chain dialog and see what it forms.</p>
 
                     <h2>Heating Breaks Them Up</h2>
 
-                    <p>Heating undoes the assembly. Stepping from 300 to 800&nbsp;K in steps of 50&nbsp;K, with 60&nbsp;ps at each temperature and then 20&nbsp;ps of counting, the micelle stays whole to 400&nbsp;K. It loses a few
-                    molecules at 450&nbsp;K, takes most of them back at 500&nbsp;K, splits at 550&nbsp;K into pieces of which the largest holds 35, and is in 18 clusters at 650&nbsp;K and 25 at 800&nbsp;K, the largest with 11 molecules. The tail attraction, worth about
-                    630&nbsp;K per bead contact, is no longer large compared with the thermal energy of the beads. Real soap stays below the boiling point of water; the box leaves the water out, so the model can be heated past it.</p>
+                    <p>Heating undoes the assembly. Stepping from 300 to 400&nbsp;K and then up to 800&nbsp;K in steps of 50&nbsp;K, with 60&nbsp;ps at each temperature and then 20&nbsp;ps of counting, the micelle stays whole to 400&nbsp;K. It loses a few
+                    molecules at 450&nbsp;K, takes most of them back at 500&nbsp;K, splits at 550&nbsp;K into pieces of which the largest holds 35, and is in 18 clusters at 650&nbsp;K and 25 at 800&nbsp;K, the largest with 11 molecules. Over this range the thermal energy of a bead, 550 to 800&nbsp;K in the same units, becomes comparable to the 630&nbsp;K that holds two tail beads together. Real soap stays below the boiling point of water; the box leaves the water out, so the model can be heated past it.</p>
 
                     <p>Cooled again, the molecules reassemble. The second chat turn keeps its last frame, the broken-up box at 800&nbsp;K. Press "Load this state" on its card and then Play: the thermostat of the lab stays at its setting, 300&nbsp;K in the example, so the
-                    hot molecules cool and gather into micelles within a few hundred picoseconds. Loaded this way in the published example, the box held two micelles 430&nbsp;ps later, each with a full shell of yellow heads. In another run cooled this way, the box held two micelles of 50 and 10 molecules after 200&nbsp;ps and one micelle of all 60 after 400&nbsp;ps; runs cooled step by step ended as one micelle of 60 or as two micelles of 42 and 18.</p>
+                    hot molecules cool and gather into micelles within a few hundred picoseconds. Loaded this way in the published example, the box held two micelles 430&nbsp;ps later, each a gray core inside a shell of yellow heads. In another run cooled this way, the box held two micelles of 50 and 10 molecules after 200&nbsp;ps and one micelle of all 60 after 400&nbsp;ps.</p>
 
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
                         <p class="v2-prompts-intro">The simulations were given the forces among beads. Everything below came out of them:</p>
                         <ul>
-                            <li><span class="v2-prompts-step">Self-assembly</span> &mdash; 60 scattered soap molecules become one micelle within 350&nbsp;ps in the published run, with every head outward.</li>
+                            <li><span class="v2-prompts-step">Self-assembly</span> &mdash; 60 scattered soap molecules become one micelle by 300&nbsp;ps in the published run, with every head outward.</li>
                             <li><span class="v2-prompts-step">Two endings</span> &mdash; in two of six runs two micelles formed instead and stayed apart, one pair for 2.8&nbsp;ns, each covered by heads that repel the other.</li>
                             <li><span class="v2-prompts-step">Shape decides size</span> &mdash; molecules with a tail of two beads form three smaller micelles in the same box.</li>
                             <li><span class="v2-prompts-step">Break-up and reassembly</span> &mdash; the micelle survives to 400&nbsp;K, is in 25 pieces by 800&nbsp;K, and reassembles when the box is cooled.</li>
