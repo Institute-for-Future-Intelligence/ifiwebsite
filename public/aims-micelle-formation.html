@@ -133,11 +133,12 @@
                         <p class="v2-prompts-intro">Open <em>Micelle Formation</em> from the Examples menu (Materials Science, Soft Matter), open the chat, and type the prompts below.</p>
 
                         <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, and the molecules need 300 to 1000 picoseconds, one to three minutes of Play, to assemble.
-                        Each of the two chat turns of the example keeps its last frame: press "Load this state" on its card and the lab jumps to it.</p>
+                        Each of the three chat turns of the example keeps its last frame: press "Load this state" on its card and the lab jumps to it.</p>
 
                         <ol>
                             <li><span class="v2-prompts-step">Self-assembly</span> &mdash; <span class="v2-prompt">"Run the lipids for 1000 ps at 300 K and count the clusters every 50 ps."</span></li>
                             <li><span class="v2-prompts-step">Break-up</span> &mdash; <span class="v2-prompt">"Now heat the box from 300 K to 800 K, holding about 80 ps at each step, and chart the number of clusters against temperature."</span></li>
+                            <li><span class="v2-prompts-step">Oil</span> &mdash; <span class="v2-prompt">"What happens in oil? Build 60 lipids with a small head, HS TL TL TL, switch the solvent to oil, and count the clusters every 50 ps for 1000 ps."</span></li>
                         </ol>
                     </div>
 
@@ -174,7 +175,8 @@
                     Press Reset and run the example again to see which ending a new run reaches.</p>
 
                     <p>The size of a micelle depends on the shape of the molecule. In runs of the same box with a tail of two beads instead of three, sequence <em>"HD TL TL"</em>, the molecules made three smaller micelles, of about 25, about 19, and 12 to 16 molecules
-                    in two runs, with one to three molecules left floating free. A head no wider than the tails makes a cylinder that no longer fits on the surface of a ball. A student can build either molecule in the Build Chain dialog and see what it forms.</p>
+                    in two runs, with one to three molecules left floating free. A head no wider than the tails, sequence <em>"HS TL TL TL"</em>, makes the molecule a cylinder, which by the packing argument should not fit on the surface of a ball.
+                    In two 2&nbsp;ns runs of this box in water, those molecules made one micelle of all 60 anyway, 98 to 100&nbsp;% of the heads outward and the core 13 to 14&nbsp;&Aring; in radius of gyration, so in water this small model does not show that part of the argument. The size of the head does show in oil, below.</p>
 
                     <h2>Heating Breaks Them Up</h2>
 
@@ -184,6 +186,20 @@
                     <p>Cooled again, the molecules reassemble. The second chat turn keeps its last frame, the broken-up box at 800&nbsp;K. Press "Load this state" on its card and then Play: the thermostat of the lab stays at its setting, 300&nbsp;K in the example, so the
                     hot molecules cool and gather into micelles within a few hundred picoseconds. Loaded this way in the published example, the box held two micelles 430&nbsp;ps later, each a gray core inside a shell of yellow heads. In another run cooled this way, the box held two micelles of 50 and 10 molecules after 200&nbsp;ps and one micelle of all 60 after 400&nbsp;ps.</p>
 
+                    <h2>Turned Inside Out in Oil</h2>
+
+                    <p>In oil the two ends trade places. The oily tails mix with the oil around them, while the polar heads, which the oil does not dissolve, cling to one another. Surfactants such as
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Docusate">AOT</a> gather in oil into
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Reverse_micelle">inverse micelles</a>: small balls with the heads inside, often around a tiny drop of water, and the tails outside.
+                    The lab models the oil the way it models the water, with rules instead of solvent molecules. Under Experiment Settings, Force Field, the Implicit Solvent setting switches the lipid beads from water to oil, and a chip on the lab names the solvent.
+                    In oil the heads attract one another and the tails only repel. The head attraction, 1200&nbsp;K per contact, is not fitted to a measurement the way the tail attraction is: it is the value at which small-head molecules assemble in this box.</p>
+
+                    <p>The third chat turn builds 60 molecules with a small orange head, 4.7&nbsp;&Aring; wide like the tails, and switches the box to oil. Because the heads now make the core, the agent counts clusters by joining any two molecules whose heads touch, and it
+                    measures each cluster on its core of heads and on the share of molecules whose tails sit farther from the center than their head. In four runs of 1 to 2&nbsp;ns, most of the molecules had joined clusters within about 400&nbsp;ps, and at the end of each run the box held four or five inverse micelles of 6 to 19 molecules,
+                    each with a core of heads 4 to 7&nbsp;&Aring; in radius of gyration and every tail pointing outward. These are much smaller than the micelle of 60 that the soap molecules make in water.
+                    The soap molecules behave differently in oil. With their 7&nbsp;&Aring; heads, all 60 gathered into one large cluster, tails outward, whose core of heads has a radius of gyration of 17&nbsp;&Aring;, about three times that of the small-head micelles.
+                    In these runs, the size of the head decided whether the molecules made small inverse micelles in oil.</p>
+
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
                         <p class="v2-prompts-intro">The simulations were given the forces among beads. Everything below came out of them:</p>
@@ -192,6 +208,7 @@
                             <li><span class="v2-prompts-step">Two endings</span> &mdash; in two of six runs two micelles formed instead and stayed apart, one pair for 2.8&nbsp;ns, each covered by heads that repel the other.</li>
                             <li><span class="v2-prompts-step">Shape decides size</span> &mdash; molecules with a tail of two beads form three smaller micelles in the same box.</li>
                             <li><span class="v2-prompts-step">Break-up and reassembly</span> &mdash; the micelle survives to 400&nbsp;K, is in 25 pieces by 800&nbsp;K, and reassembles when the box is cooled.</li>
+                            <li><span class="v2-prompts-step">Inside out in oil</span> &mdash; with the rules switched to oil, small-head molecules form four or five inverse micelles of 6 to 19 molecules, heads inside and every tail outward.</li>
                         </ul>
                     </div>
 
@@ -199,7 +216,7 @@
 
                     <p>This article uses soap to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
                     measured data. Micelle formation, the textbook explanation of how soap works, becomes something students watch and measure for themselves in a browser: how scattered molecules gather into micelles, how to tell a micelle from a tangle,
-                    and how the shape of a molecule changes the micelles it forms. By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of the soap they use every day.</p>
+                    how the shape of a molecule changes the micelles it forms, and how the same kind of molecule turns inside out in oil. By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of the soap they use every day.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>
