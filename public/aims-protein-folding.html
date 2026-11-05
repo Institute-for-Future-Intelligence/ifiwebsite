@@ -99,8 +99,8 @@
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
 
                     <p>An egg white turns solid in a hot pan because its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Protein">proteins</a> unfold. A protein is a chain of amino acids
-                    that folds into a compact shape, and the order of the amino acids decides whether it does. A small protein has hundreds of atoms, and its folding takes far longer than a browser can follow one atom at a time.
-                    AIMS models each amino acid as a single bead instead, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments.
+                    that folds into a compact shape, and the order of the amino acids decides whether it does. Much of that deciding is done by which amino acids avoid water,
+                    so AIMS models each amino acid as a single bead, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments.
                     A student asks a plain-language question, and the agent heats a folded chain until it opens, follows whether a fold keeps its structure, or builds a model of a real protein from its structure in the Protein Data Bank, and posts the measured data in the chat as a live chart.
                     In the window below, two chains of 72 residues start as random coils at 300&nbsp;K. Press Play and watch one of them curl up.</p>
 
@@ -115,10 +115,14 @@
 
                     <h2>Why Trade Atoms for Beads?</h2>
 
-                    <p>An atomistic simulation computes the force on every atom from every nearby atom, a femtosecond or two at a time. For a few hundred atoms a browser can do that fast enough to watch,
-                    and the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site work that way. Folding is a rearrangement of a whole chain,
-                    and a model that keeps every hydrogen atom spends its whole budget on detail the collapse of the chain does not depend on.
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">Coarse-grained modeling</a> keeps the degrees of freedom that matter and drops the rest.
+                    <p>Few molecules of a gas are spheres, yet physicists model gases with hard spheres, because what decides how a gas behaves is that its molecules take up room and bounce off one another.
+                    Keeping only those features makes the cause of the behavior easy to see. A chain of beads does the same for a protein. What makes a chain collapse is that it is connected and that some of its residues
+                    avoid water: those residues gather on the inside, and the chain folds around them. One bead per residue keeps the chain, its spacing, and the attraction between residues of each kind, and leaves out
+                    the atoms of each side chain, so whatever shape the chain takes comes from those features alone.
+                    Modeling a molecule this way is called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, a standard approach to
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Soft_matter">soft matter</a> in research, which keeps the degrees of freedom that decide the behavior and drops the rest.
+                    It also makes the simulation fast enough for a browser. A small protein has hundreds of atoms and takes far longer to fold than a browser can follow one atom at a time,
+                    while the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site, whose crystals need only a few hundred atoms, simulate every atom.
                     Each bead in these labs is one residue, with the mass of an average amino acid and the 3.8&nbsp;&Aring; spacing of a protein backbone. Chemistry below the size of a bead, a hydrogen bond for example,
                     is outside the model, and the labs leave out the water. Because the units are real, the thermometer in the lab reads kelvin.
                     Companion articles apply the same approach to <a href="aims-liquid-crystals.html">liquid crystals</a>, <a href="aims-glass-transition.html">the glass transition of a polymer</a>, and

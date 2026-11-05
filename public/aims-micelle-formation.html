@@ -99,7 +99,7 @@
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
 
                     <p>Soap cleans because its molecules gather into balls called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Micelle">micelles</a>, which hold grease inside them.
-                    A micelle holds dozens of soap molecules with tens of atoms each, more than a web browser can simulate one atom at a time for the hundreds of picoseconds a micelle needs to assemble even in a small simulation. AIMS models each soap molecule as four beads instead, and an
+                    A soap molecule has a head that mixes with water and a tail that avoids it, and that split drives the molecules together, so AIMS models each soap molecule as four beads, one for the head and three for the tail, and an
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent
                     runs the molecules, counts the clusters they form, measures the shape of each cluster, or heats the box until the clusters break apart, and posts the measured data in the chat as a live chart.
                     In the window below, sixty soap molecules start scattered at random at 300&nbsp;K. Press Play and watch their tails gather.</p>
@@ -115,10 +115,14 @@
 
                     <h2>Why Trade Atoms for Beads?</h2>
 
-                    <p>An atomistic simulation computes the force on every atom from every nearby atom, a femtosecond or two at a time. For a few hundred atoms a browser can do that fast enough to watch,
-                    and the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site work that way. What makes a micelle is dozens of soap molecules
-                    turning their heads outward around one center, and a model that keeps every hydrogen atom spends its whole budget on detail the assembly does not depend on.
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">Coarse-grained modeling</a> keeps the degrees of freedom that matter and drops the rest.
+                    <p>Few molecules of a gas are spheres, yet physicists model gases with hard spheres, because what decides how a gas behaves is that its molecules take up room and bounce off one another.
+                    Keeping only those features makes the cause of the behavior easy to see. Four beads do the same for a soap molecule. What makes a micelle is that each molecule has a head that mixes with water and a tail
+                    that avoids it, so dozens of tails gather around one center with the heads turned outward. A head bead and a chain of three tail beads keep that split and the length of the molecule and leave out
+                    its atoms, and the water is modeled by rules instead of molecules, so whatever clusters the beads form come from the split alone.
+                    Modeling a molecule this way is called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, a standard approach to
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Soft_matter">soft matter</a> in research, which keeps the degrees of freedom that decide the behavior and drops the rest.
+                    It also makes the simulation fast enough for a browser. A micelle holds dozens of soap molecules with tens of atoms each and needs hundreds of picoseconds to assemble, far more than a browser can follow
+                    one atom at a time, while the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site, whose crystals need only a few hundred atoms, simulate every atom.
                     The <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/jp071097f">Martini</a> force field of Marrink and coworkers, used today to simulate cell membranes and proteins, maps about four
                     heavy atoms onto one bead, and the tail beads in this lab have the size of Martini's. Because the units are real, the thermometer in the lab reads kelvin.
                     Companion articles apply the same approach to <a href="aims-liquid-crystals.html">liquid crystals</a>, <a href="aims-glass-transition.html">the glass transition of a polymer</a>, and

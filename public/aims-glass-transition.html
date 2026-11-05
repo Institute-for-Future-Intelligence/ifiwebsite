@@ -98,8 +98,8 @@
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
 
-                    <p>A plastic cup is made of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polystyrene">polystyrene</a>, long chains of styrene units tangled together. A single chain has
-                    thousands of atoms, and a piece of plastic holds many chains, far more than a web browser can simulate one atom at a time. AIMS models each styrene unit as a single bead instead, and an
+                    <p>A plastic cup is made of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polystyrene">polystyrene</a>, long chains of styrene units tangled together. Whether a melt of
+                    those chains flows or sets into a glass depends on how freely the chains can move past one another, so AIMS models each styrene unit as a single bead, and an
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent
                     cools the melt step by step, measures how far its beads move, and posts the measured data in the chat as a live chart. In the window below, twenty chains of twenty beads fill a box at 450&nbsp;K,
                     well above the glass transition. Press Play and watch the chains slide past one another.</p>
@@ -115,11 +115,15 @@
 
                     <h2>Why Trade Atoms for Beads?</h2>
 
-                    <p>An atomistic simulation computes the force on every atom from every nearby atom, a femtosecond or two at a time. For a few hundred atoms a browser can do that fast enough to watch,
-                    and the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site work that way. What makes a glass is chains too tangled to slide
-                    past one another, which involves hundreds of chain segments and takes nanoseconds. A model that keeps every hydrogen atom spends its whole budget on detail the glass transition does not depend on.</p>
+                    <p>Few molecules of a gas are spheres, yet physicists model gases with hard spheres, because what decides how a gas behaves is that its molecules take up room and bounce off one another.
+                    Keeping only those features makes the cause of the behavior easy to see. A chain of beads does the same for a polymer. What turns a polymer melt into a glass is that its chains are long,
+                    connected, and crowded: as the melt cools, each segment is closely surrounded by its neighbors and held back by the chain it belongs to, until the chains can no longer slide past one another.
+                    The model keeps the connection, the size, and the attraction of each styrene unit and leaves out its atoms, so whatever slowing the melt shows comes from those features alone.
+                    It also makes the simulation fast enough for a browser. A melt that can turn into a glass takes hundreds of chain segments and nanoseconds of time, far more than a browser can follow one atom at a time,
+                    while the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site, whose crystals need only a few hundred atoms, simulate every atom.</p>
 
-                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">Coarse-grained modeling</a> keeps the degrees of freedom that matter and drops the rest.
+                    <p>Modeling a molecule this way is called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, a standard approach to
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Soft_matter">soft matter</a> in research, which keeps the degrees of freedom that decide the behavior and drops the rest.
                     A landmark of the approach is the 1990 simulation by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.458541">Kremer and Grest</a>, who modeled polymer melts as chains of soft beads
                     on springs and reproduced how the chains move and tangle. A bead has a mass, a size, and an attraction to other beads, and chains of beads have springs, bending stiffness, and a torsion term. One bead in this lab has the
                     mass of a styrene unit, 104&nbsp;g/mol, and an attraction fitted so that the melt stops flowing near the glass transition of polystyrene. Because the units are real, the thermometer in the lab reads kelvin.
