@@ -118,8 +118,8 @@
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Bond_order">bond order</a> of every pair of nearby atoms from the distance between them at every step, so a
                     bond weakens as its atoms move apart and a new bond grows as two atoms approach. The best-known force field of this kind is ReaxFF, by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/jp004368u">van Duin,
                     Dasgupta, Lorant, and Goddard</a>, which is widely used to simulate combustion and other reactions. AIMS uses a simplified force field of the same kind. Its energies
-                    were checked against measured ones: breaking the bond of a hydrogen molecule takes 4.54&nbsp;eV in the model and 4.52&nbsp;eV in measurements, and the energies of fourteen steps in the burning of
-                    hydrogen lie within 0.13&nbsp;eV of the measured reaction energies. The atoms carry no partial charges. That is the setting in which the force field was fitted,
+                    were checked against measured ones: breaking the bond of a hydrogen molecule takes 4.54&nbsp;eV in the model and 4.52&nbsp;eV in measurements, and the energies of seventeen steps in the burning of
+                    hydrogen lie within 0.2&nbsp;eV of the measured reaction energies. The atoms carry no partial charges. That is the setting in which the force field was fitted,
                     and real H<sub>2</sub> and O<sub>2</sub> molecules are neutral. Real water molecules carry partial charges that attract one another; at these temperatures water is a gas, and that attraction matters little.</p>
 
                     <h2>Running Experiments by Asking</h2>
@@ -223,7 +223,7 @@
                         </table>
                     </div>
 
-                    <p>At every temperature the heating and cooling legs agree within 4 percentage points, and the heating leg is higher at some temperatures and the cooling leg at others, as expected from the scatter of a few dozen free atoms.
+                    <p>At every temperature the heating and cooling legs agree within about 4 percentage points, and the heating leg is higher at some temperatures and the cooling leg at others, as expected from the scatter of a few dozen free atoms.
                     The model splits a little less of the hydrogen than real hydrogen does, most at the hot end. The 7000&nbsp;K point came out slightly below the 6500&nbsp;K point, within the scatter of a single point.</p>
 
                     <p>The agent also computes the equilibrium constant K<sub>c</sub> = [H]<sup>2</sup>/[H<sub>2</sub>] at every temperature from the counts and the volume of the box. K<sub>c</sub> rose from about 0.07 and 0.14&nbsp;mol/L
@@ -259,7 +259,7 @@
                     <h2>Why 6000&nbsp;K?</h2>
 
                     <p>Real hydrogen at the ordinary pressure of 1&nbsp;bar is already 30% split at 3500&nbsp;K. The squeeze explains why the lab needs 6000&nbsp;K: the box is packed to about 1000&nbsp;bar, and a dense gas favors the side with fewer particles.
-                    At 1&nbsp;bar and 3500&nbsp;K, the same 100 molecules would need a box about 360&nbsp;&Aring; across, the atoms would meet a few hundred times less often, and the gas would take an estimated nanosecond or more to settle, too long to watch in a browser.
+                    At 1&nbsp;bar and 3500&nbsp;K, the same 100 molecules would need a box about 400&nbsp;&Aring; across, the atoms would meet a few hundred times less often, and the gas would take an estimated nanosecond or more to settle, too long to watch in a browser.
                     The lab packs the gas tightly so that it settles within a minute or two of Play, and heats it to make up for the pressure.</p>
 
                     <div class="v2-prompts">
@@ -268,7 +268,7 @@
                         <ul>
                             <li><span class="v2-prompts-step">A chain reaction</span> &mdash; 24 free hydrogen atoms start the burning of hydrogen in oxygen, which runs through HO<sub>2</sub> and OH and makes a median of 34 of the possible 40 water molecules in 24 runs.</li>
                             <li><span class="v2-prompts-step">Radical recombination</span> &mdash; 16 methyl radicals pair into 8 ethane molecules within 9&nbsp;ps, with no spark.</li>
-                            <li><span class="v2-prompts-step">Equilibrium from both sides</span> &mdash; hydrogen heated and cooled through 5000 to 7000&nbsp;K reaches the same balance within 4 percentage points from both directions, a little below real hydrogen.</li>
+                            <li><span class="v2-prompts-step">Equilibrium from both sides</span> &mdash; hydrogen heated and cooled through 5000 to 7000&nbsp;K reaches the same balance within about 4 percentage points from both directions, a little below real hydrogen.</li>
                             <li><span class="v2-prompts-step">The van 't Hoff energy</span> &mdash; the slope of ln K<sub>c</sub> against 1/T gives 385&nbsp;kJ/mol, against 430&nbsp;kJ/mol for real hydrogen fitted the same way.</li>
                             <li><span class="v2-prompts-step">Le Chatelier's principle</span> &mdash; heating from 5000 to 7000&nbsp;K raises the share of free atoms from 15% to 44%; squeezing to a third of the volume lowers it from 24% to 16% while K<sub>c</sub> stays the same.</li>
                         </ul>
