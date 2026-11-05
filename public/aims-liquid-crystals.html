@@ -103,9 +103,9 @@
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
 
-                    <p>Each pixel of an LCD screen holds a thin layer of a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Liquid_crystal">liquid crystal</a>, a material whose molecules are long rods
-                    that all point roughly the same way. That shared direction is a property of thousands of molecules, and a model that keeps every atom of every molecule is too slow to show it in a web browser.
-                    AIMS models each molecule as a single rod instead, with the length, width, and mass of the molecule it stands for, and an
+                    <p>Each pixel of an LCD screen holds a thin layer of a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Liquid_crystal">liquid crystal</a>, a material made of long, thin molecules
+                    that all point roughly the same way. That shared direction comes from the shape of the molecules,
+                    so AIMS models each molecule as a single rod with the length, width, and mass of the molecule it stands for, and an
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent
                     heats the liquid crystal until its order collapses, cools it back down, quenches the liquid and waits for order to form, squeezes it at constant pressure, tracks the layers its rods form, turns its rods with a field, or mixes in longer rods, and posts the measured data in the chat as a live chart.
                     In the window below, 216 rods modeled on a classic display liquid crystal stand on a lattice at room temperature. Press Play and watch them jostle: they keep pointing roughly the same way.</p>
@@ -121,11 +121,14 @@
 
                     <h2>One Molecule, One Rod</h2>
 
-                    <p>An atomistic simulation computes the force on every atom from every nearby atom, a femtosecond or two at a time. For a few hundred atoms a browser can do that fast enough to watch,
-                    and the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site work that way. A liquid crystal takes hundreds of molecules
-                    and nanoseconds of time, and its order depends on the shape of each molecule far more than on its individual atoms. This is the setting for
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, a standard way to simulate
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Soft_matter">soft matter</a> in research, which keeps the degrees of freedom that matter and drops the rest.</p>
+                    <p>Few molecules of a gas are spheres, yet physicists model gases with hard spheres, because what decides how a gas behaves is that its molecules take up room and bounce off one another.
+                    Keeping only those features makes the cause of the behavior easy to see. A rod does the same for a liquid crystal. What makes a liquid crystal order is that its molecules are long and thin,
+                    so that crowded molecules have more room to move when they line up, and that they attract one another more strongly side by side than end to end. One rod per molecule keeps both features
+                    and leaves out the atoms, the flexible tail, and the charges of the real molecule, so whatever order the rods show comes from their shape and their attraction alone.
+                    This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, a standard approach to
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Soft_matter">soft matter</a> in research, which keeps the degrees of freedom that decide the behavior and drops the rest.
+                    It also makes the simulation fast enough for a browser. A liquid crystal takes hundreds of molecules and nanoseconds of time, far more than a browser can follow one atom at a time,
+                    while the crystals of the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site need only a few hundred atoms and are simulated atom by atom.</p>
 
                     <p>The model in this lab is the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> potential of 1981, a single ellipsoid per molecule whose
                     attraction depends on how two ellipsoids are oriented; in the model a pair of rods attracts five times more strongly side by side than end to end. Each rod here is 18&nbsp;&Aring; long and 5&nbsp;&Aring; wide and weighs what
