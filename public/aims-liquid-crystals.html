@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coarse-Grained Modeling of Liquid Crystals — Institute for Future Intelligence</title>
-    <meta name="description" content="The molecules in an LCD screen are rods that point the same way. AIMS models each 5CB molecule as one Gay–Berne rod, and an AI agent runs the experiments: it finds the clearing point of the liquid crystal, the hysteresis on quick cooling, the nematic that forms from the liquid when it is given time, the layers that fade ahead of the alignment, the sharper transition at constant pressure, the switch of a pixel under an aligning field, and how a mixture of long and short rods loses its order.">
+    <meta name="description" content="The molecules in an LCD screen are rods that point the same way. AIMS models each 5CB molecule as one Gay–Berne rod, and an AI agent runs the experiments: it finds the clearing point of the liquid crystal, the hysteresis on quick cooling, the nematic that forms from the liquid when it is given time, the layers that fade ahead of the alignment, the sharper transition at constant pressure, the switch of a pixel under an aligning field, how a mixture of long and short rods loses its order, and what a dipole on the rods changes: polar rods pair up, follow a static field, and gather around ions of either sign.">
 
     <style>
         @import url("css/system.base.css");
@@ -107,7 +107,7 @@
                     that all point roughly the same way. That shared direction comes from the shape of the molecules,
                     so AIMS models each molecule as a single rod with the length, width, and mass of the molecule it stands for, and an
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent
-                    heats the liquid crystal until its order collapses, cools it back down, quenches the liquid and waits for order to form, squeezes it at constant pressure, tracks the layers its rods form, turns its rods with a field, or mixes in longer rods, and posts the measured data in the chat as a live chart.
+                    heats the liquid crystal until its order collapses, cools it back down, quenches the liquid and waits for order to form, squeezes it at constant pressure, tracks the layers its rods form, turns its rods with a field, mixes in longer rods, or gives the rods a dipole and watches them pair up, follow a static field, and gather around ions, and posts the measured data in the chat as a live chart.
                     In the window below, 216 rods modeled on a classic display liquid crystal stand on a lattice at room temperature. Press Play and watch them jostle: they keep pointing roughly the same way.</p>
 
                     <figure class="v2-embed">
@@ -133,7 +133,7 @@
                     <p>The model in this lab is the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> potential of 1981, a single ellipsoid per molecule whose
                     attraction depends on how two ellipsoids are oriented; in the model a pair of rods attracts five times more strongly side by side than end to end. Each rod here is 18&nbsp;&Aring; long and 5&nbsp;&Aring; wide and weighs what
                     a molecule of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/4-Cyano-4%27-pentylbiphenyl">5CB</a>, the classic display liquid crystal, weighs, and it rotates under the torque its
-                    neighbors exert. Because the units are real, the temperature in the lab is a real temperature, and a student can compare the transition temperature of the model with the handbook value for 5CB.
+                    neighbors exert. The ellipsoid has no head or tail: the electric dipole a 5CB molecule carries is left out, and the last section puts it back. Because the units are real, the temperature in the lab is a real temperature, and a student can compare the transition temperature of the model with the handbook value for 5CB.
                     Companion articles apply the same approach to <a href="aims-glass-transition.html">the glass transition of a polymer</a>, <a href="aims-protein-folding.html">protein folding</a>, and
                     <a href="aims-micelle-formation.html">soap micelles</a>.</p>
 
@@ -161,6 +161,14 @@
                         <ol>
                             <li><span class="v2-prompts-step">Each kind on its own</span> &mdash; <span class="v2-prompt">"Heat the rods from 283 K to 473 K, holding about 80 ps at each step, and chart the order parameter of the host rods and the long rods separately."</span></li>
                             <li><span class="v2-prompts-step">Three compositions</span> &mdash; <span class="v2-prompt">"Build the same cell with no long rods and with 80, run the same ramp on each, and chart all three compositions on one chart."</span></li>
+                        </ol>
+                        <p class="v2-prompts-group">Polar Rods in an Electric Field</p>
+                        <p class="v2-prompts-intro">Open <em>Polar Rods in an Electric Field</em> from the same menu. Each prompt runs 160 to 200&nbsp;ps of a 120-rod gas, two to three minutes.</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Do dipoles stick?</span> &mdash; <span class="v2-prompt">"Watch the rods for 200 ps and chart how many of each kind touch a neighbor. Do the polar rods stick together more than the plain ones?"</span></li>
+                            <li><span class="v2-prompts-step">A static field</span> &mdash; <span class="v2-prompt">"Now switch on a DC electric field of 10 V/nm along z at 40 ps, switch it off again at 100 ps, and chart what both kinds of rod do over 160 ps."</span></li>
+                            <li><span class="v2-prompts-step">Cooling</span> &mdash; <span class="v2-prompt">"Cool the lab to 300 K and watch the rods for 200 ps. Do they stick together now?"</span></li>
+                            <li><span class="v2-prompts-step">Two ions</span> &mdash; reload the example first, then ask: <span class="v2-prompt">"Give one of the plain rods a charge of +2 e and another, on the other side of the box, &minus;2 e, hold both in place, and watch the rods for 200 ps. Do the polar rods gather around both, and which end faces each?"</span></li>
                         </ol>
                     </div>
 
@@ -283,7 +291,7 @@
                         </figcaption>
                     </figure>
 
-                    <p>Asked to heat the mixture from 283&nbsp;K to 473&nbsp;K and chart each kind of rod on its own, the agent measured the order of each kind about its own average direction, and the two kinds part ways.
+                    <p>Asked to heat the mixture from 283&nbsp;K to 473&nbsp;K and chart each kind of rod on its own, the agent measured the order of each kind about its own average direction, and the two kinds diverge.
                     The short rods cross S = 0.5 near 304&nbsp;K, close to the 310&nbsp;K of the 400-rod cell of short rods alone in the next experiment, but above that they keep some order that the pure host loses: 0.15 at 473&nbsp;K, where the pure host reads 0.05. The long rods stay above 0.5 at every step to 473&nbsp;K and still read 0.79 there, 165&nbsp;K above the clearing point of real 5CB.
                     A long rod touches more neighbors along its length than a short rod does, and at this packing it has little room to turn, so it is the last to lose its direction. Taken together, all the rods cross 0.5 near 307&nbsp;K.</p>
 
@@ -302,6 +310,62 @@
                     The resized rods become a new kind with a color of their own and a mass that grows with their volume, while the other rods keep their size, and Undo takes the change back.
                     A rod that has grown into its neighbors needs Minimize Energy before the simulation runs again.</p>
 
+                    <h2>Rods with a Dipole</h2>
+
+                    <p>A 5CB molecule carries an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Electric_dipole_moment">electric dipole</a> of about 4.8&nbsp;debye, from its cyano group, and the Gay&ndash;Berne ellipsoid leaves it out: a rod of the examples above has no head and no tail.
+                    A third example, <em>Polar Rods in an Electric Field</em>, puts the dipole back as a point dipole at the center of the rod, along its axis (the Gay&ndash;Berne&ndash;Stockmayer model), and asks what it changes.
+                    Two dipoles side by side attract when they point opposite ways and repel when they point the same way; end to end they attract when they point the same way; and a static electric field turns a dipole to point along it, as a magnetic field turns a compass needle.
+                    The lab holds 120 rods of the size and attraction of the 5CB rods, filling a periodic cell thinly, about 6&nbsp;% of its volume, at 450&nbsp;K, well above the clearing point, so they form a gas.
+                    Sixty of them carry a dipole of 8&nbsp;debye and are drawn two-toned, the positive end darker; the other sixty carry none. The two kinds have the same shape, mass, and Gay&ndash;Berne attraction, so any difference between them is the dipole's doing.
+                    The dipole is 8&nbsp;debye rather than 4.8 because in test runs 4.8&nbsp;debye changed which way touching rods pointed but hardly changed how many touched, and the gas is hot on purpose: at 450&nbsp;K a contact between two rods lasts a few picoseconds and then breaks, so the share of rods touching settles to a steady value that measures how much the dipole helps.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Polar%20Rods%20in%20an%20Electric%20Field"
+                                id="aims-frame3" allowfullscreen="true" title="Polar Rods in an Electric Field demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame3');">View fullscreen</a><br>
+                            Sixty rods with a dipole of 8&nbsp;debye (blue, the positive end darker) and sixty without (orange), a gas at 450&nbsp;K. Press Play and watch the blue rods find one another.
+                        </figcaption>
+                    </figure>
+
+                    <p>Watched for 200&nbsp;ps, the polar rods spent far more of their time touching a neighbor than the plain ones: 58&nbsp;% of them over the last fifth of the run, against 35&nbsp;% of the rods with no dipole.
+                    Their contacts were almost all antiparallel, 88&nbsp;%, one rod's head beside the other's tail, where about half would be if the dipoles did not care which way a neighbor pointed; the largest cluster held 15 rods.
+                    The attraction between two 8&nbsp;debye dipoles side by side at contact is about 0.3&nbsp;eV, a little more than the Gay&ndash;Berne well, and unlike that well it falls off slowly, as the cube of the distance, so a polar rod feels a neighbor from several rod widths away.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-lc-polar-sticking.png" alt="Share of rods touching a neighbor against time at 450 K: the polar rods rise to about 0.6, the plain rods stay near 0.35, and the share of polar contacts that are antiparallel stays near 0.85">
+                    </div>
+                    <p class="v2-chart-caption">The first chat turn of the polar-rods example: the share of each kind of rod touching a neighbor, and the share of polar contacts that are antiparallel.</p>
+
+                    <p>A static field of 10&nbsp;V/nm along z, switched on at 40&nbsp;ps and off at 100&nbsp;ps, turned the polar rods and left the plain ones alone. The average of the polar rods' heads along the field rose from &minus;0.01 to 0.98 while the plain rods stayed at 0.02; in this model a static field acts only on a dipole, where a real nonpolar molecule would also be turned, weakly, through its polarizability.
+                    The field is about ten thousand times the field across a display pixel because the alignment is set by the dipole's energy in the field divided by the thermal energy: at 1&nbsp;V/nm that ratio is 4 and the heads reach only 0.74, each rod still tumbling; at 3&nbsp;V/nm it is 13 and they reach 0.92 but wobble about 23&deg; around the field; at 10&nbsp;V/nm it is 43 and the wobble is 12&deg;.
+                    Turning the rods also changed their pairs. An antiparallel pair's dipoles cancel, so to line both up the field has to pull the two apart: the share of polar rods touching a neighbor fell from 68&nbsp;% to 35&nbsp;%, about the plain rods' 34&nbsp;%, and the contacts that remained were all head to tail along the field, none antiparallel, since dipoles pointing the same way attract end to end.
+                    When the field went off the heads scattered within about 10&nbsp;ps and the antiparallel pairs formed again, 44&nbsp;% touching and 81&nbsp;% antiparallel by the end.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-lc-polar-field.png" alt="Polar rods in a DC field against time: with the field on from 40 to 100 ps the polar heads along the field jump from 0 to about 0.98 and fall back when it is off, the plain rods stay near 0, the share of polar rods touching drops and the antiparallel share falls to 0 and recovers">
+                    </div>
+                    <p class="v2-chart-caption">The second chat turn: a field of 10&nbsp;V/nm from 40 to 100&nbsp;ps. The dark curves are the heads along the field, the light ones the shares touching, the gray one the share of polar contacts that are antiparallel.</p>
+
+                    <p>Cooled to 300&nbsp;K, the polar rods stuck and the plain ones mostly did not. Over 200&nbsp;ps the share of polar rods touching a neighbor rose from 70&nbsp;% to 90&nbsp;%, and they gathered into bundles, the largest of 26 rods, with 79&nbsp;% of their contacts antiparallel; the plain rods went from 44&nbsp;% to 41&nbsp;%, and many of those were stuck to a polar bundle rather than to one another.
+                    In a gas this thin a plain rod meets another only by chance, and the Gay&ndash;Berne attraction reaches barely a rod width beyond contact, while the dipoles pull on one another from several rod widths away. What the cooling changes is that a contact, once made, no longer breaks: at 300&nbsp;K the well is nine times the thermal energy, so the polar rods pile up instead of pairing and parting as they do at 450&nbsp;K.
+                    The buttons under each chart load the lab at moments of the run, and set the thermostat to the temperature the frame was made at, so a student can press Play on the 300&nbsp;K bundles and watch them hold.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-lc-polar-cooling.png" alt="Share of rods touching a neighbor against time at 300 K: the polar rods climb from 0.7 to 0.9 while the plain rods stay near 0.4">
+                    </div>
+                    <p class="v2-chart-caption">The third chat turn: the same gas cooled to 300&nbsp;K.</p>
+
+                    <p>A charge acts on a dipole too. The field of a charge turns a dipole's opposite end toward it, and because that field weakens with distance the turned dipole is then pulled inward: the ion&ndash;dipole attraction that gathers water molecules around a dissolved ion.
+                    The fourth chat turn gives one plain rod a charge of +2&nbsp;e and another, 40&nbsp;&Aring; away on the other side of the box, &minus;2&nbsp;e, holds both in place so that their surroundings stay in view, and watches for 200&nbsp;ps, back at 450&nbsp;K. Both ions gather a shell. The share of polar rods within 14&nbsp;&Aring; of the positive ion rose from 6&nbsp;% to 12&nbsp;%, about seven rods, and of the negative ion from 4&nbsp;% to 13&nbsp;%, about eight, while the plain rods, which feel nothing from a charge, stayed at the one or two that chance puts near either.
+                    The two shells differ in which end faces the charge. Around the positive ion the polar rods turn their negative, plain-colored halves inward; around the negative ion their positive, darker halves. Measured with the sign of the charge taken into account, the two shells point alike, 0.64 and 0.60 on a scale where 1 is every rod exactly radial; some rods are still paired antiparallel with a neighbor, which keeps that number from climbing further. The model is symmetric under reversing a charge together with every dipole, so the two shells should differ only by chance, and they do.
+                    The signs on the two charged rods and the two shades of the polar ones make the arrangement readable in the lab: a plus sign surrounded by plain halves, a minus sign surrounded by dark ones.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-lc-polar-ion.png" alt="Rods around a positive and a negative charge against time: the share of polar rods within 14 Å of each ion climbs from about 0.05 to about 0.13, the plain rods stay near 0, and the dipoles near each ion point as its field asks at about 0.6">
+                    </div>
+                    <p class="v2-chart-caption">The fourth chat turn: one plain rod carries +2&nbsp;e, another &minus;2&nbsp;e. The shares of polar rods near the positive ion (dark blue) and the negative one (crimson) climb together while the plain rods (brown) stay at chance; the near-black and dark-wine curves are how the dipoles near each ion point, the light gray one the share of polar contacts that are antiparallel.</p>
+
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
                         <p class="v2-prompts-intro">The simulations were given the forces among rods. Everything below came out of them:</p>
@@ -312,14 +376,17 @@
                             <li><span class="v2-prompts-step">Layers ahead of alignment</span> &mdash; heated from 250&nbsp;K, the layer order falls through 0.5 at 309&nbsp;K, about five kelvin before S does at 314&nbsp;K, but the two fall over overlapping ranges, and no step of the heating ramp shows a clean nematic between the smectic and the liquid.</li>
                             <li><span class="v2-prompts-step">A sharp transition under pressure</span> &mdash; at 8&nbsp;MPa the rods clear within one 10&nbsp;K step near 342&nbsp;K, and the cell grows by half in that step.</li>
                             <li><span class="v2-prompts-step">A pixel switch</span> &mdash; a 10&nbsp;ps pulse of an aligning field turns the average direction of disordered rods to within about 12&deg; of vertical and raises S from 0.22 to 0.34.</li>
-                            <li><span class="v2-prompts-step">A mixture that parts ways</span> &mdash; in a cell of 320 short and 40 long rods, the short rods lose their order near 304&nbsp;K while the long rods stay above S = 0.5 to 473&nbsp;K; with 80 long rods the whole cell stays above 0.5 to about 390&nbsp;K.</li>
+                            <li><span class="v2-prompts-step">A mixture whose rods diverge</span> &mdash; in a cell of 320 short and 40 long rods, the short rods lose their order near 304&nbsp;K while the long rods stay above S = 0.5 to 473&nbsp;K; with 80 long rods the whole cell stays above 0.5 to about 390&nbsp;K.</li>
+                            <li><span class="v2-prompts-step">Dipoles that stick</span> &mdash; in a hot, thin gas, rods carrying an 8&nbsp;debye dipole touch a neighbor 58&nbsp;% of the time against 35&nbsp;% for identical rods without one, 88&nbsp;% of their contacts antiparallel; cooled to 300&nbsp;K they gather into bundles (90&nbsp;%) while the plain rods stay loose (41&nbsp;%).</li>
+                            <li><span class="v2-prompts-step">A field on the dipoles</span> &mdash; a static field of 10&nbsp;V/nm turns the polar rods to 0.98 along it and the plain rods not at all, breaks the antiparallel pairs into head-to-tail chains, and lets the pairs form again within tens of picoseconds of switching off.</li>
+                            <li><span class="v2-prompts-step">Ions among dipoles</span> &mdash; a plain rod held in place and given +2&nbsp;e and another given &minus;2&nbsp;e each gather seven or eight polar rods within 14&nbsp;&Aring; in 200&nbsp;ps, negative ends toward the positive charge and positive ends toward the negative one, while the plain rods ignore both.</li>
                         </ul>
                     </div>
 
                     <h2>Conclusion</h2>
 
-                    <p>This article uses liquid crystals to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
-                    measured data. The clearing point of a display material, the hysteresis on cooling, the nematic that grows from the liquid when it is given time, the layers that fade ahead of the alignment, the switch inside a pixel, and the effect of mixing two kinds of rod become something students measure for themselves in a browser.
+                    <p>This article uses liquid crystals to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and returns
+                    measured data. The clearing point of a display material, the hysteresis on cooling, the nematic that grows from the liquid when it is given time, the layers that fade ahead of the alignment, the switch inside a pixel, the effect of mixing two kinds of rod, and the dipoles that make polar rods pair up, follow a static field, and gather around ions become something students measure for themselves in a browser.
                     By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of the material inside every LCD screen.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>

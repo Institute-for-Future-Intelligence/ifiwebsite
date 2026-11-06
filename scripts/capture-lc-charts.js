@@ -2,7 +2,10 @@ const { chromium } = require('playwright');
 
 // Capture the enlarged chat charts of the published liquid-crystal examples for
 // public/aims-liquid-crystals.html (one PNG per chart, the app's own rendering).
-const base = 'https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=';
+// Pass a base with --base (e.g. http://localhost:3001/aims/) to capture from a dev build.
+const baseArg = process.argv.indexOf('--base');
+const host = baseArg > 0 ? process.argv[baseArg + 1].replace(/\/$/, '') : 'https://aims.intofuture.org';
+const base = host + '/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=';
 const projects = [
   {
     title: 'Modeling Liquid Crystals with Gay-Berne Particles',
@@ -19,12 +22,18 @@ const projects = [
     title: 'Mixing Long and Short Rods in a Liquid Crystal',
     outs: ['aims-lc-mixture-by-kind', 'aims-lc-mixture-compositions'],
   },
+  {
+    title: 'Polar Rods in an Electric Field',
+    outs: ['aims-lc-polar-sticking', 'aims-lc-polar-field', 'aims-lc-polar-cooling', 'aims-lc-polar-ion'],
+  },
 ];
+const only = process.argv.indexOf('--only');
+const picked = only > 0 ? projects.filter((p) => p.title === process.argv[only + 1]) : projects;
 
 (async () => {
   const browser = await chromium.launch({ channel: 'chrome' });
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 2 });
-  for (const p of projects) {
+  for (const p of picked) {
     const page = await context.newPage();
     console.log('Loading', p.title);
     await page.goto(base + encodeURIComponent(p.title), { waitUntil: 'networkidle', timeout: 90000 }).catch((e) => console.log('goto warn:', e.message));
