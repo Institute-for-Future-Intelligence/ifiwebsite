@@ -115,7 +115,7 @@
                                 id="aims-frame1" allowfullscreen="true" title="Modeling Liquid Crystals with Gay-Berne Particles demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
-                            A liquid crystal of 216 rods at 293&nbsp;K. Open the resolution chip in the top-left rail to read the order parameter S, which starts at 1 on the lattice and settles near 0.75 within about a minute of Play.
+                            A liquid crystal of 216 rods at 293&nbsp;K. Each rod is colored by its alignment with the director, the shared direction, and fades to gray as it tilts away; the compass at the bottom points along the director and reads the order parameter S, which starts at 1 on the lattice and settles near 0.75 within about a minute of Play.
                         </figcaption>
                     </figure>
 
@@ -182,6 +182,15 @@
                     stand for a small piece of bulk liquid crystal. They sit at a little over half the density of 5CB itself. At the full density, rods this long stay aligned at every temperature tried, well above 700&nbsp;K, because they order by packing
                     alone; the lower density is what lets temperature decide.</p>
 
+                    <p>The lab shows the order on the rods themselves. The example opens with each rod colored by its alignment with the director, the shared direction of the cell: a rod along the director keeps the orange of its kind,
+                    and one tilted away from it fades to gray, by the square of the cosine of the angle between them. A compass at the bottom of the view points along the director as seen from the camera and reads S beneath it;
+                    the arrow is as long as S, so it shrinks away as the order is lost. The Color menu offers four other ways to color the rods: by kind, each rod in the color of its kind, as the other examples draw them; by local order, each rod shaded by how well it agrees
+                    with the rods within one rod length of it, from dark violet to yellow, which shows ordered domains and the liquid between them; by orientation, the direction of the axis read as a color, so that domains pointing different
+                    ways differ in color and the quarter turn of the rods in <em>A Twisted Nematic Display Cell</em>, another example in the same group, shows as a sweep of hue from one wall to the other; and by temperature, the kinetic
+                    energy of each rod, moving and spinning, from blue to red about the average of the cell. The Global Style menu draws the rods as ellipsoids or as thin sticks along their axes, which is the way to see into a dense cell,
+                    and a picked rod can be given a style of its own, so a few rods can be followed as ellipsoids through a cell drawn as sticks. The finishes of the Material menu apply to the rods too; Glass and Translucent let the
+                    layers inside a cell show through.</p>
+
                     <p>The rods start on a lattice, and the lattice is layered: three flat sheets of rods stacked end to end, the arrangement of a
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Liquid_crystal#Smectic_phases">smectic</a> liquid crystal, which has order in position along one axis as well as in direction. Real 5CB never forms layers: it freezes into a crystal at 24&nbsp;&deg;C first. The model rods do.
                     The fourth and fifth chat turns of the example heat the same 216 rods from 250&nbsp;K and chart, beside S, the layer order &tau;, which is 1 when the centers of the rods stand in perfect layers and about 0.07 when they are placed at random.
@@ -232,13 +241,19 @@
                     then drops the thermostat at once to 260&nbsp;K, 50&nbsp;K below the clearing point, and holds it for 800&nbsp;ps, charting S and &tau; against time.
                     For about 200&nbsp;ps S rises only slowly, to 0.26; then it climbs, passes 0.5 for good 440&nbsp;ps after the drop, and ends at 0.79.
                     This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nucleation">nucleation</a>: a patch of rods that happen to point the same way grows once it is large enough to outlast the jostling of its neighbors, and then it takes over the cell.
-                    The layer order does not follow: it stays below 0.2 and ends at 0.09, so what forms from the liquid in this time is a nematic, aligned without layers, although the layers ramp earlier in this article found the same rods layered below about 280&nbsp;K. Alignment needs only that the rods turn; layers need them to slide into register as well, which takes longer. The chart keeps the last frame of the run, and its Show final state button puts the ordered rods into the lab to look at; a row of buttons below it loads the rods as they were when the thermostat dropped, when S rose for good past 0.25, 0.5 and 0.75, when it leveled off, and at the end, so a student can watch the order grow.
+                    The layer order does not follow: it stays below 0.2 and ends at 0.09, so what forms from the liquid in this time is a nematic, aligned without layers, although the layers ramp earlier in this article found the same rods layered below about 280&nbsp;K. Alignment needs only that the rods turn; layers need them to slide into register as well, which takes longer. The chart keeps the last frame of the run, and its Show final state button puts the ordered rods into the lab to look at; a row of buttons below it loads the rods as they were when the thermostat dropped, when S rose for good past 0.25, 0.5 and 0.75, when it leveled off, and at the end, so a student can watch the order grow. Colored by alignment, the growing patch shows as a block of orange rods among gray ones, as the figure below shows.
                     The wait depends on chance and on how far the liquid is cooled: in runs of an earlier version of the model, whose clearing point was higher, the wait grew from 0.3 to 0.4&nbsp;ns at 260&nbsp;K to 0.5&nbsp;ns at 270&nbsp;K and 1.1&nbsp;ns at 280&nbsp;K, closer to its clearing point. So the cooling leg of the first chart is the supercooling of a liquid that orders when it is given time, and the 80&nbsp;ps steps showed only the start of it, at the bottom of the ramp.</p>
 
                     <div class="v2-screenshot-single">
                         <img src="image/aims-lc-quench.png" alt="Order parameter S and layer order tau against time: both fall during the melt at 400 K; at 260 K S rises slowly for 200 ps, climbs through 0.5 at about 440 ps after the drop and levels off near 0.8, while tau stays below 0.2">
                     </div>
                     <p class="v2-chart-caption">The last chat turn. Time on this chart counts from the start of the melt, so the drop to 260&nbsp;K is at 90&nbsp;ps and S passes 0.5 for good at 530&nbsp;ps, 440&nbsp;ps after the drop.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-lc-quench-alignment.png" alt="The 216 rods 250 ps into the quench, colored by alignment with the director: a block of orange rods pointing the same way fills the middle of the cell, with gray rods pointing other ways around it; a compass under the cell reads Director S = 0.35">
+                        <img src="image/aims-lc-quench-local-order.png" alt="The same frame colored by local order: the rods of the growing patch are light green and blue, the rods that disagree with their neighbors dark violet">
+                    </div>
+                    <p class="v2-chart-caption">The rods 250&nbsp;ps into the quench, 160&nbsp;ps after the drop to 260&nbsp;K, loaded from the buttons under the chart, with S = 0.35. Left, colored by alignment with the director: the orange rods are the patch that will take over the cell, the gray ones still point elsewhere. Right, the same frame colored by local order, dark violet where a rod disagrees with its neighbors, lighter where they agree. The compass under the cell points along the director and reads S.</p>
 
                     <h2>Clearing at Constant Pressure</h2>
 
@@ -312,7 +327,7 @@
                     A third example, <em>Polar Rods in an Electric Field</em>, puts the dipole back as a point dipole at the center of the rod, along its axis (the Gay&ndash;Berne&ndash;Stockmayer model), and asks what it changes.
                     Two dipoles side by side attract when they point opposite ways and repel when they point the same way; end to end they attract when they point the same way; and a static electric field turns a dipole to point along it, as a magnetic field turns a compass needle.
                     The lab holds 120 rods of the size and attraction of the 5CB rods, filling a periodic cell thinly, about 6&nbsp;% of its volume, at 450&nbsp;K, well above the clearing point, so they form a gas.
-                    Sixty of them carry a dipole of 8&nbsp;debye and are drawn two-toned, the positive end darker; the other sixty carry none. The two kinds have the same shape, mass, and Gay&ndash;Berne attraction, so any difference between them is the dipole's doing.
+                    Sixty of them carry a dipole of 8&nbsp;debye and are drawn two-toned, the positive end darker, with a pink arrow out of that end along the dipole, so which way each one points can be read at a glance (Dipole Vectors, under Mechanics in the View menu, switches the arrows off); the other sixty carry none. The two kinds have the same shape, mass, and Gay&ndash;Berne attraction, so any difference between them is the dipole's doing.
                     The dipole is 8&nbsp;debye rather than 4.8 because in test runs 4.8&nbsp;debye changed which way touching rods pointed but hardly changed how many touched, and the gas is hot on purpose: at 450&nbsp;K a contact between two rods lasts a few picoseconds and then breaks, so the share of rods touching settles to a steady value that measures how much the dipole helps.</p>
 
                     <figure class="v2-embed">
@@ -320,7 +335,7 @@
                                 id="aims-frame3" allowfullscreen="true" title="Polar Rods in an Electric Field demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame3');">View fullscreen</a><br>
-                            Sixty rods with a dipole of 8&nbsp;debye (blue, the positive end darker) and sixty without (orange), a gas at 450&nbsp;K. Press Play and watch the blue rods find one another.
+                            Sixty rods with a dipole of 8&nbsp;debye (blue, the positive end darker, a pink arrow out of it along the dipole) and sixty without (orange), a gas at 450&nbsp;K. Press Play and watch the blue rods find one another.
                         </figcaption>
                     </figure>
 
