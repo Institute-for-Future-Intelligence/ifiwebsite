@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coarse-Grained Modeling of Biology — Institute for Future Intelligence</title>
+    <meta name="description" content="Lipid tails, virus particles, and the filaments of a cell are all rods. AIMS models each as a Gay–Berne particle, and an AI agent runs the experiments: it holds a lipid bilayer at room temperature and heats it until the sheet falls apart, crowds a suspension of virus-like rods until they line up with no attraction between them, narrows a cell until the filaments inside it point along it, and bends chains of hinged rods to measure their persistence length and then crowds them into a nematic.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img, .v2-screenshot-single img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-screenshot-single { max-width: 720px; margin: 1rem auto 0.5rem; }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="CELL">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Coarse-Grained Modeling of Biology</h1>
+                <p class="v2-tagline">
+                    AIMS models lipid tails, virus particles, and the filaments of a cell as rods and uses an AI agent to run experiments.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>Much of a cell is made of rods. The oily tails of the lipids in its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Lipid_bilayer">membrane</a> are rods about two nanometers long,
+                    the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Microtubule">microtubules</a> and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Actin">actin filaments</a> of its skeleton are rods micrometers long,
+                    and a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tobacco_mosaic_virus">tobacco mosaic virus</a> is a rod 300&nbsp;nm long and 18&nbsp;nm wide. What these objects do, pack into a sheet, line up in a crowd, point along a narrow cell, or hold a direction against thermal kicks, follows from their shape,
+                    so AIMS models each of them as a single rod with its length and width, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent
+                    holds a membrane at room temperature and then heats it until it falls apart, crowds a suspension of virus-like rods until they align, narrows a cell until the filaments inside it point along it, bends chains of hinged rods to measure how far they hold their direction, and posts the measured data in the chat as a live chart.
+                    In the window below, 128 lipids stand in two layers, tails inward and heads outward, at 300&nbsp;K. Press Play and watch the sheet sway: it stays a sheet.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Lipid%20Bilayer%20of%20Gay-Berne%20Particles"
+                                id="aims-frame1" allowfullscreen="true" title="A Lipid Bilayer of Gay-Berne Particles demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            A bilayer of 128 lipids at 300&nbsp;K, 64 in each layer. Each lipid is an orange head bead bonded to the tip of one gray rod, its tail. The cell repeats sideways, so the sheet has no edge.
+                        </figcaption>
+                    </figure>
+
+                    <h2>One Rod for a Tail, One Rod for a Virus</h2>
+
+                    <p>Few molecules of a gas are spheres, yet physicists model gases with hard spheres, because what decides how a gas behaves is that its molecules take up room and bounce off one another.
+                    Keeping only those features makes the cause of the behavior easy to see. A rod does the same for the objects in this article. What makes lipids form a sheet is that each has a head that mixes with water and a tail that avoids it, and that the tails are long and lie side by side;
+                    what makes virus particles line up in a crowd is that each is long and thin and takes up room; what makes a filament point along a narrow cell is that it is longer than the cell is wide.
+                    One rod per tail, per virus, or per segment of a filament keeps those features and leaves out the atoms, so whatever order the rods show comes from their shape and their attraction alone.
+                    This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, a standard approach to
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Soft_matter">soft matter</a> in research, which keeps the degrees of freedom that decide the behavior and drops the rest.
+                    It also makes the simulation fast enough for a browser. A membrane patch, a suspension of a hundred virus particles, or a box of filaments holds far more atoms and runs for far longer than a browser can follow one atom at a time,
+                    while the proteins of the <a href="aims-alpha-helix.html">alpha-helix</a> and <a href="aims-protein-folding.html">protein-folding</a> articles on this site are small enough to be simulated atom by atom or bead by bead.</p>
+
+                    <p>The rod in these labs is the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> particle of 1981, an ellipsoid whose attraction for a neighbor depends on how the two are oriented and is strongest when they lie side by side.
+                    It was made for <a href="aims-liquid-crystals.html">liquid crystals</a>, where one ellipsoid stands for one molecule, and the companion article on that subject explains it. Biology asks three more things of it.
+                    A lipid is a head on a tail, so a rod has to carry a bead bonded at its tip, with a hinge that keeps the bead on the rod's axis; a filament bends, so rods have to be bonded tip to tip, with a hinge at each joint whose stiffness can be set. Both were added to the lab for the examples below.
+                    The third thing biology asks is that some rods attract hardly at all: a virus particle in water pushes its neighbors away and little more. The virus and filament rods below are given an attraction of 20&nbsp;K, a fifteenth of the thermal energy at room temperature, so that their only effective interaction is that two rods cannot pass through each other,
+                    and the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/jp071097f">Martini</a> force field of Marrink and coworkers, used today to simulate cell membranes, sets the size of the lipid tail: one rod 14&nbsp;&Aring; long and 4.7&nbsp;&Aring; wide, the length of three Martini tail beads in a row and the width of one.
+                    The lab works in real units: the thermometer reads kelvin, and the concentrations and lengths below can be compared with the real objects they stand for.
+                    Companion articles apply the same approach to <a href="aims-molecular-crowding.html">molecular crowding</a>, <a href="aims-liquid-crystals.html">liquid crystals</a>, <a href="aims-micelle-formation.html">soap micelles</a>, <a href="aims-protein-folding.html">protein folding</a>, and <a href="aims-glass-transition.html">the glass transition of a polymer</a>.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Building a membrane, squeezing a suspension with a barostat, narrowing a box, measuring an order parameter or a persistence length, and plotting it are the agent's work. A student asks
+                    <em>"does the membrane hold?"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">The four examples are in the Biology group of the Examples menu. Open one, open the chat, and type the prompts below.</p>
+
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser. The membrane runs take minutes; a pressure ladder on 200 rods takes longer, and the two-nanosecond hold of the last chain prompt is the longest experiment here.</p>
+
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">A Lipid Bilayer of Gay-Berne Particles</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Does it hold?</span> &mdash; <span class="v2-prompt">"Run the bilayer for 200 ps at 300 K and chart the tail order and the heads outside every 20 ps. Does it hold?"</span></li>
+                            <li><span class="v2-prompts-step">Where does it melt?</span> &mdash; <span class="v2-prompt">"Now heat the membrane from 300 to 700 K in steps of 50 K, about 60 ps at each, and chart the tail order against temperature. Where does it melt?"</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Virus Particles That Order by Crowding</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">"Compress the rods at 300 K from 2 to 30 MPa, holding 260 ps at each pressure, and chart the nematic order against the concentration. Do they order by crowding?"</span></li>
+                            <li><span class="v2-prompts-step">Dilution</span> &mdash; <span class="v2-prompt">"Now let the pressure back down through the same steps. Does the order go away again?"</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Filaments That Align by Confinement</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Narrowing</span> &mdash; <span class="v2-prompt">"Narrow the box at 300 K from 1.45 to 0.9 rod lengths across, keeping its volume and holding 260 ps at each width, and chart the nematic order against the width. Do the rods line up?"</span></li>
+                            <li><span class="v2-prompts-step">Widening</span> &mdash; <span class="v2-prompt">"Now widen the box back to the cube through the same steps. Does the alignment go away again?"</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Worm-Like Chains That Order by Crowding</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">The hinge</span> &mdash; <span class="v2-prompt">"Build a chain of 20 of these rods for each hinge stiffness from 0 to 6000 K, thermalize each at 300 K, and chart the persistence length against k_a/kT. Does the hinge set it the way the worm-like chain predicts?"</span></li>
+                            <li><span class="v2-prompts-step">Temperature</span> &mdash; <span class="v2-prompt">"Now heat the dimers in the lab from 300 to 600 K, about 400 ps at each step, and chart the persistence length of their hinge against temperature. Do they soften?"</span></li>
+                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">"Compress the cell of dimers at 300 K from 1 to 12 MPa, holding at each pressure, and chart the nematic order against the rods' volume fraction. Do the hinged pairs align, and sooner than single rods would?"</span></li>
+                            <li><span class="v2-prompts-step">Stiff against floppy</span> &mdash; <span class="v2-prompt">"Repeat the compression with free joints, but as a fair test this time: bring a cell of the lab's dimers and a cell with a hinge of 0 K to the same volume fraction, 0.2, and hold both there for 2 ns. Do the floppy dimers still align?"</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>A Membrane Two Molecules Thick</h2>
+
+                    <p>A cell membrane is a sheet two molecules thick. Each lipid in it has a head that mixes with water and oily tails that avoid it, and in water the lipids stand in two layers, tails inward and heads outward on both faces, the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Lipid_bilayer">bilayer</a>. The first example builds one from 128 lipids, 64 in each layer. Each lipid is two particles: a small head bead and one Gay&ndash;Berne rod for the tail,
+                    14&nbsp;&Aring; long and 4.7&nbsp;&Aring; wide, the size of three Martini tail beads in a row. The head is bonded at the tip of the rod, and a hinge keeps it on the rod's axis. Tails attract one another, most strongly when two rods lie side by side,
+                    and heads repel everything. The water is left out, and both rules stand in for it: the tails attract more strongly than two oily molecules would on their own because that attraction also carries the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hydrophobic_effect">hydrophobic effect</a> of the missing water, and the heads repel because water would otherwise surround them. The same approach, a bilayer held together by a tail attraction tuned to replace the solvent, is used in research models such as that of
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevE.72.011506">Cooke, Kremer and Deserno</a>, whose lipids are three beads. Here the three tail beads are one ellipsoid, which turns and packs as a whole.
+                    The cell is periodic in all three directions and is exactly the width of the sheet, so the membrane continues across the side faces without an edge, with empty room above and below it.</p>
+
+                    <p>Asked to run the bilayer for 200&nbsp;ps at 300&nbsp;K, the agent charted two numbers every 20&nbsp;ps: the order S of the tails about the normal to the sheet, which is 1 when every tail stands straight and 0 when they point every way, and the share of heads that sit outside their own tails.
+                    The sheet starts as a lattice, S = 1.00 with every head outside, and after 200&nbsp;ps the tails still stand with S = 0.95, every head is still outside, and each layer still holds its 64 lipids.
+                    The sheet relaxed from 33 to 30&nbsp;&Aring; thick, head to head, at 27&nbsp;&Aring;&sup2; per lipid. A real phospholipid in a fluid membrane takes about 60 to 70&nbsp;&Aring;&sup2; and has two tails, so these one-tailed lipids stand about as closely as the chains of a real membrane do, and a fluid membrane of DPPC, the standard phospholipid of membrane studies, is about 38&nbsp;&Aring; thick head to head
+                    (<a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0304-4157(00)00016-2">Nagle and Tristram-Nagle</a>). The model sheet is thinner because its tails are shorter. Press Load this state on the card to put the relaxed sheet in the lab, or ask the agent to measure the bilayer at any moment: it reports the order, the thickness, the area per lipid and how many lipids are in each layer.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-bio-bilayer-hold.png" alt="Tail order S and share of heads outside against time for 128 lipids at 300 K: S stays between 0.94 and 0.95 and the heads outside stay at 100 % for 200 ps">
+                    </div>
+                    <p class="v2-chart-caption">The first chat turn: the tails' order S and the share of heads outside over 200&nbsp;ps at 300&nbsp;K.</p>
+
+                    <p>Heated in steps of 50&nbsp;K, the sheet held and then failed within one step. S read 0.95 at 300 and 350&nbsp;K, 0.94 at 400&nbsp;K and 0.93 at 450&nbsp;K, then 0.02 at 500&nbsp;K, and it stayed near zero to 700&nbsp;K; it crosses 0.5 at about 474&nbsp;K, the temperature the chart marks as the melting estimate.
+                    The heads tell the same story: every one was outside through 450&nbsp;K, and at 700&nbsp;K only 44&nbsp;% were, the rest among the tails, the sheet by then dozens of small clusters.
+                    Two features of the model set the shape and the place of the collapse. The cell holds the area of the sheet fixed, so the lipids cannot spread apart little by little as a membrane does when it is heated; they hold their order until the tails can tumble, and then the whole sheet goes at once.
+                    And the collapse comes far above the boiling point of real water, because the tail attraction carries the hydrophobic effect of the water the model leaves out, and that attraction is what heat has to overcome.
+                    Real membranes have a different transition at a lower temperature, from an ordered gel in which the tails stand straight to a fluid in which they are disordered, at 314&nbsp;K for DPPC; this model's one-tailed lipids at 27&nbsp;&Aring;&sup2; are packed like a gel, and it has no fluid membrane phase to pass through on the way to coming apart.
+                    Load this state on the hot card puts the broken sheet in the lab with its thermostat at 700&nbsp;K; set the thermostat back to 300&nbsp;K and press Play to watch the pieces cool. The agent can also build the sheet from a different recipe, a two-tailed lipid with a wide head on two rods side by side, closer to a real phospholipid, or a larger area per lipid, which starts the sheet looser.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-bio-bilayer-melt.png" alt="Tail order S and heads outside against temperature from 300 to 700 K: S stays above 0.93 to 450 K and drops to 0.02 at 500 K, crossing 0.5 at 474 K; the heads outside fall from 100 % to 44 %">
+                    </div>
+                    <p class="v2-chart-caption">The second chat turn: S and the share of heads outside on heating in 50&nbsp;K steps. The sheet falls apart between 450 and 500&nbsp;K.</p>
+
+                    <h2>Order from Crowding</h2>
+
+                    <p>Liquid crystals usually order when they are cooled. In 1949 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1111/j.1749-6632.1949.tb27296.x">Onsager</a> showed that long thin rods can also order when they are merely crowded, at any temperature and with no attraction between them at all.
+                    A rod in a dilute suspension points wherever it likes. Pack enough rods together and a rod that lies across its neighbors is boxed in, while one that lies along them can still slide about: above a certain concentration the room gained by aligning outweighs the freedom of pointing anywhere, and the suspension turns
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Liquid_crystal#Nematic_phase">nematic</a> on its own. Entropy makes the order. Biochemists meet the same excluded-volume effect as
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0968-0004(01)01938-7">macromolecular crowding</a>, where the packed interior of a cell favors whatever shape or complex takes up the least room; here the shape that takes the least room is the aligned one.
+                    Suspensions of tobacco mosaic virus were the first biological liquid crystals seen: <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/1381051a0">Bawden, Pirie, Bernal and Fankuchen</a> reported in 1936 that the sap of infected plants, concentrated, separates into a birefringent layer,
+                    and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.63.2068">Fraden, Maret, Caspar and Meyer</a> measured the transition in 1989. The rod-like <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ff_phages">fd virus</a>, studied by
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.78.2417">Dogic and Fraden</a>, does the same, and so do cellulose nanocrystals.</p>
+
+                    <p>The second example holds 200 such rods in a periodic cell at 300&nbsp;K, each 40&nbsp;&Aring; long and 4&nbsp;&Aring; wide, an aspect ratio of 10. A tobacco mosaic virus is 3000&nbsp;&Aring; long and 180&nbsp;&Aring; wide, an aspect ratio of 17, so these are stubby viruses 75 times shorter and 45 times thinner.
+                    For hard rods only the aspect ratio and the concentration matter, which is why Onsager's theory applies to the virus and to these rods alike. Their attraction is 20&nbsp;K, far below the temperature, and they are made light so that they turn quickly. The cell starts dilute, the rods pointing every way.
+                    Onsager measured crowding by the concentration c = &rho;L&sup2;D, the number of rods per volume times the length squared times the width; his theory for infinitely thin rods keeps the suspension isotropic below c = 4.19 and makes it nematic above 5.34, with the two phases coexisting in between. Onsager wrote those limits as 3.29 and 4.19 in his own unit of concentration, which carries a factor of &pi;/4.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Virus%20Particles%20That%20Order%20by%20Crowding"
+                                id="aims-frame2" allowfullscreen="true" title="Virus Particles That Order by Crowding demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
+                            Two hundred nearly hard rods, 40&nbsp;&Aring; by 4&nbsp;&Aring;, in a dilute periodic cell at 300&nbsp;K. Press Play to watch them tumble; the compass at the bottom appears once they share a direction.
+                        </figcaption>
+                    </figure>
+
+                    <p>Asked to compress the rods from 2 to 30&nbsp;MPa, holding 260&nbsp;ps at each pressure, the agent used the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.448118">Berendsen barostat</a>, which rescales the cell a little every step until the rods push back with the set pressure, and charted the order parameter S against c.
+                    At 2.1&nbsp;MPa the cell is 97&nbsp;&Aring; across, c = 1.4 and S = 0.07: an isotropic suspension. The suspension stays isotropic to c = 3.9, at 14.3&nbsp;MPa, where S = 0.16, and is nematic by c = 5.4, at 18.5&nbsp;MPa, where S = 0.87; S crosses 0.5 at c = 4.7.
+                    At 30.5&nbsp;MPa, c = 7.1 and S = 0.94, with the rods filling 37&nbsp;% of a cell now 56&nbsp;&Aring; across. The temperature never changed, and nothing attracts these rods, so this is Onsager's mechanism, and the crossing at 4.7 falls inside the window between 4.19 and 5.34 in which his theory has the two phases coexisting, as it should for rods of aspect 10 with a soft contact.
+                    Each pressure is held 200&nbsp;ps before the 60&nbsp;ps of measurement, and long rods turn slowly, so the order at each step is a lower bound. Buttons under the chart put the cell at any pressure into the lab.</p>
+
+                    <p>Let back down through the same pressures, the order went away again: S fell from 0.92 at c = 6.4 to 0.06 at c = 1.4, crossing 0.5 at c = 3.7, a lower concentration than the 4.7 at which it formed and below the 4.19 at which the theory has the isotropic phase alone.
+                    The gap is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hysteresis">hysteresis</a>, the mark of a first-order transition, widened here by rods that take time to turn, so that a 200&nbsp;ps hold lags the equilibrium on both legs.
+                    Concentration alone made and unmade the nematic, which is why a suspension of tobacco mosaic virus turns birefringent as it is concentrated and clears again on dilution.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-bio-virus-compress.png" alt="Order parameter S of 200 rods against concentration c on compression from 2 to 30 MPa: S stays below 0.31 to c = 4.3, crosses 0.5 at c = 4.7 and reaches 0.94 at c = 7.1">
+                        <img src="image/aims-crowd-virus-loop.png" alt="Order parameter S against concentration c for both legs on one chart: the compression points in blue cross 0.5 at c = 4.7 and the expansion points in orange cross 0.5 at c = 3.7, the gap between them the hysteresis loop">
+                    </div>
+                    <p class="v2-chart-caption">The two chat turns of the virus example: S against the concentration c = &rho;L&sup2;D on compression (left), and the expansion points in orange drawn over the compression curve in blue (right). The order forms at c = 4.7 and melts at 3.7, and the gap between the two is the hysteresis loop.</p>
+
+                    <h2>Filaments That Align by Confinement</h2>
+
+                    <p>Long filaments inside a narrow cell point along it. The microtubules of an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Axon">axon</a>, the nerve fiber that can be a meter long and a micrometer wide, run its length, and so do the actin bundles of a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Filopodia">filopodium</a>, the finger a crawling cell pushes out ahead of itself. Motor and crosslinking proteins organize these bundles in a living cell; the alignment by itself has a simpler cause, which is that a rod that cannot lie across a cell can only lie along it.
+                    The third example tests that with the virus rods of the second: 60 of them, 40&nbsp;&Aring; long and 4&nbsp;&Aring; wide, in a walled cubic box 58&nbsp;&Aring; on a side, 1.45 rod lengths, at 300&nbsp;K. Their concentration is c = 2, below the value at which crowding alone would order them, so in the cube they point every way.
+                    The walls act on the tips of the rods, and the agent can reshape the box. In the first chat turn it narrows the box in steps while keeping its volume, so that the number of rods per volume never changes, and charts S and the alignment of the director with the long axis of the box against the width in rod lengths. In the second it widens the box back to the cube through the same steps.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Filaments%20That%20Align%20by%20Confinement"
+                                id="aims-frame3" allowfullscreen="true" title="Filaments That Align by Confinement demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame3');">View fullscreen</a><br>
+                            Sixty nearly hard rods, 40&nbsp;&Aring; by 4&nbsp;&Aring;, in a walled cube about 1.4 rod lengths across at 300&nbsp;K. Press Play to watch them tumble; they point every way.
+                        </figcaption>
+                    </figure>
+
+                    <p>In the cube S = 0.21 and the director pointed nowhere in particular, |n&middot;&#7811;| = 0.32. Narrowed to 1.3 and then 1.2 rod lengths across, the box growing longer to keep its 195&nbsp;nm&sup3;, the rods read S = 0.13 and 0.20, still disordered, but the director had already swung along the box, |n&middot;&#7811;| = 0.90 and 0.93, because the long axis was by then the direction in which a rod met the fewest walls.
+                    At 1.1 rod lengths S = 0.44; at one rod length across, 40&nbsp;&Aring; wide and 122&nbsp;&Aring; long, S = 0.52 and |n&middot;&#7811;| = 0.99; at 0.9 rod lengths, where the box is 36&nbsp;&Aring; wide and 151&nbsp;&Aring; long, S = 0.69 and |n&middot;&#7811;| = 1.00. S crossed 0.5 at a width of 1.03 rod lengths, where a rod can no longer lie across the box.
+                    Nothing attracts these rods and nothing pushed them together: the same 60 rods fill the same volume at the first step and at the last. The walls took away every direction but one. The measured S of 0.69 corresponds to an average tilt of about 27&deg; from the long axis.
+                    Buttons under the chart put the box at any width into the lab, where Experiment Settings, Boundary, also lets a student set any box shape by hand.</p>
+
+                    <p>Asked next to widen the box back to the cube through the same steps, the agent found the order going away again: S fell from 0.57 at 0.95 rod lengths to 0.37 at 1.1, 0.26 at 1.2, 0.14 at 1.3 and 0.16 back in the cube, crossing 0.5 at 1.04 rod lengths, within a step of the 1.03 at which it had formed on the way in.
+                    Nothing was heated or cooled and the concentration never changed: the same rods in the same volume are isotropic in a cube and aligned in a channel, so the alignment belongs to the shape of the box.
+                    This is what makes confinement useful to a cell: a cell that elongates aligns its filaments, and one that rounds up releases them.
+                    The box moves slowly, 0.2&nbsp;% of its width per picosecond, so each step is about a nanosecond of narrowing or widening before its hold, and long rods turn slowly, so the order at each width is a lower bound on the way in and an upper bound on the way out.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-bio-confine-width.png" alt="Order parameter S and director alignment of 60 rods against the box width in rod lengths, from 1.45 to 0.9 at fixed volume: S rises from 0.21 to 0.69 and crosses 0.5 at 1.03 rod lengths, while the director alignment with the long axis reaches 0.99 by one rod length">
+                        <img src="image/aims-bio-confine-widen.png" alt="Order parameter S and director alignment of the same rods as the box widens back from 0.95 to 1.45 rod lengths: S falls from 0.57 to 0.16 and crosses 0.5 at 1.04 rod lengths">
+                    </div>
+                    <p class="v2-chart-caption">The two chat turns of the filament example: S and the alignment of the director with the long axis as the box narrows at fixed volume (left), and the same two numbers as it widens back to the cube (right).</p>
+
+                    <h2>Chains of Rods</h2>
+
+                    <p>A single rod is the simplest shape in a cell, and a chain of rods is the next one. Most of the long molecules of a cell are chains that bend: easily at every bond, like a loose coil, or stiffly, holding their direction a long way before the thermal kicks turn them. The length over which a chain remembers its direction is its persistence length. For DNA it is about 50&nbsp;nm, as <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1146/annurev.bb.17.060188.001405">Hagerman</a> reviewed in 1988; for an actin filament <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1083/jcb.120.4.923">Gittes, Mickey, Nettleton and Howard</a> measured 17&nbsp;&micro;m in 1993, and for a microtubule millimeters. The model for such a chain is the worm-like chain of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/recl.19490681203">Kratky and Porod</a> (1949): a line that resists bending, jostled by heat. A chain of Gay&ndash;Berne rods hinged tip to tip is the shortest worm there is. Each hinge costs an energy k<sub>a</sub>(1&nbsp;&minus;&nbsp;cos&nbsp;&theta;) to bend by an angle &theta;, and that one number sets the stiffness of the whole chain. The example <em>Worm-Like Chains That Order by Crowding</em>, in the Biology group beside the virus particles, starts from them: a hundred pairs of rods, 40&nbsp;&Aring; long and 4&nbsp;&Aring; wide, joined by a hinge of 6000&nbsp;K, twenty times the thermal energy at room temperature, in a periodic cell dilute enough that the pairs rarely meet. The question the example builds toward was asked by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1098/rspa.1956.0015">Flory</a> in 1956 and worked out for semiflexible chains by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0378-4371(81)90148-5">Khokhlov and Semenov</a> in 1981: when such chains are crowded, does their stiffness decide whether they order?</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Worm-Like%20Chains%20That%20Order%20by%20Crowding"
+                                id="aims-frame4" allowfullscreen="true" title="Worm-Like Chains That Order by Crowding demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame4');">View fullscreen</a><br>
+                            One hundred pairs of rods, each pair hinged tip to tip, in a dilute periodic cell at 300&nbsp;K. Press Play and watch the joints swing.
+                        </figcaption>
+                    </figure>
+
+                    <p>The first chat turn asks for the law of the worm-like chain itself. The agent built a fresh chain of 20 rods for each of eight hinge stiffnesses, from a free joint to 6000&nbsp;K, held each at 300&nbsp;K and measured the average of cos&nbsp;&theta; between neighboring rods, four chains per stiffness. The persistence length follows from that one average, &ell;<sub>p</sub> = &minus;b/ln&lang;cos&nbsp;&theta;&rang; with b the length of a rod, and statistical mechanics predicts the average: for a hinge that costs k<sub>a</sub>(1&nbsp;&minus;&nbsp;cos&nbsp;&theta;), &lang;cos&nbsp;&theta;&rang; = coth&nbsp;x &minus; 1/x with x = k<sub>a</sub>/kT, the Langevin function that also gives the magnetization of a paramagnet. The measured persistence length climbed from 0.4 rods at the free joint to 19.0 rods (756&nbsp;&Aring;) at 6000&nbsp;K, and the prediction, drawn as a line with no fitted parameter, ran through the points: at 6000&nbsp;K the measured &lang;cos&nbsp;&theta;&rang; was 0.95 against 0.95 predicted. The free joint is the one place the prediction misses. It says zero, but the rods are 4&nbsp;&Aring; wide and two neighbors cannot fold back through each other, so &lang;cos&nbsp;&theta;&rang; stayed at 0.07 and the chain kept 0.4 rods of persistence from excluded volume alone. The second turn heated the hundred pairs in the lab from 300 to 600&nbsp;K in five steps. Nothing about the hinge changed, but x fell from 20 to 10, and the persistence length read from the hundred joints fell from 19.4 rods at 300&nbsp;K to 9.5 rods at 600&nbsp;K, against 19.5 and 9.5 predicted. A stiff hinge keeps &lang;cos&nbsp;&theta;&rang; near 1&nbsp;&minus;&nbsp;kT/k<sub>a</sub>, so its persistence length is about k<sub>a</sub>/kT rods and falls as 1/T. This is why a quoted persistence length carries a temperature: the 50&nbsp;nm of DNA is a room-temperature number.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-bio-worm-hinge.png" alt="Persistence length in rods against hinge stiffness k_a/kT from 0 to 20 for chains of 20 rods at 300 K: it rises from 0.4 to 19.0 rods and follows the worm-like chain prediction drawn as a line">
+                        <img src="image/aims-bio-worm-temperature.png" alt="Persistence length in rods against temperature from 300 to 600 K for 100 pairs of rods with a 6000 K hinge: it falls from 19.4 to 9.5 rods along the 1/T prediction">
+                    </div>
+                    <p class="v2-chart-caption">The first two chat turns of the worm-like chain example: persistence length against the hinge stiffness k<sub>a</sub>/kT for chains of 20 rods at 300&nbsp;K, with the Langevin prediction as a line (left), and persistence length against temperature for the hundred pairs in the lab (right).</p>
+
+                    <p>The third turn is where the rods matter. The agent compressed the cell of stiff pairs at 300&nbsp;K with the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.448118">Berendsen</a> barostat, held at each pressure, and charted the nematic order S of the rods against the fraction &phi; of the cell they fill. The pairs stayed a tangle while they had room, S between 0.08 and 0.15 up to &phi; = 0.18, and then aligned: S crossed 0.5 at &phi; = 0.23 and reached 0.98 at &phi; = 0.47, in a cell 52&nbsp;&Aring; across. The temperature never changed and nothing attracts the rods. This is the excluded-volume ordering of the virus example for particles that bend, and the same route by which Kevlar is spun from a nematic solution and DNA forms liquid crystals at high concentration. Onsager's threshold falls as 1/L&sup2; in number density, so a rigid rod twice as long would order at about half the volume fraction of a single rod, near &phi; = 0.11 for a straight rod of the pair's 80&nbsp;&Aring;. The hinged pair landed at 0.23, close to the 0.24 of the single rods, and the reason is time: a pair of 40&nbsp;&Aring; rods needs about a nanosecond at one density to find the common axis, and each pressure on the ladder is held a fifth of that, so the ladder passes the concentration at which the pairs would order before they have ordered. Its joint, swinging about 18&deg;, keeps the pair nearly straight; in the nematic the joints straightened a little further, &lang;cos&nbsp;&theta;&rang; rising from 0.95 to 0.99 as the chains packed. The fourth turn gives the pairs the time and makes the test fair. The agent built two fresh cells of a hundred pairs, one with the 6000&nbsp;K hinge and one with free joints, pairs that fold to any angle, brought each to the same volume fraction, &phi; = 0.20, in 200&nbsp;ps, and held both there for two nanoseconds with the volume fixed, sampling S every 20&nbsp;ps. The stiff pairs started as a tangle, S = 0.16, and ordered on their own: S rose through 0.5 after 360&nbsp;ps and reached 0.86 by the end. The free-jointed pairs stayed a tangle for the whole two nanoseconds, S = 0.07 at the end, their joints only slightly straightened by the crowd, &lang;cos&nbsp;&theta;&rang; 0.36 at the start and 0.35 at the end, against 0.96 for the stiff hinge. The two cells hold the same rods at the same concentration and temperature, and the hinge is the only difference between them. A straight pair is a rod of aspect 20 and orders where Onsager says such a rod should; a pair that folds is two rods of aspect 10 tied together, with little more alignment to gain than the single rods, which at &phi; = 0.20 are still isotropic. This is Flory's rule for polymer liquid crystals: a chain's length counts toward the nematic only as far as it is straight, so the stiffer the chain, the lower the concentration at which it orders. It is the reason liquid-crystal polymers such as Kevlar are built from rigid units, and the reason DNA, with its 50&nbsp;nm persistence length, forms liquid crystals at concentrations where a flexible polymer of the same mass is still an entangled melt.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-bio-worm-compress.png" alt="Order parameter S of 100 stiff pairs of rods against the volume fraction of the rods on compression at 300 K: S stays below 0.15 to a volume fraction of 0.18, crosses 0.5 at 0.23 and reaches 0.98 at 0.47">
+                        <img src="image/aims-crowd-worm-hold.png" alt="Order parameter S against time for two cells of 100 pairs of rods held at a volume fraction of 0.20 for 2 ns at 300 K: the pairs with a 6000 K hinge rise from 0.16 through 0.5 at 360 ps to 0.86, and the pairs with free joints stay between 0.05 and 0.28, ending at 0.07">
+                    </div>
+                    <p class="v2-chart-caption">The last two chat turns: nematic order against the volume fraction of the rods as the hundred stiff pairs are compressed at 300&nbsp;K (left), and S against time for a stiff cell and a free-jointed cell held at &phi; = 0.20 for two nanoseconds (right).</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the shapes of the rods, the hinges that join them, and a tail attraction set so that a membrane holds at room temperature. Everything else below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">A membrane that holds</span> &mdash; 128 one-tailed lipids stand as a bilayer for 200&nbsp;ps at 300&nbsp;K with S = 0.95 and every head outside, 30&nbsp;&Aring; thick at 27&nbsp;&Aring;&sup2; per lipid.</li>
+                            <li><span class="v2-prompts-step">A membrane that fails all at once</span> &mdash; heated in 50&nbsp;K steps at fixed area, the sheet keeps S above 0.93 to 450&nbsp;K and reads 0.02 at 500&nbsp;K; at 700&nbsp;K only 44&nbsp;% of the heads are still outside.</li>
+                            <li><span class="v2-prompts-step">Order from crowding</span> &mdash; 200 nearly hard rods of aspect 10, compressed at 300&nbsp;K, stay isotropic to c = 3.9 and are nematic by c = 5.4, crossing S = 0.5 at c = 4.7, inside Onsager&rsquo;s coexistence window of 4.19 to 5.34.</li>
+                            <li><span class="v2-prompts-step">Hysteresis on dilution</span> &mdash; expanded through the same pressures, the order melts at c = 3.7, below the 4.7 at which it formed.</li>
+                            <li><span class="v2-prompts-step">Alignment by confinement</span> &mdash; 60 nearly hard rods at a fixed concentration of c = 2, below Onsager&rsquo;s threshold, point every way in a cube (S = 0.21) and line up along the box as it narrows at fixed volume, crossing S = 0.5 at 1.03 rod lengths across and reaching 0.69 at 0.9.</li>
+                            <li><span class="v2-prompts-step">An alignment the walls undo</span> &mdash; widened back to the cube through the same steps, the rods lose the order again, S falling through 0.5 at 1.04 rod lengths and reading 0.16 in the cube.</li>
+                            <li><span class="v2-prompts-step">The worm-like chain's law</span> &mdash; chains of 20 rods at 300&nbsp;K have a persistence length of 0.4 rods at a free joint and 19.0 rods (756&nbsp;&Aring;) at a 6000&nbsp;K hinge, on the Langevin prediction coth&nbsp;x&nbsp;&minus;&nbsp;1/x with no fitted parameter.</li>
+                            <li><span class="v2-prompts-step">Stiffness that falls as 1/T</span> &mdash; heated from 300 to 600&nbsp;K, the hundred hinged pairs soften from 19.4 to 9.5 rods of persistence, against 19.5 and 9.5 predicted, with the hinge unchanged.</li>
+                            <li><span class="v2-prompts-step">Chains that order by crowding</span> &mdash; compressed at 300&nbsp;K, the stiff pairs stay disordered to &phi; = 0.18, cross S = 0.5 at &phi; = 0.23 and reach S = 0.98 at &phi; = 0.47, with no attraction and no cooling.</li>
+                            <li><span class="v2-prompts-step">Flory's rule</span> &mdash; held at &phi; = 0.20 for two nanoseconds, the pairs with a 6000&nbsp;K hinge order within 360&nbsp;ps and reach S = 0.86, and the pairs with free joints end at S = 0.07 with their joints at &lang;cos&nbsp;&theta;&rang; = 0.35.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses the rods of a cell to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and returns
+                    measured data. A membrane that holds at room temperature and fails when heated, a suspension of virus-like particles that orders when it is crowded and clears when it is diluted, filaments that point along a narrow cell, and chains whose stiffness follows one law and whose crowding makes them align become something students measure for themselves in a browser.
+                    By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of the shapes that organize a living cell.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

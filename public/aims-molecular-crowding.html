@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molecular Crowding with Gay–Berne Particles — Institute for Future Intelligence</title>
+    <meta name="description" content="The inside of a cell is crowded, and crowding alone can order long molecules. AIMS models virus particles and hinged chains as Gay–Berne rods with almost no attraction, and an AI agent runs the experiments: it compresses two hundred rods until they turn nematic and dilutes them until the order melts, and holds stiff and free-jointed pairs of rods at the same volume fraction for two nanoseconds to show that stiffness decides whether a crowded chain aligns.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img, .v2-screenshot-single img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-screenshot-single { max-width: 720px; margin: 1rem auto 0.5rem; }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="CROWD">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Molecular Crowding with Gay&ndash;Berne Particles</h1>
+                <p class="v2-tagline">
+                    AIMS crowds suspensions of rods and of hinged chains until they order, and an AI agent runs the experiments.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
+
+                    <p>The inside of a cell is crowded. Proteins, RNA, ribosomes, and filaments take up a fifth to a third of its volume, a figure
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0968-0004(01)01938-7">Ellis</a> called obvious but underappreciated in 2001, and
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0022-2836(91)90499-V">Zimmerman and Trach</a> estimated the protein and RNA in the cytoplasm of <em>E.&nbsp;coli</em> at several hundred grams per liter.
+                    Biochemists call the consequences <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Macromolecular_crowding">macromolecular crowding</a>. A molecule in a crowd has less room than it would in a dilute solution, and the arrangements that leave the crowd the most room win:
+                    compact shapes over open ones, complexes over free parts, and, for long thin objects, alignment over tumbling.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.1740347">Asakura and Oosawa</a> showed in 1954 that two large bodies in a solution of smaller ones are pushed together because the small ones gain room when the two touch, and
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1074/jbc.R100005200">Minton</a> and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1146/annurev.biophys.37.032807.125817">Zhou, Rivas and Minton</a> reviewed how the same effect shifts folding, binding, and assembly inside a cell.
+                    The effect is entropic: the temperature stays the same, the forces between the molecules stay the same, and the order comes from the room that is left.</p>
+
+                    <p>The simplest case of it was worked out by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1111/j.1749-6632.1949.tb27296.x">Onsager</a> in 1949 for long thin rods that do nothing to one another except refuse to overlap.
+                    A rod in a dilute suspension points wherever it likes. Pack enough rods together and a rod that lies across its neighbors is boxed in, while one that lies along them can still slide about; above a certain concentration the room gained by aligning outweighs the freedom of pointing anywhere, and the suspension turns
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Liquid_crystal#Nematic_phase">nematic</a> at any temperature. Suspensions of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tobacco_mosaic_virus">tobacco mosaic virus</a> were the first biological liquid crystals seen:
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/1381051a0">Bawden, Pirie, Bernal and Fankuchen</a> reported in 1936 that the concentrated sap of infected plants separates into a birefringent layer,
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.63.2068">Fraden, Maret, Caspar and Meyer</a> measured the transition in 1989, and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.78.2417">Dogic and Fraden</a> found the same ordering in the rod-like fd virus.
+                    This article follows two AIMS examples that reproduce the effect in a browser. In the first, two hundred virus-like rods are squeezed until they line up and then expanded until they tumble again.
+                    In the second, the rods are joined in hinged pairs, the shortest chain that can bend, and the question becomes the one <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1098/rspa.1956.0015">Flory</a> asked in 1956 about polymers: when a chain is crowded, does its stiffness decide whether it orders?
+                    In both, a student asks a plain-language question and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the cell, runs the molecular dynamics, measures the order, and posts the chart in the conversation.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Virus%20Particles%20That%20Order%20by%20Crowding"
+                                id="aims-frame1" allowfullscreen="true" title="Virus Particles That Order by Crowding demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Two hundred nearly hard rods, 40&nbsp;&Aring; by 4&nbsp;&Aring;, in a dilute periodic cell at 300&nbsp;K. Press Play to watch them tumble; the Director arrow at the bottom appears once they share a direction.
+                        </figcaption>
+                    </figure>
+
+                    <h2>A Rod That Only Takes Up Room</h2>
+
+                    <p>The rod in both examples is the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> particle of 1981, an ellipsoid whose attraction for a neighbor depends on how the two are oriented. It was made for
+                    <a href="aims-liquid-crystals.html">liquid crystals</a>, where one ellipsoid stands for one molecule and the attraction between side-by-side neighbors makes the nematic as the liquid is cooled. Crowding asks the opposite of it. The attraction is turned down to 20&nbsp;K, a fifteenth of the thermal energy at room temperature,
+                    so that the only thing a rod does to a neighbor is keep it out of the room it occupies, and whatever order appears comes from shape and concentration alone.
+                    This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>: a tobacco mosaic virus is 2130 protein subunits around a strand of RNA, and the model keeps the one fact about it that decides whether a suspension of it orders, that it is a rod about seventeen times longer than it is wide.
+                    The rods here are 40&nbsp;&Aring; long and 4&nbsp;&Aring; wide, an aspect ratio of 10, so they are stubby viruses 75 times shorter and 45 times thinner than the real one. For hard rods only the aspect ratio and the concentration matter, which is why Onsager's theory applies to the virus and to these rods alike.
+                    The rods are made light so that they turn quickly, and the lab works in real units: the thermometer reads kelvin, the barostat reads megapascals, and the concentrations below can be compared with the ones in a cell.
+                    A companion article, <a href="aims-coarse-grained-biology.html">Coarse-Grained Modeling of Biology</a>, uses the same rod for a lipid bilayer and for filaments aligned by a narrow cell.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Squeezing a suspension with a barostat, bringing a cell to a chosen volume fraction and holding it there, measuring an order parameter or a persistence length, and plotting it are the agent's work. A student asks
+                    <em>"do they order by crowding?"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Both examples are in the Biology group of the Examples menu. Open one, open the chat, and type the prompts below.</p>
+
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser. A pressure ladder on 200 rods takes many minutes, and the two-nanosecond hold of the last prompt is the longest experiment here.</p>
+
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">Virus Particles That Order by Crowding</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">"Compress the rods at 300 K from 2 to 30 MPa, holding 260 ps at each pressure, and chart the nematic order against the concentration. Do they order by crowding?"</span></li>
+                            <li><span class="v2-prompts-step">Dilution</span> &mdash; <span class="v2-prompt">"Now let the pressure back down through the same steps. Does the order go away again?"</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Worm-Like Chains That Order by Crowding</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">The hinge</span> &mdash; <span class="v2-prompt">"Build a chain of 20 of these rods for each hinge stiffness from 0 to 6000 K, thermalize each at 300 K, and chart the persistence length against k_a/kT. Does the hinge set it the way the worm-like chain predicts?"</span></li>
+                            <li><span class="v2-prompts-step">Temperature</span> &mdash; <span class="v2-prompt">"Now heat the dimers in the lab from 300 to 600 K, about 400 ps at each step, and chart the persistence length of their hinge against temperature. Do they soften?"</span></li>
+                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">"Compress the cell of dimers at 300 K from 1 to 12 MPa, holding at each pressure, and chart the nematic order against the rods' volume fraction. Do the hinged pairs align, and sooner than single rods would?"</span></li>
+                            <li><span class="v2-prompts-step">Stiff against floppy</span> &mdash; <span class="v2-prompt">"Repeat the compression with free joints, but as a fair test this time: bring a cell of the lab's dimers and a cell with a hinge of 0 K to the same volume fraction, 0.2, and hold both there for 2 ns. Do the floppy dimers still align?"</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>Crowding Alone Orders a Suspension</h2>
+
+                    <p>The first example holds 200 rods in a periodic cell at 300&nbsp;K, dilute, the rods pointing every way. Onsager measured crowding by the concentration c = &rho;L&sup2;D, the number of rods per volume times the length squared times the width.
+                    His theory for infinitely thin hard rods keeps the suspension isotropic below c = 4.19 and makes it nematic above 5.34, with the two phases coexisting in between; he wrote those limits as 3.29 and 4.19 in his own unit of concentration, which carries a factor of &pi;/4.
+                    For these rods, c = 4.19 means the rods fill 22&nbsp;% of the cell and c = 5.34 means 28&nbsp;%, a volume fraction inside the range that macromolecules fill in a cell.
+                    Asked to compress the rods from 2 to 30&nbsp;MPa, holding 260&nbsp;ps at each pressure, the agent used the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.448118">Berendsen barostat</a>, which rescales the cell a little every step until the rods push back with the set pressure, and charted the order parameter S against c.
+                    S is 1 when every rod points the same way and 0 when they point every way. At 2.1&nbsp;MPa the cell is 97&nbsp;&Aring; across, c = 1.4 and S = 0.07, an isotropic suspension. The suspension stays isotropic to c = 3.9, at 14.3&nbsp;MPa, where S = 0.16, and is nematic by c = 5.4, at 18.5&nbsp;MPa, where S = 0.87; S crosses 0.5 at c = 4.7.
+                    At 30.5&nbsp;MPa, c = 7.1 and S = 0.94, with the rods filling 37&nbsp;% of a cell 56&nbsp;&Aring; across.
+                    The thermostat read 300&nbsp;K throughout and the attraction between the rods stayed at 20&nbsp;K, so the order came from the crowding, and the crossing at 4.7 falls inside the window between 4.19 and 5.34 in which Onsager's theory has the two phases coexisting, as it should for rods of aspect 10 with a soft contact.
+                    Each pressure is held 200&nbsp;ps before the 60&nbsp;ps of measurement, and long rods turn slowly, so the order at each step is a lower bound. Buttons under the chart put the cell at any pressure into the lab, where the Director arrow shows the common axis.</p>
+
+                    <p>Let back down through the same pressures, the order went away again: S fell from 0.92 at c = 6.4 to 0.06 at c = 1.4, crossing 0.5 at c = 3.7, a lower concentration than the 4.7 at which it formed and below the 4.19 at which the theory has the isotropic phase alone.
+                    The gap is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hysteresis">hysteresis</a>, the mark of a first-order transition, widened here by rods that take time to turn, so that a 200&nbsp;ps hold lags the equilibrium on both legs.
+                    Concentration alone made and unmade the nematic. This is why a suspension of tobacco mosaic virus turns birefringent as it is concentrated and clears again on dilution, and it is the mechanism by which crowding orders the long molecules of a cell: a dense bundle of filaments or a concentrated solution of DNA aligns for the same reason these rods do.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-bio-virus-compress.png" alt="Order parameter S of 200 rods against concentration c on compression from 2 to 30 MPa: S stays below 0.31 to c = 4.3, crosses 0.5 at c = 4.7 and reaches 0.94 at c = 7.1">
+                        <img src="image/aims-crowd-virus-loop.png" alt="Order parameter S against concentration c for both legs on one chart: the compression points in blue cross 0.5 at c = 4.7 and the expansion points in orange cross 0.5 at c = 3.7, the gap between them the hysteresis loop">
+                    </div>
+                    <p class="v2-chart-caption">The two chat turns of the virus example: S against the concentration c = &rho;L&sup2;D on compression (left), and the expansion points in orange drawn over the compression curve in blue (right). The order forms at c = 4.7 and melts at 3.7, and the gap between the two is the hysteresis loop.</p>
+
+                    <h2>Crowding a Chain That Bends</h2>
+
+                    <p>Most of the long molecules of a cell are chains that bend. The length over which a chain keeps its direction against thermal kicks is its persistence length: about 50&nbsp;nm for DNA, as
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1146/annurev.bb.17.060188.001405">Hagerman</a> reviewed in 1988, 17&nbsp;&micro;m for an actin filament, and millimeters for a microtubule. The model for such a chain is the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Worm-like_chain">worm-like chain</a> of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/recl.19490681203">Kratky and Porod</a>, a line that resists bending. A chain of Gay&ndash;Berne rods hinged tip to tip is the shortest worm there is: each hinge costs an energy k<sub>a</sub>(1&nbsp;&minus;&nbsp;cos&nbsp;&theta;) to bend by an angle &theta;, and that one number sets the stiffness of the whole chain.
+                    The second example starts from the virus rods of the first, joined in a hundred pairs by a hinge of 6000&nbsp;K, twenty times the thermal energy at room temperature, in a periodic cell dilute enough that the pairs rarely meet. A pair is a rod of aspect 20 that can bend at its middle.
+                    Flory's question of 1956, worked out for semiflexible chains by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0378-4371(81)90148-5">Khokhlov and Semenov</a> in 1981, is whether a crowded chain orders at a concentration set by its full length or only by the length over which it is straight.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Worm-Like%20Chains%20That%20Order%20by%20Crowding"
+                                id="aims-frame2" allowfullscreen="true" title="Worm-Like Chains That Order by Crowding demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
+                            One hundred pairs of rods, each pair hinged tip to tip, in a dilute periodic cell at 300&nbsp;K. Press Play and watch the joints swing.
+                        </figcaption>
+                    </figure>
+
+                    <p>The first two chat turns establish what the hinge does. The agent built a fresh chain of 20 rods for each of eight hinge stiffnesses, from a free joint to 6000&nbsp;K, held each at 300&nbsp;K, and measured the average of cos&nbsp;&theta; between neighboring rods, four chains per stiffness.
+                    The persistence length follows from that average, &ell;<sub>p</sub> = &minus;b/ln&lang;cos&nbsp;&theta;&rang; with b the length of a rod, and statistical mechanics predicts the average: for a hinge that costs k<sub>a</sub>(1&nbsp;&minus;&nbsp;cos&nbsp;&theta;), &lang;cos&nbsp;&theta;&rang; = coth&nbsp;x &minus; 1/x with x = k<sub>a</sub>/kT, the Langevin function that also gives the magnetization of a paramagnet.
+                    The measured persistence length climbed from 0.4 rods at the free joint to 19.0 rods (756&nbsp;&Aring;) at 6000&nbsp;K, and the prediction, drawn as a line with no fitted parameter, ran through the points. Heated from 300 to 600&nbsp;K, the hundred pairs in the lab softened from 19.4 to 9.5 rods of persistence, against 19.5 and 9.5 predicted, with the hinge unchanged, because x fell from 20 to 10.
+                    At 300&nbsp;K a pair with the 6000&nbsp;K hinge is nearly straight, its joint swinging about 18&deg;, and a pair with a free joint folds to any angle. Those are the two objects the crowding turns compare.</p>
+
+                    <p>The third turn compressed the cell of stiff pairs at 300&nbsp;K on a pressure ladder, from 1 to 12&nbsp;MPa, holding 200&nbsp;ps at each pressure before 60&nbsp;ps of measurement, and charted S against the fraction &phi; of the cell the rods fill. The pairs stayed a tangle while they had room, S between 0.08 and 0.15 up to &phi; = 0.18, and then aligned: S crossed 0.5 at &phi; = 0.23 and reached 0.98 at &phi; = 0.47, in a cell 52&nbsp;&Aring; across.
+                    The single rods of the first example crossed at &phi; = 0.24, so on this ladder the pairs ordered at about the same concentration as the rods they are made of. Onsager's threshold falls as 1/L&sup2; in number density, so a rigid rod twice as long should order at about half the volume fraction, near &phi; = 0.11 for a straight 80&nbsp;&Aring; rod, and the ladder put the pairs far above that.
+                    The reason is time. A pair of 40&nbsp;&Aring; rods needs about a nanosecond at one density to find the common axis, and each pressure on the ladder is held a fifth of that, so the ladder passes the concentration at which the pairs would order before they have ordered, and the crossing it records is late. The chat says so, and the fourth turn gives the pairs the time.</p>
+
+                    <p>The fourth turn makes the test fair by holding one concentration. The agent built two fresh cells of a hundred pairs, one with the 6000&nbsp;K hinge and one with free joints, brought each to the same volume fraction, &phi; = 0.20, the rods filling a fifth of a cell 69&nbsp;&Aring; across, in 200&nbsp;ps, and then held both there for two nanoseconds with the volume fixed, sampling S every 20&nbsp;ps.
+                    The stiff pairs started as a tangle, S = 0.16, and ordered on their own: S rose through 0.5 after 360&nbsp;ps and reached 0.86 by the end, a nematic with the Director arrow to show for it. The free-jointed pairs stayed a tangle for the whole two nanoseconds: S = 0.07 at the end, and their joints were only slightly straightened by the crowd, &lang;cos&nbsp;&theta;&rang; 0.36 at the start and 0.35 at the end, against 0.96 for the stiff hinge.
+                    The two cells have the same rods at the same concentration and the same temperature; the only difference between them is the hinge. A straight pair is a rod of aspect 20 and orders where Onsager says such a rod should, below the single rods' 0.24. A pair that folds is two rods of aspect 10 that happen to be tied together, with the excluded volume of the two and little more alignment to gain than the single rods, which at &phi; = 0.20 are still isotropic.
+                    This is Flory's rule for polymer liquid crystals: a chain's length counts toward the nematic only as far as it is straight, so the stiffer the chain, the lower the concentration at which it orders. It is the reason liquid-crystal polymers such as Kevlar are built from rigid units, and the reason DNA, with its 50&nbsp;nm persistence length, forms liquid crystals at concentrations where a flexible polymer of the same mass is still an entangled melt.
+                    Buttons under the chart put the stiff cell at any time along the hold into the lab, and Load this state on the card puts the free-jointed cell there.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-bio-worm-compress.png" alt="Order parameter S of 100 stiff pairs of rods against the volume fraction of the rods on compression at 300 K: S stays below 0.15 to a volume fraction of 0.18, crosses 0.5 at 0.23 and reaches 0.98 at 0.47">
+                        <img src="image/aims-crowd-worm-hold.png" alt="Order parameter S against time for two cells of 100 pairs of rods held at a volume fraction of 0.20 for 2 ns at 300 K: the pairs with a 6000 K hinge rise from 0.16 through 0.5 at 360 ps to 0.86, and the pairs with free joints stay between 0.05 and 0.28, ending at 0.07">
+                    </div>
+                    <p class="v2-chart-caption">The last two chat turns of the chain example: S against the volume fraction of the rods as the hundred stiff pairs are compressed on a pressure ladder at 300&nbsp;K (left), and S against time for a stiff cell and a free-jointed cell held at &phi; = 0.20 for two nanoseconds (right).</p>
+
+                    <h2>What a Cell Does with This</h2>
+
+                    <p>The volume fraction at which these rods and pairs order, about a fifth to a quarter of the cell, is the volume fraction macromolecules fill in a living cell, and a cell uses the effect in both directions.
+                    Where long stiff molecules are packed densely, as DNA is inside a bacteriophage capsid or actin is in a bundle, they align, and the alignment costs the cell no energy because entropy provides it.
+                    A chain wound into coils, like the free-jointed pairs here, gains little by lining up, so coiling a long molecule is a way to keep it disordered in a crowd.
+                    Confinement does what crowding does by another route: the companion article shows the same virus rods, at a concentration too low to order by crowding, lining up along a box as it is narrowed at fixed volume, the way filaments point along a narrow cell.
+                    In the lab a student can test any of these with a question: ask the agent to hold the dimers at another volume fraction, set the hinge to any stiffness in the bead table and hold them again, or build longer chains and crowd those.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the shape of a rod, a 20&nbsp;K attraction, and the hinge that joins two rods. Everything else below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Order from crowding</span> &mdash; 200 nearly hard rods of aspect 10, compressed at 300&nbsp;K, stay isotropic to c = 3.9 and are nematic by c = 5.4, crossing S = 0.5 at c = 4.7, inside Onsager&rsquo;s coexistence window of 4.19 to 5.34.</li>
+                            <li><span class="v2-prompts-step">Hysteresis on dilution</span> &mdash; expanded through the same pressures, the order melts at c = 3.7, below the 4.7 at which it formed.</li>
+                            <li><span class="v2-prompts-step">The worm-like chain's law</span> &mdash; chains of 20 rods at 300&nbsp;K have a persistence length of 0.4 rods at a free joint and 19.0 rods (756&nbsp;&Aring;) at a 6000&nbsp;K hinge, on the Langevin prediction coth&nbsp;x&nbsp;&minus;&nbsp;1/x with no fitted parameter, and soften from 19.4 to 9.5 rods between 300 and 600&nbsp;K.</li>
+                            <li><span class="v2-prompts-step">Chains that order by crowding</span> &mdash; compressed on a pressure ladder at 300&nbsp;K, the stiff pairs stay disordered to &phi; = 0.18, cross S = 0.5 at &phi; = 0.23 and reach S = 0.98 at &phi; = 0.47.</li>
+                            <li><span class="v2-prompts-step">A late crossing explained</span> &mdash; the pairs cross near the single rods' &phi; = 0.24 on the ladder because a pair needs about a nanosecond at one density to order and each pressure is held 200&nbsp;ps.</li>
+                            <li><span class="v2-prompts-step">Flory's rule</span> &mdash; held at &phi; = 0.20 for two nanoseconds, the pairs with a 6000&nbsp;K hinge order within 360&nbsp;ps and reach S = 0.86, and the pairs with free joints end at S = 0.07 with their joints at &lang;cos&nbsp;&theta;&rang; = 0.35.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses molecular crowding to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and returns
+                    measured data. A suspension of virus-like rods that orders when it is crowded and clears when it is diluted, and hinged chains whose stiffness decides whether the crowd aligns them, become something students measure for themselves in a browser.
+                    By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of how the packed interior of a cell organizes the molecules in it.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
