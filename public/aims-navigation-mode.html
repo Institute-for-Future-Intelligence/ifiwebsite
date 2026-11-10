@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fantastic Voyage in AIMS: Navigating in the World of Atoms and Molecules — Institute for Future Intelligence</title>
-    <meta name="description" content="AIMS' navigation mode turns molecular dynamics into a serious game — fly through atoms with WASD controls and a cockpit-style dashboard.">
+    <meta name="description" content="AIMS' navigation mode turns molecular dynamics into a serious game — fly a spaceship through atoms and molecules, scan atoms on the way, and take guided tours planned by an AI agent.">
 
     <style>
         @import url("css/system.base.css");
@@ -74,7 +74,7 @@
                 <span class="v2-eyebrow">AIMS</span>
                 <h1>Fantastic Voyage in AIMS: Navigating in the World of Atoms and Molecules</h1>
                 <p class="v2-tagline">
-                    Inspired by the 1966 film, AIMS' navigation mode lets users shrink into the molecular world with a cockpit view and WASD controls &mdash; gamifying molecular dynamics for deeper exploration.
+                    Inspired by the 1966 film, AIMS' navigation mode lets users fly a spaceship through the molecular world, scan atoms on the way, and take guided tours planned by an AI agent.
                 </p>
             </div>
         </header>
@@ -84,12 +84,14 @@
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a></p>
 
+                    <!-- podcast hidden: it describes the old navigation mode
                     <div class="v2-article-audio">
                         <span class="v2-article-audio-label">Listen to a podcast about this article</span>
                         <audio controls>
                             <source src="podcast/aims-fantastic-voyage.mp3" type="audio/mpeg">
                         </audio>
                     </div>
+                    -->
 
                     <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gamification">Gamification</a> is a strategy to engage and entice users by mimicking gaming experience.
                     A goal of our AIMS platform is to create a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Serious_game">serious game</a>
@@ -98,8 +100,11 @@
                     Our work was inspired by <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fantastic_Voyage">Fantastic Voyage</a> &mdash; a 1966 Oscar-winning science fiction film about
                     a submarine and its crew shrunk to a microscopic size and venture into the body of an injured scientist to save his life.</p>
 
-                    <p>We took the first step to create a navigation mode in AIMS enhanced by visual cues such as a cockpit to view the molecular world on a first-person basis
-                    and a dashboard to control the position and orientation of the viewer perspective.</p>
+                    <p>The navigation mode of AIMS puts you in a spaceship about the size of a water molecule.
+                    The camera is the ship: you fly it through the scene with the keyboard, a gamepad or, on a touch screen, two thumbsticks,
+                    and a head-up display and a dashboard tell you where you are, how fast you are moving and which atom you are looking at.
+                    The window below shows a hemoglobin molecule with a small molecule placed in one of its binding pockets.
+                    Click the window and fly in.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Navigation"
@@ -109,27 +114,59 @@
                         </figcaption>
                     </figure>
 
-                    <p>Click anywhere on the dashboard to activate the navigation mode.
-                    This mode allows you to move in six directions (up, down, left, right, forward, and backward), as well as rotating in six directions (pitch up/down, yaw left/right, and roll left/right).
-                    You can click the buttons on the dashboard to move or rotate one step at a time, or use the keys mapped to them to move or rotate continuously.
-                    Like in other games, AIMS uses the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Arrow_keys#WASD_keys">WASD</a> keys to control the movement.
-                    For example, W/S control forward and backward movement and A/D control left and right movement.
-                    The Thrust slider can be used to adjust the power of the thrust &mdash; the higher the value, the faster the navigation speed.
-                    The three text fields on the dashboard can be used to specify the coordinates of a position to which you want to teleport.</p>
+                    <h2>Flying the Ship</h2>
 
-                    <p>The navigation mode can be applied to any type of project in AIMS. For example, the following window shows an immersive view of how water molecules move in a
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotube</a>. You can navigate to anywhere inside the nanotube
-                    to observe the motion of water molecules from any perspective. Notice that, in some browsers, the molecular dynamics simulation may temporarily pause when you press a navigation key.</p>
+                    <p>Navigation mode works in every type of AIMS project.
+                    Press Ctrl+U (&#8984;+U on a Mac) or choose Navigation View in the menu to enter or leave it.
+                    Like in other games, AIMS uses the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Arrow_keys#WASD_keys">WASD</a> keys to move:
+                    W and S fly forward and backward, A and D move left and right, and Z and X move up and down.
+                    The arrow keys turn the ship (pitch and yaw), and Q and E roll it.
+                    The ship has momentum: it speeds up while a key is held and coasts to a stop after the key is released.
+                    At the default thrust it covers about 15 &Aring; per second, so crossing a small protein takes a few seconds.
+                    The Thrust slider on the dashboard scales that speed from a tenth to five times, and holding Shift slows the ship to a quarter speed for fine maneuvers.
+                    The buttons on the dashboard do the same as the keys while you hold them down.</p>
+
+                    <p>You can fly from the cockpit, with the frame of the windshield around the view, or from behind the ship, with the ship in front of you.
+                    A button on the dashboard switches between the two views.
+                    Atoms are solid: when the ship comes within about 1.6 &Aring; of an atom, it slides along the atom and stops, the screen flashes red and the ship shakes.
+                    The menu at the right end of the dashboard has three fields for jumping straight to a set of coordinates.</p>
+
+                    <h2>Reading the Instruments</h2>
+
+                    <p>A reticle in the middle of the screen marks the line of flight.
+                    When it points at an atom, it turns amber and names the atom, the molecule the atom belongs to and its distance.
+                    Clicking an atom locks the reticle on it.
+                    Press P, or click the atom, to open a scanner card: the card lists the element, its mass and partial charge, the atoms it is bonded to with the bond lengths,
+                    and how many atoms are packed around it.
+                    The card has a button that copies the scan into the chat, where it stays as a record of what you found, and a button that flies the ship to the atom.</p>
+
+                    <p>The dashboard along the bottom carries the rest of the instruments.
+                    A bearing dial shows where the target of the autopilot, the selected molecule or the center of the scene is relative to the nose of the ship: a dot at the center means straight ahead, on the middle ring to one side, at the rim behind you.
+                    A speed tape shows how fast you are flying.
+                    A radar shows the atoms around the ship from above, with the forward direction up.
+                    A ring fills as the nearest atom gets closer and turns red on contact.
+                    When the molecule is out of sight, an arrow at the edge of the screen points back to it.</p>
+
+                    <h2>Flying with an AI Agent</h2>
+
+                    <p>Press F to fly to the selected atom or molecule, or to the center of the scene when nothing is selected.
+                    An autopilot turns the ship, flies it there and parks it next to the target, steering around atoms on the way.
+                    The AI agent of AIMS can fly the ship too.
+                    Ask it to "fly me into the nanotube" or to "give me a tour of the water molecules", and it plans the route, flies it, and pauses at each stop with a line of narration at the top of the screen.
+                    The tour is saved in the chat as a card that lists the stops.
+                    Clicking a stop flies the ship back there, and Replay flies the whole tour again.</p>
+
+                    <p>The window below shows water molecules in a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotube</a>.
+                    Its chat holds two turns: the agent flies the ship into the nanotube, and then takes it on a tour of the ten water molecules in the order they sit along the channel.
+                    Press Replay in the tour card to take the tour, or run the simulation and fly down the channel to watch the water molecules move.</p>
 
                     <figure class="v2-embed">
-                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Navigation%20of%20Water%20Molecules%20in%20a%20Carbon%20Nanotube"
-                                id="aims-frame2" allowfullscreen="true" title="Navigation of water in a carbon nanotube demo"></iframe>
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Flying%20Through%20a%20Carbon%20Nanotube"
+                                id="aims-frame2" allowfullscreen="true" title="Flying through a carbon nanotube demo"></iframe>
                         <figcaption>
                             Live model &mdash; <a href="javascript:openFullscreen2();">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
-
-                    <p>Currently, this navigation mode is limited to a "ghost ship" mode, meaning that you can navigate through molecules unobstructedly.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>
