@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Molecular Crowding with Gay–Berne Particles — Institute for Future Intelligence</title>
+    <title>Modeling Macromolecular Crowding — Institute for Future Intelligence</title>
     <meta name="description" content="The inside of a cell is crowded, and crowding alone can order long molecules. AIMS models virus particles and hinged chains as Gay–Berne rods with almost no attraction, and an AI agent runs the experiments: it compresses two hundred rods until they turn nematic and dilutes them until the order melts, and holds stiff and free-jointed pairs of rods at the same volume fraction for two nanoseconds to show that stiffness decides whether a crowded chain aligns.">
 
     <style>
@@ -73,7 +73,7 @@
         <header class="v2-hero" data-wordmark="CROWD">
             <div class="v2-hero-inner">
                 <span class="v2-eyebrow">AIMS</span>
-                <h1>Molecular Crowding with Gay&ndash;Berne Particles</h1>
+                <h1>Modeling Macromolecular Crowding</h1>
                 <p class="v2-tagline">
                     AIMS crowds suspensions of rods and of hinged chains until they order, and an AI agent runs the experiments.
                 </p>
@@ -83,7 +83,7 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 10, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 11, 2026</span></p>
 
                     <p>The inside of a cell is crowded. Proteins, RNA, ribosomes, and filaments take up a fifth to a third of its volume, a figure
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0968-0004(01)01938-7">Ellis</a> called obvious but underappreciated in 2001, and
@@ -118,6 +118,8 @@
                     <a href="aims-liquid-crystals.html">liquid crystals</a>, where one ellipsoid stands for one molecule and the attraction between side-by-side neighbors makes the nematic as the liquid is cooled. Crowding asks the opposite of it. The attraction is turned down to 20&nbsp;K, a fifteenth of the thermal energy at room temperature,
                     so that the only thing a rod does to a neighbor is keep it out of the room it occupies, and whatever order appears comes from shape and concentration alone.
                     This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>: a tobacco mosaic virus is 2130 protein subunits around a strand of RNA, and the model keeps the one fact about it that decides whether a suspension of it orders, that it is a rod about seventeen times longer than it is wide.
+                    An all-atom model of such a suspension would be mostly water, and the order would show up only after long runs on large systems, far beyond what a browser can do; with the water folded into the interactions of the rods, it appears in a run a browser can make.
+                    The picture is clearer as well: each rod shows at a glance which way it points, while an all-atom view would hide the order under thousands of water molecules.
                     The rods here are 40&nbsp;&Aring; long and 4&nbsp;&Aring; wide, an aspect ratio of 10, so they are stubby viruses 75 times shorter and 45 times thinner than the real one. For hard rods only the aspect ratio and the concentration matter, which is why Onsager's theory applies to the virus and to these rods alike.
                     The rods are made light so that they turn quickly, and the lab works in real units: the thermometer reads kelvin, the barostat reads megapascals, and the concentrations below can be compared with the ones in a cell.
                     A companion article, <a href="aims-coarse-grained-biology.html">Coarse-Grained Modeling of Biology</a>, uses the same rod for a lipid bilayer and for filaments aligned by a narrow cell.</p>
@@ -128,22 +130,22 @@
                     <em>"do they order by crowding?"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
 
                     <div class="v2-prompts">
-                        <p class="v2-prompts-intro">Both examples are in the Biology group of the Examples menu. Open one, open the chat, and type the prompts below.</p>
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Both examples are in its Biology group. Open one, open the chat, and type the prompts below.</p>
 
                         <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser. A pressure ladder on 200 rods takes many minutes, and the two-nanosecond hold of the last prompt is the longest experiment here.</p>
 
                         <p class="v2-prompts-group" style="margin-top:0 !important;">Virus Particles That Order by Crowding</p>
                         <ol>
-                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">"Compress the rods at 300 K from 2 to 30 MPa, holding 260 ps at each pressure, and chart the nematic order against the concentration. Do they order by crowding?"</span></li>
-                            <li><span class="v2-prompts-step">Dilution</span> &mdash; <span class="v2-prompt">"Now let the pressure back down through the same steps. Does the order go away again?"</span></li>
+                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">&ldquo;Compress the rods at 300 K from 2 to 30 MPa, holding 260 ps at each pressure, and chart the nematic order against the concentration. Do they order by crowding?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Dilution</span> &mdash; <span class="v2-prompt">&ldquo;Now let the pressure back down through the same steps. Does the order go away again?&rdquo;</span></li>
                         </ol>
 
                         <p class="v2-prompts-group">Worm-Like Chains That Order by Crowding</p>
                         <ol>
-                            <li><span class="v2-prompts-step">The hinge</span> &mdash; <span class="v2-prompt">"Build a chain of 20 of these rods for each hinge stiffness from 0 to 6000 K, thermalize each at 300 K, and chart the persistence length against k_a/kT. Does the hinge set it the way the worm-like chain predicts?"</span></li>
-                            <li><span class="v2-prompts-step">Temperature</span> &mdash; <span class="v2-prompt">"Now heat the dimers in the lab from 300 to 600 K, about 400 ps at each step, and chart the persistence length of their hinge against temperature. Do they soften?"</span></li>
-                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">"Compress the cell of dimers at 300 K from 1 to 12 MPa, holding at each pressure, and chart the nematic order against the rods' volume fraction. Do the hinged pairs align, and sooner than single rods would?"</span></li>
-                            <li><span class="v2-prompts-step">Stiff against floppy</span> &mdash; <span class="v2-prompt">"Repeat the compression with free joints, but as a fair test this time: bring a cell of the lab's dimers and a cell with a hinge of 0 K to the same volume fraction, 0.2, and hold both there for 2 ns. Do the floppy dimers still align?"</span></li>
+                            <li><span class="v2-prompts-step">The hinge</span> &mdash; <span class="v2-prompt">&ldquo;Build a chain of 20 of these rods for each hinge stiffness from 0 to 6000 K, thermalize each at 300 K, and chart the persistence length against k_a/kT. Does the hinge set it the way the worm-like chain predicts?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Temperature</span> &mdash; <span class="v2-prompt">&ldquo;Now heat the dimers in the lab from 300 to 600 K, about 400 ps at each step, and chart the persistence length of their hinge against temperature. Do they soften?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">&ldquo;Compress the cell of dimers at 300 K from 1 to 12 MPa, holding at each pressure, and chart the nematic order against the rods' volume fraction. Do the hinged pairs align, and sooner than single rods would?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Stiff against floppy</span> &mdash; <span class="v2-prompt">&ldquo;Repeat the compression with free joints, but as a fair test this time: bring a cell of the lab's dimers and a cell with a hinge of 0 K to the same volume fraction, 0.2, and hold both there for 2 ns. Do the floppy dimers still align?&rdquo;</span></li>
                         </ol>
                     </div>
 

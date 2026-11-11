@@ -62,6 +62,12 @@
         .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
         .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
         .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-col-main .v2-callout { float: right; clear: right; width: 40%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border: 1px solid var(--border); border-radius: 0.8rem; background: var(--surface); }
+        .v2-col-main .v2-callout svg { display: block; width: 100%; height: auto; }
+        .v2-col-main .v2-callout p { margin: 0.8rem 0 0; font-size: 1.1rem; line-height: 1.45; color: var(--text-muted); }
+        .v2-col-main .v2-callout p strong { color: var(--text); }
+        .v2-col-main .v2-prompts { clear: both; }
+        @media (max-width: 720px) { .v2-col-main .v2-callout { float: none; width: auto; margin: 1.5rem 0; } }
     </style>
 </head>
 
@@ -83,18 +89,18 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 10, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 11, 2026</span></p>
 
                     <p>Entropy is usually taught as the tendency of things to mix and spread out. A drop of ink spreads through a glass of water, and two gases in a box mix until each fills it.
-                    This article shows how the same drive toward higher entropy can put long rods in order under certain circumstances, which is counterintuitive. The explanation is in what gets counted: the rods give up freedom when they line up, but a crowd of small hard spheres around them gains more, so the entropy of the whole system still rises. Once the rods are lined up, they gather into a layer of their own, apart from the crowd.
+                    This article shows how, under certain circumstances, the same drive toward higher entropy can put long rods in order, which is counterintuitive. The explanation is in what gets counted: the rods give up freedom when they line up, but a crowd of small hard spheres around them gains more, so the entropy of the whole system still rises. Once the rods are lined up, they gather into a layer of their own, apart from the crowd.
                     Both come from the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Depletion_force">depletion interaction</a>. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.1740347">Asakura and Oosawa</a> described it in 1954 for two large bodies in a solution of macromolecules, and
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1351/pac197648040471">Vrij</a> described it independently in 1976.
                     It is an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Entropic_force">entropic force</a>, a force whose source is the number of arrangements available to a system. A stretched rubber band is a familiar example: stretching straightens its polymer chains and reduces the number of shapes they can take, and the band pulls back toward the state in which they have more.</p>
 
-                    <p>The effect matters in biology because the inside of a cell is crowded. Proteins, RNA, and other macromolecules fill 20 to 30&nbsp;% of its volume, as <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0968-0004(01)01938-7">Ellis</a> pointed out in 2001.
+                    <p>The effect matters in biology because the inside of a living cell is crowded. Proteins, RNA, and other macromolecules fill 20 to 30&nbsp;% of its volume, as <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0968-0004(01)01938-7">Ellis</a> pointed out in 2001.
                     In the laboratory, crowding polymers reproduce the effect on filaments. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevE.69.051907">Hosek and Tang</a> showed in 2004 that actin filaments gather into bundles in polyethylene glycol above a threshold concentration of the polymer,
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevE.69.051702">Dogic, Purdy, Grelet, Adams, and Fraden</a> measured how the polymer dextran changes the transition of the rod-like fd virus from a disordered suspension to an aligned one, and
-                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.1000406107">Barry and Dogic</a> found in 2010 that, with enough dextran, the same viruses assemble into sheets one rod thick.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.1000406107">Barry and Dogic</a> found in 2010 that, with enough dextran, the same viruses assemble into sheets one rod thick. The fd virus infects bacteria and is a stiff rod about 880&nbsp;nm long and 7&nbsp;nm wide, so a concentrated suspension of these viruses behaves like a liquid crystal.
                     The theory for rods mixed with a polymer was worked out by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1007/BF02458781">Lekkerkerker and Stroobants</a> in 1994, and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1088/0953-8984/14/33/201">Poon</a> reviewed the phase behavior of colloid&ndash;polymer mixtures in 2002.</p>
 
                     <figure class="v2-embed">
@@ -102,60 +108,80 @@
                                 id="aims-frame1" allowfullscreen="true" title="Filaments That Align by Macromolecular Crowding demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
-                            One hundred nearly hard rods among 238 small hard spheres, the crowders, in a periodic cell at 300&nbsp;K. A rod keeps its color when it lies along the common direction and fades to gray when it lies across it.
+                            One hundred nearly hard rods among 238 small hard spheres, the crowders, in a periodic box at 300&nbsp;K. A rod keeps its color when it lies along the common direction and fades to gray when it lies across it.
                         </figcaption>
                     </figure>
 
                     <h2>Rods and Crowders</h2>
 
-                    <p>The rods are <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> ellipsoids, 40&nbsp;&Aring; long and 4&nbsp;&Aring; wide, the virus-like rods of the companion article <a href="aims-molecular-crowding.html">Molecular Crowding with Gay&ndash;Berne Particles</a>.
+                    <div class="v2-callout">
+                        <svg viewBox="0 0 1300 590" role="img" aria-label="Drawn to scale: a stretch of actin filament 760 angstroms long, with an arrow to an orange ellipse of the same size labeled rod; below, a hemoglobin molecule with an arrow to a blue circle of the same size labeled crowder." font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                            <defs><marker id="rc-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+                            <image href="image/aims-entropy-rod-crowder.png" x="0" y="0" width="1300" height="590"/>
+                            <ellipse cx="650" cy="300" rx="606.9" ry="60.1" fill="#e07a3f" stroke="#9a4a1e" stroke-width="3"/>
+                            <circle cx="790" cy="470" r="48.4" fill="#8fb8de" stroke="#4f7fa8" stroke-width="3"/>
+                            <g stroke="#64748b" stroke-width="6" marker-end="url(#rc-arrow)"><line x1="650" y1="196" x2="650" y2="232"/><line x1="580" y1="470" x2="725" y2="470"/></g>
+                            <g font-size="38" fill="#475569" text-anchor="middle">
+                                <text x="650" y="42">actin filament</text>
+                                <text x="650" y="313" fill="#ffffff">rod</text>
+                                <text x="510" y="565">hemoglobin</text>
+                                <text x="790" y="565">crowder</text>
+                            </g>
+                        </svg>
+                        <p><strong>What the rods and crowders stand for, drawn to scale.</strong> A stretch of actin filament (top, 26 subunits built from <a target="_blank" rel="noopener noreferrer" href="https://www.rcsb.org/structure/8A2R">PDB 8A2R</a>) ten times as long as it is wide, and a hemoglobin molecule (bottom, <a target="_blank" rel="noopener noreferrer" href="https://www.rcsb.org/structure/1A3N">PDB 1A3N</a>). The model keeps only their shapes: the filament becomes an ellipsoid (orange) and the protein a sphere (blue), each drawn here at the size of the molecule it replaces. The particles in the model are smaller, and its crowders are wider than its rods, while hemoglobin is a little narrower than the filament. Hemoglobin fills about a quarter of the volume of a red blood cell, one of the most crowded spaces in the body; experiments that add a protein crowder on purpose more often use serum albumin.</p>
+                    </div>
+
+                    <p>The rods are <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> ellipsoids, 40&nbsp;&Aring; long and 4&nbsp;&Aring; wide, the virus-like rods of the companion article <a href="aims-molecular-crowding.html">Modeling Macromolecular Crowding</a>.
                     The depth of their attraction for one another is set to 20&nbsp;K in temperature units, meaning an energy of Boltzmann&rsquo;s constant times 20&nbsp;K, a fifteenth of the thermal energy at room temperature, so that a rod does little to a neighbor except keep it out of the room it occupies.
                     The rods stand for filaments and the spheres for the macromolecules that crowd a cell, so the spheres are called crowders, and together they form the crowd. The crowders are 7&nbsp;&Aring; across. They repel one another with a Lennard-Jones potential of strength 300&nbsp;K in the same units, cut off at its minimum and shifted to zero so that it only repels. They repel the rods with the Gay&ndash;Berne potential for an ellipsoid and a sphere, cut off and shifted the same way, whose reach and strength depend on the angle between the rod&rsquo;s axis and the line to the sphere.
-                    In the lab they are drawn at their full size, so the cell looks as crowded as it is.</p>
+                    In the lab they are drawn at their full size, so the box looks as crowded as it is.
+                    Using rods and spheres for these molecules is called <a href="aims-coarse-grained-biology.html">coarse-grained modeling</a>: they keep the sizes and shapes that decide the depletion interaction and leave out the atoms.
+                    An all-atom model of this box would be mostly water, and a gain of a few times the thermal energy per pair of rods would be buried in the motion of the water; with the water folded into the interactions, there are far fewer particles to move, and the effect shows up in a run short enough for a browser.
+                    The picture is clearer as well: each rod shows at a glance which way it points and where it sits, while an all-atom view of the same box would hide the order under thousands of water molecules.</p>
 
-                    <p>The cell is periodic and 60&nbsp;&Aring; across, and it holds 100 rods and 238 crowders at 300&nbsp;K. The crowders fill a fifth of the volume, which is the low end of what macromolecules fill in a cell.
+                    <p>The box is periodic and 60&nbsp;&Aring; across, and it holds 100 rods and 238 crowders at 300&nbsp;K. The crowders fill a fifth of the volume, which is the low end of what macromolecules fill in a cell.
                     The rods are at a concentration c = &rho;L&sup2;D = 3, the number of rods per volume times the length squared times the width. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1111/j.1749-6632.1949.tb27296.x">Onsager</a> showed in 1949 that infinitely thin hard rods alone stay disordered below c = 4.19, and the second chat turn shows that these rods, without the crowders, point every way at c = 3.
                     The order is measured by the nematic order parameter S, which is 1 when every rod points along the same direction and 0 when the rods point every way.</p>
 
                     <h2>Try It</h2>
 
                     <div class="v2-prompts">
-                        <p class="v2-prompts-intro">The example is in the Biology group of the Examples menu under the name Filaments That Align by Macromolecular Crowding. Open it, open the chat, and type the prompts below.</p>
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). The example is in the Biology group under the name Filaments That Align by Macromolecular Crowding. Open it, open the chat, and type the prompts below.</p>
 
                         <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser. The first prompt runs 338 particles for 1.6 nanoseconds, which takes about an hour on a typical computer; the other two take a few minutes each.</p>
 
                         <ol>
-                            <li><span class="v2-prompts-step">The crowd</span> &mdash; <span class="v2-prompt">"Run the rods among the crowders at 300 K for 1600 ps and chart the nematic order parameter. Do the filaments line up among the crowd?"</span></li>
-                            <li><span class="v2-prompts-step">The control</span> &mdash; <span class="v2-prompt">"Does that depend on the crowders? Reset the lab to its opening frame, take the crowders out, and run the same rods for 600 ps."</span></li>
-                            <li><span class="v2-prompts-step">The crowd taken away</span> &mdash; <span class="v2-prompt">"Now load the aligned state from the first run, take the crowders out, and watch the rods for 600 ps. Does the alignment hold?"</span></li>
+                            <li><span class="v2-prompts-step">The crowd</span> &mdash; <span class="v2-prompt">&ldquo;Run the rods among the crowders at 300 K for 1600 ps and chart the nematic order parameter. Do the filaments line up among the crowd?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The control</span> &mdash; <span class="v2-prompt">&ldquo;Does that depend on the crowders? Reset the lab to its opening frame, take the crowders out, and run the same rods for 600 ps.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The crowd taken away</span> &mdash; <span class="v2-prompt">&ldquo;Now load the aligned state from the first run, take the crowders out, and watch the rods for 600 ps. Does the alignment hold?&rdquo;</span></li>
                         </ol>
                     </div>
 
                     <h2>The Rods Line Up Among the Crowd</h2>
 
-                    <p>The first chat turn ran the cell at 300&nbsp;K for 1600&nbsp;ps and averaged S over windows of 20&nbsp;ps. S was 0.05 in the first window and stayed below 0.25 for the first 300&nbsp;ps.
-                    Then the cell lined up: S passed 0.5 in the window that ended at 420&nbsp;ps and leveled off near 0.81. The turn also counted the rods lying side by side with another rod, meaning that their axes are within 26&deg; of each other, closer than one and a half rod widths, and overlapping along at least half their length.
+                    <p>The first chat turn ran the box at 300&nbsp;K for 1600&nbsp;ps and averaged S over windows of 20&nbsp;ps. S was 0.05 in the first window and stayed below 0.25 for the first 300&nbsp;ps.
+                    Then the rods lined up: S passed 0.5 in the window that ended at 420&nbsp;ps and leveled off near 0.81. The turn also counted the rods lying side by side with another rod, meaning that their axes are within 26&deg; of each other, closer than one and a half rod widths, and overlapping along at least half their length.
                     Averaged over the first and the last sixth of the run, that share rose from 76&nbsp;% to 88&nbsp;%, and the largest connected group of side-by-side rods grew from 22 rods to 84.
-                    The temperature stayed at 300&nbsp;K throughout. The switch from disorder to order comes at a random moment, so another run of the same cell passes S = 0.5 sooner or later than this one.</p>
+                    The temperature stayed at 300&nbsp;K throughout. The switch from disorder to order comes at a random moment, so another run of the same box passes S = 0.5 sooner or later than this one.</p>
 
                     <div class="v2-screenshot-single">
-                        <img src="image/aims-entropy-align.png" alt="Order parameter S of 100 rods among 238 crowders against time over 1600 ps at 300 K: S stays below 0.25 for 300 ps, passes 0.5 at 420 ps and levels off near 0.81, while the share of rods side by side with another rises from about 0.63 to about 0.9">
+                        <img src="image/aims-entropy-align.png" alt="Order parameter S of 100 rods among 238 crowders against time over 1600 ps at 300 K: S stays below 0.25 for 300 ps, passes 0.5 at 420 ps and levels off near 0.81, while the share of rods side by side with another rises from an average of 0.76 over the first sixth of the run to 0.88 over the last">
                     </div>
                     <p class="v2-chart-caption">The first chat turn: the order parameter S (blue) and the share of rods lying side by side with another rod (orange) against time for the rods among the crowders.</p>
 
                     <h2>The Rods Separate from the Crowd</h2>
 
-                    <p>The chart shows that the rods line up. The frames saved along the run show what happens next. For six of them, measured after the run, the share of the cell more than 8&nbsp;&Aring; from any rod is a measure of how much of the cell the crowders have to themselves.
+                    <p>The chart shows that the rods line up. The frames saved along the run show what happens next. For six of them, measured after the run, the share of the box more than 8&nbsp;&Aring; from any rod is a measure of how much of the box the crowders have to themselves.
                     That share was 1&nbsp;% at the start, 5&nbsp;% at 500&nbsp;ps, 15&nbsp;% at 820 and 1120&nbsp;ps, 12&nbsp;% at 1440&nbsp;ps, and 17&nbsp;% at 1600&nbsp;ps.
-                    At 1600&nbsp;ps the aligned rods form a layer: 81 of the 100 rods are in one half of the cell, and 172 of the 238 crowders are in the other half, with a few rods that point across the layer among the crowders.
+                    At 1600&nbsp;ps the aligned rods form a layer: 81 of the 100 rods are in one half of the box, and 172 of the 238 crowders are in the other half, with a few rods that point across the layer among the crowders.
                     The rods lined up first and separated from the crowd over the next few hundred picoseconds. Suspensions of fd virus with dextran show the same kind of separation: a rod-rich aligned phase beside a polymer-rich disordered one.
-                    When the rod-rich region takes up about half of a periodic cell this small, a flat layer is the shape with the least boundary.</p>
+                    When the rod-rich region takes up about half of a periodic box this small, a flat layer is the shape with the least boundary.</p>
 
                     <div class="v2-screenshot-row">
-                        <img src="image/aims-entropy-lab-start.jpg" alt="The cell at 20 ps: 100 rods pointing every way, most of them gray, with the crowders spread evenly among them">
-                        <img src="image/aims-entropy-lab-end.jpg" alt="The cell at 1600 ps, seen from the same direction: most rods lie parallel in a tight layer on one side of the cell, and the crowders fill the other side">
+                        <img src="image/aims-entropy-lab-start.jpg" alt="The box at 20 ps: 100 rods pointing every way, most of them gray, with the crowders spread evenly among them">
+                        <img src="image/aims-entropy-lab-end.jpg" alt="The box at 1600 ps, seen from the same direction: most rods lie parallel in a tight layer on one side of the box, and the crowders fill the other side">
                     </div>
-                    <p class="v2-chart-caption">The cell at 20&nbsp;ps (left), the rods pointing every way among the crowders, and at 1600&nbsp;ps (right), seen from the same direction, the aligned rods on one side of the cell and the crowders on the other. Both are loaded by the buttons under the chart of the first chat turn.</p>
+                    <p class="v2-chart-caption">The box at 20&nbsp;ps (left), the rods pointing every way among the crowders, and at 1600&nbsp;ps (right), seen from the same direction, the aligned rods on one side of the box and the crowders on the other. Both are loaded by the buttons under the chart of the first chat turn.</p>
 
                     <h2>Is the Crowd Responsible?</h2>
 
@@ -164,37 +190,94 @@
 
                     <h2>Taking the Crowd Away</h2>
 
-                    <p>The third chat turn took the crowders out of the aligned cell at 1600&nbsp;ps and ran the rods alone. S averaged 0.56 over the first 20&nbsp;ps and 0.28 over the next 20, down from 0.81, and after 60&nbsp;ps it stayed between 0.08 and 0.19, the level of the control.
-                    The share of rods side by side fell from 88&nbsp;% to between 36 and 48&nbsp;% after 80&nbsp;ps. The rods stayed in line only while the crowd was there, and once it is gone their thermal motion turns them every way again.</p>
+                    <p>The third chat turn took the crowders out of the aligned box at 1600&nbsp;ps and ran the rods alone. S averaged 0.56 over the first 20&nbsp;ps and 0.28 over the next 20, down from 0.81, and after 60&nbsp;ps it stayed between 0.08 and 0.19, the level of the control.
+                    The share of rods side by side fell from 88&nbsp;% to between 36 and 48&nbsp;% after 80&nbsp;ps. The rods stayed in line only while the crowd was there, and once it was gone, their thermal motion turned them every way again.</p>
 
                     <div class="v2-screenshot-single">
                         <img src="image/aims-entropy-removed.png" alt="Order parameter S against time for the aligned rods after the crowders are removed: S averages 0.56 over the first 20 ps and 0.28 over the next 20, then stays between 0.08 and 0.19 for the rest of 600 ps, the level of the rods without crowders">
                     </div>
                     <p class="v2-chart-caption">The third chat turn: S and the share of rods side by side after the crowders are removed. The dashed line marks S for the same rods without crowders.</p>
 
-                    <h2>Counting the Entropy</h2>
+                    <h2>The Entropy Balance</h2>
 
-                    <p>Mixing two kinds of particles raises the entropy when the particles are points, or all the same size and shape, because mixing gives each particle the whole volume and costs nothing in packing. Rods and crowders differ greatly in size and shape, and each takes up a great deal of room.
-                    A crowder's center stays at least about 5.5&nbsp;&Aring; from the axis of a rod, the sum of their radii, so each rod is wrapped in a sleeve of about 3,800&nbsp;&Aring;&sup3; that no crowder center can enter, more than ten times the 335&nbsp;&Aring;&sup3; of the rod itself.
-                    If none of them overlapped, the sleeves of 100 rods would add up to 380,000&nbsp;&Aring;&sup3;, more than the 213,000&nbsp;&Aring;&sup3; of the whole cell. Where two rods lie parallel and close, their sleeves overlap, and the overlap is volume returned to the crowders.
-                    The entropy of the cell counts the positions and directions of the rods and the positions of the crowders. Lining the rods up and packing them in a layer costs the rods positions and directions, and it gives each of the 238 crowders more free volume to move in.
-                    When the crowders' gain is larger than the rods' loss, the ordered and separated cell has the higher total entropy. The only attraction in the cell is the rods&rsquo; 20&nbsp;K attraction, a fifteenth of the thermal energy, so energy plays almost no part in the balance, and at a fixed temperature the cell moves toward the arrangement of highest entropy.</p>
+                    <div class="v2-callout">
+                        <svg viewBox="0 0 330 222" role="img" aria-label="Excluded volume drawn to scale. Left: one rod inside a dashed sleeve that a crowder's center cannot enter, with a crowder touching it. Middle: two parallel rods side by side whose sleeves overlap along their whole length. Right: two crossed rods whose sleeves overlap only near the crossing." font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                            <defs>
+                                <clipPath id="xv-b"><ellipse cx="120" cy="100" rx="17.1" ry="86.1"/></clipPath>
+                                <clipPath id="xv-c"><ellipse cx="245" cy="100" rx="17.1" ry="86.1" transform="rotate(38 245 100)"/></clipPath>
+                            </defs>
+                            <g fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="1.2" stroke-dasharray="4 3">
+                                <ellipse cx="45" cy="100" rx="17.1" ry="86.1"/>
+                                <ellipse cx="120" cy="100" rx="17.1" ry="86.1"/>
+                                <ellipse cx="135" cy="100" rx="17.1" ry="86.1"/>
+                                <ellipse cx="245" cy="100" rx="17.1" ry="86.1" transform="rotate(38 245 100)"/>
+                                <ellipse cx="245" cy="100" rx="17.1" ry="86.1" transform="rotate(-38 245 100)"/>
+                            </g>
+                            <g fill="rgba(67,56,202,0.5)">
+                                <ellipse cx="135" cy="100" rx="17.1" ry="86.1" clip-path="url(#xv-b)"/>
+                                <ellipse cx="245" cy="100" rx="17.1" ry="86.1" transform="rotate(-38 245 100)" clip-path="url(#xv-c)"/>
+                            </g>
+                            <g fill="#e07a3f" stroke="#9a4a1e" stroke-width="0.8">
+                                <ellipse cx="45" cy="100" rx="6" ry="60"/>
+                                <ellipse cx="120" cy="100" rx="6" ry="60"/>
+                                <ellipse cx="135" cy="100" rx="6" ry="60"/>
+                                <ellipse cx="245" cy="100" rx="6" ry="60" transform="rotate(38 245 100)"/>
+                                <ellipse cx="245" cy="100" rx="6" ry="60" transform="rotate(-38 245 100)"/>
+                            </g>
+                            <g fill="#8fb8de" stroke="#4f7fa8" stroke-width="0.8">
+                                <circle cx="62.1" cy="100" r="10.5"/>
+                                <circle cx="76" cy="38" r="10.5"/>
+                                <circle cx="20" cy="172" r="10.5"/>
+                            </g>
+                            <circle cx="62.1" cy="100" r="1.8" fill="#1e3a5f"/>
+                            <g font-size="13" fill="#475569" text-anchor="middle">
+                                <text x="45" y="214">one rod</text>
+                                <text x="127.5" y="214">parallel</text>
+                                <text x="245" y="214">crossed</text>
+                            </g>
+                        </svg>
+                        <p><strong>Excluded volume, drawn to scale.</strong> The center of a crowder (blue) cannot enter the dashed sleeve around a rod (orange). Two parallel rods side by side share most of their sleeves, and the dark overlap is room the crowders gain. Two crossed rods share only a small patch near the crossing.</p>
+                    </div>
 
-                    <p>The rods line up before they separate because a dense packing needs parallel rods. A separate measurement, the push of the crowders on two rods held parallel among them, puts the gain for two rods this short at a few times the thermal energy k<sub>B</sub>T, too little to hold a pair together for long.
-                    Once the rods are parallel, each rod in a layer shares its sleeve with several neighbors, and the gains add up. A filament in a cell, microns long, shares a contact hundreds of times longer and gains correspondingly more.
-                    Because the depletion force is entropic, it is proportional to temperature for perfectly hard particles. A rubber band shows the same signature: it stiffens when it is warmed, and it warms when it is stretched quickly, the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gough%E2%80%93Joule_effect">Gough&ndash;Joule effect</a>, because the entropy its chains lose on stretching reappears as heat.</p>
+                    <p>Mixing two kinds of particles raises the entropy when the particles are points, or all the same size and shape, because mixing gives each particle the whole volume and costs nothing in packing. Rods and crowders are neither points nor alike in size and shape. Each one keeps the others out of a large volume, so the way they are arranged changes how much room the rest have to move in.
+                    A crowder&rsquo;s center stays at least about 5.7&nbsp;&Aring; from the axis of a rod at its middle and about 29&nbsp;&Aring; from its center at its ends, so each rod is wrapped in a sleeve that no crowder center can enter. This sleeve, called the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Excluded_volume">excluded volume</a>, is about 3,800&nbsp;&Aring;&sup3;, more than ten times the 335&nbsp;&Aring;&sup3; of the rod itself.
+                    If none of them overlapped, the sleeves of 100 rods would add up to 380,000&nbsp;&Aring;&sup3;, more than the 213,000&nbsp;&Aring;&sup3; of the whole box. Where two rods lie parallel and close, their sleeves overlap. The overlap is then counted once, not twice, so the crowders gain that much room.
+                    The entropy of the box measures the number of ways to arrange it: the positions and directions of the rods and the positions of the crowders. Lining the rods up and packing them in a layer costs the rods positions and directions, and it gives each of the 238 crowders more free volume to move in.
+                    When the crowders&rsquo; gain is larger than the rods&rsquo; loss, the ordered and separated box has the higher total entropy. The only attraction in the box is weak, equivalent to a fifteenth of the thermal energy, so energy plays almost no part in the balance, and at a fixed temperature the whole system moves toward the arrangement of highest entropy.</p>
 
-                    <p>The order appears with no aligning field, wall, or restraint acting on the rods, and the integration of the equations of motion is sound: run without its thermostat for 40&nbsp;ps, the cell keeps its total energy to within about 0.25&nbsp;% of its kinetic energy at the 4&nbsp;fs time step used here, and to within 0.01&nbsp;% at 2&nbsp;fs.
-                    The model is a small version of the experiments. The rods are 40&nbsp;&Aring; long, against about 900&nbsp;nm for an fd virus, the runs last nanoseconds, and the layer shape comes partly from the periodic cell.
-                    The crowders repel one another, while the polymer coils in the Asakura&ndash;Oosawa model pass through one another freely. The crowders&rsquo; repulsion of the rods is also slightly soft: in the same measurement on two held rods, the push matches the hard-particle value when the rods touch and falls to zero at a closer spacing, which gives a pair of rods about half the attraction that perfectly hard particles would.
+                    <div class="v2-callout">
+                        <svg viewBox="0 22 340 186" role="img" aria-label="The depletion force, in a cross-section through the rods, drawn to scale. Left: two parallel rods whose gap is too narrow for a crowder; crowders strike the rods only from outside and press them together, and their sleeves overlap. Right: seven parallel rods packed together, each sharing its sleeve with its neighbors." font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <defs><clipPath id="dp-s0"><circle cx="72.5" cy="105" r="28.5"/></clipPath><clipPath id="dp-s1"><circle cx="97.5" cy="105" r="28.5"/></clipPath><clipPath id="dp-s2"><circle cx="255" cy="105" r="28.5"/></clipPath><clipPath id="dp-s3"><circle cx="280" cy="105" r="28.5"/></clipPath><clipPath id="dp-s4"><circle cx="267.5" cy="126.7" r="28.5"/></clipPath><clipPath id="dp-s5"><circle cx="242.5" cy="126.7" r="28.5"/></clipPath><clipPath id="dp-s6"><circle cx="230" cy="105" r="28.5"/></clipPath><clipPath id="dp-s7"><circle cx="242.5" cy="83.3" r="28.5"/></clipPath><clipPath id="dp-s8"><circle cx="267.5" cy="83.3" r="28.5"/></clipPath><marker id="dp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1e3a5f"/></marker></defs>
+                        <g fill="#d6d3f3"><circle cx="72.5" cy="105" r="28.5"/><circle cx="97.5" cy="105" r="28.5"/><circle cx="255" cy="105" r="28.5"/><circle cx="280" cy="105" r="28.5"/><circle cx="267.5" cy="126.7" r="28.5"/><circle cx="242.5" cy="126.7" r="28.5"/><circle cx="230" cy="105" r="28.5"/><circle cx="242.5" cy="83.3" r="28.5"/><circle cx="267.5" cy="83.3" r="28.5"/></g>
+                        <g fill="#aca6e8"><circle cx="97.5" cy="105" r="28.5" clip-path="url(#dp-s0)"/><circle cx="280" cy="105" r="28.5" clip-path="url(#dp-s2)"/><circle cx="267.5" cy="126.7" r="28.5" clip-path="url(#dp-s2)"/><circle cx="242.5" cy="126.7" r="28.5" clip-path="url(#dp-s2)"/><circle cx="230" cy="105" r="28.5" clip-path="url(#dp-s2)"/><circle cx="242.5" cy="83.3" r="28.5" clip-path="url(#dp-s2)"/><circle cx="267.5" cy="83.3" r="28.5" clip-path="url(#dp-s2)"/><circle cx="267.5" cy="126.7" r="28.5" clip-path="url(#dp-s3)"/><circle cx="242.5" cy="126.7" r="28.5" clip-path="url(#dp-s3)"/><circle cx="230" cy="105" r="28.5" clip-path="url(#dp-s3)"/><circle cx="242.5" cy="83.3" r="28.5" clip-path="url(#dp-s3)"/><circle cx="267.5" cy="83.3" r="28.5" clip-path="url(#dp-s3)"/><circle cx="242.5" cy="126.7" r="28.5" clip-path="url(#dp-s4)"/><circle cx="230" cy="105" r="28.5" clip-path="url(#dp-s4)"/><circle cx="242.5" cy="83.3" r="28.5" clip-path="url(#dp-s4)"/><circle cx="267.5" cy="83.3" r="28.5" clip-path="url(#dp-s4)"/><circle cx="230" cy="105" r="28.5" clip-path="url(#dp-s5)"/><circle cx="242.5" cy="83.3" r="28.5" clip-path="url(#dp-s5)"/><circle cx="267.5" cy="83.3" r="28.5" clip-path="url(#dp-s5)"/><circle cx="242.5" cy="83.3" r="28.5" clip-path="url(#dp-s6)"/><circle cx="267.5" cy="83.3" r="28.5" clip-path="url(#dp-s6)"/><circle cx="267.5" cy="83.3" r="28.5" clip-path="url(#dp-s7)"/></g>
+                        <g fill="none" stroke="#6366f1" stroke-width="1.1" stroke-dasharray="4 3"><circle cx="72.5" cy="105" r="28.5"/><circle cx="97.5" cy="105" r="28.5"/><circle cx="255" cy="105" r="28.5"/><circle cx="280" cy="105" r="28.5"/><circle cx="267.5" cy="126.7" r="28.5"/><circle cx="242.5" cy="126.7" r="28.5"/><circle cx="230" cy="105" r="28.5"/><circle cx="242.5" cy="83.3" r="28.5"/><circle cx="267.5" cy="83.3" r="28.5"/></g>
+                        <g fill="#8fb8de" stroke="#4f7fa8" stroke-width="0.8"><circle cx="44" cy="105" r="17.5"/><circle cx="126" cy="105" r="17.5"/><circle cx="40" cy="58" r="17.5"/><circle cx="130" cy="152" r="17.5"/><circle cx="303.1" cy="132.8" r="17.5"/><circle cx="255" cy="160.5" r="17.5"/><circle cx="206.9" cy="132.8" r="17.5"/><circle cx="206.9" cy="77.3" r="17.5"/><circle cx="255" cy="49.5" r="17.5"/><circle cx="303.1" cy="77.3" r="17.5"/></g>
+                        <g fill="#e07a3f" stroke="#9a4a1e" stroke-width="0.8"><circle cx="72.5" cy="105" r="10"/><circle cx="97.5" cy="105" r="10"/><circle cx="255" cy="105" r="10"/><circle cx="280" cy="105" r="10"/><circle cx="267.5" cy="126.7" r="10"/><circle cx="242.5" cy="126.7" r="10"/><circle cx="230" cy="105" r="10"/><circle cx="242.5" cy="83.3" r="10"/><circle cx="267.5" cy="83.3" r="10"/></g>
+                        <g stroke="#1e3a5f" stroke-width="2.2" marker-end="url(#dp-arrow)"><line x1="38" y1="105" x2="59.5" y2="105"/><line x1="132" y1="105" x2="110.5" y2="105"/></g>
+                        <g font-size="13" fill="#475569" text-anchor="middle"><text x="85" y="202">two rods</text><text x="255" y="202">many rods</text></g>
+                        </svg>
+                        <p><strong>The depletion force, in a cross-section through the rods, drawn to scale.</strong> Left: the gap between two parallel rods (orange) is too narrow for a crowder (blue), so the crowders strike the rods only from outside and press them together. The darker area where the two sleeves overlap is the room the crowders gain. Right: in a group of parallel rods, each rod shares its sleeve with several neighbors, and the gain grows with each neighbor. A sleeve keeps out only the center of a crowder, so a crowder&rsquo;s body can reach into it.</p>
+                    </div>
+
+                    <p>The rods line up before they separate because a dense packing needs parallel rods. For a single pair of these rods, only 40&nbsp;&Aring; long, the gain is small. In a separate measurement, two rods were held parallel among the crowders at a series of spacings. The crowders cannot fit into a narrow gap between the rods, so their collisions press the rods together: this is the depletion force. The work it does in bringing the rods together is a few times the thermal energy k<sub>B</sub>T, too weak to hold the pair together for long.
+                    Once the rods are parallel, each rod in a layer shares its sleeve with several neighbors, and the gain grows with each neighbor. A filament in a cell, microns long, shares a contact hundreds of times longer and gains correspondingly more.
+                    Because the depletion force is entropic, it is proportional to temperature for perfectly hard particles. A rubber band shows the same signature: stretched, it pulls harder when it is warmed, and it warms when it is stretched quickly, known as the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gough%E2%80%93Joule_effect">Gough&ndash;Joule effect</a>, because the entropy its chains lose by straightening is taken up by faster thermal motion.</p>
+
+                    <p>The order of the rods appears with no aligning external field, wall, or restraint acting on them.
+                    The model differs in several ways from the experiments on fd viruses mixed with dextran described in the introduction. The rods are 40&nbsp;&Aring; long, against about 880&nbsp;nm for an fd virus, the runs last nanoseconds, and the flat shape of the rod-rich layer comes from the small periodic box: in a large sample the rod-rich phase gathers into droplets.
+                    The crowders repel one another, while the polymer coils in the Asakura&ndash;Oosawa model pass through one another freely. The crowders&rsquo; repulsion of the rods is also slightly soft: in the same measurement on two held rods, the depletion force matches the hard-particle value when the rods touch but falls to zero sooner as they move apart, which gives a pair of rods about half the attraction that perfectly hard particles would.
                     The theory of Lekkerkerker and Stroobants predicts the same pattern for rods mixed with a polymer: the polymer widens the range of concentrations in which a disordered phase poor in rods coexists with an aligned phase rich in them.</p>
+
+                    <p>The entropy accounting above applies well beyond filaments. Every large molecule in a crowded cell has an excluded volume of its own, so the crowd favors arrangements that take up less room: a folded protein over an unfolded one, two proteins bound together over two apart, and compact DNA over spread-out DNA.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1146/annurev.biophys.37.032807.125817">Zhou, Rivas, and Minton</a> reviewed these effects in 2008, and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0014-5793(96)00725-9">Zimmerman and Murphy</a> argued in 1996 that the crowd inside a bacterium is dense enough to force its DNA into a compact body, the nucleoid.
+                    Laboratories use the effect every day: polyethylene glycol added to a solution precipitates DNA, proteins, and viruses, and it is one of the most common agents for growing protein crystals.</p>
 
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulation Produced</p>
                         <p class="v2-prompts-intro">The simulation was given rods that barely attract one another and hard spheres. Everything else below came out of it:</p>
                         <ul>
-                            <li><span class="v2-prompts-step">Alignment among a crowd</span> &mdash; 100 rods at c = 3 among 238 crowders filling a fifth of the cell line up at 300&nbsp;K: S rises from 0.05 to 0.81 and passes 0.5 at 420&nbsp;ps.</li>
-                            <li><span class="v2-prompts-step">Separation</span> &mdash; the share of the cell more than 8&nbsp;&Aring; from any rod is 1&nbsp;% at the start and reaches 15&nbsp;% at 820&nbsp;ps and 17&nbsp;% at 1600&nbsp;ps, as the aligned rods form a layer apart from the crowd.</li>
+                            <li><span class="v2-prompts-step">Alignment among a crowd</span> &mdash; 100 rods at c = 3 among 238 crowders filling a fifth of the box line up at 300&nbsp;K: S rises from 0.05 to 0.81 and passes 0.5 at 420&nbsp;ps.</li>
+                            <li><span class="v2-prompts-step">Separation</span> &mdash; the share of the box more than 8&nbsp;&Aring; from any rod is 1&nbsp;% at the start and reaches 15&nbsp;% at 820&nbsp;ps and 17&nbsp;% at 1600&nbsp;ps, as the aligned rods form a layer apart from the crowd.</li>
                             <li><span class="v2-prompts-step">The control</span> &mdash; the same rods without the crowders stay disordered for 600&nbsp;ps, S between 0.07 and 0.24.</li>
                             <li><span class="v2-prompts-step">The crowd removed</span> &mdash; S falls from 0.81 to an average of 0.28 between 20 and 40&nbsp;ps after the crowders are removed and stays at the level of the control.</li>
                         </ul>
@@ -204,7 +287,7 @@
 
                     <p>This article uses the depletion interaction to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and returns
                     measured data. Rods that line up among a crowd of hard spheres, separate from it, and fall back into disorder when the spheres are removed become something students measure for themselves in a browser.
-                    By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of <strong>how entropy can paradoxically produce order</strong>.</p>
+                    By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it, AIMS turns a student&rsquo;s curiosity into a genuine scientific investigation of <strong>how entropy can paradoxically produce order</strong>.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>

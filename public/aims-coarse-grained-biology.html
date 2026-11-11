@@ -83,7 +83,7 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 9, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 11, 2026</span></p>
 
                     <p>Much of a cell is made of rods. The oily tails of the lipids in its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Lipid_bilayer">membrane</a> are rods about two nanometers long,
                     the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Microtubule">microtubules</a> and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Actin">actin filaments</a> of its skeleton are rods micrometers long,
@@ -109,8 +109,11 @@
                     One rod per tail, per virus, or per segment of a filament keeps those features and leaves out the atoms, so whatever order the rods show comes from their shape and their attraction alone.
                     This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, a standard approach to
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Soft_matter">soft matter</a> in research, which keeps the degrees of freedom that decide the behavior and drops the rest.
-                    It also makes the simulation fast enough for a browser. A membrane patch, a suspension of a hundred virus particles, or a box of filaments holds far more atoms and runs for far longer than a browser can follow one atom at a time,
-                    while the proteins of the <a href="aims-alpha-helix.html">alpha-helix</a> and <a href="aims-protein-folding.html">protein-folding</a> articles on this site are small enough to be simulated atom by atom or bead by bead.</p>
+                    It also makes the simulation fast enough for a browser. In an all-atom model, most of the atoms would be water, and every step would be spent moving them.
+                    Effects worth a few times the thermal energy per pair, like the ones in this article, would be buried in their motion and would show up only after long runs on large systems.
+                    With the water folded into the interactions of the rods, there are far fewer particles to move, each step can cover a longer time, and the effect rises above the fluctuations in a run short enough for a browser.
+                    The picture is clearer as well: a membrane, a crowd of viruses, or a bent filament can be read at a glance from the rods, while an all-atom view would bury it under water and the atoms of every molecule.
+                    The proteins of the <a href="aims-alpha-helix.html">alpha-helix</a> and <a href="aims-protein-folding.html">protein-folding</a> articles on this site, by contrast, are small enough to be simulated atom by atom or bead by bead.</p>
 
                     <p>The rod in these labs is the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> particle of 1981, an ellipsoid whose attraction for a neighbor depends on how the two are oriented and is strongest when they lie side by side.
                     It was made for <a href="aims-liquid-crystals.html">liquid crystals</a>, where one ellipsoid stands for one molecule, and the companion article on that subject explains it. Biology asks three more things of it.
@@ -126,34 +129,34 @@
                     <em>"does the membrane hold?"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
 
                     <div class="v2-prompts">
-                        <p class="v2-prompts-intro">The four examples are in the Biology group of the Examples menu. Open one, open the chat, and type the prompts below.</p>
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). The four examples are in its Biology group. Open one, open the chat, and type the prompts below.</p>
 
                         <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser. The membrane runs take minutes; a pressure ladder on 200 rods takes longer, and the two-nanosecond hold of the last chain prompt is the longest experiment here.</p>
 
                         <p class="v2-prompts-group" style="margin-top:0 !important;">A Lipid Bilayer of Gay-Berne Particles</p>
                         <ol>
-                            <li><span class="v2-prompts-step">Does it hold?</span> &mdash; <span class="v2-prompt">"Run the bilayer for 200 ps at 300 K and chart the tail order and the heads outside every 20 ps. Does it hold?"</span></li>
-                            <li><span class="v2-prompts-step">Where does it melt?</span> &mdash; <span class="v2-prompt">"Now heat the membrane from 300 to 700 K in steps of 50 K, about 60 ps at each, and chart the tail order against temperature. Where does it melt?"</span></li>
+                            <li><span class="v2-prompts-step">Does it hold?</span> &mdash; <span class="v2-prompt">&ldquo;Run the bilayer for 200 ps at 300 K and chart the tail order and the heads outside every 20 ps. Does it hold?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Where does it melt?</span> &mdash; <span class="v2-prompt">&ldquo;Now heat the membrane from 300 to 700 K in steps of 50 K, about 60 ps at each, and chart the tail order against temperature. Where does it melt?&rdquo;</span></li>
                         </ol>
 
                         <p class="v2-prompts-group">Virus Particles That Order by Crowding</p>
                         <ol>
-                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">"Compress the rods at 300 K from 2 to 30 MPa, holding 260 ps at each pressure, and chart the nematic order against the concentration. Do they order by crowding?"</span></li>
-                            <li><span class="v2-prompts-step">Dilution</span> &mdash; <span class="v2-prompt">"Now let the pressure back down through the same steps. Does the order go away again?"</span></li>
+                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">&ldquo;Compress the rods at 300 K from 2 to 30 MPa, holding 260 ps at each pressure, and chart the nematic order against the concentration. Do they order by crowding?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Dilution</span> &mdash; <span class="v2-prompt">&ldquo;Now let the pressure back down through the same steps. Does the order go away again?&rdquo;</span></li>
                         </ol>
 
                         <p class="v2-prompts-group">Filaments That Align by Confinement</p>
                         <ol>
-                            <li><span class="v2-prompts-step">Narrowing</span> &mdash; <span class="v2-prompt">"Narrow the box at 300 K from 1.45 to 0.9 rod lengths across, keeping its volume and holding 260 ps at each width, and chart the nematic order against the width. Do the rods line up?"</span></li>
-                            <li><span class="v2-prompts-step">Widening</span> &mdash; <span class="v2-prompt">"Now widen the box back to the cube through the same steps. Does the alignment go away again?"</span></li>
+                            <li><span class="v2-prompts-step">Narrowing</span> &mdash; <span class="v2-prompt">&ldquo;Narrow the box at 300 K from 1.45 to 0.9 rod lengths across, keeping its volume and holding 260 ps at each width, and chart the nematic order against the width. Do the rods line up?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Widening</span> &mdash; <span class="v2-prompt">&ldquo;Now widen the box back to the cube through the same steps. Does the alignment go away again?&rdquo;</span></li>
                         </ol>
 
                         <p class="v2-prompts-group">Worm-Like Chains That Order by Crowding</p>
                         <ol>
-                            <li><span class="v2-prompts-step">The hinge</span> &mdash; <span class="v2-prompt">"Build a chain of 20 of these rods for each hinge stiffness from 0 to 6000 K, thermalize each at 300 K, and chart the persistence length against k_a/kT. Does the hinge set it the way the worm-like chain predicts?"</span></li>
-                            <li><span class="v2-prompts-step">Temperature</span> &mdash; <span class="v2-prompt">"Now heat the dimers in the lab from 300 to 600 K, about 400 ps at each step, and chart the persistence length of their hinge against temperature. Do they soften?"</span></li>
-                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">"Compress the cell of dimers at 300 K from 1 to 12 MPa, holding at each pressure, and chart the nematic order against the rods' volume fraction. Do the hinged pairs align, and sooner than single rods would?"</span></li>
-                            <li><span class="v2-prompts-step">Stiff against floppy</span> &mdash; <span class="v2-prompt">"Repeat the compression with free joints, but as a fair test this time: bring a cell of the lab's dimers and a cell with a hinge of 0 K to the same volume fraction, 0.2, and hold both there for 2 ns. Do the floppy dimers still align?"</span></li>
+                            <li><span class="v2-prompts-step">The hinge</span> &mdash; <span class="v2-prompt">&ldquo;Build a chain of 20 of these rods for each hinge stiffness from 0 to 6000 K, thermalize each at 300 K, and chart the persistence length against k_a/kT. Does the hinge set it the way the worm-like chain predicts?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Temperature</span> &mdash; <span class="v2-prompt">&ldquo;Now heat the dimers in the lab from 300 to 600 K, about 400 ps at each step, and chart the persistence length of their hinge against temperature. Do they soften?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Crowding</span> &mdash; <span class="v2-prompt">&ldquo;Compress the cell of dimers at 300 K from 1 to 12 MPa, holding at each pressure, and chart the nematic order against the rods' volume fraction. Do the hinged pairs align, and sooner than single rods would?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Stiff against floppy</span> &mdash; <span class="v2-prompt">&ldquo;Repeat the compression with free joints, but as a fair test this time: bring a cell of the lab's dimers and a cell with a hinge of 0 K to the same volume fraction, 0.2, and hold both there for 2 ns. Do the floppy dimers still align?&rdquo;</span></li>
                         </ol>
                     </div>
 
