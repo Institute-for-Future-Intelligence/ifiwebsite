@@ -67,6 +67,9 @@
         .v2-col-main .v2-callout p { margin: 0.8rem 0 0; font-size: 1.1rem; line-height: 1.45; color: var(--text-muted); }
         .v2-col-main .v2-callout p strong { color: var(--text); }
         .v2-col-main .v2-prompts { clear: both; }
+        .v2-col-main .v2-tryit { float: right; clear: right; width: 40%; margin: 0.4rem 0 1.2rem 2.5rem; }
+        .v2-col-main .v2-screenshot-single, .v2-col-main .v2-screenshot-row { clear: both; }
+        @media (max-width: 720px) { .v2-col-main .v2-tryit { float: none; width: auto; margin: 1.5rem 0; } }
         @media (max-width: 720px) { .v2-col-main .v2-callout { float: none; width: auto; margin: 1.5rem 0; } }
     </style>
 </head>
@@ -131,35 +134,34 @@
                         <p><strong>What the rods and crowders stand for, drawn to scale.</strong> A stretch of actin filament (top, 26 subunits built from <a target="_blank" rel="noopener noreferrer" href="https://www.rcsb.org/structure/8A2R">PDB 8A2R</a>) ten times as long as it is wide, and a hemoglobin molecule (bottom, <a target="_blank" rel="noopener noreferrer" href="https://www.rcsb.org/structure/1A3N">PDB 1A3N</a>). The model keeps only their shapes: the filament becomes an ellipsoid (orange) and the protein a sphere (blue), each drawn here at the size of the molecule it replaces. The particles in the model are smaller, and its crowders are wider than its rods, while hemoglobin is a little narrower than the filament. Hemoglobin fills about a quarter of the volume of a red blood cell, one of the most crowded spaces in the body; experiments that add a protein crowder on purpose more often use serum albumin.</p>
                     </div>
 
-                    <p>The rods are <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> ellipsoids, 40&nbsp;&Aring; long and 4&nbsp;&Aring; wide, the virus-like rods of the companion article <a href="aims-molecular-crowding.html">Modeling Macromolecular Crowding</a>.
-                    The depth of their attraction for one another is set to 20&nbsp;K in temperature units, meaning an energy of Boltzmann&rsquo;s constant times 20&nbsp;K, a fifteenth of the thermal energy at room temperature, so that a rod does little to a neighbor except keep it out of the room it occupies.
-                    The rods stand for filaments and the spheres for the macromolecules that crowd a cell, so the spheres are called crowders, and together they form the crowd. The crowders are 7&nbsp;&Aring; across. They repel one another with a Lennard-Jones potential of strength 300&nbsp;K in the same units, cut off at its minimum and shifted to zero so that it only repels. They repel the rods with the Gay&ndash;Berne potential for an ellipsoid and a sphere, cut off and shifted the same way, whose reach and strength depend on the angle between the rod&rsquo;s axis and the line to the sphere.
-                    In the lab they are drawn at their full size, so the box looks as crowded as it is.
-                    Using rods and spheres for these molecules is called <a href="aims-coarse-grained-biology.html">coarse-grained modeling</a>: they keep the sizes and shapes that decide the depletion interaction and leave out the atoms.
-                    An all-atom model of this box would be mostly water, and a gain of a few times the thermal energy per pair of rods would be buried in the motion of the water; with the water folded into the interactions, there are far fewer particles to move, and the effect shows up in a run short enough for a browser.
-                    The picture is clearer as well: each rod shows at a glance which way it points and where it sits, while an all-atom view of the same box would hide the order under thousands of water molecules.</p>
-
-                    <p>The box is periodic and 60&nbsp;&Aring; across, and it holds 100 rods and 238 crowders at 300&nbsp;K. The crowders fill a fifth of the volume, which is the low end of what macromolecules fill in a cell.
-                    The rods are at a concentration c = &rho;L&sup2;D = 3, the number of rods per volume times the length squared times the width. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1111/j.1749-6632.1949.tb27296.x">Onsager</a> showed in 1949 that infinitely thin hard rods alone stay disordered below c = 4.19, and the second chat turn shows that these rods, without the crowders, point every way at c = 3.
-                    The order is measured by the nematic order parameter S, which is 1 when every rod points along the same direction and 0 when the rods point every way.</p>
-
-                    <h2>Try It</h2>
-
-                    <div class="v2-prompts">
-                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). The example is in the Biology group under the name Filaments That Align by Macromolecular Crowding. Open it, open the chat, and type the prompts below.</p>
-
-                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser. The first prompt runs 338 particles for 1.6 nanoseconds, which takes about an hour on a typical computer; the other two take a few minutes each.</p>
+                    <div class="v2-prompts v2-tryit">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">Try It</p>
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). The example is in the Biology group under the name Filaments That Align by Macromolecular Crowding. Open it, open the chat, and type the prompts below. The chat in the example already holds the answers to these prompts, which the sections below describe.</p>
 
                         <ol>
                             <li><span class="v2-prompts-step">The crowd</span> &mdash; <span class="v2-prompt">&ldquo;Run the rods among the crowders at 300 K for 1600 ps and chart the nematic order parameter. Do the filaments line up among the crowd?&rdquo;</span></li>
                             <li><span class="v2-prompts-step">The control</span> &mdash; <span class="v2-prompt">&ldquo;Does that depend on the crowders? Reset the lab to its opening frame, take the crowders out, and run the same rods for 600 ps.&rdquo;</span></li>
                             <li><span class="v2-prompts-step">The crowd taken away</span> &mdash; <span class="v2-prompt">&ldquo;Now load the aligned state from the first run, take the crowders out, and watch the rods for 600 ps. Does the alignment hold?&rdquo;</span></li>
                         </ol>
+
+                        <p class="v2-prompts-intro" style="margin:1rem 0 0 !important;"><b>Be patient.</b> Every picosecond is computed in your browser. The first prompt runs 338 particles for 1.6 nanoseconds, which takes about an hour on a typical computer; the other two take a few minutes each.</p>
                     </div>
+
+                    <p>The rods are <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> ellipsoids, 40&nbsp;&Aring; long and 4&nbsp;&Aring; wide, the virus-like rods of the companion article <a href="aims-molecular-crowding.html">Modeling Macromolecular Crowding</a>.
+                    The depth of their attraction for one another is set to 20&nbsp;K in temperature units, meaning an energy of Boltzmann&rsquo;s constant times 20&nbsp;K, a fifteenth of the thermal energy at room temperature, so that a rod does little to a neighbor except keep it out of the room it occupies.
+                    The rods stand for filaments and the spheres for the macromolecules that crowd a cell, so the spheres are called crowders, and together they form the crowd. The crowders are 7&nbsp;&Aring; across. They repel one another with a Lennard-Jones potential of strength 300&nbsp;K in the same units, cut off at its minimum and shifted to zero so that it only repels. They repel the rods with the Gay&ndash;Berne potential for an ellipsoid and a sphere, cut off and shifted the same way, whose reach and strength depend on the angle between the rod&rsquo;s axis and the line to the sphere.
+                    In the lab they are drawn at their full size, so the box looks as crowded as it is.
+                    Using rods and spheres for these molecules is called <a href="aims-coarse-grained-biology.html">coarse-grained modeling</a>: each particle stands in for a large group of atoms and keeps the size and shape that decide the depletion interaction.
+                    An all-atom model of this box would be mostly water, and a gain of a few times the thermal energy per pair of rods would be buried in the motion of the water; with the water folded into the interactions, there are far fewer particles to move, and the effect shows up in a run short enough for a browser.
+                    The picture is clearer as well: each rod shows at a glance which way it points and where it sits, while an all-atom view of the same box would hide the order under thousands of water molecules.</p>
+
+                    <p>The box is periodic and 60&nbsp;&Aring; across, and it holds 100 rods and 238 crowders at 300&nbsp;K. The crowders fill a fifth of the volume, which is the low end of what macromolecules fill in a cell.
+                    The rods are at a concentration c = &rho;L&sup2;D = 3, the number of rods per volume times the length squared times the width. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1111/j.1749-6632.1949.tb27296.x">Onsager</a> showed in 1949 that infinitely thin hard rods alone stay disordered below c = 4.19, and the answer to the second prompt shows that these rods, without the crowders, point every way at c = 3.
+                    The order is measured by the nematic order parameter S, which is 1 when every rod points along the same direction and 0 when the rods point every way.</p>
 
                     <h2>The Rods Line Up Among the Crowd</h2>
 
-                    <p>The first chat turn ran the box at 300&nbsp;K for 1600&nbsp;ps and averaged S over windows of 20&nbsp;ps. S was 0.05 in the first window and stayed below 0.25 for the first 300&nbsp;ps.
+                    <p>The first prompt ran the box at 300&nbsp;K for 1600&nbsp;ps and averaged S over windows of 20&nbsp;ps. S was 0.05 in the first window and stayed below 0.25 for the first 300&nbsp;ps.
                     Then the rods lined up: S passed 0.5 in the window that ended at 420&nbsp;ps and leveled off near 0.81. The turn also counted the rods lying side by side with another rod, meaning that their axes are within 26&deg; of each other, closer than one and a half rod widths, and overlapping along at least half their length.
                     Averaged over the first and the last sixth of the run, that share rose from 76&nbsp;% to 88&nbsp;%, and the largest connected group of side-by-side rods grew from 22 rods to 84.
                     The temperature stayed at 300&nbsp;K throughout. The switch from disorder to order comes at a random moment, so another run of the same box passes S = 0.5 sooner or later than this one.</p>
@@ -167,7 +169,7 @@
                     <div class="v2-screenshot-single">
                         <img src="image/aims-entropy-align.png" alt="Order parameter S of 100 rods among 238 crowders against time over 1600 ps at 300 K: S stays below 0.25 for 300 ps, passes 0.5 at 420 ps and levels off near 0.81, while the share of rods side by side with another rises from an average of 0.76 over the first sixth of the run to 0.88 over the last">
                     </div>
-                    <p class="v2-chart-caption">The first chat turn: the order parameter S (blue) and the share of rods lying side by side with another rod (orange) against time for the rods among the crowders.</p>
+                    <p class="v2-chart-caption">The first prompt: the order parameter S (blue) and the share of rods lying side by side with another rod (orange) against time for the rods among the crowders.</p>
 
                     <h2>The Rods Separate from the Crowd</h2>
 
@@ -181,22 +183,22 @@
                         <img src="image/aims-entropy-lab-start.jpg" alt="The box at 20 ps: 100 rods pointing every way, most of them gray, with the crowders spread evenly among them">
                         <img src="image/aims-entropy-lab-end.jpg" alt="The box at 1600 ps, seen from the same direction: most rods lie parallel in a tight layer on one side of the box, and the crowders fill the other side">
                     </div>
-                    <p class="v2-chart-caption">The box at 20&nbsp;ps (left), the rods pointing every way among the crowders, and at 1600&nbsp;ps (right), seen from the same direction, the aligned rods on one side of the box and the crowders on the other. Both are loaded by the buttons under the chart of the first chat turn.</p>
+                    <p class="v2-chart-caption">The box at 20&nbsp;ps (left), the rods pointing every way among the crowders, and at 1600&nbsp;ps (right), seen from the same direction, the aligned rods on one side of the box and the crowders on the other. Both are loaded by the buttons under the chart in the answer to the first prompt.</p>
 
                     <h2>Is the Crowd Responsible?</h2>
 
-                    <p>The second chat turn is the control: the same 100 rods from the same starting positions, without the crowders, for 600&nbsp;ps. S stayed between 0.07 and 0.24 and averaged 0.17 over the last 100&nbsp;ps, and the share of rods side by side stayed between 37 and 50&nbsp;%, against 76 to 88&nbsp;% among the crowders.
+                    <p>The second prompt is the control: the same 100 rods from the same starting positions, without the crowders, for 600&nbsp;ps. S stayed between 0.07 and 0.24 and averaged 0.17 over the last 100&nbsp;ps, and the share of rods side by side stayed between 37 and 50&nbsp;%, against 76 to 88&nbsp;% among the crowders.
                     The same rods at the same concentration and temperature stay disordered alone and line up among the crowd, so the order depends on the crowd.</p>
 
                     <h2>Taking the Crowd Away</h2>
 
-                    <p>The third chat turn took the crowders out of the aligned box at 1600&nbsp;ps and ran the rods alone. S averaged 0.56 over the first 20&nbsp;ps and 0.28 over the next 20, down from 0.81, and after 60&nbsp;ps it stayed between 0.08 and 0.19, the level of the control.
+                    <p>The third prompt took the crowders out of the aligned box at 1600&nbsp;ps and ran the rods alone. S averaged 0.56 over the first 20&nbsp;ps and 0.28 over the next 20, down from 0.81, and after 60&nbsp;ps it stayed between 0.08 and 0.19, the level of the control.
                     The share of rods side by side fell from 88&nbsp;% to between 36 and 48&nbsp;% after 80&nbsp;ps. The rods stayed in line only while the crowd was there, and once it was gone, their thermal motion turned them every way again.</p>
 
                     <div class="v2-screenshot-single">
                         <img src="image/aims-entropy-removed.png" alt="Order parameter S against time for the aligned rods after the crowders are removed: S averages 0.56 over the first 20 ps and 0.28 over the next 20, then stays between 0.08 and 0.19 for the rest of 600 ps, the level of the rods without crowders">
                     </div>
-                    <p class="v2-chart-caption">The third chat turn: S and the share of rods side by side after the crowders are removed. The dashed line marks S for the same rods without crowders.</p>
+                    <p class="v2-chart-caption">The third prompt: S and the share of rods side by side after the crowders are removed. The dashed line marks S for the same rods without crowders.</p>
 
                     <h2>The Entropy Balance</h2>
 

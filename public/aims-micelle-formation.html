@@ -109,7 +109,7 @@
                                 id="aims-frame4" allowfullscreen="true" title="Micelle Formation demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame4');">View fullscreen</a><br>
-                            Sixty soap molecules at 300&nbsp;K. Assembly takes one to three minutes of Play; the "Load this state" card in the first chat turn jumps to the finished micelle.
+                            Sixty soap molecules at 300&nbsp;K. Assembly takes one to three minutes of Play; the "Load this state" card in the answer to the first prompt jumps to the finished micelle.
                         </figcaption>
                     </figure>
 
@@ -117,8 +117,7 @@
 
                     <p>Few molecules of a gas are spheres, yet physicists model gases with hard spheres, because what decides how a gas behaves is that its molecules take up room and bounce off one another.
                     Keeping only those features makes the cause of the behavior easy to see. Four beads do the same for a soap molecule. What makes a micelle is that each molecule has a head that mixes with water and a tail
-                    that avoids it, so dozens of tails gather around one center with the heads turned outward. A head bead and a chain of three tail beads keep that split and the length of the molecule and leave out
-                    its atoms, and the water is modeled by rules instead of molecules, so whatever clusters the beads form come from the split alone.
+                    that avoids it, so dozens of tails gather around one center with the heads turned outward. A head bead and a chain of three tail beads, each bead standing for a group of atoms, keep that split and the length of the molecule, and the water is modeled by rules instead of molecules, so whatever clusters the beads form come from the split alone.
                     Modeling a molecule this way is called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, a standard approach to
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Soft_matter">soft matter</a> in research, which keeps the degrees of freedom that decide the behavior and drops the rest.
                     It also makes the simulation fast enough for a browser. A micelle holds dozens of soap molecules with tens of atoms each and needs hundreds of picoseconds to assemble, far more than a browser can follow
@@ -137,7 +136,7 @@
                         <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open <em>Micelle Formation</em> from the list (Materials Science, Soft Matter), open the chat, and type the prompts below.</p>
 
                         <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, and the molecules need 300 to 1000 picoseconds, one to three minutes of Play, to assemble.
-                        Each of the three chat turns of the example keeps its last frame: press "Load this state" on its card and the lab jumps to it.</p>
+                        The answer to each of the three prompts in the example keeps its last frame: press "Load this state" on its card and the lab jumps to it.</p>
 
                         <ol>
                             <li><span class="v2-prompts-step">Self-assembly</span> &mdash; <span class="v2-prompt">&ldquo;Run the lipids for 1000 ps at 300 K and count the clusters every 50 ps.&rdquo;</span></li>
@@ -187,7 +186,7 @@
                     <p>Heating undoes the assembly. Stepping from 300 to 400&nbsp;K and then up to 800&nbsp;K in steps of 50&nbsp;K, with 60&nbsp;ps at each temperature and then 20&nbsp;ps of counting, the micelle stays whole to 400&nbsp;K. It loses a few
                     molecules at 450&nbsp;K, takes most of them back at 500&nbsp;K, splits at 550&nbsp;K into pieces of which the largest holds 35, and is in 18 clusters at 650&nbsp;K and 25 at 800&nbsp;K, the largest with 11 molecules. Over this range the thermal energy of a bead, 550 to 800&nbsp;K in the same units, becomes comparable to the 630&nbsp;K that holds two tail beads together. Real soap stays below the boiling point of water; the box leaves the water out, so the model can be heated past it.</p>
 
-                    <p>Cooled again, the molecules reassemble. The second chat turn keeps its last frame, the broken-up box at 800&nbsp;K. Press "Load this state" on its card and then Play: the thermostat of the lab stays at its setting, 300&nbsp;K in the example, so the
+                    <p>Cooled again, the molecules reassemble. The answer to the second prompt keeps its last frame, the broken-up box at 800&nbsp;K. Press "Load this state" on its card and then Play: the thermostat of the lab stays at its setting, 300&nbsp;K in the example, so the
                     hot molecules cool and gather into micelles within a few hundred picoseconds. Loaded this way in the published example, the box held two micelles 430&nbsp;ps later, each a gray core inside a shell of yellow heads. In another run cooled this way, the box held two micelles of 50 and 10 molecules after 200&nbsp;ps and one micelle of all 60 after 400&nbsp;ps.</p>
 
                     <h2>Turned Inside Out in Oil</h2>
@@ -198,7 +197,7 @@
                     The lab models the oil the way it models the water, with rules instead of solvent molecules. Under Experiment Settings, Force Field, the Implicit Solvent setting switches the lipid beads from water to oil, and a chip on the lab names the solvent.
                     In oil the heads attract one another and the tails only repel. The head attraction, 1200&nbsp;K per contact, is not fitted to a measurement the way the tail attraction is: it is the value at which small-head molecules assemble in this box.</p>
 
-                    <p>The third chat turn builds 60 molecules with a small orange head, 4.7&nbsp;&Aring; wide like the tails, and switches the box to oil. Because the heads now make the core, the agent counts clusters by joining any two molecules whose heads touch, and it
+                    <p>The third prompt builds 60 molecules with a small orange head, 4.7&nbsp;&Aring; wide like the tails, and switches the box to oil. Because the heads now make the core, the agent counts clusters by joining any two molecules whose heads touch, and it
                     measures each cluster on its core of heads and on the share of molecules whose tails sit farther from the center than their head. In four runs of 1 to 2&nbsp;ns, most of the molecules had joined clusters within about 400&nbsp;ps, and at the end of each run the box held four or five inverse micelles of 6 to 19 molecules,
                     each with a core of heads 4 to 7&nbsp;&Aring; in radius of gyration and every tail pointing outward. These are much smaller than the micelle of 60 that the soap molecules make in water.
                     The soap molecules behave differently in oil. With their 7&nbsp;&Aring; heads, all 60 gathered into one large cluster, tails outward, whose core of heads has a radius of gyration of 17&nbsp;&Aring;, about three times that of the small-head micelles.

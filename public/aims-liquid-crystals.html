@@ -123,8 +123,7 @@
 
                     <p>Few molecules of a gas are spheres, yet physicists model gases with hard spheres, because what decides how a gas behaves is that its molecules take up room and bounce off one another.
                     Keeping only those features makes the cause of the behavior easy to see. A rod does the same for a liquid crystal. What makes a liquid crystal order is that its molecules are long and thin,
-                    so that crowded molecules have more room to move when they line up, and that they attract one another more strongly side by side than end to end. One rod per molecule keeps both features
-                    and leaves out the atoms, the flexible tail, and the charges of the real molecule, so whatever order the rods show comes from their shape and their attraction alone.
+                    so that crowded molecules have more room to move when they line up, and that they attract one another more strongly side by side than end to end. One rod per molecule stands in for all of its atoms and keeps both features, without the flexible tail and the charges of the real molecule, so whatever order the rods show comes from their shape and their attraction alone.
                     This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, a standard approach to
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Soft_matter">soft matter</a> in research, which keeps the degrees of freedom that decide the behavior and drops the rest.
                     It also makes the simulation fast enough for a browser. A liquid crystal takes hundreds of molecules and nanoseconds of time, far more than a browser can follow one atom at a time,
@@ -193,7 +192,7 @@
 
                     <p>The rods start on a lattice, and the lattice is layered: three flat sheets of rods stacked end to end, the arrangement of a
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Liquid_crystal#Smectic_phases">smectic</a> liquid crystal, which has order in position along one axis as well as in direction. Real 5CB never forms layers: it freezes into a crystal at 24&nbsp;&deg;C first. The model rods do.
-                    The fourth and fifth chat turns of the example heat the same 216 rods from 250&nbsp;K and chart, beside S, the layer order &tau;, which is 1 when the centers of the rods stand in perfect layers and about 0.07 when they are placed at random.
+                    The fourth and fifth prompts of the example heat the same 216 rods from 250&nbsp;K and chart, beside S, the layer order &tau;, which is 1 when the centers of the rods stand in perfect layers and about 0.07 when they are placed at random.
                     At 250&nbsp;K both are high, S = 0.84 and &tau; = 0.79: the rods are aligned and layered, a smectic. &tau; falls through 0.5 at 279&nbsp;K and S at 291&nbsp;K in this ramp, which holds 100&nbsp;ps at each step; the ramp of the first turn, with 80&nbsp;ps steps, put the crossing of S at 310&nbsp;K. The longer holds give the order more time to decay at each step, and one run of 216 rods differs from the next by ten kelvin or so; together they account for the gap. So the layers melt about a dozen kelvin ahead of the shared direction.
                     Charted along the direction the rods point, their centers bunch at 260&nbsp;K into three peaks four times the average density with empty gaps between, at 280&nbsp;K the peaks are lower, 2.8 times the average, and the gaps are a quarter full, while the rods still point roughly together (S = 0.62), and at 340&nbsp;K the profile is nearly flat, between 0.8 and 1.3 times the average, and the alignment is gone too. Under both charts a row of buttons loads the rods into the lab as the ramp left them at each temperature charted, so a student can watch the layers dissolve.
                     The two orders fall over overlapping ranges: at 290&nbsp;K the rods are still partly aligned and partly layered, S = 0.53 and &tau; = 0.36, and by 300&nbsp;K, where the layers are nearly gone, most of the alignment has gone too. So the model has at most a narrow range, roughly 280 to 290&nbsp;K, where the rods are aligned but no longer layered: a nematic between the smectic and the ordinary liquid, as 8CB, a slightly longer relative of 5CB, has between 307 and 314&nbsp;K. The range is no wider than the scatter between runs, so a student should expect to find it in some runs and not in others.
@@ -203,10 +202,10 @@
                         <img src="image/aims-lc-layers.png" alt="Order parameter S and layer order tau of 216 rods heated from 250 K to 340 K: they start at 0.84 and 0.79, tau falls through 0.5 at 279 K and S at 291 K, and both reach about 0.1 by 300 K">
                         <img src="image/aims-lc-layer-profile.png" alt="Rods per slice along the director at 260, 280 and 340 K: three sharp peaks four times the average with empty gaps at 260 K, lower peaks at 280 K, and a nearly flat profile at 340 K">
                     </div>
-                    <p class="v2-chart-caption">The fourth and fifth chat turns as the agent posted them: S and the layer order &tau; on heating (left), and where the rod centers sit along the director at three temperatures of that ramp (right).</p>
+                    <p class="v2-chart-caption">The fourth and fifth prompts, as the agent answered them: S and the layer order &tau; on heating (left), and where the rod centers sit along the director at three temperatures of that ramp (right).</p>
 
                     <p>So, started on the lattice, the rods in this lab are a smectic up to about 280&nbsp;K. At room temperature the layers are mostly gone and the shared direction is weakening, as it is in the first turn, where S at 293&nbsp;K is 0.73 and the clearing point is 17&nbsp;K away. Real 5CB at room temperature is just as close to its clearing point, which is why its S is only about 0.6.
-                    Whether the layers are only a memory of the lattice this ramp cannot tell. The last chat turn melts the rods and holds the liquid at 260&nbsp;K: the alignment comes back within half a nanosecond, the layers not within the 800&nbsp;ps of the run.</p>
+                    Whether the layers are only a memory of the lattice this ramp cannot tell. The last prompt melts the rods and holds the liquid at 260&nbsp;K: the alignment comes back within half a nanosecond, the layers not within the 800&nbsp;ps of the run.</p>
 
                     <h2>The Clearing Point</h2>
 
@@ -223,7 +222,7 @@
                     <div class="v2-screenshot-single">
                         <img src="image/aims-lc-clearing-point.png" alt="Order parameter S of 216 rods heated from 263 K to 383 K and cooled back down in 10 K steps: on heating S falls from 0.81 and crosses 0.5 at 310 K; on cooling it stays below 0.2 until 293 K and climbs only to 0.47 at 263 K">
                     </div>
-                    <p class="v2-chart-caption">The first chat turn: S on the heating leg (blue) and the cooling leg (orange), 80&nbsp;ps per step.</p>
+                    <p class="v2-chart-caption">The first prompt: S on the heating leg (blue) and the cooling leg (orange), 80&nbsp;ps per step.</p>
 
                     <p>The cooling leg is the more surprising half of the chart. Stepping back down from 383&nbsp;K, S stays between 0.08 and 0.19 all the way to 293&nbsp;K, 17&nbsp;K below the clearing point, then creeps up to 0.29 at 283&nbsp;K, 0.36 at 273&nbsp;K and 0.47 at 263&nbsp;K, the last step, still short of the 0.5 it crossed on the way up and well below the 0.81 the heating leg
                     began at. So the order had not returned 47&nbsp;K below where it was lost, and was only starting to. Order has to grow from a patch of rods that happen to agree, and in a cooling liquid that takes extra undercooling and time.
@@ -237,7 +236,7 @@
 
                     <h2>Order from the Liquid</h2>
 
-                    <p>A ramp with 80&nbsp;ps steps shows at most the start of the ordering. The last chat turn of the example waits instead. It melts the rods at 400&nbsp;K until both kinds of order are gone, which took 90&nbsp;ps (S = 0.13, &tau; = 0.11, what rods placed at random give),
+                    <p>A ramp with 80&nbsp;ps steps shows at most the start of the ordering. The last prompt of the example waits instead. It melts the rods at 400&nbsp;K until both kinds of order are gone, which took 90&nbsp;ps (S = 0.13, &tau; = 0.11, what rods placed at random give),
                     then drops the thermostat at once to 260&nbsp;K, 50&nbsp;K below the clearing point, and holds it for 800&nbsp;ps, charting S and &tau; against time.
                     For about 200&nbsp;ps S rises only slowly, to 0.26; then it climbs, passes 0.5 for good 440&nbsp;ps after the drop, and ends at 0.79.
                     This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nucleation">nucleation</a>: a patch of rods that happen to point the same way grows once it is large enough to outlast the jostling of its neighbors, and then it takes over the cell.
@@ -247,7 +246,7 @@
                     <div class="v2-screenshot-single">
                         <img src="image/aims-lc-quench.png" alt="Order parameter S and layer order tau against time: both fall during the melt at 400 K; at 260 K S rises slowly for 200 ps, climbs through 0.5 at about 440 ps after the drop and levels off near 0.8, while tau stays below 0.2">
                     </div>
-                    <p class="v2-chart-caption">The last chat turn. Time on this chart counts from the start of the melt, so the drop to 260&nbsp;K is at 90&nbsp;ps and S passes 0.5 for good at 530&nbsp;ps, 440&nbsp;ps after the drop.</p>
+                    <p class="v2-chart-caption">The last prompt. Time on this chart counts from the start of the melt, so the drop to 260&nbsp;K is at 90&nbsp;ps and S passes 0.5 for good at 530&nbsp;ps, 440&nbsp;ps after the drop.</p>
 
                     <div class="v2-screenshot-row">
                         <img src="image/aims-lc-quench-alignment.png" alt="The 216 rods 250 ps into the quench, colored by alignment with the director: a block of orange rods pointing the same way fills the middle of the cell, with gray rods pointing other ways around it; a compass under the cell reads Director S = 0.35">
@@ -265,7 +264,7 @@
                     <div class="v2-screenshot-single">
                         <img src="image/aims-lc-constant-pressure.png" alt="Order parameter S of 216 rods heated at 8 MPa from 263 K to 383 K: S stays above 0.9 through 303 K, reads 0.58 at 313 K and 0.11 at 323 K, and stays near 0.07 from there on">
                     </div>
-                    <p class="v2-chart-caption">The third chat turn: at 8&nbsp;MPa the whole drop of S falls within two 10&nbsp;K steps.</p>
+                    <p class="v2-chart-caption">The third prompt: at 8&nbsp;MPa the whole drop of S falls within two 10&nbsp;K steps.</p>
 
                     <h2>The Switch Inside a Pixel</h2>
 
@@ -278,7 +277,7 @@
                     <div class="v2-screenshot-single">
                         <img src="image/aims-lc-pixel-switch.png" alt="Order parameter S against time with an aligning field switched on from 4 to 14 ps at 383 K: S rises from 0.14 to about 0.43 within the pulse and stays near 0.38 after the field is off">
                     </div>
-                    <p class="v2-chart-caption">The second chat turn: the field is on from 4 to 14&nbsp;ps.</p>
+                    <p class="v2-chart-caption">The second prompt: the field is on from 4 to 14&nbsp;ps.</p>
 
                     <p>Another example in the same menu, <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org/?viewonly=true&amp;userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&amp;project=A%20Guest-Host%20Liquid%20Crystal%20Display">A Guest-Host Liquid Crystal Display</a>, dissolves 20 long dye rods in 360 of these rods, laid across the cell, the off state of a pixel.
                     The field turns only the host, and the host carries the dye with it. In its published run at 293&nbsp;K, the dye's absorption of light polarized across the cell fell from 0.90 to 0.11 of its maximum while the field was on, the way a guest-host pixel turns from colored to clear without the polarizing filters of an ordinary display.</p>
@@ -315,7 +314,7 @@
                         <img src="image/aims-lc-mixture-by-kind.png" alt="Order parameter of the host rods, the long rods and all rods of the mixture from 283 K to 473 K: the long rods stay between 0.76 and 0.90 while the host falls below 0.5 near 298 K">
                         <img src="image/aims-lc-mixture-compositions.png" alt="Order parameter of all rods for cells with no, 40 and 80 long rods from 283 K to 473 K: the first two cross 0.5 near 303 and 301 K, the 80-rod cell near 427 K">
                     </div>
-                    <p class="v2-chart-caption">The two chat turns of the mixture example: each kind of rod on its own (left), and three compositions at the same packing (right).</p>
+                    <p class="v2-chart-caption">The two prompts of the mixture example: each kind of rod on its own (left), and three compositions at the same packing (right).</p>
 
                     <p>A student can also make a mixture by hand, in either example. Pause the simulation, right-click a rod, enter a new length and width under Resize, and press Apply; or ask the agent, for example &ldquo;make rods 0 to 19 twice as long.&rdquo;
                     The resized rods become a new kind with a color of their own and a mass that grows with their volume, while the other rods keep their size, and Undo takes the change back.
@@ -346,7 +345,7 @@
                     <div class="v2-screenshot-single">
                         <img src="image/aims-lc-polar-sticking.png" alt="Share of rods touching a neighbor against time at 450 K: the polar rods rise to about 0.55, the plain rods stay near 0.25, and the share of polar contacts that are antiparallel stays near 0.9">
                     </div>
-                    <p class="v2-chart-caption">The first chat turn of the polar-rods example: the share of each kind of rod touching a neighbor, and the share of polar contacts that are antiparallel.</p>
+                    <p class="v2-chart-caption">The first prompt of the polar-rods example: the share of each kind of rod touching a neighbor, and the share of polar contacts that are antiparallel.</p>
 
                     <p>A static field of 10&nbsp;V/nm along z, switched on at 40&nbsp;ps and off at 100&nbsp;ps, turned the polar rods and left the plain ones alone. The average of the polar rods' heads along the field rose from &minus;0.01 to 0.97 while the plain rods stayed near zero, at 0.04; in this model a static field acts only on a dipole, where a real nonpolar molecule would also be turned, weakly, through its polarizability.
                     The field is about ten thousand times the field across a display pixel because the alignment is set by the dipole's energy in the field divided by the thermal energy: at 1&nbsp;V/nm that ratio is 4 and the heads reach only 0.74, each rod still tumbling; at 3&nbsp;V/nm it is 13 and they reach 0.92 but wobble about 23&deg; around the field; at 10&nbsp;V/nm it is 43 and the wobble is 12&deg;.
@@ -356,7 +355,7 @@
                     <div class="v2-screenshot-single">
                         <img src="image/aims-lc-polar-field.png" alt="Polar rods in a DC field against time: with the field on from 40 to 100 ps the polar heads along the field jump from 0 to about 0.97 and fall back when it is off, the plain rods stay near 0, the share of polar rods touching drops and the antiparallel share falls to 0 and recovers">
                     </div>
-                    <p class="v2-chart-caption">The second chat turn: a field of 10&nbsp;V/nm from 40 to 100&nbsp;ps. The dark curves are the heads along the field, the light ones the shares touching, the gray one the share of polar contacts that are antiparallel.</p>
+                    <p class="v2-chart-caption">The second prompt: a field of 10&nbsp;V/nm from 40 to 100&nbsp;ps. The dark curves are the heads along the field, the light ones the shares touching, the gray one the share of polar contacts that are antiparallel.</p>
 
                     <p>Cooled to 300&nbsp;K, the polar rods stuck and the plain ones mostly did not. Over 200&nbsp;ps the share of polar rods touching a neighbor rose from 65&nbsp;% to 89&nbsp;%, and they gathered into bundles, the largest of 21 rods, with 76&nbsp;% of their contacts antiparallel; the plain rods went from 32&nbsp;% to 31&nbsp;%, and many of those were stuck to a polar bundle rather than to one another.
                     In a gas this thin a plain rod meets another only by chance, and the Gay&ndash;Berne attraction reaches barely a rod width beyond contact, while the dipoles pull on one another from several rod widths away. What the cooling changes is that a contact, once made, no longer breaks: at 300&nbsp;K the well is about three times the thermal energy, so the polar rods pile up instead of pairing and parting as they do at 450&nbsp;K.
@@ -365,17 +364,17 @@
                     <div class="v2-screenshot-single">
                         <img src="image/aims-lc-polar-cooling.png" alt="Share of rods touching a neighbor against time at 300 K: the polar rods climb from 0.65 to 0.9 while the plain rods stay near 0.3">
                     </div>
-                    <p class="v2-chart-caption">The third chat turn: the same gas cooled to 300&nbsp;K.</p>
+                    <p class="v2-chart-caption">The third prompt: the same gas cooled to 300&nbsp;K.</p>
 
                     <p>A charge acts on a dipole too. The field of a charge turns a dipole's opposite end toward it, and because that field weakens with distance the turned dipole is then pulled inward: the ion&ndash;dipole attraction that gathers water molecules around a dissolved ion.
-                    The fourth chat turn gives one plain rod a charge of +2&nbsp;e and another, 40&nbsp;&Aring; away on the other side of the box, &minus;2&nbsp;e, holds both in place so that their surroundings stay in view, and watches for 200&nbsp;ps, back at 450&nbsp;K. Both ions gather a shell. The share of polar rods within 14&nbsp;&Aring; of the positive ion rose from 4&nbsp;% to 11&nbsp;%, about six rods, and of the negative ion from 4&nbsp;% to 15&nbsp;%, about nine, while the plain rods, which feel nothing from a charge, stayed at the one or two that chance puts near either.
+                    The fourth prompt gives one plain rod a charge of +2&nbsp;e and another, 40&nbsp;&Aring; away on the other side of the box, &minus;2&nbsp;e, holds both in place so that their surroundings stay in view, and watches for 200&nbsp;ps, back at 450&nbsp;K. Both ions gather a shell. The share of polar rods within 14&nbsp;&Aring; of the positive ion rose from 4&nbsp;% to 11&nbsp;%, about six rods, and of the negative ion from 4&nbsp;% to 15&nbsp;%, about nine, while the plain rods, which feel nothing from a charge, stayed at the one or two that chance puts near either.
                     The two shells differ in which end faces the charge. Around the positive ion the polar rods turn their negative, plain-colored halves inward; around the negative ion their positive, darker halves. Measured with the sign of the charge taken into account, the two shells point alike, 0.58 and 0.61 on a scale where 1 is every rod exactly radial; some rods are still paired antiparallel with a neighbor, which keeps that number from climbing further. The model is symmetric under reversing a charge together with every dipole, so the two shells should differ only by chance, and they do.
                     The signs on the two charged rods and the two shades of the polar ones make the arrangement readable in the lab: a plus sign surrounded by plain halves, a minus sign surrounded by dark ones.</p>
 
                     <div class="v2-screenshot-single">
                         <img src="image/aims-lc-polar-ion.png" alt="Rods around a positive and a negative charge against time: the share of polar rods within 14 Å of each ion climbs from 0.04 to 0.11 and 0.15, the plain rods stay near 0, and the dipoles near each ion point as its field asks at about 0.6">
                     </div>
-                    <p class="v2-chart-caption">The fourth chat turn: one plain rod carries +2&nbsp;e, another &minus;2&nbsp;e. The shares of polar rods near the positive ion (dark blue) and the negative one (crimson) climb together while the plain rods (brown) stay at chance; the near-black and dark-wine curves are how the dipoles near each ion point, the light gray one the share of polar contacts that are antiparallel.</p>
+                    <p class="v2-chart-caption">The fourth prompt: one plain rod carries +2&nbsp;e, another &minus;2&nbsp;e. The shares of polar rods near the positive ion (dark blue) and the negative one (crimson) climb together while the plain rods (brown) stay at chance; the near-black and dark-wine curves are how the dipoles near each ion point, the light gray one the share of polar contacts that are antiparallel.</p>
 
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
