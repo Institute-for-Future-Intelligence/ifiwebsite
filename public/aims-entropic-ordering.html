@@ -274,7 +274,9 @@
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1146/annurev.biophys.37.032807.125817">Zhou, Rivas, and Minton</a> reviewed these effects in 2008, and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0014-5793(96)00725-9">Zimmerman and Murphy</a> argued in 1996 that the crowd inside a bacterium is dense enough to force its DNA into a compact body, the nucleoid.
                     Laboratories use the effect every day: polyethylene glycol added to a solution precipitates DNA, proteins, and viruses, and it is one of the most common agents for growing protein crystals.</p>
 
-                    <div class="v2-prompts">
+                    <h2>Conclusion</h2>
+
+                    <div class="v2-prompts v2-tryit">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulation Produced</p>
                         <p class="v2-prompts-intro">The simulation was given rods that barely attract one another and hard spheres. Everything else below came out of it:</p>
                         <ul>
@@ -285,12 +287,15 @@
                         </ul>
                     </div>
 
-                    <h2>Conclusion</h2>
+                    <p>The order in this article is real science, observed and used in the laboratory: crowding polymers gather actin filaments into bundles and align suspensions of fd virus, and polyethylene glycol is used to precipitate proteins and to grow their crystals. The simulation reproduces the effect from physics alone. Nothing in the model was written to produce it.
+                    The rods line up, gather into a layer of their own, and fall back into disorder once the crowd is gone, and each result comes with the checks a researcher would ask for: a control run of the same rods from the same starting positions without the crowders, and a test of whether the order outlasts its cause.
+                    The numbers come from measurements of the run, and a student who repeats it sees the switch to order come sooner or later, as it does in any real experiment.</p>
 
-                    <p>This article uses the depletion interaction to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and returns
-                    measured data. Rods that line up among a crowd of hard spheres, separate from it, and fall back into disorder when the spheres are removed become something students measure for themselves in a browser.
+                    <p>Exploring this without an AI agent takes skills that few students have. Someone has to pack 100 rods and 238 spheres into a periodic box without overlaps, choose the interactions between ellipsoids and spheres, hold the temperature steady, write the code that computes the order parameter and counts side-by-side neighbors, rerun the system from its opening frame without the crowders, and restart from a saved state with the crowders removed.
+                    In research this means a simulation package, input scripts, and analysis code, typically days of work for someone trained in the methods. In AIMS a student types three questions in plain language, and the agent runs each experiment, measures it, and posts the charts in the conversation, where the student can check the results, repeat the runs, and change the conditions.
                     By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it, AIMS turns a student&rsquo;s curiosity into a genuine scientific investigation of <strong>how entropy can paradoxically produce order</strong>.</p>
 
+                    <div style="clear: both;"></div>
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>
             </div>
