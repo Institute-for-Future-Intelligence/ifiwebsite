@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fantastic Voyage in AIMS: Navigating in the World of Atoms and Molecules — Institute for Future Intelligence</title>
-    <meta name="description" content="AIMS' navigation mode turns molecular dynamics into a serious game — fly a spaceship through atoms and molecules, scan atoms on the way, and take guided tours planned by an AI agent.">
+    <meta name="description" content="AIMS' navigation mode turns molecular dynamics into a serious game — fly a spaceship through atoms and molecules, scan atoms on the way, take guided tours planned by an AI agent, and carry molecules into binding sites and through channels.">
 
     <style>
         @import url("css/system.base.css");
@@ -42,6 +42,7 @@
     <script>
       function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
       function openFullscreen2() { var e = document.getElementById("aims-frame2"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      function openFullscreen3() { var e = document.getElementById("aims-frame3"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
     </script>
 
     <style>
@@ -74,7 +75,7 @@
                 <span class="v2-eyebrow">AIMS</span>
                 <h1>Fantastic Voyage in AIMS: Navigating in the World of Atoms and Molecules</h1>
                 <p class="v2-tagline">
-                    Inspired by the 1966 film, AIMS' navigation mode lets users fly a spaceship through the molecular world, scan atoms on the way, and take guided tours planned by an AI agent.
+                    Inspired by the 1966 film, AIMS' navigation mode lets users fly a spaceship through the molecular world, scan atoms on the way, take guided tours planned by an AI agent, and carry molecules into binding sites and through channels.
                 </p>
             </div>
         </header>
@@ -82,7 +83,7 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 9, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 11, 2026</span></p>
 
                     <!-- podcast hidden: it describes the old navigation mode
                     <div class="v2-article-audio">
@@ -124,7 +125,9 @@
                     The ship has momentum: it speeds up while a key is held and coasts to a stop after the key is released.
                     At the default thrust it covers about 15 &Aring; per second, so crossing a small protein takes a few seconds.
                     The Thrust slider on the dashboard scales that speed from a tenth to five times, and holding Shift slows the ship to a quarter speed for fine maneuvers.
-                    The buttons on the dashboard do the same as the keys while you hold them down.</p>
+                    The buttons on the dashboard do the same as the keys while you hold them down.
+                    For a harder ride, check Newtonian flight in the menu at the right end of the dashboard.
+                    The ship then keeps moving in the same direction when it turns, and it slows down only gradually unless you thrust against its motion.</p>
 
                     <p>You can fly from the cockpit, with the frame of the windshield around the view, or from behind the ship, with the ship in front of you.
                     A button on the dashboard switches between the two views.
@@ -147,6 +150,10 @@
                     A ring fills as the nearest atom gets closer and turns red on contact.
                     When the molecule is out of sight, an arrow at the edge of the screen points back to it.</p>
 
+                    <p>The ship can also be heard.
+                    Sound is off by default, and the speaker button on the dashboard turns it on.
+                    Within about 5 &Aring; of an atom the ship beeps, faster and higher in pitch as it gets closer, and it makes a thud when it touches an atom.</p>
+
                     <h2>Flying with an AI Agent</h2>
 
                     <p>Press F to fly to the selected atom or molecule, or to the center of the scene when nothing is selected.
@@ -165,6 +172,65 @@
                                 id="aims-frame2" allowfullscreen="true" title="Flying through a carbon nanotube demo"></iframe>
                         <figcaption>
                             Live model &mdash; <a href="javascript:openFullscreen2();">view fullscreen</a>. Chrome or Edge recommended.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Riding Along with a Molecule</h2>
+
+                    <p>In a running simulation the molecules move, and a molecule that you want to watch soon leaves the view.
+                    Click one of its atoms and press G, or the ride button on the dashboard, and the ship moves with whatever moves with that atom:
+                    a small molecule as a whole, one chain of a polymer, or one nanoparticle of a collection of nanoparticles.
+                    The ship follows the position of the molecule and keeps its own heading.
+                    A molecule in a liquid or a gas changes direction at every collision, so a camera that turned with it would spin wildly.
+                    While riding, you can still turn the ship and move around the molecule to look at it from another side.
+                    Press G again to get off.</p>
+
+                    <h2>Carrying a Molecule</h2>
+
+                    <p>In a Drug Discovery project, the ship can carry the ligand into the binding site of the protein, the way a pilot docks it by hand.
+                    Press T to pick up the ligand.
+                    It rides in front of the nose of the ship, see-through so that the protein shows behind it,
+                    and a readout above the dashboard shows its docking score, its hydrogen bonds with the protein and its clashes with the protein as you fly.
+                    Green dashed lines mark the hydrogen bonds and red ones the clashes, and with sound on, a chime marks each new hydrogen bond.
+                    Press R to turn the ligand with the arrow keys and Q and E, and press R again to steer the ship.
+                    The protein is a wall: the ligand stops at its surface, WALL lights up in the readout, and the ship cannot pull away from the ligand.
+                    Back up and steer, or turn the ligand, to get past.</p>
+
+                    <p>When the ligand sits in the binding site, press L to lock it in.
+                    AIMS relaxes the pose downhill on the docking score and shows your score next to the relaxed one.
+                    Then you can run Search to see whether the automatic docking finds a better pose.
+                    Press T to let go of the ligand at any time, and Ctrl+Z to undo a tow.
+                    The AI agent can tow, turn, let go of and lock in the ligand too.</p>
+
+                    <p>In the example <a href="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Docking%20Biotin%20into%20Streptavidin%20by%20Hand" target="_blank" rel="noopener noreferrer">Docking Biotin into Streptavidin by Hand</a>,
+                    the ship waits outside one of the four binding pockets of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Streptavidin">streptavidin</a>, with biotin in front of it.
+                    Streptavidin binds biotin more tightly than almost any other protein binds a small molecule.
+                    Biotin locked in close to the pose found in the crystal structure relaxes to a docking score of about &minus;2.1 eV with five hydrogen bonds.
+                    In our test, Search stopped at the rim of the pocket at about &minus;1.5 eV, so a careful pilot can beat the automatic docking.</p>
+
+                    <p>The same controls carry a molecule through a channel.
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Aquaporin">Aquaporins</a> are the water channels of cell membranes,
+                    and Peter Agre shared the <a target="_blank" rel="noopener noreferrer" href="https://www.nobelprize.org/prizes/chemistry/2003/summary/">2003 Nobel Prize in Chemistry</a> for discovering the first one, aquaporin-1.
+                    Each of its four subunits has its own pore, so narrow that water molecules pass through it in single file.
+                    At the narrowest point, the selectivity filter, four side chains pinch the pore to about 2.8 &Aring;, the width of one water molecule.</p>
+
+                    <p>The window below opens above one pore of aquaporin-1, looking down into it.
+                    Its chat holds two turns.
+                    In the first, the agent takes the ship on a tour down the pore with five stops, from the outside of the cell to the inside.
+                    In the second, it explains how to carry a water molecule through the pore yourself.
+                    The pale blue spheres are the water molecules found in the crystal structure.
+                    When you let go of the water molecule, a Tow Profile card in the chat plots its energy and its hydrogen bonds along the pore.
+                    Then pick glycerol or urea in the gallery and fly it down the same way.
+                    Water passes the selectivity filter and makes up to four hydrogen bonds there.
+                    Glycerol stops where the outer vestibule narrows, about 15 &Aring; above the filter.
+                    Each new Tow Profile card draws the earlier tows behind it,
+                    so the glycerol curve ends where the wall held the glycerol while the water curve runs through the pore.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Flying%20Through%20an%20Aquaporin%20Water%20Channel"
+                                id="aims-frame3" allowfullscreen="true" title="Flying through an aquaporin water channel demo"></iframe>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen3();">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
