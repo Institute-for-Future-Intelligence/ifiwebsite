@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Polymer Chains in AIMS — Institute for Future Intelligence</title>
+    <meta name="description" content="The AIMS Polymer Builder links monomers into all-atom polymer chains in a web browser: homopolymers such as polyethylene and polystyrene, alternating, random, and block copolymers, and ring, star, comb, branched, and dendritic architectures. An AI agent builds the chains, measures their size, and designs a copolymer for a latex paint binder to a glass-transition target.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+        .v2-screenshot-single img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-screenshot-single { max-width: 44rem; margin: 1rem auto 1.5rem; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="POLYMER">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Building Polymer Chains in AIMS</h1>
+                <p class="v2-tagline">
+                    Link monomers into chains, copolymers, and branched molecules atom by atom, then measure and design them with an AI agent.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 12, 2026</span></p>
+
+                    <p>Plastic bags, foam cups, nonstick pans, tires, wall paint, and wood glue are all made of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polymer">polymers</a>:
+                    long molecules built by linking many copies of a small molecule, the monomer. A polyethylene molecule in a plastic bag holds thousands of linked ethylene units. Textbooks draw such a molecule as a repeat unit in brackets with a subscript,
+                    &ndash;[CH<sub>2</sub>&ndash;CH<sub>2</sub>]<sub><i>n</i></sub>&ndash;, which leaves out what the chain looks like in space. The Polymer Builder in AIMS builds the chain itself, with every atom in place, in a web browser.
+                    A student picks one or more monomers, sets how many units to link and how to arrange them, and the chain appears in the lab, ready for a molecular dynamics simulation. An <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a>
+                    does the same work from a plain-language request in the chat, measures the chains it builds, and designs new ones to a target. In the window below, the gallery holds seven monomers, and the lab holds a polyethylene chain of 22 ethylene units, C<sub>44</sub>H<sub>90</sub>, with 134 atoms.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Polymers"
+                                id="aims-frame1" allowfullscreen="true" title="Polymers demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            A polyethylene chain of 22 units built from ethylene. Press Play to watch the chain move at room temperature.
+                        </figcaption>
+                    </figure>
+
+                    <h2>From Monomer to Chain</h2>
+
+                    <p>Ethylene, CH<sub>2</sub>=CH<sub>2</sub>, has a double bond between its two carbon atoms. When ethylene polymerizes, that double bond opens into a single bond, and each carbon uses the freed electrons to bond to a carbon of the next unit.
+                    Every atom of the monomer stays in the chain, so a chain of <i>n</i> ethylene units has the formula of <i>n</i> ethylene molecules plus the two atoms that cap its ends. This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Addition_polymer">addition polymerization</a>,
+                    and it makes most of the plastics in daily use from monomers with a C=C group: vinyl chloride makes PVC, and styrene makes polystyrene.
+                    The two carbons of the double bond are the places where a unit links to its neighbors, the <i>head</i> and the <i>tail</i> of the unit. The Polymer Builder finds them in any monomer with a C=C outside a ring and opens the double bond when it builds the chain,
+                    so a ring such as the benzene ring of styrene stays intact and hangs off the chain as a side group.
+                    Butadiene, CH<sub>2</sub>=CH&ndash;CH=CH<sub>2</sub>, has two double bonds in a row. It links through its two end carbons, and the remaining double bond moves to the middle of the unit, so each unit of polybutadiene keeps one C=C, as in the rubber of tires.
+                    The builder places a hydrogen atom on each end of the finished chain.</p>
+
+                    <p>The table lists the seven polymers that the vinyl monomers and butadiene in the first two examples make, with the number of atoms in a chain of ten units. The number of atoms matters because a simulation in a browser has a budget: the lab is meant for up to 500 atoms, and the builder warns before a chain goes over that.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                            <tr><th>Monomer</th><th>Polymer</th><th>Where it is used</th><th class="num">Atoms in 10 units</th></tr>
+                            </thead>
+                            <tbody>
+                            <tr><td>Ethylene</td><td><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Low-density_polyethylene">Polyethylene</a></td><td>Bags, bottles, film</td><td class="num model">62</td></tr>
+                            <tr><td>Tetrafluoroethylene</td><td><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polytetrafluoroethylene">Polytetrafluoroethylene</a></td><td>Nonstick coatings</td><td class="num model">62</td></tr>
+                            <tr><td>Vinyl chloride</td><td><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polyvinyl_chloride">Poly(vinyl chloride)</a></td><td>Pipes, window frames</td><td class="num model">62</td></tr>
+                            <tr><td>Acrylonitrile</td><td><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polyacrylonitrile">Polyacrylonitrile</a></td><td>Acrylic fibers</td><td class="num model">72</td></tr>
+                            <tr><td>Butadiene</td><td><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polybutadiene">Polybutadiene</a></td><td>Tires</td><td class="num model">102</td></tr>
+                            <tr><td>Vinyl acetate</td><td><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polyvinyl_acetate">Poly(vinyl acetate)</a></td><td>Wood glue</td><td class="num model">122</td></tr>
+                            <tr><td>Styrene</td><td><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polystyrene">Polystyrene</a></td><td>Foam cups, cases</td><td class="num model">162</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>Laying Out the Chain</h2>
+
+                    <p>The builder adds one unit at a time. Each new unit bonds to the end of the chain at the position where the previous unit's end hydrogen was, so every bond angle where two units meet is the angle of a tetrahedral carbon, about 109.5&deg;.
+                    The new unit can still turn about the bond that joins it to the chain. Rotation about a single bond is described by its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Dihedral_angle">dihedral angle</a>, and a carbon chain has three low-energy choices:
+                    <i>trans</i>, with the chain continuing straight ahead in a zigzag, and two <i>gauche</i> positions, turned 120&deg; to either side. The builder takes trans unless the new unit would bump into atoms already placed, in which case it takes the gauche position that bumps least.
+                    A polyethylene chain built this way is a straight zigzag. A setting called torsion jitter adds a small random twist at every bond, and the chain starts out slightly bent.</p>
+
+                    <p>In a vinyl polymer such as polystyrene, every second carbon of the backbone carries the side group, and the side group can point to either side of the zigzag. The arrangement of these sides along the chain is the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tacticity">tacticity</a> of the polymer. In polystyrene made by the common industrial process, the sides are random, and the polymer is called atactic. The builder chooses the side of each unit at random, so its chains are atactic too.
+                    Before the chain goes into the lab, the builder minimizes its energy, moving the atoms until the forces on them are close to zero. A simulation of the chain then starts at an energy minimum.</p>
+
+                    <h2>Copolymers</h2>
+
+                    <p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Copolymer">copolymer</a> is built from two or more kinds of monomer, and the order of the units along the chain changes its properties.
+                    The builder offers the three standard sequences: <i>alternating</i> (ABABAB&hellip;), <i>random</i>, in which each unit is drawn at random with chosen proportions, and <i>block</i> (AAAABBBB&hellip;), in which runs of one monomer follow runs of another, with a chosen length for each run.
+                    The Build Chain dialog shows the sequence as a string of letters before the chain is built.</p>
+
+                    <p>The second example builds a chain from the three monomers of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene">ABS</a>, the hard plastic of toy bricks and appliance housings: acrylonitrile, butadiene, and styrene, alternating along a backbone of 17 units, with short polystyrene branches at random positions.
+                    The chain has 424 atoms. Real ABS is arranged differently: chains of rubbery polybutadiene are grafted with chains of a styrene&ndash;acrylonitrile copolymer, and the rubber forms small particles inside the hard plastic. The example shows the three monomers joined in one molecule.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Copolymers"
+                                id="aims-frame2" allowfullscreen="true" title="Copolymers demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
+                            A backbone of 17 alternating acrylonitrile, butadiene, and styrene units with short polystyrene branches. The nitrogen atoms of the acrylonitrile units are blue.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Chain Architectures</h2>
+
+                    <p>Many polymers branch. The way units connect, the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polymer_architecture">architecture</a> of the polymer, affects how the molecules pack and flow.
+                    Branched polyethylene, the low-density polyethylene of plastic bags, is softer than the linear kind because its branches keep the chains from packing closely. The builder makes seven architectures:</p>
+
+                    <ul>
+                        <li><p><b>Linear:</b> one chain with two ends.</p></li>
+                        <li><p><b>Ring:</b> the two ends joined into a closed loop, a cyclic polymer.</p></li>
+                        <li><p><b>Star:</b> two to twelve arms joined at one central atom. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Star-shaped_polymer">Star polymers</a> are used as additives that keep motor oil from thinning too much when it gets hot.</p></li>
+                        <li><p><b>Comb:</b> side chains attached at regular intervals along a backbone. When the side chains are made of a different monomer, the molecule is a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graft_polymer">graft copolymer</a>.</p></li>
+                        <li><p><b>Branched:</b> side chains attached at random positions along a backbone, with a chosen chance of a branch at each unit.</p></li>
+                        <li><p><b>Dendritic:</b> a regular tree. Arms grow from a central atom, and the tip of each arm splits into new arms, generation after generation. Such molecules are called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Dendrimer">dendrimers</a>.</p></li>
+                        <li><p><b>Hyperbranched:</b> a tree in which each tip splits only with a chosen probability, so the branching is irregular.</p></li>
+                    </ul>
+
+                    <p>Every architecture is built the same way as a linear chain, one unit at a time, and each branch bonds to a carbon at the position of a hydrogen it replaces, so every carbon keeps four bonds. The one exception is the central atom of a star with more than four arms, which stands in for the small core molecule that real star polymers grow from. The number of atoms grows quickly with branching: a dendrimer gains arms with every generation, and the atom count in the dialog shows how close a design is to the 500-atom budget.</p>
+
+                    <h2>How Big Is a Chain?</h2>
+
+                    <p>A polymer chain in a melt or a solution does not stay straight. Its bonds take trans and gauche positions at random, and the chain folds into a loose coil. Two numbers describe its size. The end-to-end distance is the distance between its two ends, and the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radius_of_gyration">radius of gyration</a>, R<sub>g</sub>, is the root-mean-square distance of its atoms from their center of mass.
+                    The Polymer tab of the analysis panel plots both while a simulation runs, and it also computes the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Persistence_length">persistence length</a>, the distance along the chain over which its direction stays about the same: a measure of how stiff the chain is.</p>
+
+                    <p>How R<sub>g</sub> grows with the number of units <i>N</i> is one of the basic results of polymer physics. For long chains, R<sub>g</sub> grows as <i>N</i><sup>&nu;</sup>. A chain whose parts could pass through one another, an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ideal_chain">ideal chain</a>, has &nu; = 1/2, the exponent of a random walk.
+                    A real chain cannot occupy the same space twice, and that makes it swell: it behaves like a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Self-avoiding_walk">self-avoiding walk</a>, with &nu; = 0.588, the value computed by
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.39.95">Le Guillou and Zinn-Justin</a> in 1977. A collapsed globule has &nu; = 1/3, and a stiff rod has &nu; = 1.</p>
+
+                    <p>A student can ask the agent to measure &nu;. The agent builds polyethylene chains of 5, 10, 15, 20, 30, and 40 units, two of each length, gives each chain a shape, runs a short simulation at 300&nbsp;K, and fits a power law to R<sub>g</sub> against <i>N</i>.
+                    The shapes come from a step outside the simulation: a bond changes between trans and gauche too rarely to sample many shapes in the few picoseconds a browser can simulate, so the agent sets every backbone bond to trans or one of the two gauche positions at random and rejects any choice that makes the chain run into itself.
+                    The resulting chains are a sample of the shapes the chain can take without overlapping. Every position is equally likely in this sample, while a real chain at 300&nbsp;K favors trans, the position of lowest energy.
+                    In three runs of this experiment, the fitted exponent came out 0.51, 0.62, and 0.63. Two chains per length are few, and the scatter from run to run is large. With six chains per length, two runs gave &nu; = 0.64 and 0.65, and the power law matched the points closely in both (r<sup>2</sup> = 0.996 and 0.990).
+                    That value is above 0.588 and well above 1/2: the chains swell as a self-avoiding walk does. Chains of 40 units are short, and the stiffness of the zigzag over a few units raises the exponent of a short chain. The theoretical values hold for long chains.</p>
+
+                    <h2>Designing a Copolymer: A Latex Paint Binder</h2>
+
+                    <p>Wall paint is a suspension of tiny polymer particles in water, a latex. As the water evaporates, the particles must fuse into a continuous film, and they fuse only if the polymer is above its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Glass_transition">glass-transition temperature</a>, T<sub>g</sub>,
+                    where it changes from hard and glassy to soft and rubbery. If T<sub>g</sub> is too low, the dried paint stays tacky. If it is too high, the paint dries into a powder that cracks. Paint chemists set T<sub>g</sub> by mixing a hard monomer with a soft one.
+                    Polystyrene is glassy at room temperature, with T<sub>g</sub> = 100&nbsp;&deg;C, and poly(n-butyl acrylate) is rubbery, with T<sub>g</sub> = &minus;54&nbsp;&deg;C.</p>
+
+                    <p>The third example gives the agent a design task: a random copolymer of styrene and n-butyl acrylate whose T<sub>g</sub> lies between 5 and 15&nbsp;&deg;C, so that the paint forms a film at room temperature. The agent computes T<sub>g</sub> with the
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fox_equation">Fox equation</a>, 1/T<sub>g</sub> = <i>w</i><sub>1</sub>/T<sub>g1</sub> + <i>w</i><sub>2</sub>/T<sub>g2</sub>, in which <i>w</i><sub>1</sub> and <i>w</i><sub>2</sub> are the weight fractions of the two monomers and the temperatures are in kelvin.
+                    A composition of 60 styrene units to 40 butyl acrylate units, 55% styrene by weight, gives T<sub>g</sub> = 10.2&nbsp;&deg;C, inside the target range, and the agent reports the design as met after one try.
+                    It then builds a 20-unit chain with that composition, 12 styrene and 8 butyl acrylate units in random order, 362 atoms in all, and loads it into the lab.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-polymer-builder-fox.png" alt="Glass-transition temperature of a styrene and n-butyl acrylate copolymer against the mole fraction of styrene from the Fox equation: the curve rises from minus 54 to 100 degrees Celsius and crosses the shaded target band of 5 to 15 degrees at a mole fraction of 0.60, where it reads 10.2 degrees">
+                    </div>
+
+                    <p>The chart in the chat draws the whole Fox curve with the target range shaded. The curve bends below a straight line between the two homopolymers because the Fox equation averages the inverses of the temperatures.
+                    The Fox equation is an estimate, typically good to 5 to 10&nbsp;&deg;C, and it applies to random and alternating copolymers. In a block copolymer, the blocks of each kind gather into separate regions, and each region keeps its own T<sub>g</sub>.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Designing%20a%20Latex%20Paint%20Binder"
+                                id="aims-frame3" allowfullscreen="true" title="Designing a Latex Paint Binder demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame3');">View fullscreen</a><br>
+                            The design conversation and the 20-unit styrene&ndash;n-butyl acrylate chain it produced. The oxygen atoms of the butyl acrylate units are red.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">Try It</p>
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). The three examples are in the Chemistry group. Open one, open the chat, and type a prompt below.
+                        The chat of the latex example already holds the answers to its first two prompts.</p>
+
+                        <p class="v2-prompts-group">Polymers</p>
+                        <ul>
+                            <li><span class="v2-prompt">&ldquo;Build a 20-unit polystyrene chain.&rdquo;</span></li>
+                            <li><span class="v2-prompt">&ldquo;Build a star polymer of polyethylene with four arms of six units.&rdquo;</span></li>
+                            <li><span class="v2-prompt">&ldquo;How does the radius of gyration of polyethylene scale with chain length?&rdquo;</span></li>
+                        </ul>
+                        <p class="v2-prompts-group">Copolymers</p>
+                        <ul>
+                            <li><span class="v2-prompt">&ldquo;Build a block copolymer of styrene and butadiene with blocks of five units.&rdquo;</span></li>
+                        </ul>
+                        <p class="v2-prompts-group">Designing a Latex Paint Binder</p>
+                        <ol>
+                            <li><span class="v2-prompts-step">Monomers</span> &mdash; <span class="v2-prompt">&ldquo;Add styrene and n-butyl acrylate to the gallery.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Design</span> &mdash; <span class="v2-prompt">&ldquo;Design a styrene / n-butyl acrylate random copolymer for a latex paint binder that forms a film at room temperature: its glass-transition temperature must be between 5 and 15&nbsp;&deg;C. Then build a 20-unit chain with that composition and load it into the lab.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">A harder binder</span> &mdash; <span class="v2-prompt">&ldquo;Now make its glass-transition temperature between 20 and 30&nbsp;&deg;C.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Builder Produced</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Polyethylene</span> &mdash; 22 ethylene units linked into C<sub>44</sub>H<sub>90</sub>, a zigzag of tetrahedral carbons with 134 atoms.</li>
+                            <li><span class="v2-prompts-step">Seven addition polymers</span> &mdash; from the vinyl monomers and butadiene in the gallery, with the side groups on random sides of the chain.</li>
+                            <li><span class="v2-prompts-step">A copolymer with branches</span> &mdash; acrylonitrile, butadiene, and styrene alternating along a 17-unit backbone with polystyrene branches, 424 atoms.</li>
+                            <li><span class="v2-prompts-step">Chain size</span> &mdash; polyethylene chains of 5 to 40 units grow as <i>N</i><sup>0.64</sup> with six chains per length, a swollen coil like a self-avoiding walk.</li>
+                            <li><span class="v2-prompts-step">A designed binder</span> &mdash; a 60:40 styrene&ndash;n-butyl acrylate copolymer with a computed T<sub>g</sub> of 10.2&nbsp;&deg;C, inside the 5 to 15&nbsp;&deg;C target, built as a 362-atom chain.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses the Polymer Builder to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language request into a molecule and a molecular dynamics experiment, and hands back measured data.
+                    The bracketed repeat unit of the textbook becomes a chain that students can build, turn in three dimensions, and watch move: how a double bond opens to link units, how copolymer sequences and branching change a molecule, how the size of a chain grows with its length,
+                    and how a chemist picks a composition to meet a target. By pairing a physically grounded simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of the materials they use every day.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

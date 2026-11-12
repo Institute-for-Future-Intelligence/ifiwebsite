@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fantastic Voyage in AIMS: Navigating in the World of Atoms and Molecules — Institute for Future Intelligence</title>
-    <meta name="description" content="AIMS' navigation mode turns molecular dynamics into a serious game — fly a spaceship through atoms and molecules, scan atoms on the way, take guided tours planned by an AI agent, and carry molecules into binding sites and through channels.">
+    <meta name="description" content="AIMS' navigation mode turns molecular dynamics into a serious game — fly a spaceship through atoms and molecules, scan atoms on the way, take guided tours planned by an AI agent, carry molecules into binding sites and through channels, and pull molecules with optical tweezers.">
 
     <style>
         @import url("css/system.base.css");
@@ -42,6 +42,7 @@
     <script>
       function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
       function openFullscreen2() { var e = document.getElementById("aims-frame2"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      function openFullscreen4() { var e = document.getElementById("aims-frame4"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
       function openFullscreen3() { var e = document.getElementById("aims-frame3"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
     </script>
 
@@ -75,7 +76,7 @@
                 <span class="v2-eyebrow">AIMS</span>
                 <h1>Fantastic Voyage in AIMS: Navigating in the World of Atoms and Molecules</h1>
                 <p class="v2-tagline">
-                    Inspired by the 1966 film, AIMS' navigation mode lets users fly a spaceship through the molecular world, scan atoms on the way, take guided tours planned by an AI agent, and carry molecules into binding sites and through channels.
+                    Inspired by the 1966 film, AIMS' navigation mode lets users fly a spaceship through the molecular world, scan atoms on the way, take guided tours planned by an AI agent, carry molecules into binding sites and through channels, and pull molecules with optical tweezers.
                 </p>
             </div>
         </header>
@@ -83,7 +84,7 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 11, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 12, 2026</span></p>
 
                     <!-- podcast hidden: it describes the old navigation mode
                     <div class="v2-article-audio">
@@ -100,6 +101,13 @@
                     We envision such a user interface to deliver immersive experiences for users to "witness" how atoms and molecules interact with one another to create the wonders that we see in the familiar macroscopic world.
                     Our work was inspired by <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fantastic_Voyage">Fantastic Voyage</a> &mdash; a 1966 Oscar-winning science fiction film about
                     a submarine and its crew shrunk to a microscopic size and venture into the body of an injured scientist to save his life.</p>
+
+                    <p>Most children have never seen a molecule, but many of them know a great deal about spaceflight.
+                    They know that a spacecraft has a cockpit and a dashboard, that it docks with a space station, and that a probe can be steered to a distant world.
+                    The navigation mode of AIMS builds on that knowledge.
+                    Each of its tools works like a tool of a space mission, so a student who knows how to fly in space has only the molecules left to learn.
+                    And each tool shows real physics.
+                    When the ship holds a molecule, the force on the molecule comes from the simulation, and the work the pilot does is measured.</p>
 
                     <p>The navigation mode of AIMS puts you in a spaceship about the size of a water molecule.
                     The camera is the ship: you fly it through the scene with the keyboard, a gamepad or, on a touch screen, two thumbsticks,
@@ -183,7 +191,9 @@
                     The ship follows the position of the molecule and keeps its own heading.
                     A molecule in a liquid or a gas changes direction at every collision, so a camera that turned with it would spin wildly.
                     While riding, you can still turn the ship and move around the molecule to look at it from another side.
-                    Press G again to get off.</p>
+                    Press G again to get off.
+                    In the example <a href="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Chains%20of%20Magnetic%20Nanoparticles%20in%20a%20Ferrofluid" target="_blank" rel="noopener noreferrer">Chains of Magnetic Nanoparticles in a Ferrofluid</a>,
+                    ride one nanoparticle and watch it join a chain of nanoparticles.</p>
 
                     <h2>Carrying a Molecule</h2>
 
@@ -231,6 +241,54 @@
                                 id="aims-frame3" allowfullscreen="true" title="Flying through an aquaporin water channel demo"></iframe>
                         <figcaption>
                             Live model &mdash; <a href="javascript:openFullscreen3();">view fullscreen</a>. Chrome or Edge recommended.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Pulling a Molecule with Optical Tweezers</h2>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Optical_tweezers">Optical tweezers</a> hold a tiny particle in the focus of a laser beam.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1364/OL.11.000288">Arthur Ashkin and his colleagues</a> described the first single-beam trap in 1986,
+                    and Ashkin shared the <a target="_blank" rel="noopener noreferrer" href="https://www.nobelprize.org/prizes/physics/2018/summary/">2018 Nobel Prize in Physics</a> for it.
+                    Near the focus, the trap pulls the particle toward the focus with a force proportional to the particle's distance from it, the way a spring does.
+                    Biophysicists use optical tweezers to pull on single molecules, such as DNA and motor proteins, and to measure forces of a few piconewtons.
+                    A real trap holds a bead about a micrometer across, and the molecule under study is tied to the bead.
+                    AIMS traps the molecule itself.</p>
+
+                    <p>In a Molecular Modeling or a Polymer Builder project, run the simulation, click an atom, and hold T.
+                    The ship holds whatever moves with that atom (a small molecule, one chain of a polymer, or one nanoparticle) in an optical trap.
+                    A green laser from the ship is focused on the molecule, the atoms of the molecule are outlined, and a small green point marks where the trap wants the molecule.
+                    Fly the ship, and the trap pulls the molecule along while the rest of the lab pushes back.
+                    The farther the molecule lags behind the green point, the stronger the pull, and an arrow on the molecule shows the force.
+                    The outline and the arrow turn from cyan to amber to red as the force grows.
+                    Release T to let go, or tap T to keep holding without the key.
+                    A readout shows the force in piconewtons and the work done on the molecule.
+                    The force is averaged over half a picosecond, because the heat makes the live force jump by a hundred piconewtons or more.
+                    When you let go, a card in the chat plots the work and the force along the path.</p>
+
+                    <p>The menu at the right end of the dashboard sets the stiffness of the trap, the way an experimenter turns the laser power up or down.
+                    A firm trap holds the molecule close to the green point and is easier to steer.
+                    A soft trap lets the molecule wander farther and feels smaller forces.
+                    Steering by hand is hard, because the molecule jiggles with the heat and the simulation runs about a picosecond per second of real time.
+                    For a measurement, use the autopilot pull, the method of steered molecular dynamics.
+                    The green point then moves straight ahead of the ship at a constant speed in simulated time, 10, 30 or 100 meters per second, and the ship rides along.</p>
+
+                    <p>The example <a href="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Chains%20of%20Magnetic%20Nanoparticles%20in%20a%20Ferrofluid" target="_blank" rel="noopener noreferrer">Chains of Magnetic Nanoparticles in a Ferrofluid</a> shows what a pull measures.
+                    In this lab, magnetic nanoparticles in a carrier liquid link nose to tail into chains,
+                    and each link is worth about 14 <i>kT</i>, where <i>kT</i> is the thermal energy at the temperature of the lab.
+                    The last turn of its chat pulls a nanoparticle 15 &Aring; off the end of a chain, twice at 10 m/s and three times at 100 m/s.
+                    At 10 m/s, the link let go after the green point had moved 0.2 to 0.5 &Aring;, at no more than about 60 pN, and the work over the 15 &Aring; was 0.58 and 0.77 eV.
+                    At 100 m/s, the link held while the green point moved 1.5 to 4.8 &Aring; and broke at 150 to 350 pN, and the work was 1.9 to 3.4 eV.
+                    The slow pull gives the heat time to break the link, and the fast pull tears it.
+                    Most of the extra work goes into friction with the carrier liquid, which drags on the moving nanoparticle with about 17 pN at 10 m/s and about 170 pN at 100 m/s.
+                    That work ends up as heat.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0006-3495(97)78802-7">Evan Evans and Ken Ritchie</a> explained in 1997 why the force needed to break a bond grows with the speed of the pull,
+                    and experiments with optical tweezers and atomic force microscopes pull at several speeds for that reason.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Chains%20of%20Magnetic%20Nanoparticles%20in%20a%20Ferrofluid"
+                                id="aims-frame4" allowfullscreen="true" title="Chains of magnetic nanoparticles in a ferrofluid demo"></iframe>
+                        <figcaption>
+                            Live model &mdash; <a href="javascript:openFullscreen4();">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
