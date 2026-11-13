@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chromophore of Green Fluorescent Protein — Institute for Future Intelligence</title>
+    <meta name="description" content="The structure file of green fluorescent protein skips three residues. An AI agent in the Protein Lab of AIMS shows that they became the chromophore, and measures the barrel around it.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-col-main .v2-callout { float: right; clear: right; width: 40%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border: 1px solid var(--border); border-radius: 0.8rem; background: var(--surface); }
+        .v2-col-main .v2-callout svg { display: block; width: 100%; height: auto; }
+        .v2-col-main .v2-callout p { margin: 0.8rem 0 0; font-size: 1.1rem; line-height: 1.45; color: var(--text-muted); }
+        .v2-col-main .v2-callout p strong { color: var(--text); }
+        .v2-col-main .v2-prompts { clear: both; }
+        .v2-col-main .v2-tryit { float: right; clear: right; width: 40%; margin: 0.4rem 0 1.2rem 2.5rem; }
+        .v2-table { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; font-size: 1.15rem; clear: both; }
+        .v2-table th, .v2-table td { text-align: left; padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); }
+        .v2-table th { font-family: var(--font-display); font-weight: 700; }
+        .v2-table td.num, .v2-table th.num { text-align: right; }
+        @media (max-width: 720px) { .v2-col-main .v2-tryit { float: none; width: auto; margin: 1.5rem 0; } }
+        @media (max-width: 720px) { .v2-col-main .v2-callout { float: none; width: auto; margin: 1.5rem 0; } }
+        .v2-screenshot-single img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-screenshot-single { max-width: 72rem; margin: 1rem auto 1.5rem; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="GFP">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>The Chromophore of Green Fluorescent Protein</h1>
+                <p class="v2-tagline">
+                    The structure file of green fluorescent protein skips three residues. An AI agent in the Protein Lab of AIMS shows that they became the chromophore, and measures the barrel around it.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 13, 2026</span></p>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Green_fluorescent_protein">Green fluorescent protein</a> (GFP) comes from the jellyfish <i>Aequorea victoria</i>. The jellyfish makes blue light with a protein called aequorin, and GFP absorbs the blue light and emits green light.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/jcp.1030590302">Shimomura, Johnson, and Saiga</a> found the green protein in 1962 while they were purifying aequorin.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0378-1119(92)90691-H">Prasher and coworkers</a> determined the sequence of its gene in 1992, and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.8303295">Chalfie and coworkers</a> showed in 1994 that the gene makes bacteria and worms fluoresce green.
+                    The gene was the only part of the jellyfish that the bacteria and the worms received, so the protein produces its fluorescence with what a cell already has. Biologists now attach the gene of GFP to the gene of a protein they want to follow, and the cell marks that protein with green light. Shimomura, Chalfie, and Tsien received the 2008 Nobel Prize in Chemistry for this work.</p>
+
+                    <p>The part of a molecule that absorbs and emits light is called a chromophore. Most proteins that work with light bind a chromophore that the cell makes separately, as the proteins of the eye bind retinal. GFP makes its chromophore from three amino acids of its own chain.
+                    This article follows the Green Fluorescent Protein example in the Protein Lab of AIMS, in which an AI agent answers four questions about the crystal structure of GFP. The answers show where the chromophore is, what it is made of, and what the rest of the protein builds around it.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Green%20Fluorescent%20Protein"
+                                id="aims-frame1" allowfullscreen="true" title="Green Fluorescent Protein demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Green fluorescent protein (PDB 1EMA), colored by secondary structure. Press Next on the Structure Tour card in the chat to walk through the structure.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Three Residues Missing from the Count</h2>
+
+                    <div class="v2-prompts v2-tryit">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">Try It</p>
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open Green Fluorescent Protein, open the chat, and type the prompts below. The chat in the example already holds the answers to these prompts, which the sections below describe.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">The tour</span> &mdash; <span class="v2-prompt">&ldquo;Give me a tour of this protein.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The annotations</span> &mdash; <span class="v2-prompt">&ldquo;What does UniProt say about it? Annotate the structure.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The backbone angles</span> &mdash; <span class="v2-prompt">&ldquo;Show the Ramachandran plot.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The bonds</span> &mdash; <span class="v2-prompt">&ldquo;What holds the barrel together? Count the hydrogen bonds and salt bridges.&rdquo;</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-group">Then compare</p>
+                        <ul>
+                            <li><span class="v2-prompt">&ldquo;Load 1MBN.&rdquo;</span> This brings in myoglobin, a protein made of helices with no &beta;-strands.</li>
+                        </ul>
+                    </div>
+
+                    <p>The example uses the crystal structure determined by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.273.5280.1392">Orm&ouml;, Cubitt, Kallio, Gross, Tsien, and Remington</a> in 1996 at a resolution of 1.9&nbsp;&Aring; (PDB 1EMA).
+                    The protein in this crystal is a variant of GFP called S65T, in which the serine at position 65 is replaced by a threonine. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/373663b0">Heim, Cubitt, and Tsien</a> had found in 1995 that this variant fluoresces more brightly under blue light than the protein of the jellyfish.</p>
+
+                    <p>The gene of GFP codes for a chain of 238 amino acids. The first prompt asks the agent for a tour of the structure, and the answer comes with a Sequence card that lists every residue in the file.
+                    The card counts 225 residues, numbered from 2 to 229. The crystal structure does not show residue 1 or the last nine residues, which leaves 228 numbers from 2 to 229. The count on the card is three short of 228, and the numbering on the card goes from 64 to 68.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-gfp-sequence.png" alt="The Sequence card for 1EMA, chain A, 225 residues: rows of ten one-letter residues with helices and strands drawn above them. The row that starts at residue 62 reads T T F V Q C F S R Y, and the next row starts at residue 75">
+                    </div>
+
+                    <div class="v2-callout">
+                        <svg viewBox="0 0 320 170" role="img" aria-label="Two rows of residue boxes numbered 62 to 70. The top row, the sequence in the gene, reads T T F S Y G V Q C, with S, Y and G at positions 65, 66 and 67. The bottom row, the residues in the file 1EMA, reads T T F, then one wide box labeled CRO 66 in place of three residues, then V Q C." font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                            <g font-size="11" fill="#64748b" text-anchor="middle">
+                                <text x="26" y="16">62</text><text x="58" y="16">63</text><text x="90" y="16">64</text><text x="122" y="16">65</text><text x="154" y="16">66</text><text x="186" y="16">67</text><text x="218" y="16">68</text><text x="250" y="16">69</text><text x="282" y="16">70</text>
+                            </g>
+                            <g stroke="#94a3b8" fill="#f1f5f9">
+                                <rect x="12" y="24" width="28" height="30" rx="4"/><rect x="44" y="24" width="28" height="30" rx="4"/><rect x="76" y="24" width="28" height="30" rx="4"/>
+                                <rect x="204" y="24" width="28" height="30" rx="4"/><rect x="236" y="24" width="28" height="30" rx="4"/><rect x="268" y="24" width="28" height="30" rx="4"/>
+                            </g>
+                            <g stroke="#16a34a" fill="#dcfce7">
+                                <rect x="108" y="24" width="28" height="30" rx="4"/><rect x="140" y="24" width="28" height="30" rx="4"/><rect x="172" y="24" width="28" height="30" rx="4"/>
+                            </g>
+                            <g font-size="15" font-weight="600" fill="#1e293b" text-anchor="middle">
+                                <text x="26" y="45">T</text><text x="58" y="45">T</text><text x="90" y="45">F</text><text x="122" y="45">S</text><text x="154" y="45">Y</text><text x="186" y="45">G</text><text x="218" y="45">V</text><text x="250" y="45">Q</text><text x="282" y="45">C</text>
+                            </g>
+                            <text x="160" y="74" font-size="12" fill="#475569" text-anchor="middle">the sequence in the gene</text>
+                            <g stroke="#94a3b8" fill="#f1f5f9">
+                                <rect x="12" y="96" width="28" height="30" rx="4"/><rect x="44" y="96" width="28" height="30" rx="4"/><rect x="76" y="96" width="28" height="30" rx="4"/>
+                                <rect x="204" y="96" width="28" height="30" rx="4"/><rect x="236" y="96" width="28" height="30" rx="4"/><rect x="268" y="96" width="28" height="30" rx="4"/>
+                            </g>
+                            <rect x="108" y="96" width="92" height="30" rx="4" stroke="#16a34a" stroke-width="1.5" fill="#86efac"/>
+                            <g font-size="15" font-weight="600" fill="#1e293b" text-anchor="middle">
+                                <text x="26" y="117">T</text><text x="58" y="117">T</text><text x="90" y="117">F</text><text x="154" y="117">CRO 66</text><text x="218" y="117">V</text><text x="250" y="117">Q</text><text x="282" y="117">C</text>
+                            </g>
+                            <text x="160" y="146" font-size="12" fill="#475569" text-anchor="middle">the residues in the file 1EMA</text>
+                        </svg>
+                        <p><strong>Three residues stored as one.</strong> The gene codes for serine, tyrosine, and glycine at positions 65, 66, and 67. The structure file holds one group in their place, named CRO and numbered 66. In the S65T variant of the crystal, position 65 is a threonine.</p>
+                    </div>
+
+                    <p>Residues 65, 66, and 67 are the three that the count is short of. The structure file holds a single group in their place, named CRO and numbered 66. The Sequence card writes each amino acid as one letter, and CRO has no letter, so the card leaves it out.
+                    The overview stop of the tour names CRO under the heading &ldquo;Built into the chain.&rdquo;</p>
+
+                    <h2>A Chromophore Made from the Chain</h2>
+
+                    <p>CRO is the chromophore. The tour has a stop for it, which reads: CRO is part of the chain at residue 66, it is joined to the backbone on both sides, and it is made from the protein&rsquo;s own residues. The agent decides this from the coordinates. An atom of CRO is 1.33&nbsp;&Aring; from the backbone carbon of Phe64, and another atom of CRO is 1.33&nbsp;&Aring; from the backbone nitrogen of Val68. These are the lengths of peptide bonds, the bonds that join one amino acid to the next along a protein chain.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-gfp-tour-chromophore.png" alt="The Structure Tour card at stop 13 of 15, GFP chromophore pocket: CRO is part of the chain at A:CRO66, joined to the backbone on both sides, and 18 residues line its pocket within 4 angstroms">
+                    </div>
+
+                    <p>The second prompt asks what the <a target="_blank" rel="noopener noreferrer" href="https://www.uniprot.org/uniprotkb/P42212/entry">UniProt</a> database records for GFP. UniProt describes a protein by the sequence of its gene, so it still numbers all 238 residues, and the agent converts each annotated position to the numbering of the file. The card that comes back has six rows. Two of them are on residue 66:</p>
+
+                    <ul style="font-size:1.5rem; line-height:1.55;">
+                        <li>A cross-link over residues 65 to 67, described as &ldquo;5-imidazolinone (Ser-Gly).&rdquo; A cross-link is a covalent bond between two residues beyond the peptide bonds of the chain. In GFP, the backbone nitrogen of Gly67 bonds to the backbone carbon of residue 65. The new bond closes a ring of five atoms, called an imidazolinone, out of the backbone of the three residues.</li>
+                        <li>A modified residue at position 66, described as &ldquo;(Z)-2,3-didehydrotyrosine.&rdquo; The tyrosine has lost two hydrogen atoms, and the single bond between its backbone and its side chain has become a double bond.</li>
+                    </ul>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-gfp-uniprot.png" alt="The UniProt annotations card for 1EMA, green fluorescent protein P42212, with six rows: a modified residue at A:66, (Z)-2,3-didehydrotyrosine; a cross-link at A:66, 5-imidazolinone (Ser-Gly); and four natural variants at positions 100, 108, 141 and 219">
+                    </div>
+
+                    <p>The double bond connects the new ring to the ring of six carbon atoms in the side chain of the tyrosine. In the connected pair of rings, electrons are shared across both rings, and a molecule with electrons shared over this many atoms absorbs visible light.
+                    Clicking either row on the card highlights the chromophore in the 3-D view. The other four rows are natural variants, positions where sequenced copies of the GFP gene differ by one amino acid.</p>
+
+                    <p>These reactions happen inside the folded protein. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.91.26.12501">Heim, Prasher, and Tsien</a> showed in 1994 that the last step, which removes the two hydrogen atoms from the tyrosine, requires oxygen: GFP made by bacteria grown without oxygen is not fluorescent, and it becomes fluorescent after air is let in.
+                    Oxygen is the only ingredient from outside the protein, which explains why the gene alone made the bacteria and the worms of Chalfie&rsquo;s experiment fluoresce.</p>
+
+                    <h2>The Barrel</h2>
+
+                    <p>The secondary structure of a protein is the set of regular shapes that stretches of its chain take. The two common shapes are the &alpha;-helix, in which the chain coils, and the &beta;-strand, in which the chain is stretched nearly straight. Strands lie side by side and form a sheet.
+                    The secondary-structure stop of the tour reports 11 strands and 4 helices in GFP. The strands hold 107 of the 225 residues, and the four helices hold 16.
+                    The 11 strands form one sheet that curls around until its two edges meet, which makes a closed barrel. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/nbt1096-1246">Yang, Moss, and Phillips</a>, who determined a structure of GFP in the same year as Orm&ouml; and coworkers, named this fold the &beta;-can.</p>
+
+                    <p>One stretch of the chain passes through the middle of the barrel. The file marks two short helices on this stretch, at residues 57 to 60 and 69 to 71, and the chromophore lies between them, near the center of the barrel.
+                    The chromophore stop of the tour lists the residues that have an atom within 4&nbsp;&Aring; of the chromophore. There are 18 of them, and the stop names the ten closest: Phe64, Val68, Arg96, Thr203, Val61, Thr62, His148, Glu222, Gln94, and Thr63. Phe64 and Val68 are the neighbors of the chromophore along the chain. The other residues come from the strands of the barrel wall and from the stretch of chain that carries the chromophore.</p>
+
+                    <div class="v2-screenshot-single" style="max-width:56rem;">
+                        <img src="image/aims-gfp-chromophore-pocket.jpg" alt="The 3-D view at the chromophore stop of the tour: the strands of the barrel drawn half transparent in yellow, the chromophore drawn as magenta sticks at the center under the label GFP chromophore pocket, and the residues around it colored magenta">
+                    </div>
+
+                    <p>The hydrophobic-core stop finds 60 nonpolar residues buried away from water, which is 80&nbsp;% of the nonpolar side chains of the protein. Valine, leucine, phenylalanine, and isoleucine make up 48 of the 60.</p>
+
+                    <h2>Backbone Angles</h2>
+
+                    <p>The third prompt asks for a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ramachandran_plot">Ramachandran plot</a>. The backbone of each residue can rotate about two of its bonds, and the two rotation angles are called &phi; and &psi;. A Ramachandran plot has one point for each residue, placed at its &phi; and &psi;. Residues in a helix fall in one region of the plot, and residues in a strand fall in another.
+                    The plot has 221 points. The two residues at the ends of the chain and the two residues next to the chromophore have only one of the two angles, so they have no point.</p>
+
+                    <table class="v2-table">
+                        <thead>
+                            <tr><th>Region of the plot</th><th class="num">Residues</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>&beta;-strand</td><td class="num">152 (69&nbsp;%)</td></tr>
+                            <tr><td>&alpha;-helix</td><td class="num">52 (24&nbsp;%)</td></tr>
+                            <tr><td>Bridge between the &alpha; and &beta; regions</td><td class="num">3</td></tr>
+                            <tr><td>Left-handed &alpha;</td><td class="num">6</td></tr>
+                            <tr><td>Outside these regions</td><td class="num">8</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-gfp-ramachandran.png" alt="The Ramachandran plot card for 1EMA, 221 residues: psi against phi from -180 to 180 degrees, with 152 points in the beta-strand region at the upper left, 52 in the alpha-helix region below it, 3 in the bridge region between them, 6 in the left-handed alpha region on the right, and 8 outliers drawn as open red circles">
+                    </div>
+
+                    <p>The &beta;-strand region holds 152 points, and the 11 strands hold 107 residues. The &alpha;-helix region holds 52 points, and the four helices hold 16 residues. A region of the plot describes the angles of a single residue. A residue in a loop or a turn can have the angles of a strand or a helix while its neighbors have other angles, and those residues account for the difference.
+                    The eight points outside the regions are all glycines. Glycine has a hydrogen atom where the other amino acids have a side chain, so its backbone can take angles at which the side chain of another amino acid would collide with the backbone.</p>
+
+                    <h2>What Holds the Barrel Together</h2>
+
+                    <p>The fourth prompt asks the agent to count the bonds that hold the fold together. The Interactions card reports 264 hydrogen bonds, 8 salt bridges, and no disulfide bonds. A salt bridge is a pair of side chains with opposite charges close to each other. A disulfide bond joins the sulfur atoms of two cysteines, and GFP has two cysteines, at positions 48 and 70, whose sulfur atoms are 24&nbsp;&Aring; apart in the structure. A disulfide bond is about 2&nbsp;&Aring; long.</p>
+
+                    <p>Of the 264 hydrogen bonds, 185 join a backbone N&ndash;H group to a backbone C=O group. In a helix, these bonds join residues four positions apart along the same stretch of chain. In a sheet, they join residues on two neighboring strands. GFP has 16 residues in helices and 107 in strands, so most of the 185 bonds are between strands.
+                    Each strand of the barrel bonds to the strand on either side of it, and the bonds run around the whole barrel. Another 63 hydrogen bonds join a backbone group to a side chain, and 16 join two side chains. Each tile on the card draws its bonds as dashed lines in the 3-D view.</p>
+
+                    <div class="v2-screenshot-single" style="max-width:56rem;">
+                        <img src="image/aims-gfp-hydrogen-bonds.jpg" alt="The 3-D view of green fluorescent protein with its hydrogen bonds drawn as dashed lines: the yellow strands of the barrel are joined to their neighbors by dashed lines all around the barrel">
+                    </div>
+
+                    <h2>Why the Barrel Matters</h2>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.93.24.13617">Niwa and coworkers</a> made a small molecule with the structure of the chromophore in 1996. In solution at room temperature, the small molecule absorbs light and emits almost none of it as fluorescence.
+                    A chromophore that has absorbed light holds extra energy. It can release the energy as light, or it can release the energy as heat by twisting about the bonds between its two rings. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1146/annurev.biochem.67.1.509">Tsien&rsquo;s review</a> of GFP describes the role of the protein: the residues packed around the chromophore keep it from twisting, and the barrel separates it from the surrounding solution, so the chromophore inside the protein releases most of the energy as light.</p>
+
+                    <p>The example shows the structure that this explanation refers to. The chromophore is bonded into the chain at both ends, 18 residues have atoms within 4&nbsp;&Aring; of it, and a closed barrel of 11 strands, held by 185 backbone hydrogen bonds, surrounds it. Measuring how much the chromophore twists takes a simulation of its motion, which is a possible next step for this example.</p>
+
+                    <h2>Conclusion</h2>
+
+                    <div class="v2-prompts v2-tryit">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Agent Produced</p>
+                        <p class="v2-prompts-intro">The agent was given the structure file 1EMA and four questions. The results below came from its analysis of the file and of the UniProt entry:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">The chromophore</span> &mdash; one group, CRO 66, in place of residues 65 to 67, joined to the backbone of Phe64 and Val68.</li>
+                            <li><span class="v2-prompts-step">Its chemistry</span> &mdash; a cross-link that closes a five-atom ring and a modified tyrosine, both mapped from UniProt onto residue 66.</li>
+                            <li><span class="v2-prompts-step">The fold</span> &mdash; 11 strands with 107 residues, 4 helices with 16 residues, and 18 residues within 4&nbsp;&Aring; of the chromophore.</li>
+                            <li><span class="v2-prompts-step">The bonds</span> &mdash; 264 hydrogen bonds, 185 of them between backbone groups, 8 salt bridges, and no disulfide bonds.</li>
+                        </ul>
+                    </div>
+
+                    <p>This article uses green fluorescent protein to illustrate a new way to learn science: students converse with an AI agent that turns a plain-language question into an analysis of a protein structure and hands back measured data.
+                    The textbook statement that GFP makes its own chromophore becomes something students find for themselves, starting from a residue count that is three short and ending at the group that took the place of the three residues.</p>
+
+                    <p>Doing this analysis by hand takes several tools. A student has to read the structure file, notice the group that the sequence leaves out, look up the UniProt entry, convert its numbering to the numbering of the file, assign the secondary structure, compute the backbone angles, and find every hydrogen bond from the positions of the atoms.
+                    In AIMS a student types four questions in plain language, and the agent does each analysis and posts a card in the conversation, where the student can hover over a residue, click a row, and see the result on the 3-D structure.
+                    By pairing analysis tools with an AI that can choose and run them, AIMS turns a student&rsquo;s curiosity into a genuine scientific investigation of <strong>how the structure of a protein produces its function</strong>.</p>
+
+                    <div style="clear: both;"></div>
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

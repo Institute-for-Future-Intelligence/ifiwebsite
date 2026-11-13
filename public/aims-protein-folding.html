@@ -82,9 +82,9 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 12, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 13, 2026</span></p>
 
-                    <p>An egg white turns solid in a hot pan because its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Protein">proteins</a> unfold. A protein is a chain of amino acids
+                    <p>An egg white turns solid in a hot pan because its <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Protein">proteins</a> unfold and tangle together. A protein is a chain of amino acids
                     that folds into a compact shape, and the order of the amino acids decides whether it does. Much of that deciding is done by which amino acids avoid water,
                     so AIMS models each amino acid as a single bead, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments.
                     A student asks a plain-language question, and the agent heats a folded chain until it opens, follows whether a fold keeps its structure, or builds a model of a real protein from its structure in the Protein Data Bank, and posts the measured data in the chat as a live chart.
@@ -106,10 +106,10 @@
                     avoid water: those residues gather on the inside, and the chain folds around them. One bead per residue stands in for all of the residue&rsquo;s atoms and keeps the chain, its spacing, and the attraction between residues of each kind, so whatever shape the chain takes comes from those features alone.
                     Modeling a molecule this way is called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, a standard approach to
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Soft_matter">soft matter</a> in research, which keeps the degrees of freedom that decide the behavior and drops the rest.
-                    It also makes the simulation fast enough for a browser. A small protein has hundreds of atoms and takes far longer to fold than a browser can follow one atom at a time,
+                    It also makes the simulation fast enough for a browser. A small protein and the water around it come to thousands of atoms, and it takes microseconds to fold, far longer than a browser can follow one atom at a time,
                     while the <a href="aims-phase-change.html">phase-change</a> and <a href="aims-heat-conduction.html">heat-conduction</a> articles on this site, whose crystals need only a few hundred atoms, simulate every atom.
                     Each bead in these labs is one residue, with the mass of an average amino acid and the 3.8&nbsp;&Aring; spacing of a protein backbone. Chemistry below the size of a bead, a hydrogen bond for example,
-                    is outside the model, and the labs leave out the water. Because the units are real, the thermometer in the lab reads kelvin, though, as the sections below show, the model&rsquo;s melting points run some tens of kelvin high.
+                    is outside the model, and the labs leave out the water. Because the units are real, the thermometer in the lab reads kelvin, though, as the sections below show, the model&rsquo;s melting points run some tens of degrees high.
                     Companion articles apply the same approach to <a href="aims-liquid-crystals.html">liquid crystals</a>, <a href="aims-glass-transition.html">the glass transition of a polymer</a>, and
                     <a href="aims-micelle-formation.html">soap micelles</a>.</p>
 
@@ -146,7 +146,7 @@
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hydrophobic_effect">hydrophobic effect</a> is the dominant force in protein folding. The backbone of each chain in this lab has a bending stiffness
                     fitted to a protein&rsquo;s C&alpha; trace, far softer than a hydrocarbon chain&rsquo;s. Two chains of 72 residues share the box, each pinned at its middle bead
                     so the two cannot drift into each other; unpinned, two such chains could stick to each other instead of folding, a simple picture of the aggregation behind amyloid diseases. One is half hydrophobic, with its hydrophobic residues in blocks of four, so a stretch of the chain can bury together into a core; the other has one hydrophobic residue in four,
-                    each alone among polar residues, so there is nothing for the chain to fold around. A sequence is which residues as well as where they sit, and the two chains differ in both.</p>
+                    each alone among polar residues, so there is nothing for the chain to fold around. A sequence is both a composition and an order, and the two chains differ in both.</p>
 
                     <p>Press Play at 300&nbsp;K and the first chain curls up, its orange beads clustered in the middle and the pale ones facing outward, a crude version of what every globular protein does. The second stays an open coil.
                     The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radius_of_gyration">radius of gyration</a>, the average distance of the beads from the chain&rsquo;s center, tells the two apart in numbers:
@@ -163,7 +163,7 @@
                     <h2>Does the Fold Hold?</h2>
 
                     <p>A real protein holds one arrangement of its chain, every residue in its place, and vibrates about it. Ask the agent whether the folded chain holds its structure and it takes
-                    the chain&rsquo;s arrangement at 300&nbsp;K as a reference and follows two numbers for 400&nbsp;ps, both blind to rotation and translation: the RMSD after the best rigid superposition, how far the beads have moved from the
+                    the chain&rsquo;s arrangement at 300&nbsp;K as a reference and follows two numbers for 400&nbsp;ps: the RMSD after the best rigid superposition, how far the beads have moved from the
                     reference once the chain&rsquo;s rotation and drift are taken out, and Q, the fraction of native contacts, the share of the bead pairs in contact in the reference that are still in contact, the folding coordinate of
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.1311599110">Best, Hummer and Eaton</a>. For the folded HP chain the RMSD climbs to about 10&nbsp;&Aring; and Q falls to about 0.2: a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molten_globule">molten globule</a>. The chain stays a ball with its hydrophobic beads inside, but the beads keep sliding past
                     one another, and within about a hundred picoseconds most of the original contacts have been swapped for others. With only two kinds of bead, any hydrophobic bead can take any other&rsquo;s place at no cost, so hundreds of
@@ -188,7 +188,7 @@
                     </figure>
 
                     <p>Held at 300&nbsp;K for 400&nbsp;ps, this chain keeps about 80 percent of its native contacts, and its RMSD from the crystal structure wanders between 1.6 and 6.8&nbsp;&Aring;, 3.3 on average: a folded protein that breathes. Heated in steps of 25&nbsp;K, it loses half of its native contacts near 370&nbsp;K in this run (between about 370 and 410&nbsp;K across runs), and its RMSD reaches about 10&nbsp;&Aring; by 475&nbsp;K.
-                    It does not come apart all at once, as small real proteins do: Q slides from about 0.8 at 300&nbsp;K to 0.56 at 350&nbsp;K and 0.33 at 450&nbsp;K, a melt spread over more than 100&nbsp;K where real villin takes about 40. That is the same weakness as the HP chain&rsquo;s, and it sets the temperature: each contact is worth about 0.75 kilocalories per mole, about the weakest that keeps the chain folded at room temperature, and with a melt this broad its midpoint cannot also sit at the real protein&rsquo;s 340&nbsp;K. Cooled again, it refolded in each of the runs we examined, ending at 300&nbsp;K with 73 to 85 percent of its contacts, about where it started. Each run differs, and a run can stop partway. Real denatured proteins can also refold, which is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Anfinsen%27s_dogma">Anfinsen&rsquo;s</a> result.</p>
+                    It does not come apart all at once, as small real proteins do: Q slides from about 0.8 at 300&nbsp;K to 0.56 at 350&nbsp;K and 0.33 at 450&nbsp;K, a melt spread over more than 100&nbsp;K where real villin takes about 40. That is the same weakness as the HP chain&rsquo;s, and it sets the temperature: each contact is worth about 0.75 kilocalories per mole, about the weakest that keeps the chain folded at room temperature, and with a melt this broad its midpoint cannot also sit at the real protein&rsquo;s 340&nbsp;K. Cooled again, it refolded in each of the runs we examined, ending at 300&nbsp;K with 73 to 85 percent of its contacts, about where it started. Each run differs, and a cooled chain can end short of its starting fold. Real denatured proteins can also refold, which is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Anfinsen%27s_dogma">Anfinsen&rsquo;s</a> result.</p>
 
                     <p>The model makes refolding easy, since the only attractions it has are the native ones. A chain of 35 residues has far too many shapes to find its fold in microseconds by trying them one at a time, a puzzle known as <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Levinthal%27s_paradox">Levinthal&rsquo;s paradox</a>.
                     In the Gō model every native contact lowers the energy and nothing else does, so the energy slopes downhill toward the native structure from every direction, the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Folding_funnel">folding funnel</a> of Wolynes, Onuchic and their colleagues, and the chain finds its fold without a random search. Real proteins are thought to come close to this, because evolution has weeded out most of the contacts that would compete with the native ones, what Bryngelson and Wolynes called the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.84.21.7524">principle of minimal frustration</a>.
@@ -198,7 +198,7 @@
 
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
-                        <p class="v2-prompts-intro">The simulations were given the forces among beads. Everything below came out of them:</p>
+                        <p class="v2-prompts-intro">The simulations were given the forces among beads and, for villin, the contacts of its crystal structure. Everything below came out of them:</p>
                         <ul>
                             <li><span class="v2-prompts-step">Folding by sequence</span> &mdash; a chain with its hydrophobic residues in blocks collapses into a globule less than half the size of a chain with few, scattered ones, and it opens near 380&nbsp;K in the published run.</li>
                             <li><span class="v2-prompts-step">A molten globule</span> &mdash; the folded two-letter chain keeps its core but swaps about four in five of its contacts within a hundred picoseconds, drifting about 10&nbsp;&Aring; from its own earlier structure.</li>

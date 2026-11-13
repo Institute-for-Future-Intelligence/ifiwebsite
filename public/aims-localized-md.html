@@ -92,15 +92,15 @@
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 13, 2026</span></p>
 
-                    <p>Most drugs work by binding to a protein. A small molecule, called the ligand, fits into a pocket on the surface of the protein and is held there by hydrogen bonds, attractions between charges, and contact with the oily side chains that line the pocket.
+                    <p>Most drugs work by binding to a protein. A small molecule, called the ligand, fits into a pocket of the protein and is held there by hydrogen bonds, attractions between charges, and contact with the oily side chains that line the pocket.
                     A program that predicts how a ligand fits into a pocket is called a docking program. It tries many positions and orientations of the ligand against a fixed structure of the protein and scores each one. The result is a single picture of the ligand in the pocket.
                     A protein at body temperature moves all the time: its side chains swing, its loops flex, and the ligand rocks in its pocket. Some contacts in the docked picture last, and others form and break within a few trillionths of a second.
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">Molecular dynamics</a> follows this motion by computing the force on every atom and moving each atom by Newton&rsquo;s laws, one femtosecond (10<sup>&minus;15</sup>&nbsp;s) at a time.
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">Molecular dynamics</a> follows this motion by computing the force on every atom and moving each atom by Newton&rsquo;s laws in steps of about one femtosecond (10<sup>&minus;15</sup>&nbsp;s).
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/267585a0">McCammon, Gelin, and Karplus</a> published the first molecular dynamics simulation of a protein in 1977.</p>
 
                     <p>A whole protein in a box of water has tens of thousands of atoms, which is too many to simulate in a browser at an interactive speed. A binding study, however, needs only the part of the protein around the ligand.
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/bip.360240509">Brooks, Br&uuml;nger, and Karplus</a> described this approach in 1985 for the active site of an enzyme: the atoms near the site move freely, the atoms around them are held near their positions, and the rest of the protein is left out of the calculation.
-                    AIMS uses the same approach, which this article calls localized molecular dynamics. It runs in the Protein Lab of AIMS, in the browser, and this article follows it through one example: oxygen binding to myoglobin.</p>
+                    AIMS uses a similar approach, which this article calls localized molecular dynamics. It runs in the Protein Lab of AIMS, in the browser, and this article follows it through one example: oxygen binding to myoglobin.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Myoglobin%20and%20Oxygen"
@@ -159,7 +159,7 @@
 
                     <p>The fourth prompt runs the localized simulation. AIMS builds the simulated region from residues: a residue joins a zone when any of its atoms is within that zone&rsquo;s distance of the ligand.
                     The free core holds the ligand and every residue within 6&nbsp;&Aring; of it. Around the core is a buffer 3&nbsp;&Aring; wide, whose atoms move but are pulled back toward their starting positions by springs. The springs are weakest at the inner edge of the buffer and ten times stiffer at its outer edge, so the restraint on the atoms increases gradually from the core to the frozen shell.
-                    Around the buffer is a frozen shell 6&nbsp;&Aring; wide, whose atoms stay fixed. The shell supplies the forces that the rest of the protein would exert on the moving atoms. In the myoglobin example, 318 atoms move.</p>
+                    Around the buffer is a frozen shell 6&nbsp;&Aring; wide, whose atoms stay fixed. The shell exerts on the moving atoms the forces of the protein that surrounds them. In the myoglobin example, 318 atoms move.</p>
 
                     <p>Water is represented implicitly. Water weakens the attraction between charges, and it weakens it more the farther apart the charges are, because more water fits between them. The simulation divides the electrostatic energy of two charges by a dielectric constant that depends on their distance, following <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1093/protein/4.8.903">Mehler and Solmajer</a>: about 13 at 2.9&nbsp;&Aring;, the distance across a salt bridge, about 57 at 10&nbsp;&Aring;, and close to 78, the value for bulk water, beyond 20&nbsp;&Aring;.
                     It also adds the energy cost of moving a charged or polar group out of water and the energy gain of burying an oily group, from the solvation model of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/(SICI)1097-0134(19990501)35:2%3C133::AID-PROT1%3E3.0.CO;2-N">Lazaridis and Karplus</a>.
@@ -198,16 +198,16 @@
 
                     <p>Most force fields for proteins describe a chemical bond as a spring, which cannot break. A binding study of myoglobin needs the iron, and it needs a bond between the iron and the oxygen that can form and break during the run.
                     In the simulation, the iron is bonded to the four nitrogen atoms of the porphyrin and to His93, at their distances in the crystal. Between the iron and each atom of the ligand that can bind it (a nitrogen, oxygen, or sulfur atom, or the carbon of carbon monoxide), the energy follows a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Morse_potential">Morse potential</a>.
-                    A Morse potential rises steeply when two atoms are pushed together, has a minimum at the bond length, and levels off at long distance, where the bond is broken. For oxygen the minimum is at 1.8&nbsp;&Aring; with a depth of 14&nbsp;kcal/mol. The depths are illustrative values chosen to show binding.</p>
+                    A Morse potential rises steeply when two atoms are pushed together, has a minimum at the bond length, and levels off at long distance, where the bond is broken. For oxygen the minimum is at 1.8&nbsp;&Aring; with a depth of 14&nbsp;kcal/mol. The depth is an illustrative value chosen to show binding.</p>
 
                     <p>The iron binds one ligand atom at a time. The simulation combines the Morse potentials of the two oxygen atoms with a smooth minimum, a function that follows whichever atom is closer to the iron and changes over smoothly when the two are about equally close. The oxygen therefore binds end-on, through one atom, as it does in oxymyoglobin.
-                    A bending term holds the angle between the iron and the two oxygen atoms near 120&deg;, the bent geometry of oxygen bound to a heme. This term is weighted by how strongly the oxygen is bound, so it has no effect when the oxygen is away from the iron.
+                    A bending term holds the Fe&ndash;O&ndash;O angle near 120&deg;, the bent geometry of oxygen bound to a heme. This term is weighted by how strongly the oxygen is bound, so it has no effect when the oxygen is away from the iron.
                     The two carboxylate groups of the heme, called propionates, each carry a charge of &minus;1, and the lysine and arginine side chains spread their positive charge over several atoms, as they do in standard protein force fields.</p>
 
                     <h2>What the Simulation Showed</h2>
 
                     <p>The simulation first relaxes the region for up to 150 steps of energy minimization, which removes strain from the starting structure, and then gives every moving atom a random velocity drawn for 310&nbsp;K.
-                    In the run saved in the example, the region ran for 20&nbsp;ps at an average of 307&nbsp;K. The oxygen bound the iron and stayed bound for 98&nbsp;% of the run, end-on, at an average distance of 2.1&nbsp;&Aring; between the iron and the bound oxygen atom. The simulation counts the oxygen as bound when this distance is below 2.5&nbsp;&Aring;.
+                    In the run saved in the example, the region ran for 20&nbsp;ps at an average of 307&nbsp;K. The oxygen bound the iron and stayed bound for 98&nbsp;% of the run, end-on, at an average distance of 2.1&nbsp;&Aring; between the iron and the nearer oxygen atom. The simulation counts the oxygen as bound when this distance is below 2.5&nbsp;&Aring;.
                     The distal histidine, His64, carries a hydrogen atom on its NE2 nitrogen, and it formed a hydrogen bond with the oxygen through this nitrogen for 60&nbsp;% of the run. A hydrogen bond is counted when the nitrogen carries a hydrogen atom and the nitrogen and the oxygen are within 3.5&nbsp;&Aring; of each other.
                     These two contacts, to the iron and to His64, are the two that the crystal structure of oxymyoglobin and the neutron diffraction study describe.</p>
 
@@ -231,9 +231,9 @@
                     <h2>The Reach of a Localized Simulation</h2>
 
                     <p>A localized simulation shows the contacts between a ligand and its pocket at body temperature: which hydrogen bonds last and which form and break, how far a ligand moves in its pocket, whether it binds a metal, and how the side chains around it move in response.
-                    The run lasts tens of picoseconds. Whether the oxygen reaches the iron in that time depends on the random velocities, so the oxygen binds in one run and stays unbound in another. Events slower than nanoseconds, such as the escape of oxygen from myoglobin or the opening of a loop that covers a pocket, take longer than a run lasts.
+                    The run lasts tens of picoseconds. Whether the oxygen reaches the iron in that time depends on the random velocities and the random forces of the thermostat, so the oxygen binds in one run and stays unbound in another. Slower events, such as the escape of oxygen from myoglobin or the opening of a loop that covers a pocket, take nanoseconds or longer, far longer than a run.
                     The frozen shell keeps the region near the crystal structure, so a large change in the shape of the protein cannot happen.
-                    The bond between the iron and the oxygen is a classical model. In real oxymyoglobin, binding moves electron density from the iron to the oxygen and changes the spin state of the iron, which only a quantum-mechanical calculation describes. The Morse depths are illustrative, so the simulation does not compute binding energies.
+                    The bond between the iron and the oxygen is a classical model. In real oxymyoglobin, binding moves electron density from the iron to the oxygen and changes the spin state of the iron, which only a quantum-mechanical calculation describes. The depth of the Morse potential is illustrative, so the simulation does not compute binding energies.
                     The model shows the geometry of binding: the oxygen reaches the iron, binds it end-on, and forms a hydrogen bond with His64.</p>
 
                     <p>The same steps work for other ligands in other proteins. A student can add a ligand by name to any structure in the Protein Lab, dock it into a pocket, and simulate the pocket around it. The Report button on the control bar posts the Interactions and Flexibility cards for the student&rsquo;s own run.
@@ -247,7 +247,7 @@
                         <ul>
                             <li><span class="v2-prompts-step">Binding</span> &mdash; the oxygen bound the iron end-on for 98&nbsp;% of a 20&nbsp;ps run at 310&nbsp;K, at an average distance of 2.1&nbsp;&Aring;.</li>
                             <li><span class="v2-prompts-step">The distal histidine</span> &mdash; His64 formed a hydrogen bond with the oxygen through its NE2 nitrogen for 60&nbsp;% of the run.</li>
-                            <li><span class="v2-prompts-step">Salt bridges</span> &mdash; Arg45 paired with Asp60 for the whole run and with a heme propionate for 38&nbsp;% of it.</li>
+                            <li><span class="v2-prompts-step">Salt bridges</span> &mdash; Arg45 paired with Asp60 for the whole run and with a heme propionate for 38&nbsp;% of it, and Lys96 paired with a heme propionate for 13&nbsp;% of it.</li>
                             <li><span class="v2-prompts-step">Flexibility</span> &mdash; a mean RMSF of 0.52&nbsp;&Aring; in the run against 0.64&nbsp;&Aring; from the crystal B-factors, with Leu29 the most mobile residue in the run.</li>
                         </ul>
                     </div>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Building Polymer Chains in AIMS — Institute for Future Intelligence</title>
-    <meta name="description" content="The AIMS Polymer Builder links monomers into all-atom polymer chains in a web browser: homopolymers such as polyethylene and polystyrene, alternating, random, and block copolymers, and ring, star, comb, branched, and dendritic architectures. An AI agent builds the chains, measures their size, and designs a copolymer for a latex paint binder to a glass-transition target.">
+    <meta name="description" content="The polymer builder in AIMS links monomers into all-atom polymer chains in a web browser: homopolymers such as polyethylene and polystyrene, alternating, random, and block copolymers, and ring, star, comb, branched, and dendritic architectures. An AI agent builds the chains, measures their size, and designs a copolymer for a latex paint binder to a glass-transition target.">
 
     <style>
         @import url("css/system.base.css");
@@ -94,12 +94,12 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 12, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 13, 2026</span></p>
 
                     <p>Plastic bags, foam cups, nonstick pans, tires, wall paint, and wood glue are all made of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polymer">polymers</a>:
                     long molecules built by linking many copies of a small molecule, the monomer. A polyethylene molecule in a plastic bag holds thousands of linked ethylene units. Textbooks draw such a molecule as a repeat unit in brackets with a subscript,
-                    &ndash;[CH<sub>2</sub>&ndash;CH<sub>2</sub>]<sub><i>n</i></sub>&ndash;, which leaves out what the chain looks like in space. The Polymer Builder in AIMS builds the chain itself, with every atom in place, in a web browser.
-                    A student picks one or more monomers, sets how many units to link and how to arrange them, and the chain appears in the lab, ready for a molecular dynamics simulation. An <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a>
+                    &ndash;[CH<sub>2</sub>&ndash;CH<sub>2</sub>]<sub><i>n</i></sub>&ndash;, which leaves out what the chain looks like in space. The polymer builder in AIMS builds the chain itself, with every atom in place, in a web browser.
+                    A student picks one or more monomers, sets how many units to link and how to arrange them, and the chain appears in the lab, ready for a molecular dynamics simulation. The builder is part of every Molecular Modeling project, so a chain can share the lab with other molecules, such as copies of its own monomer. An <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a>
                     does the same work from a plain-language request in the chat, measures the chains it builds, and designs new ones to a target. In the window below, the gallery holds eight monomers, and the lab holds a chain of PET, the plastic of soda bottles, built from ten units each of terephthalic acid and ethylene glycol.</p>
 
                     <figure class="v2-embed">
@@ -116,7 +116,7 @@
                     <p>Ethylene, CH<sub>2</sub>=CH<sub>2</sub>, has a double bond between its two carbon atoms. When ethylene polymerizes, that double bond opens into a single bond, and each carbon uses the freed electrons to bond to a carbon of the next unit.
                     Every atom of the monomer stays in the chain, so a chain of <i>n</i> ethylene units has the formula of <i>n</i> ethylene molecules plus the two atoms that cap its ends. This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Addition_polymer">addition polymerization</a>,
                     and it makes most of the plastics in daily use from monomers with a C=C group: vinyl chloride makes PVC, and styrene makes polystyrene.
-                    The two carbons of the double bond are the places where a unit links to its neighbors, the <i>head</i> and the <i>tail</i> of the unit. The Polymer Builder finds them in any monomer with a C=C outside a ring and opens the double bond when it builds the chain,
+                    The two carbons of the double bond are the places where a unit links to its neighbors, the <i>head</i> and the <i>tail</i> of the unit. The builder finds them in any monomer with a C=C outside a ring and opens the double bond when it builds the chain,
                     so a ring such as the benzene ring of styrene stays intact and hangs off the chain as a side group.
                     Butadiene, CH<sub>2</sub>=CH&ndash;CH=CH<sub>2</sub>, has two double bonds in a row. It links through its two end carbons, and the remaining double bond moves to the middle of the unit, so each unit of polybutadiene keeps one C=C, as in the rubber of tires.
                     The builder places a hydrogen atom on each end of the finished chain.</p>
@@ -147,8 +147,8 @@
                     Terephthalic acid has an acid group at each end of a benzene ring, and ethylene glycol, HO&ndash;CH<sub>2</sub>&ndash;CH<sub>2</sub>&ndash;OH, has an &ndash;OH group at each end. Linked in alternating order, they make
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polyethylene_terephthalate">polyethylene terephthalate</a>, PET, the polyester of soda bottles and polyester fabric. Adipic acid and hexamethylenediamine make <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nylon_66">nylon 6,6</a> the same way through amide links. The Nylon 6,6 example builds a chain of eight units of each, C<sub>96</sub>H<sub>178</sub>N<sub>16</sub>O<sub>17</sub>, with 307 atoms.</p>
 
-                    <p>The Polymer Builder recognizes the acid, alcohol, and amine groups of a monomer and links the units through them. At every link it removes the OH of the acid and an H of the alcohol or amine, so the chain in the lab of the first example has the formula of its 20 monomers minus 19 molecules of water:
-                    C<sub>100</sub>H<sub>82</sub>O<sub>41</sub>, with 223 atoms. Its two ends still carry an acid group and an &ndash;OH group, where the chain could grow further. This is the chain in the first window of this article, where the ester links show as pairs of red oxygen atoms between each benzene ring and the next CH<sub>2</sub>&ndash;CH<sub>2</sub> unit.
+                    <p>The builder recognizes the acid, alcohol, and amine groups of a monomer and links the units through them. At every link it removes the OH of the acid and an H of the alcohol or amine, so the chain in the lab of the first example has the formula of its 20 monomers minus 19 molecules of water:
+                    C<sub>100</sub>H<sub>82</sub>O<sub>41</sub>, with 223 atoms. Its two ends still carry an acid group and an &ndash;OH group, where the chain could grow further. An end-cap option in the Build Chain dialog replaces the reactive hydrogen at each end with a methyl group, which turns the acid end into a methyl ester and the &ndash;OH end into a methyl ether. This is the chain in the first window of this article, where the ester links show as pairs of red oxygen atoms between each benzene ring and the next CH<sub>2</sub>&ndash;CH<sub>2</sub> unit.
                     Two acid groups cannot link, so a diacid has to alternate with a diol or a diamine, and the builder refuses a sequence that puts two acids side by side.
                     A monomer with an acid group at one end and an alcohol or amine at the other, such as lactic acid, polymerizes on its own: lactic acid makes poly(lactic acid), a plastic made from plants.
                     In the same way, 6-aminohexanoic acid, with an acid group at one end and an amine group at the other, makes <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nylon_6">nylon 6</a>.
@@ -307,7 +307,7 @@
 
                     <h2>Conclusion</h2>
 
-                    <p>This article uses the Polymer Builder to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language request into a molecule and a molecular dynamics experiment, and hands back measured data.
+                    <p>This article uses the polymer builder to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language request into a molecule and a molecular dynamics experiment, and hands back measured data.
                     The bracketed repeat unit of the textbook becomes a chain that students can build, turn in three dimensions, and watch move: how a double bond opens to link units and how an acid and an alcohol join and release water, how copolymer sequences and branching change a molecule, how the size of a chain grows with its length,
                     and how a chemist picks a composition to meet a target. By pairing a physically grounded simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of the materials they use every day.</p>
 
