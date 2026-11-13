@@ -72,6 +72,8 @@
         .v2-figure-pair { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.2rem; align-items: start; margin: 2rem 0 2.5rem; }
         .v2-col-main .v2-figure-pair .v2-formula { margin: 0 !important; }
         @media (max-width: 900px) { .v2-figure-pair { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+        /* A chart shown on its own (figure.v2-formula draws an image at its full size, 900px here): two thirds of that is enough to read it. */
+        .v2-col-main .v2-formula.is-compact img { max-width: min(100%, 620px) !important; }
         /* The two places the text links to (Figure 3, the experiment at the end): land below the site's fixed header (58px), not under it. */
         #figure-3, #experiment { scroll-margin-top: 74px; }
         .v2-pullquote { font-style: italic; font-size: 1.35rem; line-height: 1.5; padding: 1.25rem 1.5rem; border-left: 3px solid var(--accent); background: var(--surface-raised); border-radius: 0 0.5rem 0.5rem 0; margin: 0 0 1.75rem; color: var(--text); }
@@ -203,12 +205,12 @@
 
                     <p>
                         When the recording was added to the experiment, the agent went to work
-                        without being asked. It called up thermal and visible-light frames at nine
-                        moments of its choosing, and it wrote and ran its own code to read the
-                        temperature inside the three reading areas through the recording. It
-                        worked out for itself that the top dish was the control, the middle one
-                        salt, and the bottom one baking soda, and that the two were added about
-                        90 to 105 seconds in.
+                        without being asked. It called up thermal and visible-light frames of its
+                        choosing, and it wrote and ran its own code to read the temperature inside
+                        the three reading areas through the recording. It worked out for itself
+                        that the top dish was the control, the middle one salt, and the bottom one
+                        baking soda, and that the salt and the baking soda were added about 90 to
+                        105 seconds into the recording.
                     </p>
 
                     <p>
@@ -218,12 +220,11 @@
                         frame dipped by about 1&nbsp;&deg;C and came back. The agent traced the
                         dips to the recalibrations and chose to compare the dishes with each
                         other in the same frame instead of following each one alone. It left out
-                        the frames within 6 seconds of a recalibration and subtracted the
-                        control's reading from the other two dishes' readings. Figure 4 is the
-                        chart it drew.
+                        the frames around each recalibration and subtracted the control's reading
+                        from the other two dishes' readings. Figure 4 is the chart it drew.
                     </p>
 
-                    <figure class="v2-formula">
+                    <figure class="v2-formula is-compact">
                         <img src="image/ie-ai-lab-partner-run1-chart.png" alt="Chart of the salt and baking soda dishes' temperature minus the control's over 38 minutes; the two lines fall together to about minus 0.8 degrees and recover together">
                         <figcaption>Figure 4: The agent's chart of the first run: the temperature of the salt dish and of the baking soda dish minus the control's in the same frame, with the frames near camera recalibrations left out. Salt and baking soda cool together and recover together.</figcaption>
                     </figure>
@@ -232,9 +233,9 @@
                         All three water surfaces started at about 19.8&nbsp;&deg;C. Between 5 and 15
                         minutes the salt dish read about 0.8&nbsp;&deg;C below the control and the
                         baking soda dish about 0.7&nbsp;&deg;C below, and by the end both had crept
-                        back to about 0.2&nbsp;&deg;C below. The agent said plainly what that
-                        meant: the result did not support its own prediction that baking soda
-                        would cool more.
+                        back to about 0.2&nbsp;&deg;C below. It was a tie, and the agent said
+                        plainly what that meant: the result did not support its own prediction
+                        that baking soda would cool more.
                     </p>
 
                     <figure class="v2-embed">
@@ -242,7 +243,7 @@
                                 id="ie-frame-run1" loading="lazy" allowfullscreen="true" title="The first recording in Infrared Explorer"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('ie-frame-run1');">View fullscreen</a><br>
-                            The first recording. Press Play, move a thermometer, or open the Charts tab for the temperature curves.
+                            The first recording, with a chart of the salt and baking soda dishes' temperatures relative to the control. Press Play, or move a thermometer.
                         </figcaption>
                     </figure>
 
@@ -276,11 +277,11 @@
                     <h2>The second run</h2>
 
                     <p>
-                        We ran the experiment again with the same three dishes and recorded
-                        another time-lapse, this time for 10 minutes. The salt and the baking
-                        soda went in about 35 seconds after
-                        the start. We stirred those two dishes with sticks and left the control
-                        alone (Figure 5).
+                        We ran the experiment again with the same three dishes and the same
+                        scoops, and recorded another time-lapse, this time for 10 minutes. Of the
+                        agent's suggestions we took one: after the salt and the baking soda went
+                        in, about 35 seconds after the start, we stirred those two dishes with
+                        sticks. We left the control alone (Figure 5).
                     </p>
 
                     <div class="v2-screenshot-row is-frames">
@@ -305,13 +306,14 @@
                     </p>
 
                     <p>
-                        This time the prediction held: salt and baking soda separated within a
-                        minute. From two to five minutes after they went in, the baking soda dish
+                        This time the two dishes pulled apart within a minute. From two to five
+                        minutes after the salt and the baking soda went in, the baking soda dish
                         read about 2.3&nbsp;&deg;C below the control and the salt dish about
-                        0.6&nbsp;&deg;C below, a ratio of about four to one. The agent still did
-                        not call the question settled: one run cannot show that the difference is
-                        repeatable, it said, and the camera shows the surface, not necessarily the
-                        water beneath it.
+                        0.6&nbsp;&deg;C below, a ratio of about four to one. Baking soda did cool
+                        more, as predicted, and by more than the 0.5 to 1.5&nbsp;&deg;C of the
+                        plan. The agent still did not call the question settled: one run cannot
+                        show that the difference is repeatable, it said, and the camera shows the
+                        surface, not necessarily the water beneath it.
                     </p>
 
                     <figure class="v2-embed">
@@ -319,7 +321,7 @@
                                 id="ie-frame-run2" loading="lazy" allowfullscreen="true" title="The second recording in Infrared Explorer"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('ie-frame-run2');">View fullscreen</a><br>
-                            The second recording. Press Play to watch the baking soda dish at the bottom turn cold within a minute of the stirring.
+                            The second recording, with the same chart. Press Play to watch the baking soda dish at the bottom turn cold within a minute of the stirring.
                         </figcaption>
                     </figure>
 
@@ -341,25 +343,18 @@
                     <p class="v2-pullquote">Add a comparison of the two recordings to the report with two separate charts, one for each recording, explain why the results differ.</p>
 
                     <p>
-                        The agent went back to both recordings. It looked at the frames again and
-                        put the two thermal views side by side on one color scale, with the reading
-                        areas labeled (Figure 6). It ran one analysis on both recordings, set time
-                        zero at the moment the salt and the baking soda went in, and drew the two
-                        charts on the same axes (Figure 7). The new report had the second run
-                        right.
+                        The agent went back to both recordings. It looked at the frames again, ran
+                        one analysis on both recordings, set time zero at the moment the salt and
+                        the baking soda went in, and drew the two charts on the same axes
+                        (Figure 6). The new report had the second run right.
                     </p>
-
-                    <figure class="v2-formula">
-                        <img src="image/ie-ai-lab-partner-regions.png" alt="Two thermal frames side by side, one from each recording before anything was added to the water, with the reading areas labeled water control, salt, and baking soda; the dishes in the second recording are visibly warmer">
-                        <figcaption>Figure 6: A figure the agent made for the report: the two recordings before anything was added to the water, on one color scale, with its labels on the three reading areas. The water was warmer in the second run.</figcaption>
-                    </figure>
 
                     <div class="v2-screenshot-row">
                         <img src="image/ie-ai-lab-partner-compare-run1.png" alt="Chart for the first recording: the salt and baking soda lines nearly overlap and fall slowly to about minus 0.8 degrees over ten minutes">
                         <img src="image/ie-ai-lab-partner-compare-run2.png" alt="Chart for the second recording on the same axes: baking soda drops to about minus 2.4 degrees within two minutes while salt stays near minus 0.6 degrees">
                     </div>
                     <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: -1rem;">
-                        Figure 7: The two charts in the final report, on the same axes: each dish's
+                        Figure 6: The two charts in the final report, on the same axes: each dish's
                         change from its own starting temperature, minus the control's change,
                         against time since the salt and the baking soda went in. Left: the first
                         run, not stirred. Right: the second run, stirred.
@@ -368,8 +363,7 @@
                     <p>
                         The new report also named a second difference between the runs that had
                         not come up before: the water started about 3.5&nbsp;&deg;C warmer in the
-                        second run. Its conclusion does not overclaim. Each run was done only
-                        once, and it says no more than that allows:
+                        second run. Its conclusion does not overclaim:
                     </p>
 
                     <p class="v2-pullquote">The clearest procedural difference visible in the recordings is stirring in Recording 2 but not Recording 1, which could explain why cooling was more quickly and strongly separated there, though other run-to-run differences remain possible.</p>
@@ -377,7 +371,7 @@
                     <h2>What the agent missed</h2>
 
                     <p>
-                        The plainest evidence for why the first run ended in a tie is in
+                        The plainest clue to why the first run ended in a tie is in
                         <a href="#figure-3">Figure 3</a>, and the agent never mentioned it. The
                         baking soda lies in a white heap on the bottom of its dish. The agent had
                         called up that frame. It gave the general reason, that a solid left
@@ -410,8 +404,8 @@
                         <ul>
                             <li><span class="v2-prompts-step">Design</span> &mdash; from one photo and one sentence, a title, a drawing of the setup, and a three-part plan with a numerical prediction.</li>
                             <li><span class="v2-prompts-step">Analysis</span> &mdash; the temperature data of both recordings, read with code it wrote itself, with 44 camera recalibrations screened out and a 0.5&nbsp;&deg;C starting offset removed.</li>
-                            <li><span class="v2-prompts-step">Corrections</span> &mdash; one of its misreadings corrected by us, one overstatement of ours corrected by the agent, and two of its own errors corrected by itself. One wrong sentence stayed in the report until we asked for something else, and the heap in <a href="#figure-3">Figure 3</a> was never mentioned.</li>
-                            <li><span class="v2-prompts-step">Result</span> &mdash; not stirred, the salt dish read about 0.8&nbsp;&deg;C below the control and the baking soda dish about 0.7&nbsp;&deg;C; stirred, the baking soda dish read about 2.3&nbsp;&deg;C below it and the salt dish about 0.6&nbsp;&deg;C.</li>
+                            <li><span class="v2-prompts-step">Corrections</span> &mdash; one of its misreadings corrected by us, one overstatement of ours corrected by the agent, and two of its own errors corrected by itself. The heap in <a href="#figure-3">Figure 3</a> was never mentioned.</li>
+                            <li><span class="v2-prompts-step">Result</span> &mdash; how far below the control each dish read: not stirred, salt 0.8&nbsp;&deg;C and baking soda 0.7&nbsp;&deg;C; stirred, salt 0.6&nbsp;&deg;C and baking soda 2.3&nbsp;&deg;C.</li>
                             <li><span class="v2-prompts-step">Report</span> &mdash; five sections and three figures made from the data, rewritten on a one-sentence request.</li>
                         </ul>
                     </div>
