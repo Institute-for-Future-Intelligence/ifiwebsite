@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantitative Structure-Property Relationships of Acenes — Institute for Future Intelligence</title>
-    <meta name="description" content="Explore QSPR of acenes with AIMS: build models relating carbon count to boiling point and run molecular dynamics on benzenes and octacenes.">
+    <title>Quantitative Structure&ndash;Property Relationships of Acenes — Institute for Future Intelligence</title>
+    <meta name="description" content="Explore QSPR of acenes with AIMS: build models relating carbon count to boiling point and run molecular dynamics on benzene and octacene.">
 
     <style>
         @import url("css/system.base.css");
@@ -40,9 +40,7 @@
     <script src="js/main.js"></script>
 
     <script>
-      function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
-      function openFullscreen2() { var e = document.getElementById("aims-frame2"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
-      function openFullscreen3() { var e = document.getElementById("aims-frame3"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
     </script>
 
     <style>
@@ -56,8 +54,11 @@
         .v2-article-audio { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.25rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: 0.75rem; margin: 0 0 2rem; }
         .v2-article-audio-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
         .v2-article-audio audio { width: min(100%, 420px); }
-        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
-        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link { float: right; clear: right; width: 30%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border-left: 4px solid var(--accent); border-radius: 0 0.8rem 0.8rem 0; background: rgba(99, 102, 241, 0.07); }
+        .v2-model-link-label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0 0 0.6rem; }
+        .v2-model-link a + a { margin-top: 0.5rem; }
+        @media (max-width: 720px) { .v2-model-link { float: none; width: auto; margin: 1.5rem 0; } }
+        .v2-model-link a { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
         .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
         .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
         .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
@@ -73,7 +74,7 @@
         <header class="v2-hero" data-wordmark="ACENES">
             <div class="v2-hero-inner">
                 <span class="v2-eyebrow">AIMS</span>
-                <h1>Quantitative Structure-Property Relationships of Acenes</h1>
+                <h1>Quantitative Structure&ndash;Property Relationships of Acenes</h1>
                 <p class="v2-tagline">
                     Acenes &mdash; linear fusions of benzene rings &mdash; show boiling points that rise with carbon count. AIMS lets you build QSPR models and run molecular dynamics to probe why.
                 </p>
@@ -85,76 +86,81 @@
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated July 11, 2026</span></p>
 
-                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Acene">Acenes</a> are a family of polycyclic aromatic hydrocarbon molecules, as opposed to monocyclic molecules
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Acene">Acenes</a> are a family of aromatic hydrocarbon molecules, most of which are polycyclic, as opposed to monocyclic molecules
                     such as <a href="aims-cycloalkanes.html">cycloalkanes</a>.
-                    They are formed by joinining benzene rings in a linear way, following the general formula C<sub>4n+2</sub>H<sub>2n+4</sub>.
-                    Like the <a href="aims-alkanes.html">linear alkanes</a> and <a href="aims-cycloalkanes.html">cycloalkanes</a>, their boiling points also increase with the number of carbon atoms.
-                    With AIMS, you can study this <a target="_blank" href="https://en.wikipedia.org/wiki/Quantitative_structure%E2%80%93activity_relationship">quantitative structure-property relationship</a> (QSPR).
+                    They are formed by joining benzene rings in a linear way, following the general formula C<sub>4n+2</sub>H<sub>2n+4</sub>.
+                    As with the <a href="aims-alkanes.html">linear alkanes</a> and <a href="aims-cycloalkanes.html">cycloalkanes</a>, their boiling points increase with the number of carbon atoms.
+                    With AIMS, you can study this <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quantitative_structure%E2%80%93activity_relationship">quantitative structure&ndash;property relationship</a> (QSPR).
                     In general, a good QSPR model must meet the so-called
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.oecd.org/en/publications/guidance-document-on-the-validation-of-quantitative-structure-activity-relationship-q-sar-models_9789264085442-en.html">OECD Principles</a>,
-                    which requires the model to have 1) a defined endpoint; 2) an unambiguous algorithm; 3) a defined domain of applicability;
-                    4) appropriate measures of goodness-of-fit; 5) robustness and predictivity; and 6) a mechanistic interpretation, if possible.</p>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.oecd.org/en/publications/guidance-document-on-the-validation-of-quantitative-structure-activity-relationship-q-sar-models_9789264085442-en.html">OECD principles</a>,
+                    which require the model to have 1) a defined endpoint; 2) an unambiguous algorithm; 3) a defined domain of applicability;
+                    4) appropriate measures of goodness-of-fit, robustness, and predictivity; and 5) a mechanistic interpretation, if possible.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Acenes"
                                 id="aims-frame1" allowfullscreen="true" title="Acenes demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen1();">view fullscreen</a>. Chrome or Edge recommended.
+                            Live model &mdash; <a href="javascript:openFullscreen('aims-frame1');">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
-                    <div class="v2-model-link"><a href="aims-alkanes.html">Other hydrocarbons such as linear alkanes and cycloalkanes also observe this relationship</a></div>
+                    <div class="v2-model-link"><span class="v2-model-link-label">See also</span><a href="aims-alkanes.html">QSPR of linear alkanes</a><a href="aims-cycloalkanes.html">QSPR of cycloalkanes</a></div>
 
-                    <p>You can follow the instruction in <a href="aims-alkanes.html">our article about linear alkanes</a> to build a regressional QSPR model for acenes using a training set and then examine its validity with a test set.
-                    It should not be difficult to develop a QSPR model that meets the first five OECD principles.</p>
+                    <p>You can follow the instructions in <a href="aims-alkanes.html">our article about linear alkanes</a> to build a regression QSPR model for acenes using a training set and then examine its validity with a test set.
+                    It should not be difficult to develop a QSPR model that meets the first four OECD principles.
+                    Keep in mind that the boiling points of the larger acenes are computed estimates rather than measurements, because acenes beyond pentacene are too reactive to be isolated in bulk.
+                    A model trained on them is therefore partly fitting the output of another model.</p>
 
                     <p>QSPR modeling gives us a tool to analyze the data, but it does not provide any explanation about the result by itself. To make sense of the result, we still need to resort to
                     fundamentals in chemistry. Equipped with the power of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics simulations</a>,
-                    AIMS allows us to design and conduct computational experiments to check a QSPR model and/or find a theoretical explanation (the sixth OECD principle).</p>
+                    AIMS allows us to design and conduct computational experiments to check a QSPR model and/or find a theoretical explanation (the fifth OECD principle).</p>
 
                     <h2>Molecular Dynamics Simulations</h2>
 
-                    <p>The following two simulations allow you to compare the boiling points of benzenes and octacenes <b>on a qualitative basis</b>.</p>
+                    <p>The following two simulations allow you to compare the boiling points of benzene and octacene <b>on a qualitative basis</b>.</p>
 
-                    <p><b>Benzenes (C<sub>6</sub>H<sub>6</sub>)</b></p>
+                    <p><b>Benzene (C<sub>6</sub>H<sub>6</sub>)</b></p>
 
-                    <p>There are 13 benzene molecules (156 atoms in total) in this simulation. The temperature is initially set to be 373K (100&deg;C). A greatly exaggerated gravitational field is applied to keep
-                    the molecules at the bottom of the container when they condense. As you can see, at this temperature, these benzenes are in a gaseous state. The atoms are colored by their kinetic energy &mdash;
-                    blue represents low kinetic energy and red high kinetic energy. The dashed lines represent the intermolecular interactions.</p>
+                    <p>There are 13 benzene molecules (156 atoms in total) in this simulation. The temperature is initially set to be 373 K (100&deg;C). A greatly exaggerated gravitational field is applied to keep
+                    the molecules at the bottom of the container when they condense. As you can see, at this temperature, benzene is in the gaseous state. The atoms are colored by their kinetic energy &mdash;
+                    blue represents low kinetic energy and red high kinetic energy. The dashed lines represent the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_der_Waals_force">van der Waals interactions</a> among the atoms.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Benzenes"
                                 id="aims-frame2" allowfullscreen="true" title="Benzenes demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen2();">view fullscreen</a>. Chrome or Edge recommended.
+                            Live model &mdash; <a href="javascript:openFullscreen('aims-frame2');">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
-                    <p><em>Note that it may take a while for a molecular dynamics simulation to produce a desired emergent behavior (e.g., condensation), especially on low-grade computers, when you change a simulation parameter such as lowering the temperature.</em></p>
+                    <p><em>Note that it may take a while for a molecular dynamics simulation to produce a desired emergent behavior (e.g., condensation), especially on slower computers, when you change a simulation parameter such as lowering the temperature.</em></p>
 
-                    <p><b>Octacenes (C<sub>34</sub>H<sub>20</sub>)</b></p>
+                    <p><b>Octacene (C<sub>34</sub>H<sub>20</sub>)</b></p>
 
-                    <p>There are three cyclodecane molecules (162 atoms in total) in this simulation. The temperature is initially set to be 373K (100&deg;C). As is in the case of the benzenes above,
+                    <p>There are three octacene molecules (162 atoms in total) in this simulation. The temperature is initially set to be 373 K (100&deg;C). As with benzene above,
                     a greatly exaggerated gravitational field is applied to keep the molecules near the bottom of the container when they condense.
-                    As you can see, at this temperature, these octacenes are in a condensed state occupying the lower part of the container. If you drag the mouse to rotate the container and let it stay in a certain
-                    orientation, you can observe that these molecules will start falling to the bottom of the container, but they manage to stick together while moving down. This is not the case with the benzenes in the above simulation.</p>
+                    As you can see, at this temperature, the octacene molecules are in a condensed state occupying the lower part of the container. If you drag the mouse to rotate the container and let it stay in a certain
+                    orientation, you can observe that these molecules will start falling to the bottom of the container, but they manage to stick together while moving down. This is not the case with the benzene molecules in the above simulation.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Octacenes"
                                 id="aims-frame3" allowfullscreen="true" title="Octacenes demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen3();">view fullscreen</a>. Chrome or Edge recommended.
+                            Live model &mdash; <a href="javascript:openFullscreen('aims-frame3');">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
-                    <p>While the boiling points of benzenes and octacenes predicted by our molecular dynamics simulations may not agree exactly with the experimental data (80&deg;C and 745&deg;C, respectively),
-                    it is clear that the simulations show that octacenes have a higher boiling point than benzenes.
-                    The higher boiling point of octacenes may originate from the fact that they have more intermolecular interactions to hold them together, as indicated by the dashed lines shown in the above windows.</p>
+                    <p>These simulations do not predict the boiling points of benzene and octacene (80&deg;C from experiments and an estimated 745&deg;C, respectively &mdash;
+                    octacene is too reactive to be isolated in bulk, so its boiling point has only been computed).
+                    What they show is that, at 373 K, benzene is a gas and octacene is condensed, which places the boiling point of benzene below 373 K and that of octacene above it.
+                    With only a handful of molecules and an exaggerated gravitational field, the picture is qualitative.
+                    Octacene has the higher boiling point because its larger molecules have more contact area with one another and therefore stronger total van der Waals attraction to keep them together,
+                    as indicated by the dashed lines shown in the above windows. The rotation experiment above shows this attraction at work: the octacene molecules stick together as they fall, whereas the benzene molecules do not.</p>
 
                     <p>Compared with linear alkanes and cycloalkanes, the planarity of acenes allows for more efficient stacking between molecules in the solid or liquid state, thereby increasing the strength
-                    of their intermolecular forces and making their boiling points higher than molecules of similar weight from the other two families of hydrocarbons.
-                    For example, naphthalene (C<sub>10</sub>H<sub>8</sub>) has a boiling point of 218&deg;C, while octane (C<sub>9</sub>H<sub>20</sub>) has a boiling point of 151&deg;C. Their molecular weights are both 128 g/mol.
-                    As an exercise, you can try to build a QSPR model that relates boiling point and molecular planarity.</p>
+                    of their intermolecular forces and making their boiling points higher than those of molecules of similar weight from the other two families of hydrocarbons.
+                    For example, naphthalene (C<sub>10</sub>H<sub>8</sub>) has a boiling point of 218&deg;C, while nonane (C<sub>9</sub>H<sub>20</sub>) has a boiling point of 151&deg;C. Their molecular weights are both 128 g/mol.
+                    As an exercise, think about how you would turn molecular planarity into a number that a QSPR model could use.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>

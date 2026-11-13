@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantitative Structure-Property Relationships of Linear Alkanes — Institute for Future Intelligence</title>
+    <title>Quantitative Structure&ndash;Property Relationships of Linear Alkanes — Institute for Future Intelligence</title>
     <meta name="description" content="Build a QSPR model for linear alkanes in AIMS, explore polynomial regression of boiling points vs. carbon count, and compare with molecular dynamics.">
 
     <style>
@@ -40,13 +40,12 @@
     <script src="js/main.js"></script>
 
     <script>
-      function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
-      function openFullscreen2() { var e = document.getElementById("aims-frame2"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
-      function openFullscreen3() { var e = document.getElementById("aims-frame3"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
     </script>
 
     <style>
-        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-col-main p, .v2-col-main ol { font-size: 1.5rem; line-height: 1.55; }
+        .v2-col-main ol { margin: 0 0 1.5rem; padding-left: 2.5rem; }
         .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
         .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
         .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
@@ -56,8 +55,11 @@
         .v2-article-audio { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.25rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: 0.75rem; margin: 0 0 2rem; }
         .v2-article-audio-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
         .v2-article-audio audio { width: min(100%, 420px); }
-        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
-        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link { float: right; clear: right; width: 30%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border-left: 4px solid var(--accent); border-radius: 0 0.8rem 0.8rem 0; background: rgba(99, 102, 241, 0.07); }
+        .v2-model-link-label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0 0 0.6rem; }
+        .v2-model-link a + a { margin-top: 0.5rem; }
+        @media (max-width: 720px) { .v2-model-link { float: none; width: auto; margin: 1.5rem 0; } }
+        .v2-model-link a { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
         .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
         .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
         .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
@@ -73,7 +75,7 @@
         <header class="v2-hero" data-wordmark="ALKANES">
             <div class="v2-hero-inner">
                 <span class="v2-eyebrow">AIMS</span>
-                <h1>Quantitative Structure-Property Relationships of Linear Alkanes</h1>
+                <h1>Quantitative Structure&ndash;Property Relationships of Linear Alkanes</h1>
                 <p class="v2-tagline">
                     Linear alkanes show a classic QSPR &mdash; boiling point rising with chain length. AIMS lets students build polynomial regressions and test them against molecular dynamics.
                 </p>
@@ -95,48 +97,55 @@
                     <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Alkane">Linear alkanes</a> consist of hydrogen and carbon atoms with
                     a general chemical formula C<sub>n</sub>H<sub>2n+2</sub>. In the following window,
                     the gallery on the left shows a number of alkanes with increasing chain length and the simulation on the right brings
-                    alkanes to "life" on your screen &mdash; You can observe how an alkane molecule moves (including different modes of translation, rotation, and vibration).</p>
+                    alkanes to "life" on your screen &mdash; you can observe how an alkane molecule moves (including different modes of translation, rotation, and vibration).</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Alkanes"
                                 id="aims-frame1" allowfullscreen="true" title="Alkanes demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen1();">view fullscreen</a>. Chrome or Edge recommended.
+                            Live model &mdash; <a href="javascript:openFullscreen('aims-frame1');">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
+                    <div class="v2-model-link"><span class="v2-model-link-label">See also</span><a href="aims-cycloalkanes.html">QSPR of cycloalkanes</a><a href="aims-acenes.html">QSPR of acenes</a></div>
+
                     <p>An interesting phenomenon that can be observed from the experimental data about alkanes is
                     that the boiling point of an alkane increases with respect to the number of carbon atoms it contains (<i>n</i>), as shown in the graph above.
-                    The graph shows the title of the horizontal axis as "Heavy Atoms," because the
+                    The horizontal axis is labeled "Heavy Atoms" because the
                     <a target="_blank" rel="noopener noreferrer" href="https://www.rgdscience.com/index.php/molecular-descriptors-ligand-efficiency-metrics/">heavy atom count</a>
                     of a molecule is defined as the total number of its atoms that are not hydrogen, which is the total number of carbon atoms in alkanes that are composed of only carbon and hydrogen.
                     The heavy atom count is often used as a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_descriptor">molecular descriptor</a> in cheminformatics.</p>
 
-                    <div class="v2-model-link"><a href="aims-cycloalkanes.html">Other hydrocarbons such as cycloalkanes and acenes also observe this relationship</a></div>
-
                     <h2>Quantitative Structure&ndash;Property Relationships</h2>
 
-                    <p>In chemistry, <a target="_blank" href="https://en.wikipedia.org/wiki/Quantitative_structure%E2%80%93activity_relationship">quantitative structure&ndash;property relationship</a>
+                    <p>In chemistry, <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quantitative_structure%E2%80%93activity_relationship">quantitative structure&ndash;property relationship</a>
                     (QSPR) models are <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Regression_analysis">regression models</a>
                     that relate a set of structure variables of a molecule to one of its properties.
-                    In a broader sense, QSPR modeling is a technique of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a> &mdash; in the context of molecules
-                    that may be less frequently referred to in data science education. But it is important for students to learn about this concept as it is one of the driving forces for
+                    In a broader sense, QSPR modeling is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a> applied to molecules,
+                    an application that data science courses rarely cover. But it is important for students to learn about this concept as it is one of the driving forces for
                     <a target="_blank" rel="noopener noreferrer" href="https://www.nature.com/articles/s41573-023-00832-0">contemporary scientific discovery</a>.</p>
 
                     <p>Let's start with the relationship between the boiling point of an alkane and its heavy atom count shown above as an example of QSPR.
-                    Students can use the QSPR method as a scientific inquiry tool to:
-                    1) ask a question related to a chemical property or biological activity,
-                    2) collect information about relevant molecules from public databases to prepare a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets">training set</a>,
-                    3) find patterns in the training set and build a mathematical model to represent them,
-                    4) use the model to predict the properties of other molecules,
-                    5) validate the results with a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets">test set</a>, and
-                    6) repeat steps 2-5 to refine the model as needed.
-                    Through these steps, students learn the basic ideas and procedures of machine learning as a prediction tool to solve scientific problems. To this end,
+                    Students can use the QSPR method as a scientific inquiry tool to:</p>
+
+                    <ol>
+                        <li>ask a question related to a chemical property or biological activity,</li>
+                        <li>collect information about relevant molecules from public databases to prepare a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets">training set</a>,</li>
+                        <li>find patterns in the training set and build a mathematical model to represent them,</li>
+                        <li>use the model to predict the properties of other molecules,</li>
+                        <li>validate the results with a test set, and</li>
+                        <li>repeat steps 2&ndash;5 to refine the model as needed.</li>
+                    </ol>
+
+                    <p>Through these steps, students learn the basic ideas and procedures of machine learning as a prediction tool to solve scientific problems. To this end,
                     AIMS provides a built-in tool for users to perform <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polynomial_regression">polynomial regression</a> analysis for data sets
                     selected from a small built-in database that we have curated from public databases such as
                     <a target="_blank" rel="noopener noreferrer" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> and
                     <a target="_blank" rel="noopener noreferrer" href="https://www.chemspider.com/">ChemSpider</a> and validated to ensure its applicability.
-                    As shown in the images below, the boiling points of alkanes exhibit a nonlinear dependence on the number of heavy atoms (i.e., carbon atoms), which necessitates polynomial regression.</p>
+                    As shown in the images below, the boiling points of alkanes exhibit a nonlinear dependence on the number of heavy atoms (i.e., carbon atoms),
+                    so a straight line fits them poorly and a higher-degree polynomial fits them better. A higher degree is not automatically better, though: a polynomial with too many terms
+                    for the number of data points starts to fit the scatter in the data rather than the trend, a problem known as
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.</p>
 
                     <div class="v2-screenshot-row">
                         <img src="image/aims-linear-alkanes-regression-1.png" alt="Linear regression of alkane boiling points">
@@ -144,17 +153,18 @@
                     </div>
 
                     <p>The image on the left shows the result of a linear regression whereas the image on the right shows that of a degree-4 polynomial regression.
-                    To test the regression model, we can also deliberatly include in the test set some alkanes that are within the range of (but not included in) the training set, as shown in the image below
-                    which excludes C<sub>3</sub>H<sub>8</sub> and C<sub>7</sub>H<sub>16</sub> in the training set.
+                    To test the regression model, we can also deliberately include in the test set some alkanes that are within the range of (but not included in) the training set, as shown in the image below,
+                    which excludes C<sub>3</sub>H<sub>8</sub> and C<sub>7</sub>H<sub>16</sub> from the training set.
                     A good model should be able to predict the boiling points of those alkanes in the test set with a reasonable degree of accuracy.</p>
 
                     <figure class="v2-screenshot">
                         <img src="image/aims-linear-alkanes-regression-interpolation.png" alt="Interpolation test with excluded alkanes in training set">
                     </figure>
 
-                    <p>On the other hand, the accuracy of the prediction is expected to gradually decrease as the extrapolation goes further away from the training set, as shown in the image below which
-                    includes the first seven alkanes but not the last three in the training set. When the trained model is used to predict the boiling points of the three alkanes in the test set, the results
-                    are increasingly inaccurate as the number of the carbon atoms grows.</p>
+                    <p>On the other hand, the accuracy of the prediction drops quickly once the model is asked to extrapolate beyond the training set, as shown in the image below,
+                    which includes the first seven alkanes but not the last three in the training set. When the trained model is used to predict the boiling points of the three alkanes in the test set, the results
+                    are increasingly inaccurate as the number of carbon atoms grows. This is a property of polynomials rather than of alkanes: outside the range of the data,
+                    the highest-degree term takes over and the curve bends away from the trend.</p>
 
                     <figure class="v2-screenshot">
                         <img src="image/aims-linear-alkanes-regression-extrapolation.png" alt="Extrapolation test with trailing alkanes excluded">
@@ -166,51 +176,52 @@
 
                     <h2>Molecular Dynamics Simulations</h2>
 
-                    <p>The following two simulations allow you to compare the boiling points of ethanes and decanes <b>on a qualitative basis</b>. The colors of the atoms represent their kinetic energy.
+                    <p>The following two simulations allow you to compare the boiling points of ethane and decane <b>on a qualitative basis</b>. The colors of the atoms represent their kinetic energy.
                     Red means high energy and blue means low energy. The dashed lines represent the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_der_Waals_force">van der Waals interactions</a> among the atoms.
                     To tell which state the molecules are in, note these behavioral differences in the three states: 1) Molecules in a gas vibrate and move freely;
                     2) Molecules in a liquid vibrate, move around, and exchange positions; and 3) Molecules in a solid vibrate but rarely move from one relative position to another.
                     You may turn on the trajectory of an atom to track its motion and observe these patterns more easily.
                     To do this, hold down the ALT key and right-click on an atom and then select the Trajectory check box on the popup menu.</p>
 
-                    <p><b>Ethanes (C<sub>2</sub>H<sub>6</sub>)</b></p>
+                    <p><b>Ethane (C<sub>2</sub>H<sub>6</sub>)</b></p>
 
-                    <p>There are 25 ethane molecules (200 atoms in total) in this simulation. The temperature is initially set to be 300K (27&deg;C or 80&deg;F). A greatly exaggerated gravitational field is applied to keep
+                    <p>There are 25 ethane molecules (200 atoms in total) in this simulation. The temperature is initially set to be 300 K (27&deg;C or 81&deg;F). A greatly exaggerated gravitational field is applied to keep
                     the molecules at the bottom of the container when they condense.
-                    As you can see, at this temperature, these ethanes are in the gaseous state. The trajectory of an atom being tracked shows that the molecule that it is part of moves freely
+                    As you can see, at this temperature, ethane is in the gaseous state. The trajectory of an atom being tracked shows that the molecule that it is part of moves freely
                     within the entire box &mdash; molecules in a gas tend to diffuse to fill the entire space available to them.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Ethanes"
                                 id="aims-frame2" allowfullscreen="true" title="Ethanes demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen2();">view fullscreen</a>. Chrome or Edge recommended.
+                            Live model &mdash; <a href="javascript:openFullscreen('aims-frame2');">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
-                    <p><b>Decanes (C<sub>10</sub>H<sub>22</sub>)</b></p>
+                    <p><b>Decane (C<sub>10</sub>H<sub>22</sub>)</b></p>
 
-                    <p>There are seven decane molecules (224 atoms in total) in this simulation. The temperature is initially set to be 300K (27&deg;C or 80&deg;F). As is in the case of the ethanes above,
+                    <p>There are seven decane molecules (224 atoms in total) in this simulation. The temperature is initially set to be 300 K (27&deg;C or 81&deg;F). As with ethane above,
                     a greatly exaggerated gravitational field is applied to keep the molecules near the bottom of the container when they condense.
-                    As you can see, at this temperature, these decanes are in a condensed state occupying the lower part of the container and do not fill up the entire container like the ethanes.</p>
+                    As you can see, at this temperature, the decane molecules are in a condensed state occupying the lower part of the container and do not fill up the entire container like the ethane molecules.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Decanes"
                                 id="aims-frame3" allowfullscreen="true" title="Decanes demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen3();">view fullscreen</a>. Chrome or Edge recommended.
+                            Live model &mdash; <a href="javascript:openFullscreen('aims-frame3');">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
-                    <p>While the boiling points of ethanes and decanes predicted by our molecular dynamics simulations may not agree exactly with the experimental data (-89&deg;C and 174&deg;C, respectively),
-                    it is clear that the simulations show that decanes have a higher boiling point than ethanes.
-                    The higher boiling point of decanes may originate from the fact that they have more van der Waals interactions between the linear chains to keep them together,
+                    <p>These simulations do not predict the boiling points of ethane and decane (&minus;89&deg;C and 174&deg;C in experiments, respectively).
+                    What they show is that, at 300 K, ethane is a gas and decane is condensed, which places the boiling point of ethane below 300 K and that of decane above it,
+                    in agreement with the experimental data. With only a handful of molecules and an exaggerated gravitational field, the picture is qualitative.
+                    Decane has the higher boiling point because its longer chains have more contact area with one another and therefore stronger total van der Waals attraction to keep them together,
                     as indicated by the dashed lines shown in the above windows.</p>
 
                     <h2>Conclusion</h2>
 
-                    <p>This article exploits the example of a QSPR of linear alkanes to demonstrate how AIMS can be used as a visual and interactive computational platform
-                    to connect data science and chemical science, providing thereby an integrated learning environment that supports educators to infuse data science into the science curriculum.</p>
+                    <p>This article uses the example of a QSPR of linear alkanes to demonstrate how AIMS can be used as a visual and interactive computational platform
+                    to connect data science and chemical science, thereby providing an integrated learning environment that helps educators infuse data science into the science curriculum.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>

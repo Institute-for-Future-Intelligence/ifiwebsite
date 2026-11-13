@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantitative Structure-Property Relationships of Cycloalkanes — Institute for Future Intelligence</title>
+    <title>Quantitative Structure&ndash;Property Relationships of Cycloalkanes — Institute for Future Intelligence</title>
     <meta name="description" content="Study QSPR of cycloalkanes in AIMS and compare boiling-point trends for cyclopropane vs. cyclodecane with molecular dynamics.">
 
     <style>
@@ -40,9 +40,7 @@
     <script src="js/main.js"></script>
 
     <script>
-      function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
-      function openFullscreen2() { var e = document.getElementById("aims-frame2"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
-      function openFullscreen3() { var e = document.getElementById("aims-frame3"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
     </script>
 
     <style>
@@ -56,8 +54,11 @@
         .v2-article-audio { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.25rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: 0.75rem; margin: 0 0 2rem; }
         .v2-article-audio-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
         .v2-article-audio audio { width: min(100%, 420px); }
-        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
-        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link { float: right; clear: right; width: 30%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border-left: 4px solid var(--accent); border-radius: 0 0.8rem 0.8rem 0; background: rgba(99, 102, 241, 0.07); }
+        .v2-model-link-label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0 0 0.6rem; }
+        .v2-model-link a + a { margin-top: 0.5rem; }
+        @media (max-width: 720px) { .v2-model-link { float: none; width: auto; margin: 1.5rem 0; } }
+        .v2-model-link a { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
         .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
         .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
         .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
@@ -73,7 +74,7 @@
         <header class="v2-hero" data-wordmark="CYCLOALKANES">
             <div class="v2-hero-inner">
                 <span class="v2-eyebrow">AIMS</span>
-                <h1>Quantitative Structure-Property Relationships of Cycloalkanes</h1>
+                <h1>Quantitative Structure&ndash;Property Relationships of Cycloalkanes</h1>
                 <p class="v2-tagline">
                     Cycloalkanes form a monocyclic hydrocarbon family whose boiling points rise with carbon count &mdash; another clean QSPR to build and validate in AIMS.
                 </p>
@@ -86,18 +87,21 @@
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated July 11, 2026</span></p>
 
                     <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Cycloalkane">Cycloalkanes</a> are a family of hydrocarbon molecules whose carbon atoms form a single ring (i.e., monocyclic).
-                    Like the <a href="aims-alkanes.html">linear alkanes</a>, their boiling points also increase with the number of carbon atoms. With AIMS, you can study this
-                    <a target="_blank" href="https://en.wikipedia.org/wiki/Quantitative_structure%E2%80%93activity_relationship">quantitative structure-property relationship</a> (QSPR).</p>
+                    As with the <a href="aims-alkanes.html">linear alkanes</a>, their boiling points increase with the number of carbon atoms. With AIMS, you can study this
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quantitative_structure%E2%80%93activity_relationship">quantitative structure&ndash;property relationship</a> (QSPR).</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Cycloalkanes"
                                 id="aims-frame1" allowfullscreen="true" title="Cycloalkanes demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen1();">view fullscreen</a>. Chrome or Edge recommended.
+                            Live model &mdash; <a href="javascript:openFullscreen('aims-frame1');">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
-                    <div class="v2-model-link"><a href="aims-alkanes.html">Other hydrocarbons such as linear alkanes and acenes also observe this relationship</a></div>
+                    <p>The graph in the window above plots the boiling points of the cycloalkanes against their heavy atom counts (i.e., the number of carbon atoms).
+                    You can fit a regression model to these data and test it in the same way as described in the article on <a href="aims-alkanes.html">linear alkanes</a>.</p>
+
+                    <div class="v2-model-link"><span class="v2-model-link-label">See also</span><a href="aims-alkanes.html">QSPR of linear alkanes</a><a href="aims-acenes.html">QSPR of acenes</a></div>
 
                     <p>QSPR modeling gives us a tool to analyze the data, but it does not provide any explanation about the result by itself. To make sense of the result, we still need to resort to
                     fundamentals in chemistry. Equipped with the power of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics simulations</a>,
@@ -105,38 +109,43 @@
 
                     <h2>Molecular Dynamics Simulations</h2>
 
-                    <p>The following two simulations allow you to compare the boiling points of cyclopropanes and cyclodecanes <b>on a qualitative basis</b>.</p>
+                    <p>The following two simulations allow you to compare the boiling points of cyclopropane and cyclodecane <b>on a qualitative basis</b>.
+                    The dashed lines represent the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_der_Waals_force">van der Waals interactions</a> among the atoms.</p>
 
-                    <p><b>Cyclopropanes (C<sub>3</sub>H<sub>6</sub>)</b></p>
+                    <p><b>Cyclopropane (C<sub>3</sub>H<sub>6</sub>)</b></p>
 
-                    <p>There are 22 cyclopropane molecules (198 atoms in total) in this simulation. The temperature is initially set to be 300K (27&deg;C or 80&deg;F). A greatly exaggerated gravitational field is applied to keep
-                    the molecules at the bottom of the container when they condense. As you can see, at this temperature, these cyclopropanes are in a gaseous state.</p>
+                    <p>There are 22 cyclopropane molecules (198 atoms in total) in this simulation. The temperature is initially set to be 300 K (27&deg;C or 81&deg;F). A greatly exaggerated gravitational field is applied to keep
+                    the molecules at the bottom of the container when they condense. As you can see, at this temperature, cyclopropane is in the gaseous state.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Cyclopropanes"
                                 id="aims-frame2" allowfullscreen="true" title="Cyclopropanes demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen2();">view fullscreen</a>. Chrome or Edge recommended.
+                            Live model &mdash; <a href="javascript:openFullscreen('aims-frame2');">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
-                    <p><b>Cyclodecanes (C<sub>10</sub>H<sub>20</sub>)</b></p>
+                    <p><b>Cyclodecane (C<sub>10</sub>H<sub>20</sub>)</b></p>
 
-                    <p>There are seven cyclodecane molecules (210 atoms in total) in this simulation. The temperature is initially set to be 300K (27&deg;C or 80&deg;F). As is in the case of the cyclopropanes above,
+                    <p>There are seven cyclodecane molecules (210 atoms in total) in this simulation. The temperature is initially set to be 300 K (27&deg;C or 81&deg;F). As with cyclopropane above,
                     a greatly exaggerated gravitational field is applied to keep the molecules near the bottom of the container when they condense.
-                    As you can see, at this temperature, these cyclodecanes are in a condensed state occupying the lower part of the container.</p>
+                    As you can see, at this temperature, the cyclodecane molecules are in a condensed state occupying the lower part of the container.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Cyclodecanes"
                                 id="aims-frame3" allowfullscreen="true" title="Cyclodecanes demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen3();">view fullscreen</a>. Chrome or Edge recommended.
+                            Live model &mdash; <a href="javascript:openFullscreen('aims-frame3');">view fullscreen</a>. Chrome or Edge recommended.
                         </figcaption>
                     </figure>
 
-                    <p>While the boiling points of cyclopropanes and cyclodecanes predicted by our molecular dynamics simulations may not agree exactly with the experimental data (-33&deg;C and 201&deg;C, respectively),
-                    it is clear that the simulations show that cyclodecanes have a higher boiling point than cyclopropanes.
-                    The higher boiling point of cyclodecanes may originate from the fact that they have more intermolecular interactions to hold them together, as indicated by the dashed lines shown in the above windows.</p>
+                    <p>These simulations do not predict the boiling points of cyclopropane and cyclodecane (&minus;33&deg;C and 201&deg;C in experiments, respectively).
+                    What they show is that, at 300 K, cyclopropane is a gas and cyclodecane is condensed, which places the boiling point of cyclopropane below 300 K and that of cyclodecane above it,
+                    in agreement with the experimental data. With only a handful of molecules and an exaggerated gravitational field, the picture is qualitative.
+                    Cyclodecane has the higher boiling point because its larger rings have more contact area with one another and therefore stronger total van der Waals attraction to keep them together,
+                    as indicated by the dashed lines shown in the above windows.</p>
+
+                    <p>Cyclodecane also boils at a higher temperature than <a href="aims-alkanes.html">decane</a> (174&deg;C), its linear counterpart with the same number of carbon atoms. Can you explain why?</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>
