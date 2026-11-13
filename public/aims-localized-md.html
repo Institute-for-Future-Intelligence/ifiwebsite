@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulating a Binding Site: Oxygen in Myoglobin — Institute for Future Intelligence</title>
+    <meta name="description" content="Localized molecular dynamics moves only the atoms around a bound molecule, so a student can watch oxygen bind the heme iron of myoglobin in a browser.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-col-main .v2-callout { float: right; clear: right; width: 40%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border: 1px solid var(--border); border-radius: 0.8rem; background: var(--surface); }
+        .v2-col-main .v2-callout svg { display: block; width: 100%; height: auto; }
+        .v2-col-main .v2-callout p { margin: 0.8rem 0 0; font-size: 1.1rem; line-height: 1.45; color: var(--text-muted); }
+        .v2-col-main .v2-callout p strong { color: var(--text); }
+        .v2-col-main .v2-prompts { clear: both; }
+        .v2-col-main .v2-tryit { float: right; clear: right; width: 40%; margin: 0.4rem 0 1.2rem 2.5rem; }
+        @media (max-width: 720px) { .v2-col-main .v2-tryit { float: none; width: auto; margin: 1.5rem 0; } }
+        @media (max-width: 720px) { .v2-col-main .v2-callout { float: none; width: auto; margin: 1.5rem 0; } }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="BINDING">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Simulating a Binding Site: Oxygen in Myoglobin</h1>
+                <p class="v2-tagline">
+                    Localized molecular dynamics moves only the atoms around a bound molecule, so a student can watch oxygen bind the heme iron of myoglobin in a browser.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 12, 2026</span></p>
+
+                    <p>Most drugs work by binding to a protein. A small molecule, called the ligand, fits into a pocket on the surface of the protein and is held there by hydrogen bonds, attractions between charges, and contact with the oily side chains that line the pocket.
+                    A program that predicts how a ligand fits into a pocket is called a docking program. It tries many positions and orientations of the ligand against a fixed structure of the protein and scores each one. The result is a single picture of the ligand in the pocket.
+                    A protein at body temperature moves all the time: its side chains swing, its loops flex, and the ligand rocks in its pocket. Some contacts in the docked picture last, and others form and break many times in a trillionth of a second.
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_dynamics">Molecular dynamics</a> follows this motion by computing the force on every atom and moving each atom by Newton&rsquo;s laws, one femtosecond (10<sup>&minus;15</sup>&nbsp;s) at a time.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/267585a0">McCammon, Gelin, and Karplus</a> published the first molecular dynamics simulation of a protein in 1977.</p>
+
+                    <p>A whole protein in a box of water has tens of thousands of atoms, which is too many to simulate in a browser at an interactive speed. A binding study, however, needs only the part of the protein around the ligand.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/bip.360240509">Brooks, Br&uuml;nger, and Karplus</a> described this approach in 1985 for the active site of an enzyme: the atoms near the site move freely, the atoms around them are held near their positions, and the rest of the protein is left out of the calculation.
+                    AIMS uses the same approach, which this article calls localized molecular dynamics. It runs in the Protein Lab of AIMS, in the browser, and this article follows it through one example: oxygen binding to myoglobin.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Myoglobin%20and%20Oxygen"
+                                id="aims-frame1" allowfullscreen="true" title="Myoglobin and Oxygen demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Sperm whale myoglobin (PDB 1A6N) with a molecule of oxygen docked beside its heme. Press Simulate the binding site on the Ligand card in the chat to run the localized simulation described below.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Myoglobin and Its Heme</h2>
+
+                    <div class="v2-prompts v2-tryit">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">Try It</p>
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open Myoglobin and Oxygen, open the chat, and type the prompts below. The chat in the example already holds the answers to these prompts, which the sections below describe.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">The tour</span> &mdash; <span class="v2-prompt">&ldquo;Give me a tour of this protein.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The annotations</span> &mdash; <span class="v2-prompt">&ldquo;What does UniProt say about it? Annotate the structure.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Docking</span> &mdash; <span class="v2-prompt">&ldquo;Add an oxygen molecule where myoglobin binds it, dock it, and tell me which residues hold it.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The simulation</span> &mdash; <span class="v2-prompt">&ldquo;Simulate the binding site at body temperature. Does the oxygen bind the iron, and how does the pocket move?&rdquo;</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-intro" style="margin:1rem 0 0 !important;"><b>A matter of chance.</b> Whether the oxygen reaches the iron within 20&nbsp;ps differs from run to run, so your own run may take longer, or the oxygen may leave the pocket.</p>
+                    </div>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Myoglobin">Myoglobin</a> stores oxygen in muscle. It was the first protein whose three-dimensional structure was determined, by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/181662a0">Kendrew and coworkers</a> in 1958.
+                    It is one chain of about 150 amino acids folded into eight &alpha;-helices, labeled A to H, wrapped around a heme. The heme is a flat ring of carbon and nitrogen atoms, called a porphyrin, with an iron atom at its center held by four nitrogen atoms of the ring.
+                    A fifth bond holds the iron to the protein from below, through a histidine on helix F (His93, the proximal histidine). Oxygen binds the iron on the other face of the heme, in a pocket next to a second histidine on helix E (His64, the distal histidine).
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/292081a0">Phillips and Schoenborn</a> showed in 1981, by neutron diffraction, that His64 forms a hydrogen bond to the bound oxygen. This hydrogen bond helps hold the oxygen on the iron.</p>
+
+                    <p>The example uses the structure of sperm whale myoglobin without oxygen, the deoxy form, determined at a resolution of 1.15&nbsp;&Aring; by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0006-3495(99)77056-6">Vojt&#283;chovsk&yacute;, Chu, Berendzen, Sweet, and Schlichting</a> in 1999 (PDB 1A6N). In this form, a water molecule sits in the pocket above the iron.
+                    The first two prompts give a tour of the structure and map the features recorded for myoglobin in the UniProt database onto it. The third prompt adds a molecule of oxygen beside the heme and docks it.
+                    The docked pose has no clashes and two hydrogen bonds, the best of them to His64, and the pocket around the oxygen is lined by Leu29, Leu32, Phe43, Val68, His93, and Ile107.
+                    The docking score treats oxygen as an ordinary small molecule, so it has no term for the bond between oxygen and iron. Answering the question of whether the oxygen binds the iron takes a simulation.</p>
+
+                    <h2>Three Zones</h2>
+
+                    <div class="v2-callout">
+                        <svg viewBox="0 0 320 300" role="img" aria-label="The three zones of a localized simulation, as concentric circles around a ligand: a free core within 6 angstroms of the ligand, a buffer 3 angstroms wide held by springs, and a frozen shell 6 angstroms wide; the rest of the protein is left out." font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                            <circle cx="160" cy="150" r="140" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+                            <circle cx="160" cy="150" r="94" fill="#c7d2fe" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="5 4"/>
+                            <circle cx="160" cy="150" r="70" fill="#fde2cf" stroke="#e07a3f" stroke-width="1.5"/>
+                            <g fill="#e11d48"><circle cx="153" cy="150" r="7"/><circle cx="167" cy="150" r="7"/></g>
+                            <g font-size="13" fill="#334155" text-anchor="middle">
+                                <text x="160" y="182">free core</text>
+                                <text x="160" y="198" font-size="11">within 6 &Aring; of the ligand</text>
+                                <text x="160" y="72">buffer, 3 &Aring;</text>
+                                <text x="160" y="35">frozen shell, 6 &Aring;</text>
+                            </g>
+                            <g stroke="#6366f1" stroke-width="1.4" fill="none">
+                                <path d="M228 150 l4 -5 l4 10 l4 -10 l4 10 l4 -10 l4 5"/>
+                            </g>
+                        </svg>
+                        <p><strong>The three zones of the simulated region.</strong> The ligand (red) and every residue within 6&nbsp;&Aring; of it move freely. A layer 3&nbsp;&Aring; wide is held by springs that stiffen toward the outside. A shell 6&nbsp;&Aring; wide is fixed, and the rest of the protein is left out of the calculation.</p>
+                    </div>
+
+                    <p>The fourth prompt runs the localized simulation. AIMS builds the simulated region from residues: a residue joins a zone when any of its atoms is within that zone&rsquo;s distance of the ligand.
+                    The free core holds the ligand and every residue within 6&nbsp;&Aring; of it. Around the core is a buffer 3&nbsp;&Aring; wide, whose atoms move but are pulled back toward their starting positions by springs. The springs are weakest at the inner edge of the buffer and ten times stiffer at its outer edge, so a side chain at the edge of the core pushes against a layer that yields.
+                    Around the buffer is a frozen shell 6&nbsp;&Aring; wide, whose atoms stay fixed. The shell supplies the forces that the rest of the protein would exert on the moving atoms. In the myoglobin example, 318 atoms move.</p>
+
+                    <p>Water is represented implicitly. Water weakens the attraction between charges, and it weakens it more the farther apart the charges are, because more water fits between them. The simulation divides the electrostatic energy of two charges by a dielectric constant that depends on their distance, following <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1093/protein/4.8.903">Mehler and Solmajer</a>: about 13 at 2.9&nbsp;&Aring;, the distance across a salt bridge, about 57 at 10&nbsp;&Aring;, and close to 78, the value for bulk water, beyond 20&nbsp;&Aring;.
+                    It also adds the energy cost of moving a charged or polar group out of water and the energy gain of burying an oily group, from the solvation model of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/(SICI)1097-0134(19990501)35:2%3C133::AID-PROT1%3E3.0.CO;2-N">Lazaridis and Karplus</a>.
+                    Crystal waters stay in the structure, except those that overlap the docked ligand. In the example, the oxygen sits where the crystal water of the deoxy form was, so that water is removed.
+                    A thermostat holds the region at 310&nbsp;K, body temperature, by adding small random forces and a matching friction to every moving atom.</p>
+
+                    <h2>Hydrogen Atoms</h2>
+
+                    <p>Hydrogen makes up about half of the atoms in a protein. The simulation treats the hydrogen atoms in two ways.
+                    The hydrogen atoms bonded to nitrogen, oxygen, and sulfur are called polar hydrogens. They carry most of the positive charge in a hydrogen bond, so they are simulated as atoms of their own: a hydrogen bond between His64 and the oxygen is a contact between a hydrogen on His64 and an oxygen atom, with the direction that a real hydrogen bond has.
+                    The hydrogen atoms bonded to carbon are folded into their carbon atoms. A CH<sub>3</sub> group, for example, moves as one particle with the mass of the whole group and the size of the whole group. This approach is called a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Force_field_(chemistry)#United-atom_interatomic_potentials">united-atom model</a>.
+                    It removes about half of the atoms without changing the charges that matter for binding. The Add hydrogens switch in the experimental settings draws these hydrogen atoms on the moving carbon atoms, at a C&ndash;H bond length of 1.09&nbsp;&Aring; and at tetrahedral angles, so the picture shows every atom.</p>
+
+                    <p>The fastest motion in the region is the stretching of a bond to a hydrogen atom, and it limits the time step. The simulation moves some mass from each heavy atom onto the hydrogen atoms bonded to it, which slows that motion without changing the total mass or the forces, a method described by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/(SICI)1096-987X(199906)20:8%3C786::AID-JCC5%3E3.0.CO;2-B">Feenstra, Hess, and Berendsen</a>. This allows a time step of 1.5&nbsp;fs.
+                    The calculation runs in a separate thread of the browser, so the lab stays responsive while the atoms move.</p>
+
+                    <h2>The Iron</h2>
+
+                    <div class="v2-callout">
+                        <svg viewBox="0 0 320 200" role="img" aria-label="A Morse potential: energy against the distance between the iron and a ligand atom. The curve rises steeply at short distance, has a minimum at 1.8 angstroms with a depth of 14 kilocalories per mole, and levels off at zero at long distance, where the bond is broken." font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                            <line x1="40" y1="30" x2="300" y2="30" stroke="#cbd5e1" stroke-dasharray="4 3"/>
+                            <line x1="40" y1="10" x2="40" y2="175" stroke="#64748b"/>
+                            <line x1="40" y1="175" x2="305" y2="175" stroke="#64748b"/>
+                            <path d="M58 10 C 66 120, 72 160, 86 160 C 104 160, 120 110, 150 70 C 180 40, 230 32, 300 31" fill="none" stroke="#e07a3f" stroke-width="3"/>
+                            <line x1="86" y1="160" x2="86" y2="175" stroke="#94a3b8" stroke-dasharray="3 3"/>
+                            <g font-size="12" fill="#475569" text-anchor="middle">
+                                <text x="86" y="190">1.8 &Aring;</text>
+                                <text x="210" y="190">Fe&ndash;O distance</text>
+                                <text x="235" y="24">bond broken</text>
+                                <text x="125" y="155" text-anchor="start">bound</text>
+                            </g>
+                            <text x="18" y="100" font-size="12" fill="#475569" text-anchor="middle" transform="rotate(-90 18 100)">energy</text>
+                        </svg>
+                        <p><strong>A bond that can break.</strong> The energy of the iron and a ligand oxygen atom has a minimum at 1.8&nbsp;&Aring; and levels off at long distance, so the ligand can bind the iron and leave it again.</p>
+                    </div>
+
+                    <p>Most force fields for proteins describe a chemical bond as a spring, which cannot break, and they leave out metal atoms or hold them in place. A binding study of myoglobin needs the iron, and it needs a bond between the iron and the oxygen that can form and break during the run.
+                    In the simulation, the iron is bonded to the four nitrogen atoms of the porphyrin and to His93, at their distances in the crystal. Between the iron and each atom of the ligand that can bind it (a nitrogen, oxygen, or sulfur atom, or the carbon of carbon monoxide), the energy follows a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Morse_potential">Morse potential</a>.
+                    A Morse potential rises steeply when two atoms are pushed together, has a minimum at the bond length, and levels off at long distance, where the bond is broken. For oxygen the minimum is at 1.8&nbsp;&Aring; with a depth of 14&nbsp;kcal/mol. The depths are illustrative values chosen to show binding.</p>
+
+                    <p>The iron binds one ligand atom at a time. The simulation combines the Morse potentials of the two oxygen atoms with a smooth minimum, a function that follows whichever atom is closer to the iron and changes over smoothly when the two are about equally close. The oxygen therefore binds end-on, through one atom, as it does in oxymyoglobin.
+                    A bending term holds the angle between the iron and the two oxygen atoms near 120&deg;, the bent geometry of oxygen bound to a heme. This term is weighted by how strongly the oxygen is bound, so it has no effect when the oxygen is away from the iron.
+                    The two carboxylate groups of the heme, called propionates, each carry a charge of &minus;1, and the lysine and arginine side chains spread their positive charge over several atoms, as they do in standard protein force fields.</p>
+
+                    <h2>What the Simulation Showed</h2>
+
+                    <p>The simulation first relaxes the region for up to 150 steps of energy minimization, which removes strain from the starting structure, and then gives every moving atom a random velocity drawn for 310&nbsp;K.
+                    In the run saved in the example, the region ran for 20&nbsp;ps at an average of 307&nbsp;K. The oxygen bound the iron and stayed bound for 99&nbsp;% of the run, end-on, at an average distance of 2.1&nbsp;&Aring; between the iron and the bound oxygen atom. The simulation counts the oxygen as bound when this distance is below 2.5&nbsp;&Aring;.
+                    The distal histidine, His64, formed a hydrogen bond with the oxygen through its NE2 nitrogen for 39&nbsp;% of the run and through its ND1 nitrogen for 11&nbsp;%. A hydrogen bond is counted when the nitrogen and the oxygen are within 3.5&nbsp;&Aring; of each other.
+                    These two contacts, to the iron and to His64, are the two that the crystal structures and the neutron diffraction study describe.</p>
+
+                    <p>The Interactions card in the answer plots the distance of every contact against time. Besides the contacts to the oxygen, it follows two salt bridges near the pocket. Arg45 paired with Asp60 for the whole run and with a propionate of the heme for 76&nbsp;% of it.
+                    A salt bridge is counted when an oxygen atom of the carboxylate group is within 4.0&nbsp;&Aring; of a nitrogen atom of the arginine. The bridge to the heme broke and formed again during the run.</p>
+
+                    <p>The Flexibility card compares how much each of the nine residues in the free core moved with the crystal. A crystal structure records, for each atom, a B-factor, a measure of how much the atom&rsquo;s position varies across the crystal. The card converts the B-factors to the root-mean-square fluctuation (RMSF), the average distance of an atom from its mean position, and compares them with the RMSF in the run, computed after the first picosecond.
+                    The averages are close: 0.54&nbsp;&Aring; in the run and 0.64&nbsp;&Aring; in the crystal. The pattern from residue to residue matches weakly, with a correlation coefficient r of 0.21. In the run, His64, Phe43, and the heme moved most; in the crystal, Phe43, His93, and Phe46 have the largest B-factors.
+                    The residues deep in a pocket all have similar B-factors in the crystal, so the comparison is a weak test here; it is more telling on a surface loop, where flexibility varies more from residue to residue.</p>
+
+                    <h2>The Reach of a Localized Simulation</h2>
+
+                    <p>A localized simulation shows the contacts between a ligand and its pocket at body temperature: which hydrogen bonds last and which form and break, how far a ligand moves in its pocket, whether it binds a metal, and how the side chains around it move in response.
+                    The run lasts tens of picoseconds. Whether the oxygen reaches the iron in that time depends on the random velocities, so one run can bind and another can miss. Events slower than nanoseconds, such as the escape of oxygen from myoglobin or a loop that opens a gate to the pocket, take longer than a run lasts.
+                    The frozen shell keeps the region near the crystal structure, so a large change in the shape of the protein cannot happen.
+                    The bond between the iron and the oxygen is a classical model. In real oxymyoglobin, binding moves electron density from the iron to the oxygen and changes the spin state of the iron, which only a quantum-mechanical calculation describes. The Morse depths are illustrative, so the simulation does not compute binding energies.
+                    The model shows the mechanism of binding: the oxygen finds the iron, binds it end-on, and is held by His64.</p>
+
+                    <p>The same steps work for other ligands in other proteins. A student can add a ligand by name to any structure in the Protein Lab, dock it into a pocket, and simulate the pocket around it. The Report button on the control bar posts the Interactions and Flexibility cards for the student&rsquo;s own run.
+                    The prompt <span class="v2-prompt">&ldquo;add carbon monoxide beside the heme and dock it&rdquo;</span> sets up a comparison with oxygen: carbon monoxide binds the iron through its carbon atom, and the simulation holds it in a straight line with the iron.</p>
+
+                    <h2>Conclusion</h2>
+
+                    <div class="v2-prompts v2-tryit">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulation Produced</p>
+                        <p class="v2-prompts-intro">The simulation was given the crystal structure of deoxymyoglobin, a docked oxygen molecule, and a bond to the iron that can form and break. The results below came out of the run:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Binding</span> &mdash; the oxygen bound the iron end-on for 99&nbsp;% of a 20&nbsp;ps run at 310&nbsp;K, at an average distance of 2.1&nbsp;&Aring;.</li>
+                            <li><span class="v2-prompts-step">The distal histidine</span> &mdash; His64 formed a hydrogen bond with the oxygen for 39&nbsp;% of the run through NE2 and 11&nbsp;% through ND1.</li>
+                            <li><span class="v2-prompts-step">Salt bridges</span> &mdash; Arg45 paired with Asp60 for the whole run and with a heme propionate for 76&nbsp;% of it.</li>
+                            <li><span class="v2-prompts-step">Flexibility</span> &mdash; a mean RMSF of 0.54&nbsp;&Aring; in the run against 0.64&nbsp;&Aring; from the crystal B-factors, with His64 the most mobile residue in the run.</li>
+                        </ul>
+                    </div>
+
+                    <p>This article uses the binding of oxygen to myoglobin to illustrate a new way to learn science: students converse with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back measured data.
+                    The textbook picture of myoglobin, an iron that holds oxygen end-on with a histidine beside it, becomes something students watch form in a simulation they ran themselves, with each contact measured as a fraction of the run.</p>
+
+                    <p>Setting up this experiment by hand takes skills that few students have. Someone has to add hydrogen atoms to a crystal structure, assign charges, choose the residues to move and the residues to hold, model a metal bond that can break, run the simulation with a thermostat, and write the code that counts contacts and compares fluctuations with B-factors.
+                    In research this means a simulation package, input files, and analysis scripts, typically days of work for someone trained in the methods. In AIMS a student types four questions in plain language, and the agent docks the ligand, runs the simulation, measures it, and posts the charts in the conversation, where the student can check the results, repeat the run, and try another ligand.
+                    By pairing a physically grounded simulation with an AI that can set it up and run it, AIMS turns a student&rsquo;s curiosity into a genuine scientific investigation of <strong>how a protein holds the molecule it binds</strong>.</p>
+
+                    <div style="clear: both;"></div>
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
