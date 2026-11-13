@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can AI Be a Good Lab Partner? — Institute for Future Intelligence</title>
+    <meta name="description" content="An AI agent in Infrared Explorer designs an experiment from a photo of kitchen materials, reads two thermal recordings, corrects mistakes, and writes the lab report.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) {
+        var elem = document.getElementById(id);
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        }
+      }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        /* The camera's frames are upright (480 x 640): keep a pair of them from filling the whole column. */
+        .v2-screenshot-row.is-frames { max-width: 680px; margin-left: auto; margin-right: auto; }
+        /* The photo we gave (4:3) beside the drawing the agent gave back (2:1): columns of 2 to 3 make the two as tall as each other. Below 900px the drawing's labels get too small to read side by side, so one goes under the other. */
+        .v2-figure-pair { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.2rem; align-items: start; margin: 2rem 0 2.5rem; }
+        .v2-col-main .v2-figure-pair .v2-formula { margin: 0 !important; }
+        @media (max-width: 900px) { .v2-figure-pair { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+        /* A chart shown on its own (figure.v2-formula draws an image at its full size, 900px here): two thirds of that is enough to read it. */
+        .v2-col-main .v2-formula.is-compact img { max-width: min(100%, 620px) !important; }
+        /* The two places the text links to (Figure 3, the experiment at the end): land below the site's fixed header (58px), not under it. */
+        #figure-3, #experiment { scroll-margin-top: 74px; }
+        .v2-pullquote { font-style: italic; font-size: 1.35rem; line-height: 1.5; padding: 1.25rem 1.5rem; border-left: 3px solid var(--accent); background: var(--surface-raised); border-radius: 0 0.5rem 0.5rem 0; margin: 0 0 1.75rem; color: var(--text); }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+
+    <script>includeHeader();</script>
+
+    <main class="v2">
+
+        <header class="v2-hero" data-wordmark="LAB PARTNER">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Infrared Explorer</span>
+                <h1>Can AI be a good lab partner?</h1>
+                <p class="v2-tagline">
+                    We showed an AI agent a photo of salt, baking soda, and three dishes.
+                    It designed an experiment, read our thermal recordings, caught mistakes,
+                    ours and its own, and wrote the lab report.
+                </p>
+            </div>
+        </header>
+
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="ie.html">&larr; Back to Infrared Explorer</a>
+                    <p class="v2-byline">By <strong>Xiaotong Ding</strong> <a href="mailto:xiaotong@intofuture.org">&#9993;</a> and <strong>Jacob Sagrans</strong> <a href="mailto:jacob@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 13, 2026</span></p>
+
+                    <p>
+                        Most school experiments begin with a lab manual. Someone has already
+                        decided what to mix, what to measure, and what the answer should be. The
+                        manual leaves out the parts of science that take scientists the most time:
+                        working out what experiment the materials at hand allow, finding out why a
+                        result did not match the prediction, and writing down what the data show
+                        and what they do not. A good lab partner helps with all three.
+                    </p>
+
+                    <p>
+                        The Experiments section of Infrared Explorer gives that role to an
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a>.
+                        A student photographs the materials on the table, or just types what they
+                        are, and the agent designs an experiment for them. The student does the
+                        experiment by hand and records it with a thermal camera. The agent reads
+                        the temperature data in the recording, discusses the result, and writes a
+                        lab report. The agent never touches the bench: all it knows about the
+                        experiment comes through the camera and the conversation.
+                    </p>
+
+                    <p>
+                        This article follows one experiment from the first photo to the final
+                        report: salt and baking soda from a kitchen, three dishes of water, two
+                        recordings, and a first result that contradicted the prediction. The agent
+                        ran on OpenAI's GPT-6 Luna. The experiment itself, with the whole
+                        conversation, is <a href="#experiment">at the end of the article</a>.
+                    </p>
+
+                    <h2>From a photo to a plan</h2>
+
+                    <p>
+                        We put a mug, a canister of table salt, a box of baking soda, and three
+                        glass Petri dishes on a table, took a photo of them in the app (Figure 1),
+                        and typed one sentence:
+                    </p>
+
+                    <p class="v2-pullquote">What experiment can I do using these materials?</p>
+
+                    <p>
+                        The agent named the experiment &ldquo;Cooling When Powders Dissolve,&rdquo;
+                        drew the setup (Figure 2), and wrote a plan in three parts: question and
+                        prediction, setup, and recording. Every item in the photo got a job: a
+                        dish of plain water as the control, a dish each for the salt and the
+                        baking soda, and the mug to pour the water.
+                    </p>
+
+                    <div class="v2-figure-pair">
+                        <figure class="v2-formula">
+                            <img src="image/ie-ai-lab-partner-photo.jpg" alt="A yellow mug, a canister of table salt, a box of baking soda, and three empty glass Petri dishes on a white table">
+                            <figcaption>Figure 1: The photo we gave the agent: a mug, table salt, baking soda, and three glass Petri dishes.</figcaption>
+                        </figure>
+                        <figure class="v2-formula">
+                            <img src="image/ie-ai-lab-partner-setup.png" alt="The agent's top-view drawing of the setup: a phone with a thermal camera above three dishes labeled control, salt, and baking soda">
+                            <figcaption>Figure 2: The agent's drawing of the setup. It drew the dishes in a row; we set ours in a column.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>
+                        The plan made a prediction with numbers in it: salt and baking soda both
+                        take in heat as they dissolve, so both of their dishes should cool, by a
+                        few tenths of a degree for salt and by perhaps 0.5 to 1.5&nbsp;&deg;C for
+                        baking soda. It also said what would count as a failed prediction: the two
+                        dishes following the control, or warming. And it named a weakness in its
+                        own design before we did: equal spoonfuls are not equal masses. The plan
+                        stays at hand in the app's camera during the recording.
+                    </p>
+
+                    <h2>Reading the recording</h2>
+
+                    <p>
+                        We filled the three dishes with water, pointed a FLIR ONE Edge Pro
+                        straight down at them, and recorded for nearly 40 minutes in the app's
+                        time-lapse mode. We marked a reading area on each water surface (T1, T2,
+                        and T3 in Figure 3). About
+                        100 seconds in, we tipped a scoop of salt into the middle dish and an
+                        equal scoop of baking soda into the bottom dish. The plan said to stir
+                        each for 10 seconds. But we did not stir.
+                    </p>
+
+                    <div class="v2-screenshot-row is-frames" id="figure-3">
+                        <img src="image/ie-ai-lab-partner-run1-vl.jpg" alt="Three Petri dishes from above in visible light 105 seconds into the first recording; the baking soda lies in a white heap on the bottom of the lowest dish">
+                        <img src="image/ie-ai-lab-partner-run1-ir.jpg" alt="Thermal frame of the same three dishes at 105 seconds with the reading areas T1, T2, and T3 on the water surfaces; all three dishes are cooler than the table">
+                    </div>
+                    <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: -1rem;">
+                        Figure 3: The first run 105 s in, seen in visible light (left) and infrared
+                        light (right). Top to bottom: plain water, water with salt, water with
+                        baking soda. The baking soda lies in a white heap on the bottom of its
+                        dish. The colors run from 18.2&nbsp;&deg;C (dark) to 23.2&nbsp;&deg;C (white).
+                    </p>
+
+                    <p>
+                        When the recording was added to the experiment, the agent went to work.
+                        It called up thermal and visible-light frames of its choosing, and it
+                        wrote and ran its own code to read the temperature inside the three
+                        reading areas through the recording. It worked out for itself
+                        that the top dish was the control, the middle one salt, and the bottom one
+                        baking soda, and that the salt and the baking soda were added about 90 to
+                        105 seconds into the recording.
+                    </p>
+
+                    <p>
+                        It also dealt with a problem in the data that we had not mentioned. A
+                        thermal camera closes its shutter from time to time to recalibrate, and
+                        ours did so 44 times during the recording. Each time, every reading in the
+                        frame dipped by about 1&nbsp;&deg;C and came back. The agent traced the
+                        dips to the recalibrations and chose to compare the dishes with each
+                        other in the same frame instead of following each one alone. It left out
+                        the frames around each recalibration and subtracted the control's reading
+                        from the other two dishes' readings. Figure 4 is the chart it drew.
+                    </p>
+
+                    <figure class="v2-formula is-compact">
+                        <img src="image/ie-ai-lab-partner-run1-chart.png" alt="Chart of the salt and baking soda dishes' temperature minus the control's over 38 minutes; the two lines fall together to about minus 0.8 degrees and recover together">
+                        <figcaption>Figure 4: The agent's chart of the first run: the temperature of the salt dish and of the baking soda dish minus the control's in the same frame, with the frames near camera recalibrations left out. Salt and baking soda cool together and recover together.</figcaption>
+                    </figure>
+
+                    <p>
+                        All three water surfaces started at about 19.8&nbsp;&deg;C. Between 5 and 15
+                        minutes the salt dish read about 0.8&nbsp;&deg;C below the control and the
+                        baking soda dish about 0.7&nbsp;&deg;C below, and by the end both had crept
+                        back to about 0.2&nbsp;&deg;C below. It was a tie, and the agent said
+                        plainly what that meant: the result did not support its own prediction
+                        that baking soda would cool more.
+                    </p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://ie.intofuture.org/experiments/42AA5hhqLKmonysmUv8M?viewonly=true"
+                                id="ie-frame-run1" loading="lazy" allowfullscreen="true" title="The first recording in Infrared Explorer"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('ie-frame-run1');">View fullscreen</a><br>
+                            The first recording, with a chart of the salt and baking soda dishes' temperatures relative to the control. Press Play, or move a thermometer.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/experiments/42AA5hhqLKmonysmUv8M">Open the first recording in Infrared Explorer</a>
+                    </div>
+
+                    <h2>Arguing about a tie</h2>
+
+                    <p>
+                        The analysis had one thing wrong. The agent had assumed that we followed
+                        its plan, and it wrote that the salt and the baking soda were &ldquo;added
+                        and stirred.&rdquo; We told it that nothing had been stirred, and it took
+                        the correction: &ldquo;I misread the setup.&rdquo;
+                    </p>
+
+                    <p>
+                        Then it corrected us. When we asked why there was no difference between
+                        salt and baking soda, it answered, &ldquo;There <strong>is a small
+                        difference</strong> in your capture,&rdquo; and called it &ldquo;a weak
+                        result, not a clear demonstration that salt cools more.&rdquo; It looked up
+                        the chemistry and cited
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.oecd-nea.org/upload/docs/application/pdf/2024-06/cts15-selected_ancillary_compounds-r-final-rev.pdf">its source</a>:
+                        mole for mole and fully dissolved, baking soda should cool the water more.
+                        Asked how to make the difference bigger, it redesigned the experiment:
+                        weigh the two, stir each dish the same way for the same time, and add no
+                        more baking soda than the water can dissolve. The <a href="#experiment">full exchange</a> is at the end of
+                        this article.
+                    </p>
+
+                    <h2>The second run</h2>
+
+                    <p>
+                        We ran the experiment again with the same three dishes and the same
+                        scoops, and recorded another time-lapse, this time for 10 minutes. Of the
+                        agent's suggestions we took one: after the salt and the baking soda went
+                        in, we stirred those two dishes with sticks. We left the control alone
+                        (Figure 5).
+                    </p>
+
+                    <div class="v2-screenshot-row is-frames">
+                        <img src="image/ie-ai-lab-partner-run2-vl.jpg" alt="Three Petri dishes in visible light 120 seconds into the second recording, with a stick stirring the salt dish and another stirring the baking soda dish">
+                        <img src="image/ie-ai-lab-partner-run2-ir.jpg" alt="Thermal frame at 120 seconds; the baking soda dish at the bottom is deep purple, much colder than the salt dish and the control">
+                    </div>
+                    <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: -1rem;">
+                        Figure 5: The second run 120 s in, seen in visible light (left) and
+                        infrared light (right). The stirred baking soda dish at the bottom is now
+                        the coldest by far; the lighter streak inside it is the stirring stick.
+                        The colors run from 19.6&nbsp;&deg;C (dark) to 24.8&nbsp;&deg;C (white).
+                    </p>
+
+                    <p>
+                        Again the agent looked before it measured. In the visible-light frames it
+                        saw the sticks in the two dishes from about 40 seconds on. It also caught
+                        something in the first 30 seconds: before anything was added, the baking
+                        soda dish already read about 0.5&nbsp;&deg;C warmer than the control. Left
+                        alone, that offset would have hidden half a degree of cooling, so it
+                        measured each dish from its own starting temperature before comparing
+                        it with the control.
+                    </p>
+
+                    <p>
+                        This time the two dishes pulled apart within a minute. From two to five
+                        minutes after the salt and the baking soda went in, the baking soda dish
+                        read about 2.3&nbsp;&deg;C below the control and the salt dish about
+                        0.6&nbsp;&deg;C below, a ratio of about four to one. Baking soda did cool
+                        more than the salt, and by more than the predicted 0.5 to
+                        1.5&nbsp;&deg;C. The agent still did not call the question settled: one
+                        run cannot show that the difference is repeatable, it said, and the
+                        camera shows the surface, not necessarily the water beneath it.
+                    </p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://ie.intofuture.org/experiments/DBeMqkguP2iiJspkQ65b?viewonly=true"
+                                id="ie-frame-run2" loading="lazy" allowfullscreen="true" title="The second recording in Infrared Explorer"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('ie-frame-run2');">View fullscreen</a><br>
+                            The second recording, with the same chart. Press Play to watch the baking soda dish at the bottom turn cold within a minute of the stirring.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/experiments/DBeMqkguP2iiJspkQ65b">Open the second recording in Infrared Explorer</a>
+                    </div>
+
+                    <h2>Writing the report, and rewriting it</h2>
+
+                    <p>
+                        When we asked for a report, the agent wrote one in five sections, from
+                        question and prediction to conclusion, with figures it made itself. It
+                        also checked its own work: it redrew one chart and later corrected a
+                        sentence of its own. It did not catch everything. One statement about the
+                        second run was wrong, and it stayed in the report until we asked for
+                        something else:
+                    </p>
+
+                    <p class="v2-pullquote">Add a comparison of the two recordings to the report with two separate charts, one for each recording, explain why the results differ.</p>
+
+                    <p>
+                        The agent went back to both recordings. It looked at the frames again, ran
+                        one analysis on both recordings, set time zero at the moment the salt and
+                        the baking soda went in, and drew the two charts on the same axes
+                        (Figure 6). The new report had the second run right.
+                    </p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/ie-ai-lab-partner-compare-run1.png" alt="Chart for the first recording: the salt and baking soda lines nearly overlap and fall slowly to about minus 0.8 degrees over ten minutes">
+                        <img src="image/ie-ai-lab-partner-compare-run2.png" alt="Chart for the second recording on the same axes: baking soda drops to about minus 2.4 degrees within two minutes while salt stays near minus 0.6 degrees">
+                    </div>
+                    <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: -1rem;">
+                        Figure 6: The two charts in the final report, on the same axes: each dish's
+                        change from its own starting temperature, minus the control's change,
+                        against time since the salt and the baking soda went in. Left: the first
+                        run, not stirred. Right: the second run, stirred.
+                    </p>
+
+                    <p>
+                        The new report also named a second difference between the runs that had
+                        not come up before: the water started about 3.5&nbsp;&deg;C warmer in the
+                        second run. Its conclusion does not overclaim:
+                    </p>
+
+                    <p class="v2-pullquote">The clearest procedural difference visible in the recordings is stirring in Recording 2 but not Recording 1, which could explain why cooling was more quickly and strongly separated there, though other run-to-run differences remain possible.</p>
+
+                    <h2>What the agent missed</h2>
+
+                    <p>
+                        The plainest clue to why the first run ended in a tie is in
+                        <a href="#figure-3">Figure 3</a>, and the agent never mentioned it. The
+                        baking soda lies in a white heap on the bottom of its dish. The agent had
+                        called up that frame. It gave the general reason, that a solid left
+                        unstirred may dissolve slowly, but it did not point at the heap.
+                    </p>
+
+                    <p>
+                        The chemistry is why the heap matters. Pulling ions out of a crystal costs
+                        energy, and water molecules pay part of it back as they gather around each
+                        freed ion. For both salt and baking soda the cost is larger than the
+                        payback, and the water makes up the difference by cooling. By the figures
+                        the agent looked up, baking soda takes about three times as much heat per
+                        gram as salt. But only what dissolves takes any heat, and baking soda is
+                        about a quarter as soluble as salt. A heap of it in still water sits in a thin layer that
+                        is nearly saturated. Water is also opaque to the long-wave infrared light
+                        that the camera sees, so the camera reads only the top skin of the water.
+                        Stirring brought fresh water to the grains and brought the cold water up
+                        to where the camera could see it.
+                    </p>
+
+                    <p>
+                        Each run was done once, and two things changed between them, as the agent
+                        said itself. And a report that was wrong about our own procedure was fixed
+                        only because we asked for something else. The agent reads the data
+                        critically. A student has to read the agent the same way.
+                    </p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Agent Did</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Design</span> &mdash; from one photo and one sentence, a title, a drawing of the setup, and a three-part plan with a numerical prediction.</li>
+                            <li><span class="v2-prompts-step">Analysis</span> &mdash; the temperature data of both recordings, read with code it wrote itself, with 44 camera recalibrations screened out and a 0.5&nbsp;&deg;C starting offset removed.</li>
+                            <li><span class="v2-prompts-step">Corrections</span> &mdash; one of its misreadings corrected by us, one overstatement of ours corrected by the agent, and two of its own errors corrected by itself. The heap in <a href="#figure-3">Figure 3</a> was never mentioned.</li>
+                            <li><span class="v2-prompts-step">Result</span> &mdash; how far below the control each dish read: not stirred, salt 0.8&nbsp;&deg;C and baking soda 0.7&nbsp;&deg;C; stirred, salt 0.6&nbsp;&deg;C and baking soda 2.3&nbsp;&deg;C.</li>
+                            <li><span class="v2-prompts-step">Report</span> &mdash; five sections and three figures made from the data, rewritten on a one-sentence request.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>
+                        This article uses salt and baking soda to illustrate a new way to learn
+                        science in the real world: students show an AI agent what is on the table,
+                        in a photo or just in words, and do the experiment with their own hands,
+                        and the agent reads the thermal recording and hands back measured data, an
+                        argument, and a report. Was it a
+                        good lab partner? In this experiment it was. It turned a photo into an
+                        experiment with a prediction that could fail, held to the data when we
+                        overstated the result, gave way when we knew our own procedure better, and
+                        corrected its own report twice. Its work still had to be checked, like the
+                        work of any lab partner.
+                    </p>
+
+                    <p>
+                        A thermal camera gives students thousands of thermometers where they once
+                        had one, a step
+                        <a target="_blank" rel="noopener noreferrer" href="ie-from-sensing-to-imaging.html">from sensing to imaging</a>.
+                        An AI agent that can read what those thermometers record takes the next
+                        step, from imaging to reasoning. By pairing the two, Infrared Explorer
+                        turns a student's curiosity about the ordinary things on a table into a
+                        genuine scientific investigation, wrong turns included.
+                    </p>
+
+                    <h2 id="experiment">The experiment itself</h2>
+
+                    <p>
+                        The window below is the experiment as we left it, from the first photo to
+                        the final report.
+                    </p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae?viewonly=true"
+                                id="ie-frame-experiment" loading="lazy" allowfullscreen="true" title="The experiment Cooling When Powders Dissolve in Infrared Explorer"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('ie-frame-experiment');">View fullscreen</a><br>
+                            The experiment on the web. Scroll the conversation on the left, and open Plan, Captures, or Report on the right.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae">Open the experiment in Infrared Explorer</a>
+                    </div>
+
+                    <a class="v2-backlink" href="ie.html">&larr; Back to Infrared Explorer</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>includeFooter();</script>
+
+</div>
+
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>
