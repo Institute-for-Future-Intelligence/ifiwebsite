@@ -68,8 +68,12 @@
         .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
         /* The camera's frames are upright (480 x 640): keep a pair of them from filling the whole column. */
         .v2-screenshot-row.is-frames { max-width: 680px; margin-left: auto; margin-right: auto; }
-        /* "Figure 3" further down links back here: land below the site's fixed header (58px), not under it. */
-        #figure-3 { scroll-margin-top: 74px; }
+        /* The photo we gave (4:3) beside the drawing the agent gave back (2:1): columns of 2 to 3 make the two as tall as each other. Below 900px the drawing's labels get too small to read side by side, so one goes under the other. */
+        .v2-figure-pair { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.2rem; align-items: start; margin: 2rem 0 2.5rem; }
+        .v2-col-main .v2-figure-pair .v2-formula { margin: 0 !important; }
+        @media (max-width: 900px) { .v2-figure-pair { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+        /* The two places the text links to (Figure 3, the experiment at the end): land below the site's fixed header (58px), not under it. */
+        #figure-3, #experiment { scroll-margin-top: 74px; }
         .v2-pullquote { font-style: italic; font-size: 1.35rem; line-height: 1.5; padding: 1.25rem 1.5rem; border-left: 3px solid var(--accent); background: var(--surface-raised); border-radius: 0 0.5rem 0.5rem 0; margin: 0 0 1.75rem; color: var(--text); }
         .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
         .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
@@ -130,24 +134,10 @@
                     <p>
                         This article follows one experiment from the first photo to the final
                         report: salt and baking soda from a kitchen, three dishes of water, two
-                        recordings, and a first result that contradicted the prediction. The agent ran on
-                        OpenAI's GPT-6 Luna. The window below is the experiment itself: the
-                        conversation is on the left, and the plan, the captures, and the report are
-                        in the tabs on the right.
+                        recordings, and a first result that contradicted the prediction. The agent
+                        ran on OpenAI's GPT-6 Luna. The experiment itself, with the whole
+                        conversation, is <a href="#experiment">at the end of the article</a>.
                     </p>
-
-                    <figure class="v2-embed">
-                        <iframe src="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae?viewonly=true"
-                                id="ie-frame-experiment" allowfullscreen="true" title="The experiment Cooling When Powders Dissolve in Infrared Explorer"></iframe>
-                        <figcaption>
-                            <a href="javascript:openFullscreen('ie-frame-experiment');">View fullscreen</a><br>
-                            The experiment on the web. Scroll the conversation on the left, and open Plan, Captures, or Report on the right.
-                        </figcaption>
-                    </figure>
-
-                    <div class="v2-model-link">
-                        <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae">Open the experiment in Infrared Explorer</a>
-                    </div>
 
                     <h2>From a photo to a plan</h2>
 
@@ -159,46 +149,45 @@
 
                     <p class="v2-pullquote">What experiment can I do using these materials?</p>
 
-                    <figure class="v2-formula">
-                        <img src="image/ie-ai-lab-partner-photo.jpg" alt="A yellow mug, a canister of table salt, a box of baking soda, and three empty glass Petri dishes on a white table">
-                        <figcaption>Figure 1: The photo we gave the agent: a mug, table salt, baking soda, and three glass Petri dishes.</figcaption>
-                    </figure>
-
                     <p>
-                        In under two minutes the agent had named the experiment &ldquo;Cooling When
-                        Powders Dissolve,&rdquo; drawn the setup (Figure 2), and written a plan in
-                        three parts: question and prediction, setup, and recording. Every item in
-                        the photo got a job: a dish of plain water as the control, a dish each for
-                        the salt and the baking soda, and &ldquo;The mug can help pour the water.&rdquo;
+                        The agent named the experiment &ldquo;Cooling When Powders Dissolve,&rdquo;
+                        drew the setup (Figure 2), and wrote a plan in three parts: question and
+                        prediction, setup, and recording. Every item in the photo got a job: a
+                        dish of plain water as the control, a dish each for the salt and the
+                        baking soda, and the mug to pour the water.
                     </p>
 
-                    <figure class="v2-formula">
-                        <img src="image/ie-ai-lab-partner-setup.png" alt="The agent's top-view drawing of the setup: a phone with a thermal camera above three dishes labeled control, salt, and baking soda">
-                        <figcaption>Figure 2: The agent's drawing of the setup. It drew the dishes in a row; we set ours in a column.</figcaption>
-                    </figure>
+                    <div class="v2-figure-pair">
+                        <figure class="v2-formula">
+                            <img src="image/ie-ai-lab-partner-photo.jpg" alt="A yellow mug, a canister of table salt, a box of baking soda, and three empty glass Petri dishes on a white table">
+                            <figcaption>Figure 1: The photo we gave the agent: a mug, table salt, baking soda, and three glass Petri dishes.</figcaption>
+                        </figure>
+                        <figure class="v2-formula">
+                            <img src="image/ie-ai-lab-partner-setup.png" alt="The agent's top-view drawing of the setup: a phone with a thermal camera above three dishes labeled control, salt, and baking soda">
+                            <figcaption>Figure 2: The agent's drawing of the setup. It drew the dishes in a row; we set ours in a column.</figcaption>
+                        </figure>
+                    </div>
 
                     <p>
-                        The plan made a prediction with numbers in it. Salt and baking soda both take
-                        in heat as they dissolve, so both dishes should cool: &ldquo;roughly a few tenths of a
-                        degree for salt and perhaps around 0.5&ndash;1.5&nbsp;&deg;C for baking soda
-                        at the water surface.&rdquo; The plan also said what would count as a failed
-                        prediction: &ldquo;If both treated dishes track the control, or warm
-                        instead, the predicted cooling was not resolved.&rdquo; And it named a
-                        weakness in its own design before we did: &ldquo;the same spoon volume is a
-                        practical comparison, not an equal mass.&rdquo; The plan stays at hand in
-                        the app's camera while recording.
+                        The plan made a prediction with numbers in it: salt and baking soda both
+                        take in heat as they dissolve, so both of their dishes should cool, by a
+                        few tenths of a degree for salt and by perhaps 0.5 to 1.5&nbsp;&deg;C for
+                        baking soda. It also said what would count as a failed prediction: the two
+                        dishes following the control, or warming. And it named a weakness in its
+                        own design before we did: equal spoonfuls are not equal masses. The plan
+                        stays at hand in the app's camera during the recording.
                     </p>
 
                     <h2>Reading the recording</h2>
 
                     <p>
-                        We filled the three dishes with water and pointed a FLIR ONE Edge Pro
-                        straight down at them. We recorded a time-lapse of 38.5 minutes at
-                        one frame every 3 seconds, 771 frames in all, and marked a reading area on
-                        each water surface (T1, T2, and T3 in Figure 3). About 100 seconds in, we
-                        tipped a scoop of salt into the middle dish and an equal scoop of baking
-                        soda into the bottom dish. The plan said to stir each for 10 seconds. We
-                        did not stir.
+                        We filled the three dishes with water, pointed a FLIR ONE Edge Pro
+                        straight down at them, and recorded for nearly 40 minutes in the app's
+                        time-lapse mode. We marked a reading area on each water surface (T1, T2,
+                        and T3 in Figure 3). About
+                        100 seconds in, we tipped a scoop of salt into the middle dish and an
+                        equal scoop of baking soda into the bottom dish. The plan said to stir
+                        each for 10 seconds. But we did not stir.
                     </p>
 
                     <div class="v2-screenshot-row is-frames" id="figure-3">
@@ -216,37 +205,36 @@
                         When the recording was added to the experiment, the agent went to work
                         without being asked. It called up thermal and visible-light frames at nine
                         moments of its choosing, and it wrote and ran its own code to read the
-                        temperature inside the three reading areas through the recording. Without
-                        being told, it worked out that the top dish was the control, the middle one
-                        salt, and the bottom one baking soda, and that the two went in
-                        &ldquo;between about <strong>90 and 105 seconds</strong>.&rdquo;
+                        temperature inside the three reading areas through the recording. It
+                        worked out for itself that the top dish was the control, the middle one
+                        salt, and the bottom one baking soda, and that the two were added about
+                        90 to 105 seconds in.
                     </p>
 
                     <p>
                         It also dealt with a problem in the data that we had not mentioned. A
                         thermal camera closes its shutter from time to time to recalibrate, and
                         ours did so 44 times during the recording. Each time, every reading in the
-                        frame dipped by about 1&nbsp;&deg;C and came back. &ldquo;The readings jump
-                        at several points because the camera recalibrated,&rdquo; the agent wrote,
-                        &ldquo;so the simultaneous differences between dishes are more useful than
-                        their raw changes alone.&rdquo; It then left out the frames within
-                        6 seconds of a recalibration and subtracted the control's reading from
-                        the other two dishes' readings in the same frame. Figure 4 is the chart
-                        it drew.
+                        frame dipped by about 1&nbsp;&deg;C and came back. The agent traced the
+                        dips to the recalibrations and chose to compare the dishes with each
+                        other in the same frame instead of following each one alone. It left out
+                        the frames within 6 seconds of a recalibration and subtracted the
+                        control's reading from the other two dishes' readings. Figure 4 is the
+                        chart it drew.
                     </p>
 
                     <figure class="v2-formula">
                         <img src="image/ie-ai-lab-partner-run1-chart.png" alt="Chart of the salt and baking soda dishes' temperature minus the control's over 38 minutes; the two lines fall together to about minus 0.8 degrees and recover together">
-                        <figcaption>Figure 4: The agent's chart of the first run: the salt dish's and the baking soda dish's temperature minus the control's in the same frame, with the frames near camera recalibrations left out. Salt and baking soda cool together and recover together.</figcaption>
+                        <figcaption>Figure 4: The agent's chart of the first run: the temperature of the salt dish and of the baking soda dish minus the control's in the same frame, with the frames near camera recalibrations left out. Salt and baking soda cool together and recover together.</figcaption>
                     </figure>
 
                     <p>
                         All three water surfaces started at about 19.8&nbsp;&deg;C. Between 5 and 15
                         minutes the salt dish read about 0.8&nbsp;&deg;C below the control and the
                         baking soda dish about 0.7&nbsp;&deg;C below, and by the end both had crept
-                        back to about 0.2&nbsp;&deg;C below. The agent said plainly what that meant
-                        for its own prediction: the result &ldquo;does <strong>not</strong> support
-                        the prediction that baking soda would cool more.&rdquo;
+                        back to about 0.2&nbsp;&deg;C below. The agent said plainly what that
+                        meant: the result did not support its own prediction that baking soda
+                        would cool more.
                     </p>
 
                     <figure class="v2-embed">
@@ -266,53 +254,33 @@
 
                     <p>
                         The analysis had one thing wrong. The agent had assumed that we followed
-                        its plan. It wrote that the salt and the baking soda were &ldquo;added and
-                        stirred,&rdquo; and it counted the unstirred control as a flaw in our
-                        procedure. We corrected it, and then it corrected us.
+                        its plan, and it wrote that the salt and the baking soda were &ldquo;added
+                        and stirred.&rdquo; We told it that nothing had been stirred, and it took
+                        the correction: &ldquo;I misread the setup.&rdquo;
                     </p>
 
                     <p>
-                        We told the agent that the two scoops were equal in volume and that
-                        nothing had been stirred. It took the correction at once:
-                        &ldquo;Thanks for clarifying&mdash;I misread the setup.&rdquo;
-                    </p>
-
-                    <p>
-                        Then we asked why there was no difference between salt and baking soda,
-                        and this time it did not give way. &ldquo;There <strong>is a small
-                        difference</strong> in your capture,&rdquo; it answered: the salt dish
-                        read cooler by &ldquo;only about <strong>a tenth or two of a
-                        degree</strong>,&rdquo; which it called &ldquo;a weak result, not a clear
-                        demonstration that salt cools more.&rdquo; It would agree to no more and
-                        no less than the data showed. It then looked up the chemistry, with
-                        <a target="_blank" rel="noopener noreferrer" href="https://www.oecd-nea.org/upload/docs/application/pdf/2024-06/cts15-selected_ancillary_compounds-r-final-rev.pdf">its source</a>,
-                        to say what the data should have shown: dissolving takes in about
-                        18.7&nbsp;kJ per mole of baking soda and about 4.2&nbsp;kJ per mole of
-                        salt, so mole for mole, fully dissolved, baking soda should cool the
-                        water more. But equal scoops do not hold equal numbers of moles, it
-                        pointed out, and without stirring the two may have dissolved at
-                        different rates.
-                    </p>
-
-                    <p>
-                        Last, we asked what would make the difference bigger. The answer was a
-                        redesign of the experiment: weigh the salt and the baking soda
-                        (&ldquo;<strong>8 g of each in 100 mL of water</strong>&rdquo;), stir
-                        each dish &ldquo;<strong>the same way for the same time</strong>,&rdquo;
-                        and record the first few minutes. It came with a limit we would not have
-                        thought to check: at about 20&nbsp;&deg;C, 100&nbsp;mL of water dissolves
-                        only about 9.3&nbsp;g of baking soda, so a bigger heap would not bring
-                        more cooling. The full exchange can be read in the conversation at the
-                        top of this article.
+                        Then it corrected us. When we asked why there was no difference between
+                        salt and baking soda, it answered, &ldquo;There <strong>is a small
+                        difference</strong> in your capture,&rdquo; and called it &ldquo;a weak
+                        result, not a clear demonstration that salt cools more.&rdquo; It looked up
+                        the chemistry and cited
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.oecd-nea.org/upload/docs/application/pdf/2024-06/cts15-selected_ancillary_compounds-r-final-rev.pdf">its source</a>:
+                        mole for mole and fully dissolved, baking soda should cool the water more.
+                        Asked how to make the difference bigger, it redesigned the experiment:
+                        weigh the two, stir each dish the same way for the same time, and add no
+                        more baking soda than the water can dissolve. The <a href="#experiment">full exchange</a> is at the end of
+                        this article.
                     </p>
 
                     <h2>The second run</h2>
 
                     <p>
-                        We ran the experiment again with the same three dishes, this time at one
-                        frame per second for 10 minutes. The salt and the baking soda went in about
-                        35 seconds after the start. We stirred those two dishes with sticks and
-                        left the control alone (Figure 5).
+                        We ran the experiment again with the same three dishes and recorded
+                        another time-lapse, this time for 10 minutes. The salt and the baking
+                        soda went in about 35 seconds after
+                        the start. We stirred those two dishes with sticks and left the control
+                        alone (Figure 5).
                     </p>
 
                     <div class="v2-screenshot-row is-frames">
@@ -327,24 +295,23 @@
                     </p>
 
                     <p>
-                        Again the agent looked before it measured. &ldquo;The visible frames show
-                        stirrers in both treated dishes beginning around <strong>40
-                        seconds</strong>,&rdquo; it reported. It also caught something in the first
-                        30 seconds: &ldquo;before the additions, the baking-soda dish already read
-                        about <strong>0.5&nbsp;&deg;C warmer</strong> than the control.&rdquo; Left
+                        Again the agent looked before it measured. In the visible-light frames it
+                        saw the sticks in the two dishes from about 40 seconds on. It also caught
+                        something in the first 30 seconds: before anything was added, the baking
+                        soda dish already read about 0.5&nbsp;&deg;C warmer than the control. Left
                         alone, that offset would have hidden half a degree of cooling, so it
                         measured each dish from its own starting temperature before comparing
                         it with the control.
                     </p>
 
                     <p>
-                        This time salt and baking soda separated within a minute. From two to five
-                        minutes after they went in, the baking soda dish read about
-                        2.3&nbsp;&deg;C below the control and the salt dish about 0.6&nbsp;&deg;C
-                        below, a ratio of about four to one. The agent did not call the question
-                        settled: &ldquo;one run can&rsquo;t establish a repeatable
-                        difference&mdash;and it shows surface cooling, not necessarily temperature
-                        throughout the liquid.&rdquo;
+                        This time the prediction held: salt and baking soda separated within a
+                        minute. From two to five minutes after they went in, the baking soda dish
+                        read about 2.3&nbsp;&deg;C below the control and the salt dish about
+                        0.6&nbsp;&deg;C below, a ratio of about four to one. The agent still did
+                        not call the question settled: one run cannot show that the difference is
+                        repeatable, it said, and the camera shows the surface, not necessarily the
+                        water beneath it.
                     </p>
 
                     <figure class="v2-embed">
@@ -363,17 +330,12 @@
                     <h2>Writing the report, and rewriting it</h2>
 
                     <p>
-                        When we asked for a report, the agent wrote one in under two minutes: five
-                        sections, from question and prediction to conclusion, with figures it made
-                        itself. It also checked its own work. One of its charts cut off the bottom
-                        of the baking soda curve, and it redrew the chart without being asked.
-                    </p>
-
-                    <p>
-                        It did not catch everything. The same report said of the second run that
-                        &ldquo;neither dish was stirred.&rdquo; The agent had carried our
-                        correction about the first run over to the second. The sentence stayed in
-                        the report until we asked for something else:
+                        When we asked for a report, the agent wrote one in five sections, from
+                        question and prediction to conclusion, with figures it made itself. It
+                        also checked its own work: without being asked, it redrew one chart and
+                        later corrected a sentence of its own. It did not catch everything. One
+                        statement about the second run was wrong, and it stayed in the report
+                        until we asked for something else:
                     </p>
 
                     <p class="v2-pullquote">Add a comparison of the two recordings to the report with two separate charts, one for each recording, explain why the results differ.</p>
@@ -383,8 +345,8 @@
                         put the two thermal views side by side on one color scale, with the reading
                         areas labeled (Figure 6). It ran one analysis on both recordings, set time
                         zero at the moment the salt and the baking soda went in, and drew the two
-                        charts on the same axes (Figure 7). The new report said, correctly, that in
-                        the second run both of those dishes were stirred &ldquo;from about 40 seconds.&rdquo;
+                        charts on the same axes (Figure 7). The new report had the second run
+                        right.
                     </p>
 
                     <figure class="v2-formula">
@@ -397,26 +359,17 @@
                         <img src="image/ie-ai-lab-partner-compare-run2.png" alt="Chart for the second recording on the same axes: baking soda drops to about minus 2.4 degrees within two minutes while salt stays near minus 0.6 degrees">
                     </div>
                     <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: -1rem;">
-                        Figure 7: The two charts in the final report, on the same axes: the salt
-                        dish's and the baking soda dish's change from its own starting temperature,
-                        minus the control's change, against time from the moment the salt and the
-                        baking soda went in. Left: the first run, not stirred. Right: the second
-                        run, stirred.
+                        Figure 7: The two charts in the final report, on the same axes: each dish's
+                        change from its own starting temperature, minus the control's change,
+                        against time since the salt and the baking soda went in. Left: the first
+                        run, not stirred. Right: the second run, stirred.
                     </p>
 
                     <p>
-                        The rewrite brought a new mistake, and this time the agent found it without
-                        us. Its first draft said that the frames of the first recording &ldquo;do
-                        not show spoons, stirrers, or when ingredients were added.&rdquo; It then
-                        changed its own sentence: &ldquo;Its visible frames show the powders being
-                        added at about 102 seconds; no stirring is visible afterward.&rdquo; In a
-                        third pass it added a second difference between the runs that had not come
-                        up before: before anything was added, the water was about
-                        3.5&nbsp;&deg;C warmer in the second run.
-                    </p>
-
-                    <p>
-                        The conclusion of the report claims no more than two single runs allow:
+                        The new report also named a second difference between the runs that had
+                        not come up before: the water started about 3.5&nbsp;&deg;C warmer in the
+                        second run. Its conclusion does not overclaim. Each run was done only
+                        once, and it says no more than that allows:
                     </p>
 
                     <p class="v2-pullquote">The clearest procedural difference visible in the recordings is stirring in Recording 2 but not Recording 1, which could explain why cooling was more quickly and strongly separated there, though other run-to-run differences remain possible.</p>
@@ -435,11 +388,10 @@
                         The chemistry is why the heap matters. Pulling ions out of a crystal costs
                         energy, and water molecules pay part of it back as they gather around each
                         freed ion. For both salt and baking soda the cost is larger than the
-                        payback, and the water makes up the difference by cooling. By the agent's
-                        own numbers, baking soda takes about three times as much heat per gram as
-                        salt (18.7&nbsp;kJ for 84&nbsp;g against 4.2&nbsp;kJ for 58&nbsp;g). But
-                        only what dissolves takes any heat, and baking soda is about a quarter
-                        as soluble as salt. A heap of it in still water sits in a thin layer that
+                        payback, and the water makes up the difference by cooling. By the figures
+                        the agent looked up, baking soda takes about three times as much heat per
+                        gram as salt. But only what dissolves takes any heat, and baking soda is
+                        about a quarter as soluble as salt. A heap of it in still water sits in a thin layer that
                         is nearly saturated. Water is also opaque to the long-wave infrared light
                         that the camera sees, so the camera reads only the top skin of the water.
                         Stirring brought fresh water to the grains and brought the cold water up
@@ -456,10 +408,10 @@
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Agent Did</p>
                         <ul>
-                            <li><span class="v2-prompts-step">Design</span> &mdash; from one photo and one sentence, a title, a drawing of the setup, and a three-part plan with a numerical prediction, in under two minutes.</li>
+                            <li><span class="v2-prompts-step">Design</span> &mdash; from one photo and one sentence, a title, a drawing of the setup, and a three-part plan with a numerical prediction.</li>
                             <li><span class="v2-prompts-step">Analysis</span> &mdash; the temperature data of both recordings, read with code it wrote itself, with 44 camera recalibrations screened out and a 0.5&nbsp;&deg;C starting offset removed.</li>
-                            <li><span class="v2-prompts-step">Corrections</span> &mdash; one of its misreadings corrected by us, one overstatement of ours corrected by the agent, and two of its own errors corrected by itself. One wrong sentence stayed in the report until we asked for a rewrite, and the heap in <a href="#figure-3">Figure 3</a> was never mentioned.</li>
-                            <li><span class="v2-prompts-step">Result</span> &mdash; not stirred, the salt dish and the baking soda dish both read about 0.8&nbsp;&deg;C below the control; stirred, the baking soda dish read about 2.3&nbsp;&deg;C below it and the salt dish about 0.6&nbsp;&deg;C.</li>
+                            <li><span class="v2-prompts-step">Corrections</span> &mdash; one of its misreadings corrected by us, one overstatement of ours corrected by the agent, and two of its own errors corrected by itself. One wrong sentence stayed in the report until we asked for something else, and the heap in <a href="#figure-3">Figure 3</a> was never mentioned.</li>
+                            <li><span class="v2-prompts-step">Result</span> &mdash; not stirred, the salt dish read about 0.8&nbsp;&deg;C below the control and the baking soda dish about 0.7&nbsp;&deg;C; stirred, the baking soda dish read about 2.3&nbsp;&deg;C below it and the salt dish about 0.6&nbsp;&deg;C.</li>
                             <li><span class="v2-prompts-step">Report</span> &mdash; five sections and three figures made from the data, rewritten on a one-sentence request.</li>
                         </ul>
                     </div>
@@ -488,6 +440,26 @@
                         turns a student's curiosity about the ordinary things on a table into a
                         genuine scientific investigation, wrong turns included.
                     </p>
+
+                    <h2 id="experiment">The experiment itself</h2>
+
+                    <p>
+                        The window below is the experiment as we left it, from the first photo to
+                        the final report.
+                    </p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae?viewonly=true"
+                                id="ie-frame-experiment" loading="lazy" allowfullscreen="true" title="The experiment Cooling When Powders Dissolve in Infrared Explorer"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('ie-frame-experiment');">View fullscreen</a><br>
+                            The experiment on the web. Scroll the conversation on the left, and open Plan, Captures, or Report on the right.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae">Open the experiment in Infrared Explorer</a>
+                    </div>
 
                     <a class="v2-backlink" href="ie.html">&larr; Back to Infrared Explorer</a>
                 </div>
