@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Assembly: Molecules That Build Themselves — Institute for Future Intelligence</title>
+    <meta name="description" content="Lipids put into water build micelles and membranes by themselves. AIMS scatters three kinds of coarse-grained lipids at random, and an AI agent follows them and measures what each kind builds: spherical micelles, a bilayer, and inverse micelles in oil. Magnetic nanoparticles that link into chains show self-assembly at equilibrium.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 64rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare .bond { color: var(--text-muted); font-size: 1.25rem; min-width: 16rem; }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="ASSEMBLY">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Self-Assembly: Molecules That Build Themselves</h1>
+                <p class="v2-tagline">
+                    AIMS scatters three kinds of molecules at random, and an AI agent measures the structure that each kind builds.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 13, 2026</span></p>
+
+                    <p>A cell makes the lipids of its membrane one molecule at a time, and the lipids arrange themselves into the membrane. Soap molecules dissolved in water arrange themselves into balls called
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Micelle">micelles</a>. This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Self-assembly">self-assembly</a>:
+                    separate components form an ordered structure through the forces among them, and the structure that forms is decided by the shape of each component and by which of its parts attract or repel.
+                    AIMS models each lipid as a few beads and rods, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent
+                    scatters the lipids at random, runs them, counts the aggregates they form, measures the shape of each aggregate, and posts the measured data in the chat as a live chart.
+                    In the window below, eighty lipids with one tail each start scattered at random at 300&nbsp;K. Press Play and watch their tails gather.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Molecules%20That%20Build%20Themselves"
+                                id="aims-frame1" allowfullscreen="true" title="Molecules That Build Themselves demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Eighty one-tailed lipids at 300&nbsp;K. The first aggregates form within about 100&nbsp;ps of Play; the "Load this state" card under each answer in the chat puts the finished structure in the lab.
+                        </figcaption>
+                    </figure>
+
+                    <h2>What Is Self-Assembly?</h2>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.1070821">Whitesides and Grzybowski</a> define self-assembly as &ldquo;the autonomous organization of components into patterns or structures without human intervention.&rdquo;
+                    Living things depend on self-assembly. The lipids of a cell membrane form a sheet two molecules thick, and in 1955 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.41.10.690">Fraenkel-Conrat and Williams</a>
+                    separated tobacco mosaic virus into its protein and its RNA, mixed the two again, and recovered active virus. Engineers use self-assembly to make structures too small to build piece by piece, such as the patterns
+                    that <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Copolymer#Block_copolymers">block copolymers</a> form on a silicon wafer.
+                    In each case the shape of a component and the forces among its parts decide the structure. The experiments in this article test that statement by changing the molecule and measuring the structure that results.</p>
+
+                    <h2>A Lipid Made of One Bead and Two Rods</h2>
+
+                    <p>A lipid has a polar head that mixes with water and one or two hydrocarbon tails that avoid water. Each lipid in this lab keeps those two parts. The head is one yellow bead 7&nbsp;&Aring; wide. A tail is two gray rods, each 7&nbsp;&Aring; long and 4.7&nbsp;&Aring; wide,
+                    joined end to end by a hinge, so the tail bends by a few tens of degrees at 300&nbsp;K. Each rod is a <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.441483">Gay&ndash;Berne</a> particle, an ellipsoid
+                    whose attraction to another rod depends on how the two rods are oriented. Modeling a molecule with a few such pieces is called
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">coarse-grained modeling</a>, and it makes the simulation fast enough to run in a browser.
+                    The companion article on <a href="aims-micelle-formation.html">micelle formation</a> explains the approach with a simpler soap molecule made of four beads.</p>
+
+                    <p>The box has no water molecules in it. Following <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevE.72.011506">Cooke, Kremer, and Deserno</a>, who showed in 2005 that lipids made of a few beads assemble into membranes
+                    without any solvent, two rules stand in for the water: the tails attract one another, which does the work of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hydrophobic_effect">hydrophobic effect</a>,
+                    and the heads repel everything. In the first experiment, eighty lipids share a periodic cube 71.8&nbsp;&Aring; on a side, a concentration of about 0.36 moles per liter, and fill 8&nbsp;% of its volume.</p>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1039/F29767201525">Israelachvili, Mitchell, and Ninham</a> explained in 1976 how the shape of a lipid decides the shape of the aggregate, with one number called the packing parameter,
+                    p&nbsp;=&nbsp;v/(a<sub>0</sub>l): the volume v of the tails divided by the area a<sub>0</sub> that the head covers times the length l of the tails. A lipid with p below 1/3 is a cone, and cones pack into spherical micelles.
+                    A lipid with p between 1/2 and 1 is a truncated cone or a cylinder, and such lipids pack into bilayers. The lipid with one tail in this lab has p&nbsp;=&nbsp;0.25. The same head on two tails has p&nbsp;=&nbsp;0.50, the lower end of the bilayer range.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Scattering the lipids, running them, counting their aggregates, measuring the shape of each aggregate, and plotting the results are the agent's work. A student asks the agent to
+                    <em>"run these lipids and chart the aggregates"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a live chart of the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open <em>Molecules That Build Themselves</em> from the list (Biology), open the chat, and type the prompts below.</p>
+
+                        <p class="v2-prompts-intro"><b>Be patient.</b> Every picosecond is computed in your browser, and each prompt runs 1500 to 2500 picoseconds.
+                        The answer to each prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows that frame.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">One tail</span> &mdash; <span class="v2-prompt">&ldquo;Run these lipids for 1.5 ns at 300 K and chart the aggregates every 100 ps. What do they build, and what shape is it?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Two tails</span> &mdash; <span class="v2-prompt">&ldquo;Now give each lipid a second tail under the same head, scatter 80 of them in a fresh cell, and run it for 2.5 ns. What do they build?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Oil</span> &mdash; <span class="v2-prompt">&ldquo;Finally, put lipids with a small head and one tail in oil instead of water and run a fresh cell for 2 ns. What happens?&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>One Tail: Micelles</h2>
+
+                    <p>The agent counts aggregates by joining any two lipids whose tails touch, and it averages the count over each 100&nbsp;ps. The count of the eighty one-tailed lipids averaged 16 aggregates over the first 100&nbsp;ps, and the aggregates then merged.
+                    At 1500&nbsp;ps the box held two aggregates of 40 lipids each, with every lipid in one of the two.</p>
+
+                    <p>A count of aggregates cannot tell a micelle from a tangle of lipids, so the agent measures each aggregate at the end of the run. The first measurement is the share of lipids whose head sits farther from the center of the aggregate than their tail: 100&nbsp;%.
+                    The second is the three principal radii of the aggregate, which are the root-mean-square extents of its beads along its own three axes. A ball has three equal radii, a disc has one short radius, and a rod has one long radius.
+                    The radii of one of the two aggregates are 10, 8, and 7&nbsp;&Aring;, and the agent classifies both aggregates as spheres. Each aggregate has a core of tails with a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Radius_of_gyration">radius of gyration</a> of 12&nbsp;&Aring;, covered by heads: the structure of a micelle. A cone-shaped lipid with p&nbsp;=&nbsp;0.25 built spherical micelles, as the packing parameter predicts.</p>
+
+                    <h2>Two Tails: A Bilayer</h2>
+
+                    <p>The second prompt gives each lipid a second tail under the same head and scatters eighty of the two-tailed lipids in a new cube. The lipids gathered within 400&nbsp;ps into one aggregate, and all eighty were in the aggregate at 2500&nbsp;ps.
+                    The three principal radii of the aggregate are 17, 14, and 8&nbsp;&Aring;: one radius is about half of the other two, and the agent classifies the aggregate as a disc.</p>
+
+                    <p>A flat aggregate is a bilayer only if its lipids stand in two layers with the heads on the two faces. The agent tests this with three measurements. The agent finds the plane of the aggregate and counts the heads on each side of the plane: 39 on one side and 41 on the other.
+                    The agent measures the distance between the two layers of heads: 26&nbsp;&Aring;, about twice the 12&nbsp;&Aring; length of one lipid, so the tails of the two layers meet end to end in the middle. The agent measures how well the lipids line up with the normal to the plane,
+                    as the average of the absolute cosine of the angle between each lipid and the normal. That average is 1 when every lipid stands perpendicular to the plane and 0.5 when the lipids point in random directions. The two-tailed lipids gave 0.91, and the micelles of the first prompt gave 0.55.
+                    In the bilayer 98&nbsp;% of the heads point outward. Two layers of lipids with the tails inside and the heads on both faces is the structure of a cell membrane. A lipid with p&nbsp;=&nbsp;0.50 built a bilayer, as the packing parameter predicts.</p>
+
+                    <p>One rule of the model was chosen to obtain this result, and the agent says so in its answer. The outer rod of each tail is a separate bead type, called the tail end, which attracts other tail ends and does not attract the inner rods of other tails.
+                    In a test run of the same eighty lipids without this rule, the lipids gathered into one aggregate with an alignment of 0.66, below the 0.7 that the agent requires of a sheet. The rule is a choice of the model and is not fitted to a measurement.
+                    The bilayer is also small: eighty lipids make a strip about as long as the cube, and a closed <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Vesicle_(biology_and_chemistry)">vesicle</a> needs thousands of lipids.</p>
+
+                    <h2>In Oil: Inverse Micelles</h2>
+
+                    <p>In oil the head is the part of a lipid that avoids the liquid. The oily tails mix with the oil, and the polar heads, which oil does not dissolve, gather together. Surfactants such as
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Docusate">AOT</a> form <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Reverse_micelle">inverse micelles</a> in oil:
+                    small balls with the heads inside and the tails outside. The lab models oil the way it models water, with rules: in oil the heads attract one another and the tails only repel. A chip on the lab names the solvent.</p>
+
+                    <p>The third prompt scatters eighty lipids with a small orange head, 4.7&nbsp;&Aring; wide, on one tail, in a cube of oil. Because the heads now make the core, the agent counts aggregates by joining lipids whose heads touch.
+                    At 2000&nbsp;ps the box held five aggregates of 24, 17, 13, 13, and 11 lipids, and two lipids were in no aggregate. The agent classifies all five as spheres. Each has a core of heads with a radius of gyration of 5 to 7&nbsp;&Aring;, and in every aggregate all the tails point outward.
+                    These are inverse micelles, and each is smaller than the micelles of 40 lipids that formed in water.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-assembly-micelles.jpg" alt="The periodic cube at 1500 ps: two round aggregates of one-tailed lipids, gray tails inside and yellow heads outside; one aggregate crosses a face of the cube and appears in two parts">
+                        <img src="image/aims-assembly-bilayer.jpg" alt="The periodic cube at 2500 ps: eighty two-tailed lipids in one flat sheet, a layer of yellow heads on the near face, gray tails behind them, and a second layer of yellow heads on the far face">
+                        <img src="image/aims-assembly-inverse.jpg" alt="The periodic cube of oil at 2000 ps: five small clusters of orange heads, each wrapped in gray tails that point outward">
+                    </div>
+                    <p class="v2-chart-caption">The last frame of each prompt: micelles of one-tailed lipids in water (left; a micelle that crosses a face of the periodic cube appears in two parts), the bilayer of two-tailed lipids in water (middle), and inverse micelles of small-headed lipids in oil (right). Each frame is loaded by the "Load this state" card under the answer.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Molecule</th><th>Liquid</th><th class="num">p</th><th>Structure</th><th>Measured at the end of the run</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Wide head, one tail</b><small>a cone</small></td><td>water</td><td class="num">0.25</td><td class="model">Micelles</td><td class="bond">2 spheres of 40 lipids, every head outside</td></tr>
+                                <tr><td class="crystal"><b>Wide head, two tails</b><small>lower end of the bilayer range</small></td><td>water</td><td class="num">0.50</td><td class="model">Bilayer</td><td class="bond">1 sheet of 80 lipids, 39 and 41 heads on its faces, 26&nbsp;&Aring; apart</td></tr>
+                                <tr><td class="crystal"><b>Small head, one tail</b><small>&nbsp;</small></td><td>oil</td><td class="num">&nbsp;</td><td class="model">Inverse micelles</td><td class="bond">5 spheres of 11 to 24 lipids, every tail outside</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>Assembly at Equilibrium: Chains of Magnetic Nanoparticles</h2>
+
+                    <p>The two micelles of the first prompt formed by merging: the count of aggregates fell from 16 to 2 during the run. An earlier run of the same box for the same 1500&nbsp;ps ended with three micelles of 38, 21, and 21 lipids.
+                    Two runs of the same lipids at the same temperature ended with different numbers and sizes of micelles, so the micelles had not reached equilibrium by the end of the run. A structure that depends on its history in this way is called kinetically trapped.
+                    Self-assembly can also reach <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermodynamic_equilibrium">equilibrium</a>, where the components keep joining and leaving and the structure is set by the temperature, the concentration, and the strength of the bonds.
+                    A second example in AIMS shows assembly at equilibrium with magnetic nanoparticles.</p>
+
+                    <p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ferrofluid">ferrofluid</a> is a liquid that carries magnetic nanoparticles. Each nanoparticle is a permanent magnet, and two nanoparticles attract when the north pole of one meets the south pole of the other.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1007/BF02422637">De Gennes and Pincus</a> predicted in 1970 that such nanoparticles link into chains when the attraction of a pair is much larger than the thermal energy,
+                    and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/nmat811">Butter and coworkers</a> imaged the chains in iron ferrofluids by cryogenic electron microscopy in 2003.
+                    The example below holds 200 model nanoparticles in a periodic cube at 300&nbsp;K. The model is scaled down in size. It keeps the ratio that decides the chains, the attraction of two nanoparticles in contact, pole to pole, divided by the thermal energy: about 14.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Chains%20of%20Magnetic%20Nanoparticles%20in%20a%20Ferrofluid"
+                                id="aims-frame2" allowfullscreen="true" title="Chains of Magnetic Nanoparticles in a Ferrofluid demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
+                            Two hundred model nanoparticles at 300&nbsp;K, colored by chain. A nanoparticle that belongs to no chain is dark gray.
+                        </figcaption>
+                    </figure>
+
+                    <p>The agent ran the nanoparticles for 1000&nbsp;ps and counted the chains. Over the second half of the run, 94&nbsp;% of the nanoparticles were in a chain of two or more, and the mean chain length was 4.6 nanoparticles.
+                    The chains kept breaking and forming: 73&nbsp;% of the links present at one sample were still present 50&nbsp;ps later. The number of chains fell from each length to the next by factors of 0.63, 0.80, and 0.78 for the first three steps. The theory of chains that break and re-form at random predicts one constant factor, 0.78 for this mean length.</p>
+
+                    <p>Two more runs test whether the chains are at equilibrium. The agent first raised the magnetic moment of each nanoparticle, which raised the attraction of a pair to about 25 times the thermal energy. The mean chain length rose to 30, and 96&nbsp;% of the links lasted 50&nbsp;ps.
+                    The agent then set the moment back to its first value, starting from the long chains. The mean chain length fell to 5.2, close to the 4.6 reached from scattered nanoparticles.
+                    The same nanoparticles reached nearly the same chain length from scattered nanoparticles and from long chains, so at this strength of attraction the chain length is set by the attraction and the temperature. Heating the box to 450&nbsp;K lowered the mean chain length to 1.9.
+                    Open <em>Chains of Magnetic Nanoparticles in a Ferrofluid</em> from the list of examples (Materials Science, Soft Matter) to see the prompts and their charts.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the forces among beads, rods, and dipoles. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Micelles</span> &mdash; 80 scattered one-tailed lipids become two spherical micelles of 40 lipids by 1500&nbsp;ps, with every head outside.</li>
+                            <li><span class="v2-prompts-step">A bilayer</span> &mdash; 80 scattered two-tailed lipids become one sheet within 400&nbsp;ps, with 39 and 41 heads on its two faces, 26&nbsp;&Aring; apart, and the lipids lined up with the normal to the sheet (0.91).</li>
+                            <li><span class="v2-prompts-step">Inverse micelles</span> &mdash; in oil, 80 small-headed lipids become five balls of 11 to 24 lipids with the heads inside and every tail outside.</li>
+                            <li><span class="v2-prompts-step">Chains at equilibrium</span> &mdash; 200 magnetic nanoparticles link into chains with a mean length of 4.6 that break and re-form, and the chains return to a mean length of 5.2 after being grown to 30.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses lipids and magnetic nanoparticles to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. Self-assembly, the textbook explanation of how membranes and micelles form, becomes something students watch and measure for themselves in a browser: how the shape of a lipid decides between a micelle and a bilayer,
+                    how to tell a bilayer from a flat tangle, how the same kind of molecule turns inside out in oil, and how to test whether an assembled structure is at equilibrium. By pairing a physically grounded coarse-grained simulation with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of the structures that build themselves.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
