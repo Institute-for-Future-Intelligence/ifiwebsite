@@ -100,14 +100,14 @@
                     long molecules built by linking many copies of a small molecule, the monomer. A polyethylene molecule in a plastic bag holds thousands of linked ethylene units. Textbooks draw such a molecule as a repeat unit in brackets with a subscript,
                     &ndash;[CH<sub>2</sub>&ndash;CH<sub>2</sub>]<sub><i>n</i></sub>&ndash;, which leaves out what the chain looks like in space. The Polymer Builder in AIMS builds the chain itself, with every atom in place, in a web browser.
                     A student picks one or more monomers, sets how many units to link and how to arrange them, and the chain appears in the lab, ready for a molecular dynamics simulation. An <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a>
-                    does the same work from a plain-language request in the chat, measures the chains it builds, and designs new ones to a target. In the window below, the gallery holds seven monomers, and the lab holds a polyethylene chain of 22 ethylene units, C<sub>44</sub>H<sub>90</sub>, with 134 atoms.</p>
+                    does the same work from a plain-language request in the chat, measures the chains it builds, and designs new ones to a target. In the window below, the gallery holds eight monomers, and the lab holds a chain of PET, the plastic of soda bottles, built from ten units each of terephthalic acid and ethylene glycol.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Polymers"
                                 id="aims-frame1" allowfullscreen="true" title="Polymers demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
-                            A polyethylene chain of 22 units built from ethylene. Press Play to watch the chain move at room temperature.
+                            A PET chain of ten terephthalic acid and ten ethylene glycol units, 223 atoms. Press Play to watch the chain move at room temperature.
                         </figcaption>
                     </figure>
 
@@ -140,6 +140,20 @@
                         </table>
                     </div>
 
+                    <h2>Condensation Polymers</h2>
+
+                    <p>Polyesters and nylons form another way. Their monomers carry reactive groups at both ends, and each link joins an acid group, &ndash;COOH, of one monomer to an alcohol group, &ndash;OH, or an amine group, &ndash;NH<sub>2</sub>, of another.
+                    The acid loses its OH and the alcohol or amine loses an H, and the two leave together as a molecule of water. This is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Condensation_polymer">condensation polymerization</a>, and the link it forms is an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ester">ester</a>, &ndash;COO&ndash;, or an amide, &ndash;CONH&ndash;.
+                    Terephthalic acid has an acid group at each end of a benzene ring, and ethylene glycol, HO&ndash;CH<sub>2</sub>&ndash;CH<sub>2</sub>&ndash;OH, has an &ndash;OH group at each end. Linked in alternating order, they make
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polyethylene_terephthalate">polyethylene terephthalate</a>, PET, the polyester of soda bottles and polyester fabric. Adipic acid and hexamethylenediamine make <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nylon_66">nylon 6,6</a> the same way through amide links. The Nylon 6,6 example builds a chain of eight units of each, C<sub>96</sub>H<sub>178</sub>N<sub>16</sub>O<sub>17</sub>, with 307 atoms.</p>
+
+                    <p>The Polymer Builder recognizes the acid, alcohol, and amine groups of a monomer and links the units through them. At every link it removes the OH of the acid and an H of the alcohol or amine, so the chain in the lab of the first example has the formula of its 20 monomers minus 19 molecules of water:
+                    C<sub>100</sub>H<sub>82</sub>O<sub>41</sub>, with 223 atoms. Its two ends still carry an acid group and an &ndash;OH group, where the chain could grow further. This is the chain in the first window of this article, where the ester links show as pairs of red oxygen atoms between each benzene ring and the next CH<sub>2</sub>&ndash;CH<sub>2</sub> unit.
+                    Two acid groups cannot link, so a diacid has to alternate with a diol or a diamine, and the builder refuses a sequence that puts two acids side by side.
+                    A monomer with an acid group at one end and an alcohol or amine at the other, such as lactic acid, polymerizes on its own: lactic acid makes poly(lactic acid), a plastic made from plants.
+                    In the same way, 6-aminohexanoic acid, with an acid group at one end and an amine group at the other, makes <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nylon_6">nylon 6</a>.
+                    The Nylon 6 example builds a chain of 16 units of it, with the same formula as the nylon 6,6 chain, C<sub>96</sub>H<sub>178</sub>N<sub>16</sub>O<sub>17</sub>, and the same 307 atoms. The two chains differ in the direction of their amide links: in nylon 6 every link points the same way along the chain, and in nylon 6,6 the links alternate in direction.</p>
+
                     <h2>Laying Out the Chain</h2>
 
                     <p>The builder adds one unit at a time. Each new unit bonds to the end of the chain at the position where the previous unit's end hydrogen was, so every bond angle where two units meet is the angle of a tetrahedral carbon, about 109.5&deg;.
@@ -148,7 +162,7 @@
                     A polyethylene chain built this way is a straight zigzag. A setting called torsion jitter adds a small random twist at every bond, and the chain starts out slightly bent.</p>
 
                     <p>In a vinyl polymer such as polystyrene, every second carbon of the backbone carries the side group, and the side group can point to either side of the zigzag. The arrangement of these sides along the chain is the
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tacticity">tacticity</a> of the polymer. In polystyrene made by the common industrial process, the sides are random, and the polymer is called atactic. The builder chooses the side of each unit at random, so its chains are atactic too.
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Tacticity">tacticity</a> of the polymer. In polystyrene made by the common industrial process, the sides are random, and the polymer is called atactic. The builder chooses the side of each unit at random by default, so its chains are atactic too. The Build Chain dialog also builds isotactic chains, with every side group on the same side, and syndiotactic chains, with the sides alternating.
                     Before the chain goes into the lab, the builder minimizes its energy, moving the atoms until the forces on them are close to zero. A simulation of the chain then starts at an energy minimum.</p>
 
                     <h2>Copolymers</h2>
@@ -157,15 +171,21 @@
                     The builder offers the three standard sequences: <i>alternating</i> (ABABAB&hellip;), <i>random</i>, in which each unit is drawn at random with chosen proportions, and <i>block</i> (AAAABBBB&hellip;), in which runs of one monomer follow runs of another, with a chosen length for each run.
                     The Build Chain dialog shows the sequence as a string of letters before the chain is built.</p>
 
-                    <p>The second example builds a chain from the three monomers of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene">ABS</a>, the hard plastic of toy bricks and appliance housings: acrylonitrile, butadiene, and styrene, alternating along a backbone of 17 units, with short polystyrene branches at random positions.
-                    The chain has 424 atoms. Real ABS is arranged differently: chains of rubbery polybutadiene are grafted with chains of a styrene&ndash;acrylonitrile copolymer, and the rubber forms small particles inside the hard plastic. The example shows the three monomers joined in one molecule.</p>
+                    <p>The second example builds the molecule that holds <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene">ABS</a> together, the hard plastic of toy bricks and appliance housings.
+                    ABS is made by polymerizing styrene and acrylonitrile in the presence of polybutadiene rubber. Some of the growing styrene&ndash;acrylonitrile chains, called SAN, attach to the rubber chains as branches, and the result is a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graft_polymer">graft copolymer</a>: a backbone of polybutadiene with side chains of SAN. In the plastic, the rubber gathers into small particles inside a hard matrix of SAN,
+                    and the grafted chains bind the particles to the matrix, which makes ABS tough.</p>
+
+                    <p>The example builds a short stretch of this molecule: a polybutadiene backbone of 12 units with a SAN side chain of six units on every fourth backbone unit. In the Build Chain dialog, butadiene is the backbone monomer, styrene and acrylonitrile are the side-chain monomers,
+                    and each side-chain unit is drawn at random, 60 styrene to 40 acrylonitrile, which is about three parts styrene to one part acrylonitrile by weight. In this chain the draw gave nine units of each.
+                    The molecule has 329 atoms, C<sub>147</sub>H<sub>173</sub>N<sub>9</sub>, and each of its 12 butadiene units keeps one C=C in the backbone.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Copolymers"
                                 id="aims-frame2" allowfullscreen="true" title="Copolymers demo"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
-                            A backbone of 17 alternating acrylonitrile, butadiene, and styrene units with short polystyrene branches. The nitrogen atoms of the acrylonitrile units are blue.
+                            A polybutadiene backbone of 12 units with three side chains of styrene and acrylonitrile units in random order. The nitrogen atoms of the acrylonitrile units are blue.
                         </figcaption>
                     </figure>
 
@@ -178,7 +198,7 @@
                         <li><p><b>Linear:</b> one chain with two ends.</p></li>
                         <li><p><b>Ring:</b> the two ends joined into a closed loop, a cyclic polymer.</p></li>
                         <li><p><b>Star:</b> two to twelve arms joined at one central atom. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Star-shaped_polymer">Star polymers</a> are used as additives that keep motor oil from thinning too much when it gets hot.</p></li>
-                        <li><p><b>Comb:</b> side chains attached at regular intervals along a backbone. When the side chains are made of a different monomer, the molecule is a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graft_polymer">graft copolymer</a>.</p></li>
+                        <li><p><b>Comb:</b> side chains attached at regular intervals along a backbone. When the side chains are made of a different monomer, the molecule is a graft copolymer, like the ABS molecule above. The backbone and the side chains can each be built from one monomer or from several.</p></li>
                         <li><p><b>Branched:</b> side chains attached at random positions along a backbone, with a chosen chance of a branch at each unit.</p></li>
                         <li><p><b>Dendritic:</b> a regular tree. Arms grow from a central atom, and the tip of each arm splits into new arms, generation after generation. Such molecules are called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Dendrimer">dendrimers</a>.</p></li>
                         <li><p><b>Hyperbranched:</b> a tree in which each tip splits only with a chosen probability, so the branching is irregular.</p></li>
@@ -201,6 +221,11 @@
                     The resulting chains are a sample of the shapes the chain can take without overlapping. Every position is equally likely in this sample, while a real chain at 300&nbsp;K favors trans, the position of lowest energy.
                     In three runs of this experiment, the fitted exponent came out 0.51, 0.62, and 0.63. Two chains per length are few, and the scatter from run to run is large. With six chains per length, two runs gave &nu; = 0.64 and 0.65, and the power law matched the points closely in both (r<sup>2</sup> = 0.996 and 0.990).
                     That value is above 0.588 and well above 1/2: the chains swell as a self-avoiding walk does. Chains of 40 units are short, and the stiffness of the zigzag over a few units raises the exponent of a short chain. The theoretical values hold for long chains.</p>
+
+                    <p>Branching makes a polymer more compact. The Polymer Architectures example compares four polymers of about 48 ethylene units each: a linear chain, a star of four arms of 12 units, a comb with six side chains of four units on a backbone of 24, and a dendrimer that branches at every unit.
+                    The agent draws 1,000 shapes of each in the same way and averages R<sub>g</sub>: 12.6&nbsp;&Aring; for the linear chain, 10.2&nbsp;&Aring; for the comb, 9.9&nbsp;&Aring; for the star, and 6.4&nbsp;&Aring; for the dendrimer.
+                    The usual measure of the effect is g, the mean square R<sub>g</sub> of the branched polymer divided by that of the linear one. For a star of <i>f</i> arms whose chains could pass through one another,
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.1747157">Zimm and Stockmayer</a> showed in 1949 that g = (3<i>f</i> &minus; 2)/<i>f</i><sup>2</sup>, which is 0.625 for four arms. The star in the example gives g = 0.60, close to that value, although its arms are only 12 units long and cannot overlap.</p>
 
                     <h2>Designing a Copolymer: A Latex Paint Binder</h2>
 
@@ -231,18 +256,35 @@
 
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">Try It</p>
-                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). The three examples are in the Chemistry group. Open one, open the chat, and type a prompt below.
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). The six examples are in the Chemistry group. Open one, open the chat, and type a prompt below.
                         The chat of the latex example already holds the answers to its first two prompts.</p>
 
                         <p class="v2-prompts-group">Polymers</p>
                         <ul>
                             <li><span class="v2-prompt">&ldquo;Build a 20-unit polystyrene chain.&rdquo;</span></li>
+                            <li><span class="v2-prompt">&ldquo;Build a PET chain of 20 units from terephthalic acid and ethylene glycol.&rdquo;</span></li>
                             <li><span class="v2-prompt">&ldquo;Build a star polymer of polyethylene with four arms of six units.&rdquo;</span></li>
                             <li><span class="v2-prompt">&ldquo;How does the radius of gyration of polyethylene scale with chain length?&rdquo;</span></li>
                         </ul>
                         <p class="v2-prompts-group">Copolymers</p>
                         <ul>
                             <li><span class="v2-prompt">&ldquo;Build a block copolymer of styrene and butadiene with blocks of five units.&rdquo;</span></li>
+                            <li><span class="v2-prompt">&ldquo;Build an ABS graft copolymer with a polybutadiene backbone of 12 units and styrene&ndash;acrylonitrile side chains of six units.&rdquo;</span></li>
+                        </ul>
+                        <p class="v2-prompts-group">Nylon 6,6</p>
+                        <ul>
+                            <li><span class="v2-prompt">&ldquo;Build a polyester of 16 units from adipic acid and ethylene glycol.&rdquo;</span></li>
+                            <li><span class="v2-prompt">&ldquo;How does the radius of gyration of nylon 6,6 scale with chain length?&rdquo;</span></li>
+                        </ul>
+                        <p class="v2-prompts-group">Nylon 6</p>
+                        <ul>
+                            <li><span class="v2-prompt">&ldquo;Build a poly(lactic acid) chain of 20 units from lactic acid.&rdquo;</span></li>
+                            <li><span class="v2-prompt">&ldquo;Build a nylon 6,6 chain of 16 units from adipic acid and hexamethylenediamine.&rdquo;</span></li>
+                        </ul>
+                        <p class="v2-prompts-group">Polymer Architectures</p>
+                        <ul>
+                            <li><span class="v2-prompt">&ldquo;Compare a linear chain with stars of 3, 6 and 8 arms.&rdquo;</span></li>
+                            <li><span class="v2-prompt">&ldquo;Add styrene to the gallery, then compare the architectures of polystyrene with 24 units each.&rdquo;</span></li>
                         </ul>
                         <p class="v2-prompts-group">Designing a Latex Paint Binder</p>
                         <ol>
@@ -255,9 +297,9 @@
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Builder Produced</p>
                         <ul>
-                            <li><span class="v2-prompts-step">Polyethylene</span> &mdash; 22 ethylene units linked into C<sub>44</sub>H<sub>90</sub>, a zigzag of tetrahedral carbons with 134 atoms.</li>
+                            <li><span class="v2-prompts-step">PET</span> &mdash; ten units each of terephthalic acid and ethylene glycol joined by 19 ester links, C<sub>100</sub>H<sub>82</sub>O<sub>41</sub>, with 223 atoms and 19 molecules of water released.</li>
                             <li><span class="v2-prompts-step">Seven addition polymers</span> &mdash; from the vinyl monomers and butadiene in the gallery, with the side groups on random sides of the chain.</li>
-                            <li><span class="v2-prompts-step">A copolymer with branches</span> &mdash; acrylonitrile, butadiene, and styrene alternating along a 17-unit backbone with polystyrene branches, 424 atoms.</li>
+                            <li><span class="v2-prompts-step">A graft copolymer</span> &mdash; a stretch of the ABS molecule: a 12-unit polybutadiene backbone with three styrene&ndash;acrylonitrile side chains, 329 atoms.</li>
                             <li><span class="v2-prompts-step">Chain size</span> &mdash; polyethylene chains of 5 to 40 units grow as <i>N</i><sup>0.64</sup> with six chains per length, a swollen coil like a self-avoiding walk.</li>
                             <li><span class="v2-prompts-step">A designed binder</span> &mdash; a 60:40 styrene&ndash;n-butyl acrylate copolymer with a computed T<sub>g</sub> of 10.2&nbsp;&deg;C, inside the 5 to 15&nbsp;&deg;C target, built as a 362-atom chain.</li>
                         </ul>
@@ -266,7 +308,7 @@
                     <h2>Conclusion</h2>
 
                     <p>This article uses the Polymer Builder to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language request into a molecule and a molecular dynamics experiment, and hands back measured data.
-                    The bracketed repeat unit of the textbook becomes a chain that students can build, turn in three dimensions, and watch move: how a double bond opens to link units, how copolymer sequences and branching change a molecule, how the size of a chain grows with its length,
+                    The bracketed repeat unit of the textbook becomes a chain that students can build, turn in three dimensions, and watch move: how a double bond opens to link units and how an acid and an alcohol join and release water, how copolymer sequences and branching change a molecule, how the size of a chain grows with its length,
                     and how a chemist picks a composition to meet a target. By pairing a physically grounded simulation with an AI that can set it up and run it, AIMS turns a student's curiosity into a genuine scientific investigation of the materials they use every day.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
