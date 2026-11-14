@@ -54,7 +54,8 @@
 
     <style>
         .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
-        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        /* minmax(0, ...), not a bare 1fr: the column may be narrower than a wide diagram, which then scrolls inside its own box. */
+        .v2-section.is-wide .v2-grid { grid-template-columns: minmax(0, 1fr); }
         .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
         .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
         .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
@@ -74,8 +75,44 @@
         @media (max-width: 900px) { .v2-figure-pair { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
         /* A chart shown on its own (figure.v2-formula draws an image at its full size, 900px here): two thirds of that is enough to read it. */
         .v2-col-main .v2-formula.is-compact img { max-width: min(100%, 620px) !important; }
-        /* The two places the text links to (Figure 3, the experiment at the end): land below the site's fixed header (58px), not under it. */
+        /* The strip of frames is saved at twice its size on the page, so that it stays sharp on a dense screen. */
+        .v2-col-main .v2-formula.is-strip img { max-width: min(100%, 932px) !important; }
+        /* The two places the text links to (Figure 3, the experiment after the introduction): land below the site's fixed header (58px), not under it. */
         #figure-3, #experiment { scroll-margin-top: 74px; }
+
+        /* Diagrams: inline SVG in figure.v2-fig, as in the Aladdin and AIMS articles. Orange is what is done at the bench; indigo is the agent. */
+        .v2-fig { margin: 2rem 0 2.5rem; }
+        .v2-fig svg { display: block; width: 100%; height: auto; margin: 0 auto; }
+        .v2-fig figcaption { max-width: 800px; margin: 1rem auto 0; padding-left: 0.9rem; border-left: 4px solid var(--accent); font-size: 1.18rem; line-height: 1.55; color: var(--text-muted); }
+        .v2-fig figcaption strong { color: var(--text); font-weight: 600; }
+        .v2-fig-scroll { overflow-x: auto; }
+        .v2-dg { --you: #ea580c; --you-dark: #c2410c; --you-soft: #fff7ed; --ai: #6366f1; --ai-soft: #eef2ff; --line: #64748b; }
+        .v2-dg text { font-family: var(--font-body); }
+        .v2-dg .lane-you { fill: rgba(234, 88, 12, 0.05); }
+        .v2-dg .lane-ai { fill: rgba(99, 102, 241, 0.06); }
+        .v2-dg .card { fill: #fff; stroke: rgba(15, 23, 42, 0.18); stroke-width: 1.2; }
+        .v2-dg .card.is-you { fill: var(--you-soft); stroke: var(--you); stroke-width: 1.5; }
+        .v2-dg .card.is-ai { fill: var(--ai-soft); stroke: var(--ai); stroke-width: 1.5; }
+        .v2-dg .dot-you { fill: var(--you); }
+        .v2-dg .dot-ai { fill: var(--ai); }
+        .v2-dg .dot-both { fill: #334155; }
+        .v2-dg .num { fill: #fff; font-family: var(--font-display); font-size: 14px; font-weight: 700; text-anchor: middle; }
+        .v2-dg .name { fill: var(--text); font-family: var(--font-display); font-size: 17px; font-weight: 700; }
+        .v2-dg .desc { fill: var(--text-muted); font-size: 13px; }
+        .v2-dg .who { fill: #334155; font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
+        .v2-dg .who.is-you { fill: var(--you-dark); }
+        .v2-dg .who.is-ai { fill: var(--accent-dark); }
+        .v2-dg .flow { fill: none; stroke: var(--line); stroke-width: 1.8; }
+        .v2-dg .head { fill: var(--line); }
+        .v2-dg .loop { fill: none; stroke: var(--line); stroke-width: 1.6; stroke-dasharray: 6 5; }
+        .v2-dg .lbl { fill: var(--text-muted); font-size: 12px; font-style: italic; }
+        .v2-dg .out { fill: var(--you-soft); stroke: var(--you); stroke-width: 1.4; }
+        .v2-dg .outlbl { fill: var(--you-dark); font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-anchor: middle; }
+        .v2-dg .mid { text-anchor: middle; }
+        /* The workflow: two lanes on a wide screen, a ladder on a phone. */
+        .v2-wf { min-width: 900px; }
+        .v2-fig svg.v2-wf-tall { display: none; max-width: 400px; }
+        @media (max-width: 700px) { .v2-wf-wide { display: none; } .v2-fig svg.v2-wf-tall { display: block; } }
         .v2-pullquote { font-style: italic; font-size: 1.35rem; line-height: 1.5; padding: 1.25rem 1.5rem; border-left: 3px solid var(--accent); background: var(--surface-raised); border-radius: 0 0.5rem 0.5rem 0; margin: 0 0 1.75rem; color: var(--text); }
         .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
         .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
@@ -133,13 +170,188 @@
                         experiment comes through the camera and the conversation.
                     </p>
 
+                    <figure class="v2-fig">
+                        <div class="v2-fig-scroll v2-wf-wide">
+                        <svg class="v2-dg v2-wf" viewBox="0 0 1200 340" role="img" aria-label="The workflow of an experiment, in two lanes: you at the bench, and the AI agent in the app. Step 1, materials, is yours: photograph what is on the table, or just type it. A photo and a question go to the agent. Step 2, plan, is the agent's: it names the experiment, draws the setup, and predicts the result. The plan comes back to you, and you can edit it. Step 3, experiment, is yours: do it by hand and record it with a thermal camera. The recording goes to the agent. Step 4, analysis, is the agent's: it looks at the frames and runs its own code on the data. Step 5, discussion, belongs to both: you ask why and say what it got wrong, and the agent answers from the data, looks up the science, and says what you got wrong. The discussion can send you back to step 3 to run the experiment again. Step 6, report, is the agent's: it writes it up with its own figures and rewrites on request. The report comes back to you, and you can edit it.">
+                            <rect class="lane-you" x="0" y="44" width="1200" height="132" rx="16"/>
+                            <rect class="lane-ai" x="0" y="200" width="1200" height="132" rx="16"/>
+                            <text class="who is-you" x="18" y="106">YOU</text>
+                            <text class="desc" x="18" y="124">at the bench</text>
+                            <text class="who is-ai" x="18" y="262">AI AGENT</text>
+                            <text class="desc" x="18" y="280">in the app</text>
+
+                            <!-- 1 Materials (you) -->
+                            <rect class="card is-you" x="100" y="58" width="164" height="104" rx="12"/>
+                            <circle class="dot-you" cx="122" cy="82" r="12"/>
+                            <text class="num" x="122" y="87">1</text>
+                            <text class="name" x="142" y="88">Materials</text>
+                            <text class="desc" x="114" y="113">Photograph what is</text>
+                            <text class="desc" x="114" y="130">on the table, or</text>
+                            <text class="desc" x="114" y="147">just type it</text>
+                            <path class="flow" d="M182,162 V266 H268"/>
+                            <path class="head" d="M278,266 l-10,-5 v10 z"/>
+                            <text class="lbl" x="192" y="192">a photo and a question</text>
+
+                            <!-- 2 Plan (agent) -->
+                            <rect class="card is-ai" x="278" y="214" width="164" height="104" rx="12"/>
+                            <circle class="dot-ai" cx="300" cy="238" r="12"/>
+                            <text class="num" x="300" y="243">2</text>
+                            <text class="name" x="320" y="244">Plan</text>
+                            <text class="desc" x="292" y="269">Names it, draws the</text>
+                            <text class="desc" x="292" y="286">setup, and predicts</text>
+                            <text class="desc" x="292" y="303">the result</text>
+                            <path class="flow" d="M360,214 V110 H446"/>
+                            <path class="head" d="M456,110 l-10,-5 v10 z"/>
+                            <text class="lbl" x="370" y="192">the plan</text>
+                            <text class="lbl" x="370" y="150">yours to edit</text>
+
+                            <!-- 3 Experiment (you) -->
+                            <rect class="card is-you" x="456" y="58" width="164" height="104" rx="12"/>
+                            <circle class="dot-you" cx="478" cy="82" r="12"/>
+                            <text class="num" x="478" y="87">3</text>
+                            <text class="name" x="498" y="88">Experiment</text>
+                            <text class="desc" x="470" y="113">Do it by hand and</text>
+                            <text class="desc" x="470" y="130">record it with a</text>
+                            <text class="desc" x="470" y="147">thermal camera</text>
+                            <path class="flow" d="M538,162 V266 H624"/>
+                            <path class="head" d="M634,266 l-10,-5 v10 z"/>
+                            <text class="lbl" x="548" y="192">the recording</text>
+
+                            <!-- 4 Analysis (agent) -->
+                            <rect class="card is-ai" x="634" y="214" width="164" height="104" rx="12"/>
+                            <circle class="dot-ai" cx="656" cy="238" r="12"/>
+                            <text class="num" x="656" y="243">4</text>
+                            <text class="name" x="676" y="244">Analysis</text>
+                            <text class="desc" x="648" y="269">Looks at the frames</text>
+                            <text class="desc" x="648" y="286">and runs its own</text>
+                            <text class="desc" x="648" y="303">code on the data</text>
+                            <path class="flow" d="M798,266 H822"/>
+                            <path class="head" d="M832,266 l-10,-5 v10 z"/>
+
+                            <!-- 5 Discussion (both lanes) -->
+                            <rect class="card" x="832" y="58" width="164" height="260" rx="12"/>
+                            <circle class="dot-both" cx="854" cy="82" r="12"/>
+                            <text class="num" x="854" y="87">5</text>
+                            <text class="name" x="874" y="88">Discussion</text>
+                            <text class="desc" x="846" y="113">You ask why, and</text>
+                            <text class="desc" x="846" y="130">say what it got</text>
+                            <text class="desc" x="846" y="147">wrong</text>
+                            <path class="flow" d="M914,176 V200"/>
+                            <path class="head" d="M914,167 l-5,10 h10 z"/>
+                            <path class="head" d="M914,209 l-5,-10 h10 z"/>
+                            <text class="desc" x="846" y="236">The agent answers</text>
+                            <text class="desc" x="846" y="253">from the data, looks</text>
+                            <text class="desc" x="846" y="270">up the science, and</text>
+                            <text class="desc" x="846" y="287">says what you got</text>
+                            <text class="desc" x="846" y="304">wrong</text>
+                            <!-- back to the bench -->
+                            <path class="loop" d="M914,58 V24 H538 V48"/>
+                            <path class="head" d="M538,58 l-5,-10 h10 z"/>
+                            <text class="lbl mid" x="726" y="16">run it again</text>
+                            <path class="flow" d="M996,266 H1020"/>
+                            <path class="head" d="M1030,266 l-10,-5 v10 z"/>
+
+                            <!-- 6 Report (agent) -->
+                            <rect class="card is-ai" x="1030" y="214" width="164" height="104" rx="12"/>
+                            <circle class="dot-ai" cx="1052" cy="238" r="12"/>
+                            <text class="num" x="1052" y="243">6</text>
+                            <text class="name" x="1072" y="244">Report</text>
+                            <text class="desc" x="1044" y="269">Writes it up with</text>
+                            <text class="desc" x="1044" y="286">its own figures;</text>
+                            <text class="desc" x="1044" y="303">rewrites on request</text>
+                            <path class="flow" d="M1112,214 V138"/>
+                            <path class="head" d="M1112,128 l-5,10 h10 z"/>
+                            <text class="lbl" x="1122" y="192">the report</text>
+                            <text class="lbl" x="1122" y="160">yours to edit</text>
+                            <rect class="out" x="1042" y="92" width="140" height="36" rx="18"/>
+                            <text class="outlbl" x="1112" y="115">A LAB REPORT</text>
+                        </svg>
+                        </div>
+                        <svg class="v2-dg v2-wf-tall" viewBox="0 0 360 632" role="img" aria-label="The workflow of an experiment. Step 1, yours, materials: a photo of the table, or a few words. Step 2, the AI agent's, plan: a setup drawing, a plan, a prediction; you can edit the plan. Step 3, yours, experiment: by hand, under a thermal camera. Step 4, the agent's, analysis: it looks at frames and runs its own code. Step 5, yours and the agent's, discussion: each questions and corrects the other, and the discussion can send you back to step 3 to run it again. Step 6, the agent's, report: its own figures, rewritten on request; you can edit the report. The result is a lab report.">
+                            <rect class="card is-you" x="46" y="10" width="300" height="74" rx="12"/>
+                            <circle class="dot-you" cx="72" cy="47" r="13"/>
+                            <text class="num" x="72" y="52">1</text>
+                            <text class="who is-you" x="96" y="31">YOU</text>
+                            <text class="name" x="96" y="52">Materials</text>
+                            <text class="desc" x="96" y="71">A photo of the table, or a few words</text>
+                            <path class="flow" d="M196,84 V96"/>
+                            <path class="head" d="M196,106 l-5,-10 h10 z"/>
+
+                            <rect class="card is-ai" x="46" y="106" width="300" height="74" rx="12"/>
+                            <circle class="dot-ai" cx="72" cy="143" r="13"/>
+                            <text class="num" x="72" y="148">2</text>
+                            <text class="who is-ai" x="96" y="127">AI AGENT</text>
+                            <text class="name" x="96" y="148">Plan</text>
+                            <text class="desc" x="96" y="167">A setup drawing, a plan, a prediction</text>
+                            <path class="flow" d="M196,180 V192"/>
+                            <path class="head" d="M196,202 l-5,-10 h10 z"/>
+                            <text class="lbl" x="208" y="195">yours to edit</text>
+
+                            <rect class="card is-you" x="46" y="202" width="300" height="74" rx="12"/>
+                            <circle class="dot-you" cx="72" cy="239" r="13"/>
+                            <text class="num" x="72" y="244">3</text>
+                            <text class="who is-you" x="96" y="223">YOU</text>
+                            <text class="name" x="96" y="244">Experiment</text>
+                            <text class="desc" x="96" y="263">By hand, under a thermal camera</text>
+                            <path class="flow" d="M196,276 V288"/>
+                            <path class="head" d="M196,298 l-5,-10 h10 z"/>
+
+                            <rect class="card is-ai" x="46" y="298" width="300" height="74" rx="12"/>
+                            <circle class="dot-ai" cx="72" cy="335" r="13"/>
+                            <text class="num" x="72" y="340">4</text>
+                            <text class="who is-ai" x="96" y="319">AI AGENT</text>
+                            <text class="name" x="96" y="340">Analysis</text>
+                            <text class="desc" x="96" y="359">Looks at frames, runs its own code</text>
+                            <path class="flow" d="M196,372 V384"/>
+                            <path class="head" d="M196,394 l-5,-10 h10 z"/>
+
+                            <rect class="card" x="46" y="394" width="300" height="74" rx="12"/>
+                            <circle class="dot-both" cx="72" cy="431" r="13"/>
+                            <text class="num" x="72" y="436">5</text>
+                            <text class="who" x="96" y="415">YOU AND THE AGENT</text>
+                            <text class="name" x="96" y="436">Discussion</text>
+                            <text class="desc" x="96" y="455">Each questions and corrects the other</text>
+                            <path class="loop" d="M46,431 H22 V239 H36"/>
+                            <path class="head" d="M46,239 l-10,-5 v10 z"/>
+                            <text class="lbl mid" transform="translate(14,335) rotate(-90)">run it again</text>
+                            <path class="flow" d="M196,468 V480"/>
+                            <path class="head" d="M196,490 l-5,-10 h10 z"/>
+
+                            <rect class="card is-ai" x="46" y="490" width="300" height="74" rx="12"/>
+                            <circle class="dot-ai" cx="72" cy="527" r="13"/>
+                            <text class="num" x="72" y="532">6</text>
+                            <text class="who is-ai" x="96" y="511">AI AGENT</text>
+                            <text class="name" x="96" y="532">Report</text>
+                            <text class="desc" x="96" y="551">Its own figures; rewritten on request</text>
+                            <path class="flow" d="M196,564 V576"/>
+                            <path class="head" d="M196,586 l-5,-10 h10 z"/>
+                            <text class="lbl" x="208" y="579">yours to edit</text>
+                            <rect class="out" x="110" y="586" width="172" height="36" rx="18"/>
+                            <text class="outlbl" x="196" y="609">A LAB REPORT</text>
+                        </svg>
+                        <figcaption><strong>The workflow of an experiment, and what the agent does at each step.</strong> The student works at the bench and the agent works in the app, and the arrows carry everything that passes between them. The plan and the report are the student's to edit. The discussion can send the student back to the bench, as it did in the experiment of this article.</figcaption>
+                    </figure>
+
                     <p>
                         This article follows one experiment from the first photo to the final
                         report: salt and baking soda from a kitchen, three dishes of water, two
                         recordings, and a first result that contradicted the prediction. The agent
-                        ran on OpenAI's GPT-6 Luna. The experiment itself, with the whole
-                        conversation, is <a href="#experiment">at the end of the article</a>.
+                        ran on OpenAI's GPT-6 Luna. The window below is the experiment as we left
+                        it, with the whole conversation.
                     </p>
+
+                    <figure class="v2-embed" id="experiment">
+                        <iframe src="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae?viewonly=true"
+                                id="ie-frame-experiment" loading="lazy" allowfullscreen="true" title="The experiment Cooling When Powders Dissolve in Infrared Explorer"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('ie-frame-experiment');">View fullscreen</a><br>
+                            The experiment on the web. Scroll the conversation on the left, and open Plan, Captures, or Report on the right.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae">Open the experiment in Infrared Explorer</a>
+                    </div>
 
                     <h2>From a photo to a plan</h2>
 
@@ -270,8 +482,8 @@
                         mole for mole and fully dissolved, baking soda should cool the water more.
                         Asked how to make the difference bigger, it redesigned the experiment:
                         weigh the two, stir each dish the same way for the same time, and add no
-                        more baking soda than the water can dissolve. The <a href="#experiment">full exchange</a> is at the end of
-                        this article.
+                        more baking soda than the water can dissolve. The <a href="#experiment">full exchange</a> is in the
+                        experiment near the top of this article.
                     </p>
 
                     <h2>The second run</h2>
@@ -284,16 +496,10 @@
                         (Figure 5).
                     </p>
 
-                    <div class="v2-screenshot-row is-frames">
-                        <img src="image/ie-ai-lab-partner-run2-vl.jpg" alt="Three Petri dishes in visible light 120 seconds into the second recording, with a stick stirring the salt dish and another stirring the baking soda dish">
-                        <img src="image/ie-ai-lab-partner-run2-ir.jpg" alt="Thermal frame at 120 seconds; the baking soda dish at the bottom is deep purple, much colder than the salt dish and the control">
-                    </div>
-                    <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: -1rem;">
-                        Figure 5: The second run 120 s in, seen in visible light (left) and
-                        infrared light (right). The stirred baking soda dish at the bottom is now
-                        the coldest by far; the lighter streak inside it is the stirring stick.
-                        The colors run from 19.6&nbsp;&deg;C (dark) to 24.8&nbsp;&deg;C (white).
-                    </p>
+                    <figure class="v2-formula is-strip">
+                        <img src="image/ie-ai-lab-partner-run2-strip.jpg" alt="Two rows of six frames of the second recording, at 20, 41, 51, 71, 102, and 132 seconds. In visible light, sticks reach into the salt dish and the baking soda dish from 41 seconds on. In infrared light, the baking soda dish at the bottom turns from orange to deep purple by 71 seconds and keeps darkening, the salt dish in the middle darkens only a little, and the control at the top changes least.">
+                        <figcaption>Figure 5: Six moments of the second run, in visible light (top) and infrared light (bottom), from the frames the agent is given when a recording is added. The sticks come in at about 40 s, and the baking soda dish at the bottom turns cold within a minute. The colors run from 19.6&nbsp;&deg;C (dark) to 24.8&nbsp;&deg;C (white).</figcaption>
+                    </figure>
 
                     <p>
                         Again the agent looked before it measured. In the visible-light frames it
@@ -434,26 +640,6 @@
                         turns a student's curiosity about the ordinary things on a table into a
                         genuine scientific investigation, wrong turns included.
                     </p>
-
-                    <h2 id="experiment">The experiment itself</h2>
-
-                    <p>
-                        The window below is the experiment as we left it, from the first photo to
-                        the final report.
-                    </p>
-
-                    <figure class="v2-embed">
-                        <iframe src="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae?viewonly=true"
-                                id="ie-frame-experiment" loading="lazy" allowfullscreen="true" title="The experiment Cooling When Powders Dissolve in Infrared Explorer"></iframe>
-                        <figcaption>
-                            <a href="javascript:openFullscreen('ie-frame-experiment');">View fullscreen</a><br>
-                            The experiment on the web. Scroll the conversation on the left, and open Plan, Captures, or Report on the right.
-                        </figcaption>
-                    </figure>
-
-                    <div class="v2-model-link">
-                        <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae">Open the experiment in Infrared Explorer</a>
-                    </div>
 
                     <a class="v2-backlink" href="ie.html">&larr; Back to Infrared Explorer</a>
                 </div>
