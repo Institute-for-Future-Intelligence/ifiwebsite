@@ -90,7 +90,7 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 13, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 15, 2026</span></p>
 
                     <p>Most drugs work by binding to a protein. A small molecule, called the ligand, fits into a pocket of the protein and is held there by hydrogen bonds, attractions between charges, and contact with the oily side chains that line the pocket.
                     A program that predicts how a ligand fits into a pocket is called a docking program. It tries many positions and orientations of the ligand against a fixed structure of the protein and scores each one. The result is a single picture of the ligand in the pocket.
@@ -166,6 +166,13 @@
                     Crystal waters stay in the structure, except those that overlap the docked ligand. In the example, the oxygen sits where the crystal water of the deoxy form was, so that water is removed.
                     A thermostat holds the region at 310&nbsp;K, body temperature, by adding small random forces and a matching friction to every moving atom.</p>
 
+                    <p>The lab can color the atoms by zone. When Region coloring is set to Zones in the Display Settings of the lab (the eye button), the free core is drawn in orange, the buffer in violet, and the frozen shell in gray.</p>
+
+                    <div class="v2-screenshot-single" style="max-width: none;">
+                        <img src="image/aims-localized-md-zones.png" alt="The whole myoglobin molecule in the lab, drawn as red helices, with the simulated region colored by zone: orange lines for the residues nearest the oxygen, violet lines for the residues around them, and gray lines for the residues farther out. The oxygen is drawn as two red spheres on the orange sphere of the iron, and a legend at the top right names the three zones">
+                    </div>
+                    <p class="v2-chart-caption">The three zones in the example, within the whole protein: the free core (orange), the buffer (violet), and the frozen shell (gray) around the oxygen (red spheres) and the iron (orange sphere). The rest of the protein, drawn as helices, is left out of the calculation.</p>
+
                     <h2>Hydrogen Atoms</h2>
 
                     <p>Hydrogen makes up about half of the atoms in a protein. The simulation treats the hydrogen atoms in two ways.
@@ -175,9 +182,9 @@
                     About four of every five hydrogen atoms in a protein are bonded to carbon, so folding them into their carbon atoms removes about four of every ten atoms from the calculation.
                     The stretching of a C&ndash;H bond is also one of the fastest motions in a protein, and a simulation that includes it needs a shorter time step.
                     The model gives up two effects: the weak attraction between a C&ndash;H group and an oxygen atom, and the detail of how hydrogen atoms pack around aromatic rings.
-                    The lab draws these hydrogen atoms on the moving carbon atoms, at a C&ndash;H bond length of 1.09&nbsp;&Aring; and at the tetrahedral or planar angles of their carbon atoms, so the picture shows every atom of the moving region. All hydrogen atoms are drawn in white.</p>
+                    The lab draws these hydrogen atoms on the moving carbon atoms, at a C&ndash;H bond length of 1.09&nbsp;&Aring; and at the tetrahedral or planar angles of their carbon atoms, so the picture shows every atom of the moving region. All hydrogen atoms are drawn in white, except when the atoms are colored by zone or by temperature.</p>
 
-                    <p>The fastest motion in the region is the stretching of a bond to a hydrogen atom, and it limits the time step. The simulation moves some mass from each heavy atom onto the hydrogen atoms bonded to it, which slows that motion without changing the total mass or the forces, a method described by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/(SICI)1096-987X(199906)20:8%3C786::AID-JCC5%3E3.0.CO;2-B">Feenstra, Hess, and Berendsen</a>. This allows a time step of 1.5&nbsp;fs.
+                    <p>With these hydrogen atoms folded in, the fastest motion in the region is the stretching of a bond to a polar hydrogen atom, and it limits the time step. The simulation moves some mass from each heavy atom onto the hydrogen atoms bonded to it, which slows that motion without changing the total mass or the forces, a method described by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/(SICI)1096-987X(199906)20:8%3C786::AID-JCC5%3E3.0.CO;2-B">Feenstra, Hess, and Berendsen</a>. This allows a time step of 1.5&nbsp;fs.
                     The calculation runs in a separate thread of the browser, so the lab stays responsive while the atoms move.</p>
 
                     <h2>The Iron</h2>
@@ -215,7 +222,7 @@
                     The distal histidine, His64, carries a hydrogen atom on its NE2 nitrogen, and it formed a hydrogen bond with the oxygen through this nitrogen for 60&nbsp;% of the run. A hydrogen bond is counted when the nitrogen carries a hydrogen atom and the nitrogen and the oxygen are within 3.5&nbsp;&Aring; of each other.
                     These two contacts, to the iron and to His64, are the two that the crystal structure of oxymyoglobin and the neutron diffraction study describe.</p>
 
-                    <p>The lab draws the atoms of a simulation in one of four styles: ball-and-stick, stick, wireframe, or space-filling. The region, the ligand, and a metal atom each have a style of their own, chosen in the Display Settings of the lab (the eye button).
+                    <p>The lab draws the atoms of a simulation in one of four styles: ball-and-stick, stick, wireframe, or space-filling. The region, the ligand, and a metal atom each have a style of their own, chosen in the Display Settings or by right-clicking an atom of the simulation.
                     The example draws the region as a wireframe and draws the oxygen and the iron as space-filling spheres, so the oxygen and the iron are easy to find among the 318 moving atoms. The styles change only the picture, and the simulation is the same in each of them.</p>
 
                     <div class="v2-screenshot-single">
@@ -231,7 +238,7 @@
                     </div>
                     <p class="v2-chart-caption">The Interactions card: the distance of each contact against time. The dashed lines mark the distances below which an iron bond (2.5&nbsp;&Aring;), a hydrogen bond (3.5&nbsp;&Aring;), and a salt bridge (4&nbsp;&Aring;) are counted.</p>
 
-                    <p>The Flexibility card compares how much the heme and each of the eight residues in the free core moved with the crystal. A crystal structure records, for each atom, a B-factor, a measure of how much the atom&rsquo;s position varies across the crystal. The card converts the B-factors to the root-mean-square fluctuation (RMSF), the root-mean-square distance of an atom from its mean position, and compares them with the RMSF in the run, computed after the first picosecond.
+                    <p>The Flexibility card compares the motion of the heme and of each of the eight residues in the free core in the run with their motion in the crystal. A crystal structure records, for each atom, a B-factor, a measure of how much the atom&rsquo;s position varies across the crystal. The card converts the B-factors to the root-mean-square fluctuation (RMSF), the root-mean-square distance of an atom from its mean position, and compares them with the RMSF in the run, computed after the first picosecond.
                     The averages are close: 0.52&nbsp;&Aring; in the run and 0.64&nbsp;&Aring; in the crystal. The pattern from residue to residue matches weakly, with a correlation coefficient r of 0.21. In the run, Leu29, the heme, and Phe46 moved most; in the crystal, Phe43, His93, and Phe46 have the largest B-factors.
                     The residues deep in a pocket all have similar B-factors in the crystal, so the comparison is a weak test here; it is a stronger test on a surface loop, where flexibility varies more from residue to residue.</p>
 
