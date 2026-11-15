@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Can AI Be a Good Lab Partner? — Institute for Future Intelligence</title>
-    <meta name="description" content="An AI agent in Infrared Explorer designs an experiment from a photo of kitchen materials, reads two thermal recordings, corrects mistakes, and writes the lab report.">
+    <meta name="description" content="A student asks a question. An AI agent in Infrared Explorer designs the experiment, reads the thermal recordings, proposes the next round, and writes the lab report.">
 
     <style>
         @import url("css/system.base.css");
@@ -104,7 +104,9 @@
         .v2-dg .who.is-ai { fill: var(--accent-dark); }
         .v2-dg .flow { fill: none; stroke: var(--line); stroke-width: 1.8; }
         .v2-dg .head { fill: var(--line); }
-        .v2-dg .loop { fill: none; stroke: var(--line); stroke-width: 1.6; stroke-dasharray: 6 5; }
+        /* The way back from the discussion to the plan. It is the agent's proposal, so it is the one arrow in the agent's color. */
+        .v2-dg .back { fill: none; stroke: var(--ai); stroke-width: 2; }
+        .v2-dg .backhead { fill: var(--ai); }
         .v2-dg .lbl { fill: var(--text-muted); font-size: 12px; font-style: italic; }
         .v2-dg .out { fill: var(--you-soft); stroke: var(--you); stroke-width: 1.4; }
         .v2-dg .outlbl { fill: var(--you-dark); font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-anchor: middle; }
@@ -137,9 +139,9 @@
                 <span class="v2-eyebrow">Infrared Explorer</span>
                 <h1>Can AI be a good lab partner?</h1>
                 <p class="v2-tagline">
-                    We showed an AI agent a photo of salt, baking soda, and three dishes.
-                    It designed an experiment, read our thermal recordings, caught mistakes,
-                    ours and its own, and wrote the lab report.
+                    A student asks a question. An AI agent chooses the materials, designs
+                    the experiment, reads the thermal recordings, says what to change in
+                    the next round, and writes the lab report.
                 </p>
             </div>
         </header>
@@ -148,31 +150,41 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="ie.html">&larr; Back to Infrared Explorer</a>
-                    <p class="v2-byline">By <strong>Xiaotong Ding</strong> <a href="mailto:xiaotong@intofuture.org">&#9993;</a> and <strong>Jacob Sagrans</strong> <a href="mailto:jacob@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 13, 2026</span></p>
+                    <p class="v2-byline">By <strong>Xiaotong Ding</strong> <a href="mailto:xiaotong@intofuture.org">&#9993;</a> and <strong>Jacob Sagrans</strong> <a href="mailto:jacob@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 14, 2026</span></p>
 
                     <p>
                         Most school experiments begin with a lab manual. Someone has already
                         decided what to mix, what to measure, and what the answer should be. The
                         manual leaves out the parts of science that take scientists the most time:
-                        working out what experiment the materials at hand allow, finding out why a
-                        result did not match the prediction, and writing down what the data show
-                        and what they do not. A good lab partner helps with all three.
+                        deciding what to test and what to test it with, finding out why a result
+                        did not match the prediction and what to change in the next attempt, and
+                        writing down what the data show and what they do not. A good lab partner
+                        helps with all three.
                     </p>
 
                     <p>
                         The Experiments section of Infrared Explorer gives that role to an
                         <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a>.
-                        A student photographs the materials on the table, or just types what they
-                        are, and the agent designs an experiment for them. The student does the
-                        experiment by hand and records it with a thermal camera. The agent reads
-                        the temperature data in the recording, discusses the result, and writes a
-                        lab report. The agent never touches the bench: all it knows about the
-                        experiment comes through the camera and the conversation.
+                        A student starts with a question. The materials do not have to be named:
+                        the student can ask what could be done with things found in a kitchen or
+                        around the house, and the agent says which ones to use. The student can
+                        also set some things on a table and send a photo of them, and the agent
+                        decides what to do with them. Either way, the agent designs the
+                        experiment.
+                    </p>
+
+                    <p>
+                        The student does the experiment by hand and records it with a thermal
+                        camera. The agent reads the temperature data in the recording, discusses
+                        the result, and says what to change in the next round. The two can go
+                        around this loop as many times as the question needs, and at the end the
+                        agent writes a lab report. The agent never touches the bench: all it
+                        knows about the experiment comes through the camera and the conversation.
                     </p>
 
                     <figure class="v2-fig">
                         <div class="v2-fig-scroll v2-wf-wide">
-                        <svg class="v2-dg v2-wf" viewBox="0 0 1200 340" role="img" aria-label="The workflow of an experiment, in two lanes: you at the bench, and the AI agent in the app. Step 1, materials, is yours: photograph what is on the table, or just type it. A photo and a question go to the agent. Step 2, plan, is the agent's: it names the experiment, draws the setup, and predicts the result. The plan comes back to you, and you can edit it. Step 3, experiment, is yours: do it by hand and record it with a thermal camera. The recording goes to the agent. Step 4, analysis, is the agent's: it looks at the frames and runs its own code on the data. Step 5, discussion, belongs to both: you ask why and say what it got wrong, and the agent answers from the data, looks up the science, and says what you got wrong. The discussion can send you back to step 3 to run the experiment again. Step 6, report, is the agent's: it writes it up with its own figures and rewrites on request. The report comes back to you, and you can edit it.">
+                        <svg class="v2-dg v2-wf" viewBox="0 30 1200 352" role="img" aria-label="The workflow of an experiment, in two lanes: you at the bench, and the AI agent in the app. Step 1, question, is yours: ask what you want to find out, in words or with a photo. The question goes to the agent. Step 2, plan, is the agent's: it picks the materials, draws the setup, and predicts the result. The plan comes back to you, and you can edit it. Step 3, experiment, is yours: do it by hand and record it with a thermal camera. The recording goes to the agent. Step 4, analysis, is the agent's: it looks at the frames and runs its own code on the data. Step 5, discussion, belongs to both: you ask why and say what it got wrong, and the agent answers from the data, says what you got wrong, and proposes what to change. From the discussion, a new plan for the next round goes back to step 2, and the experiment goes around again. Step 6, report, is the agent's: it writes it up with its own figures and rewrites on request. The report comes back to you, and you can edit it.">
                             <rect class="lane-you" x="0" y="44" width="1200" height="132" rx="16"/>
                             <rect class="lane-ai" x="0" y="200" width="1200" height="132" rx="16"/>
                             <text class="who is-you" x="18" y="106">YOU</text>
@@ -180,26 +192,26 @@
                             <text class="who is-ai" x="18" y="262">AI AGENT</text>
                             <text class="desc" x="18" y="280">in the app</text>
 
-                            <!-- 1 Materials (you) -->
+                            <!-- 1 Question (you) -->
                             <rect class="card is-you" x="100" y="58" width="164" height="104" rx="12"/>
                             <circle class="dot-you" cx="122" cy="82" r="12"/>
                             <text class="num" x="122" y="87">1</text>
-                            <text class="name" x="142" y="88">Materials</text>
-                            <text class="desc" x="114" y="113">Photograph what is</text>
-                            <text class="desc" x="114" y="130">on the table, or</text>
-                            <text class="desc" x="114" y="147">just type it</text>
+                            <text class="name" x="142" y="88">Question</text>
+                            <text class="desc" x="114" y="113">Ask what you want to</text>
+                            <text class="desc" x="114" y="130">find out, in words or</text>
+                            <text class="desc" x="114" y="147">with a photo</text>
                             <path class="flow" d="M182,162 V266 H268"/>
                             <path class="head" d="M278,266 l-10,-5 v10 z"/>
-                            <text class="lbl" x="192" y="192">a photo and a question</text>
+                            <text class="lbl" x="192" y="192">a question</text>
 
                             <!-- 2 Plan (agent) -->
                             <rect class="card is-ai" x="278" y="214" width="164" height="104" rx="12"/>
                             <circle class="dot-ai" cx="300" cy="238" r="12"/>
                             <text class="num" x="300" y="243">2</text>
                             <text class="name" x="320" y="244">Plan</text>
-                            <text class="desc" x="292" y="269">Names it, draws the</text>
-                            <text class="desc" x="292" y="286">setup, and predicts</text>
-                            <text class="desc" x="292" y="303">the result</text>
+                            <text class="desc" x="292" y="269">Picks the materials,</text>
+                            <text class="desc" x="292" y="286">draws the setup, and</text>
+                            <text class="desc" x="292" y="303">predicts the result</text>
                             <path class="flow" d="M360,214 V110 H446"/>
                             <path class="head" d="M456,110 l-10,-5 v10 z"/>
                             <text class="lbl" x="370" y="192">the plan</text>
@@ -240,14 +252,14 @@
                             <path class="head" d="M914,167 l-5,10 h10 z"/>
                             <path class="head" d="M914,209 l-5,-10 h10 z"/>
                             <text class="desc" x="846" y="236">The agent answers</text>
-                            <text class="desc" x="846" y="253">from the data, looks</text>
-                            <text class="desc" x="846" y="270">up the science, and</text>
-                            <text class="desc" x="846" y="287">says what you got</text>
-                            <text class="desc" x="846" y="304">wrong</text>
-                            <!-- back to the bench -->
-                            <path class="loop" d="M914,58 V24 H538 V48"/>
-                            <path class="head" d="M538,58 l-5,-10 h10 z"/>
-                            <text class="lbl mid" x="726" y="16">run it again</text>
+                            <text class="desc" x="846" y="253">from the data, says</text>
+                            <text class="desc" x="846" y="270">what you got wrong,</text>
+                            <text class="desc" x="846" y="287">and proposes what</text>
+                            <text class="desc" x="846" y="304">to change</text>
+                            <!-- back to the plan: the next round -->
+                            <path class="back" d="M914,318 V354 H360 V328"/>
+                            <path class="backhead" d="M360,318 l-5,10 h10 z"/>
+                            <text class="lbl mid" x="637" y="372">a new plan for the next round</text>
                             <path class="flow" d="M996,266 H1020"/>
                             <path class="head" d="M1030,266 l-10,-5 v10 z"/>
 
@@ -267,13 +279,13 @@
                             <text class="outlbl" x="1112" y="115">A LAB REPORT</text>
                         </svg>
                         </div>
-                        <svg class="v2-dg v2-wf-tall" viewBox="0 0 360 632" role="img" aria-label="The workflow of an experiment. Step 1, yours, materials: a photo of the table, or a few words. Step 2, the AI agent's, plan: a setup drawing, a plan, a prediction; you can edit the plan. Step 3, yours, experiment: by hand, under a thermal camera. Step 4, the agent's, analysis: it looks at frames and runs its own code. Step 5, yours and the agent's, discussion: each questions and corrects the other, and the discussion can send you back to step 3 to run it again. Step 6, the agent's, report: its own figures, rewritten on request; you can edit the report. The result is a lab report.">
+                        <svg class="v2-dg v2-wf-tall" viewBox="0 0 360 632" role="img" aria-label="The workflow of an experiment. Step 1, yours, question: in words, or with a photo. Step 2, the AI agent's, plan: the materials, a setup drawing, a prediction; you can edit the plan. Step 3, yours, experiment: by hand, under a thermal camera. Step 4, the agent's, analysis: it looks at frames and runs its own code. Step 5, yours and the agent's, discussion: corrections, and what to change next; from here a new plan for the next round goes back to step 2. Step 6, the agent's, report: its own figures, rewritten on request; you can edit the report. The result is a lab report.">
                             <rect class="card is-you" x="46" y="10" width="300" height="74" rx="12"/>
                             <circle class="dot-you" cx="72" cy="47" r="13"/>
                             <text class="num" x="72" y="52">1</text>
                             <text class="who is-you" x="96" y="31">YOU</text>
-                            <text class="name" x="96" y="52">Materials</text>
-                            <text class="desc" x="96" y="71">A photo of the table, or a few words</text>
+                            <text class="name" x="96" y="52">Question</text>
+                            <text class="desc" x="96" y="71">In words, or with a photo</text>
                             <path class="flow" d="M196,84 V96"/>
                             <path class="head" d="M196,106 l-5,-10 h10 z"/>
 
@@ -282,7 +294,7 @@
                             <text class="num" x="72" y="148">2</text>
                             <text class="who is-ai" x="96" y="127">AI AGENT</text>
                             <text class="name" x="96" y="148">Plan</text>
-                            <text class="desc" x="96" y="167">A setup drawing, a plan, a prediction</text>
+                            <text class="desc" x="96" y="167">Materials, setup drawing, prediction</text>
                             <path class="flow" d="M196,180 V192"/>
                             <path class="head" d="M196,202 l-5,-10 h10 z"/>
                             <text class="lbl" x="208" y="195">yours to edit</text>
@@ -310,10 +322,10 @@
                             <text class="num" x="72" y="436">5</text>
                             <text class="who" x="96" y="415">YOU AND THE AGENT</text>
                             <text class="name" x="96" y="436">Discussion</text>
-                            <text class="desc" x="96" y="455">Each questions and corrects the other</text>
-                            <path class="loop" d="M46,431 H22 V239 H36"/>
-                            <path class="head" d="M46,239 l-10,-5 v10 z"/>
-                            <text class="lbl mid" transform="translate(14,335) rotate(-90)">run it again</text>
+                            <text class="desc" x="96" y="455">Corrections, and what to change next</text>
+                            <path class="back" d="M46,431 H22 V143 H36"/>
+                            <path class="backhead" d="M46,143 l-10,-5 v10 z"/>
+                            <text class="lbl mid" transform="translate(14,287) rotate(-90)">a new plan for the next round</text>
                             <path class="flow" d="M196,468 V480"/>
                             <path class="head" d="M196,490 l-5,-10 h10 z"/>
 
@@ -329,13 +341,14 @@
                             <rect class="out" x="110" y="586" width="172" height="36" rx="18"/>
                             <text class="outlbl" x="196" y="609">A LAB REPORT</text>
                         </svg>
-                        <figcaption><strong>The workflow of an experiment, and what the agent does at each step.</strong> The student works at the bench and the agent works in the app, and the arrows carry everything that passes between them. The plan and the report are the student's to edit. The discussion can send the student back to the bench, as it did in the experiment of this article.</figcaption>
+                        <figcaption><strong>The workflow of an experiment, and what the agent does at each step.</strong> The student works at the bench and the agent works in the app, and the arrows carry everything that passes between them. The plan and the report are the student's to edit. After each discussion the agent can propose a new plan, and the experiment goes around again. The experiment of this article went through two rounds.</figcaption>
                     </figure>
 
                     <p>
-                        This article follows one experiment from the first photo to the final
-                        report: salt and baking soda from a kitchen, three dishes of water, two
-                        recordings, and a first result that contradicted the prediction. The agent
+                        As an example, this article follows one experiment from the first
+                        question to the final report. We kept the start simple: a photo of salt,
+                        baking soda, and three dishes from a kitchen. The experiment went through
+                        two rounds, and the first result contradicted the prediction. The agent
                         ran on OpenAI's GPT-6 Luna. The window below is the experiment as we left
                         it, with the whole conversation.
                     </p>
@@ -353,7 +366,7 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae">Open the experiment in Infrared Explorer</a>
                     </div>
 
-                    <h2>From a photo to a plan</h2>
+                    <h2>From a question to a plan</h2>
 
                     <p>
                         We put a mug, a canister of table salt, a box of baking soda, and three
@@ -388,11 +401,10 @@
                         few tenths of a degree for salt and by perhaps 0.5 to 1.5&nbsp;&deg;C for
                         baking soda. It also said what would count as a failed prediction: the two
                         dishes following the control, or warming. And it named a weakness in its
-                        own design before we did: equal spoonfuls are not equal masses. The plan
-                        stays at hand in the app's camera during the recording.
+                        own design before we did: equal spoonfuls are not equal masses.
                     </p>
 
-                    <h2>Reading the recording</h2>
+                    <h2>The first round: a tie</h2>
 
                     <p>
                         We filled the three dishes with water, pointed a FLIR ONE Edge Pro
@@ -419,10 +431,8 @@
                         When the recording was added to the experiment, the agent went to work.
                         It called up thermal and visible-light frames of its choosing, and it
                         wrote and ran its own code to read the temperature inside the three
-                        reading areas through the recording. It worked out for itself
-                        that the top dish was the control, the middle one salt, and the bottom one
-                        baking soda, and that the salt and the baking soda were added about 90 to
-                        105 seconds into the recording.
+                        reading areas. It worked out for itself which dish was the control, which
+                        had the salt, and which the baking soda, and when the two were added.
                     </p>
 
                     <p>
@@ -430,10 +440,9 @@
                         thermal camera closes its shutter from time to time to recalibrate, and
                         ours did so 44 times during the recording. Each time, every reading in the
                         frame dipped by about 1&nbsp;&deg;C and came back. The agent traced the
-                        dips to the recalibrations and chose to compare the dishes with each
-                        other in the same frame instead of following each one alone. It left out
-                        the frames around each recalibration and subtracted the control's reading
-                        from the other two dishes' readings. Figure 4 is the chart it drew.
+                        dips to the recalibrations, left out the frames around each one, and
+                        compared the dishes with each other in the same frame by subtracting the
+                        control's reading from the other two. Figure 4 is the chart it drew.
                     </p>
 
                     <figure class="v2-formula is-compact">
@@ -463,7 +472,7 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/experiments/42AA5hhqLKmonysmUv8M">Open the first recording in Infrared Explorer</a>
                     </div>
 
-                    <h2>Arguing about a tie</h2>
+                    <h2>What the agent would change</h2>
 
                     <p>
                         The analysis had one thing wrong. The agent had assumed that we followed
@@ -480,20 +489,29 @@
                         the chemistry and cited
                         <a target="_blank" rel="noopener noreferrer" href="https://www.oecd-nea.org/upload/docs/application/pdf/2024-06/cts15-selected_ancillary_compounds-r-final-rev.pdf">its source</a>:
                         mole for mole and fully dissolved, baking soda should cool the water more.
-                        Asked how to make the difference bigger, it redesigned the experiment:
-                        weigh the two, stir each dish the same way for the same time, and add no
-                        more baking soda than the water can dissolve. The <a href="#experiment">full exchange</a> is in the
-                        experiment near the top of this article.
                     </p>
 
-                    <h2>The second run</h2>
+                    <p>
+                        The agent did not stop at explaining the tie. Its analysis had already
+                        said that a repeat should match the amounts of the two solids and stir
+                        every dish alike. When we asked what would make the difference bigger, it
+                        gave a new design for the next round: weigh the two solids instead of
+                        measuring them by the scoop, 8&nbsp;g of each in 100&nbsp;mL of water;
+                        add no more baking soda than that much water can dissolve; stir each dish
+                        the same way for the same time; and set the dishes on insulating pads.
+                        Only the stirring had been in its first plan. The
+                        <a href="#experiment">full exchange</a> is in the experiment near the top
+                        of this article.
+                    </p>
+
+                    <h2>The second round: stirring</h2>
 
                     <p>
                         We ran the experiment again with the same three dishes and the same
                         scoops, and recorded another time-lapse, this time for 10 minutes. Of the
-                        agent's suggestions we took one: after the salt and the baking soda went
-                        in, we stirred those two dishes with sticks. We left the control alone
-                        (Figure 5).
+                        agent's changes we made only one, the stirring that its first plan had
+                        asked for: after the salt and the baking soda went in, we stirred those
+                        two dishes with sticks. We left the control alone (Figure 5).
                     </p>
 
                     <figure class="v2-formula is-strip">
@@ -503,12 +521,11 @@
 
                     <p>
                         Again the agent looked before it measured. In the visible-light frames it
-                        saw the sticks in the two dishes from about 40 seconds on. It also caught
-                        something in the first 30 seconds: before anything was added, the baking
-                        soda dish already read about 0.5&nbsp;&deg;C warmer than the control. Left
-                        alone, that offset would have hidden half a degree of cooling, so it
-                        measured each dish from its own starting temperature before comparing
-                        it with the control.
+                        saw the sticks in the two dishes. It also caught that, before anything
+                        was added, the baking soda dish already read about 0.5&nbsp;&deg;C warmer
+                        than the control. Left alone, that offset would have hidden half a degree
+                        of cooling, so it measured each dish from its own starting temperature
+                        before comparing it with the control.
                     </p>
 
                     <p>
@@ -518,8 +535,7 @@
                         0.6&nbsp;&deg;C below, a ratio of about four to one. Baking soda did cool
                         more than the salt, and by more than the predicted 0.5 to
                         1.5&nbsp;&deg;C. The agent still did not call the question settled: one
-                        run cannot show that the difference is repeatable, it said, and the
-                        camera shows the surface, not necessarily the water beneath it.
+                        run cannot show that the difference is repeatable, it said.
                     </p>
 
                     <figure class="v2-embed">
@@ -535,7 +551,7 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/experiments/DBeMqkguP2iiJspkQ65b">Open the second recording in Infrared Explorer</a>
                     </div>
 
-                    <h2>Writing the report, and rewriting it</h2>
+                    <h2>The report, and the next round</h2>
 
                     <p>
                         When we asked for a report, the agent wrote one in five sections, from
@@ -549,10 +565,9 @@
                     <p class="v2-pullquote">Add a comparison of the two recordings to the report with two separate charts, one for each recording, explain why the results differ.</p>
 
                     <p>
-                        The agent went back to both recordings. It looked at the frames again, ran
-                        one analysis on both recordings, set time zero at the moment the salt and
-                        the baking soda went in, and drew the two charts on the same axes
-                        (Figure 6). The new report had the second run right.
+                        The agent went back to both recordings, ran one analysis on the two, and
+                        drew the two charts on the same axes (Figure 6). The new report had the
+                        second run right.
                     </p>
 
                     <div class="v2-screenshot-row">
@@ -569,10 +584,15 @@
                     <p>
                         The new report also named a second difference between the runs that had
                         not come up before: the water started about 3.5&nbsp;&deg;C warmer in the
-                        second run. Its conclusion does not overclaim:
+                        second run. So it did not claim that the stirring was the cause, only
+                        that it could be. And it ended with the design of a third round:
                     </p>
 
-                    <p class="v2-pullquote">The clearest procedural difference visible in the recordings is stirring in Recording 2 but not Recording 1, which could explain why cooling was more quickly and strongly separated there, though other run-to-run differences remain possible.</p>
+                    <p class="v2-pullquote">A useful next test is several matched runs with weighed powder amounts, identical water volumes and stirring, and a clearly recorded addition time.</p>
+
+                    <p>
+                        We have not run that round yet.
+                    </p>
 
                     <h2>What the agent missed</h2>
 
@@ -592,26 +612,27 @@
                         the agent looked up, baking soda takes about three times as much heat per
                         gram as salt. But only what dissolves takes any heat, and baking soda is
                         about a quarter as soluble as salt. A heap of it in still water sits in a thin layer that
-                        is nearly saturated. Water is also opaque to the long-wave infrared light
-                        that the camera sees, so the camera reads only the top skin of the water.
+                        is nearly saturated. The camera also reads only the top skin of the water.
                         Stirring brought fresh water to the grains and brought the cold water up
                         to where the camera could see it.
                     </p>
 
                     <p>
                         Each run was done once, and two things changed between them, as the agent
-                        said itself. And a report that was wrong about our own procedure was fixed
-                        only because we asked for something else. The agent reads the data
-                        critically. A student has to read the agent the same way.
+                        said itself. The agent's new design has not been tried at all. And a
+                        report that was wrong about our own procedure was fixed only because we
+                        asked for something else. The agent reads the data critically. A student
+                        has to read the agent the same way.
                     </p>
 
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Agent Did</p>
                         <ul>
-                            <li><span class="v2-prompts-step">Design</span> &mdash; from one photo and one sentence, a title, a drawing of the setup, and a three-part plan with a numerical prediction.</li>
+                            <li><span class="v2-prompts-step">Design</span> &mdash; from one question and a photo of the materials, a title, a drawing of the setup, and a three-part plan with a numerical prediction.</li>
                             <li><span class="v2-prompts-step">Analysis</span> &mdash; the temperature data of both recordings, read with code it wrote itself, with 44 camera recalibrations screened out and a 0.5&nbsp;&deg;C starting offset removed.</li>
                             <li><span class="v2-prompts-step">Corrections</span> &mdash; one of its misreadings corrected by us, one overstatement of ours corrected by the agent, and two of its own errors corrected by itself. The heap in <a href="#figure-3">Figure 3</a> was never mentioned.</li>
                             <li><span class="v2-prompts-step">Result</span> &mdash; how far below the control each dish read: not stirred, salt 0.8&nbsp;&deg;C and baking soda 0.7&nbsp;&deg;C; stirred, salt 0.6&nbsp;&deg;C and baking soda 2.3&nbsp;&deg;C.</li>
+                            <li><span class="v2-prompts-step">Next round</span> &mdash; a new design after each round: weighed amounts, no more baking soda than the water can dissolve, the same stirring for every dish, and several matched runs. Only the stirring has been tried.</li>
                             <li><span class="v2-prompts-step">Report</span> &mdash; five sections and three figures made from the data, rewritten on a one-sentence request.</li>
                         </ul>
                     </div>
@@ -620,15 +641,17 @@
 
                     <p>
                         This article uses salt and baking soda to illustrate a new way to learn
-                        science in the real world: students show an AI agent what is on the table,
-                        in a photo or just in words, and do the experiment with their own hands,
-                        and the agent reads the thermal recording and hands back measured data, an
-                        argument, and a report. Was it a
-                        good lab partner? In this experiment it was. It turned a photo into an
+                        science in the real world: students ask an AI agent a question, the agent
+                        designs an experiment with materials that are easy to find, and the
+                        students do it with their own hands. The agent reads the thermal
+                        recording and hands back measured data, an argument, and a design for the
+                        next round, and at the end it writes the report. Was it a
+                        good lab partner? In this experiment it was. It turned a question into an
                         experiment with a prediction that could fail, held to the data when we
                         overstated the result, gave way when we knew our own procedure better, and
                         corrected its own report twice. Its work still had to be checked, like the
-                        work of any lab partner.
+                        work of any lab partner. The next round is its design, with the salt and
+                        the baking soda weighed, and it is still to be run.
                     </p>
 
                     <p>
@@ -637,8 +660,8 @@
                         <a target="_blank" rel="noopener noreferrer" href="ie-from-sensing-to-imaging.html">from sensing to imaging</a>.
                         An AI agent that can read what those thermometers record takes the next
                         step, from imaging to reasoning. By pairing the two, Infrared Explorer
-                        turns a student's curiosity about the ordinary things on a table into a
-                        genuine scientific investigation, wrong turns included.
+                        turns a student's curiosity about ordinary things into a genuine
+                        scientific investigation, wrong turns included.
                     </p>
 
                     <a class="v2-backlink" href="ie.html">&larr; Back to Infrared Explorer</a>
