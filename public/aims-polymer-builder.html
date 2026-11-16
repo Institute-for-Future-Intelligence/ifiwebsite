@@ -94,7 +94,7 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 15, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 16, 2026</span></p>
 
                     <p>Plastic bags, foam cups, nonstick pans, tires, wall paint, and wood glue are all made of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polymer">polymers</a>:
                     long molecules built by linking many copies of a small molecule, the monomer. A polyethylene molecule in a plastic bag holds thousands of linked ethylene units. Textbooks draw such a molecule as a repeat unit in brackets with a subscript,
@@ -121,7 +121,7 @@
                     Butadiene, CH<sub>2</sub>=CH&ndash;CH=CH<sub>2</sub>, has two double bonds in a row. It links through its two end carbons, and the remaining double bond moves to the middle of the unit, so each unit of polybutadiene keeps one C=C, as in the rubber of tires.
                     The builder places a hydrogen atom on each end of the finished chain.</p>
 
-                    <p>The table lists the seven polymers that the vinyl monomers and butadiene in the first two examples make, with the number of atoms in a chain of ten units. The number of atoms matters because a simulation in a browser has a budget: the lab is meant for up to 500 atoms, and the builder warns before a chain goes over that.</p>
+                    <p>The table lists the seven polymers that the vinyl monomers and butadiene in the Polymers and Copolymers examples make, with the number of atoms in a chain of ten units. The number of atoms matters because a simulation in a browser has a budget: the lab is meant for up to 500 atoms, and the builder warns before a chain goes over that.</p>
 
                     <div class="v2-table-wrap">
                         <table class="v2-compare">
@@ -147,7 +147,7 @@
                     Terephthalic acid has an acid group at each end of a benzene ring, and ethylene glycol, HO&ndash;CH<sub>2</sub>&ndash;CH<sub>2</sub>&ndash;OH, has an &ndash;OH group at each end. Linked in alternating order, they make
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Polyethylene_terephthalate">polyethylene terephthalate</a>, PET, the polyester of soda bottles and polyester fabric. Adipic acid and hexamethylenediamine make <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nylon_66">nylon 6,6</a> the same way through amide links. The Nylon 6,6 example builds a chain of eight units of each, C<sub>96</sub>H<sub>178</sub>N<sub>16</sub>O<sub>17</sub>, with 307 atoms.</p>
 
-                    <p>The builder recognizes the acid, alcohol, and amine groups of a monomer and links the units through them. At every link it removes the OH of the acid and an H of the alcohol or amine, so the chain in the lab of the first example has the formula of its 20 monomers minus 19 molecules of water:
+                    <p>The builder recognizes the acid, alcohol, and amine groups of a monomer and links the units through them. At every link it removes the OH of the acid and an H of the alcohol or amine, so the chain in the lab of the Polymers example has the formula of its 20 monomers minus 19 molecules of water:
                     C<sub>100</sub>H<sub>82</sub>O<sub>41</sub>, with 223 atoms. This is the chain in the first window of this article, where the ester links show as pairs of red oxygen atoms between each benzene ring and the next CH<sub>2</sub>&ndash;CH<sub>2</sub> unit. Its two ends still carry an acid group and an &ndash;OH group, where the chain could grow further. An end-cap option in the Build Chain dialog replaces the reactive hydrogen at each end with a methyl group, which turns the acid end into a methyl ester and the &ndash;OH end into a methyl ether.
                     Two acid groups cannot link, so a diacid has to alternate with a diol or a diamine, and the builder refuses a sequence that puts two acids side by side.
                     A monomer with an acid group at one end and an alcohol or amine at the other, such as lactic acid, polymerizes on its own: lactic acid makes poly(lactic acid), a plastic made from plants.
@@ -172,7 +172,7 @@
                     The builder offers the three standard sequences: <i>alternating</i> (ABABAB&hellip;), <i>random</i>, in which each unit is drawn at random with chosen proportions, and <i>block</i> (AAAABBBB&hellip;), in which runs of one monomer follow runs of another, with a chosen length for each run.
                     The Build Chain dialog shows the sequence as a string of letters before the chain is built.</p>
 
-                    <p>The second example builds the molecule that holds <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene">ABS</a> together, the hard plastic of toy bricks and appliance housings.
+                    <p>The Copolymers example builds the molecule that holds <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene">ABS</a> together, the hard plastic of toy bricks and appliance housings.
                     ABS is made by polymerizing styrene and acrylonitrile in the presence of polybutadiene rubber. Some of the growing styrene&ndash;acrylonitrile chains, called SAN, attach to the rubber chains as branches, and the result is a
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graft_polymer">graft copolymer</a>: a backbone of polybutadiene with side chains of SAN. In the plastic, the rubber gathers into small particles inside a hard matrix of SAN,
                     and the grafted chains bind the particles to the matrix, which makes ABS tough.</p>
@@ -226,7 +226,14 @@
                     <p>Branching makes a polymer more compact. The Polymer Architectures example compares four polymers of about 48 ethylene units each: a linear chain, a star of four arms of 12 units, a comb with six side chains of four units on a backbone of 24, and a dendrimer that branches at every unit.
                     The agent draws 1,000 shapes of each in the same way and averages R<sub>g</sub>: 12.9&nbsp;&Aring; for the linear chain, 10.3&nbsp;&Aring; for the comb, 10.1&nbsp;&Aring; for the star, and 6.4&nbsp;&Aring; for the dendrimer.
                     The usual measure of the effect is g, the mean square R<sub>g</sub> of the branched polymer divided by that of the linear one. For a star of <i>f</i> arms whose chains could pass through one another,
-                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.1747157">Zimm and Stockmayer</a> showed in 1949 that g = (3<i>f</i> &minus; 2)/<i>f</i><sup>2</sup>, which is 0.625 for four arms. The star in the example gives g = 0.60, close to that value, although its arms are only 12 units long and cannot overlap.</p>
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.1747157">Zimm and Stockmayer</a> showed in 1949 that g = (3<i>f</i> &minus; 2)/<i>f</i><sup>2</sup>, which is 0.625 for four arms. The star in the example gives g = 0.60, close to that value, although its arms are only 12 units long and cannot overlap. Because g is a ratio of mean squares, it differs slightly from the square of the ratio of the two averages above, which is 0.61.</p>
+
+                    <h2>Molar Mass and Density</h2>
+
+                    <p>When a monomer is selected in the gallery, the Predict Polymer Properties button reports properties of the polymer it makes. Two of them are computed from chains that the builder builds. The molar mass is the sum of the atomic masses of the chain: 282.56&nbsp;g/mol for a polyethylene chain of ten units, C<sub>20</sub>H<sub>42</sub>.
+                    The density is that of the amorphous solid. The builder finds the mass of one repeat unit and the volume its atoms fill, their <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_der_Waals_volume">van der Waals volume</a>, and assumes that the atoms fill 64% of the space in the solid, a fraction fitted to the measured densities of nine common polymers.
+                    The computed density of polystyrene is 1.045&nbsp;g/cm<sup>3</sup>, against a measured 1.05, and that of amorphous polyethylene is 0.899&nbsp;g/cm<sup>3</sup>, against 0.855. Across the nine polymers the computed densities differ from the measured ones by 3.2% on average.
+                    The glass-transition temperature of a common addition polymer comes from a table of measured values, and the melting temperature and the solubility parameter are estimates by the AI model.</p>
 
                     <h2>Designing a Copolymer: A Latex Paint Binder</h2>
 
@@ -234,7 +241,7 @@
                     where it changes from hard and glassy to soft and rubbery. If T<sub>g</sub> is too low, the dried paint stays tacky. If it is too high, the paint dries into a powder that cracks. Paint chemists set T<sub>g</sub> by mixing a hard monomer with a soft one.
                     Polystyrene is glassy at room temperature, with T<sub>g</sub> = 100&nbsp;&deg;C, and poly(n-butyl acrylate) is rubbery, with T<sub>g</sub> = &minus;54&nbsp;&deg;C.</p>
 
-                    <p>The third example gives the agent a design task: a random copolymer of styrene and n-butyl acrylate whose T<sub>g</sub> lies between 5 and 15&nbsp;&deg;C, so that the paint forms a film at room temperature. The agent computes T<sub>g</sub> with the
+                    <p>The Designing a Latex Paint Binder example gives the agent a design task: a random copolymer of styrene and n-butyl acrylate whose T<sub>g</sub> lies between 5 and 15&nbsp;&deg;C, so that the paint forms a film at room temperature. The agent computes T<sub>g</sub> with the
                     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fox_equation">Fox equation</a>, 1/T<sub>g</sub> = <i>w</i><sub>1</sub>/T<sub>g1</sub> + <i>w</i><sub>2</sub>/T<sub>g2</sub>, in which <i>w</i><sub>1</sub> and <i>w</i><sub>2</sub> are the weight fractions of the two monomers and the temperatures are in kelvin.
                     A composition of 60 styrene units to 40 butyl acrylate units, 55% styrene by weight, gives T<sub>g</sub> = 10.2&nbsp;&deg;C, inside the target range, and the agent reports the design as met after one try.
                     It then builds a 20-unit chain with that composition, 12 styrene and 8 butyl acrylate units in random order, 362 atoms in all, and loads it into the lab.</p>
