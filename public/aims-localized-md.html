@@ -162,8 +162,9 @@
                     The free core holds the ligand and every residue within 6&nbsp;&Aring; of it. Around the core is a buffer 3&nbsp;&Aring; wide, whose atoms move but are pulled back toward their starting positions by springs. The springs are weakest at the inner edge of the buffer and ten times stiffer at its outer edge, so the restraint on the atoms increases gradually from the core to the frozen shell.
                     Around the buffer is a frozen shell 6&nbsp;&Aring; wide, whose atoms stay fixed. The shell exerts on the moving atoms the forces of the protein that surrounds them. In the myoglobin example, 318 atoms move.</p>
 
-                    <p>Water is represented implicitly. Water weakens the attraction between charges, and it weakens it more the farther apart the charges are, because more water fits between them. The simulation divides the electrostatic energy of two charges by a dielectric constant that depends on their distance, following <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1093/protein/4.8.903">Mehler and Solmajer</a>: about 13 at 2.9&nbsp;&Aring;, the distance across a salt bridge, about 57 at 10&nbsp;&Aring;, and close to 78, the value for bulk water, beyond 20&nbsp;&Aring;.
-                    It also adds the energy cost of moving a charged or polar group out of water and the energy gain of burying an oily group, from the solvation model of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/(SICI)1097-0134(19990501)35:2%3C133::AID-PROT1%3E3.0.CO;2-N">Lazaridis and Karplus</a>.
+                    <p>Water is represented implicitly. Water weakens the attraction between charges, and how much it weakens it depends on where the charges are. Two charges on the surface of the protein have water around them, and their attraction is about 78 times weaker than in a vacuum, as it is in bulk water. Two charges buried in a pocket have little water near them, and their attraction stays close to its strength in a vacuum.
+                    The simulation uses the Generalized Born model of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja00172a038">Still and coworkers</a>. The model gives each charged atom a measure of how deeply it is buried, computed at every step from the atoms around it by the method of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/jp961710n">Hawkins, Cramer, and Truhlar</a> with the correction of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/prot.20033">Onufriev, Bashford, and Case</a>. The same measure gives the energy cost of burying a charge.
+                    The energy gain of burying an oily group comes from the solvation model of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/(SICI)1097-0134(19990501)35:2%3C133::AID-PROT1%3E3.0.CO;2-N">Lazaridis and Karplus</a>.
                     Crystal waters stay in the structure, except those that overlap the added ligand. In the example, the oxygen sits where the crystal water of the deoxy form was, so that water is removed.
                     A thermostat holds the region at 310&nbsp;K, body temperature, by adding small random forces and a matching friction to every moving atom.</p>
 
@@ -220,10 +221,10 @@
                     <h2>What the Simulation Showed</h2>
 
                     <p>The simulation first relaxes the region for up to 150 steps of energy minimization, which removes strain from the starting structure, and then gives every moving atom a random velocity drawn for 310&nbsp;K.
-                    In the run saved in the example, the region ran for 20&nbsp;ps at an average of 307&nbsp;K. The simulation counts the oxygen as bound when the distance between the iron and the nearer oxygen atom is below 2.5&nbsp;&Aring;. In the starting position this distance is 2.8&nbsp;&Aring;, and after the relaxation, at the start of the run, it was 2.6&nbsp;&Aring;. It fell below 2.5&nbsp;&Aring; in less than 0.1&nbsp;ps and reached about 2.0&nbsp;&Aring; by 0.2&nbsp;ps.
-                    Over the whole run, the oxygen was bound for 98&nbsp;% of the time, end-on, at an average distance of 2.1&nbsp;&Aring;. Between 5.7 and 8.3&nbsp;ps the distance rose above 2.5&nbsp;&Aring; three times, for less than 0.2&nbsp;ps each time, and the oxygen returned to the iron each time.</p>
+                    In the run saved in the example, the region ran for 20&nbsp;ps at an average of 306&nbsp;K. The simulation counts the oxygen as bound when the distance between the iron and the nearer oxygen atom is below 2.5&nbsp;&Aring;. In the starting position this distance is 2.8&nbsp;&Aring;, and after the relaxation, at the start of the run, it was 2.4&nbsp;&Aring;. It reached about 2.2&nbsp;&Aring; by 0.2&nbsp;ps.
+                    The oxygen was bound for the whole run, end-on, at an average distance of 2.1&nbsp;&Aring;, and the distance never rose above 2.5&nbsp;&Aring;. The center of the oxygen molecule stayed within 1.6&nbsp;&Aring; of its starting position.</p>
 
-                    <p>The distal histidine, His64, carries a hydrogen atom on its NE2 nitrogen, and it formed a hydrogen bond with the oxygen through this nitrogen for 60&nbsp;% of the run. A hydrogen bond is counted when the nitrogen carries a hydrogen atom and the nitrogen and the oxygen are within 3.5&nbsp;&Aring; of each other.
+                    <p>The distal histidine, His64, carries a hydrogen atom on its NE2 nitrogen, and it formed a hydrogen bond with the oxygen through this nitrogen for 28&nbsp;% of the run. A hydrogen bond is counted when the nitrogen carries a hydrogen atom and the nitrogen and the oxygen are within 3.5&nbsp;&Aring; of each other. The distance between them varied between 2.7 and 4.8&nbsp;&Aring;, and the bond formed and broke many times.
                     These two contacts, to the iron and to His64, are the two that the crystal structure of oxymyoglobin and the neutron diffraction study describe.</p>
 
                     <p>The lab draws the atoms of a simulation in one of four styles: ball-and-stick, stick, wireframe, or space-filling. The region, the ligand, and a metal atom each have a style of their own, chosen in the Display Settings or by right-clicking an atom of the simulation.
@@ -234,31 +235,31 @@
                     </div>
                     <p class="v2-chart-caption">The binding site during the simulation: the oxygen (red) on the iron (orange), drawn as space-filling spheres, with the heme and the residues of the pocket drawn as a wireframe.</p>
 
-                    <p>The Interactions card in the answer plots the distance of every contact against time. Besides the contacts to the oxygen, it follows three salt bridges near the pocket. Arg45 paired with Asp60 for the whole run and with a propionate of the heme for 38&nbsp;% of it, and Lys96 paired with a propionate of the heme for 13&nbsp;% of it.
-                    A salt bridge is counted when an oxygen atom of the carboxylate group is within 4.0&nbsp;&Aring; of a nitrogen atom of the arginine or the lysine. The two bridges to the heme broke and formed again during the run.</p>
+                    <p>The Interactions card in the answer plots the distance of every contact against time. A second chart below the first plots the distance of the oxygen from its binding site, which is the distance between the center of the oxygen molecule and its starting position. Besides the contacts to the oxygen, the card follows two salt bridges near the pocket. Arg45 paired with Asp60 for the whole run and with a propionate of the heme for 85&nbsp;% of it.
+                    A salt bridge is counted when an oxygen atom of the carboxylate group is within 4.0&nbsp;&Aring; of a nitrogen atom of the arginine or the lysine. The bridge to the heme broke and formed again during the run.</p>
 
                     <div class="v2-screenshot-single">
-                        <img src="image/aims-localized-md-interactions.png" alt="Distance against time over 20 ps for five contacts in the binding site of myoglobin: the iron to the oxygen stays near 2.1 angstroms, the Asp60 to Arg45 salt bridge stays near 2.8 angstroms, the His64 NE2 nitrogen to the oxygen varies between 2.7 and 4.3 angstroms, and the two salt bridges of the heme to Arg45 and Lys96 vary between 2.7 and 6.5 angstroms">
+                        <img src="image/aims-localized-md-interactions.png" alt="Two charts of distance against time over 20 ps. The upper chart shows four contacts in the binding site of myoglobin: the iron to the oxygen stays near 2.1 angstroms, the Asp60 to Arg45 salt bridge stays near 2.7 angstroms, the salt bridge of the heme to Arg45 varies between 2.6 and 5.5 angstroms, and the His64 NE2 nitrogen to the oxygen varies between 2.7 and 4.8 angstroms. The lower chart shows the distance of the oxygen from its binding site, which stays within 1.6 angstroms">
                     </div>
-                    <p class="v2-chart-caption">The Interactions card: the distance of each contact against time. The dashed lines mark the distances below which an iron bond (2.5&nbsp;&Aring;), a hydrogen bond (3.5&nbsp;&Aring;), and a salt bridge (4&nbsp;&Aring;) are counted.</p>
+                    <p class="v2-chart-caption">The Interactions card: the distance of each contact against time. The dashed lines mark the distances below which an iron bond (2.5&nbsp;&Aring;), a hydrogen bond (3.5&nbsp;&Aring;), and a salt bridge (4&nbsp;&Aring;) are counted. The lower chart shows the distance of the oxygen from its binding site; the oxygen counts as in the site below the dashed line (2&nbsp;&Aring;).</p>
 
                     <p>The Flexibility card compares the motion of the heme and of each of the eight residues in the free core in the run with their motion in the crystal. A crystal structure records, for each atom, a B-factor, a measure of how much the atom&rsquo;s position varies across the crystal. The card converts the B-factors to the root-mean-square fluctuation (RMSF), the root-mean-square distance of an atom from its mean position, and compares them with the RMSF in the run, computed after the first picosecond.
-                    The averages are close: 0.52&nbsp;&Aring; in the run and 0.64&nbsp;&Aring; in the crystal. The pattern from residue to residue matches weakly, with a correlation coefficient r of 0.21. In the run, Leu29, the heme, and Phe46 moved most; in the crystal, Phe43, His93, and Phe46 have the largest B-factors.
+                    The averages are close: 0.50&nbsp;&Aring; in the run and 0.64&nbsp;&Aring; in the crystal. The pattern from residue to residue matches weakly, with a correlation coefficient r of 0.14. In the run, Leu29, the heme, and Phe43 moved most; in the crystal, Phe43, His93, and Phe46 have the largest B-factors.
                     The residues deep in a pocket all have similar B-factors in the crystal, so the comparison is a weak test here; it is a stronger test on a surface loop, where flexibility varies more from residue to residue.</p>
 
                     <div class="v2-screenshot-single">
-                        <img src="image/aims-localized-md-flexibility.png" alt="Root-mean-square fluctuation of the eight residues of the free core and the heme against residue number, in the run and from the crystal B-factors: the crystal values lie between 0.58 and 0.69 angstroms, and the values in the run lie between 0.34 and 0.74 angstroms, highest for Leu29, the heme, and Phe46">
+                        <img src="image/aims-localized-md-flexibility.png" alt="Root-mean-square fluctuation of the eight residues of the free core and the heme against residue number, in the run and from the crystal B-factors: the crystal values lie between 0.58 and 0.69 angstroms, and the values in the run lie between 0.33 and 0.71 angstroms, highest for Leu29, the heme, and Phe43">
                     </div>
                     <p class="v2-chart-caption">The Flexibility card: the RMSF of the heme (154) and of each residue of the free core in the run (blue) and from the crystal B-factors (orange).</p>
 
-                    <h2>From Contacts to Affinity</h2>
+                    <h2 id="affinity">From Contacts to Affinity</h2>
 
                     <p>The strength with which a protein holds a ligand is called the binding affinity. It is measured as the concentration of the ligand at which half of the protein molecules hold one, and a lower concentration means a higher affinity.
                     The affinity depends on the bond between the ligand and the protein, on every contact around the ligand, and on the contacts with water that the ligand and the pocket lose when they meet.
                     A run of 20&nbsp;ps follows the ligand while it is bound. It does not show how often the ligand is bound and how often it is free, so the simulation does not give an affinity. It shows the contacts that the affinity depends on.</p>
 
                     <p>The hydrogen bond to His64 is an example. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0021-9258(18)94029-9">Springer and coworkers</a> replaced His64 of sperm whale myoglobin with other amino acids, one at a time, and measured how each mutant bound oxygen. In the mutants, the affinity for oxygen was 10 to 200 times lower than in the normal protein.
-                    In the run, this hydrogen bond was present for 60&nbsp;% of the time. The simulation shows the contact, and the experiment shows how much the contact adds to the affinity.</p>
+                    In the run, this hydrogen bond was present for 28&nbsp;% of the time. The simulation shows the contact, and the experiment shows how much the contact adds to the affinity.</p>
 
                     <h2>The Reach of a Localized Simulation</h2>
 
@@ -269,7 +270,8 @@
                     The model shows the geometry of binding: the oxygen reaches the iron, binds it end-on, and forms a hydrogen bond with His64.</p>
 
                     <p>The same steps work for other ligands in other proteins. A student can add a ligand by name to any structure in the Protein Lab, place it in a pocket, and simulate the pocket around it. The Report button on the control bar posts the Interactions and Flexibility cards for the student&rsquo;s own run.
-                    The prompt <span class="v2-prompt">&ldquo;add carbon monoxide beside the heme and dock it&rdquo;</span> sets up a comparison with oxygen: carbon monoxide binds the iron through its carbon atom, and the simulation holds it in a straight line with the iron.</p>
+                    The prompt <span class="v2-prompt">&ldquo;add carbon monoxide beside the heme and dock it&rdquo;</span> sets up a comparison with oxygen: carbon monoxide binds the iron through its carbon atom, and the simulation holds it in a straight line with the iron.
+                    A companion article, <a href="aims-molecular-recognition.html">Molecular Recognition</a>, uses the same method to test three molecules docked into the pocket of trypsin.</p>
 
                     <h2>Conclusion</h2>
 
@@ -277,10 +279,10 @@
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulation Produced</p>
                         <p class="v2-prompts-intro">The simulation was given the crystal structure of deoxymyoglobin, an oxygen molecule placed beside the heme, and a bond to the iron that can form and break. The results below came out of the run:</p>
                         <ul>
-                            <li><span class="v2-prompts-step">Binding</span> &mdash; the oxygen bound the iron end-on for 98&nbsp;% of a 20&nbsp;ps run at 310&nbsp;K, at an average distance of 2.1&nbsp;&Aring;.</li>
-                            <li><span class="v2-prompts-step">The distal histidine</span> &mdash; His64 formed a hydrogen bond with the oxygen through its NE2 nitrogen for 60&nbsp;% of the run.</li>
-                            <li><span class="v2-prompts-step">Salt bridges</span> &mdash; Arg45 paired with Asp60 for the whole run and with a heme propionate for 38&nbsp;% of it, and Lys96 paired with a heme propionate for 13&nbsp;% of it.</li>
-                            <li><span class="v2-prompts-step">Flexibility</span> &mdash; a mean RMSF of 0.52&nbsp;&Aring; in the run against 0.64&nbsp;&Aring; from the crystal B-factors, with Leu29 the most mobile residue in the run.</li>
+                            <li><span class="v2-prompts-step">Binding</span> &mdash; the oxygen bound the iron end-on for the whole of a 20&nbsp;ps run at 310&nbsp;K, at an average distance of 2.1&nbsp;&Aring;.</li>
+                            <li><span class="v2-prompts-step">The distal histidine</span> &mdash; His64 formed a hydrogen bond with the oxygen through its NE2 nitrogen for 28&nbsp;% of the run.</li>
+                            <li><span class="v2-prompts-step">Salt bridges</span> &mdash; Arg45 paired with Asp60 for the whole run and with a heme propionate for 85&nbsp;% of it.</li>
+                            <li><span class="v2-prompts-step">Flexibility</span> &mdash; a mean RMSF of 0.50&nbsp;&Aring; in the run against 0.64&nbsp;&Aring; from the crystal B-factors, with Leu29 the most mobile residue in the run.</li>
                         </ul>
                     </div>
 
