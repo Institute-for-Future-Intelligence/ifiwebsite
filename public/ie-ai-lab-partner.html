@@ -341,7 +341,7 @@
                             <rect class="out" x="110" y="586" width="172" height="36" rx="18"/>
                             <text class="outlbl" x="196" y="609">A LAB REPORT</text>
                         </svg>
-                        <figcaption><strong>The workflow of an experiment, and what the agent does at each step.</strong> The student works at the bench, and the agent works in the app. The plan and the report are the student's to edit. After each discussion, the agent can propose a new plan for running the experiment again. The experiment featured in this article went through two rounds.</figcaption>
+                        <figcaption><strong>The workflow of an experiment, and what the agent does at each step.</strong> The experiment featured in this article went through two rounds.</figcaption>
                     </figure>
 
                     <p>
@@ -621,24 +621,9 @@
                     </p>
 
                     <p>
-                        As we previously noted, the agent's analysis of the first run of the
-                        experiment wrongly assumed that we had stirred the salt and baking
-                        soda into the water when in fact we had not. The agent fixed this
-                        mistake only when we pointed it out. So, while the agent does read the data
-                        critically, a student must also be critical of the agent.
+                        While the agent does read the data critically, a student must also
+                        be critical of the agent.
                     </p>
-
-                    <div class="v2-prompts">
-                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Agent Did</p>
-                        <ul>
-                            <li><span class="v2-prompts-step">Design</span> &mdash; from one question and a photo of the materials, a title, a drawing of the setup, and a three-part plan with a numerical prediction.</li>
-                            <li><span class="v2-prompts-step">Analysis</span> &mdash; the temperature data of both recordings, read with code it wrote itself, with 44 camera recalibrations screened out.</li>
-                            <li><span class="v2-prompts-step">Corrections</span> &mdash; one of its misreadings corrected by us, one overstatement of ours corrected by the agent, and two of its own errors corrected by itself. The heap of undissolved baking soda in <a href="#figure-3">Figure 3</a> was never mentioned.</li>
-                            <li><span class="v2-prompts-step">Result</span> &mdash; how far below the control each dish read: not stirred, salt 0.8&nbsp;&deg;C and baking soda 0.7&nbsp;&deg;C; stirred, salt 0.6&nbsp;&deg;C and baking soda 2.3&nbsp;&deg;C.</li>
-                            <li><span class="v2-prompts-step">Next round</span> &mdash; a new design after each round: weighed amounts, no more baking soda than the water can dissolve, the same stirring for every dish, and several matched runs. Only the stirring has been tried.</li>
-                            <li><span class="v2-prompts-step">Report</span> &mdash; five sections and three figures made from the data, rewritten on a one-sentence request.</li>
-                        </ul>
-                    </div>
 
                     <h2>Conclusion</h2>
 
