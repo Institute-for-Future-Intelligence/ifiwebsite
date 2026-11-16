@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanotube Machines: Bearings, Sliders, Pistons, and Motors — Institute for Future Intelligence</title>
+    <meta name="description" content="Carbon nanotubes and graphene slide on each other with very little friction. AIMS slides one nanotube inside another at 150 gigahertz, slides a flake of graphene on graphene, pushes a buckyball along a nanotube with helium atoms, and moves a cargo along a nanotube with a flow of heat, and an AI agent measures each motion.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="NANOTUBE">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Nanotube Machines: Bearings, Sliders, Pistons, and Motors</h1>
+                <p class="v2-tagline">
+                    AIMS slides one nanotube inside another, slides a flake of graphene on graphene, pushes a piston with a gas, and drives a motor with heat, and an AI agent measures each motion.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 16, 2026</span></p>
+
+                    <p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotube</a> is a sheet of carbon atoms rolled into a tube, and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphene">graphene</a> is the flat sheet. The walls of these materials are smooth on the scale of atoms, and no chemical bond joins one wall to the next, so one part slides on another with very little friction.
+                    AIMS models every atom of such a part, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent builds the parts, runs them, measures the motion, and posts the measured data in the chat.
+                    This article follows four machines made of carbon: a bearing, one nanotube that slides and turns inside another; a slider, a flake of graphene on a ribbon of graphene; a piston, a buckyball that a gas pushes along a nanotube; and a motor, a short nanotube that a flow of heat moves along a longer one.
+                    It is the third of three articles. The article on <a href="aims-molecular-machines.html">molecular machines</a> follows a shuttle, a clamp, an ion pump, and tweezers, and it describes the forces in the model and how to open an example and type a prompt. The article on <a href="aims-molecular-rotors.html">molecular rotors and gears</a> follows parts that turn.
+                    No atom of the parts in this article carries a charge, and the Lennard-Jones force is the one force between them.</p>
+
+                    <h2>A Bearing Made of Two Nanotubes</h2>
+
+                    <p>A multiwall carbon nanotube is a set of nanotubes one inside another. The walls are 3.4&nbsp;&Aring; apart, the spacing of the layers of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphite">graphite</a>, and no chemical bond joins one wall to the next.
+                    In 2000 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.289.5479.602">Cumings and Zettl</a> pulled the inner walls of a multiwall nanotube out of the outer walls inside an electron microscope. The inner walls slid back when released, and the nanotube showed no wear after many cycles.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.88.045503">Zheng and Jiang</a> calculated in 2002 that an inner tube released in this way oscillates more than a billion times per second.
+                    In 2003 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/nature01823">Fennimore and coworkers</a> built a motor whose rotor turns on a multiwall nanotube.</p>
+
+                    <p>The window below holds a (10,10) nanotube of 280 carbon atoms, 16&nbsp;&Aring; long and 13.6&nbsp;&Aring; across, with every atom fixed in place, drawn as a wireframe. A (5,5) nanotube of 140 carbon atoms, 6.8&nbsp;&Aring; across, lies on the same axis and is free to move.
+                    The two numbers in the name of a nanotube describe how the sheet of carbon atoms is rolled, and a larger pair of numbers means a wider nanotube. The inner tube starts with its right end 6&nbsp;&Aring; outside the outer tube.
+                    The thermostat of the lab is off, so the total energy stays constant. Press Play and watch the inner tube.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Nanotube%20Bearing"
+                                id="aims-frame3" allowfullscreen="true" title="A Nanotube Bearing demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame3');">View fullscreen</a><br>
+                            A (5,5) nanotube inside a fixed (10,10) nanotube, drawn as a wireframe. The inner tube passes through the outer tube and returns every 6.7&nbsp;ps of simulated time.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Nanotube Bearing</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the third prompt in the example keeps its last frame: press "Load this state" on its card and the lab continues from 100&nbsp;ps.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Oscillation</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 30 ps and chart the distance from the left end of the outer tube to the left end of the inner tube.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Fit</span> &mdash; <span class="v2-prompt">&ldquo;Which inner tube makes a good bearing? Compare (4,4), (5,5) and (6,6) tubes inside the (10,10) tube.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Friction</span> &mdash; <span class="v2-prompt">&ldquo;Run it for another 70 ps. Do the sliding and the turning slow down?&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Inner Tube Slides and Turns</h2>
+
+                    <p>The agent ran the lab for 30&nbsp;ps. The outer tube pulled the inner tube in. The inner tube passed through, came out 6.0&nbsp;&Aring; at the left end, stopped, and moved back. It turned around eight times in 30&nbsp;ps.
+                    One round trip took 6.7&nbsp;ps, a frequency of about 150&nbsp;gigahertz, and the top speed was about 640&nbsp;m/s. The center of the inner tube stayed within 0.05&nbsp;&Aring; of the axis.</p>
+
+                    <p>The inner tube also turned about its axis: 380&deg; in 30&nbsp;ps, at about 13&deg; per picosecond throughout. The atoms start with random velocities at 300&nbsp;K, and these gave the inner tube a small spin. The outer wall did not stop the spin.
+                    The total energy changed by 0.002&nbsp;eV during the run. The thermometer of the lab moved between about 130&nbsp;K and 350&nbsp;K, because the thermometer counts the kinetic energy of the sliding of the whole tube together with the vibrations of its atoms.</p>
+
+                    <h2>Which Inner Tube Makes a Bearing?</h2>
+
+                    <p>The second prompt compares three inner tubes in the same outer tube. For each one, the agent adds up the Lennard-Jones energy between the two tubes, moves the inner tube along the axis to find the force that pulls it back, turns it and slides it to find the energy barriers, and runs it free for 10&nbsp;ps from the middle of the outer tube.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Inner tube</th><th class="num">Gap between walls</th><th class="num">Force pulling it in</th><th class="num">Barrier to turning</th><th class="num">Barrier to sliding</th><th>Free run</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>(4,4)</b></td><td class="num">4.1&nbsp;&Aring;</td><td class="num">960&nbsp;pN</td><td class="num">0.0&nbsp;meV</td><td class="num">18&nbsp;meV</td><td>stayed inside, 0.3&nbsp;&Aring; from the axis</td></tr>
+                                <tr><td class="crystal"><b>(5,5)</b></td><td class="num model">3.4&nbsp;&Aring;</td><td class="num model">1,470&nbsp;pN</td><td class="num">9&nbsp;meV</td><td class="num">27&nbsp;meV</td><td>stayed inside, on the axis</td></tr>
+                                <tr><td class="crystal"><b>(6,6)</b></td><td class="num">2.7&nbsp;&Aring;</td><td class="num">pushed out</td><td class="num">47&nbsp;meV</td><td class="num">335&nbsp;meV</td><td>left the outer tube after 1.9&nbsp;ps</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Three inner tubes in a (10,10) outer tube. The barriers are energies for the whole inner tube. The thermal energy at 300&nbsp;K is 26&nbsp;meV.</p>
+
+                    <p>The (5,5) tube leaves a gap of 3.4&nbsp;&Aring;, the distance at which two layers of carbon atoms rest, and the outer tube pulls it in with the largest force, about 1,470&nbsp;pN. The force is nearly the same at every position while part of the inner tube is outside, because each &aring;ngstr&ouml;m of the inner tube that leaves removes the same area of contact between the walls.
+                    The (4,4) tube is narrower than the space, the force is weaker, and the tube moved 0.3&nbsp;&Aring; from the axis toward one side of the wall. The (6,6) tube leaves 2.7&nbsp;&Aring;, the walls overlap, and the outer tube pushed it out in 1.9&nbsp;ps.</p>
+
+                    <p>Turning the whole (5,5) tube past the atoms of the outer wall costs 9&nbsp;meV, and sliding it costs 27&nbsp;meV. The thermal energy at 300&nbsp;K is 26&nbsp;meV, so the thermal motion of the tube is enough to turn it and to slide it. A bearing needs the two properties in the (5,5) row: a wall that holds the shaft on the axis, and small barriers to motion.
+                    The forces and energies are rough. The Universal Force Field of this lab gives two carbon atoms an attraction about twice as strong as the attraction <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevB.62.13104">fitted to graphite</a>.</p>
+
+                    <h2>After 100 Picoseconds</h2>
+
+                    <p>The third prompt continues the first run to 100&nbsp;ps. Over the last 30&nbsp;ps one round trip took 6.7&nbsp;ps and the inner tube came out 6.1&nbsp;&Aring; at each end, against 6.7&nbsp;ps and 6.0&nbsp;&Aring; over the first 30&nbsp;ps. The inner tube turned at 16&deg; per picosecond over the last 30&nbsp;ps, against 13&deg; per picosecond over the first 30&nbsp;ps, and made 3.9 full turns in the 100&nbsp;ps.
+                    The total energy changed by 0.002&nbsp;eV. The sliding and the turning lost no measurable energy to friction in 100&nbsp;ps.
+                    The outer tube of this lab is rigid. A real outer wall vibrates and takes energy from the inner tube, so the oscillation of a real nanotube decays.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-bearing-start.jpg" alt="The lab at the start: a wide nanotube drawn as a gray wireframe of hexagons, lying left to right, with a narrower nanotube of gray atoms inside it whose right end sticks out of the wide nanotube">
+                        <img src="image/aims-bearing-running.jpg" alt="The lab a few picoseconds after Play: the narrower nanotube has passed through the wide nanotube, and its left end sticks out of the left end of the wide nanotube">
+                    </div>
+                    <p class="v2-chart-caption">The (5,5) nanotube with its right end outside the (10,10) nanotube at the start (left), and the same nanotube at the left end a few picoseconds after Play (right).</p>
+
+                    <h2>A Flake That Slides on Graphene</h2>
+
+                    <p>The inner tube of the bearing slides with little friction. Two flat sheets of carbon atoms can slide in the same way, and their friction changes when one sheet is turned.
+                    When the two lattices line up, every atom of one sheet sits in a hollow of the other, and the sheets resist sliding. When one sheet is turned, some of its atoms are pushed forward by the atoms below them while others are pushed back, and the pushes cancel. This state of very low friction is called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Superlubricity">superlubricity</a>.
+                    In 2004 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.92.126101">Dienwiebel, Frenken, and coworkers</a> measured it with a flake of graphite on a graphite surface. In 2008 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.100.046102">Filippov and coworkers</a> explained why it ends: a sliding flake turns toward the position in which the lattices line up, and there it locks.
+                    In 2013 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/nn305722d">Feng, Salmeron, and coworkers</a> observed the sliding of graphene flakes a few nanometers wide on graphene.</p>
+
+                    <p>The window below shows a ribbon of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphene">graphene</a> from above: 417 carbon atoms, 60&nbsp;&Aring; long and 18&nbsp;&Aring; wide, fixed in place and drawn as a wireframe. A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coronene">coronene</a> molecule, a flake of graphene seven rings wide with hydrogen atoms on its edge, lies 3.4&nbsp;&Aring; above the left end of the ribbon.
+                    The flake is turned 30&deg; from the ribbon, and it starts with a speed of 100&nbsp;m/s to the right, a kinetic energy of 16&nbsp;meV. The lab is at 50&nbsp;K with the thermostat off. The low temperature keeps thermal motion from moving the flake by itself. Press Play and watch the flake.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Graphene%20Flake%20Slider"
+                                id="aims-frame11" allowfullscreen="true" title="A Graphene Flake Slider demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame11');">View fullscreen</a><br>
+                            A coronene molecule on a ribbon of graphene, seen from above, turned 30&deg; from the ribbon and moving to the right. The flake slides 15&nbsp;&Aring; at a steady speed, then turns and stops.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Graphene Flake Slider</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab continues from 30&nbsp;ps.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Slide</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 30 ps and chart the distance from the left end of the ribbon to the flake. How far does the flake slide?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Lined up</span> &mdash; <span class="v2-prompt">&ldquo;Give the same push to a flake that starts lined up with the ribbon.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Barrier</span> &mdash; <span class="v2-prompt">&ldquo;How does the barrier to sliding depend on the angle between the two lattices?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Harder push</span> &mdash; <span class="v2-prompt">&ldquo;Push harder: 150 m/s, for the lined-up flake and the turned flake.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Turned Flake Slides, and the Lined-Up Flake Is Held</h2>
+
+                    <p>The turned flake slid 15&nbsp;&Aring; along the ribbon. For the first 14&nbsp;ps it kept a speed of about 90&nbsp;m/s, and over each picosecond its speed was between 82 and 109&nbsp;m/s. The ribbon took almost no speed from it.
+                    Then the flake began to turn, and the sliding stopped 18&nbsp;ps after the start. By the end of the run the flake had turned 167&deg;, and over the last 5&nbsp;ps it moved within 0.8&nbsp;&Aring;. The energy of the sliding went into the turning and the vibrations of the flake.
+                    The flake came to rest with its lattice 19&deg; from lining up with the ribbon. A flake of six-fold shape lines up every 60&deg;, so the flake in this run stopped short of the lined-up position that Filippov and coworkers describe.</p>
+
+                    <p>The second prompt sets the flake down with its lattice lined up with the ribbon, in the place where its energy is lowest, and gives it the same 100&nbsp;m/s. In the first 20&nbsp;ps the flake never moved farther than 3.2&nbsp;&Aring; from its starting place, and after 30&nbsp;ps it was 4.9&nbsp;&Aring; away.
+                    It moved back and forth between neighboring sites of the lattice. When the lattices line up, all 24 carbon atoms of the flake meet the atoms of the ribbon at the same moment, and their pushes add up.</p>
+
+                    <h2>The Barrier Depends on the Angle</h2>
+
+                    <p>For the third prompt the agent holds the flake rigid 3.4&nbsp;&Aring; above a sheet of graphene 64&nbsp;&Aring; wide, turns it to each angle, and moves it over one cell of the lattice in steps of about 0.1&nbsp;&Aring;. At each place it adds up the Lennard-Jones energy between the flake and the sheet.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Angle between the lattices</th><th class="num">Rise from the lowest to the highest point</th><th class="num">Per carbon atom</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>0&deg;</b><small>lined up</small></td><td class="num model">39&nbsp;meV</td><td class="num">1.61&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>5&deg;</b></td><td class="num">32&nbsp;meV</td><td class="num">1.34&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>10&deg;</b></td><td class="num">17&nbsp;meV</td><td class="num">0.71&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>15&deg;</b></td><td class="num">3.2&nbsp;meV</td><td class="num">0.13&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>20&deg;</b></td><td class="num">2.9&nbsp;meV</td><td class="num">0.12&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>25&deg;</b></td><td class="num">2.7&nbsp;meV</td><td class="num">0.11&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>30&deg;</b></td><td class="num model">1.6&nbsp;meV</td><td class="num">0.07&nbsp;meV</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The energy of a rigid coronene flake over one cell of the graphene lattice, at seven angles between the two lattices. The thermal energy at 50&nbsp;K is 4&nbsp;meV, and the push of 100&nbsp;m/s carries 16&nbsp;meV.</p>
+
+                    <p>The rise is 39&nbsp;meV when the lattices line up and 1.6&nbsp;meV at 30&deg;, 25 times smaller. A lined-up flake does not have to cross the highest point. The lowest pass from one resting site to the next is 4&nbsp;meV high and lies along a zigzag path, to either side of the direction of the push, so the lined-up flake moved from site to site and did not travel straight.
+                    The energy of the flake at rest is 11&nbsp;meV lower when the lattices line up than at 30&deg;, and a flake that turns to the lined-up position gains this energy.</p>
+
+                    <p>The fourth prompt pushes both flakes at 150&nbsp;m/s, a kinetic energy of 35&nbsp;meV, for 16&nbsp;ps.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Flake</th><th class="num">Average speed, first 10&nbsp;ps</th><th class="num">Slowest and fastest picosecond</th><th class="num">Distance in 16&nbsp;ps</th><th class="num">Speed, last 3&nbsp;ps</th><th class="num">Largest turn</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Lined up</b></td><td class="num">141&nbsp;m/s</td><td class="num">125 to 158&nbsp;m/s</td><td class="num">21&nbsp;&Aring;</td><td class="num">99&nbsp;m/s</td><td class="num">64&deg;</td></tr>
+                                <tr><td class="crystal"><b>Turned 30&deg;</b></td><td class="num model">155&nbsp;m/s</td><td class="num model">152 to 158&nbsp;m/s</td><td class="num">25&nbsp;&Aring;</td><td class="num">156&nbsp;m/s</td><td class="num">18&deg;</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Two flakes pushed at 150&nbsp;m/s on the same ribbon at 50&nbsp;K, one run of 16&nbsp;ps each.</p>
+
+                    <p>The turned flake kept its speed, between 152 and 158&nbsp;m/s in every picosecond. The speed of the lined-up flake varied between 125 and 158&nbsp;m/s. The lined-up flake also began to turn, reached 64&deg;, and moved at 99&nbsp;m/s over the last 3&nbsp;ps.
+                    The ribbon in this lab is rigid, so the flake cannot pass energy to it, and the friction in these runs is the energy that the sliding gives to the turning and the vibrations of the flake. The flake has 24 carbon atoms. The flakes in the experiments had hundreds to millions of atoms, and the lined-up barrier grows with the number of atoms.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-flake-start.jpg" alt="The lab at the start, seen from above: a ribbon of graphene drawn as a gray wireframe of hexagons lies left to right, and a coronene molecule of seven rings with white hydrogen atoms on its edge lies over its left end, with its rings turned relative to the hexagons of the ribbon">
+                        <img src="image/aims-flake-loaded.jpg" alt="The lab after 30 picoseconds: the coronene molecule has moved about a quarter of the way along the ribbon and has turned">
+                    </div>
+                    <p class="v2-chart-caption">The flake at the left end of the ribbon at the start, turned 30&deg; from the ribbon (left), and after 30&nbsp;ps, 15&nbsp;&Aring; to the right, where it stopped (right).</p>
+
+                    <h2>A Piston Driven by a Gas</h2>
+
+                    <p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Piston">piston</a> is a part that closes a cylinder and slides in it. A gas on one side pushes the piston, and the piston carries the push to the rest of the machine. A car engine and a steam engine work this way.
+                    A buckyball fits a (10,10) nanotube closely. The gap between the ball and the wall is 3.2&nbsp;&Aring;, too narrow for an atom to pass, so the ball can serve as a piston and the nanotube as its cylinder.</p>
+
+                    <p>The window below holds a (10,10) nanotube of 400 carbon atoms, 23&nbsp;&Aring; long, fixed in place and drawn as a wireframe. Its left end sits on the left wall of the box, and the wall closes that end. A buckyball inside the tube has its center 12&nbsp;&Aring; from the wall, and eight <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Helium">helium</a> atoms fill the space between the wall and the ball.
+                    The thermostat is off, so the total energy stays constant. The atoms start with the velocities of 300&nbsp;K. Press Play and watch the ball.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Gas-Driven%20Piston"
+                                id="aims-frame10" allowfullscreen="true" title="A Gas-Driven Piston demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame10');">View fullscreen</a><br>
+                            A buckyball in a nanotube whose left end is closed by the wall of the box, with eight helium atoms behind the ball. The gas pushes the ball toward the open end, and the ball returns and compresses the gas every 13&nbsp;ps of simulated time.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Gas-Driven Piston</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab continues from 24&nbsp;ps.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Push</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 24 ps and chart the distance from the closed end to the ball. What does the gas do to the ball, and what happens to the gas?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Amount</span> &mdash; <span class="v2-prompt">&ldquo;What does the number of gas atoms change? Try no gas, and 4, 8 and 12 helium atoms at 300 K.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Temperature</span> &mdash; <span class="v2-prompt">&ldquo;What does the temperature of the gas change? Try 100 K, 300 K and 600 K with 8 helium atoms.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Gas Pushes the Ball and Cools</h2>
+
+                    <p>The helium atoms struck the ball and pushed it along the tube. The center of the ball moved from 12&nbsp;&Aring; to 19&nbsp;&Aring; from the wall in 6&nbsp;ps and reached a top speed of about 170&nbsp;m/s. Over the first 3&nbsp;&Aring; the average force on the ball was about 60&nbsp;pN. For a tube 13.6&nbsp;&Aring; across, that force is a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Pressure">pressure</a> of roughly 430 atmospheres.</p>
+
+                    <p>The gas cooled as it expanded. The helium atoms started near 320&nbsp;K and were near 170&nbsp;K when the ball was farthest out. A helium atom that strikes a ball moving away from it bounces back more slowly than it came, so each strike gives energy to the ball.
+                    At its top speed the ball carried 0.11&nbsp;eV of kinetic energy along the tube, and the gas had lost 0.15&nbsp;eV of kinetic energy. The gas did work on the piston. A gas that expands and does work with no heat coming in cools, and the process is called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Adiabatic_process">adiabatic</a> expansion.</p>
+
+                    <p>The ball did not leave the tube. Near the open end the attraction of the wall holds the ball back, and the ball turned around 5&nbsp;&Aring; inside the mouth. It came back to 12&nbsp;&Aring; from the wall at 13&nbsp;ps and compressed the gas, which warmed up to about 250&nbsp;K. The gas pushed the ball out again, and one round trip takes about 13&nbsp;ps.
+                    The total energy changed by less than 0.001&nbsp;eV in 24&nbsp;ps.</p>
+
+                    <h2>More Gas and Hotter Gas</h2>
+
+                    <p>The second prompt changes the number of helium atoms, and the third changes the starting temperature. Each run starts with the ball 12&nbsp;&Aring; from the wall and lasts 12&nbsp;ps.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Gas</th><th class="num">Time to travel 5&nbsp;&Aring;</th><th class="num">Force over the first 3&nbsp;&Aring;</th><th class="num">Top speed</th><th class="num">Farthest point from the wall</th><th class="num">Gas temperature, start to farthest point</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>No gas</b><small>300&nbsp;K</small></td><td class="num">did not travel 5&nbsp;&Aring;</td><td class="num">&ndash;</td><td class="num">0&nbsp;m/s</td><td class="num">12&nbsp;&Aring;</td><td class="num">&ndash;</td></tr>
+                                <tr><td class="crystal"><b>4 atoms</b><small>300&nbsp;K</small></td><td class="num">did not travel 5&nbsp;&Aring;</td><td class="num">10&nbsp;pN</td><td class="num">70&nbsp;m/s</td><td class="num">17&nbsp;&Aring;</td><td class="num">240 to 200&nbsp;K</td></tr>
+                                <tr><td class="crystal"><b>8 atoms</b><small>300&nbsp;K</small></td><td class="num model">4.7&nbsp;ps</td><td class="num model">60&nbsp;pN</td><td class="num">170&nbsp;m/s</td><td class="num">19&nbsp;&Aring;</td><td class="num">320 to 170&nbsp;K</td></tr>
+                                <tr><td class="crystal"><b>12 atoms</b><small>300&nbsp;K</small></td><td class="num">4.4&nbsp;ps</td><td class="num">90&nbsp;pN</td><td class="num">170&nbsp;m/s</td><td class="num">19&nbsp;&Aring;</td><td class="num">280 to 190&nbsp;K</td></tr>
+                                <tr><td class="crystal"><b>8 atoms</b><small>100&nbsp;K</small></td><td class="num">did not travel 5&nbsp;&Aring;</td><td class="num">10&nbsp;pN</td><td class="num">70&nbsp;m/s</td><td class="num">17&nbsp;&Aring;</td><td class="num">80 to 60&nbsp;K</td></tr>
+                                <tr><td class="crystal"><b>8 atoms</b><small>600&nbsp;K</small></td><td class="num">3.2&nbsp;ps</td><td class="num">130&nbsp;pN</td><td class="num">250&nbsp;m/s</td><td class="num">20&nbsp;&Aring;</td><td class="num">510 to 310&nbsp;K</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The push on the ball for different amounts of helium and different starting temperatures, one run of 12&nbsp;ps each. The gas temperature is taken from the speeds of the helium atoms, at the start over the first half picosecond.</p>
+
+                    <p>Without gas the ball stayed 12&nbsp;&Aring; from the wall. The wall of the tube attracts the ball equally on both sides, so no force pushes the ball along the tube. With gas, more atoms in the same space strike the ball more often: 12 atoms gave a force of about 90&nbsp;pN, against 10&nbsp;pN for 4 atoms.
+                    A hotter gas pushes harder, because its atoms move faster, strike the ball more often, and give the ball more momentum with each strike. The top speed of the ball was 250&nbsp;m/s at 600&nbsp;K against 70&nbsp;m/s at 100&nbsp;K. The gas cooled in every run.</p>
+
+                    <p>A heat engine uses both results. It heats a gas to raise its pressure, lets the gas push a piston and cool, and compresses the cool gas at a lower cost in energy. Eight atoms are a very small sample of a gas, so the push arrives as separate strikes and each run differs in detail.
+                    The gas in this tube starts at a density close to that of liquid helium, and the tube is rigid, so the ball goes back and forth far longer than a ball in a real tube would.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-piston-start.jpg" alt="The lab at the start: a nanotube drawn as a gray wireframe lies left to right inside a box, with its left end on the left wall of the box, a buckyball inside it near the middle, and eight small helium atoms between the wall and the ball">
+                        <img src="image/aims-piston-running.jpg" alt="The lab a few picoseconds after Play: the buckyball has moved toward the open right end of the nanotube, and the helium atoms are spread over the longer space behind it">
+                    </div>
+                    <p class="v2-chart-caption">The piston at the start, with eight helium atoms between the wall and the ball (left), and a few picoseconds after Play, with the ball near the open end and the gas expanded behind it (right).</p>
+
+                    <h2>A Motor Driven by Heat</h2>
+
+                    <p>A motor turns a supply of energy into motion in one direction. The bearing, the flake, and the piston above move with the energy that they were given at the start. In 2008 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.1155559">Barreiro, Bachtold, and coworkers</a> built a motor from a multiwall carbon nanotube.
+                    They removed part of the outer walls so that a short piece of them was free to move along the inner walls, and they attached a small gold plate to this piece as a cargo. An electric current heated the middle of the nanotube, and the cargo moved from the hot middle toward a cooler end.
+                    The energy came from the difference in temperature along the nanotube.</p>
+
+                    <p>The window below holds a (5,5) nanotube of 360 carbon atoms, 43&nbsp;&Aring; long, with a short (10,10) nanotube of 120 atoms around its middle, the cargo. The ring of 20 atoms at each end of the inner tube is fixed.
+                    The lab has thermostat groups, which hold chosen atoms at their own temperatures. One group holds the 40 atoms next to the left end at 800&nbsp;K, and a second group holds the 40 atoms next to the right end at 100&nbsp;K. No thermostat acts on the 240 atoms between them or on the cargo.
+                    All atoms start with the velocities of 450&nbsp;K, and the cargo starts with no net motion. Press Play and watch the cargo.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Thermal%20Nanotube%20Motor"
+                                id="aims-frame9" allowfullscreen="true" title="A Thermal Nanotube Motor demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame9');">View fullscreen</a><br>
+                            A short (10,10) nanotube around a long (5,5) nanotube whose left end is held at 800&nbsp;K and whose right end is held at 100&nbsp;K. The short tube travels to the cold end in about 20&nbsp;ps of simulated time.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Thermal Nanotube Motor</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab continues from 60&nbsp;ps.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Travel</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 60 ps and chart the distance from the hot end to the cargo. Where does the cargo go, and what force moves it?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Swap</span> &mdash; <span class="v2-prompt">&ldquo;Swap the two temperatures: 100 K at the left end and 800 K at the right end. Start again from the middle and run 30 ps.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">No difference</span> &mdash; <span class="v2-prompt">&ldquo;Does the cargo need the difference in temperature? Try 600 K and 300 K, and then 450 K at both ends from three different starts. Run each for 40 ps.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Cargo Travels to the Cold End</h2>
+
+                    <p>The cargo left the middle slowly and gained speed all the way. It was 10&nbsp;&Aring; from the middle after 15&nbsp;ps, moving at about 130&nbsp;m/s. It reached 15&nbsp;&Aring; at 21&nbsp;ps, where its end met the end of the inner tube, and bounced back.
+                    For the rest of the 60&nbsp;ps it stayed on the cold half of the inner tube, between 4&nbsp;&Aring; and 16&nbsp;&Aring; from the middle. Each time it came back toward the middle it was pushed to the cold end again.</p>
+
+                    <p>The agent measured the temperature along the inner tube in seven equal sections from left to right, averaged over the run: 670, 410, 360, 340, 320, 280, and 240&nbsp;K. Between the two thermostat groups the temperature fell by about 50&nbsp;K per nanometer. The cargo stayed near 300&nbsp;K.
+                    The motion up to 10&nbsp;&Aring; fits a constant acceleration of 0.08&nbsp;&Aring;/ps<sup>2</sup>. The cargo has a mass of 1,441 atomic mass units, so the average force on it was about 19&nbsp;pN.
+                    The atoms of the inner tube vibrate more on the hot side of the cargo than on the cold side, and the stronger vibrations push the cargo harder. This force is called a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Thermophoresis">thermophoretic</a> force.</p>
+
+                    <h2>Swapping the Temperatures, and Removing the Difference</h2>
+
+                    <p>The second prompt holds the left end at 100&nbsp;K and the right end at 800&nbsp;K. The cargo traveled to the left end, which is then the cold one. It was 10&nbsp;&Aring; from the middle after 12&nbsp;ps, and the average force was about 35&nbsp;pN.
+                    The two tubes are the same from left to right, so no feature of the structure prefers a direction. The direction in which the heat flows sets the direction of the motion.</p>
+
+                    <p>The third prompt reduces the difference and then removes it. Each run starts with the cargo at the middle and lasts 40&nbsp;ps.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Ends of the inner tube</th><th class="num">Fall of temperature along the tube</th><th class="num">Time to travel 10&nbsp;&Aring;</th><th class="num">Average force</th><th>Position at the end of the run</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>800&nbsp;K and 100&nbsp;K</b><small>hot end on the left</small></td><td class="num">50&nbsp;K per nm</td><td class="num model">15&nbsp;ps, to the right</td><td class="num model">19&nbsp;pN</td><td>on the right half</td></tr>
+                                <tr><td class="crystal"><b>100&nbsp;K and 800&nbsp;K</b><small>hot end on the right</small></td><td class="num">50&nbsp;K per nm</td><td class="num model">12&nbsp;ps, to the left</td><td class="num model">35&nbsp;pN</td><td>on the left half</td></tr>
+                                <tr><td class="crystal"><b>600&nbsp;K and 300&nbsp;K</b><small>hot end on the left</small></td><td class="num">20&nbsp;K per nm</td><td class="num">21&nbsp;ps, to the right</td><td class="num">12&nbsp;pN</td><td>9&nbsp;&Aring; to the right</td></tr>
+                                <tr><td class="crystal"><b>450&nbsp;K at both ends</b><small>start 1</small></td><td class="num">under 5&nbsp;K per nm</td><td class="num">33&nbsp;ps, to the left</td><td class="num">&ndash;</td><td>15&nbsp;&Aring; to the left</td></tr>
+                                <tr><td class="crystal"><b>450&nbsp;K at both ends</b><small>start 2</small></td><td class="num">under 5&nbsp;K per nm</td><td class="num">did not travel 10&nbsp;&Aring;</td><td class="num">&ndash;</td><td>at the middle</td></tr>
+                                <tr><td class="crystal"><b>450&nbsp;K at both ends</b><small>start 3</small></td><td class="num">under 5&nbsp;K per nm</td><td class="num">did not travel 10&nbsp;&Aring;</td><td class="num">&ndash;</td><td>4&nbsp;&Aring; to the left</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The cargo on the inner tube for six settings of the two thermostat groups. The first two runs lasted 60&nbsp;ps and 30&nbsp;ps, and the others 40&nbsp;ps. The force is the mass of the cargo times the acceleration that fits its motion over the first 10&nbsp;&Aring;.</p>
+
+                    <p>With 600&nbsp;K and 300&nbsp;K the temperature fell 2.6 times less steeply than in the first run. The cargo again traveled to the cold end, with an average force of about 12&nbsp;pN, and the trip took 21&nbsp;ps.
+                    With 450&nbsp;K at both ends the cargo moved less and more slowly. The atoms start with random velocities, and those set the direction: one start took the cargo 15&nbsp;&Aring; to the left, and two starts left it within 4&nbsp;&Aring; of the middle.
+                    A cargo on a tube at one temperature has thermal motion and no preferred direction. The motor needs a flow of heat from a hot end to a cold end, as a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Heat_engine">heat engine</a> does.</p>
+
+                    <p>The forces differ between runs with the same temperatures, 19&nbsp;pN and 35&nbsp;pN, because each run starts with different random velocities and the push on 120 atoms fluctuates. The tube in this lab is 43&nbsp;&Aring; long, so the temperature falls tens of times more steeply than in the experiment.
+                    The direction of the motion is a more reliable result than the size of the force.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-motor-start.jpg" alt="The lab at the start: a long narrow nanotube of gray atoms lies left to right, with a short wide nanotube around its middle like a ring on a rod, and small yellow pins on the atoms at its two ends">
+                        <img src="image/aims-motor-running.jpg" alt="The lab after 60 picoseconds: the short wide nanotube sits on the right half of the long narrow nanotube">
+                    </div>
+                    <p class="v2-chart-caption">The cargo at the middle of the inner tube at the start (left), and on the cold half after 60&nbsp;ps (right). The yellow pins mark the fixed atoms at the two ends of the inner tube.</p>
+
+                    <h2>What the Lab Cannot Show</h2>
+
+                    <p>The covalent bonds of the molecules in this lab do not form or break, and the lab has no light. The motor of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/43646">Koumura, Feringa, and coworkers</a> turns in one direction because light changes a double bond of the molecule, and the lab cannot model that step.
+                    The lab shows the parts of a machine and the forces that hold and move them. In the three articles of this series, those are a ring that goes to a charge, a clamp that closes on an ion, an ion that a field drives through a ring, tweezers that grip a ball, a ring that turns freely in both directions, a ring that an electric field holds, two wheels that turn each other, a tube that slides and turns in another tube, a flake that slides when its lattice is turned, a ball that a gas pushes, and a cargo that a flow of heat moves in one direction.
+                    Two of them are driven in one direction by an energy source: the ion pump by an electric field, and the thermal motor by a flow of heat.
+                    AIMS has one more example of a machine part. <em>A Nanocar on Gold</em> (Nanotechnology) holds a molecule with four buckyballs as wheels on a gold surface, after the nanocar of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/nl051915k">Shirai, Tour, and coworkers</a>.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the charges and the sizes of the atoms. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">An oscillator</span> &mdash; a (5,5) nanotube released 6&nbsp;&Aring; out of a (10,10) nanotube passes through and returns every 6.7&nbsp;ps, a frequency of 150&nbsp;GHz.</li>
+                            <li><span class="v2-prompts-step">A bearing</span> &mdash; the barrier to turning the (5,5) tube is 9&nbsp;meV, less than the thermal energy of 26&nbsp;meV, and the tube is still sliding and turning after 100&nbsp;ps.</li>
+                            <li><span class="v2-prompts-step">The right fit</span> &mdash; the (5,5) tube is pulled in with 1,470&nbsp;pN, the (4,4) tube with 960&nbsp;pN, and the (6,6) tube is pushed out.</li>
+                            <li><span class="v2-prompts-step">A slider</span> &mdash; a coronene flake turned 30&deg; from a graphene ribbon slides 15&nbsp;&Aring; at a steady 90&nbsp;m/s, a lined-up flake given the same push moves 3.2&nbsp;&Aring; in 20&nbsp;ps, and the barrier to sliding is 39&nbsp;meV lined up and 1.6&nbsp;meV at 30&deg;.</li>
+                            <li><span class="v2-prompts-step">A piston</span> &mdash; eight helium atoms push a buckyball 7&nbsp;&Aring; along a nanotube in 6&nbsp;ps with a force of about 60&nbsp;pN, and the gas cools from 320&nbsp;K to 170&nbsp;K as it does the work.</li>
+                            <li><span class="v2-prompts-step">A motor</span> &mdash; a short nanotube on a longer one travels to the cold end with a force of about 19&nbsp;pN when the temperature falls by 50&nbsp;K per nanometer, travels the other way when the temperatures are swapped, and has no preferred direction at one temperature.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses a nanotube bearing, a graphene flake slider, a gas-driven piston, and a thermal motor to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. Machines made of carbon nanotubes and graphene become something students watch and measure for themselves in a browser: how one nanotube slides and turns inside another with almost no friction,
+                    how the friction of a graphene flake depends on the angle of its lattice, how a gas does work on a piston and cools, and how a flow of heat moves a cargo in one direction. By pairing a physically grounded simulation with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of the parts that molecular machines are made of.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
