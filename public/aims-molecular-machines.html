@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molecular Machines: Shuttles, Clamps, Pumps, and Tweezers — Institute for Future Intelligence</title>
+    <meta name="description" content="A molecular machine has parts that are single molecules. AIMS moves a ring between two stations on an axle by moving one hydrogen atom, closes a two-ring clamp on a potassium ion, drives an ion through a crown ether ring with an electric field, and grips a buckyball with molecular tweezers, and an AI agent measures each motion.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="MACHINE">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Molecular Machines: Shuttles, Clamps, Pumps, and Tweezers</h1>
+                <p class="v2-tagline">
+                    AIMS moves a ring between two stations on an axle, closes a clamp on an ion, drives an ion through a ring with an electric field, and grips a buckyball with tweezers, and an AI agent measures each motion.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 16, 2026</span></p>
+
+                    <p>A machine has parts that move in a controlled way. A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Molecular_machine">molecular machine</a> is a machine whose parts are single molecules: a ring that moves along an axle, a wheel that turns on a shaft, a tube that slides inside another tube.
+                    AIMS models every atom of such a part, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent builds the molecules, runs them, measures the motion, and posts the measured data in the chat.
+                    This article follows four parts built on rings and the guests that they hold: a shuttle, in which a ring moves between two positions on an axle; a clamp, a molecule that closes on an ion; a pump, a ring through which an electric field drives an ion; and tweezers, two arms that grip a buckyball. Two companion articles follow parts that turn (<a href="aims-molecular-rotors.html">molecular rotors and gears</a>) and parts that slide (<a href="aims-nanotube-machines.html">nanotube machines</a>).
+                    In the window below, a ring sits at the right end of an axle at 300&nbsp;K. Press Play and watch the ring move to the left.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Molecular%20Shuttle"
+                                id="aims-frame1" allowfullscreen="true" title="A Molecular Shuttle demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            A ring on an axle with two nitrogen atoms (blue). The left nitrogen carries a charge, and the ring starts around the right nitrogen. The ring reaches the left nitrogen within a few picoseconds of Play.
+                        </figcaption>
+                    </figure>
+
+                    <h2>What Is a Molecular Machine?</h2>
+
+                    <p>Living cells are full of molecular machines. A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Kinesin">kinesin</a> protein walks along a filament and carries cargo, and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/ATP_synthase">ATP synthase</a> has a rotor that turns inside a stator.
+                    Chemists began to build machines of their own in the 1980s and 1990s. In 1991 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja00013a096">Anelli, Spencer, and Stoddart</a> made a rotaxane whose ring moves back and forth between two identical positions on its axle and named it a molecular shuttle.
+                    In 1994 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/369133a0">Bissell, C&oacute;rdova, Kaifer, and Stoddart</a> made a shuttle with two different positions and switched the ring from one to the other with an acid.
+                    In 1999 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/43646">Koumura, Feringa, and coworkers</a> made a molecule that turns in one direction when light shines on it.
+                    Jean-Pierre Sauvage, Fraser Stoddart, and Ben Feringa shared the <a target="_blank" rel="noopener noreferrer" href="https://www.nobelprize.org/prizes/chemistry/2016/summary/">2016 Nobel Prize in Chemistry</a> for the design and synthesis of molecular machines.</p>
+
+                    <p>Three terms appear in the examples below. A position on an axle where a ring is held is called a station. A signal is a change that a chemist makes from outside, such as adding an acid, and a switch is a machine that takes one of two states according to the signal.
+                    The companion article on <a href="aims-supramolecular-chemistry.html">supramolecular chemistry</a> shows how a ring comes to sit at a charged nitrogen atom of an axle, and this article starts from that result.</p>
+
+                    <h2>The Forces in the Model</h2>
+
+                    <p>No covalent bond joins the moving part of a molecular machine to the rest. Two forces act between the parts in this lab. The first is the electrostatic force of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coulomb%27s_law">Coulomb's law</a> between the partial charges of the atoms,
+                    which the lab assigns with the method of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0040-4020(80)80168-2">Gasteiger and Marsili</a>. The second is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Lennard-Jones_potential">Lennard-Jones</a> force,
+                    with the atom sizes of the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja00051a040">Universal Force Field</a>: a weak attraction between atoms a few &aring;ngstr&ouml;ms apart and a strong repulsion between atoms that overlap.
+                    The ring of the shuttle is the crown ether dibenzo-24-crown-8, a circle of 24 atoms with eight oxygen atoms, and each oxygen atom carries &minus;0.38&nbsp;e. A nitrogen atom with two hydrogen atoms and a charge of +1&nbsp;e attracts those oxygen atoms.
+                    In the last example the Lennard-Jones force holds a buckyball between the two arms of the tweezers. Every example runs in a vacuum.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Building the molecules, running them, pulling on them, and plotting the results are the agent's work. A student asks the agent to
+                    <em>"move the extra hydrogen to the other nitrogen and run it again"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open <em>A Molecular Shuttle</em> from the list (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the second prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the ring back at the right nitrogen.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">First crossing</span> &mdash; <span class="v2-prompt">&ldquo;Run it, and chart the distance from each nitrogen to one oxygen atom of the ring.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Switch</span> &mdash; <span class="v2-prompt">&ldquo;Now move the extra hydrogen from the left nitrogen to the right nitrogen, keep everything else as it is, and run it again.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Four states</span> &mdash; <span class="v2-prompt">&ldquo;What does the ring do when both nitrogens are charged, or neither? Start the ring at the right nitrogen each time.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Ring Follows the Charge</h2>
+
+                    <p>The axle of the shuttle has two nitrogen atoms 6.3&nbsp;&Aring; apart, joined by a chain of four carbon atoms. Each end of the axle carries a stopper: a benzene ring with two tert-butyl groups. The axle has 93 atoms and the ring has 64.
+                    Each nitrogen atom is a station. A nitrogen atom that carries one extra hydrogen atom has a charge of +1&nbsp;e. The lab starts with the extra hydrogen atom on the left nitrogen and the ring around the right nitrogen.</p>
+
+                    <p>The agent ran the lab and charted the distance from each nitrogen atom to one oxygen atom of the ring. The ring stayed within 3&nbsp;&Aring; of the right nitrogen for 1.4&nbsp;ps, moved along the chain, and reached the left nitrogen after 2.1&nbsp;ps.
+                    For the rest of the 11&nbsp;ps run the center of the ring stayed 0.6&nbsp;&Aring; from the left nitrogen on average and at most 0.9&nbsp;&Aring;.
+                    The second prompt moves the extra hydrogen atom to the right nitrogen and keeps every other atom in place. The ring moved back to the right nitrogen. The agent repeated the change two more times, and the ring followed the hydrogen atom each time.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Crossing</th><th>Charged nitrogen</th><th class="num">Ring left the old station</th><th class="num">Ring reached the new station</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>1</b></td><td>left</td><td class="num">after 1.4&nbsp;ps</td><td class="num model">after 2.1&nbsp;ps</td></tr>
+                                <tr><td class="crystal"><b>2</b></td><td>right</td><td class="num">after 1.6&nbsp;ps</td><td class="num model">after 1.9&nbsp;ps</td></tr>
+                                <tr><td class="crystal"><b>3</b></td><td>left</td><td class="num">after 0.9&nbsp;ps</td><td class="num model">after 1.7&nbsp;ps</td></tr>
+                                <tr><td class="crystal"><b>4</b></td><td>right</td><td class="num">after 1.1&nbsp;ps</td><td class="num model">after 3.3&nbsp;ps</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Four crossings of the ring at 300&nbsp;K. Each crossing starts from the last frame of the one before, with the extra hydrogen atom moved to the other nitrogen. The times count from the moment the hydrogen atom is moved.</p>
+
+                    <p>The position of one hydrogen atom is the signal, and the position of the ring is the state of the switch. In the shuttles made in the laboratory, a base removes the hydrogen atom from a nitrogen and an acid returns it.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja982167m">Ashton and coworkers</a> built such a shuttle in 1998 with the same kind of ring: the ring stays at a charged nitrogen in acid and moves to a second station when a base removes the hydrogen atom.
+                    The lab does not model the acid and the base. The agent moves the hydrogen atom by replacing the axle with a version that has the hydrogen atom on the other nitrogen. The two stations of this model are identical nitrogen atoms, and the two stations of the laboratory shuttles are different chemical groups.</p>
+
+                    <p>The distance between the stations matters. In trial runs with six carbon atoms between the nitrogen atoms, 8.7&nbsp;&Aring; apart, the ring waited between 3 and 179&nbsp;ps before it crossed in four runs.
+                    The pull of the charged nitrogen falls quickly with distance, and from 8.7&nbsp;&Aring; the ring has to move part of the way by thermal motion before the charge takes hold of it.</p>
+
+                    <h2>Four Ways to Charge the Axle</h2>
+
+                    <p>The third prompt runs the axle in each of its four states for 30&nbsp;ps at 300&nbsp;K, with the ring starting at the right nitrogen, and records where the center of the ring was over the last 15&nbsp;ps.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Extra hydrogen atom on</th><th class="num">Ring to left nitrogen</th><th class="num">Ring to right nitrogen</th><th>Position of the ring</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Left nitrogen</b></td><td class="num model">0.6&nbsp;&Aring;</td><td class="num">5.6&nbsp;&Aring;</td><td>left nitrogen, after crossing</td></tr>
+                                <tr><td class="crystal"><b>Right nitrogen</b></td><td class="num">5.6&nbsp;&Aring;</td><td class="num model">0.5&nbsp;&Aring;</td><td>right nitrogen</td></tr>
+                                <tr><td class="crystal"><b>Both</b></td><td class="num">4.2&nbsp;&Aring;</td><td class="num model">0.8&nbsp;&Aring;</td><td>right nitrogen</td></tr>
+                                <tr><td class="crystal"><b>Neither</b></td><td class="num">5.5&nbsp;&Aring;</td><td class="num model">0.4&nbsp;&Aring;</td><td>right nitrogen</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The average distance from the center of the ring to each nitrogen atom. The first row is the first crossing above. The other three rows are 30&nbsp;ps runs with the ring starting at the right nitrogen.</p>
+
+                    <p>The ring crossed in one state of the four: the other nitrogen charged and its own nitrogen neutral. With the charge on its own nitrogen the ring stayed. With both nitrogen atoms charged, the two charges pull the ring in opposite directions, and the ring stayed at its own nitrogen, 0.8&nbsp;&Aring; from it on average.
+                    With neither charged, no charge pulls the ring away, and the Lennard-Jones attraction kept the ring within 1.8&nbsp;&Aring; of the nitrogen for the 30&nbsp;ps.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-shuttle-start.jpg" alt="The lab at the start: an axle lying left to right with two blue nitrogen atoms and a bulky group at each end, and a ring with red oxygen atoms around the right nitrogen">
+                        <img src="image/aims-shuttle-running.jpg" alt="The lab a few picoseconds after Play: the ring with red oxygen atoms now surrounds the left nitrogen atom, and the right nitrogen atom is outside the ring">
+                    </div>
+                    <p class="v2-chart-caption">The ring around the right nitrogen at the start (left), and the ring around the charged left nitrogen a few picoseconds after Play (right). The axle tumbles in the lab, so the second picture shows it from a different side.</p>
+
+                    <p>The stoppers at the two ends of the axle keep the ring of the shuttle on it. The companion article on <a href="aims-interlocked-molecules.html">interlocked and nested molecules</a> pulls a ring against such stoppers and links two rings into a catenane.</p>
+
+                    <h2>A Clamp That an Ion Closes</h2>
+
+                    <p>The ring of the shuttle moves when a charge moves. A molecule can also change its shape when an ion arrives. A molecular clamp has two <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Crown_ether">crown ether</a> rings joined by a short link.
+                    Each ring of the clamp in the window below is benzo-15-crown-5: a circle of fifteen atoms, five of them oxygen atoms, fused to a benzene ring. A potassium ion is too large to lie inside one ring of this size. It rests on one face of the ring, and the second ring can cover its other side.
+                    The companion article on <a href="aims-supramolecular-chemistry.html">supramolecular chemistry</a> shows two separate 15-crown-5 rings that hold one potassium ion between them. In the clamp the two rings belong to one molecule.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0022-0728(79)80222-3">Kimura, Maeda, Tamura, and Shono</a> used molecules with two crown ether rings in 1979 to make electrodes that respond to potassium ions.</p>
+
+                    <p>The molecule is bis(benzo-15-crown-5)methane, 79 atoms. One CH<sub>2</sub> group joins the two rings and holds them at an angle, with their centers 9.3&nbsp;&Aring; apart. A potassium ion with a charge of +1&nbsp;e sits midway between the two rings, and the lab runs at 300&nbsp;K.
+                    Press Play and watch the ion and the two rings. The ion moves to one ring at once. The time before the second ring closes over the ion varies from run to run, and in about half of the trial runs it was longer than 40&nbsp;ps.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=An%20Ion-Operated%20Clamp"
+                                id="aims-frame6" allowfullscreen="true" title="An Ion-Operated Clamp demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame6');">View fullscreen</a><br>
+                            Two crown ether rings joined by a CH<sub>2</sub> group, with a potassium ion (purple) between them. The ion moves to one ring, and the other ring closes over it after a time that varies from run to run.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>An Ion-Operated Clamp</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the clamp closed on the ion.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Closing</span> &mdash; <span class="v2-prompt">&ldquo;Run it, and chart the distance from the potassium ion to one oxygen atom of each ring.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Signal</span> &mdash; <span class="v2-prompt">&ldquo;What does the clamp do without the ion? Run it empty, and then take the ion out of the closed clamp.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Three ions</span> &mdash; <span class="v2-prompt">&ldquo;Does the clamp close on smaller ions? Try lithium, sodium and potassium ions.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Ion Closes the Clamp</h2>
+
+                    <p>The agent ran the lab and charted the distance from the ion to one oxygen atom of each ring. The ion reached one ring within 0.1&nbsp;ps and rested on it. The other ring swung over and closed on the ion after 7.9&nbsp;ps.
+                    For the rest of the 18&nbsp;ps run an average of 9.1 of the 10 oxygen atoms were within 3.4&nbsp;&Aring; of the ion, and the centers of the two rings were 3.9&nbsp;&Aring; apart.</p>
+
+                    <p>The second prompt runs the clamp in three states for 30&nbsp;ps each and measures the distance between the centers of the two rings over the last 15&nbsp;ps.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>State of the clamp</th><th class="num">Ring centers apart, average</th><th class="num">Smallest and largest</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>No ion</b><small>from the open shape</small></td><td class="num">9.1&nbsp;&Aring;</td><td class="num">5.0 to 11.4&nbsp;&Aring;</td></tr>
+                                <tr><td class="crystal"><b>Closed on a potassium ion</b></td><td class="num model">3.9&nbsp;&Aring;</td><td class="num">3.4 to 4.2&nbsp;&Aring;</td></tr>
+                                <tr><td class="crystal"><b>Ion removed</b><small>from the closed clamp</small></td><td class="num">8.7&nbsp;&Aring;</td><td class="num">6.3 to 10.9&nbsp;&Aring;</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The distance between the centers of the two rings of the clamp at 300&nbsp;K. In the third row the agent removed the ion from the closed clamp and kept every other atom in place.</p>
+
+                    <p>The empty clamp stayed open, with its rings 9.1&nbsp;&Aring; apart on average. The CH<sub>2</sub> group holds the two rings at an angle, and the rings move toward and away from each other with the thermal motion. The ion holds the rings 3.9&nbsp;&Aring; apart.
+                    When the agent removed the ion from the closed clamp, the rings moved apart within 1&nbsp;ps and stayed 8.7&nbsp;&Aring; apart on average. The ion is the signal, and the shape of the molecule is the response.</p>
+
+                    <p>The third prompt starts a lithium, a sodium, and a potassium ion in the mouth of the open clamp, four runs of 40&nbsp;ps for each ion. The clamp closed in one of the four runs with lithium, in two with sodium, and in one with potassium.
+                    The second ring reaches the ion by thermal motion, so the time of closing is random, and four runs do not separate the three ions.
+                    In a real solution a clamp of this kind binds potassium more strongly than sodium. One reason is the solvent: a sodium ion holds its shell of solvent molecules more strongly than a potassium ion does. The lab is a vacuum and does not show this difference.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-clamp-start.jpg" alt="The lab at the start: two crown ether rings with red oxygen atoms joined at the bottom through one carbon atom, open like the letter U, with a purple potassium ion between them">
+                        <img src="image/aims-clamp-loaded.jpg" alt="The lab after the kept state is loaded: the two crown ether rings folded together around the purple potassium ion, with dotted lines from the ion to the oxygen atoms of both rings">
+                    </div>
+                    <p class="v2-chart-caption">The open clamp with a potassium ion in its mouth at the start (left), and the clamp closed on the ion, loaded by the "Load this state" card (right). The dotted lines join the ion to the oxygen atoms that hold it.</p>
+
+                    <h2>A Pump That an Electric Field Drives</h2>
+
+                    <p>The clamp closes on an ion and holds it. A ring can also let an ion pass. A living cell moves ions across its membrane through proteins whose narrow pores are lined with rings of oxygen atoms.
+                    In 1998 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.280.5360.69">Doyle, MacKinnon, and coworkers</a> determined the structure of a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Potassium_channel">potassium channel</a> and showed such rings of oxygen atoms in its pore.
+                    A crown ether has the same kind of oxygen-lined hole. One crown ether ring with an electric field through it is the simplest model of a pore, and the field is an energy source that moves the ion in one direction.</p>
+
+                    <p>The window below holds an 18-crown-6 ring of 42 atoms, lying flat and seen from the side. Its 12 carbon atoms are fixed in place, and its oxygen and hydrogen atoms are free to move. Each oxygen atom carries a charge of &minus;0.38&nbsp;e.
+                    A potassium ion starts at rest 6&nbsp;&Aring; below the ring. A static electric field of 3&nbsp;V/nm points up, which puts a force of about 480&nbsp;pN on the ion. The lab runs at 300&nbsp;K with the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Langevin_dynamics">Langevin thermostat</a>, which also takes up the energy that the field gives to the ion. Press Play and watch the ion.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=An%20Electric-Field%20Ion%20Pump"
+                                id="aims-frame12" allowfullscreen="true" title="An Electric-Field Ion Pump demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame12');">View fullscreen</a><br>
+                            A potassium ion (purple) below an 18-crown-6 ring, in an electric field that points up. The ion passes through the ring and goes on to the top wall of the box in about one picosecond of simulated time.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>An Electric-Field Ion Pump</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the ion above the ring.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Passage</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 6 ps and chart the distance from the ion to one oxygen atom of the ring.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Reverse</span> &mdash; <span class="v2-prompt">&ldquo;Reverse the field and run another 6 ps.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Threshold</span> &mdash; <span class="v2-prompt">&ldquo;How strong a field does the passage need? Try weaker and stronger fields, and try an ion that is already at rest in the ring.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Filter</span> &mdash; <span class="v2-prompt">&ldquo;Which ions pass through which rings? Try lithium, sodium and potassium ions with 12-crown-4, 15-crown-5 and 18-crown-6, at 5 V/nm and 10 V/nm.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Field Carries the Ion Through the Ring</h2>
+
+                    <p>The ion rose from 6&nbsp;&Aring; below the ring and crossed the plane of the ring 0.35&nbsp;ps after the start, 0.3&nbsp;&Aring; from the axis. It was 11&nbsp;&Aring; above the ring at 0.9&nbsp;ps and came to rest against the top wall of the box. The distance from the ion to one oxygen atom fell to 2.6&nbsp;&Aring; during the passage.
+                    Below the ring, the field pushed the ion up and the six oxygen atoms pulled it toward the hole. Above the ring, the oxygen atoms pulled the ion back and the field pushed it on.</p>
+
+                    <p>The second prompt reverses the field. The ion left the top wall, crossed the plane of the ring 0.6&nbsp;ps after the reversal, and ended against the bottom wall. The ring is the same from both sides, so the ring sets no direction.
+                    The direction of the field sets the direction in which the ion moves, and the field supplies the energy.</p>
+
+                    <p>The third prompt changes the strength of the field. At 0, 1, and 2&nbsp;V/nm the ring caught the ion and kept it, held by all six oxygen atoms. At 3 and 5&nbsp;V/nm the ion passed through.
+                    The agent then let an ion settle in the ring with no field and raised the field by 1&nbsp;V/nm every 3&nbsp;ps. The ion stayed in the ring until the field reached 8&nbsp;V/nm, a force of about 1,280&nbsp;pN.
+                    The moving ion passes at a lower field because it arrives with the kinetic energy of its fall into the ring. The ion at rest has given that energy to the thermostat.</p>
+
+                    <h2>The Ring as a Filter</h2>
+
+                    <p>The fourth prompt starts each of three ions 6&nbsp;&Aring; below each of three rings, with the carbon atoms of the ring fixed, and runs 6&nbsp;ps at 5&nbsp;V/nm and again at 10&nbsp;V/nm.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Ion</th><th>12-crown-4<small>ring of 12 atoms</small></th><th>15-crown-5<small>ring of 15 atoms</small></th><th>18-crown-6<small>ring of 18 atoms</small></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Li<sup>+</sup></b><small>radius 0.76&nbsp;&Aring;</small></td><td>passes at 5&nbsp;V/nm</td><td>passes at 5&nbsp;V/nm</td><td>passes at 5&nbsp;V/nm</td></tr>
+                                <tr><td class="crystal"><b>Na<sup>+</sup></b><small>radius 1.02&nbsp;&Aring;</small></td><td class="model">stopped at 5&nbsp;V/nm, passes at 10&nbsp;V/nm</td><td>passes at 5&nbsp;V/nm</td><td>passes at 5&nbsp;V/nm</td></tr>
+                                <tr><td class="crystal"><b>K<sup>+</sup></b><small>radius 1.38&nbsp;&Aring;</small></td><td class="model">stopped at both fields</td><td>passes at 5&nbsp;V/nm</td><td>passes at 5&nbsp;V/nm</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Three ions driven toward three crown ether rings by fields of 5 and 10&nbsp;V/nm, one run of 6&nbsp;ps for each ion, ring, and field.</p>
+
+                    <p>The smallest ring is a filter. The potassium ion did not pass through 12-crown-4 at either field. It stopped 1.6&nbsp;&Aring; below the ring, against the four oxygen atoms. The sodium ion stopped below the same ring at 5&nbsp;V/nm and passed at 10&nbsp;V/nm, so for this pair the field works as a gate.
+                    Every ion that passed went through the hole, within 0.4&nbsp;&Aring; of the axis of the ring.</p>
+
+                    <p>The model has three limits. The lab is a vacuum, with no water and no membrane. In water an ion must shed the water molecules around it to enter a pore, and a potassium channel passes the larger potassium ion and stops the smaller sodium ion.
+                    The lab shows the opposite order, a filter by size alone. A field of several volts per nanometer is far stronger than the field across a cell membrane. The lab needs it because the ion in a vacuum has no water to help it leave the ring.
+                    The charges on the atoms are fixed, so the ring cannot polarize as a real ring does.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-pump-start.jpg" alt="The lab at the start, seen from the side: a crown ether ring with red oxygen atoms lies flat at the middle of a box, and a purple potassium ion sits below it">
+                        <img src="image/aims-pump-loaded.jpg" alt="The lab after 6 picoseconds: the purple potassium ion is near the top wall of the box, above the crown ether ring">
+                    </div>
+                    <p class="v2-chart-caption">The potassium ion below the ring at the start (left), and against the top wall of the box after it has passed through the ring, loaded by the "Load this state" card (right).</p>
+
+                    <h2>Tweezers That Grip a Buckyball</h2>
+
+                    <p>The clamp holds an ion through the attraction of opposite charges. Molecular tweezers hold a neutral guest between two arms. In 2007 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja070616p">Sygula and coworkers</a> made tweezers for
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Buckminsterfullerene">buckyballs</a> and named the molecule the buckycatcher.
+                    Each arm ends in a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Corannulene">corannulene</a>: twenty carbon atoms in the shape of a shallow bowl, a piece of the surface of a buckyball.
+                    The two bowls face each other across a cleft, and a tether of four more rings joins them. A buckyball fits in the cleft with the hollow side of a bowl against each side of it. The grip is the Lennard-Jones attraction between the carbon atoms of the ball and the carbon atoms of the tweezers.</p>
+
+                    <p>The window below holds the buckycatcher (C<sub>60</sub>H<sub>28</sub>, 88 atoms) and a buckyball at 300&nbsp;K. PubChem has no three-dimensional structure for the buckycatcher. The agent took its shape from the crystal structure of its complex with a buckyball,
+                    entry <a target="_blank" rel="noopener noreferrer" href="https://www.crystallography.net/cod/4109279.html">4109279</a> of the Crystallography Open Database. The centers of the two bowls are 11.5&nbsp;&Aring; apart.
+                    The 16 carbon atoms of the tether are fixed in place, and the ball starts 5&nbsp;&Aring; outside the position it has in the crystal. Press Play and watch the ball.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Molecular%20Tweezers%20and%20a%20Buckyball"
+                                id="aims-frame7" allowfullscreen="true" title="Molecular Tweezers and a Buckyball demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame7');">View fullscreen</a><br>
+                            The buckycatcher with its two bowls open upward and a buckyball above the cleft. The tweezers draw the ball in within a few picoseconds of Play.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Molecular Tweezers and a Buckyball</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the ball in the tweezers. The pull can also be done by hand: enter flight mode, aim at the ball, and press T.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Catch</span> &mdash; <span class="v2-prompt">&ldquo;Run it, and chart the distance from the center of the ball to each bowl and the distance between the two bowls.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Grip</span> &mdash; <span class="v2-prompt">&ldquo;How strongly do the tweezers hold the ball? Pull it straight out with the tow at 50 m/s.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">One bowl</span> &mdash; <span class="v2-prompt">&ldquo;Is two bowls better than one? Put the buckyball on a single corannulene bowl and pull it off the same way.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Catch and the Grip</h2>
+
+                    <p>The agent ran the lab and charted the distance from the center of the ball to the center of each bowl. The tweezers caught the ball after 2.2&nbsp;ps. The ball settled 7.0&nbsp;&Aring; from the center of one bowl and 7.1&nbsp;&Aring; from the center of the other.
+                    In the crystal of the complex the two distances are 6.8 and 6.7&nbsp;&Aring;. The two bowls stayed 11.2&nbsp;&Aring; apart on average and moved between 10.1 and 12.5&nbsp;&Aring; as the arms flexed around the ball.</p>
+
+                    <p>The second prompt pulls the ball out of the cleft with the tow of flight mode, which applies at most about 800&nbsp;pN, and the third prompt repeats the pull on a single corannulene bowl with its twenty carbon atoms fixed in place.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Host</th><th class="num">Attraction before the pull</th><th class="num">Largest pulling force</th><th class="num">Work done by the tow</th><th class="num">Ball came away</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>One corannulene bowl</b></td><td class="num">60&nbsp;kJ/mol</td><td class="num">640&nbsp;pN</td><td class="num">1.3&nbsp;eV</td><td class="num">after 12&nbsp;ps</td></tr>
+                                <tr><td class="crystal"><b>Buckycatcher</b><small>two bowls and a tether</small></td><td class="num model">190&nbsp;kJ/mol</td><td class="num">540&nbsp;pN</td><td class="num">1.8&nbsp;eV</td><td class="num">after 22&nbsp;ps</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">A buckyball pulled at 50&nbsp;m/s out of the buckycatcher and off a single corannulene bowl. The attraction is the Lennard-Jones energy between the ball and the host before the pull. The largest force is an average over 250&nbsp;fs.</p>
+
+                    <p>The tow pulled the ball out of the tweezers with a largest force of 540&nbsp;pN and did 1.8&nbsp;eV of work, which is 170&nbsp;kJ/mol, close to the 190&nbsp;kJ/mol of attraction. The tweezers hold the ball about three times as strongly as one bowl: two bowls touch the ball on two sides, and the tether touches it at the bottom of the cleft.
+                    The largest forces in the two pulls are close. The energy measures the depth of the hold, and the force measures how steeply the hold ends. The rigid single bowl releases the ball over a short distance. The arms of the tweezers bend and follow the ball, and the ball came away after 22&nbsp;ps against 12&nbsp;ps.
+                    The tow did more work on the single bowl than its 60&nbsp;kJ/mol of attraction, because a pull at 50&nbsp;m/s is fast and part of the work becomes heat.</p>
+
+                    <p>When the ball left the tweezers, the two bowls closed on each other and ended 5.4&nbsp;&Aring; apart. The empty tweezers did the same in a separate run: the bowls shut on each other after 2&nbsp;ps. In a vacuum the two bowls attract each other, and no solvent fills the cleft.
+                    The numbers of this section are too large. The Universal Force Field gives two carbon atoms an attraction about twice as strong as the attraction <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevB.62.13104">fitted to graphite</a>, and in a real solution the solvent competes with the ball for the cleft.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-tweezers-start.jpg" alt="The lab at the start: the buckycatcher with its two bowl-shaped arms open upward like the letter V and a pin on each atom of its tether, and a buckyball above the opening">
+                        <img src="image/aims-tweezers-loaded.jpg" alt="The lab after the kept state is loaded: the buckyball sits between the two bowl-shaped arms of the buckycatcher, with one bowl against each side of the ball">
+                    </div>
+                    <p class="v2-chart-caption">The buckyball above the open buckycatcher at the start (left), and the ball between the two bowls, loaded by the "Load this state" card (right). The yellow pins mark the fixed atoms of the tether.</p>
+
+                    <h2>Parts That Turn and Parts That Slide</h2>
+
+                    <p>The shuttle, the clamp, and the tweezers in this article are switches. Each one takes a new state when a signal arrives: a charge that moves, an ion, or a guest molecule. The pump is driven: an electric field supplies the energy that moves its ion in one direction. The article on <a href="aims-molecular-rotors.html">molecular rotors and gears</a> follows a ring that turns on an axle, a ring that an electric field holds, and two wheels that turn each other.
+                    The article on <a href="aims-nanotube-machines.html">nanotube machines</a> follows a bearing, a sliding flake of graphene, a piston and a nozzle that a gas drives, and a motor that a flow of heat drives, and it describes what the lab cannot model.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the charges and the sizes of the atoms. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">A shuttle</span> &mdash; a ring crosses 6.3&nbsp;&Aring; from a neutral nitrogen to a charged nitrogen in 1.7 to 3.3&nbsp;ps, four times in a row, each time the charge is moved.</li>
+                            <li><span class="v2-prompts-step">A switch</span> &mdash; of the four ways to charge the axle, the ring crosses in one: the other nitrogen charged and its own neutral.</li>
+                            <li><span class="v2-prompts-step">A clamp</span> &mdash; a molecule with two crown ether rings closes on a potassium ion in 7.9&nbsp;ps, with 9.1 of its 10 oxygen atoms on the ion, and opens within 1&nbsp;ps when the ion is removed.</li>
+                            <li><span class="v2-prompts-step">A pump</span> &mdash; a field of 3&nbsp;V/nm carries a potassium ion through an 18-crown-6 ring in 0.35&nbsp;ps and the reversed field brings it back, an ion at rest in the ring leaves at 8&nbsp;V/nm, and 12-crown-4 stops a potassium ion at 10&nbsp;V/nm.</li>
+                            <li><span class="v2-prompts-step">Tweezers</span> &mdash; the buckycatcher draws a buckyball into its cleft in 2.2&nbsp;ps and holds it 7.0 and 7.1&nbsp;&Aring; from its two bowls, against 6.8 and 6.7&nbsp;&Aring; in the crystal, and a pull of 540&nbsp;pN takes the ball out.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses a molecular shuttle, a molecular clamp, an ion pump, and molecular tweezers to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. The molecular machine, a subject of the 2016 Nobel Prize in Chemistry, becomes something students watch and measure for themselves in a browser: how a ring follows a charge from one station to another,
+                    how a clamp closes when an ion arrives, how an electric field drives an ion through a ring, and how tweezers grip a buckyball. By pairing a physically grounded simulation with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of the parts that molecular machines are made of.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

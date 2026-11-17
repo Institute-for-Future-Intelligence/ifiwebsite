@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rotary Motor of ATP Synthase — Institute for Future Intelligence</title>
+    <meta name="description" content="One crystal structure holds three copies of the same subunit in three states. An AI agent in the Protein Lab of AIMS compares the three copies and finds how each one touches the shaft at the center.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-col-main .v2-callout { float: right; clear: right; width: 40%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border: 1px solid var(--border); border-radius: 0.8rem; background: var(--surface); }
+        .v2-col-main .v2-callout svg { display: block; width: 100%; height: auto; }
+        .v2-col-main .v2-callout p { margin: 0.8rem 0 0; font-size: 1.1rem; line-height: 1.45; color: var(--text-muted); }
+        .v2-col-main .v2-callout p strong { color: var(--text); }
+        .v2-col-main .v2-prompts { clear: both; }
+        .v2-col-main .v2-tryit { float: right; clear: right; width: 40%; margin: 0.4rem 0 1.2rem 2.5rem; }
+        .v2-table { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; font-size: 1.15rem; clear: both; }
+        .v2-table th, .v2-table td { text-align: left; padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); }
+        .v2-table th { font-family: var(--font-display); font-weight: 700; }
+        .v2-table td.num, .v2-table th.num { text-align: right; }
+        @media (max-width: 720px) { .v2-col-main .v2-tryit { float: none; width: auto; margin: 1.5rem 0; } }
+        @media (max-width: 720px) { .v2-col-main .v2-callout { float: none; width: auto; margin: 1.5rem 0; } }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        @media (max-width: 720px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-screenshot-single img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-screenshot-single { max-width: 72rem; margin: 1rem auto 1.5rem; }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="MOTOR">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>The Rotary Motor of ATP Synthase</h1>
+                <p class="v2-tagline">
+                    One crystal structure holds three copies of the same subunit in three states. An AI agent in the Protein Lab of AIMS compares the three copies and finds how each one touches the shaft at the center.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 17, 2026</span></p>
+
+                    <p>Cells store energy in a small molecule called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Adenosine_triphosphate">ATP</a>. Most of the ATP in a cell is made by one enzyme, <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/ATP_synthase">ATP synthase</a>, which joins ADP and phosphate.
+                    In animal cells the enzyme sits in the inner membrane of the mitochondria. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/191144a0">Mitchell</a> proposed in 1961 that a difference in the concentration of protons across this membrane supplies the energy for making ATP, and he received the 1978 Nobel Prize in Chemistry for the idea.
+                    The enzyme has two parts. The part called F<sub>o</sub> lies in the membrane, and protons flow through it. The part called F<sub>1</sub> lies outside the membrane and holds the sites where ATP is made.</p>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0005-2728(93)90063-L">Boyer</a> proposed, before any structure of the enzyme was known, that F<sub>1</sub> has three such sites, that each site passes through three states in turn, and that a subunit at the center of F<sub>1</sub> rotates and drives the changes.
+                    In 1994 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/370621a0">Abrahams, Leslie, Lutter, and Walker</a> determined the crystal structure of F<sub>1</sub> from the mitochondria of bovine heart. The structure showed three copies of the same subunit in three different states around a central shaft.
+                    Boyer and Walker received half of the 1997 Nobel Prize in Chemistry for this work. In the same year <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/386299a0">Noji, Yasuda, Yoshida, and Kinosita</a> attached a fluorescent filament to the central subunit of F<sub>1</sub> from a bacterium and watched the filament turn under a microscope when they supplied ATP.</p>
+
+                    <p>This article follows The Rotary Motor of ATP Synthase example in the Protein Lab of AIMS, in which an AI agent answers five questions about the structure of Abrahams and coworkers. The answers show what each subunit holds, how the three copies differ in shape, and which residues of each copy touch the shaft.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=The%20Rotary%20Motor%20of%20ATP%20Synthase"
+                                id="aims-frame1" allowfullscreen="true" title="The Rotary Motor of ATP Synthase demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            F<sub>1</sub>-ATPase from bovine heart mitochondria (PDB 1BMF), with each of its seven chains in its own color. Press Next on the Structure Tour card in the chat to walk through the structure.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Seven Chains</h2>
+
+                    <div class="v2-prompts v2-tryit">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">Try It</p>
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open The Rotary Motor of ATP Synthase, open the chat, and type the prompts below. The chat in the example already holds the answers to these prompts, which the sections below describe.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">The tour</span> &mdash; <span class="v2-prompt">&ldquo;Give me a tour of this protein.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The annotations</span> &mdash; <span class="v2-prompt">&ldquo;What does UniProt say about it? Annotate the structure.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The bound groups</span> &mdash; <span class="v2-prompt">&ldquo;What is bound to each of the six large subunits?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The three copies</span> &mdash; <span class="v2-prompt">&ldquo;Chains D, E and F are three copies of the same &beta; subunit. Compare chains D and E with chain F. How does the empty subunit differ, and what does that say about how the enzyme works?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The shaft</span> &mdash; <span class="v2-prompt">&ldquo;How does the shaft, chain G, touch each of the three &beta; subunits?&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <p>A protein is a chain of amino acids, and each amino acid in the chain is called a residue. Many proteins are built from several chains, and each chain is then called a subunit. The structure file of F<sub>1</sub>, entry 1BMF in the Protein Data Bank, has seven chains with 2,987 residues. Its resolution is 2.85&nbsp;&Aring;, which is the size of the smallest detail that the X-ray measurement can separate.
+                    The first prompt asks the agent for a tour of the structure, and the tour has 23 stops.</p>
+
+                    <p>The second prompt asks what the <a target="_blank" rel="noopener noreferrer" href="https://www.uniprot.org/">UniProt</a> database records. The seven chains map to three UniProt entries, so the file holds three kinds of subunit. F<sub>1</sub> has two more small subunits, called &delta; and &epsilon;, which this crystal structure does not show.
+                    Chains A, B, and C are copies of the &alpha; subunit. Chains D, E, and F are copies of the &beta; subunit, which UniProt names the catalytic subunit. Chain G is the &gamma; subunit.
+                    The &alpha; and &beta; subunits alternate around a ring, and chain G runs through the middle of the ring.</p>
+
+                    <p>The crystal structure shows part of each chain. It shows residues 9 to 474 or 475 of the three &beta; subunits, and it shows 122 residues of chain G in three pieces: residues 1 to 44, 77 to 90, and 209 to 272.
+                    A helix is a stretch of the chain that is wound into a spiral. The tour reports 120 helices in the seven chains, and it stops at the longest ones. The longest helix of the whole structure is in chain G, at residues 222 to 270, and the second longest is also in chain G. These two helices form the shaft.</p>
+
+                    <h2>What Each Subunit Holds</h2>
+
+                    <p>The third prompt asks what is bound to each of the six large subunits. The agent lists every group in the file that is not part of a protein chain, with the chain that holds it.</p>
+
+                    <table class="v2-table">
+                        <thead>
+                            <tr><th>Subunit</th><th>Bound group</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>&alpha;, chain A</td><td>AMP-PNP and a magnesium ion</td></tr>
+                            <tr><td>&alpha;, chain B</td><td>AMP-PNP and a magnesium ion</td></tr>
+                            <tr><td>&alpha;, chain C</td><td>AMP-PNP and a magnesium ion</td></tr>
+                            <tr><td>&beta;, chain D</td><td>ADP and a magnesium ion</td></tr>
+                            <tr><td>&beta;, chain E</td><td>Nothing</td></tr>
+                            <tr><td>&beta;, chain F</td><td>AMP-PNP and a magnesium ion</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>AMP-PNP is a molecule that resembles ATP. In AMP-PNP a nitrogen atom replaces the oxygen atom between the last two phosphates. The enzyme binds AMP-PNP as it binds ATP and does not split it, so AMP-PNP marks a site that would hold ATP. The crystal was grown in a solution that contained AMP-PNP and ADP.
+                    The three &alpha; subunits all hold AMP-PNP. The three &beta; subunits differ: chain F holds AMP-PNP, chain D holds ADP, and chain E holds nothing. The same subunit appears in the crystal in three states.</p>
+
+                    <p>The tour has a stop for the site of chain F. The stop lists the residues that have an atom within 4&nbsp;&Aring; of the AMP-PNP. There are 19 of them, and the stop names the ten closest: Lys162, Val164, Gly159, Gly161, Arg189, Ser344, Arg373, Thr163, Ala158, and Phe418.
+                    Ser344 and Arg373 belong to chain B, an &alpha; subunit, and the other eight belong to chain F. The site where ATP is made lies at the boundary between a &beta; subunit and the &alpha; subunit next to it. The stop for the ADP of chain D shows the same arrangement, with Arg373 and Ser372 of chain C among its residues.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-atp-tour-site.png" alt="The Structure Tour card at stop 17 of 23, AMP-PNP (ATP analog) pocket, chain F: ANP is bound at F:ANP600, and 19 residues line its pocket within 4 angstroms, among them Lys162, Val164, Gly159, Gly161 and Arg189 of chain F and Ser344 and Arg373 of chain B">
+                    </div>
+
+                    <h2>Two Closed Subunits and One Open Subunit</h2>
+
+                    <p>The fourth prompt asks the agent to compare chains D and E with chain F. The agent pairs the residues of two chains by their numbers and moves one chain as a rigid body until it lies on the other as closely as possible. It then measures the distance between the two members of each pair.
+                    The measurement uses one atom of each residue, the &alpha;-carbon. Every residue has one &alpha;-carbon, and the &alpha;-carbons follow the path of the chain. The summary of the distances is the root-mean-square deviation, or RMSD: the square root of the average of the squared distances.</p>
+
+                    <p>Chain D, which holds ADP, has nearly the shape of chain F, which holds AMP-PNP. The RMSD over 466 residues is 0.6&nbsp;&Aring;, and the largest distance for a single residue is 2.9&nbsp;&Aring;. Chain E, the empty subunit, has an RMSD of 3.8&nbsp;&Aring; from chain F.</p>
+
+                    <p>A fit over the whole chain spreads the difference over all the residues. To find the part that moved, the agent fits chain E onto chain F a second time and uses only residues 9 to 82, which form a small domain at the start of the chain. A domain is a part of a chain that folds into a compact unit of its own.
+                    These 74 residues of the two chains then agree to 0.27&nbsp;&Aring;. The distance grows along the rest of the chain. Residues 120 to 183 are displaced by 7.1&nbsp;&Aring; on average. Residues 292 to 474 are displaced by 13.1&nbsp;&Aring; on average, and the last residue, 474, by 25.4&nbsp;&Aring;.
+                    The agent posts each comparison as a card that plots the distance for every residue.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-atp-card-df.png" alt="Displacement card for chain D against chain F of 1BMF, RMSD 0.60 angstroms: the alpha-carbon shift against residue number stays below 1 angstrom for most residues and reaches 2.93 angstroms at residue 391">
+                        <img src="image/aims-atp-card-ef.png" alt="Displacement card for chain E against chain F of 1BMF, fitted on residues 9 to 82 with an RMSD of 0.27 angstroms: the alpha-carbon shift is near zero up to residue 82, rises to about 11 angstroms between residues 120 and 183, and rises from residue 292 to 25.40 angstroms at residue 474">
+                    </div>
+
+                    <p>Each card has a button that overlays one chain on the other in the 3-D view. For the second card, the button draws chain F in blue and chain E in orange, placed on chain F by the fit over residues 9 to 82, and it dims the other six chains.
+                    The two drawings coincide in the small domain. They separate over the rest of the chain, and the far end of the orange chain lies far from the blue chain. A thin moving line then plays the change from one shape to the other.
+                    The line moves each &alpha;-carbon along a straight path between its two positions, which shows the parts that differ and the size of the difference.</p>
+
+                    <div class="v2-screenshot-single" style="max-width:56rem;">
+                        <img src="image/aims-atp-overlay.jpg" alt="The 3-D view of 1BMF with chain F drawn in blue and chain E drawn in orange on top of it: the two cartoons coincide in the domain at the lower left, and toward the upper right the orange chain lies away from the blue chain; the other chains are dimmed">
+                    </div>
+
+                    <p>The literature on this enzyme calls chains D and F closed and chain E open. The last residue of a chain is called its C-terminal end. In a closed subunit, residues of the C-terminal part of the chain, such as Phe418, are within 4&nbsp;&Aring; of the bound group. In the open subunit, the same part has swung outward and the site is empty.</p>
+
+                    <h2>How the Shaft Touches Each Subunit</h2>
+
+                    <p>The fifth prompt asks how chain G touches each of the three &beta; subunits. The agent counts the pairs of atoms, one from each chain, that are within 4&nbsp;&Aring; of each other, and it lists the residues those atoms belong to. The structure file has no hydrogen atoms, so the count uses every atom of the two chains.</p>
+
+                    <table class="v2-table">
+                        <thead>
+                            <tr><th>&beta; subunit</th><th>Bound group</th><th class="num">Residues touching chain G</th><th class="num">Atom pairs</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Chain D</td><td>ADP</td><td class="num">12</td><td class="num">47</td></tr>
+                            <tr><td>Chain E</td><td>Nothing</td><td class="num">12</td><td class="num">55</td></tr>
+                            <tr><td>Chain F</td><td>AMP-PNP</td><td class="num">8</td><td class="num">37</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>The three counts are of similar size. Ile275, Ile390, and Leu391 touch the shaft in all three subunits, and the other residues differ. Residues 394 to 400 of the &beta; subunit have the sequence Asp-Glu-Leu-Ser-Glu-Glu-Asp, and the stretch is known by its one-letter spelling, DELSEED.
+                    Chain F touches the shaft with three residues of this stretch, Asp394, Glu395, and Glu398. Chain D touches the shaft with Glu395. Chain E touches the shaft with no residue of the stretch.
+                    Chain E is the only one of the three that touches the shaft with residues between 314 and 320: Ala314, Asp316, Thr318, Asp319, and Pro320.</p>
+
+                    <p>Both stretches lie in residues 292 to 474, the part of the chain that differs most between the open subunit and the closed subunits. The swing changes which residues of this part reach the shaft: the DELSEED stretch in the two closed subunits, and residues 314 to 320 in the open subunit.
+                    The shaft is a single chain without threefold symmetry, so each &beta; subunit faces a different side of the shaft.</p>
+
+                    <h2>From Three States to Rotation</h2>
+
+                    <p>The crystal holds the shaft in one orientation, and each &beta; subunit is in one state. The mechanism that Boyer proposed connects the three states through rotation. When the shaft turns by one third of a turn, each &beta; subunit faces the side of the shaft that its neighbor faced before, and the subunit takes the state that its neighbor had.
+                    After one full turn, each of the three sites has passed through all three states and has made one ATP, so one turn makes three ATP. In the whole enzyme, the flow of protons through F<sub>o</sub> turns the shaft. F<sub>1</sub> alone works in the reverse direction: it splits ATP, and the splitting turns the shaft, which is what Noji and coworkers observed.</p>
+
+                    <p>The example shows the three states and measures the differences between them. It shows that the open subunit and the closed subunits touch the shaft with different residues. The rotation involves all 2,987 residues and is far slower than the motions that a simulation in AIMS can follow, so the example ends with the structure.</p>
+
+                    <h2>Conclusion</h2>
+
+                    <div class="v2-prompts v2-tryit">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Agent Produced</p>
+                        <p class="v2-prompts-intro">The agent was given the structure file 1BMF and five questions. The results below came from its analysis of the file and of the UniProt entries:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">The subunits</span> &mdash; seven chains of three kinds: three &alpha;, three &beta;, and one &gamma;, with the two longest helices of the structure in the &gamma; subunit.</li>
+                            <li><span class="v2-prompts-step">The bound groups</span> &mdash; AMP-PNP in chain F, ADP in chain D, nothing in chain E, and residues of the neighboring &alpha; subunit in the sites of chains D and F.</li>
+                            <li><span class="v2-prompts-step">The shapes</span> &mdash; chains D and F agree to 0.6&nbsp;&Aring;, and residues 292 to 474 of chain E are displaced by 13.1&nbsp;&Aring; on average.</li>
+                            <li><span class="v2-prompts-step">The shaft</span> &mdash; chains D and F touch chain G with residues of the DELSEED stretch, and chain E touches it with residues 314 to 320.</li>
+                        </ul>
+                    </div>
+
+                    <p>This article uses ATP synthase to illustrate a new way to learn science: students converse with an AI agent that turns a plain-language question into an analysis of a protein structure and hands back measured data.
+                    The textbook statement that the three catalytic sites of ATP synthase are in three states becomes something students measure for themselves, from the list of what each subunit holds to the distance that the open subunit has moved.</p>
+
+                    <p>Doing this analysis by hand takes several tools. A student has to read a structure file with seven chains, find the bound groups and the residues around each one, pair the residues of two chains, fit one chain onto the other, and count the contacts between the shaft and each subunit.
+                    In AIMS a student types five questions in plain language, and the agent does each analysis and posts its result in the conversation, where the student can hover over a curve, press a button, and see the two shapes of the subunit one over the other in the 3-D view.
+                    By pairing analysis tools with an AI that can choose and run them, AIMS turns a student&rsquo;s curiosity into a genuine scientific investigation of <strong>how the parts of a molecular machine work together</strong>.</p>
+
+                    <div style="clear: both;"></div>
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interlocked and Nested Molecules: Catenanes, Rotaxanes, and Nanohoops — Institute for Future Intelligence</title>
+    <meta name="description" content="Two molecules can be held together without a chemical bond between them. AIMS links two rings into a catenane, threads a ring on an axle with stoppers, and nests a buckyball in a carbon nanohoop, and an AI agent tests each pair with heat and with a pull.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="LINKED">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Interlocked and Nested Molecules: Catenanes, Rotaxanes, and Nanohoops</h1>
+                <p class="v2-tagline">
+                    AIMS links two rings like a chain, threads a ring on an axle with stoppers, and nests a buckyball in a hoop, and an AI agent tests each pair with heat and with a pull.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 16, 2026</span></p>
+
+                    <p>Two molecules can be held together without a chemical bond between them. In a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Catenane">catenane</a>, two ring-shaped molecules are linked like two links of a chain.
+                    In a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Rotaxane">rotaxane</a>, a ring is threaded on an axle whose ends are too wide for the ring to pass. Chemists call these molecules interlocked: the parts cannot separate unless a covalent bond breaks.
+                    A second group of molecules is nested: one molecule sits inside another and can leave, and the attraction between the two holds it in place.
+                    AIMS models every atom of these pairs, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent builds the molecules, heats them, pulls on them, and posts the measured data in the chat.
+                    This article follows three pairs: a catenane, a rotaxane, and a buckyball nested in a carbon nanohoop. In the window below, two linked rings move at 300&nbsp;K. Press Play and watch each ring slide through the hole of the other.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Catenane%3A%20Two%20Linked%20Rings"
+                                id="aims-frame1" allowfullscreen="true" title="A Catenane: Two Linked Rings demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            The two rings of a catenane, in the arrangement they have in its crystal. Each ring passes through the hole of the other, and no covalent bond joins the two.
+                        </figcaption>
+                    </figure>
+
+                    <h2>What Is a Mechanical Bond?</h2>
+
+                    <p>A covalent bond joins two atoms that share electrons. A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Mechanically_interlocked_molecular_architectures">mechanical bond</a> joins two molecules through their shapes: a ring cannot pass through another closed ring, and a ring cannot pass over a stopper wider than its hole.
+                    In 1960 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja01501a082">Wasserman</a> made the first catenane by closing one ring in the presence of another, and a small fraction of the rings closed around their partners.
+                    In 1983 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0040-4039(00)94050-4">Dietrich-Buchecker, Sauvage, and Kintzinger</a> found an efficient route: a copper ion holds two half-rings crossed over each other while a reaction closes them into two linked rings.
+                    Jean-Pierre Sauvage shared the <a target="_blank" rel="noopener noreferrer" href="https://www.nobelprize.org/prizes/chemistry/2016/summary/">2016 Nobel Prize in Chemistry</a> with Fraser Stoddart and Ben Feringa for the design and synthesis of molecular machines, and interlocked molecules are the moving parts of many of those machines.</p>
+
+                    <p>The companion article on <a href="aims-supramolecular-chemistry.html">supramolecular chemistry</a> shows hosts that hold guests through attraction, and the article on <a href="aims-molecular-machines.html">molecular machines</a> shows parts that move on a signal. This article asks one question of each pair: what keeps the two molecules together?</p>
+
+                    <h2>The Forces and the Structures in the Model</h2>
+
+                    <p>Two forces act between two molecules in this lab: the electrostatic force of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coulomb%27s_law">Coulomb's law</a> between the partial charges of the atoms, and the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Lennard-Jones_potential">Lennard-Jones</a> force,
+                    with the atom sizes of the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja00051a040">Universal Force Field</a>. The Lennard-Jones force attracts two atoms weakly when they are a few &aring;ngstr&ouml;ms apart and repels them strongly when they overlap. The repulsion is the reason a ring cannot cross a ring in the model.
+                    The covalent bonds of a molecule in this lab are springs that do not break.</p>
+
+                    <p>The catenane and the nanohoop are too large for the three-dimensional structures of the PubChem database. The agent took their shapes from crystal structures in the <a target="_blank" rel="noopener noreferrer" href="https://www.crystallography.net/cod/">Crystallography Open Database</a>, which holds the measured positions of the atoms in a crystal.
+                    The lab starts each molecule in the shape that X-ray diffraction measured.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Building the molecules, heating them, pulling on them, and plotting the results are the agent's work. A student asks the agent to
+                    <em>"hold one ring and pull the other away"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open <em>A Catenane: Two Linked Rings</em> from the list (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the third prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the two rings pulled tight.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Sliding</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 30 ps and chart the distance between the centers of the two rings.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Heat</span> &mdash; <span class="v2-prompt">&ldquo;Does heat separate them? Try 600 K and 1000 K.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Pull</span> &mdash; <span class="v2-prompt">&ldquo;Hold ring A and pull ring B away with the tow at 100 m/s. Then do the same with the two rings side by side, without the link.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>Two Linked Rings Slide and Stay Together</h2>
+
+                    <p>The catenane was made in 2018 by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/jacs.8b01602">Lewis, Modicom, and Goldup</a>, and its crystal structure is entry <a target="_blank" rel="noopener noreferrer" href="https://www.crystallography.net/cod/4132105.html">4132105</a> of the Crystallography Open Database.
+                    One ring has 70 atoms and the other has 74. In the crystal the centers of the two rings are 3.7&nbsp;&Aring; apart.</p>
+
+                    <p>The agent ran the two rings for 30&nbsp;ps at 300&nbsp;K. The distance between their centers averaged 3.5&nbsp;&Aring; and stayed between 3.1 and 3.9&nbsp;&Aring;. The agent also followed the place where each ring passes through the other. Each ring moved about 30&deg; of the way around the other, and a full circuit is 360&deg;.
+                    The two rings slide through each other with the thermal motion, and they stay linked. The second prompt repeats the run at two higher temperatures.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Temperature</th><th class="num">Ring centers apart, average</th><th class="num">Farthest apart</th><th class="num">Ring B around ring A</th><th class="num">Ring A around ring B</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>300&nbsp;K</b></td><td class="num">3.5&nbsp;&Aring;</td><td class="num">3.9&nbsp;&Aring;</td><td class="num">30&deg;</td><td class="num">30&deg;</td></tr>
+                                <tr><td class="crystal"><b>600&nbsp;K</b></td><td class="num">3.7&nbsp;&Aring;</td><td class="num">4.6&nbsp;&Aring;</td><td class="num">180&deg;</td><td class="num">120&deg;</td></tr>
+                                <tr><td class="crystal"><b>1000&nbsp;K</b></td><td class="num">4.3&nbsp;&Aring;</td><td class="num model">6.1&nbsp;&Aring;</td><td class="num">350&deg;</td><td class="num">200&deg;</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The catenane at three temperatures, 30&nbsp;ps each. The last two columns give the angle through which one ring moved around the other during the run.</p>
+
+                    <p>At 1000&nbsp;K the centers of the rings moved at most 6.1&nbsp;&Aring; apart, and ring B traveled almost a full circuit around ring A. Two molecules held together by attraction alone separate at that temperature. The two rings of the catenane stay together because each ring passes through the other, and a closed ring cannot cross a closed ring.</p>
+
+                    <h2>A Pull Does Not Separate the Rings</h2>
+
+                    <p>The third prompt fixes three atoms of ring A in place and pulls ring B away with the tow of flight mode. The tow works like <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Optical_tweezers">optical tweezers</a>: a spring joins the center of ring B to a point that moves at 100&nbsp;m/s, and the spring applies at most about 800&nbsp;pN.
+                    For a comparison, the agent lifted ring B 11.5&nbsp;&Aring; out of ring A, so that the same two rings lie next to each other without the link, and pulled again.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>The two rings</th><th class="num">Attraction before the pull</th><th class="num">Largest pulling force</th><th class="num">Work done by the tow</th><th>Result</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Linked</b><small>the catenane</small></td><td class="num">180&nbsp;kJ/mol</td><td class="num">1,000&nbsp;pN</td><td class="num">2.1&nbsp;eV</td><td class="model">together after 40&nbsp;ps</td></tr>
+                                <tr><td class="crystal"><b>Side by side</b><small>the same rings without the link</small></td><td class="num">65&nbsp;kJ/mol</td><td class="num">340&nbsp;pN</td><td class="num">0.9&nbsp;eV</td><td>apart after 9&nbsp;ps</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">One ring held and the other pulled at 100&nbsp;m/s. The largest force is an average over 250&nbsp;fs. The tow applies at most about 800&nbsp;pN on average, and the ring moves against the spring, so single readings exceed 800&nbsp;pN.</p>
+
+                    <p>The tow reached its limit on the linked rings and stayed there for 33 of the 40&nbsp;ps. The centers of the rings moved at most 5.5&nbsp;&Aring; apart: ring B went as far as the link allows and stopped. The two rings without the link came apart after 9&nbsp;ps at 340&nbsp;pN, the force that overcomes the attraction between them.
+                    The atoms are the same in both rows of the table. The link is the difference.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-catenane-start.jpg" alt="The lab at the start: two ring-shaped molecules of gray carbon, white hydrogen, blue nitrogen, and red oxygen atoms, one lying flat and the other standing through its hole">
+                        <img src="image/aims-catenane-loaded.jpg" alt="The lab after the kept state is loaded: the same two rings pulled in opposite directions, with one ring stretched upward and three pinned atoms at the bottom of the other ring">
+                    </div>
+                    <p class="v2-chart-caption">The two linked rings at the start (left), and the two rings pulled tight by the tow, loaded by the "Load this state" card (right). The yellow pins mark the three fixed atoms of ring A.</p>
+
+                    <h2>A Rotaxane: Stoppers Keep the Ring On</h2>
+
+                    <p>A rotaxane has a group at each end of its axle that is wider than the hole of the ring. The group is called a stopper. No covalent bond joins the ring to the axle, and chemists call the connection a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Mechanically_interlocked_molecular_architectures">mechanical bond</a>. The window below tests a stopper directly. It holds a dibenzo-24-crown-8 ring, a circle of 24 atoms with eight oxygen atoms, on an axle with one nitrogen atom and a stopper at each end.
+                    The axle is dibenzylamine with two <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Butyl_group">tert-butyl groups</a> on each benzene ring. A tert-butyl group is a carbon atom bonded to three methyl groups.
+                    The axle has 78 atoms and no charge, so no charge holds the ring, and the shape of the two ends is the one thing that keeps the ring on the axle.
+                    The PubChem database has no structure for this axle, and the agent built it from dibenzylamine by replacing two hydrogen atoms on each benzene ring with tert-butyl groups.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Rotaxane%20and%20Its%20Stoppers"
+                                id="aims-frame2" allowfullscreen="true" title="A Rotaxane and Its Stoppers demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
+                            A dibenzo-24-crown-8 ring around the nitrogen atom (blue) of an axle with two tert-butyl groups on each benzene ring. The nitrogen atom is fixed in place.
+                        </figcaption>
+                    </figure>
+
+                    <p>A ring stays on an axle at 300&nbsp;K with or without stoppers, because the attraction between the ring and the axle is many times the thermal energy. A test of the stoppers therefore needs a pull.
+                    The test uses the same tow as the pull on the catenane: a spring that joins the center of the ring to a point moving at a constant speed and applies at most about 800&nbsp;pN.
+                    The nitrogen atom of the axle is fixed in place, so the pull moves the ring along the axle.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Rotaxane and Its Stoppers</em> from the list of examples (Nanotechnology, Molecular Machines), press Play, open the chat, and type the prompts below.
+                        The pull can also be done by hand: enter flight mode, aim at the ring, and press T.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the ring pulled against the stopper.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Stoppers</span> &mdash; <span class="v2-prompt">&ldquo;Pull the ring along the axle at 100 m/s and see whether it comes off.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Benzene ends</span> &mdash; <span class="v2-prompt">&ldquo;Replace the axle with plain dibenzylamine, which has no tert-butyl groups, and pull the ring again.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Chain ends</span> &mdash; <span class="v2-prompt">&ldquo;Now try dihexylamine, whose ends are plain chains of carbon atoms, and compare the three axles.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>Pulling the Ring Along Three Axles</h2>
+
+                    <p>The agent pulled the ring toward one end of each of three neutral axles at 100&nbsp;m/s and recorded the pulling force and the work done by the tow.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Axle</th><th>End of the axle</th><th class="num">Largest pulling force</th><th class="num">Work done</th><th>Ring came off</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Dihexylamine</b></td><td>chain of six carbon atoms</td><td class="num">400&nbsp;pN</td><td class="num">1.2&nbsp;eV</td><td>after 10&nbsp;ps</td></tr>
+                                <tr><td class="crystal"><b>Dibenzylamine</b></td><td>benzene ring</td><td class="num">830&nbsp;pN</td><td class="num">2.8&nbsp;eV</td><td>after 11&nbsp;ps</td></tr>
+                                <tr><td class="crystal"><b>Stoppered axle</b></td><td>benzene ring with two tert-butyl groups</td><td class="num">910&nbsp;pN</td><td class="num">2.0&nbsp;eV</td><td class="model">no, in 40&nbsp;ps</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The same ring pulled along three neutral axles at 100&nbsp;m/s. The largest force is an average over 250&nbsp;fs while the ring was on the axle. The tow applies at most about 800&nbsp;pN on average, and the ring moves against the spring, so single readings exceed 800&nbsp;pN.</p>
+
+                    <p>The ring left the chain of dihexylamine after 10&nbsp;ps. The largest force was 400&nbsp;pN, half the limit of the tow, and the tow did 1.2&nbsp;eV of work. That work pays for the Lennard-Jones attraction between the ring and the chain.
+                    On dibenzylamine the force rose to the limit of the tow, and the tow waited at its limit for about 1&nbsp;ps while the ring passed over the benzene ring. The ring left the axle after 11&nbsp;ps, and the tow did 2.8&nbsp;eV of work.
+                    A benzene ring is wider than a chain, and the crown ether ring stretches to pass it.</p>
+
+                    <p>On the stoppered axle the force reached the limit within a few picoseconds, and the tow stayed at its limit for 33 of the 40&nbsp;ps of the pull. The center of the ring moved at most 2.4&nbsp;&Aring; from the nitrogen, and the axle stayed inside the ring for the whole pull.
+                    The benzene rings of this axle are next to the nitrogen, so the ring met the first tert-butyl groups after about 2&nbsp;&Aring; and stopped there. The same ring and the same pull gave three results, and the end group of the axle decided each one.
+                    On a charged axle, the charged nitrogen alone held the ring against the tow for more than 20&nbsp;ps in a trial run, so the three axles of this test are neutral.</p>
+
+                    <p>The bonds of the molecules in this lab cannot break. A real rotaxane loses its ring when a covalent bond of the axle or the ring breaks.
+                    A covalent bond breaks at a force more than twice the limit of the tow.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1.57fr;">
+                        <img src="image/aims-stopper-start.jpg" alt="The lab at the start: the crown ether ring, with red oxygen atoms, around the blue nitrogen atom at the middle of the axle, and a benzene ring with two tert-butyl groups at each end of the axle">
+                        <img src="image/aims-stopper-tow.png" alt="A Tow Profile card with two charts. The upper chart shows the work done against the position along the path: the curve for dibenzylamine rises to 2.8 eV and the curve for dihexylamine rises to 1.2 eV. The lower chart shows the pulling force, which reaches about 800 pN for dibenzylamine and about 400 pN for dihexylamine">
+                    </div>
+                    <p class="v2-chart-caption">The ring on the stoppered axle at the start (left), and the Tow Profile card that the agent posted for the pulls without stoppers (right). The orange curves are the pull on dibenzylamine and the blue curves are the pull on dihexylamine.
+                    The force falls below zero after the ring leaves the axle, when the ring moves ahead of the spring.</p>
+
+
+
+                    <h2>A Ball Nested in a Hoop</h2>
+
+                    <p>The ring of a rotaxane and the rings of a catenane cannot leave. A nested guest can leave, and attraction holds it. A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Cycloparaphenylene">cycloparaphenylene</a> is a hoop of benzene rings joined edge to edge, the shortest possible
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotube</a>, and chemists also call it a carbon nanohoop. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja807126u">Jasti, Bhattacharjee, Neaton, and Bertozzi</a> made the first nanohoops in 2008.
+                    The hoop of ten benzene rings is 13.8&nbsp;&Aring; across, the width of a (10,10) nanotube, and a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Buckminsterfullerene">buckyball</a> is 7.1&nbsp;&Aring; across. The gap between the two is the distance at which the carbon atoms of two molecules rest against each other.
+                    In 2011 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/anie.201102302">Iwamoto, Yamago, and coworkers</a> found that this hoop takes up a buckyball in solution and called the pair the shortest fullerene peapod.
+                    In 2012 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1039/c2sc20719b">Xia, Bacon, and Jasti</a> measured the crystal structure of the pair, with the ball at the center of the hoop.</p>
+
+                    <p>The window below holds the hoop (C<sub>60</sub>H<sub>40</sub>, 100 atoms) in the shape it has in that crystal, entry <a target="_blank" rel="noopener noreferrer" href="https://www.crystallography.net/cod/1515076.html">1515076</a> of the Crystallography Open Database, and a buckyball 7&nbsp;&Aring; from the center of the hoop along its axis.
+                    Three carbon atoms of the hoop are fixed in place. The lab runs at 300&nbsp;K with the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Langevin_dynamics">Langevin thermostat</a>, which gives every atom small random pushes. Press Play and watch the ball.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Buckyball%20in%20a%20Nanohoop"
+                                id="aims-frame3" allowfullscreen="true" title="A Buckyball in a Nanohoop demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame3');">View fullscreen</a><br>
+                            A hoop of ten benzene rings and a buckyball on its axis. The hoop draws the ball in within a few picoseconds of Play.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Buckyball in a Nanohoop</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the ball in the hoop.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Catch</span> &mdash; <span class="v2-prompt">&ldquo;Run it, and chart the distance from the center of the ball to the center of the hoop.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Turning</span> &mdash; <span class="v2-prompt">&ldquo;Does the ball turn inside the hoop? Measure how fast it turns, and compare with a buckyball that is alone.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Grip</span> &mdash; <span class="v2-prompt">&ldquo;How strongly does the hoop hold the ball? Pull it out along the axis with the tow at 50 m/s, and compare with other hosts.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Hoop Holds the Ball and Lets It Turn</h2>
+
+                    <p>The hoop caught the ball after 2.1&nbsp;ps. For the rest of the 13&nbsp;ps run the center of the ball stayed 0.9&nbsp;&Aring; from the center of the hoop on average and at most 1.8&nbsp;&Aring;. In the crystal the ball lies at the center of the hoop.
+                    The second prompt follows the atoms of the ball for 30&nbsp;ps and adds up the angle through which the ball turned, in any direction.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Buckyball</th><th class="num">Angle turned in 30&nbsp;ps</th><th class="num">Average turning rate</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>In the hoop</b></td><td class="num">1.8 full turns</td><td class="num model">22&deg; per ps</td></tr>
+                                <tr><td class="crystal"><b>Alone</b></td><td class="num">1.6 full turns</td><td class="num">19&deg; per ps</td></tr>
+                                <tr><td class="crystal"><b>Free sphere</b><small>of the same size and mass, calculated</small></td><td class="num">&nbsp;</td><td class="num">19&deg; per ps</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The turning of a buckyball at 300&nbsp;K, inside the hoop and alone, over 30&nbsp;ps. The last row is the average rate of a sphere with three free axes of rotation.</p>
+
+                    <p>The ball turned inside the hoop as fast as a ball that is alone. A buckyball has nearly the same surface on every side, so a turn changes almost nothing in its contact with the hoop, and the hoop does not resist the turn. The hoop holds the position of the ball and leaves its direction free.
+                    A ball bearing works the same way. The direction of the turning changes at random, because the thermal motion of the atoms is the one thing that drives it.</p>
+
+                    <h2>Four Hosts for a Buckyball</h2>
+
+                    <p>The third prompt pulls the ball out of the hoop along its axis at 50&nbsp;m/s. The ball came out after 28&nbsp;ps. The largest force was 740&nbsp;pN, below the limit of the tow, and the tow did 2.3&nbsp;eV of work, which is 220&nbsp;kJ/mol.
+                    Before the pull the attraction between the ball and the hoop was 230&nbsp;kJ/mol. A nested guest leaves when a pull supplies the energy of the attraction. The table puts the hoop next to three other hosts for a buckyball that this lab measured with the same force field.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Host</th><th>Contact with the ball</th><th class="num">Attraction to the ball</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>One corannulene bowl</b></td><td>one side</td><td class="num">60&nbsp;kJ/mol</td></tr>
+                                <tr><td class="crystal"><b>Buckycatcher</b><small>two bowls and a tether</small></td><td>two sides and the bottom</td><td class="num">190&nbsp;kJ/mol</td></tr>
+                                <tr><td class="crystal"><b>[10]Cycloparaphenylene hoop</b></td><td>all the way around, once</td><td class="num model">230&nbsp;kJ/mol</td></tr>
+                                <tr><td class="crystal"><b>(10,10) nanotube</b><small>18&nbsp;&Aring; long</small></td><td>all the way around, along the whole ball</td><td class="num">540&nbsp;kJ/mol</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The Lennard-Jones attraction between a buckyball and four hosts. The bowl and the buckycatcher are measured in the article on <a href="aims-molecular-machines.html">molecular machines</a>, and the nanotube in the article on <a href="aims-supramolecular-chemistry.html">supramolecular chemistry</a>.</p>
+
+                    <p>The attraction grows with the number of carbon atoms that a host places at the resting distance from the ball. The energies are too large. The Universal Force Field gives two carbon atoms an attraction about twice as strong as the attraction <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevB.62.13104">fitted to graphite</a>, and in a real solution the solvent competes with the ball for the inside of a host. The order of the four hosts depends on their shapes.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-hoop-start.jpg" alt="The lab at the start: a hoop of ten benzene rings seen at an angle, with a buckyball beside it on the axis of the hoop">
+                        <img src="image/aims-hoop-loaded.jpg" alt="The lab after the kept state is loaded: the buckyball sits inside the hoop, with the ten benzene rings around its middle">
+                    </div>
+                    <p class="v2-chart-caption">The buckyball outside the hoop at the start (left), and the ball inside the hoop, loaded by the "Load this state" card (right).</p>
+
+                    <h2>What the Lab Cannot Show</h2>
+
+                    <p>The covalent bonds of the molecules in this lab do not break. The lab therefore shows that heat and a pull of 800&nbsp;pN leave a catenane and a rotaxane intact, and it cannot show the force at which one of them comes apart.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.283.5408.1727">Grandbois and coworkers</a> pulled single molecules with an atomic force microscope in 1999 and measured that a covalent bond breaks at a force of about 2&nbsp;nN.
+                    The lab is also a vacuum with fixed charges, and the bonds of the molecules taken from crystal structures were all entered as single bonds, so the attraction between two molecules is rough. The shapes come from measured crystals, and the results that depend on shape are the reliable part: which pairs stay together, how the rings slide, and where the ball sits.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the measured shapes of the molecules and the charges and sizes of the atoms. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">A sliding link</span> &mdash; the two rings of a catenane stay 3.1 to 3.9&nbsp;&Aring; apart at 300&nbsp;K while each moves about 30&deg; around the other, and at 1000&nbsp;K one ring travels almost a full circuit around the other.</li>
+                            <li><span class="v2-prompts-step">Heat</span> &mdash; at 1000&nbsp;K the centers of the two linked rings move at most 6.1&nbsp;&Aring; apart.</li>
+                            <li><span class="v2-prompts-step">A pull</span> &mdash; a pull of up to 800&nbsp;pN for 40&nbsp;ps moves the linked rings 5.5&nbsp;&Aring; apart, and the same two rings without the link separate at 340&nbsp;pN.</li>
+                            <li><span class="v2-prompts-step">A stopper</span> &mdash; the same pull takes a ring off a chain of carbon atoms at 400&nbsp;pN and off a benzene ring at the limit of the pull, and the ring stays on an axle with tert-butyl stoppers.</li>
+                            <li><span class="v2-prompts-step">A nested ball</span> &mdash; a hoop of ten benzene rings draws a buckyball in after 2.1&nbsp;ps and holds it 0.9&nbsp;&Aring; from its center.</li>
+                            <li><span class="v2-prompts-step">A ball bearing</span> &mdash; the ball turns at 22&deg; per picosecond inside the hoop and at 19&deg; per picosecond alone.</li>
+                            <li><span class="v2-prompts-step">Four hosts</span> &mdash; a bowl, a buckycatcher, a hoop, and a nanotube attract a buckyball with 60, 190, 230, and 540&nbsp;kJ/mol.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses a catenane, a rotaxane, and a buckyball in a nanohoop to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. The mechanical bond, the idea behind the 2016 Nobel Prize in Chemistry, becomes something students watch and measure for themselves in a browser: how two linked rings slide through each other and stay together at 1000&nbsp;K,
+                    how a stopper keeps a ring on an axle against a pull, and how a hoop holds a ball in place and lets it turn. By pairing a physically grounded simulation with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of the ways molecules hold each other.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

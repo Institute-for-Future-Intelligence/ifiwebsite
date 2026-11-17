@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supramolecular Chemistry: Hosts and Guests — Institute for Future Intelligence</title>
+    <meta name="description" content="A crown ether is a ring of carbon and oxygen atoms that binds a metal ion at its center. AIMS places a potassium ion above an 18-crown-6 ring, and an AI agent measures the capture, compares three ions in three rings, and assembles two rings and one ion into a sandwich. A second example shows a buckyball oscillating inside a carbon nanotube, held by van der Waals forces alone. A third example shows a crown ether ring sliding along an axle to a charged nitrogen atom.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="CROWN">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Supramolecular Chemistry: Hosts and Guests</h1>
+                <p class="v2-tagline">
+                    AIMS places an ion above a crown ether, a buckyball in the mouth of a nanotube, and a ring on an axle, and an AI agent measures how each pair holds together.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 16, 2026</span></p>
+
+                    <p>An enzyme binds its substrate, an antibody binds a virus, and a ring-shaped molecule called a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Crown_ether">crown ether</a> binds a potassium ion. In each pair the two partners stay whole, and the forces that hold the pair together are weaker than a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Covalent_bond">covalent bond</a>. The study of such pairs is
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Supramolecular_chemistry">supramolecular chemistry</a>.
+                    AIMS models every atom of a crown ether and of the ion it binds, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent
+                    places the molecules, runs them, measures the distances between the ion and the ring, and posts the measured data in the chat.
+                    This article follows three pairs: a crown ether that binds an ion through the attraction of opposite charges, a carbon nanotube that holds a buckyball through van der Waals forces, and a ring that slides along an axle to a charged nitrogen atom.
+                    In the window below, a ring called 18-crown-6 lies flat at 300&nbsp;K with a potassium ion 6&nbsp;&Aring; above its center. Press Play and watch the ion move into the ring.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Crown%20Ethers%20Catching%20Ions"
+                                id="aims-frame1" allowfullscreen="true" title="Crown Ethers Catching Ions demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            An 18-crown-6 ring and a potassium ion (purple) at 300&nbsp;K. The ion reaches the center of the ring within about 2&nbsp;ps of Play, and the lab draws a dotted line from the ion to each oxygen atom that holds it.
+                        </figcaption>
+                    </figure>
+
+                    <h2>What Is Supramolecular Chemistry?</h2>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/anie.198800891">Jean-Marie Lehn</a> described supramolecular chemistry as &ldquo;chemistry beyond the molecule&rdquo;: the chemistry of structures made of two or more molecules or ions
+                    held together by the forces between them. The larger partner, which surrounds the other, is called the host, and the smaller partner is called the guest. The forces between a host and a guest are the attraction of opposite charges,
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hydrogen_bond">hydrogen bonds</a>, and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Van_der_Waals_force">van der Waals forces</a>.
+                    A host binds one guest more strongly than another when the size and shape of the guest match the host.</p>
+
+                    <p>The field began with crown ethers. In 1967 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja01002a035">Charles Pedersen</a> of DuPont reported a family of rings built from the unit &ndash;CH<sub>2</sub>&ndash;CH<sub>2</sub>&ndash;O&ndash; that bind the ions of the alkali metals.
+                    The name of each ring gives the number of atoms in the ring and the number of oxygen atoms among them: 18-crown-6 is a ring of twelve carbon atoms and six oxygen atoms. Pedersen named the rings crown ethers because a ring sits on an ion as a crown sits on a head.
+                    Pedersen, Donald Cram, and Lehn shared the <a target="_blank" rel="noopener noreferrer" href="https://www.nobelprize.org/prizes/chemistry/1987/summary/">1987 Nobel Prize in Chemistry</a> for this work.
+                    The companion article on <a href="aims-self-assembly.html">self-assembly</a> shows a related subject: many molecules that arrange themselves into a micelle or a membrane.</p>
+
+                    <h2>The Forces in the Model</h2>
+
+                    <p>The lab gives every atom of a molecule a partial charge with the method of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0040-4020(80)80168-2">Gasteiger and Marsili</a>, which moves charge along each bond toward the more
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Electronegativity">electronegative</a> atom. In 18-crown-6 each oxygen atom receives &minus;0.38&nbsp;e, each carbon atom +0.07&nbsp;e, and each hydrogen atom +0.06&nbsp;e, and the charges of the 42 atoms add up to zero.
+                    The potassium ion carries +1&nbsp;e.</p>
+
+                    <p>Two forces act between the ion and each atom of the ring, and they are the two forces that act between any two molecules in this lab. The first is the electrostatic force of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coulomb%27s_law">Coulomb's law</a>:
+                    the ion is attracted to the negative oxygen atoms and repelled by the positive carbon and hydrogen atoms. The second is the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Lennard-Jones_potential">Lennard-Jones</a> force,
+                    with the atom sizes of the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja00051a040">Universal Force Field</a>, which pushes two atoms apart when they overlap.
+                    The six oxygen atoms of 18-crown-6 lie 2.8&nbsp;&Aring; from the center of the ring, and the carbon and hydrogen atoms lie farther out. An ion at the center is therefore closer to the six negative charges than to the positive charges, and the sum of the forces on the ion points toward the center of the ring.
+                    The lab holds the ring and the ion in a vacuum, in a box 30&nbsp;&Aring; on a side, at 300&nbsp;K.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Placing the molecules, running them, measuring distances, and plotting the results are the agent's work. A student asks the agent to
+                    <em>"run it and chart the distance from the ion to the ring"</em>, and the agent recognizes the intent, configures the lab, runs the experiment, and posts a chart of the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open <em>Crown Ethers Catching Ions</em> from the list (Chemistry, Supramolecular Chemistry), open the chat, and type the prompts below.
+                        The answer to the third prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the two rings and the ion.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Capture</span> &mdash; <span class="v2-prompt">&ldquo;Run it, and chart the distance from the potassium ion to two oxygen atoms on opposite sides of the ring.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Size</span> &mdash; <span class="v2-prompt">&ldquo;Which ion fits which ring? Try lithium, sodium and potassium ions in 12-crown-4, 15-crown-5 and 18-crown-6.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Two rings</span> &mdash; <span class="v2-prompt">&ldquo;A potassium ion perched on 15-crown-5 has one side bare. Put a potassium ion between two 15-crown-5 rings and see what happens.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Ring Captures the Ion</h2>
+
+                    <p>The agent ran the ring and the ion for 9&nbsp;ps and charted the distance from the ion to two oxygen atoms on opposite sides of the ring. Both distances started near 6&nbsp;&Aring;. After 0.6&nbsp;ps all six oxygen atoms were within 3.4&nbsp;&Aring; of the ion,
+                    and for the rest of the run the two charted distances averaged 2.66&nbsp;&Aring; each. Two oxygen atoms on opposite sides of the ring at the same distance from the ion place the ion at the center of the ring.
+                    In the crystal of the complex of 18-crown-6 with potassium thiocyanate, measured by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1107/S0567740874007941">Seiler, Dobler, and Dunitz</a>, the potassium ion also lies at the center of the ring, about 2.8&nbsp;&Aring; from each oxygen atom.</p>
+
+                    <p>The ion speeds up as it approaches the ring, and its kinetic energy passes to the atoms of the ring as heat. The temperature of the 43 atoms rose from 300&nbsp;K to about 450&nbsp;K, and the thermostat of the lab then brought it back to 300&nbsp;K.
+                    The time of capture depends on the random velocities that the atoms receive at the start. In six further runs of the same setup, each with different starting velocities, the ring captured the ion after 0.5 to 1.6&nbsp;ps.</p>
+
+                    <h2>Which Ion Fits Which Ring?</h2>
+
+                    <p>The second prompt compares three rings and three ions. In the starting structures, the oxygen atoms lie 2.1&nbsp;&Aring; from the center of 12-crown-4, 2.3&nbsp;&Aring; from the center of 15-crown-5, and 2.8&nbsp;&Aring; from the center of 18-crown-6.
+                    The <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Ionic_radius">ionic radius</a> is 0.76&nbsp;&Aring; for lithium, 1.02&nbsp;&Aring; for sodium, and 1.38&nbsp;&Aring; for potassium.
+                    The agent placed each ion at the center of each ring, ran each of the nine pairs for 20&nbsp;ps at 300&nbsp;K, and measured the average distance of the ion from the center of the oxygen atoms of the ring.
+                    An ion that lies in the plane of the ring gives a distance near zero. An ion that is too large for the ring rests above the plane of the ring and gives a distance of 1&nbsp;&Aring; or more.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Ring</th><th class="num">Li<sup>+</sup> (0.76&nbsp;&Aring;)</th><th class="num">Na<sup>+</sup> (1.02&nbsp;&Aring;)</th><th class="num">K<sup>+</sup> (1.38&nbsp;&Aring;)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>12-crown-4</b><small>4 oxygen atoms, 2.1&nbsp;&Aring; from the center</small></td><td class="num">1.0&nbsp;&Aring;</td><td class="num">1.4&nbsp;&Aring;</td><td class="num">1.9&nbsp;&Aring;</td></tr>
+                                <tr><td class="crystal"><b>15-crown-5</b><small>5 oxygen atoms, 2.3&nbsp;&Aring; from the center</small></td><td class="num model">0.2&nbsp;&Aring;</td><td class="num">0.7&nbsp;&Aring;</td><td class="num">1.5&nbsp;&Aring;</td></tr>
+                                <tr><td class="crystal"><b>18-crown-6</b><small>6 oxygen atoms, 2.8&nbsp;&Aring; from the center</small></td><td class="num model">0.2&nbsp;&Aring;</td><td class="num model">0.2&nbsp;&Aring;</td><td class="num model">0.4&nbsp;&Aring;</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The average distance of each ion from the center of the oxygen atoms of each ring over 20&nbsp;ps at 300&nbsp;K. The highlighted pairs are those in which the ion lies within 0.5&nbsp;&Aring; of the center.</p>
+
+                    <p>The potassium ion lies 0.4&nbsp;&Aring; from the center of 18-crown-6, 1.5&nbsp;&Aring; above 15-crown-5, and 1.9&nbsp;&Aring; above 12-crown-4: of the three rings, 18-crown-6 is the one large enough to hold a potassium ion in its plane.
+                    The lithium ion lies within 0.2&nbsp;&Aring; of the center of the two larger rings and 1.0&nbsp;&Aring; above 12-crown-4. In all nine pairs, every oxygen atom of the ring stayed within 3.4&nbsp;&Aring; of the ion for the whole run.
+                    A ring larger than the ion folds around the ion, and a ring smaller than the ion holds the ion from one side.</p>
+
+                    <p>The agent also cooled each complex of 18-crown-6 to rest and added up the energy of attraction between the ion and the atoms of the ring: 530&nbsp;kJ/mol for lithium, 450&nbsp;kJ/mol for sodium, and 350&nbsp;kJ/mol for potassium.
+                    The oxygen atoms come closer to a smaller ion, and the attraction is stronger. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja9823159">More, Ray, and Armentrout</a> measured the energy needed to separate alkali ions from 18-crown-6 in the gas phase and found the same order:
+                    the energy decreases as the ion gets larger. The three numbers of the model are rough. They leave out the energy that the ring spends when it folds around the ion, and the charges of the model stay fixed, while the electrons of a real ring shift toward the ion.</p>
+
+                    <h2>Two Rings Share One Ion</h2>
+
+                    <p>A potassium ion that rests 1.5&nbsp;&Aring; above a 15-crown-5 ring has five oxygen atoms on one side and none on the other. The third prompt places a potassium ion between two 15-crown-5 rings that start 11&nbsp;&Aring; apart, with the ion nearer the lower ring.
+                    The ion moved to the lower ring first. After 8&nbsp;ps both rings held the ion, and over the next 10&nbsp;ps an average of 9.9 of the 10 oxygen atoms were within 3.4&nbsp;&Aring; of the ion.
+                    At the end of the run the centers of the two rings were 3.4&nbsp;&Aring; apart, with the ion between them at about 2.8&nbsp;&Aring; from each oxygen atom. The two rings and the ion had formed a sandwich.</p>
+
+                    <p>The time that the second ring takes to reach the ion varies from run to run, because the first ring and the ion tumble together and the second ring binds only on the side of the ion that the first ring leaves open.
+                    In three other runs of the same setup the second ring bound after 2, 10, and 11&nbsp;ps, and in a fourth run the second ring was still unbound after 40&nbsp;ps.
+                    Real crystals contain the same structure: <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1039/P29720001818">Mallinson and Truter</a> found in 1972 that potassium iodide crystallizes with two molecules of benzo-15-crown-5, a 15-crown-5 ring fused to a benzene ring, and that the potassium ion lies between the two rings.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-crown-start.jpg" alt="The lab at the start: an 18-crown-6 ring of gray carbon, red oxygen, and white hydrogen atoms lying flat, with a purple potassium ion above its center">
+                        <img src="image/aims-crown-caught.jpg" alt="The lab after a few picoseconds: the purple potassium ion at the center of the 18-crown-6 ring, with a dotted line from the ion to each of the six red oxygen atoms">
+                        <img src="image/aims-crown-sandwich.jpg" alt="The lab after the kept state is loaded: a purple potassium ion between two 15-crown-5 rings, seen along the line through the two ring centers, with dotted lines from the ion to the oxygen atoms of both rings">
+                    </div>
+                    <p class="v2-chart-caption">The potassium ion 6&nbsp;&Aring; above 18-crown-6 at the start (left), the same ion at the center of the ring a few picoseconds after Play (middle), and a potassium ion between two 15-crown-5 rings, loaded by the "Load this state" card (right). The dotted lines join the ion to the oxygen atoms that hold it.</p>
+
+                    <h2>What Water Changes</h2>
+
+                    <p>Chemists use crown ethers in solution, and in water the order of binding differs from the order in the gas phase. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja00440a028">Izatt and coworkers</a> measured by calorimetry in 1976 that 18-crown-6 in water binds a potassium ion more strongly than a sodium ion.
+                    An ion in water is surrounded by water molecules, and the ion gives up part of that shell of water when it enters a ring. A sodium ion is smaller than a potassium ion and holds its water molecules more strongly, so a sodium ion loses more energy when it leaves its water molecules and gains less overall from binding to the ring.
+                    The ring and the ion in this lab are in a vacuum, and the results of the lab follow the order of the gas phase: the smaller the ion, the stronger the binding. The positions of the ions in the rings and the sandwich of two rings are the arrangements that the crystal structures show.
+                    The energies apply to the gas phase.</p>
+
+                    <h2>A Neutral Host: A Buckyball in a Nanotube</h2>
+
+                    <p>The oxygen atoms of a crown ether hold an ion by the attraction of opposite charges. A host can also hold a guest by van der Waals forces alone.
+                    In 1998 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/24521">Smith, Monthioux, and Luzzi</a> examined carbon nanotubes in an electron microscope and found rows of
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Buckminsterfullerene">buckyballs</a> inside the nanotubes. The structure is called a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_peapod">carbon peapod</a>. A buckyball (C<sub>60</sub>) is a cage of 60 carbon atoms 7.1&nbsp;&Aring; across, and a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotube</a> is a sheet of carbon atoms rolled into a cylinder.
+                    Every atom of a peapod is a carbon atom with zero charge, so the one force between the buckyball and the nanotube in the model is the Lennard-Jones force. Two carbon atoms attract each other weakly when they are more than about 3.9&nbsp;&Aring; apart and repel each other when they are closer.
+                    A buckyball inside a nanotube has the wall of the nanotube on every side, and the weak attractions of thousands of pairs of carbon atoms add up.</p>
+
+                    <p>The window below holds a (10,10) nanotube of 400 carbon atoms, 23&nbsp;&Aring; long and 13.6&nbsp;&Aring; across, with every atom fixed in place. The two numbers in the name of a nanotube describe how the sheet of carbon atoms is rolled, and a larger pair of numbers means a wider nanotube.
+                    A buckyball sits in the right mouth of the nanotube, with its center 2&nbsp;&Aring; outside the rim. The thermostat of the lab is off, so the total energy stays constant. Press Play and watch the buckyball.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Carbon%20Peapods"
+                                id="aims-frame2" allowfullscreen="true" title="Carbon Peapods demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
+                            A buckyball in the mouth of a (10,10) carbon nanotube, drawn as a wireframe. The buckyball crosses the nanotube in about 4&nbsp;ps of simulated time and returns.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Carbon Peapods</em> from the list of examples (Chemistry, Supramolecular Chemistry), open the chat, and type the prompts below.
+                        The answer to the third prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows two buckyballs in the nanotube.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Oscillation</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 30 ps and chart the distance from the buckyball to the left end of the tube.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Size</span> &mdash; <span class="v2-prompt">&ldquo;Which nanotubes can hold a buckyball? Try tubes from (8,8) to (13,13).&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Two buckyballs</span> &mdash; <span class="v2-prompt">&ldquo;Put two buckyballs in the (10,10) tube and tell me how far apart they stay.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Buckyball Oscillates in the Nanotube</h2>
+
+                    <p>The agent ran the lab for 30&nbsp;ps and charted the distance from one carbon atom of the buckyball to a carbon atom on the left rim of the nanotube. The nanotube pulled the buckyball in. The buckyball reached about 960&nbsp;m/s in the middle of the nanotube, crossed to the left mouth,
+                    slowed down as its center passed the left rim, stopped with its center 2.4&nbsp;&Aring; beyond the rim, and moved back into the nanotube. The buckyball turned around six times in 30&nbsp;ps. One round trip took 9.0&nbsp;ps, a frequency of about 110&nbsp;gigahertz.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.1890451">Liu, Zhang, and Lu</a> studied the same oscillation by molecular dynamics in 2005.</p>
+
+                    <p>The wall of the nanotube is the same at every position along its length. While the whole buckyball is inside the nanotube, the pulls of the wall toward the two ends are equal, and the buckyball moves at a constant speed.
+                    At a mouth, part of the buckyball is outside the nanotube, more of the wall lies on the inner side of the buckyball, and the wall pulls the buckyball back in.
+                    The total energy changed by 0.001&nbsp;eV during the run. The thermometer of the lab moved between about 130&nbsp;K and 620&nbsp;K, because the thermometer counts the kinetic energy of the motion of the whole buckyball together with the vibrations of its atoms.
+                    The nanotube in this lab is rigid. The wall of a real nanotube vibrates and takes energy from the buckyball, so the oscillation of a buckyball in a real nanotube decays.</p>
+
+                    <h2>Which Nanotube Fits a Buckyball?</h2>
+
+                    <p>The second prompt places the buckyball in the mouth of six nanotubes of increasing diameter, each 18&nbsp;&Aring; long, and runs each for 20&nbsp;ps. The agent also adds up the Lennard-Jones energy between the buckyball and each nanotube with the buckyball at rest in the middle of the nanotube.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Nanotube</th><th class="num">Diameter</th><th>Buckyball enters</th><th class="num">Attraction inside</th><th>Position of the buckyball</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>(8,8)</b></td><td class="num">10.8&nbsp;&Aring;</td><td>no</td><td class="num">&nbsp;</td><td>outside, at the mouth</td></tr>
+                                <tr><td class="crystal"><b>(9,9)</b></td><td class="num">12.2&nbsp;&Aring;</td><td>no</td><td class="num">&nbsp;</td><td>outside, at the mouth</td></tr>
+                                <tr><td class="crystal"><b>(10,10)</b></td><td class="num">13.6&nbsp;&Aring;</td><td>yes</td><td class="num model">5.6&nbsp;eV</td><td>on the axis</td></tr>
+                                <tr><td class="crystal"><b>(11,11)</b></td><td class="num">14.9&nbsp;&Aring;</td><td>yes</td><td class="num">4.1&nbsp;eV</td><td>0.6&nbsp;&Aring; from the axis</td></tr>
+                                <tr><td class="crystal"><b>(12,12)</b></td><td class="num">16.3&nbsp;&Aring;</td><td>yes</td><td class="num">3.2&nbsp;eV</td><td>1.3&nbsp;&Aring; from the axis</td></tr>
+                                <tr><td class="crystal"><b>(13,13)</b></td><td class="num">17.6&nbsp;&Aring;</td><td>yes</td><td class="num">2.7&nbsp;eV</td><td>1.6&nbsp;&Aring; from the axis</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">A buckyball in six nanotubes. The position is the average distance of the center of the buckyball from the axis of the nanotube while the buckyball was inside, over 20&nbsp;ps.</p>
+
+                    <p>The buckyball is 7.1&nbsp;&Aring; across, and a carbon atom of the buckyball rests about 3.4&nbsp;&Aring; from a carbon atom of the wall, so the buckyball needs a nanotube about 7.1&nbsp;+&nbsp;2&nbsp;&times;&nbsp;3.4&nbsp;&asymp;&nbsp;14&nbsp;&Aring; across.
+                    The (10,10) nanotube, 13.6&nbsp;&Aring; across, is the closest to that size. Its wall surrounds the buckyball at the resting distance on every side, and its attraction, 5.6&nbsp;eV, is the strongest of the six.
+                    The (8,8) and (9,9) nanotubes are narrower than the buckyball needs, and the buckyball stayed at the mouth. In the four wider nanotubes the buckyball moved away from the axis toward one side of the wall, and the attraction decreased as the diameter increased.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/S0009-2614(01)01339-2">Hodak and Girifalco</a> calculated the energy of a buckyball in nanotubes of different sizes with a carbon&ndash;carbon attraction
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevB.62.13104">fitted to graphite</a> and also found the (10,10) nanotube to be the best fit.
+                    The energies in the table are rough. The Universal Force Field of this lab gives two carbon atoms an attraction about twice as strong as the attraction fitted to graphite. The sizes depend mainly on the size of a carbon atom.</p>
+
+                    <h2>Two Buckyballs in One Nanotube</h2>
+
+                    <p>The third prompt places two buckyballs 13&nbsp;&Aring; apart in a (10,10) nanotube 21&nbsp;&Aring; long and runs them for 30&nbsp;ps with the thermostat on at 300&nbsp;K. The two buckyballs moved toward each other.
+                    Over the last 15&nbsp;ps the distance between their centers averaged 10.2&nbsp;&Aring; and stayed between 9.3 and 11.2&nbsp;&Aring;. Two buckyballs attract each other through the same force that attracts each of them to the wall, and they rest with about 3&nbsp;&Aring; between their surfaces.
+                    The distance between neighboring buckyballs in a crystal of pure C<sub>60</sub> is 10.0&nbsp;&Aring;. A longer nanotube holds more buckyballs at the same spacing, and the row of buckyballs is the peapod of the electron microscope images.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-peapod-start.jpg" alt="The lab at the start: a carbon nanotube drawn as a gray wireframe of hexagons, lying left to right, with a buckyball of gray atoms in its right mouth">
+                        <img src="image/aims-peapod-inside.jpg" alt="The lab a few picoseconds after Play: the buckyball at the left mouth of the wireframe nanotube, about to turn back">
+                        <img src="image/aims-peapod-pair.jpg" alt="The lab after the kept state is loaded: two buckyballs side by side inside the wireframe nanotube, with a small gap between them">
+                    </div>
+                    <p class="v2-chart-caption">The buckyball in the right mouth of the (10,10) nanotube at the start (left), the buckyball at the left mouth a few picoseconds after Play (middle), and two buckyballs in one nanotube, loaded by the "Load this state" card (right).</p>
+
+                    <h2>A Ring on an Axle: A Pseudorotaxane</h2>
+
+                    <p>In the two pairs above, the guest sits inside the host. In a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Rotaxane">rotaxane</a>, a ring-shaped molecule is threaded on a long molecule called the axle.
+                    No covalent bond joins the ring and the axle. A bulky group at each end of the axle is wider than the hole of the ring, and the ring stays on the axle until a covalent bond breaks. Chemists call this connection a
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Mechanically_interlocked_molecular_architectures">mechanical bond</a>. An axle with ends narrow enough for the ring to pass forms a pseudorotaxane, and its ring can leave.
+                    In 1995 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/anie.199518651">Ashton, Stoddart, and coworkers</a> reported that an ammonium ion with two carbon chains threads through the crown ether dibenzo-24-crown-8, and
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1039/C39950001289">Kolchinski, Busch, and Alcock</a> made a rotaxane from the same kind of ring and axle in the same year.
+                    A ring that moves along an axle is a moving part of a molecular machine, the subject of the <a target="_blank" rel="noopener noreferrer" href="https://www.nobelprize.org/prizes/chemistry/2016/summary/">2016 Nobel Prize in Chemistry</a>, awarded to Jean-Pierre Sauvage, Fraser Stoddart, and Ben Feringa.</p>
+
+                    <p>The window below holds a dibenzo-24-crown-8 ring and a dihexylammonium axle at 300&nbsp;K. The ring has 24 atoms in a circle, eight of them oxygen atoms, and two benzene rings fused to the circle. The axle is 17&nbsp;&Aring; long: a nitrogen atom with two hydrogen atoms in the middle and a chain of six carbon atoms on each side.
+                    The axle carries a charge of +1&nbsp;e. In the model each of the two hydrogen atoms on the nitrogen carries +0.35&nbsp;e, and each oxygen atom of the ring carries &minus;0.38&nbsp;e.
+                    The ring starts around the right chain of the axle, with its center 5&nbsp;&Aring; from the nitrogen. Press Play and watch the ring.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Threading%20a%20Ring%20onto%20an%20Axle"
+                                id="aims-frame3" allowfullscreen="true" title="Threading a Ring onto an Axle demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame3');">View fullscreen</a><br>
+                            A dibenzo-24-crown-8 ring around the right chain of a dihexylammonium axle. The nitrogen atom of the axle is blue. The ring reaches the nitrogen within about 2&nbsp;ps of Play.
+                        </figcaption>
+                    </figure>
+
+                    <p>The ring starts on the axle because threading is slow. In seven trial runs of 16 to 20&nbsp;ps, the ring started 7 to 12&nbsp;&Aring; from the nitrogen of an axle, in line with the axle and with no part of the axle inside it. The ring moved away from the axle in five runs and settled beside the axle in two.
+                    In no run did the end of the axle enter the ring. Threading in a real solution takes far longer than the tens of picoseconds that the lab runs. The ring from the <a target="_blank" rel="noopener noreferrer" href="https://pubchem.ncbi.nlm.nih.gov/compound/84238">PubChem</a> database was also folded, with one atom 1.1&nbsp;&Aring; from its center,
+                    and a short simulation opened its hole to a radius of 3&nbsp;&Aring; before the ring was placed on the axle.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Threading a Ring onto an Axle</em> from the list of examples (Chemistry, Supramolecular Chemistry), open the chat, and type the prompts below.
+                        The answer to the third prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the ring on a dibenzylammonium axle.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Slide</span> &mdash; <span class="v2-prompt">&ldquo;Run it, and chart the distance from the nitrogen to two oxygen atoms on opposite sides of the ring.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Charge</span> &mdash; <span class="v2-prompt">&ldquo;What holds the ring at the nitrogen? Take one hydrogen off the nitrogen so the axle has no charge, and compare the two axles.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Benzene ends</span> &mdash; <span class="v2-prompt">&ldquo;Put the ring on a dibenzylammonium axle, with a benzene ring at each end, and see whether it stays.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Ring Slides to the Nitrogen</h2>
+
+                    <p>The agent ran the lab for 9&nbsp;ps and charted the distance from the nitrogen atom to two oxygen atoms on opposite sides of the ring. Both distances started near 6&nbsp;&Aring;. The ring moved along the chain, and its center reached the nitrogen after 0.7&nbsp;ps.
+                    The two distances then averaged 3.4 and 3.5&nbsp;&Aring;. For the rest of the run the center of the ring stayed 0.5&nbsp;&Aring; from the nitrogen on average and at most 1.1&nbsp;&Aring;, and the axle stayed inside the ring.
+                    An average of 4.4 of the eight oxygen atoms were within 3.6&nbsp;&Aring; of the nitrogen. In three further runs with different starting velocities the ring reached the nitrogen after 0.7 to 1.5&nbsp;ps.</p>
+
+                    <p>The positive hydrogen atoms on the nitrogen attract the negative oxygen atoms of the ring, and the attraction is strongest when the oxygen atoms surround the nitrogen. The ring gains speed as it moves, and the temperature of the 105 atoms rose from 300&nbsp;K to about 390&nbsp;K before the thermostat brought it back.</p>
+
+                    <h2>What the Charge Does</h2>
+
+                    <p>Dihexylamine is the same axle with one hydrogen atom fewer on the nitrogen and no net charge. The second prompt places the ring at the nitrogen of each axle, runs each pair for 30&nbsp;ps at 300&nbsp;K, cools each pair to rest, and adds up the energy of attraction between the ring and the axle in two parts:
+                    the part from the charges and the part from the Lennard-Jones force.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Axle</th><th class="num">Charge</th><th class="num">Ring to nitrogen, average</th><th class="num">Farthest</th><th class="num">Attraction from charges</th><th class="num">Attraction from Lennard-Jones</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Dihexylammonium</b></td><td class="num">+1&nbsp;e</td><td class="num">0.4&nbsp;&Aring;</td><td class="num">1.2&nbsp;&Aring;</td><td class="num model">270&nbsp;kJ/mol</td><td class="num">90&nbsp;kJ/mol</td></tr>
+                                <tr><td class="crystal"><b>Dihexylamine</b></td><td class="num">0</td><td class="num">0.6&nbsp;&Aring;</td><td class="num">1.3&nbsp;&Aring;</td><td class="num">0&nbsp;kJ/mol</td><td class="num">90&nbsp;kJ/mol</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The ring on the charged axle and on the neutral axle. The distances are from the center of the oxygen atoms of the ring to the nitrogen atom over 30&nbsp;ps at 300&nbsp;K, with the ring starting at the nitrogen.</p>
+
+                    <p>The Lennard-Jones attraction is 90&nbsp;kJ/mol on both axles, because the ring touches the same chain of carbon atoms. The charge adds 270&nbsp;kJ/mol, so the charged axle holds the ring about four times as strongly as the neutral axle.
+                    A ring that starts at the nitrogen stayed within 1.3&nbsp;&Aring; of the nitrogen on both axles for 30&nbsp;ps. The middle of the axle is also the position where the ring touches the most carbon atoms.</p>
+
+                    <p>The two axles differ when the ring starts on the chain, 5&nbsp;&Aring; from the nitrogen. On the charged axle the ring reached the nitrogen in 0.7&nbsp;ps and stayed. On the neutral axle the ring first reached the nitrogen after 23&nbsp;ps, and over the last 15&nbsp;ps of a 30&nbsp;ps run its center moved between 0.1 and 5.8&nbsp;&Aring; from the nitrogen.
+                    The charge pulls the ring to the nitrogen and holds it there, and the neutral axle lets the ring move along the chain. Molecular machines use this difference.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja982167m">Ashton and coworkers</a> built a rotaxane in 1998 with an ammonium group and a second binding site on its axle. The ring stays at the ammonium group in acid.
+                    A base removes a hydrogen atom from the nitrogen, and the ring moves to the second site. The energies in the table are rough: the lab has no solvent, and a solvent competes with the ring for the hydrogen atoms on the nitrogen.</p>
+
+                    <h2>Benzene Rings at the Ends</h2>
+
+                    <p>The axle of the 1995 complexes was dibenzylammonium: a charged nitrogen atom in the middle and a benzene ring at each end. The third prompt places the crown ether ring around the nitrogen of a dibenzylammonium axle and runs the pair for 20&nbsp;ps at 300&nbsp;K.
+                    The ring stayed on the axle for the whole run. Its center stayed 0.4&nbsp;&Aring; from the nitrogen on average and at most 1.0&nbsp;&Aring;, with an average of 4.3 of its eight oxygen atoms within 3.6&nbsp;&Aring; of the nitrogen.
+                    This pair is a pseudorotaxane. A benzene ring is narrow enough to pass through dibenzo-24-crown-8, so the ring of the real complex leaves and returns in solution. A rotaxane needs a wider group at each end of the axle. The companion article on <a href="aims-interlocked-molecules.html">interlocked and nested molecules</a> pulls the ring against such groups, and the article on <a href="aims-molecular-machines.html">molecular machines</a> moves the ring between two nitrogen atoms of one axle.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-rotaxane-start.jpg" alt="The lab at the start: a dihexylammonium axle lying left to right with a blue nitrogen atom at its middle, and a dibenzo-24-crown-8 ring with red oxygen atoms around the right chain of the axle">
+                        <img src="image/aims-rotaxane-arrived.jpg" alt="The lab a few picoseconds after Play: the ring of red oxygen atoms surrounds the blue nitrogen atom, and the two chains of the axle extend from the two faces of the ring">
+                        <img src="image/aims-rotaxane-benzyl.jpg" alt="The lab after the kept state is loaded: the crown ether ring around the blue nitrogen atom of a dibenzylammonium axle, with a benzene ring of the axle on each side of the crown ether">
+                    </div>
+                    <p class="v2-chart-caption">The ring around the right chain of the dihexylammonium axle at the start (left), the ring at the nitrogen a few picoseconds after Play (middle), and the ring on a dibenzylammonium axle, loaded by the "Load this state" card (right).</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the charges and the sizes of the atoms. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Capture</span> &mdash; a potassium ion 6&nbsp;&Aring; above 18-crown-6 reaches the center of the ring in 0.6&nbsp;ps and stays 2.66&nbsp;&Aring; from the oxygen atoms.</li>
+                            <li><span class="v2-prompts-step">Size</span> &mdash; the potassium ion lies 0.4&nbsp;&Aring; from the center of 18-crown-6 and rests 1.5&nbsp;&Aring; above 15-crown-5 and 1.9&nbsp;&Aring; above 12-crown-4.</li>
+                            <li><span class="v2-prompts-step">Strength</span> &mdash; the attraction of 18-crown-6 is 530&nbsp;kJ/mol for lithium, 450&nbsp;kJ/mol for sodium, and 350&nbsp;kJ/mol for potassium, the order measured in the gas phase.</li>
+                            <li><span class="v2-prompts-step">A sandwich</span> &mdash; two 15-crown-5 rings and one potassium ion assemble into a sandwich in 8&nbsp;ps, with 9.9 of the 10 oxygen atoms on the ion.</li>
+                            <li><span class="v2-prompts-step">An oscillator</span> &mdash; a (10,10) nanotube pulls a buckyball in, and the buckyball crosses the nanotube and returns every 9.0&nbsp;ps at up to 960&nbsp;m/s.</li>
+                            <li><span class="v2-prompts-step">The right nanotube</span> &mdash; the buckyball stays outside the (8,8) and (9,9) nanotubes, is held most strongly by the (10,10) nanotube, and moves off the axis in wider nanotubes.</li>
+                            <li><span class="v2-prompts-step">A peapod</span> &mdash; two buckyballs in one nanotube rest 10.2&nbsp;&Aring; apart, close to the 10.0&nbsp;&Aring; of solid C<sub>60</sub>.</li>
+                            <li><span class="v2-prompts-step">A ring on an axle</span> &mdash; a crown ether ring 5&nbsp;&Aring; along a dihexylammonium axle reaches the charged nitrogen in 0.7&nbsp;ps and stays within 1.1&nbsp;&Aring; of it.</li>
+                            <li><span class="v2-prompts-step">The charge</span> &mdash; the charge of the axle adds 270&nbsp;kJ/mol to the 90&nbsp;kJ/mol of Lennard-Jones attraction, and on the neutral axle the ring takes 23&nbsp;ps to reach the nitrogen and then moves along the chain.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses crown ethers, carbon peapods, and a ring on an axle to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. Host&ndash;guest binding, the textbook idea at the center of supramolecular chemistry, becomes something students watch and measure for themselves in a browser: how a ring of oxygen atoms captures an ion,
+                    how the size of the ion decides where the ion sits in the ring, how two rings share an ion that is too large for one, how a nanotube of the right diameter holds a buckyball through van der Waals forces alone, and how a charge on an axle holds a ring in one place. By pairing a physically grounded simulation with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of the forces that hold molecules together.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

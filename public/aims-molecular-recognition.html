@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molecular Recognition: Testing Docked Molecules with Localized Molecular Dynamics — Institute for Future Intelligence</title>
+    <meta name="description" content="Three small molecules are docked into the pocket of trypsin, and a simulation of the pocket shows which of them stay.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ui.menu.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: minmax(0, 1fr); }
+        .v2-table-scroll { overflow-x: auto; margin: 1rem 0 2rem; }
+        .v2-table-scroll table { min-width: 34rem; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-single img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-screenshot-single { max-width: 720px; margin: 1rem auto 0.5rem; }
+        .v2-col-main .v2-screenshot-single { clear: both; }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-col-main .v2-callout { float: right; clear: right; width: 40%; margin: 0.4rem 0 1.2rem 2.5rem; padding: 1.2rem 1.4rem; border: 1px solid var(--border); border-radius: 0.8rem; background: var(--surface); }
+        .v2-col-main .v2-callout svg { display: block; width: 100%; height: auto; }
+        .v2-col-main .v2-callout p { margin: 0.8rem 0 0; font-size: 1.1rem; line-height: 1.45; color: var(--text-muted); }
+        .v2-col-main .v2-callout p strong { color: var(--text); }
+        .v2-col-main .v2-prompts { clear: both; }
+        .v2-col-main .v2-tryit { float: right; clear: right; width: 40%; margin: 0.4rem 0 1.2rem 2.5rem; }
+        @media (max-width: 720px) { .v2-col-main .v2-tryit { float: none; width: auto; margin: 1.5rem 0; } }
+        @media (max-width: 720px) { .v2-col-main .v2-callout { float: none; width: auto; margin: 1.5rem 0; } }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="RECOGNITION">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Molecular Recognition: Testing Docked Molecules with Localized Molecular Dynamics</h1>
+                <p class="v2-tagline">
+                    Three small molecules are docked into the pocket of trypsin, and a simulation of the pocket shows which of them stay.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 15, 2026</span></p>
+
+                    <p>A cell holds thousands of kinds of molecules, and each protein in it works with only a few of them. An enzyme acts on its own substrate, an antibody binds its own target, and a receptor answers its own hormone. The way a protein tells one molecule from another is called molecular recognition.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/cber.18940270364">Emil Fischer</a> described it in 1894 with the picture of a lock and a key: an enzyme acts on a molecule whose shape fits the enzyme. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.44.2.98">Koshland</a> added in 1958 that the protein changes its shape as the molecule binds.
+                    Shape is one part of the fit. The charges on the molecule have to meet opposite charges on the protein, and the groups that can form hydrogen bonds have to find partners. Many drugs are molecules designed to be recognized by one protein.</p>
+
+                    <p>A docking program predicts how a small molecule, called the ligand, fits into a pocket of a protein. The program tries many positions and orientations of the ligand against a fixed structure of the protein, scores each one, and keeps the best. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0022-2836(82)90153-X">Kuntz and coworkers</a> described one of the first docking programs in 1982.
+                    Docking gives every ligand a position and a score. A real protein at body temperature moves all the time, and a ligand stays in a pocket only if its contacts with the pocket are strong enough to hold it against that motion.
+                    <a href="aims-localized-md.html">Localized molecular dynamics</a> tests this: it simulates the motion of the ligand and of the part of the protein around it, with the rest of the protein fixed, and shows whether the ligand stays where docking put it.
+                    This article follows one example in the Protein Lab of AIMS. It takes an inhibitor of the enzyme trypsin apart into two pieces, docks the pieces and the whole inhibitor into the pocket of trypsin, and simulates the pocket with each of them.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Molecular%20Recognition%20in%20Trypsin"
+                                id="aims-frame1" allowfullscreen="true" title="Molecular Recognition in Trypsin demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Bovine trypsin (PDB 3PTB) with benzamidinium docked in its S1 pocket. Press Simulate the binding site on the last Ligand binding card in the chat to run the localized simulation described below.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Trypsin and Its Pocket</h2>
+
+                    <div class="v2-prompts v2-tryit">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">Try It</p>
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button on the toolbar or the Examples item in the main menu (&#9776;). Open Molecular Recognition in Trypsin and open the chat. The chat already holds the answers to the prompts below, which the sections of this article describe.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">The inhibitor</span> &mdash; <span class="v2-prompt">&ldquo;Load trypsin with its inhibitor benzamidine bound (PDB 3PTB). How does trypsin recognize the inhibitor?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The ring</span> &mdash; <span class="v2-prompt">&ldquo;Replace the bound benzamidine with benzene, the bare ring without the charged group. Dock it, then simulate the binding site at body temperature. Does the docked position hold?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The charged group</span> &mdash; <span class="v2-prompt">&ldquo;Now try methylguanidinium: the positively charged end of an arginine side chain, with no ring. Dock it and simulate the binding site. Does it hold?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">The whole inhibitor</span> &mdash; <span class="v2-prompt">&ldquo;Now dock benzamidinium, benzamidine with the positive charge it carries in water, and simulate the binding site. Does the docked position hold, and how do the three molecules compare?&rdquo;</span></li>
+                        </ol>
+
+                        <p class="v2-prompts-intro" style="margin:1rem 0 0 !important;"><b>Runs differ.</b> Each run starts with different random velocities, so the percentages in your own run will differ from the ones in this article.</p>
+                    </div>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Trypsin">Trypsin</a> is a digestive enzyme that cuts the chains of proteins. It cuts a chain only after two of the twenty amino acids, arginine and lysine. The side chains of these two amino acids are long and end in a group that carries a positive charge.
+                    Next to the residues of trypsin that cut the chain (His57, Asp102, and Ser195) is a deep, narrow pocket, called the S1 pocket. The side chain of the amino acid before the cut goes into this pocket. At the bottom of the pocket is Asp189, whose side chain carries a negative charge.
+                    A positively charged side chain that reaches the bottom of the pocket pairs with Asp189. A pair of opposite charges like this is called a salt bridge. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/cr000033x">Hedstrom</a> reviews how this pocket sets the specificity of trypsin and of the enzymes related to it.</p>
+
+                    <p>The example uses the structure of bovine trypsin with the inhibitor benzamidine in the S1 pocket, determined at a resolution of 1.7&nbsp;&Aring; by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1107/S010876818300275X">Marquart, Walter, Deisenhofer, Bode, and Huber</a> (PDB 3PTB).
+                    Benzamidine is a ring of six carbon atoms with an amidine group, a carbon atom bonded to two nitrogen atoms, attached to it. In water the amidine group carries a positive charge, and the charged form is called benzamidinium.
+                    In the crystal, benzamidine fills the pocket with its amidine group at the bottom. The first prompt measures its contacts in the structure file: each of the two nitrogen atoms of the amidine group is 2.9&nbsp;&Aring; from one of the two oxygen atoms of Asp189, and the nitrogen atoms are also within hydrogen-bonding distance of Gly219 (2.8&nbsp;&Aring;) and Ser190 (3.0&nbsp;&Aring;).
+                    The inhibitor matches the pocket in three ways: the ring fits between the walls of the pocket, the positive charge meets the negative charge of Asp189, and the N&ndash;H groups have partners for hydrogen bonds. Benzamidine blocks the enzyme because it occupies the place of an arginine side chain.</p>
+
+                    <h2>Taking the Inhibitor Apart</h2>
+
+                    <div class="v2-callout">
+                        <svg viewBox="0 0 320 250" role="img" aria-label="Three molecules drawn as diagrams: benzene, a ring of six carbon atoms; methylguanidinium, a carbon atom bonded to three nitrogen atoms with a positive charge and a methyl group; and benzamidinium, the ring joined to a carbon atom bonded to two nitrogen atoms with a positive charge." font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                            <g fill="none" stroke="#334155" stroke-width="2">
+                                <polygon points="60,22 86,37 86,67 60,82 34,67 34,37"/>
+                                <circle cx="60" cy="52" r="17" stroke-width="1.5"/>
+                                <polygon points="60,172 86,187 86,217 60,232 34,217 34,187"/>
+                                <circle cx="60" cy="202" r="17" stroke-width="1.5"/>
+                                <line x1="86" y1="202" x2="112" y2="202"/>
+                                <line x1="120" y1="197" x2="140" y2="183"/>
+                                <line x1="120" y1="207" x2="140" y2="221"/>
+                                <line x1="52" y1="127" x2="76" y2="127"/>
+                                <line x1="100" y1="127" x2="112" y2="127"/>
+                                <line x1="120" y1="122" x2="140" y2="108"/>
+                                <line x1="120" y1="132" x2="140" y2="146"/>
+                            </g>
+                            <g font-size="13" fill="#334155">
+                                <text x="20" y="131">CH<tspan baseline-shift="sub" font-size="10">3</tspan></text>
+                                <text x="79" y="131">NH</text>
+                                <text x="112" y="131" font-weight="600">C</text>
+                                <text x="142" y="107">NH<tspan baseline-shift="sub" font-size="10">2</tspan></text>
+                                <text x="142" y="153">NH<tspan baseline-shift="sub" font-size="10">2</tspan></text>
+                                <text x="112" y="206" font-weight="600">C</text>
+                                <text x="142" y="182">NH<tspan baseline-shift="sub" font-size="10">2</tspan></text>
+                                <text x="142" y="228">NH<tspan baseline-shift="sub" font-size="10">2</tspan></text>
+                            </g>
+                            <g font-size="15" font-weight="700" fill="#e11d48">
+                                <text x="126" y="120">+</text>
+                                <text x="126" y="195">+</text>
+                            </g>
+                            <g font-size="13" fill="#475569">
+                                <text x="190" y="50">benzene</text>
+                                <text x="190" y="66" font-size="11">the ring</text>
+                                <text x="190" y="124">methylguanidinium</text>
+                                <text x="190" y="140" font-size="11">the charged group</text>
+                                <text x="190" y="199">benzamidinium</text>
+                                <text x="190" y="215" font-size="11">both</text>
+                            </g>
+                        </svg>
+                        <p><strong>The inhibitor and its two pieces.</strong> Benzene is the ring alone. Methylguanidinium is a positively charged group without a ring, the end of an arginine side chain. Benzamidinium has the ring and a positively charged group.</p>
+                    </div>
+
+                    <p>The example asks which of these three features the pocket recognizes: the ring, the charge, or both. It tests three molecules. Benzene is the ring of benzamidine alone, with no charge. Methylguanidinium is a positively charged group with no ring; it is the end of an arginine side chain. Benzamidinium is the whole inhibitor, with the ring and the positive charge.
+                    The agent fetches each molecule by name from the PubChem database. The names of the charged forms matter: &ldquo;benzamidinium&rdquo; and &ldquo;methylguanidinium&rdquo; give molecules with a charge of +1, and &ldquo;benzamidine&rdquo; and &ldquo;methylguanidine&rdquo; give neutral molecules.</p>
+
+                    <p>For each molecule, the agent removes the benzamidine of the crystal, puts the new molecule in its place, and docks it. Docking starts the molecule in 109 orientations, moves it from each one to a nearby position with a lower score, and keeps the best of the 109 results. The score adds the attraction and repulsion between the atoms of the molecule and the atoms of the protein, the attraction between their charges, and a term for each hydrogen bond. A lower score is better.
+                    Docking finds a position without clashes for all three molecules. Benzene has a score of &minus;0.83 and no hydrogen bonds. Methylguanidinium has a score of &minus;3.06 and six hydrogen bonds, and benzamidinium has a score of &minus;3.49 and five; both form hydrogen bonds with Asp189, Ser190, and Trp215.
+                    The docked position of benzamidinium is 1.2&nbsp;&Aring; from the position of benzamidine in the crystal, measured over its nine carbon and nitrogen atoms.</p>
+
+                    <h2>Does the Docked Position Hold?</h2>
+
+                    <p>After each docking, the agent simulates the binding site for 20&nbsp;ps at 310&nbsp;K, body temperature. The ligand and every residue within 6&nbsp;&Aring; of it move freely, a layer 3&nbsp;&Aring; wide around them is held by springs, and the rest of the protein is fixed. The <a href="aims-localized-md.html">article on localized molecular dynamics</a> describes the method.
+                    Water is represented by the Generalized Born model of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja00172a038">Still and coworkers</a>. In this model water weakens the attraction between two charges on the surface of the protein about 78 times, as bulk water does, and it weakens the attraction between two charges buried in a pocket much less. The salt bridge at the bottom of the S1 pocket is a pair of buried charges, so the simulation needs this model to hold it.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-molecular-recognition-site.png" alt="The S1 pocket of trypsin at the start of a simulation: benzamidinium drawn as gray and white spheres with one blue nitrogen atom showing, in the middle, the residues of the pocket around it drawn as thin white and yellow lines, and the rest of the protein drawn as yellow strands, gray loops, and a red helix">
+                    </div>
+                    <p class="v2-chart-caption">The binding site at the start of a run: benzamidinium, drawn as space-filling spheres, in the S1 pocket, with the residues of the pocket drawn as a wireframe.</p>
+
+                    <p>The simulation measures whether a docked position holds by the distance of the ligand from its binding site, which is the distance between the center of the ligand and its position after docking. The ligand counts as in its binding site while this distance is below 2&nbsp;&Aring;. The Interactions card of each run plots this distance against time, with the distances of the hydrogen bonds between the ligand and the pocket.</p>
+
+                    <p>Benzene left its docked position. Its distance from the binding site passed 2&nbsp;&Aring; after about 2&nbsp;ps and reached 4.2&nbsp;&Aring;. Benzene was in its binding site for 13&nbsp;% of the run, and its average distance was 2.7&nbsp;&Aring;. It formed no hydrogen bond with the pocket, because it has no group that can form one.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-molecular-recognition-benzene.png" alt="Distance of benzene from its binding site against time over 20 ps: the distance rises from 0 to 2 angstroms in the first 2 ps, stays between 2 and 4.2 angstroms for most of the run, and ends at 2.5 angstroms; a dashed line marks 2 angstroms">
+                    </div>
+                    <p class="v2-chart-caption">The Interactions card of the benzene run: the distance of benzene from its docked position. Below the dashed line (2&nbsp;&Aring;), benzene counts as in its binding site.</p>
+
+                    <p>The two charged molecules stayed. Their hydrogen-bond partners change a little from the crystal to the docked position to the simulation, because each molecule shifts a little in the pocket and the residues of the pocket move.</p>
+
+                    <p>Methylguanidinium was in its binding site for the whole run, at an average distance of 0.8&nbsp;&Aring; and never farther than 1.5&nbsp;&Aring;. It held hydrogen bonds with Ser190 and Tyr228 for the whole run and with an oxygen atom of Asp189 for 89&nbsp;% of it.</p>
+
+                    <p>Benzamidinium was in its binding site for the whole run, at an average distance of 0.9&nbsp;&Aring; and never farther than 1.8&nbsp;&Aring;. It held hydrogen bonds with the hydroxyl group of Ser190 for the whole run, with Tyr228 for 99&nbsp;% of it, and with an oxygen atom of Asp189 for 67&nbsp;% of it.
+                    Between 12 and 15&nbsp;ps the amidine group moved up to 5.6&nbsp;&Aring; from that oxygen atom of Asp189 and then returned, while the hydrogen bonds with Ser190 and Tyr228 stayed in place.</p>
+
+                    <div class="v2-screenshot-single">
+                        <img src="image/aims-molecular-recognition-benzamidinium.png" alt="Two charts for the benzamidinium run over 20 ps. The upper chart shows the distances of five hydrogen bonds between benzamidinium and the pocket: Ser190 OG stays near 2.7 angstroms, Tyr228 OH, Ser190 O and Ser190 N vary between 2.6 and 4.3 angstroms, and Asp189 OD2 stays near 3 angstroms except between 12 and 15 ps, when it rises to 5.6 angstroms. The lower chart shows the distance of benzamidinium from its binding site, which stays within 1.8 angstroms">
+                    </div>
+                    <p class="v2-chart-caption">The Interactions card of the benzamidinium run. The upper chart shows the hydrogen bonds between benzamidinium and the pocket; a hydrogen bond is counted below the dashed line (3.5&nbsp;&Aring;). The lower chart shows the distance of benzamidinium from its docked position.</p>
+
+                    <div class="v2-table-scroll">
+                    <table class="v2-table" style="width:100%; border-collapse:collapse; font-size:1.25rem; margin:0;">
+                        <thead>
+                            <tr style="border-bottom:2px solid var(--border); text-align:left;">
+                                <th style="padding:0.5rem 0.75rem;">Molecule</th>
+                                <th style="padding:0.5rem 0.75rem;">Charge</th>
+                                <th style="padding:0.5rem 0.75rem;">Docking score</th>
+                                <th style="padding:0.5rem 0.75rem;">In its binding site</th>
+                                <th style="padding:0.5rem 0.75rem;">Farthest distance</th>
+                                <th style="padding:0.5rem 0.75rem;">Hydrogen bond with Asp189</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:0.5rem 0.75rem;">Benzene</td><td style="padding:0.5rem 0.75rem;">0</td><td style="padding:0.5rem 0.75rem;">&minus;0.83</td><td style="padding:0.5rem 0.75rem;">13&nbsp;% of the run</td><td style="padding:0.5rem 0.75rem;">4.2&nbsp;&Aring;</td><td style="padding:0.5rem 0.75rem;">none</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:0.5rem 0.75rem;">Methylguanidinium</td><td style="padding:0.5rem 0.75rem;">+1</td><td style="padding:0.5rem 0.75rem;">&minus;3.06</td><td style="padding:0.5rem 0.75rem;">100&nbsp;% of the run</td><td style="padding:0.5rem 0.75rem;">1.5&nbsp;&Aring;</td><td style="padding:0.5rem 0.75rem;">89&nbsp;% of the run</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.5rem 0.75rem;">Benzamidinium</td><td style="padding:0.5rem 0.75rem;">+1</td><td style="padding:0.5rem 0.75rem;">&minus;3.49</td><td style="padding:0.5rem 0.75rem;">100&nbsp;% of the run</td><td style="padding:0.5rem 0.75rem;">1.8&nbsp;&Aring;</td><td style="padding:0.5rem 0.75rem;">67&nbsp;% of the run</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+
+                    <h2>What the Pocket Recognizes</h2>
+
+                    <p>The two molecules with a positive charge stayed in the pocket, with and without the ring. The ring alone left. In these runs the S1 pocket of trypsin recognizes the positively charged group more than the shape of the ring.
+                    This agrees with what trypsin does: it cuts protein chains after arginine, whose side chain ends in the group that methylguanidinium is made of.
+                    The hydrogen bonds matter as well. Both charged molecules held hydrogen bonds with Ser190 and Tyr228 for nearly the whole run, and benzamidinium stayed in its binding site while its hydrogen bond with one oxygen atom of Asp189 was broken.</p>
+
+                    <p>The docking score ranks the three molecules in the same order: benzene has the worst score, and benzamidinium the best. The score is a number for one fixed position of the ligand in a fixed protein. The simulation tests that position against the thermal motion of the ligand and the pocket, and it shows the result as a distance and as the fraction of the run that each contact lasts.</p>
+
+                    <h2>The Reach of the Method</h2>
+
+                    <p>Each result is one run of 20&nbsp;ps. A run this long shows whether a docked position holds against thermal motion for tens of picoseconds. Binding and release of a ligand take far longer, and a ligand that stays for 20&nbsp;ps can leave later.
+                    The energies of the simulation are illustrative, so the runs compare how well docked positions hold, and they do not give binding affinities. The <a href="aims-localized-md.html#affinity">article on localized molecular dynamics</a> explains the difference.
+                    The docking keeps the ligand rigid, which suits small molecules like these three, and the frozen part of the protein keeps the pocket close to its shape in the crystal.</p>
+
+                    <p>The model has limits that a student can find with the same steps. Trypsin also cuts protein chains after lysine. In a test run, butylammonium, the end of a lysine side chain, drifted from its docked position, so the model does not reproduce the recognition of lysine.
+                    The prompts <span class="v2-prompt">&ldquo;replace the ligand with butylammonium&rdquo;</span> and <span class="v2-prompt">&ldquo;replace the ligand with benzoate&rdquo;</span> (the ring with a negatively charged group) set up runs to compare with the three in this article. The Report button on the control bar posts the Interactions card for each run.</p>
+
+                    <h2>Conclusion</h2>
+
+                    <div class="v2-prompts v2-tryit">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the crystal structure of trypsin and three molecules docked into its S1 pocket. The results below came out of the runs:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Benzene</span> &mdash; the ring alone left its docked position after about 2&nbsp;ps and was in its binding site for 13&nbsp;% of a 20&nbsp;ps run.</li>
+                            <li><span class="v2-prompts-step">Methylguanidinium</span> &mdash; the charged group alone stayed within 1.5&nbsp;&Aring; of its docked position and held a hydrogen bond with Asp189 for 89&nbsp;% of the run.</li>
+                            <li><span class="v2-prompts-step">Benzamidinium</span> &mdash; the whole inhibitor docked 1.2&nbsp;&Aring; from its position in the crystal and stayed within 1.8&nbsp;&Aring; of its docked position.</li>
+                            <li><span class="v2-prompts-step">Recognition</span> &mdash; the pocket held the positively charged group with and without the ring.</li>
+                        </ul>
+                    </div>
+
+                    <p>This article uses the pocket of trypsin to illustrate a new way to learn science: students converse with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back measured data.
+                    Molecular recognition, which textbooks describe with the picture of a lock and a key, becomes something students test for themselves: they take an inhibitor apart, dock each piece, and measure which pieces stay in the pocket.</p>
+
+                    <p>Setting up this experiment by hand takes skills that few students have. Someone has to prepare the protein and three ligands with their charges, dock each ligand, choose the residues to move and the residues to hold, run each simulation with a thermostat, and write the code that measures the distance of the ligand from its binding site and the lifetime of each hydrogen bond.
+                    In AIMS a student types four questions in plain language, and the agent docks each molecule, runs the simulation, measures it, and posts the charts in the conversation, where the student can check the results, repeat a run, and try another molecule.
+                    By pairing a physically grounded simulation with an AI that can set it up and run it, AIMS turns a student&rsquo;s curiosity into a genuine scientific investigation of <strong>how a protein recognizes the molecule it binds</strong>.</p>
+
+                    <div style="clear: both;"></div>
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

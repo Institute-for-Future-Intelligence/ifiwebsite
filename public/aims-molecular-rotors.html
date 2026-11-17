@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molecular Rotors and Gears: Machine Parts That Turn — Institute for Future Intelligence</title>
+    <meta name="description" content="A molecular rotor is a ring of atoms that turns on an axle of triple bonds. AIMS turns a benzene ring by thermal motion alone, holds a ring that carries two fluorine atoms with an electric field, and meshes two paddle-wheel molecules as gears, and an AI agent measures each motion.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="ROTOR">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Molecular Rotors and Gears: Machine Parts That Turn</h1>
+                <p class="v2-tagline">
+                    AIMS turns a ring on an axle with thermal motion, holds a ring with an electric field, and meshes two wheels as gears, and an AI agent measures each motion.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 16, 2026</span></p>
+
+                    <p>A wheel that turns on a shaft is the most common part of a machine. Chemists build wheels from single molecules: a flat ring of atoms that turns between two fixed groups is a rotor, and two wheels whose blades fit between each other are a gear.
+                    AIMS models every atom of such a part, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent builds the molecules, runs them, measures the turning, and posts the measured data in the chat.
+                    This article follows three parts that turn: a rotor, a ring that turns freely between two fixed rings; a dipolar rotor, a ring that an electric field turns and holds; and a gear, two wheels that turn each other.
+                    It is the second of three articles. The article on <a href="aims-molecular-machines.html">molecular machines</a> follows a shuttle, a clamp, an ion pump, and tweezers, and it describes the forces in the model and how to open an example and type a prompt. The article on <a href="aims-nanotube-machines.html">nanotube machines</a> follows parts that slide.</p>
+
+                    <h2>A Rotor on Triple-Bond Axles</h2>
+
+                    <p>A rotor is a part that turns, and the part that holds it is the stator. Chemists build molecular rotors from a flat ring of atoms held between two bulky groups by an axle of carbon&ndash;carbon <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Triple_bond">triple bonds</a>.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ja012550i">Godinez, Zepeda, and Garcia-Garibay</a> made such molecules in 2002 and called them molecular compasses and gyroscopes: the ring in the middle turns while the frame around it stays in place in the crystal.
+                    The electrons around a triple bond have the same distribution on every side of the bond, so a ring that turns about a triple bond meets almost no barrier.</p>
+
+                    <p>The window below holds 1,4-bis(phenylethynyl)benzene: three benzene rings in a row, joined by two triple bonds. The molecule has 36 atoms and is 19&nbsp;&Aring; long. The 22 atoms of the two end rings are fixed in place and form the stator, and the lab marks each fixed atom with a pin.
+                    The middle ring is the rotor. The lab runs at 300&nbsp;K with the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Langevin_dynamics">Langevin thermostat</a>, which gives every atom small random pushes, as the molecules of a surrounding gas would. Press Play and watch the middle ring.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Molecular%20Rotor"
+                                id="aims-frame4" allowfullscreen="true" title="A Molecular Rotor demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame4');">View fullscreen</a><br>
+                            Three benzene rings joined by two triple bonds, seen from above. The end rings are fixed, and the middle ring turns about the line of the triple bonds.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Molecular Rotor</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the third prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows p-terphenyl, the molecule with single-bond axles.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Turning</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 30 ps and chart the angle between the middle ring and one of the end rings.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Temperature</span> &mdash; <span class="v2-prompt">&ldquo;How does the temperature change the turning? Try 100 K, 300 K and 600 K.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Size and axle</span> &mdash; <span class="v2-prompt">&ldquo;Try a larger ring as the rotor, and try single bonds as the axle.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Ring Turns in Both Directions</h2>
+
+                    <p>The agent ran the lab for 30&nbsp;ps and charted the angle between the middle ring and one end ring. The middle ring covered 4.4 full turns of angle, an average of about 50&deg; per picosecond. It changed direction nine times, and at the end of the run it was 534&deg; from its starting angle.
+                    No force drives this rotor. The atoms of the ring exchange energy with the vibrations of the molecule and with the thermostat, and the turning speeds up, slows down, and reverses at random.</p>
+
+                    <p>A rotor that turns by thermal motion is not a motor. It turns in each direction equally often over a long time, and it does no work. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/anie.199718661">Kelly, Tellitu, and Sestelo</a> tested this in 1997 with a molecule shaped like a ratchet, a toothed wheel with a pawl.
+                    The wheel of their molecule turned equally in both directions, as the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Second_law_of_thermodynamics">second law of thermodynamics</a> requires for a molecule at one temperature. A molecular motor needs an energy source, such as light or a chemical reaction, to turn in one direction.</p>
+
+                    <h2>Temperature, Size, and the Axle</h2>
+
+                    <p>One run of one rotor is too random to compare with another. The second prompt runs the molecule 12 times for 10&nbsp;ps at each of three temperatures, each run with new random starting velocities, and averages the turning rate.
+                    A part that turns freely about one axis holds an average kinetic energy of half of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/KT_(energy)">kT</a>, so its average turning rate is proportional to the square root of the temperature divided by the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Moment_of_inertia">moment of inertia</a>.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Temperature</th><th class="num">Average turning rate</th><th class="num">Slowest and fastest run</th><th class="num">Free rotor, calculated</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>100&nbsp;K</b></td><td class="num model">43&deg; per ps</td><td class="num">21 to 72&deg; per ps</td><td class="num">44&deg; per ps</td></tr>
+                                <tr><td class="crystal"><b>300&nbsp;K</b></td><td class="num model">61&deg; per ps</td><td class="num">28 to 119&deg; per ps</td><td class="num">77&deg; per ps</td></tr>
+                                <tr><td class="crystal"><b>600&nbsp;K</b></td><td class="num model">78&deg; per ps</td><td class="num">39 to 167&deg; per ps</td><td class="num">108&deg; per ps</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The turning rate of the benzene rotor, averaged over 12 runs of 10&nbsp;ps at each temperature. The last column is the average rate of a ring of the same moment of inertia with no barrier.</p>
+
+                    <p>The rotor turned faster at a higher temperature, and at 100&nbsp;K the measured rate equals the calculated rate. At 300&nbsp;K and 600&nbsp;K the measured rate is lower than the calculated rate. The agent takes the rate from averages of the angle over 1&nbsp;ps, and a fast rotor that reverses within a picosecond is counted short.
+                    The runs at one temperature differ by a factor of three or more, so the average needs many runs.</p>
+
+                    <p>The third prompt changes the rotor and the axle. The agent ran each of four molecules eight times for 10&nbsp;ps at 300&nbsp;K with the end rings fixed.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Rotor</th><th>Axle</th><th class="num">Moment of inertia</th><th class="num">Average turning rate</th><th class="num">Angle covered in a run</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Benzene</b><small>one ring</small></td><td>triple bonds</td><td class="num">90&nbsp;amu&nbsp;&Aring;<sup>2</sup></td><td class="num model">69&deg; per ps</td><td class="num">580&deg;</td></tr>
+                                <tr><td class="crystal"><b>Naphthalene</b><small>two fused rings</small></td><td>triple bonds</td><td class="num">650&nbsp;amu&nbsp;&Aring;<sup>2</sup></td><td class="num">27&deg; per ps</td><td class="num">170&deg;</td></tr>
+                                <tr><td class="crystal"><b>Anthracene</b><small>three fused rings</small></td><td>triple bonds</td><td class="num">1,110&nbsp;amu&nbsp;&Aring;<sup>2</sup></td><td class="num">19&deg; per ps</td><td class="num">180&deg;</td></tr>
+                                <tr><td class="crystal"><b>Benzene</b><small>in p-terphenyl</small></td><td>single bonds</td><td class="num">90&nbsp;amu&nbsp;&Aring;<sup>2</sup></td><td class="num">1&deg; per ps</td><td class="num">20&deg;</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Four rotors at 300&nbsp;K, eight runs of 10&nbsp;ps each. The moment of inertia is that of the turning ring about the axle.</p>
+
+                    <p>A larger rotor turns more slowly at the same temperature. The anthracene rotor has 13 times the moment of inertia of the benzene rotor, and it turned at 19&deg; per picosecond against 69&deg;.
+                    In p-terphenyl the three benzene rings are joined directly by single bonds, and the middle ring covered 20&deg; in a run: it rocks and does not turn over. The hydrogen atoms of a ring joined directly to its neighbor meet the hydrogen atoms of the neighbor, and the single bond between two rings resists twisting.
+                    The single bonds act as a brake. A triple bond holds the rings 2.6&nbsp;&Aring; farther apart and has no resistance to twisting in this model. In the real molecule the electrons of the three rings interact through the triple bonds and give the rings a small preference for one plane, and the force field of this lab has no such term.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-rotor-start.jpg" alt="The lab at the start, seen from above: three benzene rings in a row joined by two triple bonds, all three rings in one plane, with a small yellow pin on each atom of the two end rings">
+                        <img src="image/aims-rotor-running.jpg" alt="The lab a few picoseconds after Play: the two end rings are unchanged, and the middle ring is seen edge-on, a quarter turn from its starting angle">
+                    </div>
+                    <p class="v2-chart-caption">The rotor at the start, with the three rings in one plane (left), and a few picoseconds after Play, with the middle ring a quarter turn from its starting angle (right). The yellow pins mark the fixed atoms of the stator.</p>
+
+                    <h2>A Rotor That an Electric Field Turns</h2>
+
+                    <p>A compass needle turns to point along a magnetic field. A molecule turns in an electric field if one side of it carries more negative charge than the other. Such a molecule has an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Electric_dipole_moment">electric dipole</a>.
+                    A fluorine atom pulls electrons toward itself, so a ring with fluorine atoms on one side has a dipole across its axle. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevB.74.054306">Horansky, Price, Garcia-Garibay, and coworkers</a> studied a crystal of rotors with two fluorine atoms on the turning ring in 2006.
+                    <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.0506183102">Horinek and Michl</a> simulated dipolar rotors mounted on a surface and driven by an electric field in 2005. A dipolar rotor is a part that an electric signal controls.</p>
+
+                    <p>The window below holds the rotor of the last section with two fluorine atoms (green) on one side of its middle ring: 1,4-bis(phenylethynyl)-2,3-difluorobenzene. The two end rings are fixed. Each fluorine atom carries a charge of &minus;0.20&nbsp;e in the model, and the middle ring has a dipole of 3.4&nbsp;D across its axle.
+                    The lab runs at 300&nbsp;K with the Langevin thermostat, and a static electric field of 5&nbsp;V/nm points up. The middle ring starts at a right angle to the field. Press Play and watch the fluorine atoms.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Dipolar%20Rotor%20in%20an%20Electric%20Field"
+                                id="aims-frame8" allowfullscreen="true" title="A Dipolar Rotor in an Electric Field demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame8');">View fullscreen</a><br>
+                            A rotor with two fluorine atoms (green) on its middle ring, seen from the side, in an electric field that points up. The field turns the fluorine side of the ring down within a picosecond of Play.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Dipolar Rotor in an Electric Field</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab continues from 20&nbsp;ps.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Field on</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 20 ps and chart the angle between the middle ring and one of the end rings.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Reverse</span> &mdash; <span class="v2-prompt">&ldquo;Reverse the field and run another 20 ps.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Field off</span> &mdash; <span class="v2-prompt">&ldquo;Turn the field off and run another 20 ps.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Strength</span> &mdash; <span class="v2-prompt">&ldquo;How strong a field does it take to hold the ring? Try fields from 0 to 10 V/nm, and try the ring without fluorine.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Field Turns the Ring and Holds It</h2>
+
+                    <p>The field pushes each negative fluorine atom down and each positive carbon atom up, and the two pushes make a torque on the ring. In the first run the fluorine side of the ring reached the downward direction after 0.5&nbsp;ps. The ring went past, swung back, and rocked about that direction like a pendulum, by up to 80&deg; in the first swings and by 17&deg; on average over the last 5&nbsp;ps. It did not turn over.
+                    The energy of the dipole in this field is 14 times the thermal energy at 300&nbsp;K. The swings became smaller as the thermostat took up the energy that the field gave to the ring.</p>
+
+                    <p>The second prompt reverses the field. The fluorine side went up and reached the upward direction 1.0&nbsp;ps after the reversal, swung past by up to 109&deg;, and settled: over the last 5&nbsp;ps it rocked by 7&deg; on average. The ring is a switch with two positions, fluorine down and fluorine up, and the direction of the field selects the position.
+                    The third prompt turns the field off. The ring covered 3.1 full turns of angle in 20&nbsp;ps, in both directions, as the rotor without fluorine does. While the field held it, the ring covered 0.8 of a turn in the same time, all of it rocking.</p>
+
+                    <h2>How Strong a Field?</h2>
+
+                    <p>The fourth prompt runs the molecule eight times for 12&nbsp;ps at each of six field strengths and leaves the first 4&nbsp;ps out of each run. The alignment in the table is the average cosine of the angle between the dipole and the field: 1 for a ring that always points along the field, and 0 for a ring with no preferred direction.
+                    The calculated column is the alignment of a dipole that turns in a plane at 300&nbsp;K. It depends only on the ratio of the dipole energy to the thermal energy.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Ring</th><th class="num">Field</th><th class="num">Dipole energy &divide; thermal energy</th><th class="num">Time within 45&deg; of the field</th><th class="num">Alignment, measured</th><th class="num">Alignment, calculated</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>With fluorine</b></td><td class="num">0</td><td class="num">0.0</td><td class="num">34%</td><td class="num model">0.14</td><td class="num">0.00</td></tr>
+                                <tr><td class="crystal"><b>With fluorine</b></td><td class="num">0.5&nbsp;V/nm</td><td class="num">1.4</td><td class="num">51%</td><td class="num model">0.52</td><td class="num">0.56</td></tr>
+                                <tr><td class="crystal"><b>With fluorine</b></td><td class="num">1&nbsp;V/nm</td><td class="num">2.7</td><td class="num">62%</td><td class="num model">0.63</td><td class="num">0.79</td></tr>
+                                <tr><td class="crystal"><b>With fluorine</b></td><td class="num">2&nbsp;V/nm</td><td class="num">5.5</td><td class="num">93%</td><td class="num model">0.91</td><td class="num">0.90</td></tr>
+                                <tr><td class="crystal"><b>With fluorine</b></td><td class="num">5&nbsp;V/nm</td><td class="num">13.7</td><td class="num">94%</td><td class="num model">0.91</td><td class="num">0.96</td></tr>
+                                <tr><td class="crystal"><b>With fluorine</b></td><td class="num">10&nbsp;V/nm</td><td class="num">27.4</td><td class="num">98%</td><td class="num model">0.94</td><td class="num">0.98</td></tr>
+                                <tr><td class="crystal"><b>Without fluorine</b></td><td class="num">10&nbsp;V/nm</td><td class="num">0.0</td><td class="num">18%</td><td class="num model">0.02</td><td class="num">0.00</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The alignment of the middle ring with the field at 300&nbsp;K, averaged over eight runs of 12&nbsp;ps at each field. A ring with no preferred direction spends 25% of its time within 45&deg; of any direction.</p>
+
+                    <p>The alignment grows with the field and follows the calculated values within the scatter of eight short runs. A field of 2&nbsp;V/nm holds the ring within 45&deg; of the field for 93% of the time. The field competes with thermal motion, so a weaker field holds the ring as well at a lower temperature.
+                    The ring without fluorine has the same charges on both sides and no dipole across the axle, and a field of 10&nbsp;V/nm gave it an alignment of 0.02.</p>
+
+                    <p>Two limits apply. The charges of this lab give the ring a dipole of 3.4&nbsp;D, and the measured dipole of 1,2-difluorobenzene is about 2.5&nbsp;D, so the lab holds the ring more firmly than a real field of the same strength would.
+                    A field of several volts per nanometer is very strong. It exists near the tip of a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Scanning_tunneling_microscope">scanning tunneling microscope</a> and close to an ion, and a field between two metal plates is hundreds of times weaker.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-dipolar-start.jpg" alt="The lab at the start, seen from the side: three benzene rings in a row joined by two triple bonds, all seen edge-on, with small yellow pins on the atoms of the two end rings">
+                        <img src="image/aims-dipolar-running.jpg" alt="The lab a few picoseconds after Play: the middle ring has turned a quarter turn and faces the viewer, with its two green fluorine atoms at the bottom and two white hydrogen atoms at the top">
+                    </div>
+                    <p class="v2-chart-caption">The rotor at the start, with the middle ring at a right angle to the field (left), and a few picoseconds after Play, with the two fluorine atoms (green) turned down against the field (right).</p>
+
+                    <h2>Gears: Two Wheels That Mesh</h2>
+
+                    <p>The rotor above turns alone. In a gear, the teeth of one wheel sit between the teeth of another, and the turning of one wheel turns the other. The molecular wheel is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Triptycene">triptycene</a>: three benzene rings joined like the blades of a paddle wheel, 120&deg; apart.
+                    In the 1980s the groups of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/ar00148a007">Iwamura and Mislow</a> joined two triptycene wheels through one atom, with the axles at an angle, so each blade of one wheel sits in the gap between two blades of the other.
+                    They found that the two wheels turn together in opposite directions and that one blade almost never slips past another.</p>
+
+                    <p>The window below holds bis(9-triptycyl) ether, two triptycene wheels joined through one oxygen atom, 67 atoms in all. The oxygen atom and the two carbon atoms bonded to it are fixed in place and form the frame. The two axles are 135&deg; apart.
+                    PubChem has no three-dimensional structure for this molecule, and the agent built it from two 9-methyltriptycene molecules.
+                    The lab runs at 1000&nbsp;K. In the force field of this lab the wheels need more energy to pass from one meshed position to the next than the real molecule needs, and at 300&nbsp;K the wheels only rock. The bonds of the molecule cannot break in this lab, so the temperature does no damage. Press Play and watch the two wheels.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Molecular%20Gears"
+                                id="aims-frame5" allowfullscreen="true" title="Molecular Gears demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame5');">View fullscreen</a><br>
+                            Two triptycene wheels joined through an oxygen atom (red), seen from above. The wheels rock in place and, every few picoseconds, turn by a third of a turn in opposite directions.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Molecular Gears</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the third prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the gear with a CH<sub>2</sub> group as the bridge.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Gearing</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 40 ps and chart the angle of each wheel.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Temperature</span> &mdash; <span class="v2-prompt">&ldquo;How does the temperature change the turning? Try 300 K, 600 K and 1000 K.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Bridge</span> &mdash; <span class="v2-prompt">&ldquo;Try other bridges between the two wheels: a CH₂ group, and two carbon atoms in a line.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Wheels Turn in Opposite Directions</h2>
+
+                    <p>The agent ran the lab for 40&nbsp;ps and charted the angle of one blade of each wheel. At the end of the run the first wheel had turned +180&deg; and the second &minus;173&deg;, each measured about its own axle. The wheels rocked in one meshed position for several picoseconds at a time and then moved together by a third of a turn.
+                    Two wheels that mesh turn by equal and opposite angles, so the sum of the two angles stays constant, and a slip of one blade past another changes the sum by 120&deg;. The sum stayed within 70&deg; for the whole run.
+                    No force drives the wheels. A step happens when the thermal motion carries both wheels over the barrier at the same time.</p>
+
+                    <p>The second prompt runs the molecule four times for 20&nbsp;ps at each of three temperatures.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Temperature</th><th class="num">Angle a wheel covered in a run</th><th class="num">Steps of a third of a turn in 80&nbsp;ps</th><th class="num">Largest change in the sum of the angles</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>300&nbsp;K</b></td><td class="num">50&deg;</td><td class="num">0</td><td class="num">50&deg;</td></tr>
+                                <tr><td class="crystal"><b>600&nbsp;K</b></td><td class="num">110&deg;</td><td class="num">1</td><td class="num">60&deg;</td></tr>
+                                <tr><td class="crystal"><b>1000&nbsp;K</b></td><td class="num model">140&deg;</td><td class="num model">3</td><td class="num">80&deg;</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The gear at three temperatures, four runs of 20&nbsp;ps each. A slip of one blade past another would change the sum of the two wheel angles by 120&deg;.</p>
+
+                    <p>The wheels made no step at 300&nbsp;K, one step at 600&nbsp;K, and three steps at 1000&nbsp;K. A count that rises with temperature shows a barrier that the thermal motion has to cross. The counts are too small to give the height of the barrier.
+                    The real molecule turns at room temperature, so its barrier is much lower than the barrier of this model. The sum of the two angles changed by less than 120&deg; at every temperature: the wheels stayed meshed, and no blade slipped, at 1000&nbsp;K as at 300&nbsp;K.</p>
+
+                    <h2>The Bridge Between the Wheels</h2>
+
+                    <p>The third prompt changes the bridge and runs each molecule four times for 20&nbsp;ps at 1000&nbsp;K with the atoms of the bridge fixed.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Bridge</th><th class="num">Angle between the axles</th><th class="num">Angle a wheel covered in a run</th><th class="num">Largest change in the sum of the angles</th><th>Result</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>One oxygen atom</b></td><td class="num">135&deg;</td><td class="num">140&deg;</td><td class="num">80&deg;</td><td class="model">gear</td></tr>
+                                <tr><td class="crystal"><b>One CH<sub>2</sub> group</b></td><td class="num">129&deg;</td><td class="num">190&deg;</td><td class="num">70&deg;</td><td class="model">gear</td></tr>
+                                <tr><td class="crystal"><b>Two carbon atoms in a line</b></td><td class="num">180&deg;</td><td class="num">570&deg;</td><td class="num">940&deg;</td><td>the wheels slip</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Three bridges between two triptycene wheels at 1000&nbsp;K, four runs of 20&nbsp;ps each.</p>
+
+                    <p>A CH<sub>2</sub> group as the bridge also gives a gear: the sum of the two angles stayed within 70&deg;. With two carbon atoms in a line as the bridge, the two axles lie on one line and the wheels face each other 4&nbsp;&Aring; apart.
+                    The fixed atoms all lie on that line, so the pair can turn about it, and each wheel covered 570&deg; in a run. The sum of the two angles changed by up to 940&deg;, so one wheel slipped past the other many times, and the two wheels turned almost independently.
+                    A gear needs its wheels close enough for the blades of one to block the blades of the other.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-gears-start.jpg" alt="The lab at the start, seen from above: two paddle-wheel groups of gray carbon and white hydrogen atoms joined through a red oxygen atom, with a blade of one wheel between two blades of the other">
+                        <img src="image/aims-gears-running.jpg" alt="The lab after about 20 picoseconds: the same two wheels with their blades in new positions, each wheel turned from its starting angle, and the blades still interleaved">
+                    </div>
+                    <p class="v2-chart-caption">The two wheels at the start (left) and after about 20&nbsp;ps at 1000&nbsp;K (right). The blades of each wheel have moved, and a blade of one wheel still sits between two blades of the other.</p>
+
+                    <h2>Turning Without a Direction</h2>
+
+                    <p>None of the three parts in this article is a motor. The rotor and the gear turn by thermal motion, which has no preferred direction. The electric field holds the dipolar rotor in one of two positions and does not make it turn around and around.
+                    A machine that moves in one direction needs a supply of energy that selects the direction. The article on <a href="aims-nanotube-machines.html">nanotube machines</a> ends with such a machine, a cargo that a flow of heat moves along a nanotube, and it describes what the lab cannot model.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the charges and the sizes of the atoms. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">A rotor</span> &mdash; a benzene ring on triple-bond axles turns at 43, 61, and 78&deg; per picosecond at 100, 300, and 600&nbsp;K, in both directions, and a ring on single-bond axles rocks 20&deg; and does not turn over.</li>
+                            <li><span class="v2-prompts-step">A dipolar rotor</span> &mdash; an electric field of 5&nbsp;V/nm turns a ring with two fluorine atoms in 0.5&nbsp;ps and holds it, the reversed field turns it over in 1.0&nbsp;ps, and the alignment follows the calculated values for a dipole at 300&nbsp;K.</li>
+                            <li><span class="v2-prompts-step">A gear</span> &mdash; two triptycene wheels joined through one oxygen atom turn by +180&deg; and &minus;173&deg; in 40&nbsp;ps at 1000&nbsp;K, and no blade slips past another at any temperature tried.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses a molecular rotor, a dipolar rotor, and molecular gears to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. The parts of a molecular machine that turn become something students watch and measure for themselves in a browser: how a ring turns on an axle with thermal motion alone,
+                    how an electric field holds a ring with a dipole, and how two meshed wheels turn each other. By pairing a physically grounded simulation with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of the parts that molecular machines are made of.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
