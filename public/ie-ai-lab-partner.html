@@ -150,7 +150,7 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="ie.html">&larr; Back to Infrared Explorer</a>
-                    <p class="v2-byline">By <strong>Xiaotong Ding</strong> <a href="mailto:xiaotong@intofuture.org">&#9993;</a> and <strong>Jacob Sagrans</strong> <a href="mailto:jacob@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 16, 2026</span></p>
+                    <p class="v2-byline">By <strong>Xiaotong Ding</strong> <a href="mailto:xiaotong@intofuture.org">&#9993;</a> and <strong>Jacob Sagrans</strong> <a href="mailto:jacob@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 17, 2026</span></p>
 
                     <p>
                         Most school experiments begin with a lab manual. Someone has already
@@ -388,21 +388,21 @@
                     <div class="v2-figure-pair">
                         <figure class="v2-formula">
                             <img src="image/ie-ai-lab-partner-photo.jpg" alt="A yellow mug, a canister of table salt, a box of baking soda, and three empty glass Petri dishes on a white table">
-                            <figcaption>Figure 1: The photo we gave the agent: a mug, table salt, baking soda, and three glass Petri dishes.</figcaption>
+                            <figcaption>Figure 1: The photo we gave the agent.</figcaption>
                         </figure>
                         <figure class="v2-formula">
                             <img src="image/ie-ai-lab-partner-setup.png" alt="The agent's top-view drawing of the setup: a phone with a thermal camera above three dishes labeled control, salt, and baking soda">
-                            <figcaption>Figure 2: The agent's drawing of the setup. It drew the dishes in a horizontal row; we set ours in a vertical column.</figcaption>
+                            <figcaption>Figure 2: The agent's drawing of the setup.</figcaption>
                         </figure>
                     </div>
 
                     <p>
                         The agent's plan made a prediction with numbers in it: salt and baking soda both
-                        take in heat as they dissolve, so both of their dishes should cool by a
+                        take in heat as they dissolve, so both of their dishes should cool, by a
                         few tenths of a degree Celsius for salt and by perhaps 0.5 to 1.5&nbsp;&deg;C for
                         baking soda. It also said what would count as a failed prediction: all three
-                        dishes exhibiting similar temperature changes, or the baking soda/water and
-                        salt/water dishes warming. The plan named a weakness in its
+                        dishes exhibiting similar temperature changes, or the baking soda and
+                        salt dishes warming. The plan named a weakness in its
                         own design before we did: equal spoonfuls are not equal masses.
                     </p>
 
@@ -444,19 +444,19 @@
                         frame dipped briefly by about 1&nbsp;&deg;C before coming back. The agent traced the
                         dips to the recalibrations and left out the frames around each one. It
                         also compared the three dishes with each other by subtracting the
-                        control's readings from the other two at each point in time. Figure 4 is
-                        the chart it drew.
+                        readings from the control (the plain-water dish) from the salt and baking soda dishes 
+                        at each point in time. Figure 4 is the chart it drew.
                     </p>
 
                     <figure class="v2-formula is-compact">
                         <img src="image/ie-ai-lab-partner-run1-chart.png" alt="Chart of the salt and baking soda dishes' temperature minus the control's over 38 minutes; the two lines fall together to about minus 0.8 degrees and recover together">
-                        <figcaption>Figure 4: The agent's chart of the first run: the temperature of the salt dish and of the baking soda dish minus the control's in the same frame, with the frames near camera recalibrations left out. Salt and baking soda cool together and recover together.</figcaption>
+                        <figcaption>Figure 4: The agent's chart of the first run, showing the temperatures of the salt dish and the baking soda dish minus the control, with the frames near camera recalibrations left out. Salt and baking soda cool together and recover together.</figcaption>
                     </figure>
 
                     <p>
                         All three water surfaces started at about 19.8&nbsp;&deg;C. Between 5 and 15
                         minutes, the salt dish read about 0.8&nbsp;&deg;C below the plain-water control and the
-                        baking soda dish about 0.7&nbsp;&deg;C below, and by the end, both had crept
+                        baking soda dish about 0.7&nbsp;&deg;C below the control, and by the end, both had crept
                         back to about 0.2&nbsp;&deg;C below. It was a tie between salt and baking soda,
                         and the agent said plainly what that meant: the result did not support its own
                         prediction that the dish with baking soda would cool more than the one with salt.
@@ -496,14 +496,14 @@
 
                     <p>
                         The agent did not stop at explaining the tie. Its analysis had already
-                        said that a repeat should match the amounts of the two solids and stir
-                        every dish alike. When we asked what would make the difference in cooling
+                        said that a repeat of the experiment should have equal amounts of the two solids and every
+                        dish should be stirred equally. When we asked what would make the difference in cooling
                         between salt and baking soda more noticeable, it
                         gave a new design for the next round: weigh the two solids instead of
                         measuring them by the scoop, 8&nbsp;g of each in 100&nbsp;mL of water
                         (which is a ratio at which the baking soda can fully dissolve in the water); stir each dish
                         the same way for the same time; and set the dishes on insulating pads.
-                        Only the stirring had been in its first plan. The
+                        Only the stirring had been in the agent's first plan. The
                         <a href="#experiment">full exchange</a> can be found near the top
                         of this article.
                     </p>
@@ -520,7 +520,7 @@
 
                     <figure class="v2-formula is-strip">
                         <img src="image/ie-ai-lab-partner-run2-strip.jpg" alt="Two rows of six frames of the second recording, at 20, 41, 51, 71, 102, and 132 seconds. In visible light, sticks reach into the salt dish and the baking soda dish from 41 seconds on. In infrared light, the baking soda dish at the bottom turns from orange to deep purple by 71 seconds and keeps darkening, the salt dish in the middle darkens only a little, and the control at the top changes least.">
-                        <figcaption>Figure 5: Six moments of the second run, in visible light (top) and infrared light (bottom), taken from the frames the agent is given when a recording is added. The top dish in each frame contains plain water, while salt is added to the middle dish and baking soda to the bottom dish. The salt and baking soda are added and stirred starting at about 40 seconds, and the salt and baking soda dishes are noticeably colder than the control about 60 seconds later. The colors run from 19.6&nbsp;&deg;C (dark purple) to 24.8&nbsp;&deg;C (white).</figcaption>
+                        <figcaption>Figure 5: Six moments of the second run, in visible light (top) and infrared light (bottom). All three dishes contain only plain water at 20 seconds. Then, around 40 seconds, salt and baking soda are added and stirred into the middle and bottom dishes, respectively. The salt and baking soda dishes are noticeably colder than the control about 60 seconds later. The colors run from 19.6&nbsp;&deg;C (dark purple) to 24.8&nbsp;&deg;C (white).</figcaption>
                     </figure>
 
                     <p>
@@ -601,7 +601,7 @@
                     <p>
                         The plainest clue to why the first run ended in a tie is in
                         <a href="#figure-3">Figure 3</a>, and the agent never mentioned it. Specifically, the
-                        baking soda lies in a white heap on the bottom of its dish. The agent had
+                        baking soda lies in a white heap on the bottom of its dish. The agent had, in fact, 
                         called up that frame. It gave the general reason that a solid left
                         unstirred may dissolve slowly, but it did not point to the heap of undissolved
                         baking soda.
@@ -614,14 +614,14 @@
                         payback, and the water makes up the difference by cooling. Per the information
                         the agent looked up, baking soda takes about three times as much heat per
                         gram as salt. But only what dissolves takes any heat, and baking soda is
-                        about a quarter as soluble as salt. A heap of it in still water sits in a thin layer that
+                        about a quarter as soluble as salt. A heap of baking soda in still water sits in a thin layer that
                         is nearly saturated. The camera also reads only the top skin of the water.
-                        Stirring brought fresh water to the grains (without fully dissolving them)
-                        and brought the cold water up to the surface where the camera could see it.
+                        Stirring brought fresh water to the powder (without fully dissolving it)
+                        and brought the cold water up to the surface where the camera could read it.
                     </p>
 
                     <p>
-                        While the agent does read the data critically, a student must also
+                        While the agent did read the data critically, we also had to
                         be critical of the agent.
                     </p>
 
