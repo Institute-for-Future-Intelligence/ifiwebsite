@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nanotube Machines: Bearings, Sliders, Pistons, and Motors — Institute for Future Intelligence</title>
-    <meta name="description" content="Carbon nanotubes and graphene slide on each other with very little friction. AIMS slides one nanotube inside another at 150 gigahertz, slides a flake of graphene on graphene, pushes a buckyball along a nanotube with helium atoms, and moves a cargo along a nanotube with a flow of heat, and an AI agent measures each motion.">
+    <meta name="description" content="Carbon nanotubes and graphene slide on each other with very little friction. AIMS slides one nanotube inside another at 150 gigahertz, slides a flake of graphene on graphene, pushes a buckyball along a nanotube with helium atoms and fires it out of the open end, and moves a cargo along a nanotube with a flow of heat, and an AI agent measures each motion.">
 
     <style>
         @import url("css/system.base.css");
@@ -91,7 +91,7 @@
                 <span class="v2-eyebrow">AIMS</span>
                 <h1>Nanotube Machines: Bearings, Sliders, Pistons, and Motors</h1>
                 <p class="v2-tagline">
-                    AIMS slides one nanotube inside another, slides a flake of graphene on graphene, pushes a piston with a gas, and drives a motor with heat, and an AI agent measures each motion.
+                    AIMS slides one nanotube inside another, slides a flake of graphene on graphene, pushes a piston with a gas and fires it from a nozzle, and drives a motor with heat, and an AI agent measures each motion.
                 </p>
             </div>
         </header>
@@ -103,7 +103,7 @@
 
                     <p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotube</a> is a sheet of carbon atoms rolled into a tube, and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphene">graphene</a> is the flat sheet. The walls of these materials are smooth on the scale of atoms, and no chemical bond joins one wall to the next, so one part slides on another with very little friction.
                     AIMS models every atom of such a part, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent builds the parts, runs them, measures the motion, and posts the measured data in the chat.
-                    This article follows four machines made of carbon: a bearing, one nanotube that slides and turns inside another; a slider, a flake of graphene on a ribbon of graphene; a piston, a buckyball that a gas pushes along a nanotube; and a motor, a short nanotube that a flow of heat moves along a longer one.
+                    This article follows five machines made of carbon: a bearing, one nanotube that slides and turns inside another; a slider, a flake of graphene on a ribbon of graphene; a piston, a buckyball that a gas pushes along a nanotube; a nozzle, the same tube with enough hot gas to fire the ball out; and a motor, a short nanotube that a flow of heat moves along a longer one.
                     It is the third of three articles. The article on <a href="aims-molecular-machines.html">molecular machines</a> follows a shuttle, a clamp, an ion pump, and tweezers, and it describes the forces in the model and how to open an example and type a prompt. The article on <a href="aims-molecular-rotors.html">molecular rotors and gears</a> follows parts that turn.
                     No atom of the parts in this article carries a charge, and the Lennard-Jones force is the one force between them.</p>
 
@@ -342,9 +342,73 @@
                     </div>
                     <p class="v2-chart-caption">The piston at the start, with eight helium atoms between the wall and the ball (left), and a few picoseconds after Play, with the ball near the open end and the gas expanded behind it (right).</p>
 
+                    <h2>A Nozzle That Fires the Ball</h2>
+
+                    <p>The piston stays in its cylinder. A gun, a rocket, and a spray can use the same push to send matter out of an opening, which is called a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Nozzle">nozzle</a>.
+                    The window below holds the nanotube and the buckyball of the piston with a larger and hotter charge of gas. The center of the ball is 16&nbsp;&Aring; from the wall that closes the tube, and 32 helium atoms are packed behind it in eight rings of four, 1&nbsp;&Aring; apart along the tube.
+                    The atoms start with the velocities of 1500&nbsp;K, and the thermostat is off. The ball closes the tube, so the gas can leave only by pushing the ball out. Press Play and watch the ball.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Nanotube%20Nozzle"
+                                id="aims-frame13" allowfullscreen="true" title="A Nanotube Nozzle demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame13');">View fullscreen</a><br>
+                            A buckyball in a nanotube with 32 hot helium atoms packed behind it. The gas pushes the ball out of the open end in about 2&nbsp;ps of simulated time, and the ball flies on.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Nanotube Nozzle</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab shows the ball outside the tube after 6&nbsp;ps.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Shot</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 6 ps and chart the distance from the closed end to the ball. Does the gas push the ball out of the tube?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Temperature</span> &mdash; <span class="v2-prompt">&ldquo;Does the shot need the high temperature? Start the same 32 helium atoms at 300 K and at 1000 K.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Amount</span> &mdash; <span class="v2-prompt">&ldquo;And the amount of gas? Try 16 and 24 helium atoms at 1500 K.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Gas</span> &mdash; <span class="v2-prompt">&ldquo;What does the gas do after the ball has left? Measure the helium atoms as they leave the tube in the first run.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Shot Needs Heat and Gas</h2>
+
+                    <p>The gas fired the ball out of the tube. The ball reached a top speed of about 780&nbsp;m/s inside the tube, 1.5&nbsp;ps after the start, and its whole cage was past the open end after 1.9&nbsp;ps. The attraction of the wall slowed the ball as it left. The ball flew on at about 670&nbsp;m/s, with a kinetic energy of 1.7&nbsp;eV.
+                    The temperature of the helium fell from about 2,400&nbsp;K over the first half picosecond to about 940&nbsp;K over the last picosecond. The reading starts above 1500&nbsp;K because the atoms begin packed closer together than they rest, and they push each other apart in the first moments.</p>
+
+                    <p>The second and third prompts change the temperature and the number of atoms. Each run lasts 6&nbsp;ps.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Gas</th><th class="num">Top speed of the ball</th><th class="num">Farthest point from the wall</th><th>What the ball did</th><th class="num">Gas temperature, first 0.5&nbsp;ps to last 1&nbsp;ps</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>32 atoms</b><small>300&nbsp;K</small></td><td class="num">600&nbsp;m/s</td><td class="num">24&nbsp;&Aring;</td><td>went 1&nbsp;&Aring; past the open end and was drawn back</td><td class="num">1,260 to 950&nbsp;K</td></tr>
+                                <tr><td class="crystal"><b>32 atoms</b><small>1000&nbsp;K</small></td><td class="num">740&nbsp;m/s</td><td class="num">31&nbsp;&Aring;</td><td>left the tube after 2.3&nbsp;ps and stopped 7&nbsp;&Aring; past the open end</td><td class="num">1,900 to 810&nbsp;K</td></tr>
+                                <tr><td class="crystal"><b>32 atoms</b><small>1500&nbsp;K</small></td><td class="num model">780&nbsp;m/s</td><td class="num model">53&nbsp;&Aring;</td><td>fired: out of the tube after 1.9&nbsp;ps, flying at 670&nbsp;m/s</td><td class="num">2,400 to 940&nbsp;K</td></tr>
+                                <tr><td class="crystal"><b>24 atoms</b><small>1500&nbsp;K</small></td><td class="num">490&nbsp;m/s</td><td class="num">23&nbsp;&Aring;</td><td>reached the open end and was drawn back</td><td class="num">1,830 to 1,320&nbsp;K</td></tr>
+                                <tr><td class="crystal"><b>16 atoms</b><small>1500&nbsp;K</small></td><td class="num">370&nbsp;m/s</td><td class="num">21&nbsp;&Aring;</td><td>went to 2&nbsp;&Aring; from the open end and was drawn back</td><td class="num">1,720 to 1,110&nbsp;K</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Five charges of helium behind the ball, one run of 6&nbsp;ps each. The open end of the tube is 23&nbsp;&Aring; from the wall.</p>
+
+                    <p>Only the largest and hottest charge fired the ball. The wall of the tube attracts every carbon atom of the ball, and the ball has to climb out of that attraction as it leaves. At 300&nbsp;K the ball passed the open end by 1&nbsp;&Aring; and was drawn back, and at 1000&nbsp;K it left the tube and stopped 7&nbsp;&Aring; past the open end.
+                    With 16 or 24 atoms at 1500&nbsp;K the ball stayed in the tube and went back and forth as the piston does. A shot needs enough atoms and enough temperature together.</p>
+
+                    <p>The fourth prompt records the velocity of each helium atom at the moment it passes the open end. During the 6&nbsp;ps, 26 of the 32 atoms passed it. Their average speed along the axis of the tube was 1,650&nbsp;m/s, and their average speed to the side was 1,620&nbsp;m/s.
+                    For a gas that leaks out of an opening with no push behind it, the two averages are equal. The gas in this run left the tube with little more forward speed than its heat alone gives. The tube aimed the ball, and it did not form the gas into a narrow jet.</p>
+
+                    <p>The helium atoms start packed closer than the atoms of liquid helium, and much of the energy of the shot comes from that packing. The tube is rigid, so the gas cannot heat the wall or burst it. Each row of the table is one run, and with 32 atoms another run gives different numbers.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-nozzle-start.jpg" alt="The lab at the start: a nanotube drawn as a gray wireframe at the left end of a long box, a buckyball inside it near its open right end, and a tight cluster of small helium atoms behind the ball">
+                        <img src="image/aims-nozzle-loaded.jpg" alt="The lab after 6 picoseconds: the buckyball is far to the right of the nanotube, outside it, and the helium atoms are scattered through the box, with a few still inside the nanotube">
+                    </div>
+                    <p class="v2-chart-caption">The ball in the tube with 32 helium atoms packed behind it at the start (left), and the ball outside the tube after 6&nbsp;ps, loaded by the "Load this state" card, with the helium atoms spread through the box (right).</p>
+
                     <h2>A Motor Driven by Heat</h2>
 
-                    <p>A motor turns a supply of energy into motion in one direction. The bearing, the flake, and the piston above move with the energy that they were given at the start. In 2008 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.1155559">Barreiro, Bachtold, and coworkers</a> built a motor from a multiwall carbon nanotube.
+                    <p>A motor turns a supply of energy into motion in one direction. The bearing, the flake, the piston, and the nozzle above move with the energy that they were given at the start. In 2008 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.1155559">Barreiro, Bachtold, and coworkers</a> built a motor from a multiwall carbon nanotube.
                     They removed part of the outer walls so that a short piece of them was free to move along the inner walls, and they attached a small gold plate to this piece as a cargo. An electric current heated the middle of the nanotube, and the cargo moved from the hot middle toward a cooler end.
                     The energy came from the difference in temperature along the nanotube.</p>
 
@@ -421,7 +485,7 @@
                     <h2>What the Lab Cannot Show</h2>
 
                     <p>The covalent bonds of the molecules in this lab do not form or break, and the lab has no light. The motor of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/43646">Koumura, Feringa, and coworkers</a> turns in one direction because light changes a double bond of the molecule, and the lab cannot model that step.
-                    The lab shows the parts of a machine and the forces that hold and move them. In the three articles of this series, those are a ring that goes to a charge, a clamp that closes on an ion, an ion that a field drives through a ring, tweezers that grip a ball, a ring that turns freely in both directions, a ring that an electric field holds, two wheels that turn each other, a tube that slides and turns in another tube, a flake that slides when its lattice is turned, a ball that a gas pushes, and a cargo that a flow of heat moves in one direction.
+                    The lab shows the parts of a machine and the forces that hold and move them. In the three articles of this series, those are a ring that goes to a charge, a clamp that closes on an ion, an ion that a field drives through a ring, tweezers that grip a ball, a ring that turns freely in both directions, a ring that an electric field holds, two wheels that turn each other, a tube that slides and turns in another tube, a flake that slides when its lattice is turned, a ball that a gas pushes along a tube and fires out of it, and a cargo that a flow of heat moves in one direction.
                     Two of them are driven in one direction by an energy source: the ion pump by an electric field, and the thermal motor by a flow of heat.
                     AIMS has one more example of a machine part. <em>A Nanocar on Gold</em> (Nanotechnology) holds a molecule with four buckyballs as wheels on a gold surface, after the nanocar of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/nl051915k">Shirai, Tour, and coworkers</a>.</p>
 
@@ -434,15 +498,16 @@
                             <li><span class="v2-prompts-step">The right fit</span> &mdash; the (5,5) tube is pulled in with 1,470&nbsp;pN, the (4,4) tube with 960&nbsp;pN, and the (6,6) tube is pushed out.</li>
                             <li><span class="v2-prompts-step">A slider</span> &mdash; a coronene flake turned 30&deg; from a graphene ribbon slides 15&nbsp;&Aring; at a steady 90&nbsp;m/s, a lined-up flake given the same push moves 3.2&nbsp;&Aring; in 20&nbsp;ps, and the barrier to sliding is 39&nbsp;meV lined up and 1.6&nbsp;meV at 30&deg;.</li>
                             <li><span class="v2-prompts-step">A piston</span> &mdash; eight helium atoms push a buckyball 7&nbsp;&Aring; along a nanotube in 6&nbsp;ps with a force of about 60&nbsp;pN, and the gas cools from 320&nbsp;K to 170&nbsp;K as it does the work.</li>
+                            <li><span class="v2-prompts-step">A nozzle</span> &mdash; 32 helium atoms at 1500&nbsp;K fire the buckyball out of the tube in 1.9&nbsp;ps at about 670&nbsp;m/s, and the same atoms at 300&nbsp;K or 24 atoms at 1500&nbsp;K leave the ball in the tube.</li>
                             <li><span class="v2-prompts-step">A motor</span> &mdash; a short nanotube on a longer one travels to the cold end with a force of about 19&nbsp;pN when the temperature falls by 50&nbsp;K per nanometer, travels the other way when the temperatures are swapped, and has no preferred direction at one temperature.</li>
                         </ul>
                     </div>
 
                     <h2>Conclusion</h2>
 
-                    <p>This article uses a nanotube bearing, a graphene flake slider, a gas-driven piston, and a thermal motor to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    <p>This article uses a nanotube bearing, a graphene flake slider, a gas-driven piston, a nanotube nozzle, and a thermal motor to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
                     measured data. Machines made of carbon nanotubes and graphene become something students watch and measure for themselves in a browser: how one nanotube slides and turns inside another with almost no friction,
-                    how the friction of a graphene flake depends on the angle of its lattice, how a gas does work on a piston and cools, and how a flow of heat moves a cargo in one direction. By pairing a physically grounded simulation with an AI that can set it up and run it,
+                    how the friction of a graphene flake depends on the angle of its lattice, how a gas does work on a piston and cools, how a hot gas fires a ball out of a tube, and how a flow of heat moves a cargo in one direction. By pairing a physically grounded simulation with an AI that can set it up and run it,
                     AIMS turns a student's curiosity into a genuine scientific investigation of the parts that molecular machines are made of.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
