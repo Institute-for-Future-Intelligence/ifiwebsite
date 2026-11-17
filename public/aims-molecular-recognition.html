@@ -41,7 +41,9 @@
 
     <style>
         .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
-        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: minmax(0, 1fr); }
+        .v2-table-scroll { overflow-x: auto; margin: 1rem 0 2rem; }
+        .v2-table-scroll table { min-width: 34rem; }
         .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
         .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
         .v2-screenshot-single img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
@@ -94,7 +96,7 @@
 
                     <p>A cell holds thousands of kinds of molecules, and each protein in it works with only a few of them. An enzyme acts on its own substrate, an antibody binds its own target, and a receptor answers its own hormone. The way a protein tells one molecule from another is called molecular recognition.
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/cber.18940270364">Emil Fischer</a> described it in 1894 with the picture of a lock and a key: an enzyme acts on a molecule whose shape fits the enzyme. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.44.2.98">Koshland</a> added in 1958 that the protein changes its shape as the molecule binds.
-                    Shape is one part of the fit. The charges on the molecule have to meet opposite charges on the protein, and the groups that can form hydrogen bonds have to find partners. A drug is a molecule designed to be recognized by one protein.</p>
+                    Shape is one part of the fit. The charges on the molecule have to meet opposite charges on the protein, and the groups that can form hydrogen bonds have to find partners. Many drugs are molecules designed to be recognized by one protein.</p>
 
                     <p>A docking program predicts how a small molecule, called the ligand, fits into a pocket of a protein. The program tries many positions and orientations of the ligand against a fixed structure of the protein, scores each one, and keeps the best. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0022-2836(82)90153-X">Kuntz and coworkers</a> described one of the first docking programs in 1982.
                     Docking gives every ligand a position and a score. A real protein at body temperature moves all the time, and a ligand stays in a pocket only if its contacts with the pocket are strong enough to hold it against that motion.
@@ -132,7 +134,7 @@
 
                     <p>The example uses the structure of bovine trypsin with the inhibitor benzamidine in the S1 pocket, determined at a resolution of 1.7&nbsp;&Aring; by <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1107/S010876818300275X">Marquart, Walter, Deisenhofer, Bode, and Huber</a> (PDB 3PTB).
                     Benzamidine is a ring of six carbon atoms with an amidine group, a carbon atom bonded to two nitrogen atoms, attached to it. In water the amidine group carries a positive charge, and the charged form is called benzamidinium.
-                    In the crystal, benzamidine fills the pocket with its amidine group at the bottom. The first prompt measures its contacts in the structure file: a nitrogen atom of the amidine group is 2.9&nbsp;&Aring; from an oxygen atom of Asp189, and the nitrogen atoms are also within hydrogen-bonding distance of Gly219 (2.8&nbsp;&Aring;) and Ser190 (3.0&nbsp;&Aring;).
+                    In the crystal, benzamidine fills the pocket with its amidine group at the bottom. The first prompt measures its contacts in the structure file: each of the two nitrogen atoms of the amidine group is 2.9&nbsp;&Aring; from one of the two oxygen atoms of Asp189, and the nitrogen atoms are also within hydrogen-bonding distance of Gly219 (2.8&nbsp;&Aring;) and Ser190 (3.0&nbsp;&Aring;).
                     The inhibitor matches the pocket in three ways: the ring fits between the walls of the pocket, the positive charge meets the negative charge of Asp189, and the N&ndash;H groups have partners for hydrogen bonds. Benzamidine blocks the enzyme because it occupies the place of an arginine side chain.</p>
 
                     <h2>Taking the Inhibitor Apart</h2>
@@ -204,9 +206,11 @@
                     </div>
                     <p class="v2-chart-caption">The Interactions card of the benzene run: the distance of benzene from its docked position. Below the dashed line (2&nbsp;&Aring;), benzene counts as in its binding site.</p>
 
-                    <p>Methylguanidinium stayed. It was in its binding site for the whole run, at an average distance of 0.8&nbsp;&Aring; and never farther than 1.5&nbsp;&Aring;. It held hydrogen bonds with the hydroxyl groups of Ser190 and Tyr228 for the whole run and with an oxygen atom of Asp189 for 89&nbsp;% of it.</p>
+                    <p>The two charged molecules stayed. Their hydrogen-bond partners change a little from the crystal to the docked position to the simulation, because each molecule shifts a little in the pocket and the residues of the pocket move.</p>
 
-                    <p>Benzamidinium stayed too. It was in its binding site for the whole run, at an average distance of 0.9&nbsp;&Aring; and never farther than 1.8&nbsp;&Aring;. It held hydrogen bonds with the hydroxyl group of Ser190 for the whole run, with Tyr228 for 99&nbsp;% of it, and with an oxygen atom of Asp189 for 67&nbsp;% of it.
+                    <p>Methylguanidinium was in its binding site for the whole run, at an average distance of 0.8&nbsp;&Aring; and never farther than 1.5&nbsp;&Aring;. It held hydrogen bonds with Ser190 and Tyr228 for the whole run and with an oxygen atom of Asp189 for 89&nbsp;% of it.</p>
+
+                    <p>Benzamidinium was in its binding site for the whole run, at an average distance of 0.9&nbsp;&Aring; and never farther than 1.8&nbsp;&Aring;. It held hydrogen bonds with the hydroxyl group of Ser190 for the whole run, with Tyr228 for 99&nbsp;% of it, and with an oxygen atom of Asp189 for 67&nbsp;% of it.
                     Between 12 and 15&nbsp;ps the amidine group moved up to 5.6&nbsp;&Aring; from that oxygen atom of Asp189 and then returned, while the hydrogen bonds with Ser190 and Tyr228 stayed in place.</p>
 
                     <div class="v2-screenshot-single">
@@ -214,7 +218,8 @@
                     </div>
                     <p class="v2-chart-caption">The Interactions card of the benzamidinium run. The upper chart shows the hydrogen bonds between benzamidinium and the pocket; a hydrogen bond is counted below the dashed line (3.5&nbsp;&Aring;). The lower chart shows the distance of benzamidinium from its docked position.</p>
 
-                    <table class="v2-table" style="width:100%; border-collapse:collapse; font-size:1.25rem; margin:1rem 0 2rem;">
+                    <div class="v2-table-scroll">
+                    <table class="v2-table" style="width:100%; border-collapse:collapse; font-size:1.25rem; margin:0;">
                         <thead>
                             <tr style="border-bottom:2px solid var(--border); text-align:left;">
                                 <th style="padding:0.5rem 0.75rem;">Molecule</th>
@@ -237,12 +242,13 @@
                             </tr>
                         </tbody>
                     </table>
+                    </div>
 
                     <h2>What the Pocket Recognizes</h2>
 
                     <p>The two molecules with a positive charge stayed in the pocket, with and without the ring. The ring alone left. In these runs the S1 pocket of trypsin recognizes the positively charged group more than the shape of the ring.
                     This agrees with what trypsin does: it cuts protein chains after arginine, whose side chain ends in the group that methylguanidinium is made of.
-                    The hydrogen bonds matter as well. Both charged molecules held hydrogen bonds with Ser190 and Tyr228 for nearly the whole run, and benzamidinium stayed in its binding site during the three picoseconds when one of its contacts with Asp189 was broken.</p>
+                    The hydrogen bonds matter as well. Both charged molecules held hydrogen bonds with Ser190 and Tyr228 for nearly the whole run, and benzamidinium stayed in its binding site while its hydrogen bond with one oxygen atom of Asp189 was broken.</p>
 
                     <p>The docking score ranks the three molecules in the same order: benzene has the worst score, and benzamidinium the best. The score is a number for one fixed position of the ligand in a fixed protein. The simulation tests that position against the thermal motion of the ligand and the pocket, and it shows the result as a distance and as the fraction of the run that each contact lasts.</p>
 

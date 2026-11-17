@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cis–Trans Isomerism — Institute for Future Intelligence</title>
-    <meta name="description" content="Compare cis and trans stereoisomers in AIMS using but-2-ene and fatty acids oleic acid and elaidic acid.">
+    <title>Cis–Trans Isomerism: Why a Double Bond Makes Two Substances — Institute for Future Intelligence</title>
+    <meta name="description" content="Cis and trans isomers have the same atoms joined in the same order and are still different substances. AIMS runs cis- and trans-but-2-ene beside butane to show why a double bond does not turn, and puts the two isomers of 1,2-dichloroethene in an electric field, where an AI agent measures the dipole of each.">
 
     <style>
         @import url("css/system.base.css");
@@ -40,27 +40,44 @@
     <script src="js/main.js"></script>
 
     <script>
-      function openFullscreen1() { var e = document.getElementById("aims-frame1"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
-      function openFullscreen2() { var e = document.getElementById("aims-frame2"); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
     </script>
 
     <style>
         .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
-        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: minmax(0, 1fr); }
         .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
         .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
         .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
         .v2-byline a { color: var(--accent); }
         .v2-byline strong { color: var(--text); font-weight: 600; }
-        .v2-article-audio { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.25rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: 0.75rem; margin: 0 0 2rem; }
-        .v2-article-audio-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
-        .v2-article-audio audio { width: min(100%, 420px); }
-        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
-        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
-        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
-        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
-        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
-        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
     </style>
 </head>
 
@@ -69,12 +86,12 @@
 <div id="wrapper">
     <script>includeHeader();</script>
     <main class="v2">
-        <header class="v2-hero" data-wordmark="CIS-TRANS">
+        <header class="v2-hero" data-wordmark="ISOMER">
             <div class="v2-hero-inner">
                 <span class="v2-eyebrow">AIMS</span>
-                <h1><i>Cis&ndash;Trans</i> Isomerism</h1>
+                <h1>Cis&ndash;Trans Isomerism: Why a Double Bond Makes Two Substances</h1>
                 <p class="v2-tagline">
-                    Same formula, different geometry &mdash; <i>cis</i> and <i>trans</i> isomers share a sequence of bonded atoms but differ in 3D orientation, producing distinctly different properties.
+                    AIMS runs cis and trans isomers side by side, and an AI agent measures why they do not turn into each other and how one of them answers an electric field.
                 </p>
             </div>
         </header>
@@ -82,37 +99,240 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated July 11, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 17, 2026</span></p>
 
-                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Cis%E2%80%93trans_isomerism"><i>Cis&ndash;trans</i> isomerism</a> describes a phenomenon that multiple molecules have an identical chemical formula
-                    but different arrangements of atoms. <i>cis</i> means that the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Functional_group">functional groups</a>
-                    are on the same side of some plane, while <i>trans</i> means that they are on opposite sides.
-                    <i>Cis&ndash;trans</i> isomers are <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stereoisomers">stereoisomers</a>
-                    that have the same molecular formula and sequence of bonded atoms, but differ only in the three-dimensional orientations of their atoms in space.</p>
-
-                    <p>A simple example of <i>cis&ndash;trans</i> isomerism is <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/But-2-ene">but-2-ene</a>, shown as follows.
-                    The <i>cis</i>-2-butene has a lower melting point than the <i>trans</i>-2-butene, presumably because the former has a smaller contact surface to form van der Waals bonds with its kins than the latter.</p>
+                    <p>Two molecules can have the same atoms, joined in the same order, and still be different substances. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Cis%E2%80%93trans_isomerism">Cis&ndash;trans isomers</a> are the simplest case. They differ only in which side of a double bond two of their groups are on.
+                    AIMS models every atom of such a pair, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent builds the molecules, runs them, measures them, and posts the measured data in the chat.
+                    This article follows two questions: why a cis isomer and a trans isomer do not turn into each other, and how the two differ in a property that can be measured.
+                    The window below shows the two isomers of but-2-ene. Rotate each one and compare where the two end carbon atoms are.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Bu-2-ene%20Isomers"
                                 id="aims-frame1" allowfullscreen="true" title="But-2-ene isomers demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen1();">view fullscreen</a>. Chrome or Edge recommended.
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            The two isomers of but-2-ene. Each has four carbon atoms in a chain with a double bond in the middle.
                         </figcaption>
                     </figure>
 
-                    <p>The two fatty acids, <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Oleic_acid">Oleic acid</a> and
-                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Elaidic_acid">elaidic acid</a>, provide another example:
-                    Oleic acid, the <i>cis</i> isomer, has a melting point of 17 &deg;C, whereas the <i>trans</i> isomer, elaidic acid, has a higher melting point of 44 &deg;C.
-                    This is due to the fact that the straighter <i>trans</i> isomers are more likely to form more van der Waals interactions among them.</p>
+                    <h2>What Is Cis&ndash;Trans Isomerism?</h2>
+
+                    <p>But-2-ene has four carbon atoms in a chain, and the bond in the middle is a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Double_bond">double bond</a>. In the cis isomer the two end carbon atoms are on the same side of the double bond. In the trans isomer they are on opposite sides. The word cis is Latin for "on this side", and trans is Latin for "across".
+                    The two molecules are <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stereoisomerism">stereoisomers</a>: they have the same formula, C<sub>4</sub>H<sub>8</sub>, and the same sequence of bonds, and they differ in the arrangement of their atoms in space.</p>
+
+                    <p>They are two substances. Cis-but-2-ene melts at &minus;139&nbsp;&deg;C and boils at 3.7&nbsp;&deg;C, and trans-but-2-ene melts at &minus;106&nbsp;&deg;C and boils at 0.9&nbsp;&deg;C. Each can be kept in its own bottle, and neither turns into the other while it is stored.
+                    Butane, C<sub>4</sub>H<sub>10</sub>, has the same chain with a single bond in the middle. Its chain also takes a stretched shape and bent shapes, and those shapes cannot be bottled separately. They are <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Conformational_isomerism">conformers</a>, shapes of one substance that change into each other all the time.
+                    The first experiment below shows the difference between an isomer and a conformer.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Building the molecules, running them, measuring an angle or a dipole, and tabulating the results are the agent's work. A student asks the agent whether
+                    <em>"heat turns one butene into the other"</em>, and the agent recognizes the intent, runs each molecule at several temperatures, and posts the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open <em>Isomers and Conformers: But-2-ene and Butane</em> from the list (Chemistry, Isomers), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab continues from 100&nbsp;ps.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Shapes</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 100 ps and chart the dihedral angle of the four carbon atoms of each molecule.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Heat</span> &mdash; <span class="v2-prompt">&ldquo;Does heat turn one butene into the other? Run each molecule alone at 300 K, 600 K, 1000 K and 1500 K.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Barrier</span> &mdash; <span class="v2-prompt">&ldquo;How much energy does it take to twist the middle bond of each molecule?&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>Isomers and Conformers</h2>
+
+                    <p>The window below holds three molecules at 300&nbsp;K: cis-but-2-ene on the left, trans-but-2-ene in the middle, and butane on the right, in its stretched shape. One of the two middle carbon atoms of each molecule is fixed in place, so the molecules stay where they are, and the lab marks each fixed atom with a pin.
+                    The shape of each chain is described by one angle, the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Dihedral_angle">dihedral angle</a> of its four carbon atoms. The angle is 0&deg; when the two end carbons are on the same side of the middle bond and 180&deg; when they are on opposite sides. Press Play and watch the three chains.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Isomers%20and%20Conformers%3A%20But-2-ene%20and%20Butane"
+                                id="aims-frame2" allowfullscreen="true" title="Isomers and Conformers demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame2');">View fullscreen</a><br>
+                            Cis-but-2-ene (left), trans-but-2-ene (middle), and butane (right), seen from above. Butane changes between a stretched shape and bent shapes, and the two butenes only rock.
+                        </figcaption>
+                    </figure>
+
+                    <p>The two butenes kept their shapes for the whole 100&nbsp;ps. The angle of cis-but-2-ene stayed between 0&deg; and 18&deg;, and the angle of trans-but-2-ene between 160&deg; and 180&deg;. Butane changed shape 8 times. It was stretched, with the angle near 180&deg;, for 45% of the time, and bent, with the angle near 60&deg;, for 50%.
+                    Each change of butane is a chance event, and the count differs from run to run: six runs of this kind gave between 1 and 15 changes.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-conformers-start.jpg" alt="The lab at the start, seen from above: three small molecules in a row, each a chain of four gray carbon atoms with white hydrogen atoms; the left chain is bent like the letter U, and the middle and right chains are stretched in a zigzag">
+                        <img src="image/aims-conformers-loaded.jpg" alt="The lab after 100 picoseconds: the left and middle chains have the same shapes as at the start, and the right chain is now bent">
+                    </div>
+                    <p class="v2-chart-caption">The three chains at the start (left) and after 100&nbsp;ps, loaded by the "Load this state" card (right). The two butenes have kept their shapes, and butane, on the right, has gone from its stretched shape to a bent one.</p>
+
+                    <h2>The Double Bond Holds at 1500&nbsp;K</h2>
+
+                    <p>The second prompt runs each molecule alone for 100&nbsp;ps at four temperatures.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Temperature</th><th class="num">Cis-but-2-ene: range of the angle</th><th class="num">Trans-but-2-ene: range of the angle</th><th class="num">Butane: changes of shape</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>300&nbsp;K</b></td><td class="num">0&deg; to 18&deg;</td><td class="num">163&deg; to 180&deg;</td><td class="num">2</td></tr>
+                                <tr><td class="crystal"><b>600&nbsp;K</b></td><td class="num">0&deg; to 32&deg;</td><td class="num">152&deg; to 180&deg;</td><td class="num">55</td></tr>
+                                <tr><td class="crystal"><b>1000&nbsp;K</b></td><td class="num">0&deg; to 36&deg;</td><td class="num">148&deg; to 180&deg;</td><td class="num">115</td></tr>
+                                <tr><td class="crystal"><b>1500&nbsp;K</b></td><td class="num model">0&deg; to 44&deg;</td><td class="num model">132&deg; to 180&deg;</td><td class="num">319</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Each molecule alone for 100&nbsp;ps at four temperatures. A butene changes from one isomer to the other only if its angle passes 90&deg;.</p>
+
+                    <p>In these runs heat did not turn either butene over. At 1500&nbsp;K the angle of the cis molecule never passed 44&deg;, and the angle of the trans molecule never fell below 132&deg;. Butane changed shape more often as the temperature rose, from 2 times at 300&nbsp;K to 319 times at 1500&nbsp;K.
+                    The butane count at 300&nbsp;K, 2, is lower than the 8 of the run above, and both are inside the spread from run to run.</p>
+
+                    <p>A run of 100&nbsp;ps is short. Real but-2-ene does turn when it is heated far enough: <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/acs.jpca.5b06265">Kaiser and Pierce</a> measured the rate in the gas between 296&nbsp;K and 875&nbsp;K, with a barrier of about 265&nbsp;kJ/mol. Their rate, extended to higher temperatures, gives one turn in about 20&nbsp;microseconds at 1500&nbsp;K, which is 200,000 times the length of this run, and one turn in about a second at 1000&nbsp;K. At 300&nbsp;K the same rate gives a waiting time far longer than the age of the universe. This is why each isomer can be stored at room temperature.</p>
+
+                    <p>The third prompt measures the reason. The agent holds one half of each molecule still, turns the other half about the middle bond in steps of 10&deg;, and adds up the energy at each step.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Molecule</th><th>Middle bond</th><th class="num">Barrier to the next shape</th><th class="num">At a twist of</th><th class="num">Barrier &divide; thermal energy at 300&nbsp;K</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Cis-but-2-ene</b></td><td>double</td><td class="num model">270&nbsp;kJ/mol</td><td class="num">90&deg;</td><td class="num">108</td></tr>
+                                <tr><td class="crystal"><b>Trans-but-2-ene</b></td><td>double</td><td class="num model">270&nbsp;kJ/mol</td><td class="num">90&deg;</td><td class="num">108</td></tr>
+                                <tr><td class="crystal"><b>Butane</b></td><td>single</td><td class="num">13&nbsp;kJ/mol</td><td class="num">60&deg;</td><td class="num">5</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The energy needed to twist the middle bond of each molecule to the top of its first barrier. The thermal energy at 300&nbsp;K is 2.5&nbsp;kJ/mol.</p>
+
+                    <p>Twisting the double bond of a butene costs about 270&nbsp;kJ/mol, more than 100 times the thermal energy at 300&nbsp;K and still 21 times the thermal energy at 1500&nbsp;K. Butane meets a barrier of 13&nbsp;kJ/mol between its stretched shape and a bent shape, 5 times the thermal energy at 300&nbsp;K, and thermal motion carries it across about once in ten picoseconds.
+                    A double bond is two bonds between the same pair of atoms. The second bond exists only while the two halves of the molecule lie in one plane, and a twist of 90&deg; breaks it. A single bond stays whole at every angle, and its small barrier comes from the atoms on its two ends passing each other.</p>
+
+                    <p>The barrier of 270&nbsp;kJ/mol is a number that the lab was given. Its force field holds a carbon&ndash;carbon double bond with a barrier close to the measured one, and the experiment shows what follows from a barrier of that height. The barrier of butane comes out of the force field's general terms and is a little below the value for real butane, about 15&nbsp;kJ/mol.</p>
+
+                    <h2>A Polar Isomer and a Nonpolar One</h2>
+
+                    <p>The shape of an isomer changes its properties. 1,2-Dichloroethene has two carbon atoms joined by a double bond, and each carbon carries one chlorine atom and one hydrogen atom. A chlorine atom pulls electrons toward itself, so each carbon&ndash;chlorine bond has a negative end at the chlorine.
+                    In the cis isomer the two bonds point to the same side, and the molecule has an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Electric_dipole_moment">electric dipole</a>. In the trans isomer they point in opposite directions and cancel.</p>
+
+                    <p>The window below holds one molecule of each, 12&nbsp;&Aring; apart, at 300&nbsp;K: the cis isomer on the left and the trans isomer on the right. One carbon atom of each molecule is fixed, so each molecule turns in place. A static electric field of 5&nbsp;V/nm points up. Press Play and watch the chlorine atoms (green).</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Cis%20and%20Trans%20Isomers%20in%20an%20Electric%20Field"
+                                id="aims-frame3" allowfullscreen="true" title="Cis and Trans Isomers in an Electric Field demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame3');">View fullscreen</a><br>
+                            Cis-1,2-dichloroethene (left) and trans-1,2-dichloroethene (right) in an electric field that points up. The cis molecule turns its chlorine side down and stays, and the trans molecule keeps tumbling.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>Cis and Trans Isomers in an Electric Field</em> from the list of examples (Chemistry, Isomers), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab continues from 30&nbsp;ps.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Field on</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 30 ps and chart how each molecule lines up with the field.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Field off</span> &mdash; <span class="v2-prompt">&ldquo;Turn the field off and run another 30 ps.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Dipoles</span> &mdash; <span class="v2-prompt">&ldquo;What is the dipole of each isomer, and does it match the measured value?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Strength</span> &mdash; <span class="v2-prompt">&ldquo;How strong a field does it take to line up the cis molecule? Try fields from 0.5 to 10 V/nm.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Field Turns the Cis Molecule</h2>
+
+                    <p>The agent measures how well each molecule lines up with the field by a cosine. For the cis molecule it is the cosine of the angle between the dipole and the field, which is 1 when the dipole points exactly along the field. For the trans molecule, which has no dipole, it is the cosine of the angle between the field and the line from one chlorine atom to the other.</p>
+
+                    <p>The cis molecule turned its chlorine side down within 0.5&nbsp;ps and kept it there. After the first 2&nbsp;ps its cosine averaged 0.92 and never fell below 0.61. The trans molecule kept tumbling: its cosine averaged 0.13, and the molecule turned end over end 4 times in 30&nbsp;ps.
+                    The field pushes negative charges down and positive charges up. In the cis molecule both chlorine atoms are on one side, and the pushes add up to a torque that turns the whole molecule. In the trans molecule the push on one chlorine atom is balanced by the push on the other.</p>
+
+                    <p>With the field off, the two molecules behaved alike. The cosine of the cis molecule averaged 0.17, and the molecule turned over 7 times in 30&nbsp;ps, against no turns while the field was on. The trans molecule averaged &minus;0.20 and turned over 4 times.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-cistrans-field-start.jpg" alt="The lab at the start, seen from the side: two small molecules lying flat and seen edge-on, one on the left and one on the right, each with two green chlorine atoms">
+                        <img src="image/aims-cistrans-field-loaded.jpg" alt="The lab after 30 picoseconds: the molecule on the left has turned so that both of its green chlorine atoms are on its lower side; the molecule on the right has one chlorine atom at the upper left and one at the lower right">
+                    </div>
+                    <p class="v2-chart-caption">The two isomers lying flat at the start (left), and after 30&nbsp;ps in the field, loaded by the "Load this state" card (right). The cis molecule, on the left, has both chlorine atoms (green) turned down. The trans molecule, on the right, has one on each side.</p>
+
+                    <h2>The Dipole, and How Strong a Field</h2>
+
+                    <p>The third prompt computes the dipole of each isomer from the charges and positions of its atoms. In the lab each chlorine atom carries &minus;0.09&nbsp;e and each hydrogen atom +0.08&nbsp;e, in both molecules.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Isomer</th><th class="num">Dipole in the lab</th><th class="num">Measured dipole</th><th class="num">Boiling point</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Cis-1,2-dichloroethene</b></td><td class="num model">1.91&nbsp;D</td><td class="num">1.9&nbsp;D</td><td class="num">60&nbsp;&deg;C</td></tr>
+                                <tr><td class="crystal"><b>Trans-1,2-dichloroethene</b></td><td class="num model">0.00&nbsp;D</td><td class="num">0&nbsp;D</td><td class="num">48&nbsp;&deg;C</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The dipole of each isomer from the atomic charges of the lab, beside the measured dipole and the boiling point of the liquid.</p>
+
+                    <p>The same charges on the same atoms give a dipole of 1.9&nbsp;D in one shape and none in the other. Molecules with a dipole attract their neighbors in the liquid, positive side to negative side, and the cis isomer boils about 12&nbsp;&deg;C higher than the trans isomer.</p>
+
+                    <p>The fourth prompt runs the cis molecule alone 12 times for 20&nbsp;ps at each of five fields and leaves the first 5&nbsp;ps out of each run. The calculated column is the alignment of a dipole that is free to turn in any direction at 300&nbsp;K, which depends only on the ratio of the energy of the dipole in the field to the thermal energy.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Field</th><th class="num">Dipole energy &divide; thermal energy</th><th class="num">Alignment, measured</th><th class="num">Alignment, calculated</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>0.5&nbsp;V/nm</b></td><td class="num">0.8</td><td class="num model">0.17</td><td class="num">0.25</td></tr>
+                                <tr><td class="crystal"><b>1&nbsp;V/nm</b></td><td class="num">1.5</td><td class="num model">0.44</td><td class="num">0.45</td></tr>
+                                <tr><td class="crystal"><b>2&nbsp;V/nm</b></td><td class="num">3.1</td><td class="num model">0.64</td><td class="num">0.68</td></tr>
+                                <tr><td class="crystal"><b>5&nbsp;V/nm</b></td><td class="num">7.7</td><td class="num model">0.87</td><td class="num">0.87</td></tr>
+                                <tr><td class="crystal"><b>10&nbsp;V/nm</b></td><td class="num">15.4</td><td class="num model">0.94</td><td class="num">0.93</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The alignment of the cis molecule with the field at 300&nbsp;K, averaged over 12 runs of 20&nbsp;ps at each field. An alignment of 1 means the dipole always points along the field.</p>
+
+                    <p>The alignment grows with the field, and the measured values are within 0.08 of the calculated ones at every field. At 5&nbsp;V/nm the 12 runs average 0.87, and the single run of the first prompt gave 0.92. The trans molecule in the strongest field, 10&nbsp;V/nm, pointed up as often as down: its cosine averaged 0.06.
+                    A field of several volts per nanometer is far stronger than a laboratory field between two plates. In a liquid the same dipole is turned by the charges of the neighboring molecules, which are much closer.</p>
+
+                    <h2>Straight Chains and Bent Chains</h2>
+
+                    <p>Cis&ndash;trans isomerism also matters in food. A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Fatty_acid">fatty acid</a> is a long chain of carbon atoms with an acid group at one end. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Oleic_acid">Oleic acid</a>, the main fatty acid of olive oil, has one cis double bond in the middle of a chain of 18 carbon atoms, and the cis bond puts a bend in the chain.
+                    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Elaidic_acid">Elaidic acid</a> is its trans isomer, and its chain is nearly straight. The window below shows the two shapes.</p>
 
                     <figure class="v2-embed">
                         <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=Cis%E2%80%93Trans%20Isomerism%20of%20Fatty%20Acids"
-                                id="aims-frame2" allowfullscreen="true" title="Cis-trans fatty acid isomers demo"></iframe>
+                                id="aims-frame4" allowfullscreen="true" title="Cis-trans fatty acid isomers demo"></iframe>
                         <figcaption>
-                            Live model &mdash; <a href="javascript:openFullscreen2();">view fullscreen</a>. Chrome or Edge recommended.
+                            <a href="javascript:openFullscreen('aims-frame4');">View fullscreen</a><br>
+                            Oleic acid, the cis isomer, and elaidic acid, the trans isomer. Both have the formula C<sub>18</sub>H<sub>34</sub>O<sub>2</sub>.
                         </figcaption>
                     </figure>
+
+                    <p>Oleic acid melts at about 14&nbsp;&deg;C and is a liquid at room temperature. Elaidic acid melts at about 44&nbsp;&deg;C and is a solid. The accepted explanation is that straight chains lie side by side and attract each other along their whole length, while bent chains leave gaps between them.
+                    Trans fats in processed food are made of chains such as elaidic acid. This article shows the two shapes and does not measure how they pack: each molecule has 54 atoms, and a lab of 500 atoms holds nine of them, which is too few for a test of packing.</p>
+
+                    <h2>What the Lab Cannot Show</h2>
+
+                    <p>The bonds of the molecules in this lab do not form or break, and the lab has no light. Light can turn a double bond at room temperature, where heat cannot. In the eye, a molecule of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Retinal">retinal</a> absorbs light and changes from a cis shape to a trans shape, and that change is the first step of vision. A catalyst can also interconvert isomers, by breaking and remaking the second bond.</p>
+
+                    <p>In this force field the stretched shape and the bent shapes of butane have the same energy. In real butane the stretched shape is lower by about 3.8&nbsp;kJ/mol and holds about 70% of the molecules at room temperature.
+                    The charges on the atoms are fixed, so an electric field cannot shift the electrons of a molecule. The molecules run alone in a vacuum with one atom fixed, and in a liquid each one is surrounded by neighbors.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the structures, the charges, and a force field, which includes the barrier of the double bond. Everything else below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Isomers</span> &mdash; cis- and trans-but-2-ene keep their shapes for 100&nbsp;ps at each of four temperatures from 300&nbsp;K to 1500&nbsp;K: the angle of the cis chain never passes 44&deg;, and the angle of the trans chain never falls below 132&deg;.</li>
+                            <li><span class="v2-prompts-step">Conformers</span> &mdash; butane changes between its stretched and bent shapes 2 to 8 times in 100&nbsp;ps at 300&nbsp;K and 319 times at 1500&nbsp;K.</li>
+                            <li><span class="v2-prompts-step">Barriers</span> &mdash; the barrier of the double bond, 270&nbsp;kJ/mol in the force field, is 108 times the thermal energy at 300&nbsp;K, and the barrier of the single bond of butane comes out at 13&nbsp;kJ/mol, 5 times the thermal energy.</li>
+                            <li><span class="v2-prompts-step">Dipoles</span> &mdash; the same atomic charges give cis-1,2-dichloroethene a dipole of 1.91&nbsp;D and the trans isomer none, against measured values of 1.9&nbsp;D and 0.</li>
+                            <li><span class="v2-prompts-step">In a field</span> &mdash; a field of 5&nbsp;V/nm lines up the cis molecule within 0.5&nbsp;ps with an alignment of 0.92 in one run and 0.87 over 12 runs, the trans molecule keeps tumbling, and the alignment at five fields is within 0.08 of the calculated values.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses the isomers of but-2-ene and of 1,2-dichloroethene to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. Cis&ndash;trans isomerism, a first lesson in the shapes of molecules, becomes something students watch and measure for themselves in a browser: how a single bond lets a chain change shape and a double bond does not,
+                    how high the barrier of a double bond stands above the thermal energy, and how the same atoms give a dipole in one arrangement and none in the other. By pairing a physically grounded simulation with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of why the shape of a molecule decides what substance it is.</p>
 
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                 </div>
