@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanotube Water Filters: Passing Water and Stopping Salt — Institute for Future Intelligence</title>
+    <meta name="description" content="A carbon nanotube as narrow as one water molecule can filter salt water. AIMS presses salt water against a nanotube through a sheet of graphene, and an AI agent counts the water molecules that pass in single file, the ions that stay behind, and what changes with the pressure and the width of the tube.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="FILTER">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Nanotube Water Filters: Passing Water and Stopping Salt</h1>
+                <p class="v2-tagline">
+                    AIMS presses salt water against a carbon nanotube, and an AI agent counts the water molecules that pass in single file and the ions that stay behind.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 17, 2026</span></p>
+
+                    <p>Most of the water on Earth is salt water. A filter that makes fresh water from it needs pores that let water molecules through and stop the dissolved ions of the salt. A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotube</a> is a candidate for such a pore: a tube of carbon atoms with a smooth wall, as narrow as a single water molecule.
+                    AIMS models every atom of one such pore, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent builds the filter, runs it, counts the molecules, and posts the measured data in the chat.
+                    This article follows three questions: whether a narrow nanotube passes water and stops salt, what the pressure does, and how wide the tube can be.
+                    In the window below, salt water sits above a sheet of carbon atoms with a nanotube through it, and a plate presses on the water. Press Play and watch the tube.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Nanotube%20Water%20Filter"
+                                id="aims-frame1" allowfullscreen="true" title="A Nanotube Water Filter demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Water (red and white), two sodium ions (purple), and two chloride ions (green) above a sheet of graphene with a nanotube through it. The plate at the top presses down. Water enters the tube within a few picoseconds of Play, and the ions stay above the sheet.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Fresh Water from Salt Water</h2>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Reverse_osmosis">Reverse osmosis</a> is the most common way to remove salt from seawater. A pump presses the salt water against a membrane, water molecules pass through the membrane, and the sodium and chloride ions stay on the side of the pump.
+                    The membranes in use today are thin films of polymer, and a plant presses seawater against them at about 6&nbsp;MPa, about 60 atmospheres.</p>
+
+                    <p>In 2001 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/35102535">Hummer, Rasaiah, and Noworyta</a> simulated a narrow carbon nanotube in water. Water molecules entered the tube and moved through it in single file, each one joined to the next by a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hydrogen_bond">hydrogen bond</a>.
+                    In 2006 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.1126298">Holt, Bakajin, and coworkers</a> made membranes of aligned nanotubes less than 2&nbsp;nm wide and measured a flow of water far above the flow that the theory of ordinary liquids predicts for pores of that size.
+                    In 2007 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/jp709845u">Corry</a> simulated nanotube membranes for desalination and found that the narrowest tubes pass water and reject salt.
+                    Living cells solved the same problem long ago. An <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Aquaporin">aquaporin</a> is a protein with a pore that passes water through the membrane of a cell in single file and stops ions.</p>
+
+                    <p>Nanotube membranes are a subject of research and are not yet a common product. The question that the lab can answer is the one at the center of that research: what a single pore does to water and to salt.</p>
+
+                    <h2>The Model</h2>
+
+                    <p>The filter has two fixed parts. A sheet of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphene">graphene</a> of 90 carbon atoms spans the box, 18&nbsp;&Aring; on a side, with a round hole at its middle. A (6,6) nanotube of 96 carbon atoms, 8.1&nbsp;&Aring; across and 8.6&nbsp;&Aring; long, sits in the hole with its top at the sheet.
+                    The two numbers in the name of a nanotube describe how the sheet of carbon atoms is rolled, and a larger pair of numbers means a wider tube. The inside of the (6,6) tube is about 4.7&nbsp;&Aring; wide between the surfaces of its carbon atoms, a little more than the width of one water molecule. The tube is the only way down.</p>
+
+                    <p>Above the sheet are 90 water molecules, two sodium ions (Na<sup>+</sup>), and two chloride ions (Cl<sup>&minus;</sup>). The water follows the TIP3P model of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1063/1.445869">Jorgensen and coworkers</a>: a charge of &minus;0.834&nbsp;e on the oxygen atom and +0.417&nbsp;e on each hydrogen atom.
+                    The carbon atoms carry no charge and act on the water and the ions through the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Lennard-Jones_potential">Lennard-Jones</a> force.
+                    The piston of the lab, a plate above the water, presses down with 2000&nbsp;MPa, about 20,000 atmospheres. The space below the sheet is empty, and the lab holds 300&nbsp;K. The model has 460 atoms.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Building the filter, running it, counting the molecules on each side, and tabulating the results are the agent's work. A student asks the agent whether
+                    <em>"a wider tube still stops the salt"</em>, and the agent recognizes the intent, builds the wider tubes, runs each one, and posts the results in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open <em>A Nanotube Water Filter</em> from the list (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        Two answers in the example keep a frame of the lab. Press "Load this state" on the card of the first answer and the lab shows the narrow tube after 200&nbsp;ps. Press it on the card of the third answer and the lab shows a wide tube with salt passing through it.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Filter</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 200 ps and count the water molecules that pass through the tube. Does any salt pass?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Pressure</span> &mdash; <span class="v2-prompt">&ldquo;Does the water need the pressure? Try no piston, 1000 MPa and 4000 MPa.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Width</span> &mdash; <span class="v2-prompt">&ldquo;Does a wider tube still stop the salt? Try (8,8) and (10,10) nanotubes at 2000 MPa.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>Water Passes in Single File, and the Salt Stays</h2>
+
+                    <p>Water molecules entered the tube within 5&nbsp;ps and lined up in single file, about four at a time. The first molecule left the lower end of the tube after 14&nbsp;ps. After 200&nbsp;ps, 21 of the 90 water molecules were below the sheet, about one every 10&nbsp;ps.
+                    The agent checked for leaks: no water molecule went from above the sheet to below it by any way other than the tube.</p>
+
+                    <p>None of the four ions passed. The lowest point that any ion reached was 2.2&nbsp;&Aring; above the sheet. An ion in water is surrounded by water molecules that turn their opposite charges toward it, and this shell of water lowers the energy of the ion.
+                    The (6,6) tube has room for one water molecule across. An ion that entered it would have to leave most of its shell behind, and the pressure does not supply the energy for that.</p>
+
+                    <p>The plate moved down from 15&nbsp;&Aring; to 8&nbsp;&Aring; above the sheet as it compressed the water and followed the molecules that left. The water that came through gathered under the sheet, around the lower end of the tube and up its outer wall.
+                    This run is one pore for 0.2&nbsp;ns. A membrane has billions of pores in each square centimeter and runs for hours, so a flow of one molecule every 10&nbsp;ps through each pore adds up to liters of water.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-filter-start.jpg" alt="The lab at the start, seen from the side: a tall box with a plate and a downward arrow at the top, a layer of red and white water molecules with two purple and two green ions under the plate, a flat gray sheet of carbon atoms below the water, and a short nanotube drawn as a wireframe hanging below the middle of the sheet">
+                        <img src="image/aims-filter-narrow.jpg" alt="The lab after 200 picoseconds: the plate has moved down, a single row of water molecules runs through the nanotube, and a cluster of water molecules hangs below the tube and along its outer wall, while the purple and green ions are still above the sheet">
+                    </div>
+                    <p class="v2-chart-caption">The filter at the start (left), and after 200&nbsp;ps, loaded by the "Load this state" card (right). Water molecules stand in single file in the tube, 21 of them are below the sheet, and the four ions are still above it.</p>
+
+                    <h2>What the Pressure Does</h2>
+
+                    <p>The second prompt runs the same filter with no piston and with three pressures. The run with no piston lasts 60&nbsp;ps, and the other rows give the first 120&nbsp;ps.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Pressure on the piston</th><th class="num">Water molecules in the tube</th><th class="num">Most below the sheet at one time</th><th class="num">Below the sheet at the end</th><th class="num">Ions below the sheet</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>No piston</b><small>60&nbsp;ps</small></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+                                <tr><td class="crystal"><b>1000&nbsp;MPa</b></td><td class="num">4</td><td class="num">7</td><td class="num">6</td><td class="num">0</td></tr>
+                                <tr><td class="crystal"><b>2000&nbsp;MPa</b></td><td class="num">4</td><td class="num model">16</td><td class="num model">16</td><td class="num">0</td></tr>
+                                <tr><td class="crystal"><b>4000&nbsp;MPa</b></td><td class="num">4</td><td class="num">22</td><td class="num">22</td><td class="num">0</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The (6,6) filter at four settings of the piston. The count below the sheet rises and falls by one or two, because a molecule at the lower end of the tube can move back into it.</p>
+
+                    <p>Without the piston the tube still filled with three water molecules in single file, and none came out at the lower end. Water enters the tube without a push, as Hummer and coworkers found. A molecule in the file keeps a hydrogen bond to the molecule in front of it and to the molecule behind it.
+                    A molecule that leaves the lower end into empty space gives up those bonds, and the pressure supplies the energy for that. With the piston on, up to 7 molecules were below the sheet at 1000&nbsp;MPa and up to 16 at 2000&nbsp;MPa.</p>
+
+                    <p>More pressure does not always give more water. At 4000&nbsp;MPa, 21 molecules passed in the first 60&nbsp;ps, and the flow stopped. The plate had come down to 7&nbsp;&Aring; above the sheet, and the water left there was pressed into a thin, dense layer. No ion passed at any pressure.
+                    These pressures are hundreds of times the pressure of a plant. The lab uses them so that a few molecules pass in a run of a few hundred picoseconds.</p>
+
+                    <h2>A Wider Tube Lets the Salt Through</h2>
+
+                    <p>The third prompt replaces the tube with two wider ones and runs each for 120&nbsp;ps at 2000&nbsp;MPa, with the same water and ions.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Tube</th><th class="num">Width between carbon centers</th><th class="num">Most water molecules in the tube at one time</th><th class="num">Water below the sheet after 60&nbsp;ps</th><th class="num">After 120&nbsp;ps</th><th>Ions that went through</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>(6,6)</b></td><td class="num">8.1&nbsp;&Aring;</td><td class="num">4</td><td class="num">6</td><td class="num">16</td><td class="model">none</td></tr>
+                                <tr><td class="crystal"><b>(8,8)</b></td><td class="num">10.8&nbsp;&Aring;</td><td class="num">14</td><td class="num">25</td><td class="num">59</td><td>all 4, the first after 19&nbsp;ps</td></tr>
+                                <tr><td class="crystal"><b>(10,10)</b></td><td class="num">13.6&nbsp;&Aring;</td><td class="num">25</td><td class="num">90</td><td class="num">90</td><td>all 4, the first after 6&nbsp;ps</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Three tubes in the same sheet at 2000&nbsp;MPa, one run of 120&nbsp;ps each, with 90 water molecules and four ions above the sheet at the start.</p>
+
+                    <p>A wider tube passes more water and filters less. The (8,8) tube held up to 14 water molecules at a time, no longer in single file, and passed 59 in 120&nbsp;ps against 16 for the (6,6) tube. It also let all four ions through, the first after 19&nbsp;ps.
+                    The (10,10) tube is wide enough for an ion to keep its shell of water. All 90 water molecules and all four ions went through it in 60&nbsp;ps.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-filter-narrow.jpg" alt="The narrow (6,6) nanotube after 200 picoseconds: a single row of water molecules in the tube, a cluster of water below it, and the purple and green ions above the sheet">
+                        <img src="image/aims-filter-wide.jpg" alt="The wide (10,10) nanotube 6 picoseconds into its run: a broad stream of water molecules fills the tube and pours out of its lower end, and two green chloride ions are just below the sheet inside the stream">
+                    </div>
+                    <p class="v2-chart-caption">The (6,6) tube after 200&nbsp;ps, with water in single file and the ions above the sheet (left), and the (10,10) tube 6&nbsp;ps into its run, with a stream of water in the tube and two of the four ions already under the sheet (right). Both pictures come from "Load this state" cards.</p>
+
+                    <p>A membrane for desalination has to balance the two results. Narrow pores give clean water slowly, and wide pores give salt water quickly. The pore of an aquaporin also passes water in single file.
+                    AIMS has a companion example in biology, <em>Flying Through an Aquaporin Water Channel</em>. The article on <a href="aims-nanotube-machines.html">nanotube machines</a> uses the same tubes as a bearing, a piston, and a motor.</p>
+
+                    <h2>What the Lab Cannot Show</h2>
+
+                    <p>The lab has one pore, 90 water molecules, and four ions, so every count is small, and another run gives different numbers. A real membrane has water on both sides. The lower side of this lab is a vacuum, and the water that comes through forms a small drop under the sheet.
+                    Two pairs of ions among 90 water molecules make a solution about twice as salty as seawater. The tube and the sheet are rigid, and their carbon atoms carry no charge, so the lab leaves out the chemical groups that the open ends of real nanotubes carry.
+                    The order of the three tubes is the reliable result: the narrowest tube stops the salt, and the wider tubes pass it.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the charges and the sizes of the atoms. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">Single file</span> &mdash; water enters a (6,6) nanotube within 5&nbsp;ps and stands in it about four molecules at a time, with or without pressure.</li>
+                            <li><span class="v2-prompts-step">A filter</span> &mdash; at 2000&nbsp;MPa, 21 of 90 water molecules pass the (6,6) tube in 200&nbsp;ps, and none of the four ions comes closer than 2.2&nbsp;&Aring; to the sheet.</li>
+                            <li><span class="v2-prompts-step">Pressure</span> &mdash; no water leaves the tube without the piston, up to 7 molecules pass in 120&nbsp;ps at 1000&nbsp;MPa and up to 16 at 2000&nbsp;MPa, and at 4000&nbsp;MPa the flow stops after 60&nbsp;ps.</li>
+                            <li><span class="v2-prompts-step">Width</span> &mdash; at 2000&nbsp;MPa the (8,8) tube passes 59 water molecules and all four ions in 120&nbsp;ps, and the (10,10) tube passes all the water and all the ions in 60&nbsp;ps.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses a nanotube water filter to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. The desalination of seawater, a technology that supplies drinking water to many dry regions, becomes something students watch and measure for themselves in a browser: how water enters a narrow tube in single file,
+                    how the ions of the salt stay behind, how pressure drives the flow, and how a wider tube gives up the filter. By pairing a physically grounded simulation with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of how a membrane makes fresh water from salt water.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

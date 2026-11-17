@@ -95,15 +95,15 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 16, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 17, 2026</span></p>
 
                     <p>Cells store energy in a small molecule called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Adenosine_triphosphate">ATP</a>. Most of the ATP in a cell is made by one enzyme, <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/ATP_synthase">ATP synthase</a>, which joins ADP and phosphate.
                     In animal cells the enzyme sits in the inner membrane of the mitochondria. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/191144a0">Mitchell</a> proposed in 1961 that a difference in the concentration of protons across this membrane supplies the energy for making ATP, and he received the 1978 Nobel Prize in Chemistry for the idea.
                     The enzyme has two parts. The part called F<sub>o</sub> lies in the membrane, and protons flow through it. The part called F<sub>1</sub> lies outside the membrane and holds the sites where ATP is made.</p>
 
-                    <p><a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0005-2728(93)90063-L">Boyer</a> proposed that F<sub>1</sub> has three such sites, that each site passes through three states in turn, and that a subunit at the center of F<sub>1</sub> rotates and drives the changes.
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1016/0005-2728(93)90063-L">Boyer</a> proposed, before any structure of the enzyme was known, that F<sub>1</sub> has three such sites, that each site passes through three states in turn, and that a subunit at the center of F<sub>1</sub> rotates and drives the changes.
                     In 1994 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/370621a0">Abrahams, Leslie, Lutter, and Walker</a> determined the crystal structure of F<sub>1</sub> from the mitochondria of bovine heart. The structure showed three copies of the same subunit in three different states around a central shaft.
-                    Boyer and Walker received half of the 1997 Nobel Prize in Chemistry for this work. In the same year <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/386299a0">Noji, Yasuda, Yoshida, and Kinosita</a> attached a fluorescent filament to the central subunit and watched the filament turn under a microscope when they supplied ATP.</p>
+                    Boyer and Walker received half of the 1997 Nobel Prize in Chemistry for this work. In the same year <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/386299a0">Noji, Yasuda, Yoshida, and Kinosita</a> attached a fluorescent filament to the central subunit of F<sub>1</sub> from a bacterium and watched the filament turn under a microscope when they supplied ATP.</p>
 
                     <p>This article follows The Rotary Motor of ATP Synthase example in the Protein Lab of AIMS, in which an AI agent answers five questions about the structure of Abrahams and coworkers. The answers show what each subunit holds, how the three copies differ in shape, and which residues of each copy touch the shaft.</p>
 
@@ -131,15 +131,15 @@
                         </ol>
                     </div>
 
-                    <p>A protein is a chain of amino acids, and each amino acid in the chain is called a residue. Many proteins are built from several chains, and each chain is then called a subunit. The structure file of F<sub>1</sub>, entry 1BMF in the Protein Data Bank, has seven chains with 2,987 residues, at a resolution of 2.85&nbsp;&Aring;.
+                    <p>A protein is a chain of amino acids, and each amino acid in the chain is called a residue. Many proteins are built from several chains, and each chain is then called a subunit. The structure file of F<sub>1</sub>, entry 1BMF in the Protein Data Bank, has seven chains with 2,987 residues. Its resolution is 2.85&nbsp;&Aring;, which is the size of the smallest detail that the X-ray measurement can separate.
                     The first prompt asks the agent for a tour of the structure, and the tour has 23 stops.</p>
 
-                    <p>The second prompt asks what the <a target="_blank" rel="noopener noreferrer" href="https://www.uniprot.org/">UniProt</a> database records. The seven chains map to three UniProt entries, so F<sub>1</sub> is built from three kinds of subunit.
+                    <p>The second prompt asks what the <a target="_blank" rel="noopener noreferrer" href="https://www.uniprot.org/">UniProt</a> database records. The seven chains map to three UniProt entries, so the file holds three kinds of subunit. F<sub>1</sub> has two more small subunits, called &delta; and &epsilon;, which this crystal structure does not show.
                     Chains A, B, and C are copies of the &alpha; subunit. Chains D, E, and F are copies of the &beta; subunit, which UniProt names the catalytic subunit. Chain G is the &gamma; subunit.
                     The &alpha; and &beta; subunits alternate around a ring, and chain G runs through the middle of the ring.</p>
 
                     <p>The crystal structure shows part of each chain. It shows residues 9 to 474 or 475 of the three &beta; subunits, and it shows 122 residues of chain G in three pieces: residues 1 to 44, 77 to 90, and 209 to 272.
-                    The tour reports 120 helices in the seven chains, and it stops at the longest ones. The longest helix of the whole structure is in chain G, at residues 222 to 270, and the second longest is also in chain G. These two helices form the shaft.</p>
+                    A helix is a stretch of the chain that is wound into a spiral. The tour reports 120 helices in the seven chains, and it stops at the longest ones. The longest helix of the whole structure is in chain G, at residues 222 to 270, and the second longest is also in chain G. These two helices form the shaft.</p>
 
                     <h2>What Each Subunit Holds</h2>
 
@@ -159,7 +159,7 @@
                         </tbody>
                     </table>
 
-                    <p>AMP-PNP is a copy of ATP in which a nitrogen atom replaces the oxygen atom between the last two phosphates. The enzyme binds AMP-PNP as it binds ATP and cannot split it, so AMP-PNP marks a site that would hold ATP. The crystal was grown in a solution that contained AMP-PNP and ADP.
+                    <p>AMP-PNP is a molecule that resembles ATP. In AMP-PNP a nitrogen atom replaces the oxygen atom between the last two phosphates. The enzyme binds AMP-PNP as it binds ATP and does not split it, so AMP-PNP marks a site that would hold ATP. The crystal was grown in a solution that contained AMP-PNP and ADP.
                     The three &alpha; subunits all hold AMP-PNP. The three &beta; subunits differ: chain F holds AMP-PNP, chain D holds ADP, and chain E holds nothing. The same subunit appears in the crystal in three states.</p>
 
                     <p>The tour has a stop for the site of chain F. The stop lists the residues that have an atom within 4&nbsp;&Aring; of the AMP-PNP. There are 19 of them, and the stop names the ten closest: Lys162, Val164, Gly159, Gly161, Arg189, Ser344, Arg373, Thr163, Ala158, and Phe418.
@@ -172,11 +172,11 @@
                     <h2>Two Closed Subunits and One Open Subunit</h2>
 
                     <p>The fourth prompt asks the agent to compare chains D and E with chain F. The agent pairs the residues of two chains by their numbers and moves one chain as a rigid body until it lies on the other as closely as possible. It then measures the distance between the two members of each pair.
-                    The measurement uses one atom of each residue, the &alpha;-carbon, which is the carbon atom of the backbone that carries the side chain. The summary of the distances is the root-mean-square deviation, or RMSD: the square root of the average of the squared distances.</p>
+                    The measurement uses one atom of each residue, the &alpha;-carbon. Every residue has one &alpha;-carbon, and the &alpha;-carbons follow the path of the chain. The summary of the distances is the root-mean-square deviation, or RMSD: the square root of the average of the squared distances.</p>
 
                     <p>Chain D, which holds ADP, has nearly the shape of chain F, which holds AMP-PNP. The RMSD over 466 residues is 0.6&nbsp;&Aring;, and the largest distance for a single residue is 2.9&nbsp;&Aring;. Chain E, the empty subunit, has an RMSD of 3.8&nbsp;&Aring; from chain F.</p>
 
-                    <p>A fit over the whole chain spreads the difference over all the residues. To find the part that moved, the agent fits chain E onto chain F a second time and uses only residues 9 to 82, which form a small domain at one end of the subunit.
+                    <p>A fit over the whole chain spreads the difference over all the residues. To find the part that moved, the agent fits chain E onto chain F a second time and uses only residues 9 to 82, which form a small domain at the start of the chain. A domain is a part of a chain that folds into a compact unit of its own.
                     These 74 residues of the two chains then agree to 0.27&nbsp;&Aring;. The distance grows along the rest of the chain. Residues 120 to 183 are displaced by 7.1&nbsp;&Aring; on average. Residues 292 to 474 are displaced by 13.1&nbsp;&Aring; on average, and the last residue, 474, by 25.4&nbsp;&Aring;.
                     The agent posts each comparison as a card that plots the distance for every residue.</p>
 
@@ -193,11 +193,11 @@
                         <img src="image/aims-atp-overlay.jpg" alt="The 3-D view of 1BMF with chain F drawn in blue and chain E drawn in orange on top of it: the two cartoons coincide in the domain at the lower left, and toward the upper right the orange chain lies away from the blue chain; the other chains are dimmed">
                     </div>
 
-                    <p>The literature on this enzyme calls chains D and F closed and chain E open. In a closed subunit, residues of the C-terminal part of the chain, such as Phe418, are within 4&nbsp;&Aring; of the bound group. In the open subunit, the same part has swung outward and the site is empty.</p>
+                    <p>The literature on this enzyme calls chains D and F closed and chain E open. The last residue of a chain is called its C-terminal end. In a closed subunit, residues of the C-terminal part of the chain, such as Phe418, are within 4&nbsp;&Aring; of the bound group. In the open subunit, the same part has swung outward and the site is empty.</p>
 
                     <h2>How the Shaft Touches Each Subunit</h2>
 
-                    <p>The fifth prompt asks how chain G touches each of the three &beta; subunits. The agent counts the pairs of atoms, one from each chain, that are within 4&nbsp;&Aring; of each other, and it lists the residues those atoms belong to. The count uses the atoms other than hydrogen, and the structure file has no hydrogen atoms.</p>
+                    <p>The fifth prompt asks how chain G touches each of the three &beta; subunits. The agent counts the pairs of atoms, one from each chain, that are within 4&nbsp;&Aring; of each other, and it lists the residues those atoms belong to. The structure file has no hydrogen atoms, so the count uses every atom of the two chains.</p>
 
                     <table class="v2-table">
                         <thead>
@@ -210,9 +210,9 @@
                         </tbody>
                     </table>
 
-                    <p>The three counts are of similar size. The residues are different. Residues 394 to 400 of the &beta; subunit have the sequence Asp-Glu-Leu-Ser-Glu-Glu-Asp, and the stretch is known by its one-letter spelling, DELSEED.
+                    <p>The three counts are of similar size. Ile275, Ile390, and Leu391 touch the shaft in all three subunits, and the other residues differ. Residues 394 to 400 of the &beta; subunit have the sequence Asp-Glu-Leu-Ser-Glu-Glu-Asp, and the stretch is known by its one-letter spelling, DELSEED.
                     Chain F touches the shaft with three residues of this stretch, Asp394, Glu395, and Glu398. Chain D touches the shaft with Glu395. Chain E touches the shaft with no residue of the stretch.
-                    Chain E alone touches the shaft with residues 314 to 320: Ala314, Asp316, Thr318, Asp319, and Pro320.</p>
+                    Chain E is the only one of the three that touches the shaft with residues between 314 and 320: Ala314, Asp316, Thr318, Asp319, and Pro320.</p>
 
                     <p>Both stretches lie in residues 292 to 474, the part of the chain that differs most between the open subunit and the closed subunits. The swing changes which residues of this part reach the shaft: the DELSEED stretch in the two closed subunits, and residues 314 to 320 in the open subunit.
                     The shaft is a single chain without threefold symmetry, so each &beta; subunit faces a different side of the shaft.</p>
@@ -231,9 +231,9 @@
                         <p class="v2-prompts-intro">The agent was given the structure file 1BMF and five questions. The results below came from its analysis of the file and of the UniProt entries:</p>
                         <ul>
                             <li><span class="v2-prompts-step">The subunits</span> &mdash; seven chains of three kinds: three &alpha;, three &beta;, and one &gamma;, with the two longest helices of the structure in the &gamma; subunit.</li>
-                            <li><span class="v2-prompts-step">The bound groups</span> &mdash; AMP-PNP in chain F, ADP in chain D, nothing in chain E, and residues of the neighboring &alpha; subunit in each occupied site.</li>
+                            <li><span class="v2-prompts-step">The bound groups</span> &mdash; AMP-PNP in chain F, ADP in chain D, nothing in chain E, and residues of the neighboring &alpha; subunit in the sites of chains D and F.</li>
                             <li><span class="v2-prompts-step">The shapes</span> &mdash; chains D and F agree to 0.6&nbsp;&Aring;, and residues 292 to 474 of chain E are displaced by 13.1&nbsp;&Aring; on average.</li>
-                            <li><span class="v2-prompts-step">The shaft</span> &mdash; chains D and F touch chain G with the DELSEED stretch, and chain E touches it with residues 314 to 320.</li>
+                            <li><span class="v2-prompts-step">The shaft</span> &mdash; chains D and F touch chain G with residues of the DELSEED stretch, and chain E touches it with residues 314 to 320.</li>
                         </ul>
                     </div>
 
