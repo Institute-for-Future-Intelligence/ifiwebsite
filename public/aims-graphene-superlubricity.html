@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superlubricity: A Graphene Flake That Slides on Graphene — Institute for Future Intelligence</title>
+    <meta name="description" content="Two sheets of graphene slide on each other with very little friction when one is turned from the other. A simulation in AIMS shows a coronene flake pushed along a ribbon of graphene, turned 30 degrees and lined up, and an AI agent measures how far the flake slides and how the barrier to sliding depends on the angle between the two lattices.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="FRICTION">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Superlubricity: A Graphene Flake That Slides on Graphene</h1>
+                <p class="v2-tagline">
+                    A simulation in AIMS shows a flake of graphene pushed along a ribbon of graphene, once turned and once lined up, and an AI agent measures how far the flake slides and the barrier that holds it.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 17, 2026</span></p>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphene">Graphene</a> is a flat sheet of carbon atoms joined in hexagons, and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphite">graphite</a> is a stack of such sheets. No chemical bond joins one sheet to the next, so one sheet can slide on another, and the friction between two sheets changes when one sheet is turned.
+                    When the two lattices line up, every atom of one sheet sits in a hollow of the other, and the sheets resist sliding. When one sheet is turned, some of its atoms are pushed forward by the atoms below them while others are pushed back, and the pushes cancel. This state of very low friction is called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Superlubricity">superlubricity</a>.
+                    In 2004 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.92.126101">Dienwiebel, Frenken, and coworkers</a> measured it with a flake of graphite on a graphite surface. In 2008 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.100.046102">Filippov and coworkers</a> explained why it ends: a sliding flake turns toward the position in which the lattices line up, and there it locks.
+                    In 2013 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/nn305722d">Feng, Salmeron, and coworkers</a> observed the sliding of graphene flakes a few nanometers wide on graphene.</p>
+
+                    <p>AIMS models every atom of the flake and the sheet below it, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent builds the parts, runs them, measures the motion, and posts the measured data in the chat.
+                    This article follows one flake of graphene on a ribbon of graphene. The flake is pushed along the ribbon with its lattice turned from the ribbon and again with its lattice lined up, and the agent measures the barrier to sliding at seven angles.
+                    No atom of the flake or the ribbon carries a charge, and the Lennard-Jones force is the one force between them.
+                    The article on <a href="aims-nanotube-machines.html">nanotube machines</a> slides one nanotube inside another, and the article on <a href="aims-molecular-machines.html">molecular machines</a> describes the forces in the model and how to open an example and type a prompt.</p>
+
+                    <h2>A Flake on a Ribbon of Graphene</h2>
+
+                    <p>The window below shows a ribbon of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphene">graphene</a> from above: 417 carbon atoms, 60&nbsp;&Aring; long and 18&nbsp;&Aring; wide, fixed in place and drawn as a wireframe. A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Coronene">coronene</a> molecule, a flake of graphene seven rings wide with hydrogen atoms on its edge, lies 3.4&nbsp;&Aring; above the left end of the ribbon.
+                    The flake is turned 30&deg; from the ribbon, and it starts with a speed of 100&nbsp;m/s to the right, a kinetic energy of 16&nbsp;meV. The lab is at 50&nbsp;K with the thermostat off. The low temperature keeps thermal motion from moving the flake by itself. Press Play and watch the flake.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Graphene%20Flake%20Slider"
+                                id="aims-frame1" allowfullscreen="true" title="A Graphene Flake Slider demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            A coronene molecule on a ribbon of graphene, seen from above, turned 30&deg; from the ribbon and moving to the right. The flake slides 15&nbsp;&Aring; at a steady speed, then turns and stops.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Graphene Flake Slider</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab continues from 30&nbsp;ps.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Slide</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 30 ps and chart the distance from the left end of the ribbon to the flake. How far does the flake slide?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Lined up</span> &mdash; <span class="v2-prompt">&ldquo;Give the same push to a flake that starts lined up with the ribbon.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Barrier</span> &mdash; <span class="v2-prompt">&ldquo;How does the barrier to sliding depend on the angle between the two lattices?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Harder push</span> &mdash; <span class="v2-prompt">&ldquo;Push harder: 150 m/s, for the lined-up flake and the turned flake.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Turned Flake Slides, and the Lined-Up Flake Is Held</h2>
+
+                    <p>The turned flake slid 15&nbsp;&Aring; along the ribbon. For the first 14&nbsp;ps it kept a speed of about 90&nbsp;m/s, and over each picosecond its speed was between 82 and 109&nbsp;m/s. The ribbon took almost no speed from it.
+                    Then the flake began to turn, and the sliding stopped 18&nbsp;ps after the start. By the end of the run the flake had turned 167&deg;, and over the last 5&nbsp;ps it moved within 0.8&nbsp;&Aring;. The energy of the sliding went into the turning and the vibrations of the flake.
+                    The flake came to rest with its lattice 19&deg; from lining up with the ribbon. A flake of six-fold shape lines up every 60&deg;, so the flake in this run stopped short of the lined-up position that Filippov and coworkers describe.</p>
+
+                    <p>The second prompt sets the flake down with its lattice lined up with the ribbon, in the place where its energy is lowest, and gives it the same 100&nbsp;m/s. In the first 20&nbsp;ps the flake never moved farther than 3.2&nbsp;&Aring; from its starting place, and after 30&nbsp;ps it was 4.9&nbsp;&Aring; away.
+                    It moved back and forth between neighboring sites of the lattice. When the lattices line up, all 24 carbon atoms of the flake meet the atoms of the ribbon at the same moment, and their pushes add up.</p>
+
+                    <h2>The Barrier Depends on the Angle</h2>
+
+                    <p>For the third prompt the agent holds the flake rigid 3.4&nbsp;&Aring; above a sheet of graphene 64&nbsp;&Aring; wide, turns it to each angle, and moves it over one cell of the lattice in steps of about 0.1&nbsp;&Aring;. At each place it adds up the Lennard-Jones energy between the flake and the sheet.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Angle between the lattices</th><th class="num">Rise from the lowest to the highest point</th><th class="num">Per carbon atom</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>0&deg;</b><small>lined up</small></td><td class="num model">39&nbsp;meV</td><td class="num">1.61&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>5&deg;</b></td><td class="num">32&nbsp;meV</td><td class="num">1.34&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>10&deg;</b></td><td class="num">17&nbsp;meV</td><td class="num">0.71&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>15&deg;</b></td><td class="num">3.2&nbsp;meV</td><td class="num">0.13&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>20&deg;</b></td><td class="num">2.9&nbsp;meV</td><td class="num">0.12&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>25&deg;</b></td><td class="num">2.7&nbsp;meV</td><td class="num">0.11&nbsp;meV</td></tr>
+                                <tr><td class="crystal"><b>30&deg;</b></td><td class="num model">1.6&nbsp;meV</td><td class="num">0.07&nbsp;meV</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The energy of a rigid coronene flake over one cell of the graphene lattice, at seven angles between the two lattices. The thermal energy at 50&nbsp;K is 4&nbsp;meV, and the push of 100&nbsp;m/s carries 16&nbsp;meV.</p>
+
+                    <p>The rise is 39&nbsp;meV when the lattices line up and 1.6&nbsp;meV at 30&deg;, 25 times smaller. A lined-up flake does not have to cross the highest point. The lowest pass from one resting site to the next is 4&nbsp;meV high and lies along a zigzag path, to either side of the direction of the push, so the lined-up flake moved from site to site and did not travel straight.
+                    The energy of the flake at rest is 11&nbsp;meV lower when the lattices line up than at 30&deg;, and a flake that turns to the lined-up position gains this energy.</p>
+
+                    <p>The fourth prompt pushes both flakes at 150&nbsp;m/s, a kinetic energy of 35&nbsp;meV, for 16&nbsp;ps.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Flake</th><th class="num">Average speed, first 10&nbsp;ps</th><th class="num">Slowest and fastest picosecond</th><th class="num">Distance in 16&nbsp;ps</th><th class="num">Speed, last 3&nbsp;ps</th><th class="num">Largest turn</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Lined up</b></td><td class="num">141&nbsp;m/s</td><td class="num">125 to 158&nbsp;m/s</td><td class="num">21&nbsp;&Aring;</td><td class="num">99&nbsp;m/s</td><td class="num">64&deg;</td></tr>
+                                <tr><td class="crystal"><b>Turned 30&deg;</b></td><td class="num model">155&nbsp;m/s</td><td class="num model">152 to 158&nbsp;m/s</td><td class="num">25&nbsp;&Aring;</td><td class="num">156&nbsp;m/s</td><td class="num">18&deg;</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Two flakes pushed at 150&nbsp;m/s on the same ribbon at 50&nbsp;K, one run of 16&nbsp;ps each.</p>
+
+                    <p>The turned flake kept its speed, between 152 and 158&nbsp;m/s in every picosecond. The speed of the lined-up flake varied between 125 and 158&nbsp;m/s. The lined-up flake also began to turn, reached 64&deg;, and moved at 99&nbsp;m/s over the last 3&nbsp;ps.
+                    The ribbon in this lab is rigid, so the flake cannot pass energy to it, and the friction in these runs is the energy that the sliding gives to the turning and the vibrations of the flake. The flake has 24 carbon atoms. The flakes in the experiments had hundreds to millions of atoms, and the lined-up barrier grows with the number of atoms.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-flake-start.jpg" alt="The lab at the start, seen from above: a ribbon of graphene drawn as a gray wireframe of hexagons lies left to right, and a coronene molecule of seven rings with white hydrogen atoms on its edge lies over its left end, with its rings turned relative to the hexagons of the ribbon">
+                        <img src="image/aims-flake-loaded.jpg" alt="The lab after 30 picoseconds: the coronene molecule has moved about a quarter of the way along the ribbon and has turned">
+                    </div>
+                    <p class="v2-chart-caption">The flake at the left end of the ribbon at the start, turned 30&deg; from the ribbon (left), and after 30&nbsp;ps, 15&nbsp;&Aring; to the right, where it stopped (right).</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the charges and the sizes of the atoms. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">A turned flake</span> &mdash; a coronene flake turned 30&deg; from a graphene ribbon and pushed at 100&nbsp;m/s slides 15&nbsp;&Aring; at a steady 90&nbsp;m/s, then turns and stops 18&nbsp;ps after the start.</li>
+                            <li><span class="v2-prompts-step">A lined-up flake</span> &mdash; a lined-up flake given the same push moves 3.2&nbsp;&Aring; in 20&nbsp;ps, back and forth between neighboring sites of the lattice.</li>
+                            <li><span class="v2-prompts-step">The barrier</span> &mdash; the barrier to sliding is 39&nbsp;meV when the lattices line up and 1.6&nbsp;meV at 30&deg;, 25 times smaller.</li>
+                            <li><span class="v2-prompts-step">A harder push</span> &mdash; at 150&nbsp;m/s the turned flake keeps a speed between 152 and 158&nbsp;m/s for 16&nbsp;ps, and the lined-up flake turns 64&deg; and slows to 99&nbsp;m/s.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses a flake of graphene that slides on graphene to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. Superlubricity becomes something students watch and measure for themselves in a browser: how far a flake slides when its lattice is turned, how the ribbon holds a flake whose lattice is lined up,
+                    and how the barrier to sliding depends on the angle between the two lattices. By pairing a physically grounded simulation with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of friction between two layers of atoms.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
