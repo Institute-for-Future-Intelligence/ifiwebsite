@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Can AI Be a Good Lab Partner? — Institute for Future Intelligence</title>
-    <meta name="description" content="A student asks a question. An AI agent in Infrared Explorer designs the experiment, reads the thermal recordings, proposes the next round, and writes the lab report.">
+    <meta name="description" content="A student asks a question. An AI agent in Infrared Explorer designs the experiment, reads the thermal recordings, says what to change next, and writes the lab report.">
 
     <style>
         @import url("css/system.base.css");
@@ -69,6 +69,9 @@
         .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
         /* The camera's frames are upright (480 x 640): keep a pair of them from filling the whole column. */
         .v2-screenshot-row.is-frames { max-width: 680px; margin-left: auto; margin-right: auto; }
+        /* Three charts and their caption in a two-by-two grid: the caption takes the fourth cell. One column on a phone. */
+        .v2-col-main .v2-screenshot-row.is-charts .v2-row-caption { align-self: center; margin: 0; padding: 0 0.6rem 0 1rem; font-size: 1rem; line-height: 1.55; color: var(--text-muted); }
+        @media (max-width: 700px) { .v2-screenshot-row.is-charts { grid-template-columns: 1fr; } .v2-col-main .v2-screenshot-row.is-charts .v2-row-caption { padding: 0; text-align: center; } }
         /* The photo we gave (4:3) beside the drawing the agent gave back (2:1): columns of 2 to 3 make the two as tall as each other. Below 900px the drawing's labels get too small to read side by side, so one goes under the other. */
         .v2-figure-pair { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.2rem; align-items: start; margin: 2rem 0 2.5rem; }
         .v2-col-main .v2-figure-pair .v2-formula { margin: 0 !important; }
@@ -80,40 +83,32 @@
         /* The two places the text links to (Figure 3, the experiment after the introduction): land below the site's fixed header (58px), not under it. */
         #figure-3, #experiment { scroll-margin-top: 74px; }
 
-        /* Diagrams: inline SVG in figure.v2-fig, as in the Aladdin and AIMS articles. Orange is what is done at the bench; indigo is the agent. */
+        /* Diagrams: inline SVG in figure.v2-fig, as in the Aladdin and AIMS articles. */
         .v2-fig { margin: 2rem 0 2.5rem; }
         .v2-fig svg { display: block; width: 100%; height: auto; margin: 0 auto; }
         .v2-fig figcaption { max-width: 800px; margin: 1rem auto 0; padding-left: 0.9rem; border-left: 4px solid var(--accent); font-size: 1.18rem; line-height: 1.55; color: var(--text-muted); }
         .v2-fig figcaption strong { color: var(--text); font-weight: 600; }
         .v2-fig-scroll { overflow-x: auto; }
-        .v2-dg { --you: #ea580c; --you-dark: #c2410c; --you-soft: #fff7ed; --ai: #6366f1; --ai-soft: #eef2ff; --line: #64748b; }
+        .v2-dg { --you: #ea580c; --you-dark: #c2410c; --you-soft: #fff7ed; --ai: #6366f1; --ai-dark: #4338ca; --ai-soft: #eef2ff; --line: #64748b; }
         .v2-dg text { font-family: var(--font-body); }
-        .v2-dg .lane-you { fill: rgba(234, 88, 12, 0.05); }
-        .v2-dg .lane-ai { fill: rgba(99, 102, 241, 0.06); }
-        .v2-dg .card { fill: #fff; stroke: rgba(15, 23, 42, 0.18); stroke-width: 1.2; }
-        .v2-dg .card.is-you { fill: var(--you-soft); stroke: var(--you); stroke-width: 1.5; }
-        .v2-dg .card.is-ai { fill: var(--ai-soft); stroke: var(--ai); stroke-width: 1.5; }
-        .v2-dg .dot-you { fill: var(--you); }
-        .v2-dg .dot-ai { fill: var(--ai); }
-        .v2-dg .dot-both { fill: #334155; }
-        .v2-dg .num { fill: #fff; font-family: var(--font-display); font-size: 14px; font-weight: 700; text-anchor: middle; }
+        .v2-dg .card { fill: #fff; stroke: rgba(15, 23, 42, 0.25); stroke-width: 1.2; }
         .v2-dg .name { fill: var(--text); font-family: var(--font-display); font-size: 17px; font-weight: 700; }
-        .v2-dg .desc { fill: var(--text-muted); font-size: 13px; }
-        .v2-dg .who { fill: #334155; font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
-        .v2-dg .who.is-you { fill: var(--you-dark); }
-        .v2-dg .who.is-ai { fill: var(--accent-dark); }
+        .v2-dg .desc { fill: var(--text-muted); font-size: 12px; }
         .v2-dg .flow { fill: none; stroke: var(--line); stroke-width: 1.8; }
         .v2-dg .head { fill: var(--line); }
-        /* The way back from the discussion to the plan. It is the agent's proposal, so it is the one arrow in the agent's color. */
-        .v2-dg .back { fill: none; stroke: var(--ai); stroke-width: 2; }
-        .v2-dg .backhead { fill: var(--ai); }
-        .v2-dg .lbl { fill: var(--text-muted); font-size: 12px; font-style: italic; }
-        .v2-dg .out { fill: var(--you-soft); stroke: var(--you); stroke-width: 1.4; }
-        .v2-dg .outlbl { fill: var(--you-dark); font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-anchor: middle; }
         .v2-dg .mid { text-anchor: middle; }
-        /* The workflow: two lanes on a wide screen, a ladder on a phone. */
-        .v2-wf { min-width: 900px; }
-        .v2-fig svg.v2-wf-tall { display: none; max-width: 400px; }
+        /* The workflow: one claim, two loops. Indigo is the big loop (a different design, back through the plan); orange is the small loop (the same design, straight back to the recording). */
+        .v2-dg .loop-big { fill: var(--ai-soft); stroke: var(--ai); stroke-width: 2.5; stroke-linejoin: round; }
+        .v2-dg .loop-small { fill: var(--you-soft); stroke: var(--you); stroke-width: 2.5; stroke-linejoin: round; }
+        .v2-dg .loophead-big { fill: var(--ai); }
+        .v2-dg .loophead-small { fill: var(--you); }
+        .v2-dg .looplbl { font-family: var(--font-display); font-size: 14.5px; font-weight: 700; text-anchor: middle; }
+        .v2-dg .loopsub { font-size: 12.5px; text-anchor: middle; }
+        .v2-dg .is-big { fill: var(--ai-dark); }
+        .v2-dg .is-small { fill: var(--you-dark); }
+        /* A diamond across the page on a wide screen, stood on its point on a phone. */
+        .v2-fig svg.v2-wf { min-width: 760px; max-width: 902px; }
+        .v2-fig svg.v2-wf-tall { display: none; max-width: 380px; }
         @media (max-width: 700px) { .v2-wf-wide { display: none; } .v2-fig svg.v2-wf-tall { display: block; } }
         .v2-pullquote { font-style: italic; font-size: 1.35rem; line-height: 1.5; padding: 1.25rem 1.5rem; border-left: 3px solid var(--accent); background: var(--surface-raised); border-radius: 0 0.5rem 0.5rem 0; margin: 0 0 1.75rem; color: var(--text); }
         .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
@@ -140,8 +135,8 @@
                 <h1>Can AI be a good lab partner?</h1>
                 <p class="v2-tagline">
                     A student asks a question. An AI agent chooses the materials, designs
-                    the experiment, reads the thermal recordings, says what to change in
-                    the next round, and writes the lab report.
+                    the experiment, reads the thermal recordings, says what to change
+                    next, and writes the lab report.
                 </p>
             </div>
         </header>
@@ -169,186 +164,146 @@
                         the student can ask what could be done with things found in a kitchen or
                         around the house, and the agent says which ones to use. The student can
                         also put items on a table and share a photo of them, and the agent
-                        decides what to do with them. Either way, the agent designs the
-                        experiment.
+                        decides what to do with them. Either way, the agent turns the question
+                        into a claim that can be tested and designs an experiment to test it.
                     </p>
 
                     <p>
                         The student then does the experiment by hand and records it with a thermal
                         camera. The agent reads the temperature data in the recording, discusses
-                        the result, and says what to change in the next round. The two can go
-                        around this loop as many times as the question needs, and at the end, the
-                        agent writes a lab report. The agent never touches the bench: all it
-                        knows about the experiment comes through the camera and the conversation.
+                        the result, and says what to change next. From the discussion, there are
+                        two ways back. The short way is to record the same design again with
+                        the problems fixed, to improve the quality of the data. The long way is
+                        to go back to the plan for a different design that tests the same claim,
+                        to cross-validate the result. The student and the agent can go around
+                        either loop as many times as the claim needs, and at the end, the agent
+                        writes a lab report. The agent never touches the bench: all it knows
+                        about the experiment comes through the camera and the conversation.
                     </p>
 
                     <figure class="v2-fig">
                         <div class="v2-fig-scroll v2-wf-wide">
-                        <svg class="v2-dg v2-wf" viewBox="0 30 1200 352" role="img" aria-label="The workflow of an experiment, in two lanes: you at the bench, and the AI agent in the app. Step 1, question, is yours: ask what you want to find out, in words or with a photo. The question goes to the agent. Step 2, plan, is the agent's: it picks the materials, draws the setup, and predicts the result. The plan comes back to you, and you can edit it. Step 3, experiment, is yours: do it by hand and record it with a thermal camera. The recording goes to the agent. Step 4, analysis, is the agent's: it looks at the frames and runs its own code on the data. Step 5, discussion, belongs to both: you ask why, and say what the agent got wrong. The agent answers from the data, says what you got wrong, and proposes what to change. From the discussion, a new plan for the next round goes back to step 2. Step 6, report, is the agent's: it writes it up with its own figures and rewrites on request. The report comes back to you, and you can edit it. The result is a lab report.">
-                            <rect class="lane-you" x="0" y="44" width="1200" height="132" rx="16"/>
-                            <rect class="lane-ai" x="0" y="200" width="1200" height="132" rx="16"/>
-                            <text class="who is-you" x="18" y="106">YOU</text>
-                            <text class="desc" x="18" y="124">at the bench</text>
-                            <text class="who is-ai" x="18" y="262">AI AGENT</text>
-                            <text class="desc" x="18" y="280">in the app</text>
+                        <svg class="v2-dg v2-wf" viewBox="0 0 902 354" role="img" aria-label="The workflow of an experiment, drawn as four steps joined in a closed loop, with a shortcut across the middle. It starts outside the loop, with a question turned into a claim: a testable statement. The claim leads into the loop at the plan: a setup and a prediction. Going clockwise, the next steps are a recording, made by hand on camera; an analysis of what the data shows; and a discussion of what to change next. From the discussion there are two ways on. The shortcut goes straight back to the recording, which makes the small loop, to improve data quality: the same design, for a cleaner recording. The outer path leads back through the plan, which makes the big loop, to cross-validate: a different design for the same claim. When the loops are done, the discussion leads to the report, the final write-up.">
+                            <!-- the big loop: all four steps -->
+                            <path class="loop-big" d="M286,134 L556,38 L826,134 L556,230 Z"/>
+                            <!-- the small loop: recording, analysis, discussion, and straight back up -->
+                            <path class="loop-small" d="M556,49.7 L793.2,134 L556,218.3 Z"/>
 
-                            <!-- 1 Question (you) -->
-                            <rect class="card is-you" x="100" y="58" width="164" height="104" rx="12"/>
-                            <circle class="dot-you" cx="122" cy="82" r="12"/>
-                            <text class="num" x="122" y="87">1</text>
-                            <text class="name" x="142" y="88">Question</text>
-                            <text class="desc" x="114" y="113">Ask what you want to</text>
-                            <text class="desc" x="114" y="130">find out, in words or</text>
-                            <text class="desc" x="114" y="147">with a photo</text>
-                            <path class="flow" d="M182,162 V266 H268"/>
-                            <path class="head" d="M278,266 l-10,-5 v10 z"/>
-                            <text class="lbl" x="192" y="192">a question</text>
+                            <!-- which way round: clockwise, and up the shortcut -->
+                            <path class="loophead-big" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(421,86) rotate(-19.57)"/>
+                            <path class="loophead-big" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(704,90.6) rotate(19.57)"/>
+                            <path class="loophead-big" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(704,177.4) rotate(160.43)"/>
+                            <path class="loophead-big" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(421,182) rotate(199.57)"/>
+                            <path class="loophead-small" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(672,90.9) rotate(19.57)"/>
+                            <path class="loophead-small" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(672,177.1) rotate(160.43)"/>
+                            <path class="loophead-small" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(556,134) rotate(270)"/>
 
-                            <!-- 2 Plan (agent) -->
-                            <rect class="card is-ai" x="278" y="214" width="164" height="104" rx="12"/>
-                            <circle class="dot-ai" cx="300" cy="238" r="12"/>
-                            <text class="num" x="300" y="243">2</text>
-                            <text class="name" x="320" y="244">Plan</text>
-                            <text class="desc" x="292" y="269">Picks the materials,</text>
-                            <text class="desc" x="292" y="286">draws the setup, and</text>
-                            <text class="desc" x="292" y="303">predicts the result</text>
-                            <path class="flow" d="M360,214 V110 H446"/>
-                            <path class="head" d="M456,110 l-10,-5 v10 z"/>
-                            <text class="lbl" x="370" y="192">the plan</text>
-                            <text class="lbl" x="370" y="150">yours to edit</text>
+                            <!-- what each loop is -->
+                            <text class="looplbl is-big" x="462" y="129">Cross-validate</text>
+                            <text class="loopsub is-big" x="462" y="148">a different design</text>
+                            <text class="looplbl is-small" x="646" y="129">Improve data quality</text>
+                            <text class="loopsub is-small" x="646" y="148">the same design</text>
 
-                            <!-- 3 Experiment (you) -->
-                            <rect class="card is-you" x="456" y="58" width="164" height="104" rx="12"/>
-                            <circle class="dot-you" cx="478" cy="82" r="12"/>
-                            <text class="num" x="478" y="87">3</text>
-                            <text class="name" x="498" y="88">Experiment</text>
-                            <text class="desc" x="470" y="113">Do it by hand and</text>
-                            <text class="desc" x="470" y="130">record it with a</text>
-                            <text class="desc" x="470" y="147">thermal camera</text>
-                            <path class="flow" d="M538,162 V266 H624"/>
-                            <path class="head" d="M634,266 l-10,-5 v10 z"/>
-                            <text class="lbl" x="548" y="192">the recording</text>
+                            <!-- Question and claim: set once, outside the loop -->
+                            <rect class="card" x="8" y="106" width="176" height="56" rx="12"/>
+                            <text class="name mid" x="96" y="130">Question / Claim</text>
+                            <text class="desc mid" x="96" y="148">A testable statement</text>
+                            <path class="flow" d="M184,134 H208"/>
+                            <path class="head" d="M218,134 l-10,-5 v10 z"/>
 
-                            <!-- 4 Analysis (agent) -->
-                            <rect class="card is-ai" x="634" y="214" width="164" height="104" rx="12"/>
-                            <circle class="dot-ai" cx="656" cy="238" r="12"/>
-                            <text class="num" x="656" y="243">4</text>
-                            <text class="name" x="676" y="244">Analysis</text>
-                            <text class="desc" x="648" y="269">Looks at the frames</text>
-                            <text class="desc" x="648" y="286">and runs its own</text>
-                            <text class="desc" x="648" y="303">code on the data</text>
-                            <path class="flow" d="M798,266 H822"/>
-                            <path class="head" d="M832,266 l-10,-5 v10 z"/>
+                            <!-- Plan: only on the big loop -->
+                            <rect class="card" x="218" y="106" width="136" height="56" rx="12"/>
+                            <text class="name mid" x="286" y="130">Plan</text>
+                            <text class="desc mid" x="286" y="148">Setup and prediction</text>
 
-                            <!-- 5 Discussion (both lanes) -->
-                            <rect class="card" x="832" y="58" width="164" height="260" rx="12"/>
-                            <circle class="dot-both" cx="854" cy="82" r="12"/>
-                            <text class="num" x="854" y="87">5</text>
-                            <text class="name" x="874" y="88">Discussion</text>
-                            <text class="desc" x="846" y="113">You ask why, and</text>
-                            <text class="desc" x="846" y="130">say what the agent</text>
-                            <text class="desc" x="846" y="147">got wrong</text>
-                            <path class="flow" d="M914,176 V200"/>
-                            <path class="head" d="M914,167 l-5,10 h10 z"/>
-                            <path class="head" d="M914,209 l-5,-10 h10 z"/>
-                            <text class="desc" x="846" y="236">The agent answers</text>
-                            <text class="desc" x="846" y="253">from the data, says</text>
-                            <text class="desc" x="846" y="270">what you got wrong,</text>
-                            <text class="desc" x="846" y="287">and proposes what</text>
-                            <text class="desc" x="846" y="304">to change</text>
-                            <!-- back to the plan: the next round -->
-                            <path class="back" d="M914,318 V354 H360 V328"/>
-                            <path class="backhead" d="M360,318 l-5,10 h10 z"/>
-                            <text class="lbl mid" x="637" y="372">a new plan for the next round</text>
-                            <path class="flow" d="M996,266 H1020"/>
-                            <path class="head" d="M1030,266 l-10,-5 v10 z"/>
+                            <!-- Recording -->
+                            <rect class="card" x="488" y="10" width="136" height="56" rx="12"/>
+                            <text class="name mid" x="556" y="34">Recording</text>
+                            <text class="desc mid" x="556" y="52">By hand, on camera</text>
 
-                            <!-- 6 Report (agent) -->
-                            <rect class="card is-ai" x="1030" y="214" width="164" height="104" rx="12"/>
-                            <circle class="dot-ai" cx="1052" cy="238" r="12"/>
-                            <text class="num" x="1052" y="243">6</text>
-                            <text class="name" x="1072" y="244">Report</text>
-                            <text class="desc" x="1044" y="269">Writes it up with</text>
-                            <text class="desc" x="1044" y="286">its own figures;</text>
-                            <text class="desc" x="1044" y="303">rewrites on request</text>
-                            <path class="flow" d="M1112,214 V138"/>
-                            <path class="head" d="M1112,128 l-5,10 h10 z"/>
-                            <text class="lbl" x="1122" y="192">the report</text>
-                            <text class="lbl" x="1122" y="160">yours to edit</text>
-                            <rect class="out" x="1042" y="92" width="140" height="36" rx="18"/>
-                            <text class="outlbl" x="1112" y="115">A LAB REPORT</text>
+                            <!-- Analysis -->
+                            <rect class="card" x="758" y="106" width="136" height="56" rx="12"/>
+                            <text class="name mid" x="826" y="130">Analysis</text>
+                            <text class="desc mid" x="826" y="148">What the data shows</text>
+
+                            <!-- Discussion: where the two loops part, and the way out -->
+                            <rect class="card" x="488" y="202" width="136" height="56" rx="12"/>
+                            <text class="name mid" x="556" y="226">Discussion</text>
+                            <text class="desc mid" x="556" y="244">What to change next</text>
+                            <path class="flow" d="M556,258 V278"/>
+                            <path class="head" d="M556,288 l-5,-10 h10 z"/>
+
+                            <!-- Report -->
+                            <rect class="card" x="488" y="288" width="136" height="56" rx="12"/>
+                            <text class="name mid" x="556" y="312">Report</text>
+                            <text class="desc mid" x="556" y="330">The final write-up</text>
                         </svg>
                         </div>
-                        <svg class="v2-dg v2-wf-tall" viewBox="0 0 360 632" role="img" aria-label="The workflow of an experiment. Step 1, yours, question: in words, or with a photo. Step 2, the AI agent's, plan: the materials, a setup drawing, a prediction; you can edit the plan. Step 3, yours, experiment: by hand, under a thermal camera. Step 4, the agent's, analysis: it looks at frames and runs its own code. Step 5, yours and the agent's, discussion: corrections, and what to change next; from here, a new plan for the next round goes back to step 2. Step 6, the agent's, report: its own figures, rewritten on request; you can edit the report. The result is a lab report.">
-                            <rect class="card is-you" x="46" y="10" width="300" height="74" rx="12"/>
-                            <circle class="dot-you" cx="72" cy="47" r="13"/>
-                            <text class="num" x="72" y="52">1</text>
-                            <text class="who is-you" x="96" y="31">YOU</text>
-                            <text class="name" x="96" y="52">Question</text>
-                            <text class="desc" x="96" y="71">In words, or with a photo</text>
-                            <path class="flow" d="M196,84 V96"/>
-                            <path class="head" d="M196,106 l-5,-10 h10 z"/>
+                        <svg class="v2-dg v2-wf-tall" viewBox="0 0 372 620" role="img" aria-label="The workflow of an experiment, drawn as four steps joined in a closed loop, with a shortcut across the middle. It starts outside the loop, with a question turned into a claim: a testable statement. The claim leads into the loop at the plan: a setup and a prediction. Going clockwise, the next steps are a recording, made by hand on camera; an analysis of what the data shows; and a discussion of what to change next. From the discussion there are two ways on. The shortcut goes straight back to the recording, which makes the small loop, to improve data quality: the same design, for a cleaner recording. The outer path leads back through the plan, which makes the big loop, to cross-validate: a different design for the same claim. When the loops are done, the discussion leads to the report, the final write-up.">
+                            <!-- the big loop: all four steps -->
+                            <path class="loop-big" d="M186,112 L309,312 L186,512 L63,312 Z"/>
+                            <!-- the small loop: recording, analysis, discussion, and straight across -->
+                            <path class="loop-small" d="M75.9,312 L296.1,312 L186,491 Z"/>
 
-                            <rect class="card is-ai" x="46" y="106" width="300" height="74" rx="12"/>
-                            <circle class="dot-ai" cx="72" cy="143" r="13"/>
-                            <text class="num" x="72" y="148">2</text>
-                            <text class="who is-ai" x="96" y="127">AI AGENT</text>
-                            <text class="name" x="96" y="148">Plan</text>
-                            <text class="desc" x="96" y="167">Materials, setup drawing, prediction</text>
-                            <path class="flow" d="M196,180 V192"/>
-                            <path class="head" d="M196,202 l-5,-10 h10 z"/>
-                            <text class="lbl" x="208" y="195">yours to edit</text>
+                            <!-- which way round: clockwise, and across the shortcut -->
+                            <path class="loophead-big" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(247.5,212) rotate(58.4)"/>
+                            <path class="loophead-big" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(241.4,422) rotate(121.6)"/>
+                            <path class="loophead-big" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(130.6,422) rotate(238.4)"/>
+                            <path class="loophead-big" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(124.5,212) rotate(301.6)"/>
+                            <path class="loophead-small" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(249.9,387.2) rotate(121.6)"/>
+                            <path class="loophead-small" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(122.1,387.2) rotate(238.4)"/>
+                            <path class="loophead-small" d="M8,0 L-6,-7 L-6,7 Z" transform="translate(186,312)"/>
 
-                            <rect class="card is-you" x="46" y="202" width="300" height="74" rx="12"/>
-                            <circle class="dot-you" cx="72" cy="239" r="13"/>
-                            <text class="num" x="72" y="244">3</text>
-                            <text class="who is-you" x="96" y="223">YOU</text>
-                            <text class="name" x="96" y="244">Experiment</text>
-                            <text class="desc" x="96" y="263">By hand, under a thermal camera</text>
-                            <path class="flow" d="M196,276 V288"/>
-                            <path class="head" d="M196,298 l-5,-10 h10 z"/>
+                            <!-- what each loop is -->
+                            <text class="looplbl is-big" x="186" y="236">Cross-validate</text>
+                            <text class="loopsub is-big" x="186" y="255">a different design</text>
+                            <text class="looplbl is-small" x="186" y="364">Improve data quality</text>
+                            <text class="loopsub is-small" x="186" y="383">the same design</text>
 
-                            <rect class="card is-ai" x="46" y="298" width="300" height="74" rx="12"/>
-                            <circle class="dot-ai" cx="72" cy="335" r="13"/>
-                            <text class="num" x="72" y="340">4</text>
-                            <text class="who is-ai" x="96" y="319">AI AGENT</text>
-                            <text class="name" x="96" y="340">Analysis</text>
-                            <text class="desc" x="96" y="359">Looks at frames, runs its own code</text>
-                            <path class="flow" d="M196,372 V384"/>
-                            <path class="head" d="M196,394 l-5,-10 h10 z"/>
+                            <!-- Question and claim: set once, outside the loop -->
+                            <rect class="card" x="98" y="8" width="176" height="56" rx="12"/>
+                            <text class="name mid" x="186" y="32">Question / Claim</text>
+                            <text class="desc mid" x="186" y="50">A testable statement</text>
+                            <path class="flow" d="M186,64 V74"/>
+                            <path class="head" d="M186,84 l-5,-10 h10 z"/>
 
-                            <rect class="card" x="46" y="394" width="300" height="74" rx="12"/>
-                            <circle class="dot-both" cx="72" cy="431" r="13"/>
-                            <text class="num" x="72" y="436">5</text>
-                            <text class="who" x="96" y="415">YOU AND THE AGENT</text>
-                            <text class="name" x="96" y="436">Discussion</text>
-                            <text class="desc" x="96" y="455">Corrections, and what to change next</text>
-                            <path class="back" d="M46,431 H22 V143 H36"/>
-                            <path class="backhead" d="M46,143 l-10,-5 v10 z"/>
-                            <text class="lbl mid" transform="translate(14,287) rotate(-90)">a new plan for the next round</text>
-                            <path class="flow" d="M196,468 V480"/>
-                            <path class="head" d="M196,490 l-5,-10 h10 z"/>
+                            <!-- Plan -->
+                            <rect class="card" x="125" y="84" width="122" height="56" rx="12"/>
+                            <text class="name mid" x="186" y="108">Plan</text>
+                            <text class="desc mid" x="186" y="126">Setup and prediction</text>
 
-                            <rect class="card is-ai" x="46" y="490" width="300" height="74" rx="12"/>
-                            <circle class="dot-ai" cx="72" cy="527" r="13"/>
-                            <text class="num" x="72" y="532">6</text>
-                            <text class="who is-ai" x="96" y="511">AI AGENT</text>
-                            <text class="name" x="96" y="532">Report</text>
-                            <text class="desc" x="96" y="551">Its own figures; rewritten on request</text>
-                            <path class="flow" d="M196,564 V576"/>
-                            <path class="head" d="M196,586 l-5,-10 h10 z"/>
-                            <text class="lbl" x="208" y="579">yours to edit</text>
-                            <rect class="out" x="110" y="586" width="172" height="36" rx="18"/>
-                            <text class="outlbl" x="196" y="609">A LAB REPORT</text>
+                            <!-- Recording -->
+                            <rect class="card" x="248" y="284" width="122" height="56" rx="12"/>
+                            <text class="name mid" x="309" y="308">Recording</text>
+                            <text class="desc mid" x="309" y="326">By hand, on camera</text>
+
+                            <!-- Analysis -->
+                            <rect class="card" x="125" y="484" width="122" height="56" rx="12"/>
+                            <text class="name mid" x="186" y="508">Analysis</text>
+                            <text class="desc mid" x="186" y="526">What the data shows</text>
+
+                            <!-- Discussion -->
+                            <rect class="card" x="2" y="284" width="122" height="56" rx="12"/>
+                            <text class="name mid" x="63" y="308">Discussion</text>
+                            <text class="desc mid" x="63" y="326">What to change next</text>
+                            <path class="flow" d="M63,340 V546"/>
+                            <path class="head" d="M63,556 l-5,-10 h10 z"/>
+
+                            <!-- Report -->
+                            <rect class="card" x="2" y="556" width="122" height="56" rx="12"/>
+                            <text class="name mid" x="63" y="580">Report</text>
+                            <text class="desc mid" x="63" y="598">The final write-up</text>
                         </svg>
-                        <figcaption><strong>The workflow of an experiment, and what the agent does at each step.</strong> The experiment featured in this article went through two rounds.</figcaption>
+                        <figcaption><strong>The workflow of an experiment: one claim, two loops.</strong> The small loop repeats the same design to improve the data. The big loop goes back to the plan for a different design, to cross-validate the result.</figcaption>
                     </figure>
 
                     <p>
                         As an example, this article follows one experiment from the first
                         question to the final report. We kept the start simple: a photo of salt,
-                        baking soda, and three dishes from a kitchen. The experiment went through
-                        two rounds, with the first result contradicting the agent's prediction. The agent
+                        baking soda, and three dishes from a kitchen. The experiment has
+                        been twice around the small loop: three recordings of the same design, with
+                        the first result contradicting the agent's prediction. For the big loop,
+                        the agent has proposed different designs, which we leave for readers to try. The agent
                         ran on OpenAI's GPT-6 Luna. The window below is the experiment as we left
                         it, with the whole conversation.
                     </p>
@@ -397,8 +352,10 @@
                     </div>
 
                     <p>
-                        The agent's plan made a prediction with numbers in it: salt and baking soda both
-                        take in heat as they dissolve, so both of their dishes should cool, by a
+                        The agent's plan turned our open question into a claim that can be tested:
+                        salt and baking soda both take in heat as they dissolve, so both cool the
+                        water, baking soda probably more than salt. For this setup, the claim
+                        became a prediction with numbers in it: both of their dishes should cool, by a
                         few tenths of a degree Celsius for salt and by perhaps 0.5 to 1.5&nbsp;&deg;C for
                         baking soda. It also said what would count as a failed prediction: all three
                         dishes exhibiting similar temperature changes, or the baking soda and
@@ -406,7 +363,7 @@
                         own design before we did: equal spoonfuls are not equal masses.
                     </p>
 
-                    <h2>The first round: a tie</h2>
+                    <h2>The first recording: a tie</h2>
 
                     <p>
                         We filled the three dishes with water, pointed a FLIR ONE Edge Pro
@@ -423,7 +380,7 @@
                         <img src="image/ie-ai-lab-partner-run1-ir.jpg" alt="Thermal frame of the same three dishes at 105 seconds with the reading areas T1, T2, and T3 on the water surfaces; all three dishes are cooler than the table">
                     </div>
                     <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: -1rem;">
-                        Figure 3: The first run at 105 seconds in, seen in visible light (left) and infrared
+                        Figure 3: The first recording at 105 seconds in, seen in visible light (left) and infrared
                         light (right). Top to bottom: plain water, water with salt, water with
                         baking soda. The baking soda lies in a white heap on the bottom of its
                         dish. The colors run from 18.2&nbsp;&deg;C (dark pink/purple) to 23.2&nbsp;&deg;C (white).
@@ -450,7 +407,7 @@
 
                     <figure class="v2-formula is-compact">
                         <img src="image/ie-ai-lab-partner-run1-chart.png" alt="Chart of the salt and baking soda dishes' temperature minus the control's over 38 minutes; the two lines fall together to about minus 0.8 degrees and recover together">
-                        <figcaption>Figure 4: The agent's chart of the first run, showing the temperatures of the salt dish and the baking soda dish minus the control, with the frames near camera recalibrations left out. Salt and baking soda cool together and recover together.</figcaption>
+                        <figcaption>Figure 4: The agent's chart of the first recording, showing the temperatures of the salt dish and the baking soda dish minus the control, with the frames near camera recalibrations left out. Salt and baking soda cool together and recover together.</figcaption>
                     </figure>
 
                     <p>
@@ -496,23 +453,25 @@
 
                     <p>
                         The agent did not stop at explaining the tie. Its analysis had already
-                        said that a repeat of the experiment should have equal amounts of the two solids and every
+                        said that a repeat should have equal amounts of the two solids and every
                         dish should be stirred equally. When we asked what would make the difference in cooling
                         between salt and baking soda more noticeable, it
-                        gave a new design for the next round: weigh the two solids instead of
+                        described a repeat of the same design, done with more care: weigh the two solids instead of
                         measuring them by the scoop, 8&nbsp;g of each in 100&nbsp;mL of water
                         (which is a ratio at which the baking soda can fully dissolve in the water); stir each dish
                         the same way for the same time; and set the dishes on insulating pads.
-                        Only the stirring had been in the agent's first plan. The
+                        Only the stirring had been in the agent's first plan. This is the small
+                        loop of the workflow: the claim and the design stay as they are, and
+                        what changes is the quality of the data. The
                         <a href="#experiment">full exchange</a> can be found near the top
                         of this article.
                     </p>
 
-                    <h2>The second round: stirring</h2>
+                    <h2>The second recording: stirring</h2>
 
                     <p>
-                        We ran the experiment again with the same three dishes and the same
-                        scoops of salt and baking soda, and recorded another time-lapse, this time
+                        We recorded the same design again, with the same three dishes and the same
+                        scoops of salt and baking soda, as another time-lapse, this time
                         for 10 minutes. Of the agent's changes, we made only one: after the salt and
                         the baking soda were added, we stirred those
                         two dishes with sticks. We left the control alone (see Figure 5 below).
@@ -520,7 +479,7 @@
 
                     <figure class="v2-formula is-strip">
                         <img src="image/ie-ai-lab-partner-run2-strip.jpg" alt="Two rows of six frames of the second recording, at 20, 41, 51, 71, 102, and 132 seconds. In visible light, sticks reach into the salt dish and the baking soda dish from 41 seconds on. In infrared light, the baking soda dish at the bottom turns from orange to deep purple by 71 seconds and keeps darkening, the salt dish in the middle darkens only a little, and the control at the top changes least.">
-                        <figcaption>Figure 5: Six moments of the second run, in visible light (top) and infrared light (bottom). All three dishes contain only plain water at 20 seconds. Then, around 40 seconds, salt and baking soda are added and stirred into the middle and bottom dishes, respectively. The salt and baking soda dishes are noticeably colder than the control about 60 seconds later. The colors run from 19.6&nbsp;&deg;C (dark purple) to 24.8&nbsp;&deg;C (white).</figcaption>
+                        <figcaption>Figure 5: Six moments of the second recording, in visible light (top) and infrared light (bottom). All three dishes contain only plain water at 20 seconds. Then, around 40 seconds, salt and baking soda are added and stirred into the middle and bottom dishes, respectively. The salt and baking soda dishes are noticeably colder than the control about 60 seconds later. The colors run from 19.6&nbsp;&deg;C (dark purple) to 24.8&nbsp;&deg;C (white).</figcaption>
                     </figure>
 
                     <p>
@@ -539,8 +498,8 @@
                         stayed about 2.3&nbsp;&deg;C below the plain-water control and the salt dish about
                         0.6&nbsp;&deg;C below. The baking soda dish did cool
                         more than the salt dish, and by more than the predicted 0.5 to
-                        1.5&nbsp;&deg;C. The agent still did not call the question settled: one
-                        run alone cannot show that the difference is repeatable, it said.
+                        1.5&nbsp;&deg;C. The agent still did not call the claim settled: one
+                        recording alone cannot show that the difference is repeatable, it said.
                     </p>
 
                     <figure class="v2-embed">
@@ -556,50 +515,114 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/experiments/DBeMqkguP2iiJspkQ65b">Open the second recording in Infrared Explorer</a>
                     </div>
 
-                    <h2>The report, and the next round</h2>
+                    <h2>The third recording: equal masses</h2>
 
                     <p>
-                        When we asked for a report, the agent wrote one in five sections, from
-                        question and prediction to conclusion, with figures it made itself. It
-                        also checked its own work: it redrew one chart and later corrected a
-                        sentence of its own. We asked the agent to do the following:
+                        The second recording still compared a scoop with a scoop, and the plan had
+                        said from the start that equal spoonfuls are not equal masses. We went
+                        around the small loop once more and made another of the agent's changes:
+                        we measured the amounts. Each dish held 30&nbsp;mL of water, and the middle
+                        and bottom dishes got 2&nbsp;g of salt and 2&nbsp;g of baking soda, both
+                        stirred. The control was again left alone.
                     </p>
-
-                    <p class="v2-pullquote">Add a comparison of the two recordings to the report with two separate charts, one for each recording, explain why the results differ.</p>
 
                     <p>
-                        The agent went back to the recordings of both rounds of the experiment, ran one analysis on the two, and
-                        drew the two charts on the same axes (Figure 6).
+                        The agent measured the third recording the way it had measured the second:
+                        each dish from its own starting temperature, then against the control. The
+                        baking soda dish again cooled more. Between three and five minutes after
+                        the solids were added, it read about 2.4&nbsp;&deg;C below the control, and
+                        the salt dish about 1.0&nbsp;&deg;C below. The agent called this the
+                        clearest comparison so far, because the masses and the water volumes were
+                        equal, and noted that it agrees with the second recording. It also kept
+                        the limits in view: this is still a single recording, and equal masses are
+                        not equal numbers of moles.
                     </p>
 
-                    <div class="v2-screenshot-row">
-                        <img src="image/ie-ai-lab-partner-compare-run1.png" alt="Chart for the first recording: the salt and baking soda lines nearly overlap and fall slowly to about minus 0.8 degrees over ten minutes">
-                        <img src="image/ie-ai-lab-partner-compare-run2.png" alt="Chart for the second recording on the same axes: baking soda drops to about minus 2.4 degrees within two minutes while salt stays near minus 0.6 degrees">
+                    <figure class="v2-embed">
+                        <iframe src="https://ie.intofuture.org/experiments/DDBRZQDsHpUGjQNFfwhr?viewonly=true"
+                                id="ie-frame-run3" loading="lazy" allowfullscreen="true" title="The third recording in Infrared Explorer"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('ie-frame-run3');">View fullscreen</a><br>
+                            The third recording, with the same chart: 30&nbsp;mL of water in each dish, with 2&nbsp;g of salt in the middle one and 2&nbsp;g of baking soda in the bottom one.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/experiments/DDBRZQDsHpUGjQNFfwhr">Open the third recording in Infrared Explorer</a>
                     </div>
-                    <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: -1rem;">
-                        Figure 6: The two charts in the final report, on the same axes: each dish's
-                        change from its own starting temperature, minus the control's change,
-                        against seconds elapsed since the salt and the baking soda were added. Left: the first
-                        run, with no stirring. Right: the second run, with stirring.
-                    </p>
+
+                    <h2>The report</h2>
 
                     <p>
-                        The revised report named a second difference between the runs that had
-                        not come up before: the water started about 3.5&nbsp;&deg;C warmer in the
-                        second run. It did not claim that the stirring was the cause, only
-                        that it could be. And it ended with the design of a potential third round:
+                        When we asked for a report, the agent went back to all three recordings,
+                        computed them again with one method, and checked the numbers before it
+                        wrote anything. The report has a part for each recording (it calls them
+                        rounds), each with a thermal frame that shows where the temperatures were
+                        read and a chart on the same axes (Figure 6). A table then puts the three
+                        side by side.
                     </p>
 
-                    <p class="v2-pullquote">A useful next test is several matched runs with weighed powder amounts, identical water volumes and stirring, and a clearly recorded addition time.</p>
+                    <div class="v2-screenshot-row is-charts">
+                        <img src="image/ie-ai-lab-partner-report-rec1.png" alt="Chart for the first recording: the salt and baking soda lines nearly overlap and fall slowly to about minus 0.8 degrees over seven minutes">
+                        <img src="image/ie-ai-lab-partner-report-rec2.png" alt="Chart for the second recording on the same axes: baking soda drops to about minus 2.4 degrees within two minutes while salt stays near minus 0.6 degrees">
+                        <img src="image/ie-ai-lab-partner-report-rec3.png" alt="Chart for the third recording on the same axes: baking soda falls to about minus 2.4 degrees and salt to about minus 1 degree">
+                        <p class="v2-row-caption">
+                            Figure 6: The three charts in the report, on the same axes: each dish's
+                            change from its own starting temperature, minus the control's change,
+                            against seconds elapsed since the salt and the baking soda were added.
+                            The first recording had no stirring; the second had stirring; the
+                            third had stirring and equal masses.
+                        </p>
+                    </div>
 
                     <p>
-                        We have not run this round yet.
+                        The report kept the claim to what the recordings can carry. All three show
+                        the dishes with salt and baking soda cooling relative to the control, and
+                        the two stirred recordings show the baking soda dish cooling more. On why
+                        the first recording differs, it did not claim that the stirring was the
+                        cause, only that it could be: the recordings also started at different
+                        temperatures, and the amounts in the first two were never measured. Its
+                        last sentence asks for the small loop again, a repeat of the third
+                        recording, to find out whether the larger drop for baking soda is
+                        reproducible.
+                    </p>
+
+                    <h2>Different designs for the same claim</h2>
+
+                    <p>
+                        A repeat can show that a result is reliable. It cannot show that the
+                        result means what we think it means, because all three recordings share
+                        one design and its blind spots. So we asked for the other loop:
+                    </p>
+
+                    <p class="v2-pullquote">Generate different experimental designs to prove the science.</p>
+
+                    <p>
+                        The agent began with the word &ldquo;prove&rdquo;: no single experiment
+                        proves a mechanism, it said, but agreement across different tests makes
+                        the evidence much stronger. Then it gave three designs and said what each
+                        would test:
+                    </p>
+
+                    <ol>
+                        <li><strong>The same comparison with tighter controls.</strong> The same amounts, with the control stirred too, both solids added at the same moment, and the whole trial repeated a few times with the dishes swapping places. This tests whether the larger cooling for baking soda is reliable, and not an effect of the stirring or of where a dish sits.</li>
+                        <li><strong>More baking soda, more cooling?</strong> A row of dishes with the same amount of water and increasing amounts of baking soda, from none to 2&nbsp;g, all small enough to dissolve fully. If the cooling grows with the amount dissolved, that ties the cooling to the dissolving.</li>
+                        <li><strong>A thermometer in the liquid.</strong> The salt and baking soda comparison in insulated cups, read with a thermometer probe. This tests whether the cooling the camera sees at the surface is also there in the bulk of the liquid.</li>
+                    </ol>
+
+                    <p>
+                        In the terms of the diagram, the first design is the small loop again,
+                        and it closes a gap in the agent's own first plan, which left the control
+                        unstirred. The second and the third are the big loop: different designs
+                        for the same claim. The agent's advice was to run the first, and then use
+                        the third as an independent check on the temperature. We leave these
+                        experiments for readers to try on their own.
                     </p>
 
                     <h2>What the agent missed</h2>
 
                     <p>
-                        The plainest clue to why the first run ended in a tie is in
+                        The plainest clue to why the first recording ended in a tie is in
                         <a href="#figure-3">Figure 3</a>, and the agent never mentioned it. Specifically, the
                         baking soda lies in a white heap on the bottom of its dish. The agent had, in fact, 
                         called up that frame. It gave the general reason that a solid left
@@ -630,14 +653,15 @@
                     <p>
                         This article uses salt and baking soda to illustrate a new way to learn
                         science in the real world: students ask an AI agent a question, the agent
-                        designs an experiment with materials that are easy to find, and the
-                        students do it with their own hands. The agent reads the thermal
-                        recording and hands back measured data, an argument, and a design for the
-                        next round, and at the end, it writes the report. Was it a
-                        good lab partner? In this experiment, it was. It turned a question into an
-                        experiment with a prediction that could fail, held to the data when we
+                        turns it into a claim and designs an experiment with materials that are
+                        easy to find, and the students do it with their own hands. The agent reads
+                        the thermal recording and hands back measured data, an argument, and what
+                        to do next: the same design again for better data, or a different design
+                        to cross-validate the result. At the end, it writes the report. Was it a
+                        good lab partner? In this experiment, it was. It turned a question into a
+                        claim and a prediction that could fail, held to the data when we
                         overstated the result, gave way when we knew our own procedure better, and
-                        corrected its own report twice. Its work still had to be checked, like the
+                        answered a request for proof with three ways to check its own result. Its work still had to be checked, like the
                         work of any lab partner.
                     </p>
 
