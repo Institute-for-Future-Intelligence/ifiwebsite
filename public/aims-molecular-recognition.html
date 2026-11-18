@@ -94,7 +94,7 @@
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
                     <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 17, 2026</span></p>
 
-                    <p>A cell holds thousands of kinds of molecules, and each protein in it works with only a few of them. An enzyme acts on its own substrate, an antibody binds its own target, and a receptor answers its own hormone. The way a protein tells one molecule from another is called molecular recognition.
+                    <p>A cell holds thousands of kinds of molecules, and each protein in it works with only a few of them. An enzyme acts on its own substrate, an antibody binds its own target, and a receptor binds its own hormone. The way a protein tells one molecule from another is called molecular recognition.
                     <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1002/cber.18940270364">Emil Fischer</a> described it in 1894 with the picture of a lock and a key: an enzyme acts on a molecule whose shape fits the enzyme. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.44.2.98">Koshland</a> added in 1958 that the protein changes its shape as the molecule binds.
                     Shape is one part of the fit. The charges on the molecule have to meet opposite charges on the protein, and the groups that can form hydrogen bonds have to find partners. Many drugs are molecules designed to be recognized by one protein.</p>
 
@@ -142,20 +142,35 @@
 
                     <h2>Six Molecules to Test</h2>
 
-                    <div class="v2-callout">
-                        <svg viewBox="0 0 320 250" role="img" aria-label="Three molecules drawn as diagrams: benzene, a ring of six carbon atoms; methylguanidinium, a carbon atom bonded to three nitrogen atoms with a positive charge and a methyl group; and benzamidinium, the ring joined to a carbon atom bonded to two nitrogen atoms with a positive charge." font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                    <p>Trypsin chooses among the side chains of the amino acids, so the example tests the ends of four side chains, along with the inhibitor and its ring. Benzene is the ring of benzamidine alone, with no charge. Methylguanidinium is the end of an arginine side chain, and butylammonium is the end of a lysine side chain. Each of the two carries a positive charge, and trypsin cuts after both amino acids. Toluene is the end of a phenylalanine side chain, a ring with no charge. Propanoate is the end of a glutamate side chain, with a negative charge. Trypsin cuts after neither of these two amino acids. Benzamidinium is the whole inhibitor, with the ring and the positive charge.
+                    Each of the four ends is the part of a side chain that enters the pocket. A free amino acid is a poor test: it has an amine group and an acid group of its own, and in a protein chain these two groups are bound to the neighboring amino acids. In two test runs, free leucine was in its binding site for 99&nbsp;% and 100&nbsp;% of the run, and trypsin does not cut after leucine.
+                    The agent fetches each molecule by name from the PubChem database. The names of the charged forms matter: &ldquo;benzamidinium&rdquo; and &ldquo;methylguanidinium&rdquo; give molecules with a charge of +1, and &ldquo;benzamidine&rdquo; and &ldquo;methylguanidine&rdquo; give neutral molecules.</p>
+
+                    <p>For each molecule, the agent removes the benzamidine of the crystal, puts the new molecule in its place, and docks it. Docking starts the molecule in 109 orientations, moves it from each one to a nearby position with a lower score, and keeps the best of the 109 results. The score adds the attraction and repulsion between the atoms of the molecule and the atoms of the protein, the attraction between their charges, and a term for each hydrogen bond. The score is an approximate energy of interaction in electron volts, and a lower score is better. It is an illustrative number that ranks molecules in the same pocket.
+                    Docking finds a position without clashes for all six molecules. The three with a positively charged group have the lowest scores: &minus;3.06 for methylguanidinium, &minus;2.86 for butylammonium, and &minus;3.49 for benzamidinium, each with hydrogen bonds to Asp189 and Ser190. Benzene (&minus;0.83) and toluene (&minus;0.99) form no hydrogen bonds, and propanoate (&minus;0.69) forms three, with Ser214 and Trp215.
+                    The docked position of benzamidinium is 1.2&nbsp;&Aring; from the position of benzamidine in the crystal. This is the root-mean-square distance from each of the nine carbon and nitrogen atoms of benzamidine in the crystal to the nearest atom of the same element in the docked molecule.</p>
+
+                    <div class="v2-screenshot-single">
+                        <svg viewBox="0 0 650 250" role="img" aria-label="Six molecules drawn as diagrams. Benzene: a ring of six carbon atoms. Methylguanidinium: a methyl group joined through a nitrogen atom to a carbon atom that carries two amino groups and a positive charge. Butylammonium: a chain of four carbon atoms that ends in an ammonium group with a positive charge. Toluene: the ring with a methyl group. Propanoate: a chain of three carbon atoms whose last carbon atom carries two oxygen atoms and a negative charge. Benzamidinium: the ring joined to a carbon atom that carries two amino groups and a positive charge." font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif" style="display:block; width:100%; height:auto; border:1px solid var(--border); border-radius:0.8rem; background:var(--surface); padding:1rem; box-sizing:border-box;">
                             <g fill="none" stroke="#334155" stroke-width="2">
                                 <polygon points="60,22 86,37 86,67 60,82 34,67 34,37"/>
                                 <circle cx="60" cy="52" r="17" stroke-width="1.5"/>
-                                <polygon points="60,172 86,187 86,217 60,232 34,217 34,187"/>
-                                <circle cx="60" cy="202" r="17" stroke-width="1.5"/>
-                                <line x1="86" y1="202" x2="112" y2="202"/>
-                                <line x1="120" y1="197" x2="140" y2="183"/>
-                                <line x1="120" y1="207" x2="140" y2="221"/>
                                 <line x1="52" y1="127" x2="76" y2="127"/>
                                 <line x1="100" y1="127" x2="112" y2="127"/>
                                 <line x1="120" y1="122" x2="140" y2="108"/>
                                 <line x1="120" y1="132" x2="140" y2="146"/>
+                                <polyline points="46,202 66,190 86,202 106,190 124,201"/>
+                                <polygon points="390,22 416,37 416,67 390,82 364,67 364,37"/>
+                                <circle cx="390" cy="52" r="17" stroke-width="1.5"/>
+                                <line x1="416" y1="52" x2="440" y2="52"/>
+                                <polyline points="376,127 396,115 416,126"/>
+                                <line x1="428" y1="122" x2="448" y2="108"/>
+                                <line x1="428" y1="132" x2="448" y2="146"/>
+                                <polygon points="390,172 416,187 416,217 390,232 364,217 364,187"/>
+                                <circle cx="390" cy="202" r="17" stroke-width="1.5"/>
+                                <line x1="416" y1="202" x2="442" y2="202"/>
+                                <line x1="450" y1="197" x2="470" y2="183"/>
+                                <line x1="450" y1="207" x2="470" y2="221"/>
                             </g>
                             <g font-size="13" fill="#334155">
                                 <text x="20" y="131">CH<tspan baseline-shift="sub" font-size="10">3</tspan></text>
@@ -163,33 +178,42 @@
                                 <text x="112" y="131" font-weight="600">C</text>
                                 <text x="142" y="107">NH<tspan baseline-shift="sub" font-size="10">2</tspan></text>
                                 <text x="142" y="153">NH<tspan baseline-shift="sub" font-size="10">2</tspan></text>
-                                <text x="112" y="206" font-weight="600">C</text>
-                                <text x="142" y="182">NH<tspan baseline-shift="sub" font-size="10">2</tspan></text>
-                                <text x="142" y="228">NH<tspan baseline-shift="sub" font-size="10">2</tspan></text>
+                                <text x="18" y="206">CH<tspan baseline-shift="sub" font-size="10">3</tspan></text>
+                                <text x="127" y="206">NH<tspan baseline-shift="sub" font-size="10">3</tspan></text>
+                                <text x="443" y="56">CH<tspan baseline-shift="sub" font-size="10">3</tspan></text>
+                                <text x="348" y="131">CH<tspan baseline-shift="sub" font-size="10">3</tspan></text>
+                                <text x="418" y="131" font-weight="600">C</text>
+                                <text x="450" y="107">O</text>
+                                <text x="450" y="153">O</text>
+                                <text x="442" y="206" font-weight="600">C</text>
+                                <text x="472" y="182">NH<tspan baseline-shift="sub" font-size="10">2</tspan></text>
+                                <text x="472" y="228">NH<tspan baseline-shift="sub" font-size="10">2</tspan></text>
                             </g>
                             <g font-size="15" font-weight="700" fill="#e11d48">
                                 <text x="126" y="120">+</text>
-                                <text x="126" y="195">+</text>
+                                <text x="156" y="198">+</text>
+                                <text x="456" y="195">+</text>
+                            </g>
+                            <g font-size="15" font-weight="700" fill="#2563eb">
+                                <text x="441" y="132">&minus;</text>
                             </g>
                             <g font-size="13" fill="#475569">
-                                <text x="190" y="50">benzene</text>
-                                <text x="190" y="66" font-size="11">the ring</text>
-                                <text x="190" y="124">methylguanidinium</text>
-                                <text x="190" y="140" font-size="11">the charged group</text>
-                                <text x="190" y="199">benzamidinium</text>
-                                <text x="190" y="215" font-size="11">both</text>
+                                <text x="185" y="48">benzene</text>
+                                <text x="185" y="64" font-size="11">ring of the inhibitor</text>
+                                <text x="185" y="123">methylguanidinium</text>
+                                <text x="185" y="139" font-size="11">end of arginine</text>
+                                <text x="185" y="198">butylammonium</text>
+                                <text x="185" y="214" font-size="11">end of lysine</text>
+                                <text x="515" y="48">toluene</text>
+                                <text x="515" y="64" font-size="11">end of phenylalanine</text>
+                                <text x="515" y="123">propanoate</text>
+                                <text x="515" y="139" font-size="11">end of glutamate</text>
+                                <text x="515" y="198">benzamidinium</text>
+                                <text x="515" y="214" font-size="11">the inhibitor</text>
                             </g>
                         </svg>
-                        <p><strong>Three of the six molecules.</strong> Benzene is the ring of the inhibitor alone. Methylguanidinium is the end of an arginine side chain, a positively charged group without a ring. Benzamidinium is the inhibitor, with the ring and a positively charged group.</p>
                     </div>
-
-                    <p>Trypsin chooses among the side chains of the amino acids, so the example tests the ends of four side chains, along with the inhibitor and its ring. Benzene is the ring of benzamidine alone, with no charge. Methylguanidinium is the end of an arginine side chain, and butylammonium is the end of a lysine side chain. Each of the two carries a positive charge, and trypsin cuts after both amino acids. Toluene is the end of a phenylalanine side chain, a ring with no charge. Propanoate is the end of a glutamate side chain, with a negative charge. Trypsin cuts after neither of these two amino acids. Benzamidinium is the whole inhibitor, with the ring and the positive charge.
-                    Each of the four ends is the part of a side chain that enters the pocket. A free amino acid is a poor test: it has a charged amine group and a charged acid group, and in a protein chain these two groups are bound to the neighboring amino acids. In two test runs, free leucine stayed in the pocket for the whole run, and trypsin does not cut after leucine.
-                    The agent fetches each molecule by name from the PubChem database. The names of the charged forms matter: &ldquo;benzamidinium&rdquo; and &ldquo;methylguanidinium&rdquo; give molecules with a charge of +1, and &ldquo;benzamidine&rdquo; and &ldquo;methylguanidine&rdquo; give neutral molecules.</p>
-
-                    <p>For each molecule, the agent removes the benzamidine of the crystal, puts the new molecule in its place, and docks it. Docking starts the molecule in 109 orientations, moves it from each one to a nearby position with a lower score, and keeps the best of the 109 results. The score adds the attraction and repulsion between the atoms of the molecule and the atoms of the protein, the attraction between their charges, and a term for each hydrogen bond. A lower score is better.
-                    Docking finds a position without clashes for all six molecules. The three with a positively charged group have the lowest scores: &minus;3.06 for methylguanidinium, &minus;2.86 for butylammonium, and &minus;3.49 for benzamidinium, each with hydrogen bonds to Asp189 and Ser190. Benzene (&minus;0.83) and toluene (&minus;0.99) form no hydrogen bonds, and propanoate (&minus;0.69) forms three, with Ser214 and Trp215.
-                    The docked position of benzamidinium is 1.2&nbsp;&Aring; from the position of benzamidine in the crystal. This is the root-mean-square distance from each of the nine carbon and nitrogen atoms of benzamidine in the crystal to the nearest atom of the same element in the docked molecule.</p>
+                    <p class="v2-chart-caption">The six molecules. A red plus sign marks a positive charge and a blue minus sign a negative charge. Each corner of a zigzag line is a carbon atom.</p>
 
                     <h2>Does the Docked Position Hold?</h2>
 
@@ -220,11 +244,11 @@
                     <p>Propanoate left its docked position after about 2&nbsp;ps and was 4 to 5&nbsp;&Aring; from it for most of the second half of the run. It was in its binding site for 12&nbsp;% of the run, and its average distance was 3.5&nbsp;&Aring;. Its closest contact, with the hydroxyl group of Ser195, was within 3.5&nbsp;&Aring; for 16&nbsp;% of the run, and no other contact reached 10&nbsp;%.</p>
 
                     <div class="v2-screenshot-single">
-                        <img src="image/aims-molecular-recognition-propanoate.png" alt="Two charts for the propanoate run over 20 ps. The upper chart shows the distances of five contacts between propanoate and the pocket, which stay between 3 and 9 angstroms and are above 3.5 angstroms for most of the run. The lower chart shows the distance of propanoate from its binding site, which passes 2 angstroms after 2 ps and stays between 4 and 5 angstroms after 9 ps">
+                        <img src="image/aims-molecular-recognition-propanoate.png" alt="Two charts for the propanoate run over 20 ps. The upper chart shows the distances of five contacts between propanoate and the pocket, which stay between 3 and 9 angstroms and are above 3.5 angstroms for most of the run. The lower chart shows the distance of propanoate from its binding site, which passes 2 angstroms after 2 ps and stays between 3.5 and 5 angstroms after 9 ps">
                     </div>
                     <p class="v2-chart-caption">The Interactions card of the propanoate run. The upper chart shows the nearest contacts between propanoate and the pocket; a hydrogen bond is counted below the dashed line (3.5&nbsp;&Aring;). The lower chart shows the distance of propanoate from its docked position.</p>
 
-                    <p>The three molecules with a positively charged group stayed. The hydrogen-bond partners of benzamidine differ between the crystal, the docked position, and the simulation. Gly219, a partner of benzamidine in the crystal, is not among the partners that the Interactions cards list, and Tyr228, which is not a partner in the crystal, is. Each molecule shifts in the pocket, and the residues of the pocket move. The crystal also has a water molecule 3.1&nbsp;&Aring; from one nitrogen atom of the amidine group, and the Generalized Born model has no individual water molecules.</p>
+                    <p>The three molecules with a positively charged group stayed.</p>
 
                     <p>Methylguanidinium was in its binding site for the whole run, at an average distance of 0.8&nbsp;&Aring; and never farther than 1.5&nbsp;&Aring;. It held hydrogen bonds with Ser190 and Tyr228 for the whole run and with the two oxygen atoms of Asp189 for 89&nbsp;% and 71&nbsp;% of it.</p>
 
@@ -247,6 +271,8 @@
                         <img src="image/aims-molecular-recognition-benzamidinium.png" alt="Two charts for the benzamidinium run over 20 ps. The upper chart shows the distances of five hydrogen bonds between benzamidinium and the pocket: Ser190 OG stays near 2.7 angstroms, Tyr228 OH, Ser190 O and Ser190 N vary between 2.6 and 4.3 angstroms, and Asp189 OD2 stays near 3 angstroms except between 12 and 15 ps, when it rises to 5.6 angstroms. The lower chart shows the distance of benzamidinium from its binding site, which stays within 1.8 angstroms">
                     </div>
                     <p class="v2-chart-caption">The Interactions card of the benzamidinium run. The upper chart shows the hydrogen bonds between benzamidinium and the pocket; a hydrogen bond is counted below the dashed line (3.5&nbsp;&Aring;). The lower chart shows the distance of benzamidinium from its docked position.</p>
+
+                    <p>The hydrogen-bond partners of the inhibitor differ between the crystal and the simulation. Gly219, a partner of benzamidine in the crystal, is not among the partners that the Interactions card lists, and Tyr228, which is not a partner in the crystal, is. The inhibitor shifts in the pocket, and the residues of the pocket move. The crystal also has a water molecule 3.1&nbsp;&Aring; from one nitrogen atom of the amidine group, and the Generalized Born model has no individual water molecules.</p>
 
                     <div class="v2-table-scroll">
                     <table class="v2-table" style="width:100%; border-collapse:collapse; font-size:1.25rem; margin:0;">
@@ -288,11 +314,12 @@
 
                     <p>The three molecules with a positively charged group stayed in the pocket: the ends of the arginine and lysine side chains, and the inhibitor. The ring alone, the end of the phenylalanine side chain, and the negatively charged end of the glutamate side chain left their docked positions.
                     This agrees with what trypsin does: it cuts protein chains after arginine and lysine, and benzamidine blocks it.
-                    Each of the three charged groups was within 3.5&nbsp;&Aring; of both oxygen atoms of Asp189 for most of its run, so the salt bridge with Asp189 was in place for most of each run. Benzamidinium stayed in its binding site while its hydrogen bond with one oxygen atom of Asp189 was broken, and its hydrogen bonds with Ser190 and Tyr228 lasted through that time.</p>
+                    Each of the three charged groups was within 3.5&nbsp;&Aring; of each of the two oxygen atoms of Asp189 for most of its run, so the salt bridge with Asp189 was in place for most of each run. Benzamidinium stayed in its binding site while its hydrogen bond with one oxygen atom of Asp189 was broken, and its hydrogen bonds with Ser190 and Tyr228 lasted through that time.</p>
 
-                    <p>A positively charged group of this kind carries both the charge and the N&ndash;H groups that form hydrogen bonds, so the six runs test the two together. Test runs of the neutral molecules benzamidine and methylguanidine, which keep the N&ndash;H groups and have no charge, separate them. Both neutral molecules stayed: they were in their binding sites for 92&nbsp;% to 100&nbsp;% of the run in seven runs. In this model the hydrogen bonds of the group hold a molecule in the pocket for 20&nbsp;ps, and the charge lowers the docking score, from &minus;1.80 for benzamidine to &minus;3.49 for benzamidinium.</p>
+                    <p>A positively charged group of this kind carries both the charge and the N&ndash;H groups that form hydrogen bonds, so the six runs test the two together. Test runs of the neutral molecules benzamidine and methylguanidine, which keep the N&ndash;H groups and have no charge, separate them. Both neutral molecules stayed: they were in their binding sites for 92&nbsp;% to 100&nbsp;% of the run in seven runs. In this model the hydrogen bonds of the group hold a molecule in the pocket for 20&nbsp;ps, and the charge lowers the docking score, from &minus;1.80 for benzamidine to &minus;3.49 for benzamidinium.
+                    A run of 20&nbsp;ps separates molecules that hold their docked positions from molecules that leave them, and the docking score is the measure that separates a charged molecule from its neutral form. The neutral forms are a test that the model allows: in water these groups carry the positive charge, so trypsin meets the charged forms.</p>
 
-                    <p>The docking score also separates the molecules that stayed from the molecules that left: the three that stayed have scores between &minus;2.86 and &minus;3.49, and the three that left have scores between &minus;0.69 and &minus;0.99. Among the three that stayed, the order of the scores differs from the order in the simulation. Docking gives benzamidinium the best score, and butylammonium, which has the weakest score of the three, held its hydrogen bonds with Asp189 for the largest share of the run. The score is a number for one fixed position of the ligand in a fixed protein. The simulation tests that position against the thermal motion of the ligand and the pocket, and it shows the result as a distance and as the fraction of the run that each contact lasts.</p>
+                    <p>The docking score also separates the molecules that stayed from the molecules that left: the three that stayed have scores between &minus;2.86 and &minus;3.49, and the three that left have scores between &minus;0.69 and &minus;0.99. Among the three that stayed, the scores and the simulation give no single order: benzamidinium has the best score, methylguanidinium stayed closest to its docked position, and butylammonium held its hydrogen bonds with Asp189 for the largest share of the run. The score is a number for one fixed position of the ligand in a fixed protein. The simulation tests that position against the thermal motion of the ligand and the pocket, and it shows the result as a distance and as the fraction of the run that each contact lasts.</p>
 
                     <h2>The Reach of the Method</h2>
 
@@ -301,7 +328,7 @@
                     The docking keeps the ligand rigid, which suits small molecules like these six, and the frozen part of the protein keeps the pocket close to its shape in the crystal.</p>
 
                     <p>The end of a side chain stands for the whole amino acid. A substrate of trypsin is a protein chain, which also touches the enzyme outside the S1 pocket, and these runs test the S1 pocket alone.
-                    The same steps test other molecules. In three test runs, isobutane, the end of a leucine side chain, left its docked position: it was in its binding site for 21&nbsp;% to 45&nbsp;% of the run. Two molecules gave results that changed from run to run. Benzoate, the ring with a negatively charged group, was in its binding site for 15&nbsp;% to 70&nbsp;% of the run, and cumene, which has the shape of benzamidine with carbon atoms in place of the nitrogen atoms, for 48&nbsp;% to 59&nbsp;%.
+                    The same steps test other molecules. In three test runs, isobutane, the end of a leucine side chain, left its docked position: it was in its binding site for 21&nbsp;% to 45&nbsp;% of the run. Benzoate, the ring with a negatively charged group, also left in three test runs: it was in its binding site for 10&nbsp;% to 26&nbsp;% of the run. Cumene, which has the shape of benzamidine with carbon atoms in place of the nitrogen atoms, was in its binding site for 48&nbsp;% to 59&nbsp;% of the run in three test runs, which is between staying and leaving.
                     The prompts <span class="v2-prompt">&ldquo;replace the ligand with isobutane&rdquo;</span>, <span class="v2-prompt">&ldquo;replace the ligand with benzoate&rdquo;</span>, and <span class="v2-prompt">&ldquo;replace the ligand with methylguanidine&rdquo;</span> set up runs to compare with the six in this article. The Report button on the control bar posts the Interactions card for each run.</p>
 
                     <h2>Conclusion</h2>
