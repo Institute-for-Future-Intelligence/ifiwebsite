@@ -80,8 +80,8 @@
         .v2-col-main .v2-formula.is-compact img { max-width: min(100%, 620px) !important; }
         /* The strip of frames is saved at twice its size on the page, so that it stays sharp on a dense screen. */
         .v2-col-main .v2-formula.is-strip img { max-width: min(100%, 932px) !important; }
-        /* The two places the text links to (Figure 3, the experiment after the introduction): land below the site's fixed header (58px), not under it. */
-        #figure-3, #experiment { scroll-margin-top: 74px; }
+        /* The place the text links to (the experiment after the introduction): land below the site's fixed header (58px), not under it. */
+        #experiment { scroll-margin-top: 74px; }
 
         /* Diagrams: inline SVG in figure.v2-fig, as in the Aladdin and AIMS articles. */
         .v2-fig { margin: 2rem 0 2.5rem; }
@@ -375,7 +375,7 @@
                         each for 10 seconds, but we did not stir.
                     </p>
 
-                    <div class="v2-screenshot-row is-frames" id="figure-3">
+                    <div class="v2-screenshot-row is-frames">
                         <img src="image/ie-ai-lab-partner-run1-vl.jpg" alt="Three Petri dishes from above in visible light 105 seconds into the first recording; the baking soda lies in a white heap on the bottom of the lowest dish">
                         <img src="image/ie-ai-lab-partner-run1-ir.jpg" alt="Thermal frame of the same three dishes at 105 seconds with the reading areas T1, T2, and T3 on the water surfaces; all three dishes are cooler than the table">
                     </div>
@@ -617,35 +617,6 @@
                         experiments for readers to try on their own.
                     </p>
 
-                    <h2>What the Agent Missed</h2>
-
-                    <p>
-                        The plainest clue to why the first recording ended in a tie is in
-                        <a href="#figure-3">Figure 3</a>, and the agent never mentioned it. Specifically, the
-                        baking soda lies in a white heap on the bottom of its dish. The agent had, in fact,
-                        called up that frame. It gave the general reason that a solid left
-                        unstirred may dissolve slowly, but it did not point to the heap of undissolved
-                        baking soda.
-                    </p>
-
-                    <p>
-                        The chemistry is why the heap matters. Pulling ions out of baking soda or salt costs
-                        energy, and water molecules pay part of it back as they gather around each
-                        freed ion. For both salt and baking soda, the cost is larger than the
-                        payback, and the water makes up the difference by cooling. Per the information
-                        the agent looked up, baking soda takes about three times as much heat per
-                        gram as salt. But only what dissolves takes any heat, and baking soda is
-                        about a quarter as soluble as salt. A heap of baking soda in still water sits in a thin layer that
-                        is nearly saturated. The camera also reads only the top skin of the water.
-                        Stirring brought fresh water to the powder (without fully dissolving it)
-                        and brought the cold water up to the surface where the camera could read it.
-                    </p>
-
-                    <p>
-                        While the agent did read the data critically, we also had to
-                        be critical of the agent.
-                    </p>
-
                     <h2>Conclusion</h2>
 
                     <p>
@@ -659,8 +630,7 @@
                         good lab partner? In this experiment, it was. It turned a question into a
                         claim and a prediction that could fail, held to the data when we
                         misstated the result, gave way when we knew our own procedure better, and
-                        answered a request for proof with three ways to check its own result. Its work still had to be checked, like the
-                        work of any lab partner.
+                        answered a request for proof with three ways to check its own result.
                     </p>
 
                     <p>
