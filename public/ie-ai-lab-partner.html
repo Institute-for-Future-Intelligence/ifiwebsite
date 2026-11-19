@@ -80,8 +80,8 @@
         .v2-col-main .v2-formula.is-compact img { max-width: min(100%, 620px) !important; }
         /* The strip of frames is saved at twice its size on the page, so that it stays sharp on a dense screen. */
         .v2-col-main .v2-formula.is-strip img { max-width: min(100%, 932px) !important; }
-        /* The two places the text links to (Figure 3, the experiment after the introduction): land below the site's fixed header (58px), not under it. */
-        #figure-3, #experiment { scroll-margin-top: 74px; }
+        /* The place the text links to (the experiment after the introduction): land below the site's fixed header (58px), not under it. */
+        #experiment { scroll-margin-top: 74px; }
 
         /* Diagrams: inline SVG in figure.v2-fig, as in the Aladdin and AIMS articles. */
         .v2-fig { margin: 2rem 0 2.5rem; }
@@ -132,7 +132,7 @@
         <header class="v2-hero" data-wordmark="LAB PARTNER">
             <div class="v2-hero-inner">
                 <span class="v2-eyebrow">Infrared Explorer</span>
-                <h1>Can AI be a good lab partner?</h1>
+                <h1>Can AI Be a Good Lab Partner?</h1>
                 <p class="v2-tagline">
                     A student asks a question. An AI agent chooses the materials, designs
                     the experiment, reads the thermal recordings, says what to change
@@ -145,7 +145,7 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="ie.html">&larr; Back to Infrared Explorer</a>
-                    <p class="v2-byline">By <strong>Xiaotong Ding</strong> <a href="mailto:xiaotong@intofuture.org">&#9993;</a> and <strong>Jacob Sagrans</strong> <a href="mailto:jacob@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 17, 2026</span></p>
+                    <p class="v2-byline">By <strong>Xiaotong Ding</strong> <a href="mailto:xiaotong@intofuture.org">&#9993;</a> and <strong>Jacob Sagrans</strong> <a href="mailto:jacob@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 18, 2026</span></p>
 
                     <p>
                         Most school experiments begin with a lab manual. Someone has already
@@ -172,8 +172,8 @@
                         The student then does the experiment by hand and records it with a thermal
                         camera. The agent reads the temperature data in the recording, discusses
                         the result, and says what to change next. From the discussion, there are
-                        two ways back. The short way is to record the same design again with
-                        the problems fixed, to improve the quality of the data. The long way is
+                        two ways back. The small loop (shown in red in the diagram below) is to record the same design again with
+                        the problems fixed, to improve the quality of the data. The big loop (shown in purple) is
                         to go back to the plan for a different design that tests the same claim,
                         to cross-validate the result. The student and the agent can go around
                         either loop as many times as the claim needs, and at the end, the agent
@@ -183,7 +183,7 @@
 
                     <figure class="v2-fig">
                         <div class="v2-fig-scroll v2-wf-wide">
-                        <svg class="v2-dg v2-wf" viewBox="0 0 902 354" role="img" aria-label="The workflow of an experiment, drawn as four steps joined in a closed loop, with a shortcut across the middle. It starts outside the loop, with a question turned into a claim: a testable statement. The claim leads into the loop at the plan: a setup and a prediction. Going clockwise, the next steps are a recording, made by hand on camera; an analysis of what the data shows; and a discussion of what to change next. From the discussion there are two ways on. The shortcut goes straight back to the recording, which makes the small loop, to improve data quality: the same design, for a cleaner recording. The outer path leads back through the plan, which makes the big loop, to cross-validate: a different design for the same claim. When the loops are done, the discussion leads to the report, the final write-up.">
+                        <svg class="v2-dg v2-wf" viewBox="0 0 902 354" role="img" aria-label="The workflow of an experiment, drawn as four steps joined in a closed loop, with a shortcut across the middle. It starts outside the loop, with a question turned into a claim: a testable statement. The claim leads into the loop at the plan: a setup and a prediction. Going clockwise, the next steps are a recording, made by hand on camera; an analysis of what the data show; and a discussion of what to change next. From the discussion there are two ways on. The shortcut goes straight back to the recording, which makes the small loop, to improve data quality: the same design, for a cleaner recording. The outer path leads back through the plan, which makes the big loop, to cross-validate: a different design for the same claim. When the loops are done, the discussion leads to the report, the final write-up.">
                             <!-- the big loop: all four steps -->
                             <path class="loop-big" d="M286,134 L556,38 L826,134 L556,230 Z"/>
                             <!-- the small loop: recording, analysis, discussion, and straight back up -->
@@ -224,7 +224,7 @@
                             <!-- Analysis -->
                             <rect class="card" x="758" y="106" width="136" height="56" rx="12"/>
                             <text class="name mid" x="826" y="130">Analysis</text>
-                            <text class="desc mid" x="826" y="148">What the data shows</text>
+                            <text class="desc mid" x="826" y="148">What the data show</text>
 
                             <!-- Discussion: where the two loops part, and the way out -->
                             <rect class="card" x="488" y="202" width="136" height="56" rx="12"/>
@@ -239,7 +239,7 @@
                             <text class="desc mid" x="556" y="330">The final write-up</text>
                         </svg>
                         </div>
-                        <svg class="v2-dg v2-wf-tall" viewBox="0 0 372 620" role="img" aria-label="The workflow of an experiment, drawn as four steps joined in a closed loop, with a shortcut across the middle. It starts outside the loop, with a question turned into a claim: a testable statement. The claim leads into the loop at the plan: a setup and a prediction. Going clockwise, the next steps are a recording, made by hand on camera; an analysis of what the data shows; and a discussion of what to change next. From the discussion there are two ways on. The shortcut goes straight back to the recording, which makes the small loop, to improve data quality: the same design, for a cleaner recording. The outer path leads back through the plan, which makes the big loop, to cross-validate: a different design for the same claim. When the loops are done, the discussion leads to the report, the final write-up.">
+                        <svg class="v2-dg v2-wf-tall" viewBox="0 0 372 620" role="img" aria-label="The workflow of an experiment, drawn as four steps joined in a closed loop, with a shortcut across the middle. It starts outside the loop, with a question turned into a claim: a testable statement. The claim leads into the loop at the plan: a setup and a prediction. Going clockwise, the next steps are a recording, made by hand on camera; an analysis of what the data show; and a discussion of what to change next. From the discussion there are two ways on. The shortcut goes straight back to the recording, which makes the small loop, to improve data quality: the same design, for a cleaner recording. The outer path leads back through the plan, which makes the big loop, to cross-validate: a different design for the same claim. When the loops are done, the discussion leads to the report, the final write-up.">
                             <!-- the big loop: all four steps -->
                             <path class="loop-big" d="M186,112 L309,312 L186,512 L63,312 Z"/>
                             <!-- the small loop: recording, analysis, discussion, and straight across -->
@@ -280,7 +280,7 @@
                             <!-- Analysis -->
                             <rect class="card" x="125" y="484" width="122" height="56" rx="12"/>
                             <text class="name mid" x="186" y="508">Analysis</text>
-                            <text class="desc mid" x="186" y="526">What the data shows</text>
+                            <text class="desc mid" x="186" y="526">What the data show</text>
 
                             <!-- Discussion -->
                             <rect class="card" x="2" y="284" width="122" height="56" rx="12"/>
@@ -294,16 +294,16 @@
                             <text class="name mid" x="63" y="580">Report</text>
                             <text class="desc mid" x="63" y="598">The final write-up</text>
                         </svg>
-                        <figcaption><strong>The workflow of an experiment: one claim, two loops.</strong> The small loop repeats the same design to improve the data. The big loop goes back to the plan for a different design, to cross-validate the result.</figcaption>
+                        <figcaption><strong>The workflow of an experiment: one claim, two loops.</strong> The small loop (in red) repeats the same design to improve the data. The big loop (in purple) goes back to the plan for a different design, to cross-validate the result.</figcaption>
                     </figure>
 
                     <p>
                         As an example, this article follows one experiment from the first
                         question to the final report. We kept the start simple: a photo of salt,
-                        baking soda, and three dishes from a kitchen. The experiment has
-                        been twice around the small loop: three recordings of the same design, with
+                        baking soda, a mug, and three Petri dishes. The experiment went
+                        twice around the small loop: three recordings of the same design, with
                         the first result contradicting the agent's prediction. For the big loop,
-                        the agent has proposed different designs, which we leave for readers to try. The agent
+                        the agent proposed different designs, which we leave for readers to try. The agent
                         ran on OpenAI's GPT-6 Luna. The window below is the experiment as we left
                         it, with the whole conversation.
                     </p>
@@ -321,7 +321,7 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/projects/pa6ffffbc43684ff5bfae">Open the experiment in Infrared Explorer</a>
                     </div>
 
-                    <h2>From a question to a plan</h2>
+                    <h2>From a Question to a Plan</h2>
 
                     <p>
                         We put a mug, a canister of table salt, a box of baking soda, and three
@@ -354,16 +354,16 @@
                     <p>
                         The agent's plan turned our open question into a claim that can be tested:
                         salt and baking soda both take in heat as they dissolve, so both cool the
-                        water, baking soda probably more than salt. For this setup, the claim
-                        became a prediction with numbers in it: both of their dishes should cool, by a
+                        water. For this setup, the claim
+                        became a prediction with numbers in it: both of these dishes should cool, by a
                         few tenths of a degree Celsius for salt and by perhaps 0.5 to 1.5&nbsp;&deg;C for
-                        baking soda. It also said what would count as a failed prediction: all three
+                        baking soda. The plan also stated what would count as a failed prediction: all three
                         dishes exhibiting similar temperature changes, or the baking soda and
-                        salt dishes warming. The plan named a weakness in its
-                        own design before we did: equal spoonfuls are not equal masses.
+                        salt dishes warming. Additionally, the plan named a weakness in its
+                        own design before we did: equal scoops are not equal masses.
                     </p>
 
-                    <h2>The first recording: a tie</h2>
+                    <h2>The First Recording: A Tie</h2>
 
                     <p>
                         We filled the three dishes with water, pointed a FLIR ONE Edge Pro
@@ -375,7 +375,7 @@
                         each for 10 seconds, but we did not stir.
                     </p>
 
-                    <div class="v2-screenshot-row is-frames" id="figure-3">
+                    <div class="v2-screenshot-row is-frames">
                         <img src="image/ie-ai-lab-partner-run1-vl.jpg" alt="Three Petri dishes from above in visible light 105 seconds into the first recording; the baking soda lies in a white heap on the bottom of the lowest dish">
                         <img src="image/ie-ai-lab-partner-run1-ir.jpg" alt="Thermal frame of the same three dishes at 105 seconds with the reading areas T1, T2, and T3 on the water surfaces; all three dishes are cooler than the table">
                     </div>
@@ -397,11 +397,11 @@
                     <p>
                         The agent also dealt with a problem in the data that we had not mentioned. A
                         thermal camera closes its shutter from time to time to recalibrate, and
-                        ours did so 44 times during the recording. Each time, every reading in the
+                        ours did so 44 times during the recording. Each time, all temperature readings in the
                         frame dipped briefly by about 1&nbsp;&deg;C before coming back. The agent traced the
                         dips to the recalibrations and left out the frames around each one. It
                         also compared the three dishes with each other by subtracting the
-                        readings from the control (the plain-water dish) from the salt and baking soda dishes 
+                        readings of the control (the plain-water dish) from the salt and baking soda readings
                         at each point in time. Figure 4 is the chart it drew.
                     </p>
 
@@ -414,7 +414,7 @@
                         All three water surfaces started at about 19.8&nbsp;&deg;C. Between 5 and 15
                         minutes, the salt dish read about 0.8&nbsp;&deg;C below the plain-water control and the
                         baking soda dish about 0.7&nbsp;&deg;C below the control, and by the end, both had crept
-                        back to about 0.2&nbsp;&deg;C below. It was a tie between salt and baking soda,
+                        back to about 0.2&nbsp;&deg;C below the control. It was a tie between salt and baking soda,
                         and the agent said plainly what that meant: the result did not support its own
                         prediction that the dish with baking soda would cool more than the one with salt.
                     </p>
@@ -424,7 +424,7 @@
                                 id="ie-frame-run1" loading="lazy" allowfullscreen="true" title="The first recording in Infrared Explorer"></iframe>
                         <figcaption>
                             <a href="javascript:openFullscreen('ie-frame-run1');">View fullscreen</a><br>
-                            The first recording, with a chart of the salt and baking soda dishes' temperatures relative to the control. Press Play, or move a thermometer.
+                            The first recording, with a chart of the salt and baking soda dishes' temperatures relative to the control. Press Play, or move your pointer along the lines on the chart to see the exact values at any point in time.
                         </figcaption>
                     </figure>
 
@@ -432,7 +432,7 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/experiments/42AA5hhqLKmonysmUv8M">Open the first recording in Infrared Explorer</a>
                     </div>
 
-                    <h2>What the agent would change</h2>
+                    <h2>What the Agent Would Change</h2>
 
                     <p>
                         The analysis had one thing wrong: the agent assumed that we had followed
@@ -458,20 +458,20 @@
                         between salt and baking soda more noticeable, it
                         described a repeat of the same design, done with more care: weigh the two solids instead of
                         measuring them by the scoop, 8&nbsp;g of each in 100&nbsp;mL of water
-                        (which is a ratio at which the baking soda can fully dissolve in the water); stir each dish
+                        (which is a ratio at which the baking soda can fully dissolve); stir each dish
                         the same way for the same time; and set the dishes on insulating pads.
-                        Only the stirring had been in the agent's first plan. This is the small
+                        Only the stirring had been in the agent's first plan. These changes represent the small
                         loop of the workflow: the claim and the design stay as they are, and
                         what changes is the quality of the data. The
                         <a href="#experiment">full exchange</a> can be found near the top
                         of this article.
                     </p>
 
-                    <h2>The second recording: stirring</h2>
+                    <h2>The Second Recording: Stirring</h2>
 
                     <p>
                         We recorded the same design again, with the same three dishes and the same
-                        scoops of salt and baking soda, as another time-lapse, this time
+                        scoops of salt and baking soda, this time
                         for 10 minutes. Of the agent's changes, we made only one: after the salt and
                         the baking soda were added, we stirred those
                         two dishes with sticks. We left the control alone (see Figure 5 below).
@@ -496,9 +496,9 @@
                         within a minute. Between two and five
                         minutes after the salt and the baking soda were added, the baking soda dish
                         stayed about 2.3&nbsp;&deg;C below the plain-water control and the salt dish about
-                        0.6&nbsp;&deg;C below. The baking soda dish did cool
+                        0.6&nbsp;&deg;C below the control. The baking soda dish did cool
                         more than the salt dish, and by more than the predicted 0.5 to
-                        1.5&nbsp;&deg;C. The agent still did not call the claim settled: one
+                        1.5&nbsp;&deg;C. The agent, however, did not call its claim settled: one
                         recording alone cannot show that the difference is repeatable, it said.
                     </p>
 
@@ -515,26 +515,26 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/experiments/DBeMqkguP2iiJspkQ65b">Open the second recording in Infrared Explorer</a>
                     </div>
 
-                    <h2>The third recording: equal masses</h2>
+                    <h2>The Third Recording: Equal Masses</h2>
 
                     <p>
-                        The second recording still compared a scoop with a scoop, and the plan had
-                        said from the start that equal spoonfuls are not equal masses. We went
-                        around the small loop once more and made another of the agent's changes:
-                        we measured the amounts. Each dish held 30&nbsp;mL of water, and the middle
-                        and bottom dishes got 2&nbsp;g of salt and 2&nbsp;g of baking soda, both
+                        The second recording still compared equally sized scoops of salt and baking soda, but the plan had
+                        said from the start that equal scoops are not equal masses. We went
+                        around the small loop once more and made another of the agent's suggested changes:
+                        we used a kitchen scale to measure precise amounts. Each dish held 30&nbsp;mL of water, and the middle
+                        and bottom dishes got 2&nbsp;g of salt and 2&nbsp;g of baking soda (respectively), both
                         stirred. The control was again left alone.
                     </p>
 
                     <p>
                         The agent measured the third recording the way it had measured the second:
-                        each dish from its own starting temperature, then against the control. The
-                        baking soda dish again cooled more. Between three and five minutes after
+                        each dish from its own starting temperature, then compared the salt and baking soda dishes against the plain-water control. The
+                        baking soda again cooled the most. Between three and five minutes after
                         the solids were added, it read about 2.4&nbsp;&deg;C below the control, and
-                        the salt dish about 1.0&nbsp;&deg;C below. The agent called this the
-                        clearest comparison so far, because the masses and the water volumes were
-                        equal, and noted that it agrees with the second recording. It also kept
-                        the limits in view: this is still a single recording, and equal masses are
+                        the salt dish about 1.0&nbsp;&deg;C below the control. The agent called this the
+                        clearest comparison so far, because the masses of the salt and baking soda were equal and the water volumes were
+                        equal. It noted that the result agreed with the second recording. It also kept
+                        the limits of the experiment in view, noting that this is still a single recording, and equal masses are
                         not equal numbers of moles.
                     </p>
 
@@ -551,101 +551,70 @@
                         <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org/experiments/DDBRZQDsHpUGjQNFfwhr">Open the third recording in Infrared Explorer</a>
                     </div>
 
-                    <h2>The report</h2>
+                    <h2>The Report</h2>
 
                     <p>
-                        When we asked for a report, the agent went back to all three recordings,
-                        computed them again with one method, and checked the numbers before it
+                        When we asked for a report, the agent went back to all three recordings and checked the numbers before it
                         wrote anything. The report has a part for each recording (it calls them
                         rounds), each with a thermal frame that shows where the temperatures were
-                        read and a chart on the same axes (Figure 6). A table then puts the three
-                        side by side.
+                        read and a chart comparing the salt minus the plain-water control to the baking soda minus the control (Figure 6).
                     </p>
 
                     <div class="v2-screenshot-row is-charts">
                         <img src="image/ie-ai-lab-partner-report-rec1.png" alt="Chart for the first recording: the salt and baking soda lines nearly overlap and fall slowly to about minus 0.8 degrees over seven minutes">
-                        <img src="image/ie-ai-lab-partner-report-rec2.png" alt="Chart for the second recording on the same axes: baking soda drops to about minus 2.4 degrees within two minutes while salt stays near minus 0.6 degrees">
+                        <img src="image/ie-ai-lab-partner-report-rec2.png" alt="Chart for the second recording on the same axes: baking soda drops to about minus 2.3 degrees within two minutes while salt stays near minus 0.6 degrees">
                         <img src="image/ie-ai-lab-partner-report-rec3.png" alt="Chart for the third recording on the same axes: baking soda falls to about minus 2.4 degrees and salt to about minus 1 degree">
                         <p class="v2-row-caption">
-                            Figure 6: The three charts in the report, on the same axes: each dish's
-                            change from its own starting temperature, minus the control's change,
+                            Figure 6: The three charts in the report showing the salt and baking soda dishes'
+                            changes from starting temperatures, minus the control,
                             against seconds elapsed since the salt and the baking soda were added.
                             The first recording had no stirring; the second had stirring; the
-                            third had stirring and equal masses.
+                            third had stirring and equal masses of salt and baking soda.
                         </p>
                     </div>
 
                     <p>
-                        The report kept the claim to what the recordings can carry. All three show
+                        The report kept to the agent's claims about what the three recordings demonstrate. All three show
                         the dishes with salt and baking soda cooling relative to the control, and
-                        the two stirred recordings show the baking soda dish cooling more. On why
-                        the first recording differs, it did not claim that the stirring was the
-                        cause, only that it could be: the recordings also started at different
-                        temperatures, and the amounts in the first two were never measured. Its
-                        last sentence asks for the small loop again, a repeat of the third
-                        recording, to find out whether the larger drop for baking soda is
+                        the two stirred recordings show the baking soda dish cooling more than the salt dish. On why
+                        the first recording differs from the later two, the report does not claim that stirring was the
+                        cause, only that it could be. The recordings also started at different
+                        temperatures, and the amounts of salt and baking soda in the first two recordings were not weighed precisely. The
+                        last sentence in the report recommends running the small loop again by repeating the third
+                        recording to find out whether the larger drop in temperature for baking soda is
                         reproducible.
                     </p>
 
-                    <h2>Different designs for the same claim</h2>
+                    <h2>Different Designs for the Same Claim</h2>
 
                     <p>
-                        A repeat can show that a result is reliable. It cannot show that the
-                        result means what we think it means, because all three recordings share
-                        one design and its blind spots. So we asked for the other loop:
+                        A repeat of an experiment can show that a result is reliable. However, in our case, the three recordings share
+                        the same basic design. There could be blind spots in the findings that a different experimental design might reveal.
+                        So we asked for the big loop, to cross-validate the claim with a different design:
                     </p>
 
                     <p class="v2-pullquote">Generate different experimental designs to prove the science.</p>
 
                     <p>
-                        The agent began with the word &ldquo;prove&rdquo;: no single experiment
-                        proves a mechanism, it said, but agreement across different tests makes
-                        the evidence much stronger. Then it gave three designs and said what each
+                        The agent immediately took issue with the word &ldquo;prove,&rdquo; stating that no single experiment
+                        proves a mechanism, but agreement across different tests makes
+                        the evidence stronger. Then, it proposed three designs and said what each
                         would test:
                     </p>
 
                     <ol>
                         <li><strong>The same comparison with tighter controls.</strong> The same amounts, with the control stirred too, both solids added at the same moment, and the whole trial repeated a few times with the dishes swapping places. This tests whether the larger cooling for baking soda is reliable, and not an effect of the stirring or of where a dish sits.</li>
-                        <li><strong>More baking soda, more cooling?</strong> A row of dishes with the same amount of water and increasing amounts of baking soda, from none to 2&nbsp;g, all small enough to dissolve fully. If the cooling grows with the amount dissolved, that ties the cooling to the dissolving.</li>
+                        <li><strong>More baking soda, more cooling?</strong> A row of dishes with the same amount of water and increasing amounts of baking soda, from none to 2&nbsp;g, all small enough quantities to dissolve fully. If the cooling grows with the amount dissolved, that links the cooling to the dissolving.</li>
                         <li><strong>A thermometer in the liquid.</strong> The salt and baking soda comparison in insulated cups, read with a thermometer probe. This tests whether the cooling the camera sees at the surface is also there in the bulk of the liquid.</li>
                     </ol>
 
                     <p>
-                        In the terms of the diagram, the first design is the small loop again,
+                        In terms of the workflow diagram, the first proposed design is the small loop again,
                         and it closes a gap in the agent's own first plan, which left the control
-                        unstirred. The second and the third are the big loop: different designs
-                        for the same claim. The agent's advice was to run the first, and then use
-                        the third as an independent check on the temperature. We leave these
+                        unstirred. The second and the third proposed designs are the big loop: different designs
+                        to test the same claim. The agent's advice was to run the first experiment and then use
+                        the third as an independent check on temperature. We leave these
                         experiments for readers to try on their own.
-                    </p>
-
-                    <h2>What the agent missed</h2>
-
-                    <p>
-                        The plainest clue to why the first recording ended in a tie is in
-                        <a href="#figure-3">Figure 3</a>, and the agent never mentioned it. Specifically, the
-                        baking soda lies in a white heap on the bottom of its dish. The agent had, in fact, 
-                        called up that frame. It gave the general reason that a solid left
-                        unstirred may dissolve slowly, but it did not point to the heap of undissolved
-                        baking soda.
-                    </p>
-
-                    <p>
-                        The chemistry is why the heap matters. Pulling ions out of baking soda or salt costs
-                        energy, and water molecules pay part of it back as they gather around each
-                        freed ion. For both salt and baking soda, the cost is larger than the
-                        payback, and the water makes up the difference by cooling. Per the information
-                        the agent looked up, baking soda takes about three times as much heat per
-                        gram as salt. But only what dissolves takes any heat, and baking soda is
-                        about a quarter as soluble as salt. A heap of baking soda in still water sits in a thin layer that
-                        is nearly saturated. The camera also reads only the top skin of the water.
-                        Stirring brought fresh water to the powder (without fully dissolving it)
-                        and brought the cold water up to the surface where the camera could read it.
-                    </p>
-
-                    <p>
-                        While the agent did read the data critically, we also had to
-                        be critical of the agent.
                     </p>
 
                     <h2>Conclusion</h2>
@@ -654,15 +623,14 @@
                         This article uses salt and baking soda to illustrate a new way to learn
                         science in the real world: students ask an AI agent a question, the agent
                         turns it into a claim and designs an experiment with materials that are
-                        easy to find, and the students do it with their own hands. The agent reads
+                        easy to find, and the students conduct the experiment themselves. The agent reads
                         the thermal recording and hands back measured data, an argument, and what
-                        to do next: the same design again for better data, or a different design
-                        to cross-validate the result. At the end, it writes the report. Was it a
+                        to do next: either using the same design again to gather better data, or a different design
+                        to cross-validate the result. At the end, the agent writes the report. Was it a
                         good lab partner? In this experiment, it was. It turned a question into a
                         claim and a prediction that could fail, held to the data when we
-                        overstated the result, gave way when we knew our own procedure better, and
-                        answered a request for proof with three ways to check its own result. Its work still had to be checked, like the
-                        work of any lab partner.
+                        misstated the result, gave way when we knew our own procedure better, and
+                        answered a request for proof with three ways to check its own result.
                     </p>
 
                     <p>
