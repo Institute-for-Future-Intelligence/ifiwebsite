@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Magic Angle of Twisted Graphene — Institute for Future Intelligence</title>
+    <meta name="description" content="When two sheets of graphene are stacked with one sheet turned near 1.1 degrees, the electrons nearly stop. An AI agent in AIMS builds the twisted sheets, computes the bands of their electrons with the continuum model of Bistritzer and MacDonald, and finds the magic angle with a sweep over the twist angle.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="TWIST">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>The Magic Angle of Twisted Graphene</h1>
+                <p class="v2-tagline">
+                    An AI agent in AIMS stacks two sheets of graphene with one sheet turned, a model of the electrons computes their bands, and a sweep over the twist angle finds the angle at which the electrons nearly stop.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 19, 2026</span></p>
+
+                    <p><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphene">Graphene</a> is a flat sheet of carbon atoms joined in hexagons. The energy of an electron in graphene is proportional to its momentum, so the electrons that carry a current all move at the same speed, close to a million meters per second.
+                    When two sheets of graphene are stacked and one sheet is turned by a small angle, the two lattices fall in and out of step across the sheets. Where a hexagon of the upper sheet lies over a hexagon of the lower sheet, the stack looks open from above. Between those places, the atoms of one sheet cover the hexagons of the other.
+                    The open places form a larger lattice of their own, a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Moir%C3%A9_pattern">moiré pattern</a>, and the smaller the twist angle, the larger the pattern.</p>
+
+                    <p>In 2011 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1073/pnas.1108174108">Bistritzer and MacDonald</a> calculated how the moiré pattern changes the electrons. As the twist angle shrinks, the electrons slow down. At a set of angles that they called magic angles, the speed falls to zero and the band of energies that the electrons can have becomes nearly flat.
+                    In 2018 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/nature26154">Cao, Jarillo-Herrero, and coworkers</a> made two sheets of graphene turned near 1.1&deg;, the first magic angle. When the flat bands were half filled with electrons, the pair was an insulator.
+                    When the voltage on a gate added or removed a few electrons, <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/nature26160">the pair became a superconductor</a> below a critical temperature of up to 1.7&nbsp;K.
+                    The angle between two layers had become a way to tune a material, and the field that grew from these papers is called <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Twistronics">twistronics</a>.</p>
+
+                    <p>AIMS builds the two sheets atom by atom, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> computes their electrons with the model of Bistritzer and MacDonald. A student asks a plain-language question, and the agent builds the sheets, runs the calculation, and posts the bands and charts in the chat.
+                    This article follows one example through four prompts: the moiré pattern at 6&deg;, the bands of the electrons at 6&deg; and at 1.1&deg;, and the speed of the electrons at seventeen angles from 0.8&deg; to 6&deg;.
+                    The article on <a href="aims-graphene-superlubricity.html">superlubricity</a> turns a flake of graphene on graphene and measures the friction between them, and the article on <a href="aims-nanotube-metal-or-semiconductor.html">nanotube conductivity</a> computes the bands of a single sheet of graphene rolled into a tube.</p>
+
+                    <h2>Two Sheets of Graphene with a Twist</h2>
+
+                    <p>The window below shows two sheets of graphene, each 5&nbsp;nm square, seen from above and drawn as sticks: 1,924 carbon atoms. The upper sheet is turned 6&deg; from the lower sheet about the center of a hexagon.
+                    At the center of the window, the hexagons of the two sheets lie over one another and the stack looks open. The open places repeat across the sheets with a period L&nbsp;=&nbsp;a&nbsp;/&nbsp;(2&nbsp;sin(&theta;/2)), where a&nbsp;=&nbsp;2.46&nbsp;&Aring; is the lattice constant of graphene and &theta; is the twist angle.
+                    At 6&deg; the period is 2.35&nbsp;nm, and about two periods fit across the sheets.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=The%20Magic%20Angle%20of%20Twisted%20Graphene"
+                                id="aims-frame1" allowfullscreen="true" title="The Magic Angle of Twisted Graphene demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            Two sheets of graphene seen from above, the upper sheet turned 6&deg;. The open places, where a hexagon lies over a hexagon, repeat every 2.4&nbsp;nm.
+                        </figcaption>
+                    </figure>
+
+                    <p>The lab relaxes the atoms with the <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevB.39.5566">Tersoff model</a> of carbon. Its bonds are 1.453&nbsp;&Aring; long, 2&nbsp;% longer than the 1.42&nbsp;&Aring; bonds of graphene, so in the relaxed lab the pattern repeats every 2.40&nbsp;nm and the sheets sit 3.41&nbsp;&Aring; apart.
+                    The sheets of graphite are 3.35&nbsp;&Aring; apart. The pattern in the lab has the same shape as the pattern of real graphene and is 2&nbsp;% larger.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-tbg-moire.jpg" alt="Two sheets of graphene seen from above, drawn as gray sticks on black. Across the square, patches where the hexagons look open alternate with patches where the bonds of the two sheets cross and the hexagons look filled in, in a triangular pattern of open patches">
+                        <img src="image/aims-tbg-oblique.jpg" alt="The same two sheets of graphene seen from 45 degrees above, as a diamond-shaped stack of gray hexagons. Bands of open hexagons alternate with bands where the bonds of the two sheets cross">
+                    </div>
+                    <p class="v2-chart-caption">The two sheets in the lab, seen from directly above (left) and from 45&deg; above (right). The open patches are the places where a hexagon of the upper sheet lies over a hexagon of the lower sheet.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>The Magic Angle of Twisted Graphene</em> from the list of examples (Nanotechnology, Graphene Nanostructures). Examples belong to their author, so sign in and save your own copy with Save Project As in the Project menu. Then open the chat and type the prompts below.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Build</span> &mdash; <span class="v2-prompt">&ldquo;Build two sheets of graphene with the upper sheet twisted by 6&deg;, and show them from above as sticks. What is the pattern?&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Bands at 6&deg;</span> &mdash; <span class="v2-prompt">&ldquo;How fast do the electrons move at this twist angle? Compute the bands.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Bands at 1.1&deg;</span> &mdash; <span class="v2-prompt">&ldquo;Now compute the bands at 1.1&deg;.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Magic angle</span> &mdash; <span class="v2-prompt">&ldquo;Chart the velocity of the electrons against the twist angle from 0.8&deg; to 6&deg;. At what angle does it reach zero, and what happens there in the real material?&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Electrons at 6&deg;</h2>
+
+                    <p>For the second prompt the agent computes the bands with the continuum model of Bistritzer and MacDonald. The model treats the electrons of each sheet as electrons of graphene, which move with a speed v set by &hbar;v&nbsp;=&nbsp;5.75&nbsp;eV&middot;&Aring; (a hopping energy of 2.7&nbsp;eV between neighboring carbon atoms).
+                    An electron can hop from one sheet to the other with an energy w&nbsp;=&nbsp;110&nbsp;meV. The model needs the twist angle and these two energies, and no atoms.
+                    The chart shows the energies of the electrons along a path through the moiré <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Brillouin_zone">Brillouin zone</a>, the set of distinct momenta that an electron can have in the moiré lattice. K, &Gamma;, M and K&prime; are points on that path.</p>
+
+                    <p>At 6&deg; two bands meet in a cone at K and at K&prime;, the same cone as in one sheet of graphene. The slope of the cone is the speed of the electrons, and it is 90&nbsp;% of the speed in one sheet. The two bands that meet at K and K&prime; span 1.61&nbsp;eV.
+                    At this angle the two sheets act almost as two separate sheets of graphene.</p>
+
+                    <h2>Why the Moiré Pattern Matters</h2>
+
+                    <p>An electron in the bilayer moves through a lattice with the period L of the moiré pattern, and its momentum changes in steps set by L. The kinetic energy that graphene gives an electron for one such step is &hbar;v&nbsp;k<sub>&theta;</sub>, where k<sub>&theta;</sub>&nbsp;=&nbsp;4&pi;/(3L).
+                    At 6&deg; this energy is 1.03&nbsp;eV. At 1.1&deg;, where L is 12.8&nbsp;nm, it is 0.19&nbsp;eV. The energy of a hop between the sheets is 110&nbsp;meV at every angle.
+                    At 6&deg; the hop is a tenth of the kinetic energy, and the electrons move almost as they do in one sheet. Near 1.1&deg; the two energies are close, and the hops between the sheets change the bands strongly.</p>
+
+                    <p>Bistritzer and MacDonald wrote the speed of the electrons in terms of one number, the ratio &alpha;&nbsp;=&nbsp;w&nbsp;/&nbsp;(&hbar;v&nbsp;k<sub>&theta;</sub>). For small &alpha; the speed is (1&nbsp;&minus;&nbsp;3&alpha;&sup2;)&nbsp;/&nbsp;(1&nbsp;+&nbsp;6&alpha;&sup2;) times the speed in one sheet.
+                    &alpha; is 0.11 at 6&deg; and 0.59 at 1.1&deg;.</p>
+
+                    <h2>The Electrons at 1.1&deg;</h2>
+
+                    <p>At 1.1&deg; the moiré period is 12.8&nbsp;nm, and one cell of the moiré pattern holds about 10,850 carbon atoms. The lab holds 2,000 atoms at most, so the agent computes this angle with the continuum model alone.
+                    The two bands at the center of the chart are nearly flat. They span 4.6&nbsp;meV, 350 times less than at 6&deg;, and their slope at K is 0.47&nbsp;% of the speed in one sheet.
+                    In this model the flat bands touch the bands above and below them at &Gamma;. The tool also accepts a smaller energy for a hop where the hexagons of the two sheets lie over each other, and with 80&nbsp;meV there a gap opens between the flat bands and the rest.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-tbg-bands-6.png" alt="Band chart at a twist of 6 degrees: energy from minus 1500 to 1500 meV along the path K, Gamma, M, K prime. Two bands meet in straight lines at zero energy at K and K prime and rise to about 800 meV at Gamma">
+                        <img src="image/aims-tbg-bands-1p1.png" alt="Band chart at a twist of 1.1 degrees: energy from minus 150 to 150 meV along the same path. Two bands lie flat along zero energy across the whole path, and the next bands rise from them at Gamma to about 65 meV at K">
+                    </div>
+                    <p class="v2-chart-caption">The bands at 6&deg; (left) and at 1.1&deg; (right). The energy axis on the right spans one tenth of the axis on the left. Blue bands are filled with electrons and red bands are empty when the bilayer carries no charge.</p>
+
+                    <h2>Finding the Magic Angle</h2>
+
+                    <p>The fourth prompt asks for the speed of the electrons at seventeen angles from 0.8&deg; to 6&deg;. The agent computes the bands at each angle and charts the slope at K as a fraction of the speed in one sheet.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr; max-width: 40rem; margin-left: auto; margin-right: auto;">
+                        <img src="image/aims-tbg-velocity.png" alt="Chart of the speed of the electrons, as a fraction of the speed in one sheet of graphene, against the twist angle from 0 to 6 degrees. The points fall from 0.90 at 6 degrees to nearly zero at 1.05 degrees and rise a little below it. A dashed curve, the small-coupling formula, follows the points above 3 degrees and lies above them between 1.2 and 3 degrees">
+                    </div>
+                    <p class="v2-chart-caption">The speed of the electrons against the twist angle (points) and the small-coupling formula (dashed line).</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare" style="min-width: 30rem;">
+                            <thead>
+                                <tr><th>Twist angle</th><th class="num">Moiré period</th><th class="num">Speed of the electrons</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>6&deg;</b></td><td class="num">2.35&nbsp;nm</td><td class="num">90&nbsp;%</td></tr>
+                                <tr><td class="crystal"><b>4&deg;</b></td><td class="num">3.52&nbsp;nm</td><td class="num">79&nbsp;%</td></tr>
+                                <tr><td class="crystal"><b>3&deg;</b></td><td class="num">4.70&nbsp;nm</td><td class="num">65&nbsp;%</td></tr>
+                                <tr><td class="crystal"><b>2&deg;</b></td><td class="num">7.05&nbsp;nm</td><td class="num">35&nbsp;%</td></tr>
+                                <tr><td class="crystal"><b>1.5&deg;</b></td><td class="num">9.40&nbsp;nm</td><td class="num">13&nbsp;%</td></tr>
+                                <tr><td class="crystal"><b>1.2&deg;</b></td><td class="num">11.7&nbsp;nm</td><td class="num">2.4&nbsp;%</td></tr>
+                                <tr><td class="crystal"><b>1.1&deg;</b></td><td class="num">12.8&nbsp;nm</td><td class="num">0.47&nbsp;%</td></tr>
+                                <tr><td class="crystal"><b>1.05&deg;</b></td><td class="num">13.4&nbsp;nm</td><td class="num model">0.16&nbsp;%</td></tr>
+                                <tr><td class="crystal"><b>1&deg;</b></td><td class="num">14.1&nbsp;nm</td><td class="num">0.62&nbsp;%</td></tr>
+                                <tr><td class="crystal"><b>0.9&deg;</b></td><td class="num">15.7&nbsp;nm</td><td class="num">1.4&nbsp;%</td></tr>
+                                <tr><td class="crystal"><b>0.8&deg;</b></td><td class="num">17.6&nbsp;nm</td><td class="num">3.5&nbsp;%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">Eleven of the seventeen angles in the chart. The speed is given as a percentage of the speed of the electrons in one sheet of graphene.</p>
+
+                    <p>The speed falls as the angle shrinks, and a search between the charted angles puts its zero at 1.06&deg;, the magic angle of this model. Below 1.06&deg; the speed rises again, to 3.5&nbsp;% at 0.8&deg;.
+                    The dashed line follows the points above 3&deg;. The formula reaches zero at &alpha;&nbsp;=&nbsp;1/&radic;3, at 1.11&deg; in this model, and the full calculation puts the zero at 1.06&deg;.
+                    The magic angle depends on the two energies of the model. A student can ask the agent to repeat the sweep with a different hopping energy between the sheets and watch the magic angle move.</p>
+
+                    <h2>What the Model Leaves Out</h2>
+
+                    <p>The continuum model treats each electron by itself. It gives the flat bands at the magic angle.
+                    In a flat band, many electrons have nearly the same energy, and their kinetic energy is smaller than the repulsion between them. The repulsion, which the model leaves out, then decides how the electrons arrange themselves.
+                    The insulating state and the superconductivity that Cao and coworkers measured come from this repulsion. The model shows the angle at which they occur, and it does not produce them.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Calculations Produced</p>
+                        <p class="v2-prompts-intro">The calculations were given the lattice of graphene, the speed of its electrons, and the energy of a hop between the two sheets. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">The pattern</span> &mdash; two sheets turned 6&deg; make a moiré pattern with a period of 2.35&nbsp;nm, 2.40&nbsp;nm in the relaxed lab.</li>
+                            <li><span class="v2-prompts-step">Bands at 6&deg;</span> &mdash; the electrons move at 90&nbsp;% of their speed in one sheet, and the two central bands span 1.61&nbsp;eV.</li>
+                            <li><span class="v2-prompts-step">Bands at 1.1&deg;</span> &mdash; the electrons move at 0.47&nbsp;% of their speed in one sheet, and the two central bands span 4.6&nbsp;meV.</li>
+                            <li><span class="v2-prompts-step">The magic angle</span> &mdash; the speed of the electrons falls to zero at 1.06&deg; and rises again at smaller angles, to 3.5&nbsp;% at 0.8&deg;.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses two sheets of graphene with a twist to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a calculation and hands back
+                    computed data. The magic angle becomes something students find for themselves in a browser: the moiré pattern of two turned sheets, the bands of the electrons at a large and a small angle,
+                    and the angle at which the electrons stop. By pairing a physically grounded model with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of one of the newest topics in the physics of materials.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
