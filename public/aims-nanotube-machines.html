@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanotube Machines: Bearings, Pistons, and Motors — Institute for Future Intelligence</title>
+    <title>Nanotube Machines: Bearings, Oscillators, Pistons, and Motors — Institute for Future Intelligence</title>
     <meta name="description" content="Carbon nanotubes slide on each other with very little friction. Simulations in AIMS show one nanotube sliding inside another at 150 gigahertz, helium atoms pushing a buckyball along a nanotube and firing it out of the open end, and a flow of heat moving a cargo along a nanotube, and an AI agent measures each motion.">
 
     <style>
@@ -89,9 +89,9 @@
         <header class="v2-hero" data-wordmark="NANOTUBE">
             <div class="v2-hero-inner">
                 <span class="v2-eyebrow">AIMS</span>
-                <h1>Nanotube Machines: Bearings, Pistons, and Motors</h1>
+                <h1>Nanotube Machines: Bearings, Oscillators, Pistons, and Motors</h1>
                 <p class="v2-tagline">
-                    Simulations in AIMS show one nanotube sliding inside another, a gas pushing a piston and firing it from a nozzle, and a flow of heat driving a motor, and an AI agent measures each motion.
+                    Simulations in AIMS show one nanotube sliding inside another, the same sliding running down in a flexible tube, a gas pushing a piston and firing it from a nozzle, and a flow of heat driving a motor, and an AI agent measures each motion.
                 </p>
             </div>
         </header>
@@ -99,11 +99,11 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 17, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 18, 2026</span></p>
 
                     <p>A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotube</a> is a sheet of carbon atoms rolled into a tube, and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Graphene">graphene</a> is the flat sheet. The wall of a nanotube is smooth on the scale of atoms, and no chemical bond joins one wall to the next, so one nanotube slides on another with very little friction.
                     AIMS models every atom of such a part, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent builds the parts, runs them, measures the motion, and posts the measured data in the chat.
-                    This article follows four machines made of carbon nanotubes: a bearing, one nanotube that slides and turns inside another; a piston, a buckyball that a gas pushes along a nanotube; a nozzle, the same tube with enough hot gas to fire the ball out; and a motor, a short nanotube that a flow of heat moves along a longer one.
+                    This article follows five machines made of carbon nanotubes: a bearing, one nanotube that slides and turns inside another; an oscillator, the same pair with a flexible outer tube, whose swing runs down; a piston, a buckyball that a gas pushes along a nanotube; a nozzle, the same tube with enough hot gas to fire the ball out; and a motor, a short nanotube that a flow of heat moves along a longer one.
                     It is the third of three articles. The article on <a href="aims-molecular-machines.html">molecular machines</a> follows a shuttle, a clamp, an ion pump, and tweezers, and it describes the forces in the model and how to open an example and type a prompt. The article on <a href="aims-molecular-rotors.html">molecular rotors and gears</a> follows parts that turn. The companion article on <a href="aims-graphene-superlubricity.html">superlubricity</a> slides a flat flake of graphene on graphene.
                     No atom of the parts in this article carries a charge, and the Lennard-Jones force is the one force between them.</p>
 
@@ -174,13 +174,98 @@
 
                     <p>The third prompt continues the first run to 100&nbsp;ps. Over the last 30&nbsp;ps one round trip took 6.7&nbsp;ps and the inner tube came out 6.1&nbsp;&Aring; at each end, against 6.7&nbsp;ps and 6.0&nbsp;&Aring; over the first 30&nbsp;ps. The inner tube turned at 16&deg; per picosecond over the last 30&nbsp;ps, against 13&deg; per picosecond over the first 30&nbsp;ps, and made 3.9 full turns in the 100&nbsp;ps.
                     The total energy changed by 0.002&nbsp;eV. The sliding and the turning lost no measurable energy to friction in 100&nbsp;ps.
-                    The outer tube of this lab is rigid. A real outer wall vibrates and takes energy from the inner tube, so the oscillation of a real nanotube decays.</p>
+                    The outer tube of this lab is rigid. A real outer wall vibrates and takes energy from the inner tube, so the oscillation of a real nanotube decays. The next example gives the outer tube that freedom.</p>
 
                     <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
                         <img src="image/aims-bearing-start.jpg" alt="The lab at the start: a wide nanotube drawn as a gray wireframe of hexagons, lying left to right, with a narrower nanotube of gray atoms inside it whose right end sticks out of the wide nanotube">
                         <img src="image/aims-bearing-running.jpg" alt="The lab a few picoseconds after Play: the narrower nanotube has passed through the wide nanotube, and its left end sticks out of the left end of the wide nanotube">
                     </div>
                     <p class="v2-chart-caption">The (5,5) nanotube with its right end outside the (10,10) nanotube at the start (left), and the same nanotube at the left end a few picoseconds after Play (right).</p>
+
+                    <h2>An Oscillator That Runs Down</h2>
+
+                    <p>The inner tube of the bearing swings through the outer tube and back, and that motion is itself a proposed device. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.88.045503">Zheng and Jiang</a> suggested in 2002 that a nanotube sliding in and out of another could serve as an oscillator at gigahertz frequencies, and <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1103/PhysRevLett.90.055504">Legoas and coworkers</a> simulated one in 2003.
+                    The pull that draws the inner tube back in has been measured. No experiment has yet watched the inner tube go back and forth, so the oscillator is a proposal.</p>
+
+                    <p>The window below holds the same two nanotubes as the bearing, with one change. The outer tube is flexible: the 20 atoms of the ring at its middle are fixed, which holds the tube in place, and the other 260 atoms are free to vibrate. The lab marks the fixed atoms with pins.
+                    The inner tube starts 6&nbsp;&Aring; out of the right end, and the thermostat is off. Press Play and watch how far the inner tube comes out at each end.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Nanotube%20Oscillator"
+                                id="aims-frame14" allowfullscreen="true" title="A Nanotube Oscillator demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame14');">View fullscreen</a><br>
+                            A (5,5) nanotube inside a flexible (10,10) nanotube, drawn as a wireframe. The pins mark the fixed ring of the outer tube. Each swing of the inner tube is a little shorter than the one before.
+                        </figcaption>
+                    </figure>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Open <em>A Nanotube Oscillator</em> from the list of examples (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the first prompt in the example keeps its last frame: press "Load this state" on its card and the lab continues from 100&nbsp;ps.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Oscillation</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 100 ps and chart the position of the inner tube along the axis.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Friction</span> &mdash; <span class="v2-prompt">&ldquo;Why does the swing shrink? Compare a rigid outer tube, and a colder and a hotter start.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Timing</span> &mdash; <span class="v2-prompt">&ldquo;Does a round trip take the same time if I pull the tube out less or more? Try 3, 6, 9 and 12 &Aring;.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <p>The agent ran the lab for 100&nbsp;ps. The inner tube turned around 30 times. One round trip took 6.7&nbsp;ps at the start, a frequency of about 150&nbsp;gigahertz, the same as in the bearing.
+                    Over the first 15&nbsp;ps the inner tube came out 6.0&nbsp;&Aring; at each end. Over the last 15&nbsp;ps it came out 5.3&nbsp;&Aring;. The energy of the sliding depends on how far the tube comes out, and 82% of it was left after 100&nbsp;ps.
+                    The total energy changed by 0.005&nbsp;eV, so the rest of the energy was still in the tubes: it had passed into the vibrations of the atoms of the two walls. That transfer is the friction of the oscillator.</p>
+
+                    <div class="v2-screenshot-row" style="grid-template-columns: 1fr 1fr;">
+                        <img src="image/aims-oscillator-start.jpg" alt="The lab at the start: a wide nanotube drawn as a gray wireframe of hexagons with a ring of yellow pins around its middle, and a narrower nanotube of gray atoms inside it whose right end sticks out of the wide nanotube">
+                        <img src="image/aims-oscillator-loaded.jpg" alt="The lab after 100 picoseconds: the narrower nanotube sticks out of the right end of the wide nanotube by a shorter length, and the wireframe of the wide nanotube is slightly out of shape">
+                    </div>
+                    <p class="v2-chart-caption">The two nanotubes at the start (left) and after 100&nbsp;ps, loaded by the "Load this state" card (right). The pins mark the fixed ring of the outer tube. After 100&nbsp;ps the outer wall is slightly out of shape, because its atoms are vibrating.</p>
+
+                    <h2>Where the Energy Goes</h2>
+
+                    <p>The second prompt runs four cases for 100&nbsp;ps each, all with the inner tube pulled 6&nbsp;&Aring; out. In the first the outer tube is rigid, as in the bearing. In the other three it is flexible, and the atoms start with the speeds of 100&nbsp;K, 300&nbsp;K, and 600&nbsp;K.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Outer tube</th><th class="num">Temperature during the run</th><th class="num">Swing, first 15&nbsp;ps</th><th class="num">Swing, last 15&nbsp;ps</th><th class="num">Sliding energy left</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>Rigid</b></td><td class="num">230&nbsp;K</td><td class="num">6.0&nbsp;&Aring;</td><td class="num">5.9&nbsp;&Aring;</td><td class="num">97%</td></tr>
+                                <tr><td class="crystal"><b>Flexible</b></td><td class="num">80&nbsp;K</td><td class="num">6.0&nbsp;&Aring;</td><td class="num">5.8&nbsp;&Aring;</td><td class="num">94%</td></tr>
+                                <tr><td class="crystal"><b>Flexible</b></td><td class="num">180&nbsp;K</td><td class="num">6.0&nbsp;&Aring;</td><td class="num model">5.3&nbsp;&Aring;</td><td class="num model">82%</td></tr>
+                                <tr><td class="crystal"><b>Flexible</b></td><td class="num">330&nbsp;K</td><td class="num">5.7&nbsp;&Aring;</td><td class="num">4.4&nbsp;&Aring;</td><td class="num">62%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">How far the inner tube comes out at each end, at the start and at the end of a run of 100&nbsp;ps. The highlighted row is the lab as it opens. The temperature of the rigid row is that of the inner tube alone.</p>
+
+                    <p>With a rigid outer tube the swing kept its size. A rigid wall cannot take up energy, and the vibrations of the inner tube took almost none. With a flexible outer tube the swing shrank, and it shrank faster in the hotter tubes: to 5.8&nbsp;&Aring; at 80&nbsp;K, 5.3&nbsp;&Aring; at 180&nbsp;K, and 4.4&nbsp;&Aring; at 330&nbsp;K.
+                    A likely reason is that the atoms of a hot wall move farther from their places, so the inner tube meets a rougher wall. These runs do not test that reason. Each row is one run, and a run with other starting speeds gives somewhat different numbers.
+                    The thermometer reads lower than the starting speeds because part of that energy goes into the stretching of the bonds soon after the start.</p>
+
+                    <h2>A Longer Pull Takes Longer</h2>
+
+                    <p>The third prompt pulls the inner tube out by four different lengths and times the round trip, with a rigid outer tube so that the swing keeps its size. For the calculated column, the agent moves the inner tube along the axis without running it, adds up the energy between the two tubes at each position, and calculates how long a tube of this mass takes to travel that energy curve.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Pulled out</th><th class="num">Round trip, measured</th><th class="num">Frequency</th><th class="num">Round trip, calculated</th><th class="num">Force pulling it in</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>3&nbsp;&Aring;</b></td><td class="num model">5.5&nbsp;ps</td><td class="num">180&nbsp;GHz</td><td class="num">5.3&nbsp;ps</td><td class="num">1,090&nbsp;pN</td></tr>
+                                <tr><td class="crystal"><b>6&nbsp;&Aring;</b></td><td class="num model">6.7&nbsp;ps</td><td class="num">150&nbsp;GHz</td><td class="num">6.3&nbsp;ps</td><td class="num">1,420&nbsp;pN</td></tr>
+                                <tr><td class="crystal"><b>9&nbsp;&Aring;</b></td><td class="num model">8.0&nbsp;ps</td><td class="num">130&nbsp;GHz</td><td class="num">7.5&nbsp;ps</td><td class="num">1,470&nbsp;pN</td></tr>
+                                <tr><td class="crystal"><b>12&nbsp;&Aring;</b></td><td class="num model">9.2&nbsp;ps</td><td class="num">110&nbsp;GHz</td><td class="num">8.7&nbsp;ps</td><td class="num">1,440&nbsp;pN</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The time of one round trip of the inner tube for four starting positions, measured in a run of 30&nbsp;ps and calculated from the energy between the two tubes.</p>
+
+                    <p>The round trip takes 5.5&nbsp;ps from 3&nbsp;&Aring; and 9.2&nbsp;ps from 12&nbsp;&Aring;. The calculated times are within 7% of the measured ones, and all of them are a little shorter.
+                    A weight on a spring takes the same time for every round trip, large or small, because a spring pulls back harder the farther it is stretched. Here the tube was pulled out four times as far and the force grew 1.3 times.
+                    Each &aring;ngstr&ouml;m of the inner tube that leaves the outer tube removes the same area of contact between the walls, so the force changes little with the distance. A tube that starts farther out has farther to go under nearly the same force.
+                    This is also why the round trip in the first run became shorter, from 6.7&nbsp;ps to 6.4&nbsp;ps, as the swing shrank. The frequency of this oscillator changes as it runs down.</p>
 
                     <h2>A Piston Driven by a Gas</h2>
 
@@ -399,7 +484,8 @@
                     The lab shows the parts of a machine and the forces that hold and move them. In the three articles of this series, those are a ring that goes to a charge, a clamp that closes on an ion, an ion that a field drives through a ring, tweezers that grip a ball, a ring that turns freely in both directions, a ring that an electric field holds, two wheels that turn each other, a tube that slides and turns in another tube, a ball that a gas pushes along a tube and fires out of it, and a cargo that a flow of heat moves in one direction.
                     Two of them are driven in one direction by an energy source: the ion pump by an electric field, and the thermal motor by a flow of heat.
                     AIMS has one more example of a machine part. <em>A Nanocar on Gold</em> (Nanotechnology) holds a molecule with four buckyballs as wheels on a gold surface, after the nanocar of <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1021/nl051915k">Shirai, Tour, and coworkers</a>.
-                    A nanotube can also work as a filter. The companion article on <a href="aims-nanotube-water-filter.html">nanotube water filters</a> presses salt water against a narrow nanotube with the piston of the lab, and the tube passes the water and stops the salt.</p>
+                    A nanotube can also work as a filter. The companion article on <a href="aims-nanotube-water-filter.html">nanotube water filters</a> presses salt water against a narrow nanotube with the piston of the lab, and the tube passes the water and stops the salt.
+                    A nanotube can also work as a balance. The companion article on <a href="aims-nanotube-mass-sensor.html">nanotube mass sensors</a> holds a nanotube at one end and weighs the atoms on its tip by the pitch of its vibration.</p>
 
                     <div class="v2-prompts">
                         <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
@@ -408,6 +494,8 @@
                             <li><span class="v2-prompts-step">An oscillator</span> &mdash; a (5,5) nanotube released 6&nbsp;&Aring; out of a (10,10) nanotube passes through and returns every 6.7&nbsp;ps, a frequency of 150&nbsp;GHz.</li>
                             <li><span class="v2-prompts-step">A bearing</span> &mdash; the barrier to turning the (5,5) tube is 9&nbsp;meV, less than the thermal energy of 26&nbsp;meV, and the tube is still sliding and turning after 100&nbsp;ps.</li>
                             <li><span class="v2-prompts-step">The right fit</span> &mdash; the (5,5) tube is pulled in with 1,470&nbsp;pN, the (4,4) tube with 960&nbsp;pN, and the (6,6) tube is pushed out.</li>
+                            <li><span class="v2-prompts-step">Friction</span> &mdash; with a flexible outer tube the swing of the inner tube shrinks from 6.0&nbsp;&Aring; to 5.3&nbsp;&Aring; in 100&nbsp;ps, and to 4.4&nbsp;&Aring; in a hotter tube; with a rigid outer tube it keeps its size.</li>
+                            <li><span class="v2-prompts-step">Timing</span> &mdash; a round trip takes 5.5&nbsp;ps from 3&nbsp;&Aring; and 9.2&nbsp;ps from 12&nbsp;&Aring;, because the force that pulls the tube in stays near 1,400&nbsp;pN at every distance.</li>
                             <li><span class="v2-prompts-step">A piston</span> &mdash; eight helium atoms push a buckyball 7&nbsp;&Aring; along a nanotube in 6&nbsp;ps with a force of about 60&nbsp;pN, and the gas cools from 320&nbsp;K to 170&nbsp;K as it does the work.</li>
                             <li><span class="v2-prompts-step">A nozzle</span> &mdash; 32 helium atoms at 1500&nbsp;K fire the buckyball out of the tube in 1.9&nbsp;ps at about 670&nbsp;m/s, and the same atoms at 300&nbsp;K or 24 atoms at 1500&nbsp;K leave the ball in the tube.</li>
                             <li><span class="v2-prompts-step">A motor</span> &mdash; a short nanotube on a longer one travels to the cold end with a force of about 19&nbsp;pN when the temperature falls by 50&nbsp;K per nanometer, travels the other way when the temperatures are swapped, and has no preferred direction at one temperature.</li>
@@ -416,8 +504,8 @@
 
                     <h2>Conclusion</h2>
 
-                    <p>This article uses a nanotube bearing, a gas-driven piston, a nanotube nozzle, and a thermal motor to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
-                    measured data. Machines made of carbon nanotubes become something students watch and measure for themselves in a browser: how one nanotube slides and turns inside another with almost no friction,
+                    <p>This article uses a nanotube bearing, a nanotube oscillator, a gas-driven piston, a nanotube nozzle, and a thermal motor to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. Machines made of carbon nanotubes become something students watch and measure for themselves in a browser: how one nanotube slides and turns inside another with almost no friction, how that sliding runs down when the outer wall can vibrate,
                     how a gas does work on a piston and cools, how a hot gas fires a ball out of a tube, and how a flow of heat moves a cargo in one direction. By pairing a physically grounded simulation with an AI that can set it up and run it,
                     AIMS turns a student's curiosity into a genuine scientific investigation of the parts that molecular machines are made of.</p>
 

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanotube Mass Sensors: Weighing Atoms by the Pitch of a Vibration — Institute for Future Intelligence</title>
+    <meta name="description" content="A carbon nanotube held at one end vibrates like a diving board, and atoms on its tip lower its frequency. Simulations in AIMS set a bare nanotube and a loaded one swinging side by side at 186 and 135 gigahertz, and an AI agent reads the mass of one to four iodine atoms back from the fall in frequency.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      function openFullscreen(id) { var e = document.getElementById(id); (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e); }
+    </script>
+
+    <style>
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: minmax(0, 1fr); }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.5rem; }
+        .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
+        .v2-col-main p.v2-chart-caption { font-size: 1.2rem; line-height: 1.45; color: var(--text-muted); text-align: center; margin: 0 0 1.75rem; }
+        @media (max-width: 700px) { .v2-screenshot-row { grid-template-columns: 1fr; } }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-prompts { background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1.35rem 1.6rem; margin: 1rem 0 2rem; }
+        .v2-prompts-intro { font-size: 1.1rem !important; line-height: 1.5 !important; margin: 0 0 1rem !important; color: var(--text-muted); }
+        .v2-prompts ol { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts li { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.85rem; color: var(--text); }
+        .v2-prompts li:last-child { margin-bottom: 0; }
+        .v2-prompts-step { font-family: var(--font-display); font-weight: 700; color: var(--text); }
+        .v2-prompt { font-style: italic; color: var(--accent-dark); }
+        .v2-prompts-group { font-family: var(--font-display); font-size: 0.85rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.4rem 0 0.6rem !important; }
+        .v2-prompts ul { margin: 0; padding-left: 1.4rem; }
+        .v2-prompts ul li:last-child { margin-bottom: 0; }
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12); }
+        .v2-compare { width: 100%; min-width: 48rem; border-collapse: separate; border-spacing: 0; font-size: 1.35rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 1rem 1.15rem; text-align: left; vertical-align: middle; }
+        .v2-compare thead th { background: var(--accent-soft); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-dark); white-space: nowrap; border-bottom: 1px solid rgba(99, 102, 241, 0.25); }
+        .v2-compare tbody td { border-bottom: 1px solid var(--border); }
+        .v2-compare tbody tr:last-child td { border-bottom: 0; }
+        .v2-compare tbody tr:hover td { background: var(--surface-raised); }
+        .v2-compare .crystal { white-space: nowrap; }
+        .v2-compare .crystal b { display: block; font-weight: 600; color: var(--text); }
+        .v2-compare .crystal small { font-size: 1.1rem; color: var(--text-muted); }
+        .v2-compare th.num, .v2-compare td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .v2-compare td.model { background: rgba(99, 102, 241, 0.06); color: var(--accent-dark); font-weight: 700; }
+        .v2-compare tbody tr:hover td.model { background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="SENSOR">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">AIMS</span>
+                <h1>Nanotube Mass Sensors: Weighing Atoms by the Pitch of a Vibration</h1>
+                <p class="v2-tagline">
+                    AIMS sets a carbon nanotube vibrating like a diving board, and an AI agent weighs the atoms on its tip by how much they lower its frequency.
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 18, 2026</span></p>
+
+                    <p>A diving board vibrates more slowly with a swimmer standing on its end. The same is true of any beam that is held at one end: weight added to the free end lowers the frequency of its vibration, and the drop tells how much weight was added.
+                    A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotube</a> is among the stiffest and lightest beams that can be made, so a few atoms on its tip are enough to change its pitch.
+                    AIMS models every atom of such a tube, and an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Intelligent_agent">AI agent</a> sets up the experiments. A student asks a plain-language question, and the agent builds the tubes, runs them, measures the vibration, and posts the measured data in the chat.
+                    The window below holds two nanotubes, each held at its left end. The lower one carries four iodine atoms on its tip. Press Play and watch the two tips.</p>
+
+                    <figure class="v2-embed">
+                        <iframe src="https://aims.intofuture.org/?viewonly=true&userid=HgVr8Ex4o9YsAjgku4RICvBldJK2&project=A%20Nanotube%20Mass%20Sensor"
+                                id="aims-frame1" allowfullscreen="true" title="A Nanotube Mass Sensor demo"></iframe>
+                        <figcaption>
+                            <a href="javascript:openFullscreen('aims-frame1');">View fullscreen</a><br>
+                            A bare nanotube (above) and a nanotube with four iodine atoms on its tip (below, purple). Both are held at the left end and get the same push. The loaded tube swings more slowly.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Weighing by Pitch</h2>
+
+                    <p>A beam that is held at one end swings at a frequency set by two things: how stiff the beam is, and how much mass has to move. The stiffness pulls the tip back, and the mass resists being moved. Added mass leaves the stiffness as it was and gives the beam more to move, so each swing takes longer.
+                    A balance of this kind measures time and reports mass. Nothing is weighed directly.</p>
+
+                    <p>The method is in everyday use. A <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Quartz_crystal_microbalance">quartz crystal microbalance</a> is a vibrating disk of quartz whose frequency falls as material lands on it, and it measures the thickness of thin films in factories and laboratories.
+                    The lighter the vibrating part, the smaller the mass that it can detect. In 1999 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1126/science.283.5407.1513">Poncharal and coworkers</a> set single nanotubes vibrating inside an electron microscope with an electrical voltage, measured their frequencies, and proposed the vibrating nanotube as a balance for very small masses.
+                    In 2008 <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1038/nnano.2008.200">Jensen, Kim, and Zettl</a> held one end of a nanotube 205&nbsp;nm long, set it vibrating, and let gold atoms land on it. They read the mass of the gold from the fall in frequency, at room temperature, with a resolution close to the mass of one gold atom.</p>
+
+                    <h2>The Model</h2>
+
+                    <p>Each tube in the lab is a (4,4) nanotube of 240 carbon atoms, 36&nbsp;&Aring; long and 5.4&nbsp;&Aring; across. The two numbers in the name of a nanotube describe how the sheet of carbon atoms is rolled, and a larger pair of numbers means a wider nanotube.
+                    The 40 atoms of the first two periods at the left end of each tube are fixed, which is the clamp, and the lab marks them with pins. That leaves 30&nbsp;&Aring; of each tube free. The two tubes are 20&nbsp;&Aring; apart, far enough that neither affects the other.</p>
+
+                    <p>The upper tube is bare. The lower tube carries four <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Iodine">iodine</a> atoms, each joined by a chemical bond to a carbon atom on the rim of the free end. An iodine atom weighs 127 atomic mass units, about ten times a carbon atom. The lab draws the iodine atoms as large purple spheres so that they stand out.
+                    Every free atom starts with an upward speed that grows toward the free end, up to 200&nbsp;m/s at the tip, and no other motion. Both tubes get the same push. The thermostat of the lab is off, so the total energy stays constant.</p>
+
+                    <h2>Running Experiments by Asking</h2>
+
+                    <p>AIMS is an AI-native environment. Building the tubes, bonding atoms to a tip, timing the swings, and tabulating the results are the agent's work. A student asks the agent
+                    <em>"how the frequency depends on the load"</em>, and the agent recognizes the intent, builds a tube for each load, runs each one, and posts the frequencies in the conversation.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-intro">Go to <a target="_blank" rel="noopener noreferrer" href="https://aims.intofuture.org">AIMS</a> and open the list of examples, with the lightbulb button <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/></svg> on the toolbar or the Examples item in the main menu (&#9776;). Open <em>A Nanotube Mass Sensor</em> from the list (Nanotechnology, Molecular Machines), open the chat, and type the prompts below.
+                        The answer to the second prompt in the example keeps a lab for every load: press "Load this state" on a card and the lab holds the bare tube above a tube with one, two, three, or four iodine atoms, at the moment of the push.</p>
+
+                        <ol>
+                            <li><span class="v2-prompts-step">Two tubes</span> &mdash; <span class="v2-prompt">&ldquo;Run it for 40 ps and chart the height of each tip.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Weighing</span> &mdash; <span class="v2-prompt">&ldquo;How does the frequency depend on the load? Try one to 4 iodine atoms on the tip, and read the mass back from each frequency.&rdquo;</span></li>
+                            <li><span class="v2-prompts-step">Noise</span> &mdash; <span class="v2-prompt">&ldquo;What changes if the tube is warm? Start a bare tube with the atoms at the speeds of 300 K and push it the same way.&rdquo;</span></li>
+                        </ol>
+                    </div>
+
+                    <h2>The Loaded Tube Falls Behind</h2>
+
+                    <p>The agent ran the lab for 40&nbsp;ps. Both tubes swing up and down like diving boards. The two tips start together, and the loaded tube falls behind.
+                    One swing of the bare tube, up and down, takes 5.38&nbsp;ps, a frequency of 186&nbsp;gigahertz, and its tip moves 1.5&nbsp;&Aring; to each side. One swing of the loaded tube takes 7.39&nbsp;ps, a frequency of 135&nbsp;gigahertz, and its tip moves 2.3&nbsp;&Aring; to each side. Each swing of the loaded tube takes 37% longer.</p>
+
+                    <p>The two tubes are the same length and equally stiff. The loaded tube has 508 atomic mass units more to move at its tip, where the motion is largest, and that makes it slower.
+                    The swings kept their size during the run, and the total energy changed by less than 0.001&nbsp;eV.</p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/aims-mass-sensor-start.jpg" alt="The lab at the start: two straight nanotubes of gray atoms lying left to right, one above the other, with yellow pins on the left end of each; the lower one has large purple spheres on its right end">
+                        <img src="image/aims-mass-sensor-running.jpg" alt="The lab four picoseconds after Play: the upper nanotube is bent downward toward its right end, and the lower nanotube with the purple spheres is nearly straight">
+                        <img src="image/aims-mass-sensor-one.jpg" alt="The lab after a card is loaded: the same two nanotubes, and the lower one has a single large purple sphere on its right end">
+                    </div>
+                    <p class="v2-chart-caption">The bare tube above the tube with four iodine atoms at the start (left) and 4.0&nbsp;ps after Play (middle): the bare tube is near the bottom of its swing, and the loaded tube has only just passed its resting place. Right: the lab loaded by the first card, in which the lower tube carries one iodine atom.</p>
+
+                    <h2>Reading the Mass from the Frequency</h2>
+
+                    <p>The second prompt repeats the experiment for one, two, three, and four iodine atoms. For each load the agent builds the pair again, a bare tube above a loaded one, gives both the same push, and runs it for 40&nbsp;ps.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-compare">
+                            <thead>
+                                <tr><th>Iodine atoms on the tip</th><th class="num">Added mass</th><th class="num">Frequency, measured</th><th class="num">Frequency, calculated</th><th class="num">Mass read back from the frequency</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="crystal"><b>0</b></td><td class="num">0</td><td class="num">185.9&nbsp;GHz</td><td class="num">&mdash;</td><td class="num">&mdash;</td></tr>
+                                <tr><td class="crystal"><b>1</b></td><td class="num">127&nbsp;amu</td><td class="num">167.7&nbsp;GHz</td><td class="num">168.5&nbsp;GHz</td><td class="num model">133&nbsp;amu</td></tr>
+                                <tr><td class="crystal"><b>2</b></td><td class="num">254&nbsp;amu</td><td class="num">154.2&nbsp;GHz</td><td class="num">155.2&nbsp;GHz</td><td class="num model">265&nbsp;amu</td></tr>
+                                <tr><td class="crystal"><b>3</b></td><td class="num">381&nbsp;amu</td><td class="num">143.9&nbsp;GHz</td><td class="num">144.6&nbsp;GHz</td><td class="num model">390&nbsp;amu</td></tr>
+                                <tr><td class="crystal"><b>4</b></td><td class="num">508&nbsp;amu</td><td class="num">135.3&nbsp;GHz</td><td class="num">135.9&nbsp;GHz</td><td class="num model">517&nbsp;amu</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="v2-chart-caption">The frequency of the tube for each load, measured in a run of 40&nbsp;ps and calculated from the formula for a beam with a weight on its end. The last column is the mass that the formula gives back from the measured frequency. One atomic mass unit (amu) is about the mass of a hydrogen atom.</p>
+
+                    <p>Every added atom lowered the frequency. One iodine atom lowered it by 18.2&nbsp;GHz, from 185.9 to 167.7&nbsp;GHz, and four lowered it to 135.3&nbsp;GHz. The bare tube in the same lab kept its 185.9&nbsp;GHz in all four runs.</p>
+
+                    <p>The calculated column uses the formula for a beam with a weight on its end. The free part of the tube weighs 2,402&nbsp;amu, and the share of it that counts at the tip is 24%, or 583&nbsp;amu, because the parts near the clamp hardly move.
+                    The frequency of the loaded tube is the frequency of the bare tube divided by the square root of one plus the added mass over those 583&nbsp;amu. The calculated values are within 0.7% of the measured ones.</p>
+
+                    <p>The last column turns the formula around, and this is the sensor at work. It takes the measured frequency and gives the mass on the tip: 583&nbsp;amu times the square of the ratio of the two frequencies, minus 583&nbsp;amu.
+                    The masses read back are within 12&nbsp;amu of the true ones, a small part of the 127&nbsp;amu of one iodine atom, so the sensor counts the atoms correctly in every case.
+                    Four atoms are enough to change the frequency by 27% because the tube is so light: they nearly double the mass that moves at the tip.</p>
+
+                    <h2>A Warm Tube Is a Noisy Balance</h2>
+
+                    <p>The tubes above start at rest, as if they had been cooled to near absolute zero. The third prompt starts a bare tube with its atoms at the speeds of 300&nbsp;K and gives it the same push. The thermometer of the lab averaged 150&nbsp;K during the run, because part of the energy of the starting speeds goes into the stretching of the bonds.</p>
+
+                    <p>The tube swings at nearly the same frequency, 185.6&nbsp;GHz against 185.9&nbsp;GHz. The swing is a little less regular. The thermal motion of the tube shakes the tip at random on top of the push, and the single swings scatter by 0.02&nbsp;ps around the average, against 0.01&nbsp;ps or less for the tube that started at rest.
+                    For one swing that scatter amounts to 0.5&nbsp;GHz. One iodine atom changes the frequency by 18.2&nbsp;GHz, so it still stands out. The frequency changes by about 0.14&nbsp;GHz for each atomic mass unit, so the scatter of one swing hides anything lighter than about 4&nbsp;amu. A hydrogen atom weighs 1 and a carbon atom 12.</p>
+
+                    <p>This is the noise that limits a real sensor. A sensor reduces it by timing many swings and averaging, and the sensor of Jensen, Kim, and Zettl did that at room temperature.</p>
+
+                    <h2>What the Lab Cannot Show</h2>
+
+                    <p>The atoms in this lab do not arrive during a run. Each loaded tube is built with its iodine atoms already bonded to the tip, and the lab compares it with a bare tube. In the real experiment the gold atoms landed on a tube that was already vibrating, and the frequency fell as they arrived.
+                    Gold atoms that land on a real nanotube stay on it. The force field of this lab holds a gold atom on a nanotube too weakly for that, which is why the added atoms here are iodine atoms joined to the tube by chemical bonds.</p>
+
+                    <p>The formula assumes that the added mass is at the tip. The same atom nearer the clamp moves less and lowers the frequency less, so it reads lighter. The lab always puts the atoms on the tip. Atoms that land on a real tube can land anywhere along it.
+                    The tube of the real sensor was 205&nbsp;nm long, about sixty times the length of these, and it vibrated far more slowly. It was set in motion and read out electrically, and the lab has neither step.
+                    The article on <a href="aims-nanotube-machines.html">nanotube machines</a> uses nanotubes as a bearing, an oscillator, a piston, and a motor, and the article on <a href="aims-nanotube-water-filter.html">nanotube water filters</a> uses one as a filter.</p>
+
+                    <div class="v2-prompts">
+                        <p class="v2-prompts-group" style="margin-top:0 !important;">What the Simulations Produced</p>
+                        <p class="v2-prompts-intro">The simulations were given the structures of the tubes and a force field. Everything below came out of them:</p>
+                        <ul>
+                            <li><span class="v2-prompts-step">A vibrating beam</span> &mdash; a nanotube 36&nbsp;&Aring; long, held at one end and pushed sideways, swings at 186&nbsp;GHz and keeps the size of its swing for 40&nbsp;ps.</li>
+                            <li><span class="v2-prompts-step">A slower loaded tube</span> &mdash; four iodine atoms on the tip lower the frequency to 135&nbsp;GHz, and each swing takes 37% longer.</li>
+                            <li><span class="v2-prompts-step">The formula holds</span> &mdash; for one to four iodine atoms the measured frequencies are within 0.7% of the formula for a beam with a weight on its end.</li>
+                            <li><span class="v2-prompts-step">A balance</span> &mdash; the masses read back from the frequencies are within 12&nbsp;amu of the true ones, less than a tenth of one iodine atom.</li>
+                            <li><span class="v2-prompts-step">Thermal noise</span> &mdash; in a warm tube the single swings scatter by 0.5&nbsp;GHz, which hides anything lighter than about 4&nbsp;amu in one swing.</li>
+                        </ul>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                    <p>This article uses a nanotube mass sensor to illustrate a new way to learn science: students <em>converse</em> with an AI agent that turns a plain-language question into a molecular dynamics experiment and hands back
+                    measured data. Weighing atoms, a measurement at the limit of what instruments can do, becomes something students watch and measure for themselves in a browser: how a beam held at one end vibrates,
+                    how a few atoms on its tip slow it down, how the frequency gives back their mass, and how thermal motion limits the smallest mass that can be read. By pairing a physically grounded simulation with an AI that can set it up and run it,
+                    AIMS turns a student's curiosity into a genuine scientific investigation of how a vibration can serve as a balance.</p>
+
+                    <a class="v2-backlink" href="aims.html">&larr; Back to AIMS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
