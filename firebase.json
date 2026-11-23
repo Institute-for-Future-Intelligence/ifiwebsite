@@ -16,6 +16,10 @@
       "**/*.rpm",
       "**/*.bin"
     ],
+    "redirects": [
+      { "source": "/ie-privacy.html", "destination": "https://ie.intofuture.org/privacy", "type": 301 },
+      { "source": "/ie-terms.html", "destination": "https://ie.intofuture.org/terms", "type": 301 }
+    ],
     "headers": [
       {
         "source": "**/*.@(html|htm)",
