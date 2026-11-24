@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supported Filters in Infrared Explorer for Image Processing — Institute for Future Intelligence</title>
-    <meta name="description" content="A catalog of the post-processing filters available to transform thermal images inside the Infrared Explorer app.">
+    <title>Processing Thermal Images and Videos in Infrared Explorer — Institute for Future Intelligence</title>
+    <meta name="description" content="Process in Infrared Explorer: eleven adjustment sliders and eleven stackable effects for thermal photos and videos, in the app and on the web, without changing the temperature data.">
 
     <style>
         @import url("css/system.base.css");
@@ -41,24 +41,37 @@
 
     <style>
         .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
-        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: minmax(0, 1fr); }
         .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
         .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
         .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
         .v2-byline a { color: var(--accent); }
         .v2-byline strong { color: var(--text); font-weight: 600; }
-        .v2-article-audio { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.25rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: 0.75rem; margin: 0 0 2rem; }
-        .v2-article-audio-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
-        .v2-article-audio audio { width: min(100%, 420px); }
-        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
-        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
-        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
-        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
-        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 1.5rem; }
+        /* A pair of screens of the app, side by side: kept from filling the whole column. */
+        .v2-screenshot-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; max-width: 600px; margin: 1rem auto 0.5rem; }
+        /* Three screens of the app in a row; one under the other where the row would make them too small to read. */
+        .v2-screenshot-row.is-three { grid-template-columns: repeat(3, 1fr); max-width: 900px; }
+        @media (max-width: 700px) { .v2-screenshot-row.is-three { grid-template-columns: 1fr; max-width: 300px; } }
         .v2-screenshot-row img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid rgba(15, 23, 42, 0.1); }
-        .v2-filter-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin: 1rem 0 0.5rem; }
-        .v2-filter-grid img { width: 100%; height: auto; border-radius: 0.4rem; border: 1px solid rgba(15, 23, 42, 0.15); }
-        @media (max-width: 640px) { .v2-filter-grid { grid-template-columns: repeat(2, 1fr); } }
+        /* The gallery's tiles, one an effect, with its name under it: six across (two rows), three on a phone. */
+        .v2-fx-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.1rem 0.8rem; margin: 1.5rem 0 0.5rem; }
+        .v2-fx-grid figure { margin: 0; }
+        .v2-fx-grid img { display: block; width: 100%; height: auto; border-radius: 0.8rem; }
+        .v2-fx-grid figcaption { margin-top: 0.4rem; font-family: var(--font-display); font-size: 1rem; font-weight: 600; text-align: center; color: var(--text); }
+        @media (max-width: 700px) { .v2-fx-grid { grid-template-columns: repeat(3, 1fr); } }
+        /* The website's player, a whole browser window: not the full width of the column. */
+        .v2-col-main .v2-screenshot.is-web { max-width: 900px; margin-left: auto; margin-right: auto; }
+        /* One screen of the app, upright: a third of the column is enough to read it. */
+        .v2-col-main .v2-formula.is-phone img { max-width: min(100%, 300px) !important; border-radius: 0.5rem; }
+        /* The caption of a row or a grid of pictures. */
+        .v2-col-main p.v2-row-caption { font-size: 1rem; text-align: center; color: var(--text-subtle); margin: 0.75rem 0 2.5rem; }
+        /* The sliders and the effects, one a row. On a narrow screen the table scrolls inside its own box. */
+        .v2-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; border: 1px solid rgba(15, 23, 42, 0.1); border-radius: 0.75rem; background: #fff; }
+        .v2-table { width: 100%; border-collapse: collapse; }
+        .v2-table th, .v2-table td { padding: 0.65rem 1.1rem; text-align: left; vertical-align: top; font-size: 1.3rem; line-height: 1.5; color: var(--text-muted); border-bottom: 1px solid rgba(15, 23, 42, 0.08); }
+        .v2-table th { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); background: var(--surface-raised); }
+        .v2-table td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; }
+        .v2-table tr:last-child td { border-bottom: 0; }
     </style>
 </head>
 
@@ -70,14 +83,14 @@
 
     <main class="v2">
 
-        <header class="v2-hero" data-wordmark="FILTERS">
+        <header class="v2-hero" data-wordmark="PROCESS">
             <div class="v2-hero-inner">
                 <span class="v2-eyebrow">Infrared Explorer</span>
-                <h1>Supported filters for image processing</h1>
+                <h1>Processing thermal images and videos</h1>
                 <p class="v2-tagline">
-                    A look at the mathematical transforms &mdash; blur, edge detection, emboss,
-                    solarize and more &mdash; that Infrared Explorer can apply to thermal images
-                    after they are captured
+                    Eleven adjustment sliders and eleven effects &mdash; blur, edge detection,
+                    emboss, posterize, and more &mdash; for photos and videos alike, in the app
+                    and on the web, with the temperature data left untouched
                 </p>
             </div>
         </header>
@@ -86,47 +99,249 @@
             <div class="v2-grid">
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="ie.html">&larr; Back to Infrared Explorer</a>
-                    <p class="v2-byline">By <strong>Charles Xie</strong> &middot; <a href="mailto:charles@intofuture.org">charles@intofuture.org</a> &middot; <span class="v2-updated">Updated July 11, 2026</span></p>
+                    <p class="v2-byline">By <strong>Xiaotong Ding</strong> <a href="mailto:xiaotong@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated July 11, 2026</span></p>
 
+                    <p>
+                        After a thermal photo or video has been taken, Infrared Explorer can change
+                        how it looks: brighten a dim picture, bring out faint details, or restyle it
+                        altogether with effects such as edge detection, posterize, and emboss. These
+                        tools are collected in one place, called <strong>Process</strong>. They work
+                        on photos and on recorded videos (recordings), in each of the three views of
+                        a photo or recording (Infrared, Visible, and Blended), in the app and on the
+                        website.
+                    </p>
+                    <p>
+                        Processing changes the picture, never the measurement. The temperature data
+                        saved with a photo or recording is not touched, so thermometers, isotherms,
+                        and graphs keep reading the true temperatures, and the original picture can
+                        be brought back at any time.
+                    </p>
+
+                    <h2>Opening Process in the app</h2>
+                    <p>
+                        On the page of a photo, tap the <strong>Process</strong> key. In the player
+                        of a recording, open <strong>More</strong> and choose <strong>Process</strong>.
+                        A panel opens under the picture, which stays in full view while you work on
+                        it (Figure 1). The panel has two tabs, <strong>Adjust</strong> and
+                        <strong>Effects</strong>. What you do applies to the view on screen: the
+                        Infrared, Visible, and Blended views each keep their own settings.
+                    </p>
+
+                    <div class="v2-screenshot-row is-three">
+                        <img src="image/ie-process-open-photo.jpg" alt="The page of a thermal photo in the IE app: the color scale from 22.1 to 31.9&nbsp;&deg;C above the picture of a laptop, a thermometer on it reading 32.66&nbsp;&deg;C, and under it the keys Infrared, Analyze, Palette, Process, and More">
+                        <img src="image/ie-process-open-menu.jpg" alt="The More menu in the player of a recording: Edit Info, Process, Save as&hellip;, Details, Share Files, Upload to Cloud, Delete, and the options Info Pane, Frames &amp; Time, and Label Background">
+                        <img src="image/ie-process-app.jpg" alt="Process open on the same photo: the picture with its colors inverted and the thermometer still reading 32.66&nbsp;&deg;C; above it, where the color scale was, the keys Save as New File, Cancel, and Done; under it the Adjust and Effects tabs, the compare, Undo, and Redo keys and Reset, a row of previews named None, Invert, Edge, Solarize, and Threshold, with Invert marked 1, and a slider at 100">
+                    </div>
+                    <p class="v2-row-caption">Figure 1: Opening Process in the IE app. Left: the page of a photo, with the Palette and Process keys under the picture. Middle: the More menu of a recording, with Process in it. Right: Process open on the photo, with the Effects tab showing and the Invert effect on. The thermometer still reads the same temperature.</p>
+
+                    <h2>Adjust: eleven sliders and Auto</h2>
+                    <p>
+                        The Adjust tab works like the photo editor of a phone. Pick a name from the
+                        row and drag the slider under it. Every slider starts at 0, which leaves the
+                        picture as it is.
+                    </p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-table">
+                            <thead>
+                                <tr><th>Slider</th><th>What it changes</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Brightness</td><td>Lightens or darkens the picture along a curve, so that a dim picture comes up without its bright areas washing out.</td></tr>
+                                <tr><td>Exposure</td><td>Lightens or darkens everything by the same factor, up to two stops either way, as the exposure of a camera does.</td></tr>
+                                <tr><td>Contrast</td><td>Pushes the light and dark tones apart, or brings them together.</td></tr>
+                                <tr><td>Highlights</td><td>Lightens or darkens only the light parts of the picture.</td></tr>
+                                <tr><td>Shadows</td><td>Lightens or darkens only the dark parts of the picture.</td></tr>
+                                <tr><td>Saturation</td><td>Makes all colors stronger or weaker. All the way down, the picture is gray.</td></tr>
+                                <tr><td>Vibrance</td><td>Like Saturation, but it acts mostly on the dull colors and hardly on the vivid ones.</td></tr>
+                                <tr><td>Warmth</td><td>Shifts the colors toward red (warmer) or toward blue (cooler). This is the color cast of the picture, not its temperature.</td></tr>
+                                <tr><td>Tint</td><td>Shifts the colors toward magenta or toward green.</td></tr>
+                                <tr><td>Hue</td><td>Turns every color around the color wheel, up to half a turn either way.</td></tr>
+                                <tr><td>Sharpness</td><td>Makes edges and fine details crisper.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>
+                        <strong>Auto</strong> sets Brightness and Contrast for you. It measures how
+                        light and dark the picture on screen is, and leaves the other sliders where
+                        they are. It is handy for visible-light pictures taken indoors, which are
+                        often dim, like the one in Figure 2.
+                    </p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/ie-process-auto-before.jpg" alt="The Adjust tab of Process on a dim visible-light photo of a laptop in a dark room: the Auto key, the slider names Brightness, Exposure, and Contrast, and the Brightness slider at 0">
+                        <img src="image/ie-process-auto-after.jpg" alt="The same photo after a tap on Auto: the picture is lighter, the keyboard and the wall behind the laptop can be seen, and the Brightness slider is at +80">
+                    </div>
+                    <p class="v2-row-caption">Figure 2: The Adjust tab on a dim visible-light photo. Left: the photo as it was taken, with every slider at 0. Right: after a tap on Auto, which set Brightness to +80 here.</p>
+
+                    <h2>Effects</h2>
+                    <p>
+                        The Effects tab shows a row of small previews of your own picture, one for
+                        each effect. Tap a preview to put that effect on, and drag the slider under
+                        the row to set how strong it is. The slider belongs to the effect you tapped
+                        last: tap that effect again to take it off, or tap another effect that is on
+                        to get its slider. <strong>None</strong> takes all the effects off. Figure 3
+                        shows the same thermal photo with each of the eleven effects.
+                    </p>
+
+                    <div class="v2-fx-grid">
+                        <figure><img src="image/ie-process-fx-original.jpg" alt="The thermal photo of a laptop as it was taken, with a thermometer on it"><figcaption>Original</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-invert.jpg" alt="The same photo with the Invert effect"><figcaption>Invert</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-edge.jpg" alt="The same photo with the Edge effect"><figcaption>Edge</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-solarize.jpg" alt="The same photo with the Solarize effect"><figcaption>Solarize</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-threshold.jpg" alt="The same photo with the Threshold effect"><figcaption>Threshold</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-blur.jpg" alt="The same photo with the Blur effect"><figcaption>Blur</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-posterize.jpg" alt="The same photo with the Posterize effect"><figcaption>Posterize</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-sepia.jpg" alt="The same photo with the Sepia effect"><figcaption>Sepia</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-emboss.jpg" alt="The same photo with the Emboss effect"><figcaption>Emboss</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-displace.jpg" alt="The same photo with the Displace effect"><figcaption>Displace</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-glow.jpg" alt="The same photo with the Glow effect"><figcaption>Glow</figcaption></figure>
+                        <figure><img src="image/ie-process-fx-weave.jpg" alt="The same photo with the Weave effect"><figcaption>Weave</figcaption></figure>
+                    </div>
+                    <p class="v2-row-caption">Figure 3: One thermal photo and eleven copies of it, each with a different effect, as their tiles appear in the gallery of the app. Displace moves this picture only along its edges, so its tile looks the most like the original.</p>
+
+                    <div class="v2-table-wrap">
+                        <table class="v2-table">
+                            <thead>
+                                <tr><th>Effect</th><th>What it does</th><th>What its slider sets</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Invert</td><td>Replaces every color with its opposite, as in a photographic negative.</td><td>How much of the effect is mixed in</td></tr>
+                                <tr><td>Edge</td><td>Finds where the picture changes sharply and draws those outlines on black (a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Sobel_operator">Sobel filter</a>).</td><td>How bright the outlines are</td></tr>
+                                <tr><td>Solarize</td><td>Folds the tones: dark areas turn light, middle tones turn dark, and light areas stay light.</td><td>How much of the effect is mixed in</td></tr>
+                                <tr><td>Threshold</td><td>Makes every pixel black or white, depending on whether it is darker or lighter than a cutoff.</td><td>Where the cutoff is</td></tr>
+                                <tr><td>Blur</td><td>Smooths the picture (a <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Gaussian_blur">Gaussian blur</a>).</td><td>How wide the blur is</td></tr>
+                                <tr><td>Posterize</td><td>Keeps only a few levels of each color, so that smooth gradients become bands.</td><td>How few levels are kept, from 31 down to 2</td></tr>
+                                <tr><td>Sepia</td><td>Gives the picture the brown tone of an old photograph.</td><td>How much of the effect is mixed in</td></tr>
+                                <tr><td>Emboss</td><td>Turns the picture into a gray relief that looks lit from one side.</td><td>How deep the relief is</td></tr>
+                                <tr><td>Displace</td><td>Moves each pixel according to how fast the brightness changes around it, which distorts the picture along its edges.</td><td>How far the pixels are moved</td></tr>
+                                <tr><td>Glow</td><td>Adds a soft, blurred copy of the picture to itself, so that bright areas bloom.</td><td>How strong the glow is</td></tr>
+                                <tr><td>Weave</td><td>Redraws the picture as woven threads with dark gaps between them.</td><td>How much of the effect is mixed in</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>
+                        Effects can be stacked. Any number of them can be on at once, and they are
+                        applied in the order in which you added them; each preview shows its place
+                        in that order. The order matters: Threshold followed by Blur gives black and
+                        white shapes with soft edges, whereas Blur followed by Threshold gives
+                        smooth shapes with hard edges.
+                    </p>
+                    <p>
+                        The effects are applied first and the sliders of the Adjust tab after them,
+                        so the sliders act on the picture you see. For example, Edge leaves thin
+                        lines on a black background, and Brightness can then make those lines stand
+                        out.
+                    </p>
+
+                    <h2>Videos, too</h2>
+                    <p>
+                        Process does for a recording everything it does for a photo. The settings
+                        apply to every frame, and the recording plays processed right away, with no
+                        wait for a new video to be made. While the panel is open, the playback bar
+                        stands on the picture, so the recording can be played or moved to another
+                        frame as you work. Thermometers, thermorulers, and isotherms keep working on
+                        a processed recording (Figure 4).
+                    </p>
+
+                    <div class="v2-screenshot-row">
+                        <img src="image/ie-process-video-adjust.jpg" alt="Process on a recording in the IE app, with the Adjust tab open: the thermal picture of a laptop as it was recorded, with isotherms labeled from 22 to 34&nbsp;&deg;C and a thermometer reading 32.66&nbsp;&deg;C on it, and the playback bar on its bottom edge; under it the Auto key, the slider names Brightness, Exposure, and Contrast, and the Brightness slider at 0">
+                        <img src="image/ie-process-video-effects.jpg" alt="The same frame of the recording with the Effects tab open and the Edge effect on at 50: the picture is now bright outlines on black, and the isotherms, their labels, and the thermometer are where they were">
+                    </div>
+                    <p class="v2-row-caption">Figure 4: Process on a recording that has isotherms and a thermometer on it. Left: the Adjust tab, with the Auto key, the names of the sliders, and the slider of the one that is picked; the picture is as it was recorded. Right: the Effects tab with the Edge effect on. The isotherms and the thermometer come from the temperature data, so they are the same in both.</p>
+
+                    <h2>Nothing is lost</h2>
+                    <p>
+                        Process never rewrites a photo or a recording. Its settings are kept beside
+                        the file and applied whenever the picture is shown.
+                    </p>
+                    <ul class="v2-bullets">
+                        <li>Hold the compare key (the square divided in two) to see the picture as it was taken, and let go to see it processed again.</li>
+                        <li><strong>Undo</strong> and <strong>Redo</strong> step through what you have done since the panel opened. <strong>Reset</strong> puts every slider back to 0 and takes all the effects off.</li>
+                        <li><strong>Done</strong> keeps the settings and <strong>Cancel</strong> discards them. To get the original back later, open Process again, tap Reset, and then Done.</li>
+                        <li><strong>Save as New File</strong> makes a copy of the photo or recording, temperature data and all, that opens processed. The one you started from stays as it was.</li>
+                        <li>To take a processed picture out of the app, use the <strong>More</strong> menu: <strong>Save to System Gallery</strong> or <strong>Share Files</strong> on the page of a photo, and <strong>Save as&hellip;</strong> in the player of a recording. The image or video that goes out has the processing in it.</li>
+                    </ul>
+                    <p>
+                        The color scale is the one thing that leaves the screen. The colors of a
+                        processed Infrared or Blended picture no longer stand for temperatures, so
+                        the app hides the scale above such a picture instead of showing one that
+                        would be wrong. The temperature readings come from the data, not from the
+                        colors, and stay correct. In the gallery, a processed photo or recording is
+                        shown by its processed picture, as in Figure 3.
+                    </p>
+
+                    <h2>Palette or Process?</h2>
+                    <p>
+                        There is another way to change the colors of a thermal photo: the
+                        <strong>Palette</strong> key, next to Process on the page of a photo. It
+                        shows the photo in ten palettes, and a tap picks one (Figure 5).
+                    </p>
+
+                    <figure class="v2-formula is-phone">
+                        <img src="image/ie-process-palette.jpg" alt="The palette picker of the IE app: the same thermal photo of a laptop in ten palettes, named Iron, Rainbow, Rainbow HC, White Hot, Black Hot, Arctic, Lava, Contrast, Coldest, and Hottest, with Iron marked &quot;as shot&quot;">
+                        <figcaption>Figure 5: The palette picker shows a photo in ten palettes. The palette it was taken in is marked &ldquo;as shot.&rdquo;</figcaption>
+                    </figure>
+
+                    <p>
+                        Palette and Process do different jobs. A palette is a rule that turns
+                        temperatures into colors, so a photo shown in another palette is still a
+                        map of temperature, and it keeps its color scale. Process changes the colors
+                        themselves, which then no longer stand for temperatures. Use Palette when
+                        the colors should still read as temperatures, and Process when it is the
+                        look of the picture that matters. The two can be combined: Process works on
+                        the photo in whichever palette it is shown.
+                    </p>
+                    <p>
+                        Palette works on the Infrared view of a photo. A recording keeps the palette
+                        that was chosen on the camera screen when it was recorded.
+                    </p>
+
+                    <h2>On the website</h2>
+                    <p>
+                        A photo or recording uploaded from the app takes its Process settings with
+                        it. At <a target="_blank" rel="noopener noreferrer" href="https://ie.intofuture.org">ie.intofuture.org</a>
+                        it opens processed, as it does on the phone, and its card shows the
+                        thumbnail it has in the gallery of the app.
+                    </p>
+                    <p>
+                        The website has Process as well (Figure 6). The Process key in the toolbar
+                        of the player (three small sliders) opens a panel beside the picture (under
+                        it on a phone), with all eleven sliders and, under them, the effects. Auto, the compare key,
+                        Undo, Redo, and Reset work as they do in the app. Click an effect to put it
+                        on and click it again to take it off; each effect that is on has a slider of
+                        its own.
+                    </p>
+
+                    <figure class="v2-screenshot is-web">
+                        <img src="image/ie-process-web.png" alt="A recording at ie.intofuture.org with the Process panel open beside the picture: the eleven sliders, five of them moved, the previews of the eleven effects with Weave on, and the Cancel and Done keys. A thermometer on the picture reads 29.46&nbsp;&deg;C">
+                        <figcaption>Figure 6: Process on the website: the panel stands beside the picture, with the sliders above the effects. Here the Weave effect is on, and the thermometer on the picture still reads the temperature.</figcaption>
+                    </figure>
+
+                    <p>
+                        If the recording is yours, Done saves the settings with it: everyone who
+                        opens it sees it processed, and the settings come along when the recording
+                        is saved to the gallery of a phone. It works the other way too: Done in the
+                        app updates a recording that has already been uploaded. If the recording is
+                        someone else's, you can still try Process on it. Your changes stay in your
+                        own browser and are gone when you leave the page.
+                    </p>
+
+                    <h2>How it works</h2>
                     <p>
                         In image processing,
                         <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Digital_image_processing">filters</a>
-                        refer to mathematical functions used to perform blurring, sharpening,
-                        embossing, edge detection, and other transformations. The Infrared
-                        Explorer incorporates a set of filters for post-processing thermal images
-                        (i.e., after the images are taken). These tools are conveniently
-                        available through the Process Button on the Image Viewer provided by My
-                        Gallery of the app, as illustrated in the following screenshots.
-                    </p>
-
-                    <figure class="v2-formula">
-                        <img src="image/ie-filters.png" alt="Filters panel in the Infrared Explorer app">
-                    </figure>
-
-                    <p>The following images show the effects of 11 of these filters (the first one is the original thermal image, colored as Iron).</p>
-
-                    <div class="v2-filter-grid">
-                        <img src="image/ie-original.png" alt="Original thermal image">
-                        <img src="image/ie-inverted.jpg" alt="Inverted filter">
-                        <img src="image/ie-gray.jpg" alt="Gray filter">
-                        <img src="image/ie-edge.jpg" alt="Edge filter">
-                        <img src="image/ie-quantize.jpg" alt="Quantize filter">
-                        <img src="image/ie-solarize.jpg" alt="Solarize filter">
-                        <img src="image/ie-threshold.jpg" alt="Threshold filter">
-                        <img src="image/ie-posterize.jpg" alt="Posterize filter">
-                        <img src="image/ie-sepia.jpg" alt="Sepia filter">
-                        <img src="image/ie-emboss.jpg" alt="Emboss filter">
-                        <img src="image/ie-displaced.jpg" alt="Displaced filter">
-                        <img src="image/ie-glow.jpg" alt="Glow filter">
-                    </div>
-                    <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: 0;">
-                        Effects of selected filters provided by the Infrared Explorer.
-                    </p>
-
-                    <p>
-                        We are also working on enabling the post-processing of thermal videos as
-                        well. Once completed, this new functionality will allow you to recolor or
-                        restyle a recorded video.
+                        are mathematical functions that turn one picture into another. Each slider
+                        and each effect of Process is such a function: it computes the new color of
+                        a pixel from its old color and, for effects such as Blur, Edge, and Emboss,
+                        from the colors of the
+                        <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Kernel_(image_processing)">pixels around it</a>.
+                        Infrared Explorer runs these functions on the graphics processor, for every
+                        pixel of every frame as it is drawn, which is why a recording can be
+                        processed while it plays. The app and the website run the same functions,
+                        so a picture processed in one looks nearly the same in the other.
                     </p>
 
                     <a class="v2-backlink" href="ie.html">&larr; Back to Infrared Explorer</a>
