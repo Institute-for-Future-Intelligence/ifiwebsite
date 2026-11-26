@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building bridges with AI —Institute for Future Intelligence</title>
+    <meta name="description" content="How to use the Aladdin AI Assistant to build a bridge, with the Golden Gate as the example: in one sentence from the shipped model, or step by step, one engineering decision per turn, on the real site, with the real terrain under it.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      // Click-to-load: the poster is swapped for the live Aladdin iframe only when the reader asks
+      // for it, so a WebGL app does not boot on every visit to the page.
+      function liveFrame(id) {
+        var e = document.getElementById(id);
+        return e && e.tagName === "IFRAME" ? e : null;
+      }
+      function activateEmbed(facade) {
+        if (!facade || facade.dataset.activated) return liveFrame(facade && facade.dataset.frameId);
+        var iframe = document.createElement("iframe");
+        iframe.src = facade.dataset.embedSrc;
+        iframe.id = facade.dataset.frameId;
+        iframe.title = facade.dataset.frameTitle || "";
+        iframe.setAttribute("allow", "fullscreen; gyroscope; accelerometer; magnetometer; xr-spatial-tracking");
+        iframe.setAttribute("allowfullscreen", "true");
+        if (facade.dataset.frameRole) iframe.setAttribute("role", facade.dataset.frameRole);
+        facade.dataset.activated = "1";
+        facade.parentNode.replaceChild(iframe, facade);
+        return iframe;
+      }
+      document.addEventListener("click", function (ev) {
+        var facade = ev.target.closest && ev.target.closest(".v2-embed-facade");
+        if (facade) activateEmbed(facade);
+      });
+      function openFullscreen(id) {
+        var e = liveFrame(id);
+        if (!e) e = activateEmbed(document.querySelector('.v2-embed-facade[data-frame-id="' + id + '"]'));
+        if (e) (e.requestFullscreen || e.webkitRequestFullscreen || e.msRequestFullscreen).call(e);
+      }
+    </script>
+
+    <style>
+        .v2-col-main { min-width: 0; }
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-col-main h2 { clear: both; }
+        .v2-col-main h3 { font-family: var(--font-display); font-size: 1.55rem; font-weight: 700; margin: 2rem 0 0.8rem; color: var(--text); clear: both; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+
+        /* The chat transcript, set as the assistant's own panel. */
+        .v2-chat-panel { max-width: 730px; margin: 1.75rem auto 2rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.16); border-radius: 1.35rem; box-shadow: 0 30px 60px -34px rgba(30, 30, 90, 0.55), 0 2px 8px rgba(15, 23, 42, 0.06); overflow: hidden; }
+        .v2-chat-head { display: flex; align-items: center; gap: 0.85rem; padding: 1.05rem 1.4rem; color: #fff; background: linear-gradient(135deg, #6366f1, #0ea5e9); }
+        .v2-chat-avatar { flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; font-size: 1.25rem; color: #fff; background: rgba(255, 255, 255, 0.16); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4); }
+        .v2-chat-title { display: flex; flex-direction: column; line-height: 1.25; }
+        .v2-chat-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; letter-spacing: 0.01em; }
+        .v2-chat-status { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.92rem; opacity: 0.9; }
+        .v2-chat-status::before { content: ''; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #4ade80; animation: v2-chat-pulse 2.4s infinite; }
+        @keyframes v2-chat-pulse { 0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); } 70% { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); } 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); } }
+        .v2-chat { list-style: none; padding: 1.4rem; margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+        .v2-chat li { position: relative; max-width: 82%; padding: 0.8rem 1.2rem; border-radius: 1.2rem; font-size: 1.2rem; line-height: 1.5; }
+        .v2-chat .you { align-self: flex-end; color: #fff; background: linear-gradient(135deg, #9aa5f2, #818cea); border-bottom-right-radius: 0.4rem; box-shadow: 0 10px 20px -14px rgba(129, 140, 234, 0.5); }
+        .v2-chat .ai { align-self: flex-start; color: var(--text); background: rgba(99, 102, 241, 0.07); border: 1px solid rgba(99, 102, 241, 0.16); border-bottom-left-radius: 0.4rem; }
+        .v2-chat .who { display: block; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.11em; margin-bottom: 0.3rem; }
+        .v2-chat .you .who { color: rgba(255, 255, 255, 0.8); }
+        .v2-chat .ai .who { color: var(--accent-dark); }
+        @media (prefers-color-scheme: dark) { .v2-chat .ai { background: rgba(148, 163, 220, 0.12); border-color: rgba(148, 163, 220, 0.2); } }
+
+        /* Two-up screenshot grid, for the before/after alignment views. */
+        .v2-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.1rem; margin: 1.4rem 0 1.9rem; }
+        .v2-shots figure { margin: 0; }
+        .v2-shots img { width: 100%; height: auto; display: block; border-radius: 0.6rem; border: 1px solid rgba(15, 23, 42, 0.12); }
+        .v2-shots figcaption { font-size: 1.02rem; line-height: 1.4; color: var(--text-muted); margin-top: 0.5rem; }
+        .v2-shots figcaption strong { color: var(--text); font-weight: 600; }
+        @media (max-width: 720px) { .v2-shots { grid-template-columns: 1fr; } }
+
+        /* Captions on the full-width figures. */
+        .v2-col-main figure.v2-screenshot { margin: 1.6rem 0 2.1rem; }
+        .v2-col-main figure.v2-screenshot img { border-radius: 0.7rem 0.7rem 0 0; display: block; width: 100%; height: auto; }
+        .v2-col-main figure.v2-screenshot figcaption,
+        .v2-col-main figure.v2-embed figcaption { margin: 0; padding: 1.05rem 1.3rem 1.15rem; font-size: 1.22rem; line-height: 1.55; color: var(--text-muted); background: linear-gradient(160deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.04)); border: 1px solid rgba(99, 102, 241, 0.16); border-top: none; border-radius: 0 0 0.7rem 0.7rem; border-left: 4px solid var(--accent); text-align: left; }
+        .v2-col-main figure.v2-screenshot figcaption strong,
+        .v2-col-main figure.v2-embed figcaption strong { color: var(--text); }
+        .v2-col-main figure.v2-screenshot figcaption a,
+        .v2-col-main figure.v2-embed figcaption a { color: var(--accent); }
+        .v2-col-main figure.v2-embed { margin: 1.6rem 0 2.1rem; padding: 0; background: none; box-shadow: none; border-radius: 0; }
+        .v2-col-main figure.v2-embed iframe,
+        .v2-col-main figure.v2-embed .v2-embed-facade { border-radius: 0.7rem 0.7rem 0 0; }
+        @media (prefers-color-scheme: dark) { .v2-col-main figure.v2-screenshot figcaption, .v2-col-main figure.v2-embed figcaption { background: linear-gradient(160deg, rgba(148, 163, 220, 0.11), rgba(14, 165, 233, 0.05)); border-color: rgba(148, 163, 220, 0.2); border-left-color: var(--accent); } }
+
+        /* The two finished models under one viewer: the step-by-step build and the one-sentence one. */
+        .v2-showcase .v2-slide-rail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.65rem; margin: 0.7rem 0 0; padding: 0.15rem 0.1rem 0; }
+        .v2-slide { display: flex; flex-direction: column; gap: 0.4rem; padding: 0; border: 1px solid rgba(15, 23, 42, 0.12); border-radius: 0.55rem; background: var(--surface-raised); cursor: pointer; overflow: hidden; text-align: left; transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease; }
+        .v2-slide img { display: block; width: 100%; aspect-ratio: 16 / 7; object-fit: cover; background: #0b1020; }
+        .v2-slide span { display: block; padding: 0 0.8rem 0.6rem; font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; line-height: 1.25; color: var(--text-muted); }
+        .v2-slide:hover { transform: translateY(-2px); border-color: rgba(99, 102, 241, 0.45); box-shadow: 0 14px 26px -20px rgba(30, 30, 90, 0.7); }
+        .v2-slide.is-active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.28); }
+        .v2-slide.is-active span { color: var(--text); }
+        .v2-showcase figcaption .v2-showcase-ask { color: var(--text); font-weight: 600; }
+        @media (prefers-color-scheme: dark) { .v2-slide { border-color: rgba(148, 163, 220, 0.22); } }
+
+        /* The questions you can put to the finished bridge, set as chat bubbles with their answers. */
+        .v2-asks { list-style: none; margin: 1.5rem 0 2rem; padding: 0; }
+        .v2-asks li { position: relative; margin: 0 0 1.15rem; padding: 0 0 1.15rem 1.4rem; border-bottom: 1px solid rgba(99, 102, 241, 0.14); }
+        .v2-asks li:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .v2-asks li::before { content: ''; position: absolute; left: 0; top: 0.35rem; bottom: 1.4rem; width: 3px; border-radius: 2px; background: linear-gradient(180deg, #6366f1, #0ea5e9); opacity: 0.55; }
+        .v2-asks li:last-child::before { bottom: 0.25rem; }
+        .v2-asks .ask { display: inline-block; margin: 0; padding: 0.5rem 1.05rem; border-radius: 1.1rem 1.1rem 1.1rem 0.35rem; font-family: var(--font-display); font-size: 1.24rem; font-weight: 600; line-height: 1.35; color: #fff; background: linear-gradient(135deg, #6366f1, #818cea); box-shadow: 0 10px 22px -16px rgba(99, 102, 241, 0.95); }
+        .v2-asks .ask::before { content: '\201C'; }
+        .v2-asks .ask::after { content: '\201D'; }
+        .v2-asks .ans { margin: 0.65rem 0 0; font-size: 1.24rem; line-height: 1.55; color: var(--text-muted); }
+        .v2-asks .ans strong { color: var(--text); font-weight: 700; }
+        @media (prefers-color-scheme: dark) { .v2-asks li { border-bottom-color: rgba(148, 163, 220, 0.18); } }
+
+        /* The five stages, as numbered cards. */
+        .v2-features { list-style: none; margin: 1.6rem 0 1.9rem; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 0.9rem 1rem; }
+        .v2-features li { display: flex; gap: 0.95rem; align-items: flex-start; margin: 0; padding: 1.15rem 1.25rem; border: 1px solid rgba(99, 102, 241, 0.16); border-radius: 0.95rem; background: linear-gradient(160deg, rgba(99, 102, 241, 0.055), rgba(14, 165, 233, 0.03)); }
+        .v2-feature-icon { flex: none; width: 2.6rem; height: 2.6rem; display: grid; place-items: center; border-radius: 0.7rem; color: #fff; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; background: linear-gradient(135deg, #6366f1, #0ea5e9); box-shadow: 0 8px 18px -12px rgba(79, 70, 229, 0.9); }
+        .v2-feature-body { font-size: 1.16rem; line-height: 1.5; color: var(--text-muted); }
+        .v2-feature-body strong { color: var(--text); font-weight: 700; }
+        @media (prefers-color-scheme: dark) { .v2-features li { border-color: rgba(148, 163, 220, 0.2); background: linear-gradient(160deg, rgba(148, 163, 220, 0.09), rgba(14, 165, 233, 0.04)); } }
+
+        /* Real bridge vs. the AI's numbers. */
+        .v2-compare { width: 100%; border-collapse: collapse; margin: 1.3rem 0 1.9rem; font-size: 1.16rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 0.55rem 0.8rem; text-align: left; border-bottom: 1px solid rgba(99, 102, 241, 0.16); }
+        .v2-compare th { font-family: var(--font-display); font-size: 0.86rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-dark); }
+        .v2-compare td:first-child { color: var(--text); font-weight: 600; }
+        .v2-compare td { color: var(--text-muted); }
+        @media (prefers-color-scheme: dark) { .v2-compare th, .v2-compare td { border-bottom-color: rgba(148, 163, 220, 0.2); } }
+
+        .v2-callout { margin: 1.5rem 0 1.9rem; padding: 1.35rem 1.6rem; border-left: 4px solid var(--accent); border-radius: 0 0.8rem 0.8rem 0; background: rgba(99, 102, 241, 0.07); }
+        .v2-callout p { margin: 0; font-size: 1.28rem; line-height: 1.5; }
+        .v2-callout p + p { margin-top: 0.8rem; }
+
+        /* The thesis, set as a pull quote the text runs around. */
+        .v2-pull { float: right; width: 25%; clear: right; position: relative; margin: 0.6rem 0 1.4rem 2.2rem; padding: 1.5rem 1.4rem 1.6rem 2.6rem; border: 1px solid rgba(99, 102, 241, 0.22); border-radius: 1.1rem; background: linear-gradient(150deg, rgba(99, 102, 241, 0.11), rgba(14, 165, 233, 0.07) 55%, rgba(22, 163, 74, 0.09)); box-shadow: 0 22px 45px -34px rgba(30, 30, 90, 0.55); overflow: hidden; }
+        .v2-pull::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #6366f1, #0ea5e9 55%, #16a34a); }
+        .v2-pull::after { content: '\2726'; position: absolute; left: 0.95rem; top: 1.45rem; font-size: 1.45rem; line-height: 1; color: var(--accent); opacity: 0.5; }
+        .v2-pull p { margin: 0; }
+        .v2-pull .lead { font-family: var(--font-display); font-size: 1.72rem; font-weight: 700; line-height: 1.32; color: var(--text); letter-spacing: -0.012em; }
+        .v2-pull .turn { margin-top: 0.6rem; font-size: 1.28rem; line-height: 1.5; color: var(--text-muted); }
+        .v2-pull .turn strong { color: var(--accent-dark); font-weight: 700; }
+        @media (prefers-color-scheme: dark) { .v2-pull { border-color: rgba(148, 163, 220, 0.26); } .v2-pull .turn strong { color: #a5b4fc; } }
+        @media (max-width: 860px) { .v2-pull { float: none; width: auto; margin: 1.6rem 0 1.8rem; padding: 1.6rem 1.5rem 1.7rem 2.8rem; } .v2-pull .lead { font-size: 1.9rem; } .v2-pull .turn { font-size: 1.4rem; } }
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="BRIDGES">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin</span>
+                <h1>Building bridges with AI</h1>
+                <p class="v2-tagline">
+                    Ask the AI Assistant for a famous bridge in one sentence &mdash; or build it with the assistant one engineering decision at a time, on the real site
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 26, 2026</span></p>
+
+                    <p>Bridges are some of the best things to learn engineering from. You can see how they work: the deck hangs from the cables, the cables press down on the towers and pull on the anchorages, and all of it ends in rock. Every famous bridge also answers a hard question its site asked. Take the Golden Gate. It had to cross a strait more than a hundred metres deep, through fog and strong winds, in the 1930s. Its shape is the answer to that.</p>
+
+                    <div class="v2-pull">
+                        <p class="lead">Don&rsquo;t just load the bridge. Reason your way to it.</p>
+                        <p class="turn">Site, form, dimensions, alignment, details &mdash; <strong>one decision per turn</strong>, each one checked against the <strong>real place</strong>.</p>
+                    </div>
+
+                    <p>In Aladdin, a bridge is not a picture of a bridge. It is a <a href="aladdin-bridge-types.html">parametric structure</a> &mdash; girder, truss, arch, cable&#8209;stayed or suspension &mdash; that a <a href="aladdin-bridge-design.html">structural engine</a> can load, shake and push until it fails. This article shows how to build one by talking to the AI Assistant. It uses the Golden Gate Bridge as the example, but the same two approaches work for any bridge Aladdin can build.</p>
+
+                    <p>There are two ways to ask, and they teach different things. One takes a sentence and gives you a finished bridge. The other takes five turns, and you watch the engineering happen.</p>
+
+                    <h2>Two ways to ask for the same bridge</h2>
+
+                    <p><strong>In one sentence.</strong> Type &ldquo;Build the Golden Gate Bridge&rdquo; and the assistant looks up the Golden Gate model that ships with Aladdin. It places that exact design at the real location: the latitude and longitude, the satellite map, the ground terrain, the bearing across the strait and the opening view. It takes about half a dozen tool calls and well under a minute. This is the fastest way to get a bridge you can study &mdash; but the assistant is <em>copying</em> a design, and it says so.</p>
+
+                    <p><strong>Step by step.</strong> Add &ldquo;step by step, from scratch&rdquo; and the assistant changes how it works. It is told not to look at the shipped model at all. It has to work the bridge out the way an engineer would, from what it knows about the real one and from what the scene tells it, one stage per turn. It explains each decision and waits for you before going on.</p>
+
+                    <p>Both results are below. Click a card to load it in the viewer:</p>
+
+                    <figure class="v2-embed v2-showcase">
+                        <button type="button" class="v2-embed-facade" id="aladdin-gg-frame" data-frame-role="tabpanel"
+                                data-embed-src="https://aladdin.intofuture.org/?client=web&amp;viewonly=true&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Golden%20Gate%20Bridge%20Step%20by%20Step%20(AI%20Assistant)"
+                                data-frame-id="aladdin-gg-frame" data-frame-title="The Golden Gate Bridge built by the AI Assistant, interactive 3D model"
+                                style="background-image:url('image/aladdin-golden-gate-ai-finished.jpg')"
+                                aria-label="Load the interactive 3D model of the Golden Gate Bridge">
+                            <span class="v2-embed-play" aria-hidden="true"></span>
+                            <span class="v2-embed-hint">Click to load the live model &mdash; or pick the other one below</span>
+                        </button>
+
+                        <div class="v2-slide-rail" role="tablist" aria-label="Choose a model to load into the viewer">
+                            <button type="button" class="v2-slide is-active" role="tab" aria-selected="true" aria-controls="aladdin-gg-frame"
+                                    data-model="Golden Gate Bridge Step by Step (AI Assistant)" data-poster="image/aladdin-golden-gate-ai-finished.jpg" data-label="the step-by-step bridge"
+                                    data-ask="Let's build the Golden Gate Bridge step by step, from scratch, one stage per turn. Don't just load the example."
+                                    data-note="Five turns: one request, then &ldquo;Next&rdquo; four times. Every number in it was reasoned out in the chat &mdash; none was copied from the shipped model.">
+                                <img src="image/aladdin-golden-gate-ai-finished.jpg" alt="" loading="lazy" decoding="async">
+                                <span>Step by step, in five turns</span>
+                            </button>
+                            <button type="button" class="v2-slide" role="tab" aria-selected="false" aria-controls="aladdin-gg-frame"
+                                    data-model="Golden Gate Bridge (AI Assistant)" data-poster="image/aladdin-golden-gate-ai-oneshot.jpg" data-label="the one-sentence bridge"
+                                    data-ask="Build the Golden Gate Bridge."
+                                    data-note="One turn. The assistant copied the Golden Gate model that ships with Aladdin and rebuilt it exactly, on its real site.">
+                                <img src="image/aladdin-golden-gate-ai-oneshot.jpg" alt="" loading="lazy" decoding="async">
+                                <span>In one sentence</span>
+                            </button>
+                        </div>
+
+                        <figcaption>Nothing here was drawn by hand. <em class="v2-showcase-ask"></em> <span class="v2-showcase-note"></span> The AI Assistant opens with the model on purpose: the conversation that built it is saved inside the file, so you can scroll back through it. Drag to orbit, scroll to zoom, click any part to inspect it, or <a href="javascript:openFullscreen('aladdin-gg-frame');">view it full screen</a>.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a id="aladdin-gg-open" target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Golden%20Gate%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Open the step-by-step bridge in Aladdin</a>
+                    </div>
+
+                    <script>
+                      // Two finished models, one viewer. A card click swaps the model in the iframe, and boots the
+                      // iframe on the first click, so no WebGL app starts until the reader asks for one.
+                      (function () {
+                        var USER = 'QWecNcxhyvP6j6sBN11hBsfZDau1';
+                        var FRAME = 'aladdin-gg-frame';
+                        var rail = document.querySelector('.v2-showcase .v2-slide-rail');
+                        if (!rail) return;
+                        var slides = [].slice.call(rail.querySelectorAll('.v2-slide'));
+                        var facade = document.querySelector('.v2-showcase .v2-embed-facade');
+                        var askEl = document.querySelector('.v2-showcase-ask');
+                        var noteEl = document.querySelector('.v2-showcase-note');
+                        var openLink = document.getElementById('aladdin-gg-open');
+                        var url = function (title, viewonly) {
+                          return 'https://aladdin.intofuture.org/?client=web' + (viewonly ? '&viewonly=true' : '') +
+                                 '&userid=' + USER + '&title=' + encodeURIComponent(title);
+                        };
+                        var describe = function (slide) {
+                          if (askEl) askEl.textContent = '“' + slide.dataset.ask + '”';
+                          if (noteEl) noteEl.textContent = slide.dataset.note;
+                          if (openLink) {
+                            openLink.href = url(slide.dataset.model, false);
+                            openLink.textContent = 'Open ' + slide.dataset.label + ' in Aladdin';
+                          }
+                        };
+                        var select = function (slide, load) {
+                          slides.forEach(function (s) {
+                            var on = s === slide;
+                            s.classList.toggle('is-active', on);
+                            s.setAttribute('aria-selected', on ? 'true' : 'false');
+                            s.tabIndex = on ? 0 : -1;
+                          });
+                          describe(slide);
+                          var src = url(slide.dataset.model, true);
+                          var frame = liveFrame(FRAME);
+                          if (frame) {
+                            frame.src = src;
+                          } else if (facade) {
+                            facade.dataset.embedSrc = src;
+                            facade.style.backgroundImage = "url('" + slide.dataset.poster + "')";
+                            if (load) activateEmbed(facade);
+                          }
+                        };
+                        slides.forEach(function (slide, i) {
+                          slide.addEventListener('click', function () { select(slide, true); });
+                          slide.addEventListener('keydown', function (ev) {
+                            var step = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+                            if (!step) return;
+                            ev.preventDefault();
+                            slides[(i + step + slides.length) % slides.length].focus();
+                          });
+                        });
+                        select(slides[0], false);
+                      })();
+                    </script>
+
+                    <p>The rest of this article follows the step-by-step session turn by turn. In short, it went like this (the assistant&rsquo;s replies are shortened; the full text is in the file):</p>
+
+                    <div class="v2-chat-panel">
+                    <div class="v2-chat-head">
+                        <span class="v2-chat-avatar">&#10022;</span>
+                        <span class="v2-chat-title">
+                            <span class="v2-chat-name">Aladdin AI Assistant</span>
+                            <span class="v2-chat-status">Building the Golden Gate, one stage per turn</span>
+                        </span>
+                    </div>
+                    <ul class="v2-chat">
+                        <li class="you"><span class="who">You</span>Let&rsquo;s build the Golden Gate Bridge step by step, from scratch, one stage per turn. Don&rsquo;t just load the example.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 1 &mdash; the site.</strong> The scene is at the Golden Gate strait, 37.82&deg;&nbsp;N, 122.48&deg;&nbsp;W, with the satellite map on and the real ground relief under it: 268&nbsp;m of it across a 4.8&nbsp;km square. Nothing is built yet. Go on to the structural form?</li>
+                        <li class="you"><span class="who">You</span>Good. Next stage.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 2 &mdash; the form.</strong> A two&#8209;tower suspension bridge with vertical hangers, earth anchorages and a deep stiffening truss. The span decides it: no arch or cantilever of the 1930s came near 1,280&nbsp;m. The deep channel rules out piers in the middle, and the rock on both shores can hold the cables.</li>
+                        <li class="you"><span class="who">You</span>Next.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 3 &mdash; the dimensions.</strong> The bridge is up: a 1,280&nbsp;m main span, a 27.4&nbsp;m deck 67&nbsp;m above the water, towers 227&nbsp;m above the water. My first try gave a 1,825&nbsp;m main span, so I resized the deck until the main span measured 1,280.</li>
+                        <li class="you"><span class="who">You</span>Next.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 4 &mdash; alignment.</strong> From the top view, the real bridge runs about 6&deg; west of north, and mine ran 20&deg; east of north. I rotated the deck onto the real crossing and checked it again.</li>
+                        <li class="you"><span class="who">You</span>Next.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 5 &mdash; details.</strong> Bigger tower piers, thicker main cables and hangers, approach viaducts to 2,736&nbsp;m end to end, International Orange. Here is what this model still can&rsquo;t show, and here are the analyses you can run on it.</li>
+                    </ul>
+                    </div>
+
+                    <h2>Stage 1: Start with the site</h2>
+
+                    <p>A bridge belongs to a place, so the assistant starts there. It sets the scene&rsquo;s location to the strait, turns on the satellite map, and fetches the real ground relief for a 4.8&nbsp;km square: the Marin Headlands rising steeply to the north and the Presidio bluffs to the south. It chose that size on purpose. The bridge is about 2.7&nbsp;km long, so a frame nearly twice that wide leaves shore on both sides to land the approaches on.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-golden-gate-ai-site.jpg" loading="lazy" alt="The Golden Gate strait in Aladdin before any bridge is built: satellite imagery draped over the real relief of the Marin Headlands">
+                        <figcaption><strong>The site after stage 1.</strong> Satellite imagery is draped over real elevation data. The real bridge shows in the photo, flat on the water. That photo matters: in stage 4 it becomes the reference the assistant lines its own bridge up against.</figcaption>
+                    </figure>
+
+                    <p>Nothing is built yet, and that is the point. Almost everything that follows &mdash; how tall the towers are, where the approaches land, which way the bridge points &mdash; comes from this ground.</p>
+
+                    <h2>Stage 2: Choose the form before drawing anything</h2>
+
+                    <p>The second turn has no geometry in it at all. The assistant explains <em>which kind</em> of bridge the Golden Gate is, and why it could not have been any other kind:</p>
+
+                    <ul class="v2-features">
+                        <li><span class="v2-feature-icon">1</span><div class="v2-feature-body"><strong>The span.</strong> The main span is 1,280&nbsp;m. No arch or cantilever of the time came close: the record cantilever, the Quebec Bridge, spans 549&nbsp;m.</div></li>
+                        <li><span class="v2-feature-icon">2</span><div class="v2-feature-body"><strong>The water.</strong> The channel is deep and the tides run fast, so there can be no support in the middle. The two towers stand near the shores.</div></li>
+                        <li><span class="v2-feature-icon">3</span><div class="v2-feature-body"><strong>The ground.</strong> Hard rock on both shores can hold the cable ends and carry the towers, which bring almost all of the bridge&rsquo;s weight down into the ground.</div></li>
+                        <li><span class="v2-feature-icon">4</span><div class="v2-feature-body"><strong>The wind.</strong> A long, light deck in a windy strait twists, so it needs a deep stiffening truss under the roadway.</div></li>
+                    </ul>
+
+                    <p>That is a suspension bridge with vertical hangers, earth anchorages and a stiffening truss &mdash; and you agreed to it before a single deck plate existed. This is the stage that makes step by step worth doing. Ask &ldquo;why not an arch?&rdquo; here and you get an answer about thrust and abutments, not a drawing.</p>
+
+                    <h2>Stage 3: The main dimensions</h2>
+
+                    <p>Now the bridge goes up, built mostly from the real bridge&rsquo;s published figures:</p>
+
+                    <table class="v2-compare">
+                        <thead><tr><th>Dimension</th><th>Real bridge</th><th>AI&rsquo;s model</th></tr></thead>
+                        <tbody>
+                            <tr><td>Main span</td><td>1,280 m</td><td>1,280 m</td></tr>
+                            <tr><td>Side spans</td><td>343 m each</td><td>320 m each</td></tr>
+                            <tr><td>Overall length</td><td>2,737 m</td><td>2,736 m (after stage 5)</td></tr>
+                            <tr><td>Deck width</td><td>27.4 m</td><td>27.4 m</td></tr>
+                            <tr><td>Deck above the water</td><td>67 m</td><td>67 m</td></tr>
+                            <tr><td>Towers above the water</td><td>227 m</td><td>227 m</td></tr>
+                            <tr><td>Stiffening truss depth</td><td>7.6 m</td><td>7.6 m</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>The most useful moment in the session came here. The assistant first set the suspended structure to 2,737&nbsp;m, the bridge&rsquo;s full length. Aladdin reported back the main span this produced: 1,825&nbsp;m, 43% too long. In Aladdin the suspended structure is only the main span and its two side spans, and the main span takes two&#8209;thirds of it. So it worked backwards: a 1,920&nbsp;m structure gives a 1,280&nbsp;m main span. Then it added short approach viaducts at each end to carry the road onto the shore; it brought them up to the full length in stage 5.</p>
+
+                    <div class="v2-callout">
+                        <p>The assistant did not get it right the first time. It got it right because it <strong>read the model back</strong> after building it, compared the result with the real number and fixed the difference. That is how you should check an AI&rsquo;s work, too.</p>
+                    </div>
+
+                    <h2>Stage 4: Line it up with the real crossing</h2>
+
+                    <p>The bridge from stage 3 had the right span and the wrong heading: it crossed the strait about 26&deg; off. On a suspended structure nearly 2&nbsp;km long, that puts the ends hundreds of metres away from the real ones. So the assistant took a top&#8209;down view, found the real bridge in the satellite photo and measured its direction from the picture: about 6&deg; west of north. Then it rotated its own deck to match and looked again.</p>
+
+                    <div class="v2-shots">
+                        <figure>
+                            <img src="image/aladdin-golden-gate-ai-align-before.jpg" loading="lazy" alt="Top view: the AI's bridge crossing the real Golden Gate Bridge in the satellite photo at an angle">
+                            <figcaption><strong>Before:</strong> the heading the assistant first picked, crossing the real bridge in the photo at an angle.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-golden-gate-ai-align-after.jpg" loading="lazy" alt="Top view: the AI's bridge lying along the real Golden Gate Bridge in the satellite photo">
+                            <figcaption><strong>After:</strong> rotated onto the real crossing, with each tower beside its real one.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>The result is close, but look carefully and it is not perfect. The assistant said its deck now lies right on top of the real one. In the top view it actually runs alongside, a few tens of metres to the east. That is a fair thing to push back on: &ldquo;Move it onto the real bridge&rdquo; is one more turn. It also shows why you should look at the scene yourself instead of trusting a description of it.</p>
+
+                    <h2>Stage 5: The details, then the finished bridge</h2>
+
+                    <p>The last stage cleans up what the earlier stages left rough. The tower piers grew from 9&nbsp;m to 15&nbsp;m, so the towers no longer look planted on posts. (The assistant asked for 18&nbsp;m and its reply still says 18, but 15&nbsp;m is the largest pier Aladdin builds &mdash; one more reason to check the model rather than the description of it.) The main cables were thickened until they read as cables rather than hairlines. The approach viaducts were lengthened to bring the overall length within a metre of the real 2,737&nbsp;m. The towers, cables and truss stayed International Orange &mdash; a color chosen because it shows up in fog. Then the assistant framed the finished bridge.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-golden-gate-ai-finished.jpg" loading="lazy" alt="The finished AI-built Golden Gate Bridge in Aladdin, seen from the San Francisco side with the Marin Headlands behind">
+                        <figcaption><strong>The finished bridge</strong>, from the San Francisco side, with the Marin Headlands behind it. Everything in the scene came out of five chat turns; only this camera angle was picked for the article. The live model opens on the assistant&rsquo;s own framing, from the east.</figcaption>
+                    </figure>
+
+                    <p>It also listed, without being asked, what the model <em>cannot</em> show. The real towers step inward in Art Deco stages; these are plain two&#8209;legged frames. The stiffening truss has the right depth, but its triangular bracing is not drawn. The side spans are 320&nbsp;m instead of 343&nbsp;m. And the famous concrete fender around the south tower is missing. An assistant that tells you where its model stops is one you can learn from.</p>
+
+                    <h2>Then ask the engineering questions</h2>
+
+                    <p>Up to here this could have been a nice 3D picture. It isn&rsquo;t one, because Aladdin&rsquo;s bridges are <a href="aladdin-bridge-design.html">structural models</a>: the deck, cables, hangers and towers are members with real sections and real steel. So in the same chat window you can ask:</p>
+
+                    <ul class="v2-asks">
+                        <li>
+                            <p class="ask">How much does the deck sag under traffic?</p>
+                            <p class="ans">A <strong>static analysis</strong> loads the deck with its own weight and traffic, and reports how far it deflects and how hard each member is working compared with what it can carry.</p>
+                        </li>
+                        <li>
+                            <p class="ask">What are its natural frequencies?</p>
+                            <p class="ans">A <strong>modal analysis</strong> finds the shapes the bridge likes to vibrate in &mdash; vertical bending, swaying, twisting &mdash; and how fast. Twisting is what destroyed the Tacoma Narrows Bridge in 1940.</p>
+                        </li>
+                        <li>
+                            <p class="ask">What does a strong wind do to it?</p>
+                            <p class="ans">A <strong>wind analysis</strong> looks at how far the deck is pushed sideways, and at <strong>flutter</strong>: the wind speed at which a long, light deck starts to twist on its own. For a span this long, wind is the governing danger.</p>
+                        </li>
+                        <li>
+                            <p class="ask">Could it survive a big earthquake?</p>
+                            <p class="ans">A <strong>seismic analysis</strong> gives a quick verdict from a design response spectrum, or runs a recorded earthquake through the structure step by step while you watch the bridge shake.</p>
+                        </li>
+                        <li>
+                            <p class="ask">How much load would it take to break it?</p>
+                            <p class="ans">A <strong>pushover analysis</strong> keeps increasing the load until members yield and the structure collapses, which tells you its real safety margin.</p>
+                        </li>
+                        <li>
+                            <p class="ask">Can you make it cheaper without making it unsafe?</p>
+                            <p class="ans">An <strong><a href="aladdin-bridge-design.html">optimizer</a></strong> evolves the sizes of the deck, piers and towers to cut the cost of steel, cable and concrete, while the strength, seismic and deflection checks still pass. It starts from your design, so its answer is never worse, and you can watch the bridge slim down as it works.</p>
+                        </li>
+                    </ul>
+
+                    <p>Because you built the bridge yourself, you can change one thing and run the analysis again. Make the truss shallower and watch the deck move more. Add a third tower and see what happens to the cable. The bridge you reasoned your way to becomes the experiment.</p>
+
+                    <h2>Tips for building your own bridge with the AI</h2>
+
+                    <ul class="v2-features">
+                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Say how you want to build it.</strong> &ldquo;Step by step&rdquo; or &ldquo;from scratch&rdquo; gets you the stage&#8209;by&#8209;stage build. Just the name gets you the shipped model.</div></li>
+                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Argue with a stage before moving on.</strong> &ldquo;Why not cable&#8209;stayed?&rdquo; or &ldquo;Make the towers shorter&rdquo; are good answers to &ldquo;go on?&rdquo;. Your numbers win over the assistant&rsquo;s, within what Aladdin can build.</div></li>
+                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Check the top view yourself.</strong> The satellite photo is the answer key for alignment. If the bridge is off, say which way.</div></li>
+                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Ask how close it came.</strong> When you are done, ask the assistant to compare its design with the shipped model. It is told to look the model up only when you ask.</div></li>
+                    </ul>
+
+                    <h2>Try the other bridges</h2>
+
+                    <p>The Golden Gate is one of seven real bridges that ship with Aladdin, and each of the other six can be built either way, too:</p>
+                    <ul class="v2-features">
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong>Huajiang Grand Canyon Bridge</strong>, China: a suspension bridge with the world&rsquo;s highest deck, more than 600&nbsp;m above the river in the canyon below.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong>Forth Bridge</strong>, Scotland: an 1890 cantilever truss, where the huge towers <em>are</em> the structure.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong>Sydney Harbour Bridge</strong>, Australia: a single 503&nbsp;m steel arch with the deck hung through it.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong>Millau Viaduct</strong>, France: a cable&#8209;stayed bridge on seven tall piers across the Tarn valley.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong>Europabr&uuml;cke</strong>, Austria: a 1963 girder bridge whose deck climbs as it crosses the valley.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong>S&uuml;dbr&uuml;cke</strong>, Mainz, Germany: a K&#8209;truss railway bridge, four spans set low over the Rhine.</div></li>
+                    </ul>
+
+                    <p>You can try any bridge you like, too. The assistant will tell you honestly when something cannot be built here &mdash; a bridge that opens, like Tower Bridge, or one with a curved deck &mdash; instead of quietly building something else.</p>
+
+                    <h2>Conclusion</h2>
+
+                    <p>There is a real difference between asking for an answer and working one out. Ask Aladdin for the Golden Gate and you get it, exactly, in under a minute. That is useful when you want a bridge to study. Build it step by step and you get something better: the reasons. You see why it hangs from cables, why the towers stand where they do, and why it is that particular orange. You even see the assistant get the span wrong, read the model back and fix it.</p>
+
+                    <p>And at the end you have a real structure on its real site, ready to be loaded, shaken and pushed until it breaks.</p>
+
+                    <p style="font-size:1.2rem; color:var(--text-muted);">Related reading: <a href="aladdin-bridge-types.html">Five ways to cross a river</a> &middot; <a href="aladdin-bridge-design.html">The bridge that bends</a> &middot; <a href="aladdin-dream-home.html">Designing your dream home with AI</a></p>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
