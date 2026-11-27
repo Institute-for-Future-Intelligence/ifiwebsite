@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building bridges with AI —Institute for Future Intelligence</title>
-    <meta name="description" content="How to design a bridge with the Aladdin AI Assistant, using the Golden Gate as the example, one engineering decision per turn on the real site, and then test it with finite-element analysis: static loads, natural modes, wind and flutter, earthquakes, pushover to collapse, and cost optimization.">
+    <title>Building bridges with AI — Institute for Future Intelligence</title>
+    <meta name="description" content="How to design a bridge with the Aladdin AI Assistant, using the Brooklyn Bridge as the example, one engineering decision per turn on the real site, then refine it in plain language and test it with finite-element analysis: static loads, natural modes, wind and flutter, earthquakes, pushover to collapse, and cost optimization.">
 
     <style>
         @import url("css/system.base.css");
@@ -194,77 +194,79 @@
                 <div class="v2-col-main">
                     <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
 
-                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 26, 2026</span></p>
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 27, 2026</span></p>
 
-                    <p>Bridges are good for learning engineering because you can see how they carry load. The deck hangs from the cables, the cables bear down on the towers and pull on the anchorages, and the towers and anchorages sit on rock. A famous bridge is also shaped by its site. The Golden Gate Bridge had to cross a strait more than 100&nbsp;m deep, in fog and strong wind, with 1930s steel.</p>
+                    <p>Could AI design the Brooklyn Bridge from scratch, reasoning the way its engineers did? A famous bridge is shaped by its site and its time. The Brooklyn Bridge had to cross the East River, a tidal strait full of sailing ships, in a single span longer than any built before it, with the stone and steel wire of the 1870s.</p>
 
-                    <p>Bridges in Aladdin are <a href="aladdin-bridge-types.html">parametric structures</a> (girder, truss, arch, cable&#8209;stayed or suspension) that a <a href="aladdin-bridge-design.html">structural engine</a> can load, shake and push to failure. This article walks through designing one with the AI Assistant, using the Golden Gate Bridge as the example. The same approach works for other bridges.</p>
+                    <p>Bridges in Aladdin are <a href="aladdin-bridge-types.html">parametric structures</a> (girder, truss, arch, cable&#8209;stayed or suspension) that a <a href="aladdin-bridge-design.html">structural engine</a> can load, shake and push to failure. This article walks through doing that with the AI Assistant. The same approach works for other bridges.</p>
 
-                    <p>The design happens in a chat, one stage per turn: site, structural form, main dimensions, alignment and details. The assistant explains each decision and waits for you before going on. When the bridge is finished, you can ask the same assistant to run finite&#8209;element analyses on it.</p>
+                    <p>The design happens in a chat, one stage per turn: site, structural form, main dimensions, alignment and details. The assistant explains each decision and waits for you before going on. After that you can keep refining the bridge in plain language, and ask the same assistant to run finite&#8209;element analyses on it.</p>
 
-                    <p>The session starts with one request: &ldquo;Let&rsquo;s build the Golden Gate Bridge step by step, from scratch, one stage per turn.&rdquo; The assistant works out the bridge from what it knows about the real one and what it can see in the scene. This is the result after five turns:</p>
+                    <p>Engineering educators will recognize the rhythm. In guided design, developed by Charles Wales at West Virginia University, students work through an open&#8209;ended problem one decision at a time, and see how an expert handled each step before taking the next. The session below runs the other way around: the assistant makes each decision and you review it. And because the bridge is named at the start, it covers the later part of that process (gathering information, working out the details and testing the result) rather than choosing among alternatives.</p>
+
+                    <p>The session starts with one request: &ldquo;Let&rsquo;s build the Brooklyn Bridge step by step, from scratch, one stage per turn.&rdquo; The assistant works out the bridge from what it knows about the real one and what it can find on the map. This is the result:</p>
 
                     <figure class="v2-embed">
                         <button type="button" class="v2-embed-facade"
-                                data-embed-src="https://aladdin.intofuture.org/?client=web&amp;viewonly=true&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Golden%20Gate%20Bridge%20Step%20by%20Step%20(AI%20Assistant)"
-                                data-frame-id="aladdin-gg-frame" data-frame-title="The Golden Gate Bridge designed with the AI Assistant, interactive 3D model"
-                                style="background-image:url('image/aladdin-golden-gate-ai-finished.jpg')"
-                                aria-label="Load the interactive 3D model of the Golden Gate Bridge">
+                                data-embed-src="https://aladdin.intofuture.org/?client=web&amp;viewonly=true&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Brooklyn%20Bridge%20Step%20by%20Step%20(AI%20Assistant)"
+                                data-frame-id="aladdin-bk-frame" data-frame-title="The Brooklyn Bridge designed with the AI Assistant, interactive 3D model"
+                                style="background-image:url('image/aladdin-brooklyn-ai-finished.jpg')"
+                                aria-label="Load the interactive 3D model of the Brooklyn Bridge">
                             <span class="v2-embed-play" aria-hidden="true"></span>
                             <span class="v2-embed-hint">Click to load the live model</span>
                         </button>
-                        <figcaption>The model came out of five turns: one request, then &ldquo;Next&rdquo; four times. The conversation is saved in the file, and the AI Assistant panel opens with it so you can scroll back through it. Drag to orbit, scroll to zoom, click any part to inspect it, or <a href="javascript:openFullscreen('aladdin-gg-frame');">view it full screen</a>.</figcaption>
+                        <figcaption>The model came out of ten turns: five to build the bridge (one request, then &ldquo;Next&rdquo; four times) and five more to make it look like the real one. The conversation is saved in the file, and the AI Assistant panel opens with it so you can scroll back through it. Drag to orbit, scroll to zoom, click any part to inspect it, or <a href="javascript:openFullscreen('aladdin-bk-frame');">view it full screen</a>.</figcaption>
                     </figure>
 
                     <div class="v2-model-link">
-                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Golden%20Gate%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Open this bridge in Aladdin</a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Brooklyn%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Open this bridge in Aladdin</a>
                     </div>
 
-                    <p>The next five sections follow the session turn by turn. In short, it went like this (the assistant&rsquo;s replies are shortened; the full text is in the file):</p>
+                    <p>The next five sections follow the build turn by turn. In short, it went like this (the assistant&rsquo;s replies are shortened; the full text is in the file):</p>
 
                     <div class="v2-chat-panel">
                     <div class="v2-chat-head">
                         <span class="v2-chat-avatar">&#10022;</span>
                         <span class="v2-chat-title">
                             <span class="v2-chat-name">Aladdin AI Assistant</span>
-                            <span class="v2-chat-status">Building the Golden Gate, one stage per turn</span>
+                            <span class="v2-chat-status">Building the Brooklyn Bridge, one stage per turn</span>
                         </span>
                     </div>
                     <ul class="v2-chat">
-                        <li class="you"><span class="who">You</span>Let&rsquo;s build the Golden Gate Bridge step by step, from scratch, one stage per turn.</li>
-                        <li class="ai"><span class="who">Assistant</span><strong>Stage 1 &mdash; the site.</strong> The scene is at the Golden Gate strait, 37.82&deg;&nbsp;N, 122.48&deg;&nbsp;W, with the satellite map on and the real ground relief under it, 268&nbsp;m from lowest to highest across a 4.8&nbsp;km square. Nothing is built yet. Go on to the structural form?</li>
+                        <li class="you"><span class="who">You</span>Let&rsquo;s build the Brooklyn Bridge step by step, from scratch, one stage per turn.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 1 &mdash; the site.</strong> The scene is set to the Brooklyn Bridge in New York, with satellite imagery and real ground relief. The OpenStreetMap survey puts the bridge&rsquo;s center at the scene origin, with a mapped length of about 1,053&nbsp;m and a bearing of 136.4&deg;. Nothing is built yet. Go on to the structural form?</li>
                         <li class="you"><span class="who">You</span>Good. Next stage.</li>
-                        <li class="ai"><span class="who">Assistant</span><strong>Stage 2 &mdash; the form.</strong> A two&#8209;tower suspension bridge with vertical hangers, earth anchorages and a deep stiffening truss. The span decides it: no arch or cantilever of the 1930s came near 1,280&nbsp;m. The deep channel rules out piers in the middle, and the rock on both shores can hold the cables.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 2 &mdash; the form.</strong> A suspension bridge: the deck hangs from main cables draped over two towers, with shorter side spans running to the shores. The towers also carry diagonal stays, which makes it a suspension and cable&#8209;stayed hybrid. I&rsquo;ll set the main span to about 486&nbsp;m and the side spans to about 283&nbsp;m each.</li>
                         <li class="you"><span class="who">You</span>Next.</li>
-                        <li class="ai"><span class="who">Assistant</span><strong>Stage 3 &mdash; the dimensions.</strong> The bridge is up: a 1,280&nbsp;m main span, a 27.4&nbsp;m deck 67&nbsp;m above the water, towers 227&nbsp;m above the water. My first try gave a 1,825&nbsp;m main span, so I resized the deck until the main span measured 1,280.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 3 &mdash; the dimensions.</strong> The bridge is built at the mapped site: a 1,057&nbsp;m deck, 26&nbsp;m wide, 36.3&nbsp;m above the water, on two towers. The side spans came out at about 269&nbsp;m each and the main span at about 519&nbsp;m. I haven&rsquo;t aligned it to the surveyed line yet.</li>
                         <li class="you"><span class="who">You</span>Next.</li>
-                        <li class="ai"><span class="who">Assistant</span><strong>Stage 4 &mdash; alignment.</strong> From the top view, the real bridge runs about 6&deg; west of north, and mine ran 20&deg; east of north. I rotated the deck onto the real crossing and checked it again.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 4 &mdash; alignment.</strong> The bridge is now rotated to &minus;46.4&deg;, which matches the survey&rsquo;s 136.4&deg; bearing. In the top view it follows the mapped crossing over the river.</li>
                         <li class="you"><span class="who">You</span>Next.</li>
-                        <li class="ai"><span class="who">Assistant</span><strong>Stage 5 &mdash; details.</strong> Bigger tower piers, thicker main cables and hangers, approach viaducts to 2,736&nbsp;m end to end, International Orange. Here is what this model still can&rsquo;t show, and here are the analyses you can run on it.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 5 &mdash; details and structural check.</strong> Deep stiffening girders, twin towers, vertical hangers, earth anchorages and six diagonal stays per tower. Under traffic the deck deflects 195.5&nbsp;mm and the most heavily loaded member is at 37% of its capacity. The model does not reproduce the stone Gothic towers and their pointed arches.</li>
                     </ul>
                     </div>
 
                     <h2>Stage 1: The site</h2>
 
-                    <p>The assistant sets the scene&rsquo;s location to the strait, turns on the satellite map and fetches the real ground relief for a 4.8&nbsp;km square, which takes in the Marin Headlands to the north and the Presidio bluffs to the south. The bridge is about 2.7&nbsp;km long, so that leaves shore at both ends for the approaches. Nothing is built in this stage, but the ground decides a lot of what follows: how tall the towers are, where the approaches land and which way the bridge points.</p>
+                    <p>The assistant looks the bridge up on OpenStreetMap, sets the scene&rsquo;s location to it, turns on the satellite map and fetches the real ground relief. The lookup returns the surveyed crossing: where its center is, how long it is (about 1,053&nbsp;m between the anchorages) and which way it points (a compass bearing of 136.4&deg;, roughly northwest to southeast). Nothing is built in this stage, but those three numbers decide a lot of what follows.</p>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-golden-gate-ai-site.jpg" loading="lazy" alt="The Golden Gate strait in Aladdin before any bridge is built: satellite imagery draped over the real relief of the Marin Headlands">
-                        <figcaption><strong>The site after stage 1.</strong> Satellite imagery is draped over real elevation data. The real bridge shows in the photo, flat on the water. In stage 4 the assistant uses it as the reference for aligning its own bridge.</figcaption>
+                        <img src="image/aladdin-brooklyn-ai-site.jpg" loading="lazy" alt="The East River site in Aladdin before any bridge is built: satellite imagery of Lower Manhattan and Brooklyn, with the real Brooklyn Bridge and Manhattan Bridge visible in the photo">
+                        <figcaption><strong>The site after stage 1.</strong> Satellite imagery over real elevation data, with Lower Manhattan on the left and Brooklyn on the right. The real Brooklyn Bridge shows in the photo, flat on the water; the bridge upstream of it is the Manhattan Bridge.</figcaption>
                     </figure>
 
                     <h2>Stage 2: The form</h2>
 
-                    <p>The second turn adds no geometry. The assistant explains why the Golden Gate is a suspension bridge:</p>
+                    <p>The second turn adds no geometry. The assistant names the form: a suspension bridge with two towers, whose towers also carry diagonal stays. Its reply is short, so here is the reasoning behind that form:</p>
 
                     <ul class="v2-features">
-                        <li><span class="v2-feature-icon">1</span><div class="v2-feature-body"><strong>The span.</strong> The main span is 1,280&nbsp;m. No arch or cantilever of the time came close: the record cantilever, the Quebec Bridge, spans 549&nbsp;m.</div></li>
-                        <li><span class="v2-feature-icon">2</span><div class="v2-feature-body"><strong>The water.</strong> The channel is deep and the tides run fast, so there can be no support in the middle. The two towers stand near the shores.</div></li>
-                        <li><span class="v2-feature-icon">3</span><div class="v2-feature-body"><strong>The ground.</strong> Hard rock on both shores can hold the cable ends and carry the towers, which bring almost all of the bridge&rsquo;s weight down into the ground.</div></li>
-                        <li><span class="v2-feature-icon">4</span><div class="v2-feature-body"><strong>The wind.</strong> A long, light deck in a windy strait twists, so it needs a deep stiffening truss under the roadway.</div></li>
+                        <li><span class="v2-feature-icon">1</span><div class="v2-feature-body"><strong>The span.</strong> The main span is 486&nbsp;m, the longest in the world when the bridge opened in 1883. Only a suspension bridge could reach that far at the time.</div></li>
+                        <li><span class="v2-feature-icon">2</span><div class="v2-feature-body"><strong>The river.</strong> The East River was one of the busiest waterways in the country, so the channel had to stay clear and the deck had to pass above the masts of sailing ships. The two towers stand near the shores and nothing stands between them.</div></li>
+                        <li><span class="v2-feature-icon">3</span><div class="v2-feature-body"><strong>The stays.</strong> Suspension bridges of that era had a record of being wrecked by wind. John Roebling added diagonal stays from the towers to the deck, so the deck is held two ways at once.</div></li>
+                        <li><span class="v2-feature-icon">4</span><div class="v2-feature-body"><strong>The towers.</strong> They are stone, the material of the time for something that tall and that heavily loaded. Almost all of the bridge&rsquo;s weight comes down through them.</div></li>
                     </ul>
 
-                    <p>The outcome is a suspension bridge with vertical hangers, earth anchorages and a stiffening truss. This is a good stage to ask questions. Ask &ldquo;why not an arch?&rdquo; and the assistant explains thrust and abutments before anything is built.</p>
+                    <p>This is a good stage to ask questions. Ask &ldquo;why not an arch?&rdquo; and the assistant explains thrust and abutments before anything is built.</p>
 
                     <h2>Stage 3: The dimensions</h2>
 
@@ -273,49 +275,94 @@
                     <table class="v2-compare">
                         <thead><tr><th>Dimension</th><th>Real bridge</th><th>AI&rsquo;s model</th></tr></thead>
                         <tbody>
-                            <tr><td>Main span</td><td>1,280 m</td><td>1,280 m</td></tr>
-                            <tr><td>Side spans</td><td>343 m each</td><td>320 m each</td></tr>
-                            <tr><td>Overall length</td><td>2,737 m</td><td>2,736 m (after stage 5)</td></tr>
-                            <tr><td>Deck width</td><td>27.4 m</td><td>27.4 m</td></tr>
-                            <tr><td>Deck above the water</td><td>67 m</td><td>67 m</td></tr>
-                            <tr><td>Towers above the water</td><td>227 m</td><td>227 m</td></tr>
-                            <tr><td>Stiffening truss depth</td><td>7.6 m</td><td>7.6 m</td></tr>
+                            <tr><td>Main span</td><td>486 m</td><td>488 m (see below)</td></tr>
+                            <tr><td>Side spans</td><td>283 m each</td><td>284 m each (see below)</td></tr>
+                            <tr><td>Overall length</td><td>1,825 m</td><td>1,829 m (after turn 10)</td></tr>
+                            <tr><td>Deck width</td><td>26 m</td><td>26 m</td></tr>
+                            <tr><td>Deck above the water</td><td>41 m at mid&#8209;span</td><td>36.3 m</td></tr>
+                            <tr><td>Towers above the water</td><td>84 m</td><td>84.8 m</td></tr>
                         </tbody>
                     </table>
 
-                    <p>The first attempt got the span wrong. The assistant set the suspended structure to 2,737&nbsp;m, the bridge&rsquo;s full length, and Aladdin reported a main span of 1,825&nbsp;m, 43% too long. In Aladdin the suspended structure covers only the main span and the two side spans, and the main span is two&#8209;thirds of it. The assistant worked backwards to a 1,920&nbsp;m structure, which gives a 1,280&nbsp;m main span, and added short approach viaducts at each end. It lengthened them in stage 5 to bring the total to 2,736&nbsp;m.</p>
+                    <p>The spans need an explanation. The assistant asked for the real proportions, but its reply gives a 519&nbsp;m main span, 33&nbsp;m too long, and its stage&#8209;5 reply gives 528.5&nbsp;m. When this session was recorded, Aladdin could stand a suspension bridge&rsquo;s towers only at certain points along the deck, so the towers landed about 15 to 20&nbsp;m inland of the real ones. We have since changed Aladdin to stand the towers exactly where they are asked for. The saved model now opens with a 488&nbsp;m main span and 284&nbsp;m side spans, within 2&nbsp;m of the real bridge.</p>
 
                     <div class="v2-callout">
-                        <p>The assistant caught the error because it <strong>read the model back</strong> after building it and compared the main span with the published figure.</p>
+                        <p>The assistant asked for 486&nbsp;m and reported 519&nbsp;m. It <strong>read the model back</strong> after building it and reported what Aladdin had built, not what it had intended. That is how the limitation came to light.</p>
                     </div>
 
                     <h2>Stage 4: Alignment</h2>
 
-                    <p>The bridge from stage 3 had the right span and the wrong heading: it crossed the strait about 26&deg; off. On a suspended structure nearly 2&nbsp;km long, that puts the ends hundreds of metres away from the real ones. So the assistant took a top&#8209;down view, found the real bridge in the satellite photo and measured its direction from the picture: about 6&deg; west of north. Then it rotated its own deck to match and looked again.</p>
+                    <p>The bridge from stage 3 had the right size and the wrong heading: it lay east&ndash;west across the river. The assistant did not judge the direction from the photo. It asked OpenStreetMap again, got the surveyed bearing of 136.4&deg;, turned the deck to match (a rotation of &minus;46.4&deg; in Aladdin, which measures angles counter&#8209;clockwise from east) and then checked the result in a top&#8209;down view.</p>
 
                     <div class="v2-shots">
                         <figure>
-                            <img src="image/aladdin-golden-gate-ai-align-before.jpg" loading="lazy" alt="Top view: the AI's bridge crossing the real Golden Gate Bridge in the satellite photo at an angle">
-                            <figcaption><strong>Before:</strong> the heading the assistant first picked, crossing the real bridge in the photo at an angle.</figcaption>
+                            <img src="image/aladdin-brooklyn-ai-align-before.jpg" loading="lazy" alt="Top view: the AI's bridge lying east-west across the East River, crossing the real Brooklyn Bridge in the satellite photo at an angle">
+                            <figcaption><strong>Before:</strong> the bridge as stage 3 left it, lying east&ndash;west and crossing the real bridge in the photo at an angle.</figcaption>
                         </figure>
                         <figure>
-                            <img src="image/aladdin-golden-gate-ai-align-after.jpg" loading="lazy" alt="Top view: the AI's bridge lying along the real Golden Gate Bridge in the satellite photo">
-                            <figcaption><strong>After:</strong> rotated onto the real crossing, with each tower beside its real one.</figcaption>
+                            <img src="image/aladdin-brooklyn-ai-align-after.jpg" loading="lazy" alt="Top view: the AI's bridge lying along the real Brooklyn Bridge in the satellite photo">
+                            <figcaption><strong>After:</strong> turned onto the surveyed line, lying along the real bridge.</figcaption>
                         </figure>
                     </div>
 
-                    <p>The alignment is close but not exact. The assistant reported that its deck lay on top of the real one, but in the top view it runs alongside, a few tens of metres to the east. One more turn (&ldquo;Move it onto the real bridge&rdquo;) would fix it. It is worth checking the scene yourself rather than relying on the assistant&rsquo;s description.</p>
+                    <p>The alignment is close but not exact. OpenStreetMap also maps the two stone towers, and they stand about 9&nbsp;m to the southwest of the deck line the assistant used. A later turn moved the bridge over (see below). It is worth checking the scene yourself rather than relying on the assistant&rsquo;s description.</p>
 
                     <h2>Stage 5: Details</h2>
 
-                    <p>The tower piers went from 9&nbsp;m to 15&nbsp;m in diameter. (The assistant asked for 18&nbsp;m and its reply says 18, but Aladdin caps piers at 15&nbsp;m.) The main cables and hangers were thickened, and the approach viaducts were lengthened to bring the overall length within a metre of the real 2,737&nbsp;m. The towers, cables and truss are International Orange, the color the real bridge was painted partly so it would show up in fog. Finally the assistant set the camera on the finished bridge.</p>
+                    <p>The last build turn finished the structure: deep stiffening girders under the deck, vertical hangers, earth anchorages and six diagonal stays per tower. Then the assistant ran a static check without being asked. Under traffic the deck deflected 195.5&nbsp;mm, about 1/2,700 of the span, and the most heavily loaded member was working at 37% of its capacity.</p>
+
+                    <p>It also said what the model left out: the stone Gothic towers with their pointed arches. At that point the towers were plain steel frames, and the bridge looked like any suspension bridge.</p>
+
+                    <h2>Five more turns: making it the Brooklyn Bridge</h2>
+
+                    <p>The five stages produce a sound structure in the right place. The next five turns were ordinary requests in plain language, each ending with &ldquo;then check the structure again&rdquo;:</p>
+
+                    <div class="v2-chat-panel">
+                    <div class="v2-chat-head">
+                        <span class="v2-chat-avatar">&#10022;</span>
+                        <span class="v2-chat-title">
+                            <span class="v2-chat-name">Aladdin AI Assistant</span>
+                            <span class="v2-chat-status">Refining the bridge</span>
+                        </span>
+                    </div>
+                    <ul class="v2-chat">
+                        <li class="you"><span class="who">You</span>Make it look more like the real Brooklyn Bridge: give it stone masonry towers with the pointed arches, color the towers light stone and the cables a pale tan, and make the diagonal stays easier to see.</li>
+                        <li class="ai"><span class="who">Assistant</span>Done: masonry towers with pointed arches, and more prominent stays. The towers and cables share one color in this model, so I applied a light stone tan to both.</li>
+                        <li class="you"><span class="who">You</span>The deck still looks like a solid slab. Make it an open stiffening truss like the real Brooklyn Bridge.</li>
+                        <li class="ai"><span class="who">Assistant</span>The deck now has an open stiffening truss instead of solid plate girders.</li>
+                        <li class="you"><span class="who">You</span>Closer still: give it the real bridge&rsquo;s four main cables, the raised pedestrian promenade down the middle, and a denser web of thinner diagonal stays, about 20 per side.</li>
+                        <li class="ai"><span class="who">Assistant</span>Done. The promenade is visual only, and the analysis represents the four cables as two cable planes.</li>
+                        <li class="you"><span class="who">You</span>The stays are so dense they blur into a haze. Go back to about 12 per side. Also, OpenStreetMap maps the two stone towers about 9&nbsp;m southwest of the deck&rsquo;s centerline, so move the bridge onto them.</li>
+                        <li class="ai"><span class="who">Assistant</span>Reduced the stays to 12 per side and shifted the bridge 9&nbsp;m southwest, keeping its &minus;46.4&deg; axis.</li>
+                        <li class="you"><span class="who">You</span>The real bridge doesn&rsquo;t stop at the shore: add its stone approach spans, about 476&nbsp;m on the Manhattan end and about 296&nbsp;m on the Brooklyn end.</li>
+                        <li class="ai"><span class="who">Assistant</span>Added stone&#8209;arcade approaches at both ends. They are visual and aren&rsquo;t included in the structural analysis. The check now reports 119.2&nbsp;mm of deflection and 43% peak utilization.</li>
+                    </ul>
+                    </div>
+
+                    <div class="v2-shots">
+                        <figure>
+                            <img src="image/aladdin-brooklyn-ai-five-turns.jpg" loading="lazy" alt="The AI-built bridge after the five build turns: steel-frame towers and a solid plate-girder deck">
+                            <figcaption><strong>After five turns:</strong> the right structure in the right place, with steel&#8209;frame towers and a solid deck. (Re&#8209;created from the finished model by switching the later additions off.)</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-brooklyn-ai-ten-turns.jpg" loading="lazy" alt="The AI-built bridge after ten turns: stone towers with pointed arches, an open truss deck and diagonal stays">
+                            <figcaption><strong>After ten turns:</strong> stone towers with pointed arches, an open truss deck, four cables and the web of diagonal stays.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>Several of these features did not exist in Aladdin when the session began. The stone towers, the open truss, the four cables, the promenade and the arcades were added to Aladdin between turns, after the assistant said what it could not show. The assistant then used each one as soon as it was available.</p>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-golden-gate-ai-finished.jpg" loading="lazy" alt="The finished AI-built Golden Gate Bridge in Aladdin, seen from the San Francisco side with the Marin Headlands behind">
-                        <figcaption><strong>The finished bridge</strong>, from the San Francisco side, with the Marin Headlands behind it. Everything in the scene came out of five chat turns; only this camera angle was picked for the article. The live model opens on the assistant&rsquo;s own framing, from the east.</figcaption>
+                        <img src="image/aladdin-brooklyn-ai-towers.jpg" loading="lazy" alt="Close view of the finished AI-built Brooklyn Bridge from above the deck: a stone tower with two pointed arches, four main cables, the raised promenade and the diagonal stays">
+                        <figcaption><strong>The Manhattan tower from above the deck:</strong> the two pointed arches, the four main cables, the raised promenade down the middle and the diagonal stays crossing the vertical suspenders.</figcaption>
                     </figure>
 
-                    <p>Without being asked, it also listed what the model leaves out. The real towers step inward in Art Deco stages; these are plain two&#8209;legged frames. The stiffening truss has the right depth, but its triangular bracing is not drawn. The side spans are 320&nbsp;m instead of 343&nbsp;m, and the concrete fender around the south tower is missing.</p>
+                    <p>The assistant was open about what is only for looks. The promenade and the approaches are drawn but not analyzed, and the four cables are analyzed as two. (The truss deck is also analyzed as girders of the same depth.) The structural numbers moved when the structure did: the deflection fell from 195.5&nbsp;mm to 150.9&nbsp;mm when the stone towers and heavier stays went in, and it was down to 119.2&nbsp;mm by the time the main span had shortened to its real length.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-brooklyn-ai-overview.jpg" loading="lazy" alt="The finished AI-built Brooklyn Bridge in Aladdin seen from the south, with its stone arcade approaches reaching into Manhattan and Brooklyn">
+                        <figcaption><strong>The finished bridge from the south</strong>, with the arcade approaches reaching into Manhattan on the left and Brooklyn on the right. Everything in the scene came out of the chat; only the camera angles were picked for the article.</figcaption>
+                    </figure>
 
                     <h2>Analyze the bridge</h2>
 
@@ -363,66 +410,79 @@
                     <p>We asked the assistant to run the natural&#8209;modes, wind and seismic analyses on the bridge from this session. First, the natural modes:</p>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-golden-gate-ai-modal.jpg" loading="lazy" alt="Aladdin's Natural Modes panel listing six modes of the AI-built Golden Gate Bridge, with mode 4, torsion at 0.182 Hz, selected and the main span shown twisting in the 3D view">
-                        <figcaption><strong>The lowest twisting mode</strong>, mode 4 at 0.182&nbsp;Hz, playing on the bridge: the deck twists about its own length. Red marks the parts that move most, green the parts that barely move.</figcaption>
+                        <img src="image/aladdin-brooklyn-ai-modal.jpg" loading="lazy" alt="Aladdin's Natural Modes panel listing six modes of the AI-built Brooklyn Bridge, with mode 3, torsion at 0.467 Hz, selected and the main span shown twisting in the 3D view">
+                        <figcaption><strong>The lowest twisting mode</strong>, mode 3 at 0.467&nbsp;Hz, playing on the bridge: the deck twists about its own length. Red marks the parts that move most, green the parts that barely move.</figcaption>
                     </figure>
 
-                    <p>The bridge&rsquo;s slowest motion is sideways: the whole deck swings across the strait and back once every 12 seconds. Two vertical bending modes come next, and the lowest twisting mode is fourth, at 0.182&nbsp;Hz. The twisting mode matters for wind. In a strong crosswind a long deck can start twisting on its own, which is called flutter; twisting destroyed the Tacoma Narrows Bridge in 1940. Flutter is harder to start when the twisting frequency is well separated from the bending frequency. Here the twisting frequency is about 1.52 times the first bending frequency.</p>
+                    <p>The bridge&rsquo;s slowest motion is vertical: the main span bounces up and down once every 2.9 seconds (0.349&nbsp;Hz). A sideways sway comes next at 0.414&nbsp;Hz, and the lowest twisting mode is third, at 0.467&nbsp;Hz. These are quick for a suspension bridge. The span is short by modern standards, and the assistant gave the model a 10&nbsp;m&#8209;deep stiffening structure, which makes the deck stiff. The twisting mode matters for wind. In a strong crosswind a long deck can start twisting on its own, which is called flutter; twisting destroyed the Tacoma Narrows Bridge in 1940. Here the twisting frequency is about 1.34 times the first bending frequency.</p>
 
-                    <p>The wind analysis used Aladdin&rsquo;s default design wind of 30&nbsp;m/s (108&nbsp;km/h). The deck moved 190&nbsp;mm sideways, which is small for a 1,280&nbsp;m span, and every member stayed within its capacity. Aladdin&rsquo;s flat&#8209;plate estimate puts the start of flutter at <strong>94&nbsp;m/s</strong>, a little over three times the design wind. That is an upper bound, because a real deck flutters at a lower speed than a flat plate. The flutter frequency, 0.146&nbsp;Hz, lies between the first bending and twisting frequencies, as it should when the two motions couple, so the modal and wind results are consistent.</p>
+                    <p>Wind was Roebling&rsquo;s main worry, and the diagonal stays and the stiffening trusses were his answer to it. The wind analysis used Aladdin&rsquo;s default design wind of 30&nbsp;m/s (108&nbsp;km/h). The deck moved 7.8&nbsp;mm sideways, and the most heavily loaded member reached 44% of its capacity, barely more than under traffic alone. Aladdin&rsquo;s flat&#8209;plate estimate puts the start of flutter at <strong>256&nbsp;m/s</strong>, more than eight times the design wind. That is an upper bound, because a real deck flutters at a lower speed than a flat plate, but the margin is very large. The flutter frequency, 0.4&nbsp;Hz, lies between the first bending and twisting frequencies, as it should when the two motions couple.</p>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-golden-gate-ai-wind.jpg" loading="lazy" alt="Aladdin's Wind panel for the AI-built Golden Gate Bridge at 30 m/s: 27.35 MN of drag, 190 mm of lateral drift, vortex-shedding lock-in warnings between 8.7 and 16.0 m/s, and a flutter critical speed of 94.1 m/s">
-                        <figcaption><strong>The wind panel at 30&nbsp;m/s.</strong> The orange lines are vortex&#8209;shedding warnings. At ordinary winds of 9 to 16&nbsp;m/s, eddies shed by the deck can match its natural frequencies and make it oscillate. That affects comfort and fatigue rather than strength.</figcaption>
+                        <img src="image/aladdin-brooklyn-ai-wind.jpg" loading="lazy" alt="Aladdin's Wind panel for the AI-built Brooklyn Bridge at 30 m/s: 10.21 MN of drag, 7.8 mm of lateral drift, 44% demand/capacity, a vortex-shedding lock-in warning for mode 1 at 32.8 m/s, and a flutter critical speed of 256.2 m/s">
+                        <figcaption><strong>The wind panel at 30&nbsp;m/s.</strong> The orange line is a vortex&#8209;shedding warning. At about 33&nbsp;m/s, eddies shed by the deck would match its first bending frequency and could make it oscillate. That affects comfort and fatigue rather than strength, and the assistant flagged it in its reply.</figcaption>
                     </figure>
 
-                    <p>Last, an earthquake. The San Andreas fault passes about 10&nbsp;km offshore, and the 1989 Loma Prieta earthquake led to a seismic retrofit of the real bridge, so we asked the assistant to use Aladdin&rsquo;s recording of it, made at Hollister Airport. It shook the model sideways across the strait, the direction in which it is most flexible, with the record scaled to a peak ground acceleration of 0.32&nbsp;<em>g</em>: a design&#8209;level shake, stronger than the bridge actually felt in 1989.</p>
+                    <p>Last, an earthquake. New York is not earthquake country, but it is not immune either: a quake of about magnitude 5 struck the area in 1884, the year after the bridge opened, and a magnitude 4.8 quake in New Jersey in 2024 was felt across the city. We asked the assistant to shake the model sideways, across the river, at a peak ground acceleration of 0.15&nbsp;<em>g</em>. That figure is our own round number for a rare, strong shake in a low&#8209;hazard region, not a code value for New York.</p>
 
-                    <p>Aladdin first gives a quick check against a design response spectrum, at the same 0.32&nbsp;<em>g</em> and 5% damping. It put the deck&rsquo;s peak sideways movement at 485&nbsp;mm and the most heavily loaded member at 57% of its capacity. It also warned that the modes it used capture only 34% of the bridge&rsquo;s mass. A suspension bridge is so flexible that its slowest modes, the ones that swing the deck, carry only part of its weight; the stiff towers and piers vibrate in much faster modes.</p>
+                    <p>Aladdin first gives a quick check against a design response spectrum, at 0.15&nbsp;<em>g</em> and 5% damping. It put the deck&rsquo;s peak sideways movement at 355&nbsp;mm, the base shear at 318&nbsp;MN and the most heavily loaded member at <strong>91%</strong> of its capacity. That is a pass with little to spare, and it is the most interesting number in the session. The same check at 0.32&nbsp;<em>g</em>, a California&#8209;level shake, gives 160%: overstressed.</p>
 
-                    <p>The recorded earthquake doesn&rsquo;t take that shortcut, because it runs the ground motion through the structure step by step. Loma Prieta moved the deck a similar amount, <strong>448&nbsp;mm</strong>, but gave a base shear of <strong>1,275&nbsp;MN</strong> against the quick check&rsquo;s 121&nbsp;MN, more than ten times as much. Aladdin&rsquo;s El Centro 1940 record, scaled to the same 0.32&nbsp;<em>g</em>, told the same story: 495&nbsp;mm and 912&nbsp;MN. The movement comes from the flexible deck, which every method captures. The extra force most likely comes from the heavy, stiff parts that move with the ground, which the quick check left out. The assistant read it the same way: it said the 57% is &ldquo;not a pass,&rdquo; because it was worked out against a force ten times too small. For a bridge like this, trust the quick check for how far the deck moves, not for how hard the earthquake pushes on the towers and foundations.</p>
+                    <p>We asked the assistant why the figure is so high at a modest acceleration. It answered that the 91% is the combined demand of the bridge&rsquo;s own weight, traffic and the earthquake, and the static check had already found members at 43% under weight and traffic alone. It also said plainly that it could not tell which member governs, because the analysis reports only the maximum. A stone&#8209;towered bridge is heavy, and in an earthquake weight is what generates force, so the result is plausible, but the chat did not establish where the 91% occurs.</p>
+
+                    <p>Aladdin has no ground&#8209;motion record from New York, so for the step&#8209;by&#8209;step simulation the assistant used the El Centro 1940 record from California, scaled down to the same 0.15&nbsp;<em>g</em>. It moved the deck <strong>211&nbsp;mm</strong> and gave a base shear of <strong>246&nbsp;MN</strong>, both well below the quick check, which is what you expect: a design spectrum is an envelope over many earthquakes, and one record fills only part of it. The quick check&rsquo;s modes captured 96% of the bridge&rsquo;s mass, so here the two methods can be compared directly.</p>
 
                     <figure class="v2-screenshot">
-                        <img src="image/aladdin-golden-gate-ai-seismic.jpg" loading="lazy" alt="Aladdin's Seismic panel for the AI-built Golden Gate Bridge, shaken transversely: the response spectrum gives 120.90 MN base shear, 484.8 mm peak displacement and 57% demand/capacity, with a warning that the computed modes capture only 34% of the mass; the Loma Prieta 1989 time history gives 447.8 mm peak displacement and 1275.15 MN base shear">
-                        <figcaption><strong>The seismic panel, shaking the bridge sideways with Loma Prieta.</strong> The top lines are the quick response&#8209;spectrum check, with its warning that the computed modes capture only 34% of the mass. The bottom line is the Loma Prieta 1989 record run through the structure.</figcaption>
+                        <img src="image/aladdin-brooklyn-ai-seismic.jpg" loading="lazy" alt="Aladdin's Seismic panel for the AI-built Brooklyn Bridge, shaken transversely at 0.15 g: the response spectrum gives 317.85 MN base shear, 354.9 mm peak displacement and 91% demand/capacity; the El Centro 1940 time history gives 245.67 MN base shear and 211.3 mm peak displacement, with a chart of deck displacement over 30 seconds">
+                        <figcaption><strong>The seismic panel, shaking the bridge sideways at 0.15&nbsp;<em>g</em>.</strong> The top lines are the quick response&#8209;spectrum check. The bottom lines are the scaled El Centro record run through the structure, with the sideways movement of the deck point that moves most.</figcaption>
                     </figure>
 
                     <div class="v2-callout">
                         <p><strong>Method.</strong> Aladdin models the bridge as a 3D <a href="aladdin-bridge-design.html">finite&#8209;element frame</a>. Every girder, tower, cable and hanger is a beam element that can stretch, bend and twist, and the cables are stiffened by their own tension. The modes come from this model. The wind analysis applies drag as a steady sideways load, predicts vortex shedding from the deck depth and estimates flutter with thin&#8209;airfoil theory. The seismic analysis combines the modes with a Eurocode&nbsp;8 design spectrum, or steps a recorded ground motion through the structure in time.</p>
-                        <p>These results come from a simplified parametric model, not the real bridge, and they may change as Aladdin&rsquo;s solver is improved.</p>
+                        <p>These results come from a simplified parametric model, not the real bridge, and they may change as Aladdin&rsquo;s solver is improved. In this model, concrete stands in for the towers&rsquo; stone.</p>
                     </div>
 
-                    <p>Because the model is parametric, you can change one thing and rerun an analysis: make the truss shallower and see how much more the deck moves, or add a third tower and see what happens to the cable.</p>
+                    <p>Because the model is parametric, you can change one thing and rerun an analysis: take the diagonal stays away and see how much more the deck moves, or make the stiffening structure shallower and watch the flutter speed fall.</p>
 
                     <h2>Tips for designing your own bridge with the AI Assistant</h2>
 
                     <ul class="v2-features">
                         <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Ask for one stage per turn.</strong> Say &ldquo;step by step, from scratch, one stage per turn,&rdquo; and the assistant stops after each stage and waits for you.</div></li>
                         <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Argue with a stage before moving on.</strong> &ldquo;Why not cable&#8209;stayed?&rdquo; or &ldquo;Make the towers shorter&rdquo; are good replies when it asks whether to go on. Your numbers win over the assistant&rsquo;s, within what Aladdin can build.</div></li>
-                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Check the top view yourself.</strong> The satellite photo is the answer key for alignment. If the bridge is off, say which way.</div></li>
+                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Check the top view yourself.</strong> The satellite photo is the answer key for alignment. If the bridge is off, say which way and how far.</div></li>
+                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Keep going after stage 5.</strong> Say what still looks wrong, one or two things at a time, and end with &ldquo;then check the structure again&rdquo; so a change for looks never quietly weakens the bridge.</div></li>
                     </ul>
 
-                    <h2>Nine more bridges, built the same way</h2>
+                    <h2>Nineteen more bridges, built the same way</h2>
 
-                    <p>The assistant built nine more famous bridges with the same five stages: it found the real site and crossing on the map, chose the structural form, sized the bridge from real figures, aligned it to the real crossing and finished the details, checking the structure where it needed it. Each model opens with the conversation that built it.</p>
+                    <p>The assistant built nineteen more bridges with the same five stages, from world&#8209;famous spans to a one&#8209;lane truss in Hawaii: it found the real site and crossing on the map, chose the structural form, sized the bridge from real figures, aligned it to the real crossing and finished the details, checking the structure where it needed it. Each model opens with the conversation that built it.</p>
 
                     <ul class="v2-features">
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Golden%20Gate%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Golden Gate Bridge</a></strong>, California, USA: a suspension bridge with a 1,280&nbsp;m main span. The assistant&rsquo;s first attempt gave a 1,825&nbsp;m main span; it caught the error by reading the model back and resized the deck. It aligned the bridge from the satellite photo, and the deck ended up a few tens of meters east of the real one.</div></li>
                         <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Sydney%20Harbour%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Sydney Harbour Bridge</a></strong>, Australia: a single 503&nbsp;m steel through&#8209;arch. The first check found the deck girders overstressed, so the assistant added girder lines.</div></li>
                         <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Millau%20Viaduct%20Step%20by%20Step%20(AI%20Assistant)">Millau Viaduct</a></strong>, France: a 2,460&nbsp;m cable&#8209;stayed viaduct on eight spans across the Tarn valley, with its real 3% grade. In stage 4 the assistant wrongly reported the deck as level, then corrected itself a turn later.</div></li>
                         <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Forth%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Forth Bridge</a></strong>, Scotland: an 1890 cantilever truss, where the huge towers <em>are</em> the structure. Aladdin builds equal spans, so the model has six spans of about 347&nbsp;m instead of the real bridge&rsquo;s two 521&nbsp;m main spans.</div></li>
                         <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Huajiang%20Grand%20Canyon%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Huajiang Grand Canyon Bridge</a></strong>, China: a suspension bridge with the world&rsquo;s highest deck. It opened in 2025, too recently for the satellite photo, so the assistant aligned it from the surveyed line on OpenStreetMap.</div></li>
                         <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Europabr%C3%BCcke%20Step%20by%20Step%20(AI%20Assistant)">Europabr&uuml;cke</a></strong>, Austria: a 777&nbsp;m girder bridge on six spans, 190&nbsp;m above the Sill valley. The model&rsquo;s spans are equal; the real ones vary, and the longest is about 198&nbsp;m.</div></li>
                         <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=S%C3%BCdbr%C3%BCcke%20Mainz%20Step%20by%20Step%20(AI%20Assistant)">S&uuml;dbr&uuml;cke</a></strong>, Mainz, Germany: a K&#8209;truss railway bridge on four spans over the Rhine. The model covers only the 424&nbsp;m steel&#8209;truss section of the roughly 1&nbsp;km crossing.</div></li>
-                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Brooklyn%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Brooklyn Bridge</a></strong>, New York, USA: an 1883 suspension bridge whose towers also carry diagonal stays. The model&rsquo;s towers first stood about 9&nbsp;m off the stone towers mapped on OpenStreetMap, so a later turn shifted the bridge sideways onto them. That turn also shortened the main span from 528.5&nbsp;m to 488&nbsp;m, close to the real 486&nbsp;m.</div></li>
                         <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=New%20River%20Gorge%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">New River Gorge Bridge</a></strong>, West Virginia, USA: a 518&nbsp;m steel deck arch with its roadway 267&nbsp;m above the river. The assistant added 203&nbsp;m approaches at each end, which brings the model to 924&nbsp;m, the real bridge&rsquo;s length. The approaches are for looks only and aren&rsquo;t analyzed. The assistant&rsquo;s structural check put the most heavily loaded girders at 86% of their capacity.</div></li>
                         <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Akashi%20Kaiky%C5%8D%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Akashi Kaiky&#333; Bridge</a></strong>, Japan: the suspension bridge whose 1,991&nbsp;m main span was the world&rsquo;s longest from 1998 to 2022. The model matches the real main span and the 3,911&nbsp;m overall length. The assistant asked for the real 14&nbsp;m&#8209;deep stiffening truss, but Aladdin caps the depth at 12&nbsp;m.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Lupu%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Lupu Bridge</a></strong>, Shanghai, China: a 550&nbsp;m steel arch over the Huangpu River, with the deck passing through the arch partway up. The real bridge also has 100&nbsp;m side spans beside the arch, which the model shows only as approach ramps. The structural check put the hangers at 35% of their capacity.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Sunshine%20Skyway%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Sunshine Skyway Bridge</a></strong>, Florida, USA: the cable&#8209;stayed main section over Tampa Bay, with single&#8209;mast pylons and yellow stays. The spans are 165, 366 and 165&nbsp;m, the middle one matching the real main span. The long approach viaducts are not modeled. The check came out at 87%, the tightest of all these bridges.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Pont%20de%20Normandie%20Step%20by%20Step%20(AI%20Assistant)">Pont de Normandie</a></strong>, France: a cable&#8209;stayed bridge over the Seine estuary with an 856&nbsp;m main span, the real figure, on A&#8209;frame pylons. The model&#8217;s 428&nbsp;m side spans are schematic: on the real bridge those lengths are approach viaducts on many piers.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Severn%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Severn Bridge</a></strong>, England and Wales, UK: a 1966 suspension bridge known for its inclined hangers, which the model has. The main span is 987&nbsp;m against the real 988&nbsp;m. The assistant tried a shallower deck, saw the check get worse and put the depth back.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Clifton%20Suspension%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Clifton Suspension Bridge</a></strong>, Bristol, England, UK: Brunel&#8217;s 214&nbsp;m span, opened in 1864, on stone towers 75&nbsp;m above the Avon Gorge. The real bridge hangs from wrought&#8209;iron chains; the model uses cables.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Kealakaha%20Stream%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Kealakaha Stream Bridge</a></strong>, Hawai&#699;i Island, USA: a three&#8209;span concrete girder bridge, 55, 110 and 55&nbsp;m, on seismic isolation bearings. OpenStreetMap maps it only as an unnamed stretch of highway, so the assistant found it by its position. The real bridge curves; the model is straight.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Hanalei%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Hanalei Bridge</a></strong>, Kaua&#699;i, Hawaii, USA: a one&#8209;lane steel Pratt truss from 1912, 34&nbsp;m long, and the smallest bridge here. The structural check put its most heavily loaded member at 13% of capacity.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Karsten%20Thot%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Karsten Thot Bridge</a></strong>, Wahiaw&#257;, O&#699;ahu, Hawaii, USA: a 64&nbsp;m steel Warren through&#8209;truss from 1932. The assistant kept the deck at 7.3&nbsp;m wide, although the state inventory it cited lists 12.2&nbsp;m.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Manhattan%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Manhattan Bridge</a></strong>, New York, USA: the Brooklyn Bridge&rsquo;s upstream neighbor, a 1909 steel suspension bridge with a 449&nbsp;m main span, four cables and a truss deck. In stage 5 the assistant added diagonal stays, which the real bridge does not have. A sixth turn asked it to take them out, and the structure still checked out at 54%.</div></li>
+                        <li><span class="v2-feature-icon">&#8776;</span><div class="v2-feature-body"><strong><a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=George%20Washington%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">George Washington Bridge</a></strong>, New York and New Jersey, USA: a suspension bridge over the Hudson with a main span of about 1,074&nbsp;m against the real 1,067&nbsp;m, and towers 185&nbsp;m above the water. The model has one deck; the real bridge has two, one above the other.</div></li>
                     </ul>
 
                     <h2>Conclusion</h2>
 
-                    <p>Designing the Golden Gate with the AI Assistant took five turns, and each came with the reasoning behind it: why the bridge hangs from cables, where the towers stand and why it is orange. The session also shows the assistant&rsquo;s mistakes. It caught the wrong span by reading the model back, but it misreported the alignment and the pier size, which is why it pays to check the model yourself. The same five stages produced the nine other bridges above.</p>
+                    <p>So, could AI design the Brooklyn Bridge from scratch? Given its name, it worked the bridge out much as an engineer would: the site, the form and the dimensions in five turns. Five more made it recognizable: stone towers with pointed arches, an open truss, four cables, the web of stays and the arcades at each end. The session also shows where to be careful. The assistant reported spans that were 33&nbsp;m off, because of a limitation in Aladdin that has since been removed. Its first alignment was 9&nbsp;m off the mapped towers. And it could not say which member governed the seismic check, and said so. It pays to check the model yourself. The same five stages produced the nineteen other bridges above.</p>
 
-                    <p>The finished bridge is a structural model on its real site, so the same chat can analyze it. The modal analysis found the lowest twisting mode at 0.182&nbsp;Hz, the wind analysis put the start of flutter at 94&nbsp;m/s on a flat&#8209;plate estimate, and the Loma Prieta earthquake swung the deck about 450&nbsp;mm sideways.</p>
+                    <p>The finished bridge is a structural model on its real site, so the same chat can analyze it. The modal analysis found the lowest twisting mode at 0.467&nbsp;Hz, the wind analysis put the start of flutter at 256&nbsp;m/s on a flat&#8209;plate estimate, and a 0.15&nbsp;<em>g</em> earthquake brought the most heavily loaded member to 91% of its capacity.</p>
 
                     <p style="font-size:1.2rem; color:var(--text-muted);">Related reading: <a href="aladdin-bridge-types.html">Five ways to cross a river</a> &middot; <a href="aladdin-bridge-design.html">The bridge that bends</a> &middot; <a href="aladdin-dream-home.html">Designing your dream home with AI</a></p>
 
