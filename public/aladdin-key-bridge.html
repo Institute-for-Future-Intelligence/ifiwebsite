@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redesigning the Key Bridge with AI — Institute for Future Intelligence</title>
+    <meta name="description" content="Two chats with the Aladdin AI Assistant: one models the Francis Scott Key Bridge as it stood in Baltimore from 1977 to 2024 and tests it, the other designs a cable-stayed replacement sized to the published plan, with pier protection. The article shows every correction along the way and why a bridge that passes every check could still fall.">
+
+    <style>
+        @import url("css/system.base.css");
+        @import url("css/jquery.ui.core.min.css");
+        @import url("css/jquery.ui.theme.min.css");
+        @import url("css/jquery.ui.menu.min.css");
+        @import url("css/ifi_theme.css");
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/first.css">
+    <link rel="stylesheet" type="text/css" href="css/v2-theme.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0RXQKFDN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0RXQKFDN0');
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/transition.js"></script>
+    <script src="js/collapse.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <script src="js/jquery.smartmenus.bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      // Click-to-load: the poster is swapped for the live Aladdin iframe only when the reader asks
+      // for it, so a WebGL app does not boot on every visit to the page.
+      function liveFrame(id) {
+        var e = document.getElementById(id);
+        return e && e.tagName === "IFRAME" ? e : null;
+      }
+      function activateEmbed(facade) {
+        if (!facade || facade.dataset.activated) return liveFrame(facade && facade.dataset.frameId);
+        var iframe = document.createElement("iframe");
+        iframe.src = facade.dataset.embedSrc;
+        iframe.id = facade.dataset.frameId;
+        iframe.title = facade.dataset.frameTitle || "";
+        iframe.setAttribute("allow", "fullscreen; gyroscope; accelerometer; magnetometer; xr-spatial-tracking");
+        iframe.setAttribute("allowfullscreen", "true");
+        if (facade.dataset.frameRole) iframe.setAttribute("role", facade.dataset.frameRole);
+        facade.dataset.activated = "1";
+        facade.parentNode.replaceChild(iframe, facade);
+        return iframe;
+      }
+      document.addEventListener("click", function (ev) {
+        var facade = ev.target.closest && ev.target.closest(".v2-embed-facade");
+        if (facade) activateEmbed(facade);
+      });
+      function openFullscreen(id) {
+        var e = liveFrame(id);
+        if (!e) e = activateEmbed(document.querySelector('.v2-embed-facade[data-frame-id="' + id + '"]'));
+        if (e) (e.requestFullscreen || e.webkitRequestFullscreen || e.msRequestFullscreen).call(e);
+      }
+    </script>
+
+    <style>
+        .v2-col-main { min-width: 0; }
+        .v2-col-main p { font-size: 1.5rem; line-height: 1.55; }
+        .v2-col-main h2 { clear: both; }
+        .v2-col-main h3 { font-family: var(--font-display); font-size: 1.55rem; font-weight: 700; margin: 2rem 0 0.8rem; color: var(--text); clear: both; }
+        .v2-section.is-wide .v2-grid { grid-template-columns: 1fr; }
+        .v2-backlink { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; font-weight: 600; color: var(--accent); text-decoration: none; margin: 0 0 1.5rem; }
+        .v2-backlink:hover { color: var(--accent-dark); text-decoration: underline; }
+        .v2-byline { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+        .v2-byline a { color: var(--accent); }
+        .v2-byline strong { color: var(--text); font-weight: 600; }
+        .v2-model-link { background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.75rem; padding: 1rem 1.5rem; margin: 1rem 0 2rem; text-align: center; }
+        .v2-model-link a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--accent-dark); text-decoration: none; }
+        .v2-model-link a:hover { color: var(--accent); text-decoration: underline; }
+        .v2-model-link a::before { content: '\25B6'; font-size: 0.8rem; color: var(--accent); }
+
+        /* The chat transcript, set as the assistant's own panel. */
+        .v2-chat-panel { max-width: 730px; margin: 1.75rem auto 2rem; background: var(--surface-raised); border: 1px solid rgba(99, 102, 241, 0.16); border-radius: 1.35rem; box-shadow: 0 30px 60px -34px rgba(30, 30, 90, 0.55), 0 2px 8px rgba(15, 23, 42, 0.06); overflow: hidden; }
+        .v2-chat-head { display: flex; align-items: center; gap: 0.85rem; padding: 1.05rem 1.4rem; color: #fff; background: linear-gradient(135deg, #6366f1, #0ea5e9); }
+        .v2-chat-avatar { flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; font-size: 1.25rem; color: #fff; background: rgba(255, 255, 255, 0.16); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4); }
+        .v2-chat-title { display: flex; flex-direction: column; line-height: 1.25; }
+        .v2-chat-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; letter-spacing: 0.01em; }
+        .v2-chat-status { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.92rem; opacity: 0.9; }
+        .v2-chat-status::before { content: ''; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #4ade80; animation: v2-chat-pulse 2.4s infinite; }
+        @keyframes v2-chat-pulse { 0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); } 70% { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); } 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); } }
+        .v2-chat { list-style: none; padding: 1.4rem; margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+        .v2-chat li { position: relative; max-width: 82%; padding: 0.8rem 1.2rem; border-radius: 1.2rem; font-size: 1.2rem; line-height: 1.5; }
+        .v2-chat .you { align-self: flex-end; color: #fff; background: linear-gradient(135deg, #9aa5f2, #818cea); border-bottom-right-radius: 0.4rem; box-shadow: 0 10px 20px -14px rgba(129, 140, 234, 0.5); }
+        .v2-chat .ai { align-self: flex-start; color: var(--text); background: rgba(99, 102, 241, 0.07); border: 1px solid rgba(99, 102, 241, 0.16); border-bottom-left-radius: 0.4rem; }
+        .v2-chat .who { display: block; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.11em; margin-bottom: 0.3rem; }
+        .v2-chat .you .who { color: rgba(255, 255, 255, 0.8); }
+        .v2-chat .ai .who { color: var(--accent-dark); }
+        @media (prefers-color-scheme: dark) { .v2-chat .ai { background: rgba(148, 163, 220, 0.12); border-color: rgba(148, 163, 220, 0.2); } }
+
+        /* Two-up screenshot grid, for the before/after alignment views. */
+        .v2-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.1rem; margin: 1.4rem 0 1.9rem; }
+        .v2-shots figure { margin: 0; }
+        .v2-shots img { width: 100%; height: auto; display: block; border-radius: 0.6rem; border: 1px solid rgba(15, 23, 42, 0.12); }
+        .v2-shots figcaption { font-size: 1.02rem; line-height: 1.4; color: var(--text-muted); margin-top: 0.5rem; }
+        .v2-shots figcaption strong { color: var(--text); font-weight: 600; }
+        @media (max-width: 720px) { .v2-shots { grid-template-columns: 1fr; } }
+
+        /* Captions on the full-width figures. */
+        .v2-col-main figure.v2-screenshot { margin: 1.6rem 0 2.1rem; }
+        .v2-col-main figure.v2-screenshot img { border-radius: 0.7rem 0.7rem 0 0; display: block; width: 100%; height: auto; }
+        .v2-col-main figure.v2-screenshot figcaption,
+        .v2-col-main figure.v2-embed figcaption { margin: 0; padding: 1.05rem 1.3rem 1.15rem; font-size: 1.22rem; line-height: 1.55; color: var(--text-muted); background: linear-gradient(160deg, rgba(99, 102, 241, 0.07), rgba(14, 165, 233, 0.04)); border: 1px solid rgba(99, 102, 241, 0.16); border-top: none; border-radius: 0 0 0.7rem 0.7rem; border-left: 4px solid var(--accent); text-align: left; }
+        .v2-col-main figure.v2-screenshot figcaption strong,
+        .v2-col-main figure.v2-embed figcaption strong { color: var(--text); }
+        .v2-col-main figure.v2-screenshot figcaption a,
+        .v2-col-main figure.v2-embed figcaption a { color: var(--accent); }
+        .v2-col-main figure.v2-embed { margin: 1.6rem 0 2.1rem; padding: 0; background: none; box-shadow: none; border-radius: 0; }
+        .v2-col-main figure.v2-embed iframe,
+        .v2-col-main figure.v2-embed .v2-embed-facade { border-radius: 0.7rem 0.7rem 0 0; }
+        @media (prefers-color-scheme: dark) { .v2-col-main figure.v2-screenshot figcaption, .v2-col-main figure.v2-embed figcaption { background: linear-gradient(160deg, rgba(148, 163, 220, 0.11), rgba(14, 165, 233, 0.05)); border-color: rgba(148, 163, 220, 0.2); border-left-color: var(--accent); } }
+
+        /* The six analyses: a panel of cards, each a question you can type and the analysis that answers it. */
+        .v2-analyses { position: relative; overflow: hidden; margin: 1.8rem 0 2.4rem; padding: 1.9rem 1.7rem 1.8rem; border: 1px solid rgba(99, 102, 241, 0.22); border-radius: 1.25rem; background: radial-gradient(120% 90% at 0% 0%, rgba(99, 102, 241, 0.13), transparent 60%), radial-gradient(90% 80% at 100% 100%, rgba(14, 165, 233, 0.11), transparent 60%), var(--surface-raised); box-shadow: 0 30px 60px -38px rgba(30, 30, 90, 0.6), 0 2px 8px rgba(15, 23, 42, 0.05); }
+        .v2-analyses::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: linear-gradient(90deg, #6366f1, #0ea5e9 55%, #16a34a); }
+        .v2-analyses .v2-analyses-title { margin: 0; font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; color: var(--text); }
+        .v2-analyses .v2-analyses-sub { margin: 0.35rem 0 1.4rem; font-size: 1.3rem; line-height: 1.45; color: var(--text-muted); }
+        .v2-an-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+        .v2-an-grid li { display: flex; flex-direction: column; gap: 0.55rem; margin: 0; padding: 1.1rem 1.2rem 1.2rem; border: 1px solid rgba(99, 102, 241, 0.15); border-radius: 0.95rem; background: var(--surface-raised); box-shadow: 0 10px 24px -22px rgba(30, 30, 90, 0.7); transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease; }
+        .v2-an-grid li:hover { transform: translateY(-2px); border-color: rgba(99, 102, 241, 0.4); box-shadow: 0 18px 30px -22px rgba(30, 30, 90, 0.75); }
+        .v2-an-grid li.is-shown { border-color: rgba(22, 163, 74, 0.35); }
+        .v2-an-head { display: flex; align-items: center; gap: 0.7rem; }
+        .v2-an-icon { flex: none; width: 2.9rem; height: 2.9rem; display: grid; place-items: center; border-radius: 0.8rem; font-size: 1.35rem; color: #fff; background: linear-gradient(135deg, #6366f1, #0ea5e9); box-shadow: 0 8px 16px -10px rgba(79, 70, 229, 0.9); }
+        .v2-an-kind { font-family: var(--font-display); font-size: 0.98rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.11em; color: var(--accent-dark); }
+        .v2-an-kind a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+        .v2-an-tag { margin-left: auto; padding: 0.2rem 0.6rem; border-radius: 999px; font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.04em; color: #15803d; background: rgba(22, 163, 74, 0.12); white-space: nowrap; }
+        .v2-analyses .v2-an-ask { margin: 0.15rem 0 0; font-family: var(--font-display); font-size: 1.42rem; font-weight: 600; line-height: 1.35; color: var(--text); }
+        .v2-analyses .v2-an-ask::before { content: '\201C'; color: var(--accent); }
+        .v2-analyses .v2-an-ask::after { content: '\201D'; color: var(--accent); }
+        .v2-analyses .v2-an-ans { margin: 0; font-size: 1.26rem; line-height: 1.5; color: var(--text-muted); }
+        @media (max-width: 760px) { .v2-an-grid { grid-template-columns: 1fr; } .v2-analyses { padding: 1.7rem 1.2rem 1.4rem; } }
+        @media (prefers-color-scheme: dark) {
+            .v2-analyses { border-color: rgba(148, 163, 220, 0.24); background: radial-gradient(120% 90% at 0% 0%, rgba(129, 140, 248, 0.16), transparent 60%), radial-gradient(90% 80% at 100% 100%, rgba(14, 165, 233, 0.12), transparent 60%), var(--surface-raised); }
+            .v2-an-grid li { border-color: rgba(148, 163, 220, 0.2); }
+            .v2-an-kind { color: #a5b4fc; }
+            .v2-an-tag { color: #86efac; background: rgba(34, 197, 94, 0.16); }
+        }
+
+        /* The five stages, as numbered cards. */
+        .v2-features { list-style: none; margin: 1.6rem 0 1.9rem; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 0.9rem 1rem; }
+        .v2-features li { display: flex; gap: 0.95rem; align-items: flex-start; margin: 0; padding: 1.15rem 1.25rem; border: 1px solid rgba(99, 102, 241, 0.16); border-radius: 0.95rem; background: linear-gradient(160deg, rgba(99, 102, 241, 0.055), rgba(14, 165, 233, 0.03)); }
+        .v2-feature-icon { flex: none; width: 2.6rem; height: 2.6rem; display: grid; place-items: center; border-radius: 0.7rem; color: #fff; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; background: linear-gradient(135deg, #6366f1, #0ea5e9); box-shadow: 0 8px 18px -12px rgba(79, 70, 229, 0.9); }
+        .v2-feature-body { font-size: 1.16rem; line-height: 1.5; color: var(--text-muted); }
+        .v2-feature-body strong { color: var(--text); font-weight: 700; }
+        @media (prefers-color-scheme: dark) { .v2-features li { border-color: rgba(148, 163, 220, 0.2); background: linear-gradient(160deg, rgba(148, 163, 220, 0.09), rgba(14, 165, 233, 0.04)); } }
+
+        /* Real bridge vs. the AI's numbers. */
+        .v2-compare { width: 100%; border-collapse: collapse; margin: 1.3rem 0 1.9rem; font-size: 1.16rem; line-height: 1.4; }
+        .v2-compare th, .v2-compare td { padding: 0.55rem 0.8rem; text-align: left; border-bottom: 1px solid rgba(99, 102, 241, 0.16); }
+        .v2-compare th { font-family: var(--font-display); font-size: 0.86rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-dark); }
+        .v2-compare td:first-child { color: var(--text); font-weight: 600; }
+        .v2-compare td { color: var(--text-muted); }
+        @media (prefers-color-scheme: dark) { .v2-compare th, .v2-compare td { border-bottom-color: rgba(148, 163, 220, 0.2); } }
+
+        .v2-callout { margin: 1.5rem 0 1.9rem; padding: 1.35rem 1.6rem; border-left: 4px solid var(--accent); border-radius: 0 0.8rem 0.8rem 0; background: rgba(99, 102, 241, 0.07); }
+        .v2-callout p { margin: 0; font-size: 1.28rem; line-height: 1.5; }
+        .v2-callout p + p { margin-top: 0.8rem; }
+
+    </style>
+</head>
+
+<body class="html not-logged-in node-type-page page-v2">
+<script src="js/include.js"></script>
+<div id="wrapper">
+    <script>includeHeader();</script>
+    <main class="v2">
+        <header class="v2-hero" data-wordmark="KEY BRIDGE">
+            <div class="v2-hero-inner">
+                <span class="v2-eyebrow">Aladdin</span>
+                <h1>Redesigning the Key Bridge with AI</h1>
+                <p class="v2-tagline">
+                    Model the bridge that collapsed in Baltimore, find out why it was vulnerable, and design its replacement
+                </p>
+            </div>
+        </header>
+        <section class="v2-section is-wide" data-reveal>
+            <div class="v2-grid">
+                <div class="v2-col-main">
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+
+                    <p class="v2-byline">By <strong>Charles Xie</strong> <a href="mailto:charles@intofuture.org">&#9993;</a> &middot; <span class="v2-updated">Updated November 27, 2026</span></p>
+
+                    <p>At 1:28 in the morning on March 26, 2024, the container ship <em>Dali</em> lost power as it left the Port of Baltimore and struck a pier of the Francis Scott Key Bridge. The main spans fell into the Patapsco River within seconds. Six men repairing the roadway were killed.</p>
+
+                    <p>Could a student work out why one ship could bring down a bridge that had stood for 47 years, and then design something better? A few years ago that would have taken a structural engineering course and a commercial analysis package. This article shows it done in two chats with the AI Assistant in <a href="aladdin.html">Aladdin</a>, in plain language. The first chat models the bridge as it stood from 1977 to 2024 and tests it. The second designs a replacement at the same crossing, sized to the published plan for the real one.</p>
+
+                    <p>Bridges in Aladdin are <a href="aladdin-bridge-types.html">parametric structures</a> that a <a href="aladdin-bridge-design.html">structural engine</a> can load, shake and push to failure. An earlier article, <a href="aladdin-bridges-ai.html">Building bridges with AI</a>, followed the assistant as it designed the Brooklyn Bridge one stage per turn: site, structural form, main dimensions, alignment and details. Both chats here use the same five stages, then keep going. This is the first result:</p>
+
+                    <figure class="v2-embed">
+                        <button type="button" class="v2-embed-facade"
+                                data-embed-src="https://aladdin.intofuture.org/?client=web&amp;viewonly=true&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Francis%20Scott%20Key%20Bridge%20Step%20by%20Step%20(AI%20Assistant)"
+                                data-frame-id="aladdin-key-old-frame" data-frame-title="The Francis Scott Key Bridge built with the AI Assistant, interactive 3D model"
+                                style="background-image:url('image/aladdin-key-bridge-old.jpg')"
+                                aria-label="Load the interactive 3D model of the Francis Scott Key Bridge">
+                            <span class="v2-embed-play" aria-hidden="true"></span>
+                            <span class="v2-embed-hint">Click to load the live model</span>
+                        </button>
+                        <figcaption><strong>The Francis Scott Key Bridge, 1977&ndash;2024, on its real site.</strong> The model came out of thirteen turns: eight to build it, one to make it look like the real bridge, and four to test it. The conversation is saved in the file, and the AI Assistant panel opens with it so you can scroll back through it. Drag to orbit, scroll to zoom, or <a href="javascript:openFullscreen('aladdin-key-old-frame');">view it full screen</a>.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Francis%20Scott%20Key%20Bridge%20Step%20by%20Step%20(AI%20Assistant)">Open this bridge in Aladdin</a>
+                    </div>
+
+                    <h2>The bridge that collapsed</h2>
+
+                    <p>The session starts with one request, and the assistant works the bridge out a stage at a time. Three times it needed correcting, and those turns are the most instructive part. In short, it went like this (the assistant&rsquo;s replies are shortened; the full text is in the file):</p>
+
+                    <div class="v2-chat-panel">
+                    <div class="v2-chat-head">
+                        <span class="v2-chat-avatar">&#10022;</span>
+                        <span class="v2-chat-title">
+                            <span class="v2-chat-name">Aladdin AI Assistant</span>
+                            <span class="v2-chat-status">Building the Key Bridge, one stage per turn</span>
+                        </span>
+                    </div>
+                    <ul class="v2-chat">
+                        <li class="you"><span class="who">You</span>Let&rsquo;s build the Francis Scott Key Bridge in Baltimore, as it stood before it collapsed in 2024, step by step, from scratch, one stage per turn.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 1 &mdash; the site.</strong> The scene is set at the Key Bridge crossing in Baltimore, with satellite imagery and real terrain. Shall we choose the structural form?</li>
+                        <li class="you"><span class="who">You</span>Good. Next stage.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 2 &mdash; the form.</strong> A steel continuous through truss. We&rsquo;ll model it as a cantilever truss.</li>
+                        <li class="you"><span class="who">You</span>In photos, the truss arches highest over the middle of the main span and the roadway hangs beneath it there. A cantilever truss is shallow in the middle. Is there a better form for it?</li>
+                        <li class="ai"><span class="who">Assistant</span>Yes, and I need to correct my last stage. The bridge was an arch&#8209;shaped continuous through truss, with a 1,200&nbsp;ft main span between two 720&nbsp;ft side spans. That is the better form for our model.</li>
+                        <li class="you"><span class="who">You</span>Good. Next stage.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 3 &mdash; the dimensions.</strong> A 366&nbsp;m central span flanked by 219.5&nbsp;m side spans, about 805&nbsp;m in all, with a roadway about 18.6&nbsp;m wide. Stage 3 set.</li>
+                        <li class="you"><span class="who">You</span>Nothing is built yet. Build the bridge now with those dimensions and the arch&#8209;shaped continuous truss.</li>
+                        <li class="ai"><span class="who">Assistant</span>The bridge is built: 805&nbsp;m long, 18.6&nbsp;m wide, three spans, an arch&#8209;shaped continuous truss 45.7&nbsp;m high, the deck 56&nbsp;m up. It is not yet aligned to the crossing.</li>
+                        <li class="you"><span class="who">You</span>Good. Next stage: align it to the real crossing.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 4 &mdash; alignment.</strong> Aligned to the mapped crossing at 44.9&deg; from east. The mapped segment is only 276&nbsp;m long, though, so this confirms the direction, not the full footprint.</li>
+                        <li class="you"><span class="who">You</span>The direction is right, but that mapped segment is only the approach stub that survived, on the northeast shore. The middle of the main span was over the channel at 39.2169&nbsp;N, 76.5283&nbsp;W. Move the bridge there and keep the bearing.</li>
+                        <li class="ai"><span class="who">Assistant</span>Moved the bridge&rsquo;s midpoint to the channel, keeping its 44.9&deg; bearing.</li>
+                        <li class="you"><span class="who">You</span>Good. Next stage.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 5 &mdash; details and check.</strong> Under traffic the deck deflects 101.2&nbsp;mm and the most heavily loaded member is at 61% of its capacity. That&rsquo;s a model check, not an engineering certification.</li>
+                    </ul>
+                    </div>
+
+                    <h3>Three corrections</h3>
+
+                    <ul class="v2-features">
+                        <li><span class="v2-feature-icon">1</span><div class="v2-feature-body"><strong>The wrong truss.</strong> The assistant first chose a cantilever truss, which is tall over the piers and shallow in between. A look at any photo says otherwise, and when that was pointed out it corrected itself and gave its source.</div></li>
+                        <li><span class="v2-feature-icon">2</span><div class="v2-feature-body"><strong>Nothing built.</strong> In stage 3 it announced the dimensions and said &ldquo;Stage 3 set,&rdquo; but the scene was still empty. One sentence fixed it.</div></li>
+                        <li><span class="v2-feature-icon">3</span><div class="v2-feature-body"><strong>The wrong place.</strong> The map no longer has the bridge, only a 276&nbsp;m stub of approach on one shore. The assistant centered the bridge on the stub, 800&nbsp;m from the channel, and said plainly that it could only vouch for the direction.</div></li>
+                    </ul>
+
+                    <div class="v2-shots">
+                        <figure>
+                            <img src="image/aladdin-key-bridge-old-top.jpg" loading="lazy" alt="Top view of the AI-built Key Bridge on the satellite photo: the truss lies over the open channel, in line with the two approach stubs that survive on each shore">
+                            <figcaption><strong>After the correction:</strong> the truss lies over the channel, in line with the two approach stubs that still show in the satellite photo. The real bridge is gone from it.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="image/aladdin-key-bridge-old-side.jpg" loading="lazy" alt="Side view of the AI-built Key Bridge: a truss that arches highest at the middle of the main span and dips below the roadway to sit on two river piers">
+                            <figcaption><strong>The arch&#8209;shaped truss:</strong> highest at mid&#8209;span, dipping below the roadway to sit on the two river piers.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>The arch&#8209;shaped truss is new in Aladdin. We added it for this bridge, as &ldquo;Arched continuous&rdquo; in the bridge dialog, after a first model built with the cantilever form looked nothing like the photographs. The assistant made the same mistake in this chat and recovered the same way, by being asked to look.</p>
+
+                    <table class="v2-compare">
+                        <thead><tr><th>Dimension</th><th>Real bridge</th><th>AI&rsquo;s model</th></tr></thead>
+                        <tbody>
+                            <tr><td>Main span</td><td>366 m (1,200 ft)</td><td>366 m</td></tr>
+                            <tr><td>Side spans</td><td>219.5 m (720 ft) each</td><td>220 m each</td></tr>
+                            <tr><td>Deck width</td><td>about 18.6 m</td><td>18.6 m</td></tr>
+                            <tr><td>Clearance over the channel</td><td>56 m (185 ft)</td><td>56 m deck at the piers, cresting 9 m higher</td></tr>
+                            <tr><td>Overall length</td><td>2,632 m</td><td>2,625 m with approaches</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>The shape is the interesting part. The top of the truss rises from each end toward the middle of the main span. The bottom of the truss rides along the roadway through the side spans, dives below it to sit on the two river piers, and then arches up over the roadway across the channel. In that stretch the deck does not sit on the truss at all. It hangs beneath it on slender suspenders.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-key-bridge-old-pier.jpg" loading="lazy" alt="Close view of the Key Bridge model at one of its river piers: the lower chord of the truss dives below the roadway into a V on top of a two-column concrete pier, then rises above the roadway across the main span, where the deck hangs on thin suspenders">
+                        <figcaption><strong>One of the two river piers,</strong> after a ninth turn asked for square concrete columns, a steel&#8209;gray truss, a crest in the deck and the approach viaducts. The truss comes down to the pier in a V below the roadway. Everything the main span weighs reaches the water through this pier and its twin.</figcaption>
+                    </figure>
+
+                    <h2>It passes every check</h2>
+
+                    <p>The finished bridge is a structural model, so the same chat can test it. Four more turns did:</p>
+
+                    <div class="v2-chat-panel">
+                    <div class="v2-chat-head">
+                        <span class="v2-chat-avatar">&#10022;</span>
+                        <span class="v2-chat-title">
+                            <span class="v2-chat-name">Aladdin AI Assistant</span>
+                            <span class="v2-chat-status">Testing the Key Bridge</span>
+                        </span>
+                    </div>
+                    <ul class="v2-chat">
+                        <li class="you"><span class="who">You</span>What are its natural frequencies?</li>
+                        <li class="ai"><span class="who">Assistant</span>The lowest is a lateral sway at 0.264&nbsp;Hz, a period of about 3.8 seconds. The first vertical bending mode is third, at 0.551&nbsp;Hz.</li>
+                        <li class="you"><span class="who">You</span>What does a 45&nbsp;m/s wind do to it?</li>
+                        <li class="ai"><span class="who">Assistant</span>15.67&nbsp;MN of drag, 149.6&nbsp;mm of lateral drift and 62% maximum demand&#8209;to&#8209;capacity. Flutter onset is estimated at 362&nbsp;m/s. There is a vortex&#8209;shedding warning for several modes between 14.3 and 34.7&nbsp;m/s: a vibration concern, not by itself damage.</li>
+                        <li class="you"><span class="who">You</span>Could it survive an earthquake with 0.1&nbsp;<em>g</em> of ground shaking?</li>
+                        <li class="ai"><span class="who">Assistant</span>For transverse shaking the check gives 61% peak demand&#8209;to&#8209;capacity, so the modeled members pass. It checks transverse shaking only; longitudinal shaking could give a different result.</li>
+                        <li class="you"><span class="who">You</span>It passes every check. So why did the whole main span fall when a ship hit one river pier in 2024?</li>
+                        <li class="ai"><span class="who">Assistant</span>Because &ldquo;passed every check&rdquo; meant it passed only the load cases those checks tested, not a ship collision. The NTSB found that the <em>Dali</em> struck Pier&nbsp;17 at about 6.4&nbsp;knots, with an impact force more than four times the pier&rsquo;s lateral capacity. The pier failed; with that support gone, the continuous truss lost a critical part of its load path and the spans collapsed in succession. Our model&rsquo;s passes say nothing about that scenario.</li>
+                    </ul>
+                    </div>
+
+                    <p>That last answer is the lesson of the whole exercise. The bridge was not weak. It carried its own weight and traffic with its most heavily loaded member at about 60% of capacity, and it passed a 45&nbsp;m/s wind and a 0.1&nbsp;<em>g</em> earthquake by similar margins. It was built for every load on its designers&rsquo; list. A container ship nearly 300&nbsp;m long was not on the list.</p>
+
+                    <p>A continuous truss is one rigid structure over all of its supports. That is efficient: each span helps carry its neighbors, so the bridge needs less steel. It also means there is no second way for the load to reach the ground. Take away one river pier and the main span has nothing to stand on. The National Transportation Safety Board later found that the risk of a catastrophic ship strike was almost 30 times the threshold that current guidance treats as acceptable, and that the bridge&rsquo;s owner had never run the assessment that would have shown it.</p>
+
+                    <div class="v2-callout">
+                        <p>A structural check answers the question you ask it. <strong>&ldquo;Is it strong enough?&rdquo;</strong> and <strong>&ldquo;What could bring it down?&rdquo;</strong> are different questions, and only the second one would have saved this bridge.</p>
+                    </div>
+
+                    <h2>A better bridge</h2>
+
+                    <p>The second chat starts from the failure: &ldquo;Let&rsquo;s design a replacement at the same crossing, step by step, from scratch, one stage per turn. Make it safer against ship strikes.&rdquo;</p>
+
+                    <figure class="v2-embed">
+                        <button type="button" class="v2-embed-facade"
+                                data-embed-src="https://aladdin.intofuture.org/?client=web&amp;viewonly=true&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Key%20Bridge%20Replacement%20Step%20by%20Step%20(AI%20Assistant)"
+                                data-frame-id="aladdin-key-new-frame" data-frame-title="A replacement for the Key Bridge designed with the AI Assistant, interactive 3D model"
+                                style="background-image:url('image/aladdin-key-bridge-new.jpg')"
+                                aria-label="Load the interactive 3D model of the Key Bridge replacement">
+                            <span class="v2-embed-play" aria-hidden="true"></span>
+                            <span class="v2-embed-hint">Click to load the live model</span>
+                        </button>
+                        <figcaption><strong>The replacement:</strong> a cable&#8209;stayed bridge on two A&#8209;shaped pylons, each standing on a rock island. Fourteen turns: five stages, five to add and correct the pier protection, and four to test it. <a href="javascript:openFullscreen('aladdin-key-new-frame');">View it full screen</a>.</figcaption>
+                    </figure>
+
+                    <div class="v2-model-link">
+                        <a target="_blank" rel="noopener noreferrer" href="https://aladdin.intofuture.org/?client=web&amp;userid=QWecNcxhyvP6j6sBN11hBsfZDau1&amp;title=Key%20Bridge%20Replacement%20Step%20by%20Step%20(AI%20Assistant)">Open this bridge in Aladdin</a>
+                    </div>
+
+                    <div class="v2-chat-panel">
+                    <div class="v2-chat-head">
+                        <span class="v2-chat-avatar">&#10022;</span>
+                        <span class="v2-chat-title">
+                            <span class="v2-chat-name">Aladdin AI Assistant</span>
+                            <span class="v2-chat-status">Designing the replacement</span>
+                        </span>
+                    </div>
+                    <ul class="v2-chat">
+                        <li class="you"><span class="who">You</span>The Francis Scott Key Bridge in Baltimore collapsed in 2024 when a ship struck one of its piers. Let&rsquo;s design a replacement at the same crossing, step by step, from scratch, one stage per turn. Make it safer against ship strikes.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 1.</strong> The site is set at the crossing, with satellite imagery and real terrain.</li>
+                        <li class="you"><span class="who">You</span>Yes. Next stage.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 2 &mdash; the form.</strong> A cable&#8209;stayed bridge with a long, clear navigation span. Keeping the towers out of the ship channel reduces the chance of a vessel striking a primary support. That should be backed up by fenders or dolphins around any supports that remain exposed.</li>
+                        <li class="you"><span class="who">You</span>Yes. For the dimensions, use the published plan for the real replacement where you know it, and build the bridge.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 3.</strong> A 507.5&nbsp;m main span, two 259&nbsp;m side spans, a 28&nbsp;m deck, 70.1&nbsp;m of clearance and pylons about 112.8&nbsp;m above the deck. The spans match the published 1,665&nbsp;ft and 850&nbsp;ft. It is not yet aligned, and it has no ship&#8209;impact protection.</li>
+                        <li class="you"><span class="who">You</span>Yes. Align it to the old crossing. Only the approach stubs on each shore are still on the map: use them for the direction, and put the middle of the main span over the channel at 39.2169&nbsp;N, 76.5283&nbsp;W.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 4.</strong> Aligned with the old crossing&rsquo;s surveyed direction, with its midpoint at that position.</li>
+                        <li class="you"><span class="who">You</span>Yes. Next stage.</li>
+                        <li class="ai"><span class="who">Assistant</span><strong>Stage 5 &mdash; structural check.</strong> Peak stress utilization is 46% and the deck deflects 328.5&nbsp;mm under traffic, 1/1,545 of the span. Ship&#8209;strike safety is not verified: the model has no fenders or dolphins.</li>
+                        <li class="you"><span class="who">You</span>Then let&rsquo;s build the protection. Put a low rock island about 110&nbsp;m across around the foot of each pylon, a smaller one about 70&nbsp;m across at each end of the main bridge, and four free&#8209;standing dolphins about 25&nbsp;m across in the water around each pylon. Keep the channel between the two pylon islands clear.</li>
+                        <li class="ai"><span class="who">Assistant</span>Added four rock&#8209;island platforms and eight dolphin markers. These are simplified placeholders, not engineered rock armor or ship&#8209;impact&#8209;rated dolphins.</li>
+                    </ul>
+                    </div>
+
+                    <p>The assistant chose the form for the right reason. A cable&#8209;stayed bridge can span much farther than a truss, so its supports can stand back from the channel. Asked for the real plan&rsquo;s dimensions, it found them and cited the U.S. Coast Guard notice they came from:</p>
+
+                    <table class="v2-compare">
+                        <thead><tr><th>Dimension</th><th>Published plan</th><th>AI&rsquo;s model</th></tr></thead>
+                        <tbody>
+                            <tr><td>Main span</td><td>1,665 ft (507 m)</td><td>507.5 m</td></tr>
+                            <tr><td>Back spans</td><td>850 ft (259 m)</td><td>259 m</td></tr>
+                            <tr><td>Main bridge length</td><td>3,365 ft (1,026 m)</td><td>1,025.7 m</td></tr>
+                            <tr><td>Pylon height above the water</td><td>600 ft (183 m)</td><td>182.9 m</td></tr>
+                            <tr><td>Clearance over the channel</td><td>at least 230 ft (70 m)</td><td>70.1 m</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>Only those figures come from the plan. The A&#8209;shaped pylons, the width of the deck, the layout of the stays, the islands and the dolphins are the session&rsquo;s own. The real project was put out to tender again in 2026, so its details may still change.</p>
+
+                    <h3>Protection, and checking it</h3>
+
+                    <p>The islands landed exactly under the pylons and the end piers. The dolphins took four more turns, and the chat is worth reading for them:</p>
+
+                    <ul class="v2-features">
+                        <li><span class="v2-feature-icon">1</span><div class="v2-feature-body"><strong>Too close.</strong> The first dolphins sat right against the islands. Asked to move them out, the assistant did.</div></li>
+                        <li><span class="v2-feature-icon">2</span><div class="v2-feature-body"><strong>A requirement.</strong> The published plan calls for at least 1,100&nbsp;ft (335&nbsp;m) of clear water between the pier protection on the two sides. Asked whether the layout met it, the assistant measured 401&nbsp;m between the islands and said yes.</div></li>
+                        <li><span class="v2-feature-icon">3</span><div class="v2-feature-body"><strong>A wrong yes.</strong> It had not counted the dolphins, which left only about 283&nbsp;m. Told so, it moved all eight back, but stacked two of them on top of each other.</div></li>
+                        <li><span class="v2-feature-icon">4</span><div class="v2-feature-body"><strong>Fixed.</strong> One more turn put them 195&nbsp;m and 305&nbsp;m from the middle of the span on both sides, mirrored, with about 365&nbsp;m of clear channel between them.</div></li>
+                    </ul>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-key-bridge-new-islands.jpg" loading="lazy" alt="The replacement bridge seen from above on the satellite photo: round rock islands under both pylons and both end piers, and dolphins beside each pylon island">
+                        <figcaption><strong>Pier protection from above.</strong> The two large islands carry the pylons and the two smaller ones the end piers, with dolphins on the channel side and the shore side of each pylon. The pale patches in the water are the old bridge&rsquo;s remains in the satellite photo.</figcaption>
+                    </figure>
+
+                    <div class="v2-callout">
+                        <p>The assistant answered the question it was asked, about the islands, and the answer was right. The layout still broke the rule. <strong>Checking the scene yourself</strong>, with the number in hand, is what caught it.</p>
+                    </div>
+
+                    <h2>Old and new, side by side</h2>
+
+                    <p>The same four test turns were run on the replacement. These are the assistant&rsquo;s numbers from the two chats:</p>
+
+                    <table class="v2-compare">
+                        <thead><tr><th>&nbsp;</th><th>1977 bridge</th><th>Replacement</th></tr></thead>
+                        <tbody>
+                            <tr><td>Structural form</td><td>Continuous steel truss</td><td>Cable&#8209;stayed</td></tr>
+                            <tr><td>Main span</td><td>366 m</td><td>507.5 m</td></tr>
+                            <tr><td>Clearance over the channel (published)</td><td>56 m</td><td>70 m</td></tr>
+                            <tr><td>What holds up the main span</td><td>One truss on two piers</td><td>Many stays from two pylons</td></tr>
+                            <tr><td>Weight and traffic</td><td>61% of capacity</td><td>46%</td></tr>
+                            <tr><td>Wind of 45 m/s</td><td>62%</td><td>50%</td></tr>
+                            <tr><td>Earthquake of 0.1 <em>g</em>, transverse</td><td>61%</td><td>72%</td></tr>
+                            <tr><td>Lowest natural frequency</td><td>0.264 Hz, lateral sway</td><td>0.270 Hz, vertical bending</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>The percentages say how hard the most heavily loaded member is working. On these checks both bridges pass comfortably, and that is the point: nothing in an ordinary structural check separates them. What separates them is the load that is not on the list. The replacement&rsquo;s pylons stand about 70&nbsp;m farther from the channel on each side, on islands, and its deck hangs from many stays, not from one truss.</p>
+
+                    <figure class="v2-screenshot">
+                        <img src="image/aladdin-key-bridge-new-side.jpg" loading="lazy" alt="Side view of the replacement cable-stayed bridge: two pylons with fans of stays carrying the deck, each pylon standing on an island with dolphins beside it">
+                        <figcaption><strong>The replacement from the side.</strong> The channel between the pylons is 141&nbsp;m wider than the old main span, and the published clearance is 14&nbsp;m more than the old bridge&rsquo;s.</figcaption>
+                    </figure>
+
+                    <p>The last turn of the second chat asked what would be different if a ship lost power in the channel today. The assistant&rsquo;s answer was more careful than the question. It pointed out that the old bridge already had four dolphins, and that the <em>Dali</em> missed all of them and struck the pier. Protection only helps if it stands in the ship&rsquo;s path and can take the impact. And it would not claim that the islands and dolphins in the model would stop a ship, because nothing in the session tested that.</p>
+
+                    <div class="v2-callout">
+                        <p><strong>Method.</strong> Aladdin models each bridge as a 3D <a href="aladdin-bridge-design.html">finite&#8209;element frame</a> and sizes the truss members and cables to the forces they carry. The static check applies the bridge&rsquo;s own weight and traffic; the wind check adds a steady sideways drag; the seismic check combines the natural modes with a Eurocode&nbsp;8 design spectrum.</p>
+                        <p>These are simplified teaching models, not the real bridges, and the numbers may change as Aladdin&rsquo;s solver improves. Aladdin does not simulate a ship striking a pier. The approach viaducts, the islands and the dolphins are drawn but not analyzed.</p>
+                    </div>
+
+                    <h2>What a student can do with this</h2>
+
+                    <p>Open either model with the links above. The conversation that built it opens with it, and you can carry it on from where it stops. Hand&#8209;built versions of both bridges are also in Aladdin&rsquo;s Examples menu, under Bridges. Some things worth trying:</p>
+
+                    <ul class="v2-features">
+                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Ask why.</strong> &ldquo;Why does the truss rise highest over the channel?&rdquo; &ldquo;Why does the new bridge need back spans?&rdquo; The answers are in the model, and the assistant can point to them.</div></li>
+                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Change one thing.</strong> Make the pylons shorter, the deck wider or the main span longer, then run the check again and see which number moves.</div></li>
+                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Propose your own.</strong> Would a suspension bridge work here? An arch? Start a new chat at the same crossing and compare.</div></li>
+                        <li><span class="v2-feature-icon">&#10003;</span><div class="v2-feature-body"><strong>Check the answer.</strong> Look at a photo, the top view and the numbers yourself. Every correction in these two chats came from doing that.</div></li>
+                    </ul>
+
+                    <h2>Conclusion</h2>
+
+                    <p>It is a remarkable thing that a student can now do this. A question about the news became a structural model of a real bridge on its real site, an explanation of why it collapsed and a credible replacement, in twenty&#8209;seven plain&#8209;language turns. The engineering judgment that used to stand between a curious person and a finite&#8209;element model is now something you can ask for.</p>
+
+                    <p>The two chats also show what the student still has to bring. The assistant picked the wrong truss, announced a bridge it had not built, put it 800&nbsp;m from the channel and passed a clearance check that the layout failed. Each of those was caught by a short, skeptical remark from someone who had looked. AI can build the bridge. Asking whether it is the right bridge, in the right place, safe against the right thing, is still the designer&rsquo;s job. That is a good habit to teach, and the Key Bridge is a sobering reason to teach it.</p>
+
+                    <p style="font-size:1.2rem; color:var(--text-muted);">Sources: <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Francis_Scott_Key_Bridge_(Baltimore)">Francis Scott Key Bridge (Wikipedia)</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://www.ntsb.gov/news/press-releases/pages/NR20251118.aspx">NTSB press release, November 18, 2025</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://abcnews4.com/news/nation-world/francis-scott-key-bridge-collapse-baltimore-ntsb-update">NTSB risk finding (ABC News 4)</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://www.enr.com/articles/63347-maryland-issues-rfq-for-main-span-of-key-bridge-rebuild">ENR on the replacement&rsquo;s main span</a> &middot; <a target="_blank" rel="noopener noreferrer" href="https://enr.com/articles/60258-new-key-bridge-design-unveiled">ENR on the new design</a></p>
+
+                    <p style="font-size:1.2rem; color:var(--text-muted);">Related reading: <a href="aladdin-bridges-ai.html">Building bridges with AI</a> &middot; <a href="aladdin-bridge-types.html">Five ways to cross a river</a> &middot; <a href="aladdin-bridge-design.html">The bridge that bends</a></p>
+
+                    <a class="v2-backlink" href="aladdin.html">&larr; Back to Aladdin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>includeFooter();</script>
+</div>
+<script src="js/v2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
